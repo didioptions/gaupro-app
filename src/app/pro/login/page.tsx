@@ -54,10 +54,17 @@ export default function ProLoginPage() {
       router.push('/pro/dashboard');
     } catch (error: any) {
       console.error('Login failed:', error);
+      let errorMessage = 'An unexpected error occurred. Please try again.';
+      if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+        errorMessage = 'Invalid credentials. Please check your email and password.';
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
       toast({
         variant: 'destructive',
         title: 'Login Failed',
-        description: 'Invalid credentials. Please check your email and password.',
+        description: errorMessage,
       });
     } finally {
       setIsLoading(false);
