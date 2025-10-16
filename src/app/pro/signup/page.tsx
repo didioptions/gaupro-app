@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Briefcase, CreditCard, Smile, FileText, HelpCircle, Tag, Paperclip } from 'lucide-react';
 import Link from 'next/link';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 const steps = [
   {
@@ -43,6 +45,9 @@ const bottomLinks = [
 
 export default function ProSignupPage() {
   return (
+    <>
+      <Header />
+      <main className="flex-grow">
     <div className="bg-background">
       {/* Hero Section */}
       <section className="bg-secondary/50 py-20 md:py-32">
@@ -96,5 +101,8 @@ export default function ProSignupPage() {
         </div>
       </section>
     </div>
+    </main>
+      <Footer />
+      </>
   );
 }

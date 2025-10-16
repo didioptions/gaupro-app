@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
+
 
 export const metadata: Metadata = {
   title: 'Gaupro | Find Trusted Pros for Any Project',
@@ -30,11 +29,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body bg-background text-foreground antialiased flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <div className="flex-grow">{children}</div>
         <Toaster />
       </body>
     </html>

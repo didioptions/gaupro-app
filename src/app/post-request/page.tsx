@@ -28,6 +28,8 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 
 const features = [
@@ -97,6 +99,9 @@ export default function PostRequestPage() {
 
 
   return (
+    <>
+      <Header />
+      <main className="flex-grow">
     <div className="bg-secondary/50">
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
@@ -213,5 +218,8 @@ export default function PostRequestPage() {
         </DialogContent>
       </Dialog>
     </div>
+    </main>
+      <Footer />
+      </>
   );
 }

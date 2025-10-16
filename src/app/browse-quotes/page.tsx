@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock } from 'lucide-react';
 import Link from 'next/link';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 const jobRequests = [
   {
@@ -90,6 +92,9 @@ const jobRequests = [
 
 export default function BrowseQuotesPage() {
   return (
+    <>
+      <Header />
+      <main className="flex-grow">
     <div className="bg-secondary/50">
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -174,5 +179,8 @@ export default function BrowseQuotesPage() {
         </div>
       </section>
     </div>
+    </main>
+      <Footer />
+      </>
   );
 }

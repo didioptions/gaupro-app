@@ -19,6 +19,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent } from '@/components/ui/card';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 const formSchema = z.object({
   phoneNumber: z.string().min(10, {
@@ -56,6 +58,9 @@ export default function ProRegisterPage() {
   }
 
   return (
+    <>
+      <Header />
+      <main className="flex-grow">
     <div className="min-h-[calc(100vh-180px)] flex items-center justify-center bg-secondary/50 py-12 px-4">
       <div className="w-full max-w-4xl">
         <Card className="grid md:grid-cols-2 overflow-hidden shadow-lg">
@@ -177,5 +182,8 @@ export default function ProRegisterPage() {
         </Card>
       </div>
     </div>
+    </main>
+      <Footer />
+      </>
   );
 }
