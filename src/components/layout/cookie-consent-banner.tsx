@@ -28,16 +28,16 @@ export default function CookieConsentBanner() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex items-center justify-center gap-4 z-[100]">
-      <p className="text-sm">
+      <p className="text-sm text-white">
         By using this site you agree to Gaupro's use of cookies to give you a personalised experience. Please read the{' '}
-        <Link href="/cookie-policy" className="underline text-red-500 hover:text-red-400">
+        <Link href="/cookie-policy" className="underline text-primary hover:text-primary/80">
           cookie policy
         </Link>{' '}
         for more information.
       </p>
       <Button
         onClick={handleAccept}
-        className="bg-red-600 hover:bg-red-700 text-white flex-shrink-0"
+        className="bg-accent hover:bg-accent/90 text-accent-foreground flex-shrink-0"
       >
         Accept
       </Button>
