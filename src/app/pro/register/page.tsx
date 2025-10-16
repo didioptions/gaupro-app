@@ -1,10 +1,10 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -37,6 +37,7 @@ const formSchema = z.object({
 });
 
 export default function ProRegisterPage() {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,6 +52,7 @@ export default function ProRegisterPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // TODO: Implement registration logic
     console.log(values);
+    router.push('/pro/dashboard');
   }
 
   return (
