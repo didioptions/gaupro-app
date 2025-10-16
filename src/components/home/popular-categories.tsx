@@ -46,7 +46,7 @@ export default function PopularCategories() {
       <div className="container mx-auto px-4">
         <Tabs defaultValue="popular" className="w-full">
           <div className="flex justify-center mb-12">
-            <TabsList className="grid w-full max-w-2xl grid-cols-2 md:grid-cols-5 h-auto">
+            <TabsList className="grid w-full max-w-4xl grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto">
               <TabsTrigger value="popular" className="py-2.5">Popular Services</TabsTrigger>
               <TabsTrigger value="business" className="py-2.5">Business & Finance</TabsTrigger>
               <TabsTrigger value="home" className="py-2.5">Home, Building & Garden</TabsTrigger>
