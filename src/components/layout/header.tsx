@@ -15,13 +15,16 @@ export default function Header() {
         
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link href="/post-request" className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium">
+            <Link href="/post-request" className="transition-colors hover:text-primary text-foreground/60 font-medium">
               Post Request
             </Link>
-            <Link href="/pro/signup" className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium">
+            <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60 font-medium">
+              Browse Quotes
+            </Link>
+            <Link href="/pro/signup" className="transition-colors hover:text-primary text-foreground/60 font-medium">
               Join as a Pro
             </Link>
-            <Link href="/login" className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium">
+            <Link href="/login" className="transition-colors hover:text-primary text-foreground/60 font-medium">
               Login
             </Link>
         </nav>
@@ -40,13 +43,16 @@ export default function Header() {
                  <span className="font-extrabold text-2xl tracking-tighter">GAU<span className="text-primary">PRO</span></span>
               </Link>
               <div className="flex flex-col space-y-4 pt-6">
-                <Link href="/post-request" className="transition-colors hover:text-foreground/80 text-foreground/60">
+                <Link href="/post-request" className="transition-colors hover:text-primary text-foreground/60">
                   Post Request
                 </Link>
-                <Link href="/pro/signup" className="transition-colors hover:text-foreground/80 text-foreground/60">
+                <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60">
+                  Browse Quotes
+                </Link>
+                <Link href="/pro/signup" className="transition-colors hover:text-primary text-foreground/60">
                   Join as a Pro
                 </Link>
-                <Link href="/login" className="transition-colors hover:text-foreground/80 text-foreground/60">
+                <Link href="/login" className="transition-colors hover:text-primary text-foreground/60">
                   Login
                 </Link>
               </div>
