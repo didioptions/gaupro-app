@@ -55,8 +55,13 @@ export default function ProLoginPage() {
     } catch (error: any) {
       console.error('Login failed:', error);
       let errorMessage = 'An unexpected error occurred. Please try again.';
-      if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-        errorMessage = 'Invalid credentials. Please check your email and password.';
+      if (error.code === 'auth/invalid-credential') {
+        errorMessage =
+          'Invalid email or password. Please check your credentials and try again.';
+      } else if (error.code === 'auth/user-not-found') {
+        errorMessage = 'No account found with this email address.';
+      } else if (error.code === 'auth/wrong-password') {
+        errorMessage = 'Incorrect password. Please try again.';
       } else if (error.message) {
         errorMessage = error.message;
       }
