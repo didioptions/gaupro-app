@@ -5,6 +5,12 @@
       "description": "A professional tradesperson with tools, looking confident.",
       "imageUrl": "https://picsum.photos/seed/pro-tools/800/600",
       "imageHint": "professional tools"
+    },
+    {
+      "id": "hero-background-image",
+      "description": "A bright and modern living room with a comfortable sofa.",
+      "imageUrl": "https://picsum.photos/seed/hero-bg/1920/1080",
+      "imageHint": "modern living room"
     }
   ]
 }
