@@ -100,7 +100,7 @@ export default function PostRequestPage() {
     <div className="bg-secondary/50">
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Request a Quote</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mb-4">Request a Quote</h1>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
             Give us a few details and we’ll match you with the right professional.
           </p>
@@ -162,7 +162,7 @@ export default function PostRequestPage() {
 
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+          <h2 className="text-xl md:text-2xl font-bold text-center mb-12">
             Why hire Trusted Professionals on Gaupro for just about any project
           </h2>
           <div className="grid md:grid-cols-3 gap-12 text-center">
