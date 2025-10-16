@@ -5,6 +5,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
+import { useAuth } from '@/firebase';
+import { useToast } from '@/hooks/use-toast';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -32,6 +36,9 @@ const formSchema = z.object({
   email: z.string().email({
     message: 'Please enter a valid email address.',
   }),
+  password: z.string().min(6, {
+    message: 'Password must be at least 6 characters.',
+  }),
   marketingOffers: z.boolean().optional(),
   terms: z.boolean().refine((val) => val === true, {
     message: 'You must accept the terms of use.',
@@ -40,21 +47,37 @@ const formSchema = z.object({
 
 export default function ProRegisterPage() {
   const router = useRouter();
+  const auth = useAuth();
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       phoneNumber: '',
       fullName: '',
       email: '',
+      password: '',
       marketingOffers: false,
       terms: false,
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // TODO: Implement registration logic
-    console.log(values);
-    router.push('/pro/dashboard');
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    try {
+      await createUserWithEmailAndPassword(auth, values.email, values.password);
+      router.push('/pro/dashboard');
+    } catch (error: any) {
+      console.error("Registration failed:", error);
+      toast({
+        variant: "destructive",
+        title: "Registration Failed",
+        description: error.message || "An unexpected error occurred. Please try again.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -119,6 +142,18 @@ export default function ProRegisterPage() {
                     </FormItem>
                   )}
                 />
+                 <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input type="password" placeholder="Create a Password" {...field} className="h-12"/>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
                 <FormField
                   control={form.control}
@@ -164,8 +199,8 @@ export default function ProRegisterPage() {
                   )}
                 />
 
-                <Button type="submit" className="w-full h-12 text-base" size="lg">
-                  Next
+                <Button type="submit" className="w-full h-12 text-base" size="lg" disabled={isLoading}>
+                  {isLoading ? 'Creating Account...' : 'Next'}
                 </Button>
               </form>
             </Form>
