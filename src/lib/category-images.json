@@ -1,0 +1,52 @@
+{
+  "categoryImages": [
+    {
+      "id": "builders-image",
+      "description": "A builder laying bricks on a construction site.",
+      "imageUrl": "https://picsum.photos/seed/builders/300/200",
+      "imageHint": "builder construction"
+    },
+    {
+      "id": "movers-image",
+      "description": "Two movers carrying a cardboard box from a truck.",
+      "imageUrl": "https://picsum.photos/seed/movers/300/200",
+      "imageHint": "movers truck"
+    },
+    {
+      "id": "cleaning-image",
+      "description": "A person in yellow gloves cleaning a stove top.",
+      "imageUrl": "https://picsum.photos/seed/cleaning/300/200",
+      "imageHint": "cleaning service"
+    },
+    {
+      "id": "website-designers-image",
+      "description": "A person working on a website design on multiple screens.",
+      "imageUrl": "https://picsum.photos/seed/web-design/300/200",
+      "imageHint": "website design"
+    },
+    {
+      "id": "architects-image",
+      "description": "Architects reviewing blueprints and color swatches.",
+      "imageUrl": "https://picsum.photos/seed/architects/300/200",
+      "imageHint": "architect blueprint"
+    },
+    {
+      "id": "dstv-installers-image",
+      "description": "A technician in a red cap installing a satellite dish.",
+      "imageUrl": "https://picsum.photos/seed/dstv/300/200",
+      "imageHint": "satellite dish"
+    },
+    {
+      "id": "security-image",
+      "description": "A security guard with an earpiece, looking vigilant.",
+      "imageUrl": "https://picsum.photos/seed/security/300/200",
+      "imageHint": "security guard"
+    },
+    {
+      "id": "caterers-image",
+      "description": "A display of small fruit tarts from a caterer.",
+      "imageUrl": "https://picsum.photos/seed/catering/300/200",
+      "imageHint": "catering food"
+    }
+  ]
+}

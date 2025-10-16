@@ -1,35 +1,80 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Wrench, Zap, Code, Camera, Sprout, Truck, Sparkles, Paintbrush } from "lucide-react";
-import Link from "next/link";
+'use client';
 
-const categories = [
-  { name: "Plumbing", icon: <Wrench className="h-8 w-8 text-primary" />, href: "/services/plumbing" },
-  { name: "Electrician", icon: <Zap className="h-8 w-8 text-primary" />, href: "/services/electrician" },
-  { name: "Web Design", icon: <Code className="h-8 w-8 text-primary" />, href: "/services/web-design" },
-  { name: "Photography", icon: <Camera className="h-8 w-8 text-primary" />, href: "/services/photography" },
-  { name: "Gardening", icon: <Sprout className="h-8 w-8 text-primary" />, href: "/services/gardening" },
-  { name: "Moving", icon: <Truck className="h-8 w-8 text-primary" />, href: "/services/moving" },
-  { name: "Cleaning", icon: <Sparkles className="h-8 w-8 text-primary" />, href: "/services/cleaning" },
-  { name: "Painting", icon: <Paintbrush className="h-8 w-8 text-primary" />, href: "/services/painting" },
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
+import Link from "next/link";
+import { CategoryImages } from "@/lib/category-images";
+
+const popularServices = [
+  { name: "Builders", href: "/services/builders", imageId: "builders-image" },
+  { name: "Movers", href: "/services/movers", imageId: "movers-image" },
+  { name: "Cleaning Services", href: "/services/cleaning", imageId: "cleaning-image" },
+  { name: "Website Designers", href: "/services/website-designers", imageId: "website-designers-image" },
+  { name: "Architects", href: "/services/architects", imageId: "architects-image" },
+  { name: "DSTV Installers", href: "/services/dstv-installers", imageId: "dstv-installers-image" },
+  { name: "Security", href: "/services/security", imageId: "security-image" },
+  { name: "Caterers", href: "/services/caterers", imageId: "caterers-image" },
 ];
+
+const CategoryCard = ({ name, href, imageId }: { name: string, href: string, imageId: string }) => {
+  const categoryImage = CategoryImages.find(c => c.id === imageId);
+  return (
+    <Link href={href} className="group">
+      <Card className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">
+        <div className="relative h-40 w-full">
+          <Image
+            src={categoryImage?.imageUrl || "https://picsum.photos/seed/placeholder/300/200"}
+            alt={categoryImage?.description || name}
+            fill
+            className="object-cover"
+            data-ai-hint={categoryImage?.imageHint}
+          />
+        </div>
+        <CardContent className="p-4 bg-card">
+          <p className="font-semibold text-center">{name}</p>
+        </CardContent>
+      </Card>
+    </Link>
+  );
+};
+
 
 export default function PopularCategories() {
   return (
     <section id="categories" className="py-20 md:py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">Popular Categories</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
-          {categories.map((category) => (
-            <Link href={category.href} key={category.name} className="group">
-              <Card className="text-center p-6 flex flex-col items-center justify-center h-full transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 border-2 border-transparent hover:border-primary">
-                <CardContent className="p-0 flex flex-col items-center gap-4">
-                  {category.icon}
-                  <p className="font-semibold text-center text-sm">{category.name}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
+        <Tabs defaultValue="popular" className="w-full">
+          <div className="flex justify-center mb-12">
+            <TabsList className="grid w-full max-w-2xl grid-cols-2 md:grid-cols-5 h-auto">
+              <TabsTrigger value="popular" className="py-2.5">Popular Services</TabsTrigger>
+              <TabsTrigger value="business" className="py-2.5">Business & Finance</TabsTrigger>
+              <TabsTrigger value="home" className="py-2.5">Home, Building & Garden</TabsTrigger>
+              <TabsTrigger value="weddings" className="py-2.5">Weddings & Events</TabsTrigger>
+              <TabsTrigger value="more" className="py-2.5">More...</TabsTrigger>
+            </TabsList>
+          </div>
+
+          <TabsContent value="popular">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
+              {popularServices.map((category) => (
+                <CategoryCard key={category.name} {...category} />
+              ))}
+            </div>
+          </TabsContent>
+          <TabsContent value="business">
+             <div className="text-center text-muted-foreground">Coming soon...</div>
+          </TabsContent>
+          <TabsContent value="home">
+             <div className="text-center text-muted-foreground">Coming soon...</div>
+          </TabsContent>
+          <TabsContent value="weddings">
+             <div className="text-center text-muted-foreground">Coming soon...</div>
+          </TabsContent>
+          <TabsContent value="more">
+             <div className="text-center text-muted-foreground">Coming soon...</div>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );
