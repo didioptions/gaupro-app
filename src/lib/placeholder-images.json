@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "pro-cta-image",
+      "description": "A professional tradesperson with tools, looking confident.",
+      "imageUrl": "https://picsum.photos/seed/pro-tools/800/600",
+      "imageHint": "professional tools"
+    }
+  ]
 }
