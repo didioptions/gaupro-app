@@ -1,0 +1,381 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the Gaupro platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "The first name of the user."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The last name of the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the user.",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The phone number of the user."
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the user."
+        },
+        "isProfessional": {
+          "type": "boolean",
+          "description": "Indicates whether the user is a professional service provider."
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        "location",
+        "isProfessional"
+      ]
+    },
+    "ProfessionalProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ProfessionalProfile",
+      "type": "object",
+      "description": "Represents the profile of a professional service provider.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the professional profile."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:1 ProfessionalProfile)"
+        },
+        "companyName": {
+          "type": "string",
+          "description": "The name of the professional's company."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the professional's services and experience."
+        },
+        "servicesOffered": {
+          "type": "array",
+          "description": "A list of services offered by the professional.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "certifications": {
+          "type": "array",
+          "description": "A list of certifications held by the professional.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "averageRating": {
+          "type": "number",
+          "description": "The average rating of the professional (e.g., 1-5 stars)."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "companyName",
+        "description"
+      ]
+    },
+    "ServiceRequest": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ServiceRequest",
+      "type": "object",
+      "description": "Represents a service request submitted by a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the service request."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N ServiceRequest)"
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of service requested (e.g., Plumbing, Electrical)."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the service needed."
+        },
+        "location": {
+          "type": "string",
+          "description": "The location where the service is needed."
+        },
+        "dateNeeded": {
+          "type": "string",
+          "description": "The date the service is needed.",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the service request (e.g., Open, Quoted, In Progress, Completed)."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "category",
+        "description",
+        "location",
+        "dateNeeded",
+        "status"
+      ]
+    },
+    "Quote": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Quote",
+      "type": "object",
+      "description": "Represents a quote provided by a professional for a service request.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the quote."
+        },
+        "serviceRequestId": {
+          "type": "string",
+          "description": "Reference to ServiceRequest. (Relationship: ServiceRequest 1:N Quote)"
+        },
+        "professionalProfileId": {
+          "type": "string",
+          "description": "Reference to ProfessionalProfile. (Relationship: ProfessionalProfile 1:N Quote)"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The quoted amount for the service."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the quote, including what is included."
+        },
+        "dateCreated": {
+          "type": "string",
+          "description": "The date the quote was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "serviceRequestId",
+        "professionalProfileId",
+        "amount",
+        "description",
+        "dateCreated"
+      ]
+    },
+    "Review": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Review",
+      "type": "object",
+      "description": "Represents a review of a professional's service by a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the review."
+        },
+        "serviceRequestId": {
+          "type": "string",
+          "description": "Reference to ServiceRequest. (Relationship: ServiceRequest 1:N Review)"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Review)"
+        },
+        "professionalProfileId": {
+          "type": "string",
+          "description": "Reference to ProfessionalProfile. (Relationship: ProfessionalProfile 1:N Review)"
+        },
+        "rating": {
+          "type": "number",
+          "description": "The rating given by the user (e.g., 1-5 stars)."
+        },
+        "comment": {
+          "type": "string",
+          "description": "The user's comments about the service."
+        },
+        "dateCreated": {
+          "type": "string",
+          "description": "The date the review was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "serviceRequestId",
+        "userId",
+        "professionalProfileId",
+        "rating",
+        "comment",
+        "dateCreated"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profiles.  Uses path-based ownership.  `userId` corresponds to `request.auth.uid`.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user, matching the Firebase Authentication UID."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/professionalProfiles/{professionalProfileId}",
+        "definition": {
+          "entityName": "ProfessionalProfile",
+          "schema": {
+            "$ref": "#/backend/entities/ProfessionalProfile"
+          },
+          "description": "Stores professional profiles.  Allows public listing and details retrieval.",
+          "params": [
+            {
+              "name": "professionalProfileId",
+              "description": "The unique identifier of the professional profile."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/serviceRequests/{serviceRequestId}",
+        "definition": {
+          "entityName": "ServiceRequest",
+          "schema": {
+            "$ref": "#/backend/entities/ServiceRequest"
+          },
+          "description": "Stores service requests submitted by users. Uses path-based ownership. `userId` corresponds to `request.auth.uid`.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user, matching the Firebase Authentication UID."
+            },
+            {
+              "name": "serviceRequestId",
+              "description": "The unique identifier of the service request."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/professionalProfiles/{professionalProfileId}/quotes/{quoteId}",
+        "definition": {
+          "entityName": "Quote",
+          "schema": {
+            "$ref": "#/backend/entities/Quote"
+          },
+          "description": "Stores quotes provided by professionals for service requests. Enables filtering by professional.",
+          "params": [
+            {
+              "name": "professionalProfileId",
+              "description": "The unique identifier of the professional profile."
+            },
+            {
+              "name": "quoteId",
+              "description": "The unique identifier of the quote."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/serviceRequests/{serviceRequestId}/quotes/{quoteId}",
+        "definition": {
+          "entityName": "Quote",
+          "schema": {
+            "$ref": "#/backend/entities/Quote"
+          },
+          "description": "Stores quotes provided by professionals for service requests. Enables filtering by service request. `userId` corresponds to `request.auth.uid`.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user, matching the Firebase Authentication UID."
+            },
+            {
+              "name": "serviceRequestId",
+              "description": "The unique identifier of the service request."
+            },
+            {
+              "name": "quoteId",
+              "description": "The unique identifier of the quote."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/serviceRequests/{serviceRequestId}/reviews/{reviewId}",
+        "definition": {
+          "entityName": "Review",
+          "schema": {
+            "$ref": "#/backend/entities/Review"
+          },
+          "description": "Stores reviews for a given service request.  `userId` corresponds to `request.auth.uid`.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user, matching the Firebase Authentication UID."
+            },
+            {
+              "name": "serviceRequestId",
+              "description": "The unique identifier of the service request."
+            },
+            {
+              "name": "reviewId",
+              "description": "The unique identifier of the review."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/professionalProfiles/{professionalProfileId}/reviews/{reviewId}",
+        "definition": {
+          "entityName": "Review",
+          "schema": {
+            "$ref": "#/backend/entities/Review"
+          },
+          "description": "Stores reviews of a professional profile.",
+          "params": [
+            {
+              "name": "professionalProfileId",
+              "description": "The unique identifier of the professional profile."
+            },
+            {
+              "name": "reviewId",
+              "description": "The unique identifier of the review."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to support the Gaupro application's core features, including user profiles, professional profiles, service requests, quotes, and reviews, while prioritizing security and scalability. It implements Authorization Independence by denormalizing authorization data where necessary, ensuring that rules can be evaluated without complex `get()` operations. Structural Segregation is used to maintain a homogeneous security posture within each collection. Access Modeling follows consistent patterns, leveraging path-based ownership and membership maps for collaborative data.\n\nUsers and Professional Profiles are stored in separate collections to allow for distinct security rules and scalability. Service Requests are stored as subcollections of Users, enabling easy retrieval of a user's requests. Quotes are nested under Service Requests and professional profile, allowing filtering by professional or by service request. Reviews are also stored as subcollections of both Service Requests and Professional Profiles enabling easy aggregation and filtering for reviews.\n\nThe design ensures QAPs by:\n\n*   Segregating user-owned data (Service Requests) under `/users/{userId}`.\n*   Using path-based ownership for user data.\n*   Storing Professional Profiles separately to allow public listing while maintaining secure access to profile details."
+  }
+}
