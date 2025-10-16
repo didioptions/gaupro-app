@@ -1,10 +1,21 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Search, Pencil, Tags, ThumbsUp } from 'lucide-react';
+import { Pencil, Tags, ThumbsUp } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from '@/components/ui/dialog';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 const features = [
   {
@@ -24,7 +35,31 @@ const features = [
   },
 ];
 
+const plumbingServices = [
+    { id: 'emergency', label: 'Emergency Plumbing' },
+    { id: 'blocked_drain', label: 'Blocked Drain' },
+    { id: 'leaking_pipe', label: 'Burst or leaking pipe' },
+    { id: 'toilet_repairs', label: 'Toilet repairs' },
+    { id: 'pipe_installation', label: 'Plumbing pipe installation or repair' },
+    { id: 'fixture_installation', label: 'Tap, sink, bath, shower or other water fixture installation' },
+    { id: 'fixture_repair', label: 'Tap, sink, bath, shower or other water fixture repair' },
+    { id: 'geyser_repair', label: 'Geyser repair' },
+    { id: 'geyser_installation', label: 'Geyser installation' },
+    { id: 'dishwasher_installation', label: 'Washing Machine and Dishwasher Installation' },
+    { id: 'compliance_certificate', label: 'Plumbing certificate of compliance' },
+];
+
 export default function PostRequestPage() {
+  const [service, setService] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
+  const handleGetStarted = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (service) {
+      setIsDialogOpen(true);
+    }
+  };
+
   return (
     <div className="bg-secondary/50">
       <section className="py-16 md:py-24">
@@ -36,12 +71,14 @@ export default function PostRequestPage() {
 
           <Card className="max-w-2xl mx-auto text-left shadow-lg">
             <CardContent className="p-6">
-              <form className="flex flex-col md:flex-row gap-4">
+              <form className="flex flex-col md:flex-row gap-4" onSubmit={handleGetStarted}>
                 <Input
                   type="text"
                   placeholder="What service do you need? e.g. Plumber"
                   className="h-12 text-base flex-grow"
                   aria-label="Service needed"
+                  value={service}
+                  onChange={(e) => setService(e.target.value)}
                 />
                 <Button type="submit" size="lg" className="h-12 px-8 text-base">
                   Get Started
@@ -70,6 +107,40 @@ export default function PostRequestPage() {
           </div>
         </div>
       </section>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[525px]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">Get quotes for {service || 'Pros'}</DialogTitle>
+            <DialogDescription>
+              Answer a few questions and we'll connect you with the right pros.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="py-4">
+            <h3 className="mb-4 font-semibold text-foreground">What do you need help with?</h3>
+            <RadioGroup defaultValue="emergency">
+                <div className="space-y-3">
+                    {plumbingServices.map((item) => (
+                        <div className="flex items-center" key={item.id}>
+                            <RadioGroupItem value={item.id} id={item.id} />
+                            <Label htmlFor={item.id} className="pl-3 font-normal cursor-pointer">{item.label}</Label>
+                        </div>
+                    ))}
+                </div>
+            </RadioGroup>
+          </div>
+          <DialogFooter>
+            <Button 
+                type="submit" 
+                size="lg" 
+                className="w-full bg-red-600 hover:bg-red-700 text-white"
+                onClick={() => setIsDialogOpen(false)}
+            >
+              Get Free Quotes
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
