@@ -2,8 +2,6 @@
 
 import {
   AlertCircle,
-  Avatar,
-  AvatarFallback,
   Bell,
   ChevronDown,
   Clock,
@@ -12,6 +10,7 @@ import {
   Search,
   User,
 } from 'lucide-react';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import {
   Card,
   CardContent,
