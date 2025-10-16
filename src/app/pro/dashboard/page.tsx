@@ -36,6 +36,9 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { useAuth } from '@/firebase';
+import { signOut } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
 
 const lead = {
   initials: 'EH',
@@ -66,6 +69,15 @@ const lead = {
 };
 
 export default function ProDashboardPage() {
+  const auth = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    signOut(auth).then(() => {
+      router.push('/');
+    });
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <header className="bg-card border-b">
@@ -118,7 +130,7 @@ export default function ProDashboardPage() {
                   <DropdownMenuItem>Profile</DropdownMenuItem>
                   <DropdownMenuItem>Billing</DropdownMenuItem>
                   <DropdownMenuItem>Settings</DropdownMenuItem>
-                  <DropdownMenuItem>Logout</DropdownMenuItem>
+                  <DropdownMenuItem onSelect={handleLogout}>Logout</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
