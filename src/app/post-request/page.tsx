@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Pencil, Tags, ThumbsUp } from 'lucide-react';
+import { Pencil, Tags, ThumbsUp, Check, ChevronsUpDown } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -15,7 +14,21 @@ import {
 } from '@/components/ui/dialog';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
+
 
 const features = [
   {
@@ -49,9 +62,29 @@ const plumbingServices = [
     { id: 'compliance_certificate', label: 'Plumbing certificate of compliance' },
 ];
 
+const allServices = [
+  { value: 'plumber', label: 'Plumber' },
+  { value: 'electrician', label: 'Electrician' },
+  { value: 'carpenter', label: 'Carpenter' },
+  { value: 'painter', label: 'Painter' },
+  { value: 'builder', label: 'Builder' },
+  { value: 'mover', label: 'Mover' },
+  { value: 'cleaning-service', label: 'Cleaning Service' },
+  { value: 'website-designer', label: 'Website Designer' },
+  { value: 'architect', label: 'Architect' },
+  { value: 'dstv-installer', label: 'DSTV Installer' },
+  { value: 'security', label: 'Security' },
+  { value: 'caterer', label: 'Caterer' },
+  { value: 'handyman', label: 'Handyman' },
+  { value: 'roofer', label: 'Roofer' },
+  { value: 'tiler', label: 'Tiler' },
+  { value: 'welder', label: 'Welder' },
+];
+
 export default function PostRequestPage() {
   const [service, setService] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
   
   const handleGetStarted = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,6 +92,9 @@ export default function PostRequestPage() {
       setIsDialogOpen(true);
     }
   };
+
+  const selectedServiceLabel = allServices.find((s) => s.value === service)?.label || "What service do you need? e.g. Plumber";
+
 
   return (
     <div className="bg-secondary/50">
@@ -71,15 +107,50 @@ export default function PostRequestPage() {
 
           <Card className="max-w-2xl mx-auto text-left shadow-lg">
             <CardContent className="p-6">
-              <form className="flex flex-col md:flex-row gap-4" onSubmit={handleGetStarted}>
-                <Input
-                  type="text"
-                  placeholder="What service do you need? e.g. Plumber"
-                  className="h-12 text-base flex-grow"
-                  aria-label="Service needed"
-                  value={service}
-                  onChange={(e) => setService(e.target.value)}
-                />
+               <form className="flex flex-col md:flex-row gap-4" onSubmit={handleGetStarted}>
+                 <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={popoverOpen}
+                      className="h-12 text-base flex-grow justify-between text-muted-foreground font-normal hover:bg-background"
+                    >
+                      {service
+                        ? allServices.find((s) => s.value === service)?.label
+                        : "What service do you need? e.g. Plumber"}
+                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                    <Command>
+                      <CommandInput placeholder="Search for a service..." />
+                      <CommandEmpty>No service found.</CommandEmpty>
+                      <CommandList>
+                        <CommandGroup>
+                          {allServices.map((s) => (
+                            <CommandItem
+                              key={s.value}
+                              value={s.value}
+                              onSelect={(currentValue) => {
+                                setService(currentValue === service ? '' : currentValue);
+                                setPopoverOpen(false);
+                              }}
+                            >
+                              <Check
+                                className={cn(
+                                  'mr-2 h-4 w-4',
+                                  service === s.value ? 'opacity-100' : 'opacity-0'
+                                )}
+                              />
+                              {s.label}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
                 <Button type="submit" size="lg" className="h-12 px-8 text-base">
                   Get Started
                 </Button>
@@ -111,7 +182,7 @@ export default function PostRequestPage() {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-[525px]">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Get quotes for {service || 'Pros'}</DialogTitle>
+            <DialogTitle className="text-2xl font-bold">Get quotes for {allServices.find(s => s.value === service)?.label || 'Pros'}</DialogTitle>
             <DialogDescription>
               Answer a few questions and we'll connect you with the right pros.
             </DialogDescription>
