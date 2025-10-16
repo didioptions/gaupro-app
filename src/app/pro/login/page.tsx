@@ -57,7 +57,7 @@ export default function ProLoginPage() {
       toast({
         variant: 'destructive',
         title: 'Login Failed',
-        description: error.message || 'An unexpected error occurred. Please try again.',
+        description: 'Invalid credentials. Please check your email and password.',
       });
     } finally {
       setIsLoading(false);
