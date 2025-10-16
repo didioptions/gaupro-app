@@ -20,7 +20,7 @@ export default function Hero() {
       )}
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative container mx-auto px-4 text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 font-headline">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-6 font-headline">
           Find Trusted Pros for Any Project.
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-white/80 mb-10">
