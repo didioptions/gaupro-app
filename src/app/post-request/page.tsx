@@ -204,7 +204,7 @@ export default function PostRequestPage() {
             <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full bg-red-600 hover:bg-red-700 text-white"
+                className="w-full"
                 onClick={() => setIsDialogOpen(false)}
             >
               Get Free Quotes
