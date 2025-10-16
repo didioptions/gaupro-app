@@ -1,30 +1,31 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Wrench } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
-        <div className="mr-4 hidden md:flex">
+        <div className="mr-4 flex flex-1 items-center justify-start">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Wrench className="h-6 w-6 text-primary" />
-            <span className="hidden font-bold sm:inline-block">Gaupro</span>
+            <span className="font-extrabold text-2xl tracking-tighter">GAU<span className="text-primary">PRO</span></span>
           </Link>
-          <nav className="flex items-center gap-6 text-sm">
-            <Link href="#categories" className="transition-colors hover:text-foreground/80 text-foreground/60">
-              Categories
-            </Link>
-            <Link href="#how-it-works" className="transition-colors hover:text-foreground/80 text-foreground/60">
-              How it Works
-            </Link>
-            <Link href="#testimonials" className="transition-colors hover:text-foreground/80 text-foreground/60">
-              Testimonials
-            </Link>
-          </nav>
         </div>
         
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+            <Link href="/post-request" className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium">
+              Post Request
+            </Link>
+            <Link href="/pro/signup" className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium">
+              Join as a Pro
+            </Link>
+            <Link href="/login" className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium">
+              Login
+            </Link>
+        </nav>
+
         {/* Mobile Nav */}
         <div className="md:hidden">
           <Sheet>
@@ -36,30 +37,21 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="pr-0">
               <Link href="/" className="mr-6 flex items-center space-x-2">
-                <Wrench className="h-6 w-6 text-primary" />
-                <span className="font-bold">Gaupro</span>
+                 <span className="font-extrabold text-2xl tracking-tighter">GAU<span className="text-primary">PRO</span></span>
               </Link>
-              <div className="flex flex-col space-y-3 pt-6">
-                <Link href="#categories" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                  Categories
+              <div className="flex flex-col space-y-4 pt-6">
+                <Link href="/post-request" className="transition-colors hover:text-foreground/80 text-foreground/60">
+                  Post Request
                 </Link>
-                <Link href="#how-it-works" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                  How it Works
+                <Link href="/pro/signup" className="transition-colors hover:text-foreground/80 text-foreground/60">
+                  Join as a Pro
                 </Link>
-                <Link href="#testimonials" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                  Testimonials
+                <Link href="/login" className="transition-colors hover:text-foreground/80 text-foreground/60">
+                  Login
                 </Link>
               </div>
             </SheetContent>
           </Sheet>
-        </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button asChild variant="ghost">
-            <Link href="/login">Log in</Link>
-          </Button>
-          <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
-            <Link href="/pro/signup">Are you a Pro? Get Leads</Link>
-          </Button>
         </div>
       </div>
     </header>
