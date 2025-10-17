@@ -52,14 +52,11 @@ export default function ProSignupPage() {
       {/* Hero Section */}
       <section className="bg-secondary/50 py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Attract New Customers and Grow your Business
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto">
+             Gaupro empowers service providers across South Africa to expand their reach and connect with a wider client base.
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Build your online presence with a professional profile on Gaupro. It's easy to sign up and it's free. Get more of the work you want!
-          </p>
-          <Button asChild size="lg" className="bg-red-500 hover:bg-red-600 text-white px-8 py-6 text-lg">
-            <Link href="/pro/register">Create your Free Pro Account</Link>
+          <Button asChild size="lg" className="px-8 py-6 text-lg">
+            <Link href="/pro/register">Create Free Account</Link>
           </Button>
         </div>
       </section>
