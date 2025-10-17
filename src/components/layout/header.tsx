@@ -97,6 +97,9 @@ export default function Header() {
         <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60 font-medium">
           Browse Quotes
         </Link>
+        <Link href="/#how-it-works" className="transition-colors hover:text-primary text-foreground/60 font-medium">
+          How It Works
+        </Link>
         <Link href="/pro/signup" className="transition-colors hover:text-primary text-foreground/60 font-medium">
           Join as a Pro
         </Link>
@@ -138,6 +141,9 @@ export default function Header() {
         </Link>
         <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
           Browse Quotes
+        </Link>
+        <Link href="/#how-it-works" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+          How It Works
         </Link>
         <Link href="/pro/signup" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
           Join as a Pro
