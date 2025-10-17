@@ -73,9 +73,11 @@ export default function ProDashboardPage() {
   const router = useRouter();
 
   const handleLogout = () => {
-    signOut(auth).then(() => {
-      router.push('/');
-    });
+    if (auth) {
+      signOut(auth).then(() => {
+        router.push('/');
+      });
+    }
   };
 
   return (
@@ -96,13 +98,13 @@ export default function ProDashboardPage() {
                 >
                   <Search className="h-4 w-4" /> What service do you need?
                 </Link>
-                <Link href="#" className="hover:text-primary">
+                <Link href="/browse-quotes" className="hover:text-primary">
                   Customer Requests
                 </Link>
                 <Link href="#" className="hover:text-primary">
                   Business Profiles
                 </Link>
-                <Link href="#" className="hover:text-primary">
+                <Link href="/pro/buy-credits" className="hover:text-primary">
                   Buy Credits
                 </Link>
               </nav>
