@@ -6,9 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { Separator } from '@/components/ui/separator';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 
 const creditPacks = [
   { id: '10', credits: 10, price: 300, pricePerCredit: 30, discount: null, save: null },
@@ -34,9 +31,7 @@ export default function BuyCreditsPage() {
   }, [selectedPack, includeAddon]);
 
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-secondary/50 py-12 md:py-20">
+      <div className="py-12 md:py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-bold">Buy Credits</h1>
@@ -115,8 +110,6 @@ export default function BuyCreditsPage() {
              </div>
           </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      </div>
   );
 }

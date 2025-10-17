@@ -2,13 +2,9 @@
 
 import {
   AlertCircle,
-  Bell,
-  ChevronDown,
   Clock,
   MapPin,
   RefreshCw,
-  Search,
-  User,
 } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import {
@@ -18,12 +14,6 @@ import {
   CardHeader,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Select,
@@ -33,12 +23,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { useAuth } from '@/firebase';
-import { signOut } from 'firebase/auth';
-import { useRouter } from 'next/navigation';
 
 const lead = {
   initials: 'EH',
@@ -69,77 +54,7 @@ const lead = {
 };
 
 export default function ProDashboardPage() {
-  const auth = useAuth();
-  const router = useRouter();
-
-  const handleLogout = () => {
-    if (auth) {
-      signOut(auth).then(() => {
-        router.push('/');
-      });
-    }
-  };
-
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <header className="bg-card border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-8">
-              <Link href="/" className="flex items-center space-x-2">
-                <span className="font-extrabold text-2xl tracking-tighter">
-                  GAU<span className="text-primary">PRO</span>
-                </span>
-              </Link>
-              <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-                <Link
-                  href="#"
-                  className="flex items-center gap-2 hover:text-primary"
-                >
-                  <Search className="h-4 w-4" /> What service do you need?
-                </Link>
-                <Link href="/browse-quotes" className="hover:text-primary">
-                  Customer Requests
-                </Link>
-                <Link href="#" className="hover:text-primary">
-                  Business Profiles
-                </Link>
-                <Link href="/pro/buy-credits" className="hover:text-primary">
-                  Buy Credits
-                </Link>
-              </nav>
-            </div>
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon">
-                <Bell className="h-5 w-5" />
-                <Badge className="absolute top-3 right-10 h-4 w-4 justify-center p-0 text-xs rounded-full bg-red-600 text-white">
-                  0
-                </Badge>
-              </Button>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2">
-                    <Avatar className="h-8 w-8">
-                      <AvatarFallback>
-                        <User />
-                      </AvatarFallback>
-                    </Avatar>
-                    <span className="hidden md:inline">Cossam M Ngweny</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Billing</DropdownMenuItem>
-                  <DropdownMenuItem>Settings</DropdownMenuItem>
-                  <DropdownMenuItem onSelect={handleLogout}>Logout</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="container mx-auto px-4 py-8">
         <Tabs defaultValue="new-leads" className="w-full">
           <TabsList>
@@ -232,6 +147,5 @@ export default function ProDashboardPage() {
           </TabsContent>
         </Tabs>
       </main>
-    </div>
   );
 }
