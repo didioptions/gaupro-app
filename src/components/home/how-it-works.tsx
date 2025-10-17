@@ -3,17 +3,17 @@ import { FileText, MessageSquareQuote, CheckSquare } from "lucide-react";
 
 const steps = [
   {
-    icon: <FileText className="h-10 w-10 text-primary mb-4" />,
+    icon: <FileText className="h-8 w-8 text-primary" />,
     title: "1. Tell us what you need",
     description: "Submit a job request with details about your project. It's fast and free.",
   },
   {
-    icon: <MessageSquareQuote className="h-10 w-10 text-primary mb-4" />,
+    icon: <MessageSquareQuote className="h-8 w-8 text-primary" />,
     title: "2. Get quotes",
     description: "Receive competitive quotes from local pros who are ready to help.",
   },
   {
-    icon: <CheckSquare className="h-10 w-10 text-primary mb-4" />,
+    icon: <CheckSquare className="h-8 w-8 text-primary" />,
     title: "3. Compare & hire",
     description: "Review profiles, ratings, and quotes to choose the best pro for your job.",
   },
@@ -21,23 +21,19 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 md:py-24 bg-card">
+    <section id="how-it-works" className="py-20 md:py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">How It Works</h2>
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          <div aria-hidden="true" className="hidden md:block absolute top-12 left-0 w-full h-px">
-             <svg width="100%" height="2" className="absolute" style={{top: "2.5rem"}}>
-              <line x1="15%" y1="1" x2="85%" y2="1" strokeWidth="2" strokeDasharray="8, 8" className="stroke-border" />
-            </svg>
-          </div>
-          
+        <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="z-10">
-              <Card className="text-center p-8 bg-background border-0 h-full">
+            <div key={index}>
+              <Card className="text-center p-8 bg-card shadow-sm h-full border-0">
                 <CardHeader className="p-0 items-center">
-                  {step.icon}
+                   <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-4">
+                    {step.icon}
+                  </div>
                   <CardTitle className="mb-2 text-xl font-bold">{step.title}</CardTitle>
-                  <CardDescription className="text-base">{step.description}</CardDescription>
+                  <CardDescription className="text-base text-muted-foreground">{step.description}</CardDescription>
                 </CardHeader>
               </Card>
             </div>
