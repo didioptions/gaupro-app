@@ -47,9 +47,9 @@ export default function HowItWorksPage() {
     <>
       <Header />
       <main className="flex-grow">
-        <section className="py-20 md:py-32 bg-secondary/50">
+        <section className="py-20 md:py-24 bg-secondary/50">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 max-w-3xl mx-auto">
               Gaupro empowers service providers across South Africa to expand their reach and connect with a wider client base.
             </h1>
             <Button asChild size="lg" className="px-8 py-6 text-lg">
