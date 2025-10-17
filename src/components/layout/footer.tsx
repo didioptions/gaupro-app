@@ -1,13 +1,9 @@
 import Link from "next/link";
 import { Wrench, Twitter, Facebook, Instagram } from "lucide-react";
-import Locations from "./locations";
-import GrowClientBaseCta from "./grow-client-base-cta";
 
 export default function Footer() {
   return (
     <footer className="border-t bg-card">
-      <Locations />
-      <GrowClientBaseCta />
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -26,7 +22,7 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">For Customers</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/browse" className="text-muted-foreground hover:text-foreground">Browse Pros</Link></li>
-              <li><Link href="#how-it-works" className="text-muted-foreground hover:text-foreground">How It Works</Link></li>
+              <li><Link href="/how-it-works" className="text-muted-foreground hover:text-foreground">How It Works</Link></li>
               <li><Link href="/login" className="text-muted-foreground hover:text-foreground">Log In</Link></li>
               <li><Link href="/signup" className="text-muted-foreground hover:text-foreground">Sign Up</Link></li>
             </ul>
