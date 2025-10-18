@@ -1,17 +1,20 @@
+
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock } from 'lucide-react';
+import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, Phone, User } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { Textarea } from '@/components/ui/textarea';
 
 const jobRequests = [
   {
+    id: 1,
     category: 'Plumbing',
     location: 'Sandton, Johannesburg',
     title: 'Leaky kitchen sink faucet',
@@ -21,8 +24,13 @@ const jobRequests = [
     budget: 'R500 - R1000',
     quotes: 2,
     credits: 3,
+    customer: {
+      name: 'Jane Doe',
+      phone: '082 123 4567',
+    }
   },
   {
+    id: 2,
     category: 'Painting',
     location: 'Rosebank, Johannesburg',
     title: 'Paint interior of 2-bedroom apartment',
@@ -32,8 +40,13 @@ const jobRequests = [
     budget: 'Quote Required',
     quotes: 5,
     credits: 3,
+    customer: {
+      name: 'John Smith',
+      phone: '083 987 6543',
+    }
   },
   {
+    id: 3,
     category: 'Electrical',
     location: 'Germiston, Gauteng',
     title: 'Fix flickering lights in living room',
@@ -43,8 +56,13 @@ const jobRequests = [
     budget: 'Quote Required',
     quotes: 1,
     credits: 4,
+    customer: {
+      name: 'Peter Jones',
+      phone: '071 234 5678',
+    }
   },
   {
+    id: 4,
     category: 'Gardening',
     location: 'Randburg, Johannesburg',
     title: 'Garden clean-up and lawn mowing',
@@ -54,8 +72,13 @@ const jobRequests = [
     budget: 'R800 - R1500',
     quotes: 8,
     credits: 2,
+    customer: {
+      name: 'Susan Williams',
+      phone: '060 111 2222',
+    }
   },
   {
+    id: 5,
     category: 'Building',
     location: 'Pretoria, Gauteng',
     title: 'Build a new boundary wall',
@@ -65,8 +88,13 @@ const jobRequests = [
     budget: 'R25000 - R40000',
     quotes: 4,
     credits: 5,
+    customer: {
+      name: 'Michael Brown',
+      phone: '072 333 4444',
+    }
   },
   {
+    id: 6,
     category: 'Cleaning',
     location: 'Cape Town, Western Cape',
     title: 'Deep clean of 3-bedroom house',
@@ -76,8 +104,13 @@ const jobRequests = [
     budget: 'R1500 - R2500',
     quotes: 11,
     credits: 2,
+    customer: {
+      name: 'Emily Davis',
+      phone: '084 555 6666',
+    }
   },
   {
+    id: 7,
     category: 'Handyman',
     location: 'Durban, KwaZulu-Natal',
     title: 'Hang pictures and assemble flat-pack furniture',
@@ -87,10 +120,23 @@ const jobRequests = [
     budget: 'R400 - R700',
     quotes: 3,
     credits: 1,
+    customer: {
+      name: 'Chris Green',
+      phone: '076 777 8888',
+    }
   },
 ];
 
 export default function BrowseQuotesPage() {
+  const [unlockedJobs, setUnlockedJobs] = useState<number[]>([]);
+
+  const handleUnlock = (jobId: number) => {
+    if (!unlockedJobs.includes(jobId)) {
+      setUnlockedJobs([...unlockedJobs, jobId]);
+      // In a real app, you would deduct credits here.
+    }
+  };
+
   return (
     <>
       <Header />
@@ -120,42 +166,64 @@ export default function BrowseQuotesPage() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-6">
-              {jobRequests.map((job, index) => (
-                <Card key={index} className="bg-card hover:shadow-md transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="flex-grow">
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                          <Badge variant="secondary" className="bg-blue-100 text-primary hover:bg-blue-200">{job.category}</Badge>
-                          <MapPin className="h-4 w-4" />
-                          <span>{job.location}</span>
+              {jobRequests.map((job) => {
+                const isUnlocked = unlockedJobs.includes(job.id);
+                return (
+                  <Card key={job.id} className="bg-card hover:shadow-md transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex-grow">
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                            <Badge variant="secondary" className="bg-blue-100 text-primary hover:bg-blue-200">{job.category}</Badge>
+                            <MapPin className="h-4 w-4" />
+                            <span>{job.location}</span>
+                          </div>
+                          <h2 className="text-xl font-bold mb-2">{job.title}</h2>
+                          <p className="text-muted-foreground text-sm mb-4">{job.description}</p>
                         </div>
-                        <h2 className="text-xl font-bold mb-2">{job.title}</h2>
-                        <p className="text-muted-foreground text-sm mb-4">{job.description}</p>
+                        <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-muted-foreground">
+                          <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {job.posted}</span></div>
+                          <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.needed}</span></div>
+                          <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>
+                          <div className="flex items-center gap-2"><Users className="h-4 w-4" /> <span>{job.quotes} quotes submitted</span></div>
+                        </div>
                       </div>
-                      <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-muted-foreground">
-                        <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {job.posted}</span></div>
-                        <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.needed}</span></div>
-                        <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>
-                        <div className="flex items-center gap-2"><Users className="h-4 w-4" /> <span>{job.quotes} quotes submitted</span></div>
+                       <div className="mt-4 pt-4 border-t">
+                        {isUnlocked ? (
+                          <div className="space-y-4">
+                             <div>
+                                <h3 className="text-md font-semibold mb-2 text-foreground">Customer Details</h3>
+                                <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                                   <div className="flex items-center gap-2"><User className="h-4 w-4" /> <span>{job.customer.name}</span></div>
+                                   <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> <span>{job.customer.phone}</span></div>
+                                </div>
+                             </div>
+                             <form className="space-y-2">
+                                <Textarea placeholder={`Your quote for ${job.title}...`} rows={3} />
+                                <Button className="w-full sm:w-auto">Submit Quote</Button>
+                             </form>
+                          </div>
+                        ) : (
+                          <Button 
+                            className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto"
+                            onClick={() => handleUnlock(job.id)}
+                          >
+                              <Lock className="mr-2 h-4 w-4" />
+                              Unlock & Quote ({job.credits} Credits)
+                          </Button>
+                        )}
                       </div>
-                    </div>
-                     <div className="mt-4 pt-4 border-t">
-                        <Button className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto">
-                            <Lock className="mr-2 h-4 w-4" />
-                            Unlock & Quote ({job.credits} Credits)
-                        </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardContent>
+                  </Card>
+                )
+              })}
             </div>
 
             <aside className="space-y-6">
               <Card className="bg-card">
                 <CardHeader>
                   <CardTitle>Sign up to start quoting</CardTitle>
-                  <CardDescription>Join HandyConnect to unlock these job leads and grow your business.</CardDescription>
+                  <CardDescription>Join Gaupro to unlock these job leads and grow your business.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button asChild className="w-full">
