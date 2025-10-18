@@ -36,7 +36,7 @@ export default function BuyCreditsPage() {
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-bold">Buy Credits</h1>
             <p className="text-xl text-muted-foreground mt-2">
-              Your current balance is <span className="font-bold text-red-600">0</span> Credits
+              Your current balance is <span className="font-bold text-red-600">25</span> Credits
             </p>
           </div>
 
