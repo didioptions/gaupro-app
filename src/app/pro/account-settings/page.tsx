@@ -1,0 +1,108 @@
+'use client';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Link from 'next/link';
+
+export default function AccountSettingsPage() {
+  return (
+    <div className="py-12 md:py-16 bg-background">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+          Edit Account Profile
+        </h1>
+
+        <Tabs defaultValue="user-profile">
+          <div className="flex justify-center border-b">
+            <TabsList className="bg-transparent p-0 h-auto">
+              <TabsTrigger
+                value="user-profile"
+                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base"
+              >
+                User Profile
+              </TabsTrigger>
+              <TabsTrigger
+                value="billing-details"
+                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base"
+              >
+                Billing Details
+              </TabsTrigger>
+              <TabsTrigger
+                value="notifications"
+                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base"
+              >
+                Notifications
+              </TabsTrigger>
+            </TabsList>
+          </div>
+
+          <TabsContent value="user-profile" className="mt-8">
+            <Card className="max-w-2xl mx-auto">
+              <CardContent className="p-8 space-y-8">
+                <div className="space-y-6">
+                   <div className="space-y-2">
+                    <Label htmlFor="cellphone">Cellphone Number to Login</Label>
+                    <Input id="cellphone" defaultValue="0784292760" disabled className="bg-secondary"/>
+                  </div>
+                   <div className="space-y-2">
+                    <Label>Password</Label>
+                    <Link href="#" className="text-primary text-sm block hover:underline">Click here to change password</Link>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="first-name">First Name</Label>
+                      <Input id="first-name" defaultValue="COSSAM M" disabled className="bg-secondary"/>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="last-name">Last Name</Label>
+                      <Input id="last-name" defaultValue="NGWENYA" disabled className="bg-secondary"/>
+                    </div>
+                  </div>
+                   <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" defaultValue="bravosa@gmail.com" />
+                  </div>
+                   <div className="space-y-2">
+                    <Label htmlFor="landline">Land Line</Label>
+                    <Input id="landline" placeholder="Land Line" />
+                  </div>
+                </div>
+
+                <div>
+                    <h2 className="text-lg font-semibold mb-4">Update your email preferences</h2>
+                    <div className="space-y-4">
+                        <div className="flex items-start space-x-2">
+                            <Checkbox id="marketing" />
+                            <Label htmlFor="marketing" className="font-normal text-muted-foreground">I want to receive marketing and promotional offers</Label>
+                        </div>
+                         <div className="flex items-start space-x-2">
+                            <Checkbox id="no-communication" />
+                            <div className="grid gap-1.5 leading-none">
+                                <Label htmlFor="no-communication" className="font-normal text-muted-foreground">I don't want any form of communication from Gaupro.</Label>
+                                <p className="text-sm text-muted-foreground">Remove me from all mailing lists</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div className="flex justify-end gap-2 pt-4">
+                    <Button variant="outline">Cancel</Button>
+                    <Button className="bg-red-500 hover:bg-red-600">Update</Button>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="billing-details" className="mt-6">
+             <p className="text-muted-foreground text-center p-8">Billing Details coming soon.</p>
+          </TabsContent>
+           <TabsContent value="notifications" className="mt-6">
+             <p className="text-muted-foreground text-center p-8">Notifications settings coming soon.</p>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </div>
+  );
+}
