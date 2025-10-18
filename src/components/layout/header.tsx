@@ -79,7 +79,7 @@ export default function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => router.push('/pro/dashboard')}>Dashboard</DropdownMenuItem>
-              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => router.push('/pro/profile')}>Profile</DropdownMenuItem>
               <DropdownMenuItem>Billing</DropdownMenuItem>
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuItem onSelect={handleLogout}>Logout</DropdownMenuItem>
@@ -120,6 +120,9 @@ export default function Header() {
         <>
           <Link href="/pro/dashboard" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
             Dashboard
+          </Link>
+           <Link href="/pro/profile" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+            Profile
           </Link>
           <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
             Customer Requests
