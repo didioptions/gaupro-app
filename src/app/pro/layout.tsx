@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '@/firebase';
 import { Skeleton } from '@/components/ui/skeleton';
 import Header from '@/components/layout/header';
+
+const PUBLIC_PRO_ROUTES = ['/pro/login', '/pro/register', '/pro/signup'];
 
 export default function ProLayout({
   children,
@@ -13,13 +15,23 @@ export default function ProLayout({
 }) {
   const { user, isUserLoading } = useUser();
   const router = useRouter();
+  const pathname = usePathname();
+
+  const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname);
 
   useEffect(() => {
-    if (!isUserLoading && !user) {
+    // If it's not a public route and the user is not logged in after checking, redirect to login.
+    if (!isPublicProRoute && !isUserLoading && !user) {
       router.push('/pro/login');
     }
-  }, [user, isUserLoading, router]);
+  }, [user, isUserLoading, router, isPublicProRoute]);
 
+  // If the route is public, just render the children (e.g., login or register page)
+  if (isPublicProRoute) {
+    return <>{children}</>;
+  }
+  
+  // If we are on a protected route and still loading or no user, show a skeleton loader.
   if (isUserLoading || !user) {
      return (
       <div className="flex flex-col min-h-screen">
@@ -34,7 +46,8 @@ export default function ProLayout({
       </div>
     );
   }
-
+  
+  // If the user is authenticated and on a protected route, show the pro layout.
   return (
     <div className="flex flex-col min-h-screen bg-secondary/50">
       <Header />
