@@ -61,7 +61,9 @@ export default function ProProfilePage() {
                         </div>
                          <div className="mt-4 flex gap-2">
                             <Button variant="outline">Get Verified</Button>
-                            <Button variant="outline">Edit Profile</Button>
+                            <Button variant="outline" asChild>
+                                <Link href="/pro/profile/edit">Edit Profile</Link>
+                            </Button>
                         </div>
                     </div>
                     <div className="border-t md:border-t-0 md:border-l md:pl-6 pt-6 md:pt-0">
@@ -76,7 +78,7 @@ export default function ProProfilePage() {
                                 <li>Upload 5+ photos of your work</li>
                                 <li>Get 5+ reviews</li>
                             </ul>
-                            <Link href="#" className="text-primary text-sm font-medium hover:underline mt-2 inline-block">
+                            <Link href="/pro/profile/edit" className="text-primary text-sm font-medium hover:underline mt-2 inline-block">
                                 Improve your business profile
                             </Link>
                         </div>
