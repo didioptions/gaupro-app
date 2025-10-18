@@ -53,6 +53,9 @@ export default function Header() {
           <Link href="/pro/dashboard" className="transition-colors hover:text-primary text-foreground/60">
             Leads
           </Link>
+          <Link href="/pro/profile" className="transition-colors hover:text-primary text-foreground/60">
+            Business Profiles
+          </Link>
           <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60">
             Customer Requests
           </Link>
@@ -122,7 +125,7 @@ export default function Header() {
             Dashboard
           </Link>
            <Link href="/pro/profile" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
-            Profile
+            Business Profiles
           </Link>
           <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
             Customer Requests
