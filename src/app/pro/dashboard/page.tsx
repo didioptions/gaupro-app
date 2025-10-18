@@ -118,7 +118,7 @@ export default function ProDashboardPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-5xl font-extrabold text-primary">0</p>
+                <p className="text-5xl font-extrabold text-primary">25</p>
               </CardContent>
             </Card>
 
