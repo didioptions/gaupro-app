@@ -50,9 +50,6 @@ export default function Header() {
     if (user) {
       return (
         <nav className="hidden md:flex items-center gap-4 text-sm font-medium">
-          <Link href="/pro/dashboard" className="transition-colors hover:text-primary text-foreground/60">
-            Leads
-          </Link>
           <Link href="/pro/profile" className="transition-colors hover:text-primary text-foreground/60">
             Business Profiles
           </Link>
