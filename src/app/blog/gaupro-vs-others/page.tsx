@@ -2,6 +2,7 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import Link from 'next/link';
 
 export default function GauproVsOthersPage() {
   return (
@@ -128,6 +129,34 @@ export default function GauproVsOthersPage() {
                         </ul>
                     </div>
                 </div>
+              </section>
+
+              <section className="space-y-6 pt-12 mt-12 border-t">
+                  <h2 className="text-2xl">Connect with Gaupro</h2>
+                  <p>Website: <a href="http://www.gaupro.co.za">www.gaupro.co.za</a></p>
+                  <p>Email: <a href="mailto:support@gaupro.co.za">support@gaupro.co.za</a></p>
+                  <p>WhatsApp: 060 123 4567</p>
+                  <p>Download: <a href="#">[App Store]</a> | <a href="#">[Google Play]</a></p>
+                  <p>Follow Gaupro: <a href="#">[Facebook: @GauproSA]</a> | <a href="#">[Instagram: @gaupro_sa]</a> | <a href="#">[LinkedIn: Gaupro]</a> | <a href="#">[Twitter: @Gaupro_SA]</a></p>
+              </section>
+
+              <section className="space-y-4 pt-8 mt-8 border-t bg-secondary/50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold">About This Article</h3>
+                  <p className="text-sm text-muted-foreground">This comprehensive guide is maintained by the Gaupro content team and updated monthly with the latest platform features, success stories, and market insights.</p>
+                  <p className="text-sm"><strong className="text-foreground">Last Updated:</strong> December 2024</p>
+                  <p className="text-sm"><strong className="text-foreground">Next Update:</strong> January 2025</p>
+                  <div className="mt-4">
+                      <p className="text-sm font-semibold">Share this guide and help other South Africans discover smarter hiring:</p>
+                      <div className="flex gap-2 flex-wrap text-sm mt-2">
+                        <a href="#" className="text-primary hover:underline">[Share on WhatsApp]</a>
+                        <span className="text-muted-foreground">|</span>
+                        <a href="#" className="text-primary hover:underline">[Share on Facebook]</a>
+                        <span className="text-muted-foreground">|</span>
+                        <a href="#" className="text-primary hover:underline">[Share on LinkedIn]</a>
+                        <span className="text-muted-foreground">|</span>
+                        <a href="#" className="text-primary hover:underline">[Email to Friend]</a>
+                      </div>
+                  </div>
               </section>
             </div>
           </div>
