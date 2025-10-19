@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Facebook, Twitter, Linkedin } from 'lucide-react';
 
@@ -16,7 +17,7 @@ const footerSections = [
     links: [
       { text: 'About Us', href: '/about' },
       { text: 'Join Our Team', href: '#' },
-      { text: 'Blog', href: '#' },
+      { text: 'Blog', href: '/blog' },
     ],
   },
   {
