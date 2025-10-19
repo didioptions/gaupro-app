@@ -6,7 +6,6 @@ import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import ProCta from '@/components/blog/pro-cta';
 
 const blogPosts = [
   {
@@ -35,6 +34,15 @@ const blogPosts = [
     imageHint: 'steps diagram',
     date: 'November 9, 2023',
     readTime: '6 min read',
+  },
+  {
+    title: 'Why 15,000+ Professionals Choose Gaupro to Grow Their Business',
+    description: 'For Service Professionals, Gaupro is a Business Game-Changer. Learn how we help you get quality leads, build your reputation, and grow your income.',
+    href: '/blog/why-professionals-love-gaupro',
+    imageUrl: 'https://picsum.photos/seed/blog-pro-love/800/400',
+    imageHint: 'professional working happy',
+    date: 'November 16, 2023',
+    readTime: '7 min read',
   },
 ];
 
@@ -87,7 +95,6 @@ export default function BlogPage() {
             ))}
           </div>
         </div>
-        <ProCta />
       </main>
       <Footer />
     </>
