@@ -6,6 +6,7 @@ import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import GrowClientBaseCta from '@/components/layout/grow-client-base-cta';
 
 const blogPosts = [
   {
@@ -95,6 +96,7 @@ export default function BlogPage() {
             ))}
           </div>
         </div>
+        <GrowClientBaseCta />
       </main>
       <Footer />
     </>
