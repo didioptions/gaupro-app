@@ -2,11 +2,10 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Separator } from '@/components/ui/separator';
 import { Upload, ShieldCheck, BadgeCheck } from 'lucide-react';
 import { useAuth } from '@/firebase';
 import { useUser } from '@/firebase';
@@ -14,6 +13,7 @@ import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const FileInput = ({
   id,
@@ -194,6 +194,11 @@ export default function VerificationPage() {
                 <div>
                     <h4 className="font-semibold">How is this badge displayed to customers?</h4>
                     <p className="text-muted-foreground">The "Pro Verified" badge will appear as a checkmark next to your company name. It will also appear in emails that are sent to your customers.</p>
+                </div>
+                <div className="text-sm text-muted-foreground space-y-4">
+                    <p>Acceptable ID types include your government issued ID, passport, national ID card or driver's license. Your confidential information is protected by our <Link href="#" className="text-primary hover:underline">privacy policy</Link>.</p>
+                    <p>No scanner? Take a photo of your ID with your mobile phone.</p>
+                    <p>Need our help? Email us your documents and we'll do the rest! <a href="mailto:verify@gaupro.co.za" className="text-primary hover:underline">verify@gaupro.co.za</a></p>
                 </div>
             </div>
           </aside>
