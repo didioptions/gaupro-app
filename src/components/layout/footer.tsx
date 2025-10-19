@@ -14,7 +14,7 @@ const footerSections = [
   {
     title: 'Get to Know Us',
     links: [
-      { text: 'About Us', href: '#' },
+      { text: 'About Us', href: '/about' },
       { text: 'Join Our Team', href: '#' },
       { text: 'Blog', href: '#' },
     ],
