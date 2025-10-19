@@ -195,22 +195,24 @@ export default function VerificationPage() {
                     <h4 className="font-semibold">How is this badge displayed to customers?</h4>
                     <p className="text-muted-foreground">The "Pro Verified" badge will appear as a checkmark next to your company name. It will also appear in emails that are sent to your customers.</p>
                 </div>
-                <Card className="bg-secondary/50 p-6">
-                    <h3 className="text-xl font-semibold text-foreground">Accsum Accounting Services</h3>
-                    <p className="text-muted-foreground mb-4">Accountants and tax consultants</p>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-x-6 gap-y-2">
-                        <div className="flex items-center gap-2 text-green-600">
-                            <ShieldCheck className="h-5 w-5" />
-                            <span className="font-semibold">Pro Verified</span>
-                        </div>
-                         <div className="flex items-center gap-2 text-green-600">
-                            <BadgeCheck className="h-5 w-5" />
-                            <span className="font-semibold">Background Checked</span>
-                        </div>
-                    </div>
-                </Card>
             </div>
           </aside>
+        </div>
+        <div className="mt-16">
+          <Card className="bg-secondary/50 p-8">
+              <h3 className="text-2xl font-semibold text-foreground">Accsum Accounting Services</h3>
+              <p className="text-muted-foreground mb-6">Accountants and tax consultants</p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-x-8 gap-y-4">
+                  <div className="flex items-center gap-2 text-green-600">
+                      <ShieldCheck className="h-6 w-6" />
+                      <span className="font-semibold text-lg">Pro Verified</span>
+                  </div>
+                    <div className="flex items-center gap-2 text-green-600">
+                      <BadgeCheck className="h-6 w-6" />
+                      <span className="font-semibold text-lg">Background Checked</span>
+                  </div>
+              </div>
+          </Card>
         </div>
       </div>
     </div>
