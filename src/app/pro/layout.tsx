@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '@/firebase';
 import { Skeleton } from '@/components/ui/skeleton';
 import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 const PUBLIC_PRO_ROUTES = ['/pro/login', '/pro/register', '/pro/signup'];
 
@@ -43,6 +44,7 @@ export default function ProLayout({
              <Skeleton className="h-64 w-full" />
           </div>
         </main>
+        <Footer />
       </div>
     );
   }
@@ -54,6 +56,7 @@ export default function ProLayout({
       <main className="flex-grow">
         {children}
       </main>
+      <Footer />
     </div>
   )
 }
