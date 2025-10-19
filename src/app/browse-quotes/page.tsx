@@ -238,28 +238,7 @@ export default function BrowseQuotesPage() {
             </div>
 
             <aside className="space-y-6">
-              <Card className="bg-card">
-                <CardHeader>
-                  <CardTitle>Sign up to start quoting</CardTitle>
-                  <CardDescription>Join Gaupro to unlock these job leads and grow your business.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button asChild className="w-full">
-                    <Link href="/pro/signup">Sign Up as a Pro</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-              <Card className="bg-card">
-                 <CardHeader>
-                  <CardTitle>Are you a customer?</CardTitle>
-                  <CardDescription>Looking to hire a pro for your next project?</CardDescription>
-                </CardHeader>
-                <CardContent>
-                   <Button asChild variant="outline" className="w-full">
-                    <Link href="/post-request">Post a Job for Free</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+             {/* The user is logged in, so these are not needed. */}
             </aside>
           </div>
         </div>
