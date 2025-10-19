@@ -136,8 +136,6 @@ export default function GauproVsOthersPage() {
                   <p>Website: <a href="http://www.gaupro.co.za">www.gaupro.co.za</a></p>
                   <p>Email: <a href="mailto:support@gaupro.co.za">support@gaupro.co.za</a></p>
                   <p>WhatsApp: 060 123 4567</p>
-                  <p>Download: <a href="#">[App Store]</a> | <a href="#">[Google Play]</a></p>
-                  <p>Follow Gaupro: <a href="#">[Facebook: @GauproSA]</a> | <a href="#">[Instagram: @gaupro_sa]</a> | <a href="#">[LinkedIn: Gaupro]</a> | <a href="#">[Twitter: @Gaupro_SA]</a></p>
               </section>
 
               <section className="space-y-4 pt-8 mt-8 border-t bg-secondary/50 p-6 rounded-lg">
