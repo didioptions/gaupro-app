@@ -8,7 +8,8 @@ import {
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Progress } from '@/components/ui/progress';
-import { Separator } from '@/components/ui/separator';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import VerificationForm from '@/components/pro/verification-form';
 import Link from 'next/link';
 
 export default function ProProfilePage() {
@@ -27,9 +28,16 @@ export default function ProProfilePage() {
                 <AlertDescription className="text-red-700">
                     Your account has limited access. Before we activate your account, we need you to verify your profile to maintain a trusted workplace. We need your ID and utility bill.
                 </AlertDescription>
-                 <Button className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
-                  Verify your ID
-                </Button>
+                <Dialog>
+                    <DialogTrigger asChild>
+                        <Button className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
+                        Verify your ID
+                        </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[525px]">
+                        <VerificationForm />
+                    </DialogContent>
+                </Dialog>
             </div>
           </Alert>
 
