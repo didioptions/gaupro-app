@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, Phone, User } from 'lucide-react';
+import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, Phone, User, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -129,12 +129,14 @@ const jobRequests = [
 
 export default function BrowseQuotesPage() {
   const [unlockedJobs, setUnlockedJobs] = useState<number[]>([]);
+  const [creditBalance, setCreditBalance] = useState(25); // Test credit balance
 
-  const handleUnlock = (jobId: number) => {
-    if (!unlockedJobs.includes(jobId)) {
+  const handleUnlock = (jobId: number, creditCost: number) => {
+    if (!unlockedJobs.includes(jobId) && creditBalance >= creditCost) {
+      setCreditBalance(prevBalance => prevBalance - creditCost);
       setUnlockedJobs([...unlockedJobs, jobId]);
-      // In a real app, you would deduct credits here.
     }
+    // Optional: Add an else block to show an error if credits are insufficient
   };
 
   return (
@@ -150,7 +152,23 @@ export default function BrowseQuotesPage() {
               Browse the latest opportunities from customers in your area. Unlock leads to get contact details and submit your quote.
             </p>
           </div>
-          <div className="max-w-2xl mx-auto mb-12">
+
+          <div className="max-w-2xl mx-auto mb-8">
+            <Card className="bg-card shadow-sm mb-8">
+                <CardContent className="p-4 flex justify-between items-center">
+                    <div className="flex items-center gap-3">
+                        <CreditCard className="h-6 w-6 text-primary" />
+                        <h3 className="text-lg font-semibold">Credit Balance</h3>
+                    </div>
+                    <div className="text-right">
+                        <p className="text-2xl font-bold text-primary">{creditBalance}</p>
+                        <Button variant="link" asChild className="h-auto p-0 text-sm">
+                            <Link href="/pro/buy-credits">Buy more credits</Link>
+                        </Button>
+                    </div>
+                </CardContent>
+            </Card>
+
             <form className="flex gap-2">
               <Input
                 type="search"
@@ -206,7 +224,7 @@ export default function BrowseQuotesPage() {
                         ) : (
                           <Button 
                             className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto"
-                            onClick={() => handleUnlock(job.id)}
+                            onClick={() => handleUnlock(job.id, job.credits)}
                           >
                               <Lock className="mr-2 h-4 w-4" />
                               Unlock & Quote ({job.credits} Credits)
