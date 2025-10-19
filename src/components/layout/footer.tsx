@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="border-t pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-lg font-bold text-foreground">
-              <span>SNUPIT</span>
+              <span>GAUPRO</span>
               <span className="text-sm font-normal text-muted-foreground ml-2">© 2025</span>
             </div>
             <nav className="flex gap-4 sm:gap-6 text-sm">
@@ -23,7 +23,7 @@ export default function Footer() {
                 By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners.
             </p>
             <p>
-                2012-2025 © Snupit Pty Ltd. All rights reserved.
+                2012-2025 © Gaupro Pty Ltd. All rights reserved.
             </p>
         </div>
       </div>
