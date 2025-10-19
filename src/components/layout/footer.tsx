@@ -11,7 +11,7 @@ export default function Footer() {
               <span className="text-sm font-normal text-muted-foreground ml-2">© 2025</span>
             </div>
             <nav className="flex gap-4 sm:gap-6 text-sm">
-              <Link href="#" className="hover:text-primary">Terms</Link>
+              <Link href="/terms" className="hover:text-primary">Terms</Link>
               <Link href="#" className="hover:text-primary">Privacy</Link>
               <Link href="#" className="hover:text-primary">Cookie Policy</Link>
               <Link href="#" className="hover:text-primary">Pro Centre</Link>
