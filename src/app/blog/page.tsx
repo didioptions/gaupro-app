@@ -6,6 +6,7 @@ import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import ProCta from '@/components/blog/pro-cta';
 
 const blogPosts = [
   {
@@ -86,6 +87,7 @@ export default function BlogPage() {
             ))}
           </div>
         </div>
+        <ProCta />
       </main>
       <Footer />
     </>
