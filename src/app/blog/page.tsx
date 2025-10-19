@@ -26,7 +26,15 @@ const blogPosts = [
     date: 'November 2, 2023',
     readTime: '5 min read',
   },
-  // Future blog posts can be added here
+  {
+    title: 'How Gaupro Works: Your 3-Step Solution to Any Service Need',
+    description: 'A step-by-step guide on how to post a job, receive quotes, and hire professionals with confidence on Gaupro.',
+    href: '/blog/how-gaupro-works',
+    imageUrl: 'https://picsum.photos/seed/blog-how-it-works/800/400',
+    imageHint: 'steps diagram',
+    date: 'November 9, 2023',
+    readTime: '6 min read',
+  },
 ];
 
 export default function BlogPage() {
