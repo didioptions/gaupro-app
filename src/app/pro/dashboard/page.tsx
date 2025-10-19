@@ -11,8 +11,6 @@ import {
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import VerificationForm from '@/components/pro/verification-form';
 
 export default function ProDashboardPage() {
   return (
@@ -33,16 +31,9 @@ export default function ProDashboardPage() {
                 account, we need you to verify your profile to maintain a
                 trusted workplace. We need your ID and utility bill.
               </AlertDescription>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
-                    Verify your ID
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[525px]">
-                  <VerificationForm />
-                </DialogContent>
-              </Dialog>
+              <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
+                <Link href="/pro/verify">Verify your ID</Link>
+              </Button>
             </div>
           </Alert>
 

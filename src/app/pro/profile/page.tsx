@@ -8,8 +8,6 @@ import {
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Progress } from '@/components/ui/progress';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import VerificationForm from '@/components/pro/verification-form';
 import Link from 'next/link';
 
 export default function ProProfilePage() {
@@ -28,16 +26,9 @@ export default function ProProfilePage() {
                 <AlertDescription className="text-red-700">
                     Your account has limited access. Before we activate your account, we need you to verify your profile to maintain a trusted workplace. We need your ID and utility bill.
                 </AlertDescription>
-                <Dialog>
-                    <DialogTrigger asChild>
-                        <Button className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
-                        Verify your ID
-                        </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[525px]">
-                        <VerificationForm />
-                    </DialogContent>
-                </Dialog>
+                <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
+                  <Link href="/pro/verify">Verify your ID</Link>
+                </Button>
             </div>
           </Alert>
 
@@ -68,7 +59,9 @@ export default function ProProfilePage() {
                             </div>
                         </div>
                          <div className="mt-4 flex gap-2">
-                            <Button variant="outline">Get Verified</Button>
+                            <Button variant="outline" asChild>
+                              <Link href="/pro/verify">Get Verified</Link>
+                            </Button>
                             <Button variant="outline" asChild>
                                 <Link href="/pro/profile/edit">Edit Profile</Link>
                             </Button>
