@@ -138,70 +138,73 @@ export default function VerificationPage() {
           We need to verify your profile to maintain a trusted and safe marketplace for everyone.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2">
-            <form onSubmit={handleSubmit}>
-              <Card>
-                <CardContent className="p-8 space-y-8">
-                  <div className="space-y-2">
-                    <Label>Select your document type</Label>
-                    <RadioGroup
-                      value={docType}
-                      onValueChange={setDocType}
-                      className="flex gap-4"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="id-document" id="id-document" />
-                        <Label htmlFor="id-document" className="font-normal">
-                          ID Document
-                        </Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="passport" id="passport" />
-                        <Label htmlFor="passport" className="font-normal">
-                          Passport
-                        </Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-                  <div className="flex flex-col md:flex-row gap-4">
-                    <FileInput id="document-upload" label="Upload your document" onFileChange={setDocFile} />
-                    <FileInput id="selfie-upload" label="Upload a selfie" onFileChange={setSelfieFile} />
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    <p>
-                      Make sure the document is clear and all details are visible. For the selfie, please ensure your face is well-lit and not obscured.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-              <div className="mt-6 flex justify-end">
-                 <Button type="submit" size="lg" disabled={isSubmitting}>
-                   {isSubmitting ? 'Submitting...' : 'Submit for Verification'}
-                 </Button>
-              </div>
-            </form>
-          </div>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <Card>
+              <CardContent className="p-8 space-y-8">
+                <div className="space-y-2">
+                  <Label>Select your document type</Label>
+                  <RadioGroup
+                    value={docType}
+                    onValueChange={setDocType}
+                    className="flex gap-4"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="id-document" id="id-document" />
+                      <Label htmlFor="id-document" className="font-normal">
+                        ID Document
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="passport" id="passport" />
+                      <Label htmlFor="passport" className="font-normal">
+                        Passport
+                      </Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+                <div className="flex flex-col md:flex-row gap-4">
+                  <FileInput id="document-upload" label="Upload your document" onFileChange={setDocFile} />
+                  <FileInput id="selfie-upload" label="Upload a selfie" onFileChange={setSelfieFile} />
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  <p>
+                    Make sure the document is clear and all details are visible. For the selfie, please ensure your face is well-lit and not obscured.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="mt-6 flex justify-end">
+               <Button type="submit" size="lg" disabled={isSubmitting}>
+                 {isSubmitting ? 'Submitting...' : 'Submit for Verification'}
+               </Button>
+            </div>
+          </form>
 
-          <aside className="space-y-6">
-            <h3 className="font-semibold text-xl">Frequently asked questions</h3>
-            <div className="space-y-4 text-sm">
-                <div>
-                    <h4 className="font-semibold">Why do you need to verify your profile?</h4>
-                    <p className="text-muted-foreground">Customers can now see your verification status on your public profile page and on the emails that we send them when you purchase their job request.</p>
-                    <p className="text-muted-foreground mt-2">We are making it mandatory for all Pros to verify their status to build a trusted marketplace. We want your next customer to hire your services with confidence and trust.</p>
-                </div>
-                <div>
-                    <h4 className="font-semibold">How is this badge displayed to customers?</h4>
-                    <p className="text-muted-foreground">The "Pro Verified" badge will appear as a checkmark next to your company name. It will also appear in emails that are sent to your customers.</p>
-                </div>
+          <div className="mt-12 grid md:grid-cols-2 gap-8 border-t pt-8">
+            <aside className="space-y-6">
+              <h3 className="font-semibold text-xl">Frequently asked questions</h3>
+              <div className="space-y-4 text-sm">
+                  <div>
+                      <h4 className="font-semibold">Why do you need to verify your profile?</h4>
+                      <p className="text-muted-foreground">Customers can now see your verification status on your public profile page and on the emails that we send them when you purchase their job request.</p>
+                      <p className="text-muted-foreground mt-2">We are making it mandatory for all Pros to verify their status to build a trusted marketplace. We want your next customer to hire your services with confidence and trust.</p>
+                  </div>
+                  <div>
+                      <h4 className="font-semibold">How is this badge displayed to customers?</h4>
+                      <p className="text-muted-foreground">The "Pro Verified" badge will appear as a checkmark next to your company name. It will also appear in emails that are sent to your customers.</p>
+                  </div>
+              </div>
+            </aside>
+             <aside className="space-y-6">
                 <div className="text-sm text-muted-foreground space-y-4">
                     <p>Acceptable ID types include your government issued ID, passport, national ID card or driver's license. Your confidential information is protected by our <Link href="#" className="text-primary hover:underline">privacy policy</Link>.</p>
                     <p>No scanner? Take a photo of your ID with your mobile phone.</p>
                     <p>Need our help? Email us your documents and we'll do the rest! <a href="mailto:verify@gaupro.co.za" className="text-primary hover:underline">verify@gaupro.co.za</a></p>
                 </div>
-            </div>
-          </aside>
+             </aside>
+          </div>
+
         </div>
         <div className="mt-16">
           <Card className="bg-secondary/50 p-8">
