@@ -6,7 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
-import { Upload } from 'lucide-react';
+import { Upload, ShieldCheck, BadgeCheck } from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
 
 export default function VerificationForm() {
   const FileInput = ({ id, label }: { id: string, label: string }) => (
@@ -32,30 +33,65 @@ export default function VerificationForm() {
           We need to verify your profile to maintain a trusted and safe marketplace for everyone.
         </DialogDescription>
       </DialogHeader>
-      <Card className="border-0 shadow-none">
-        <CardContent className="p-0 space-y-6">
-          <div className="space-y-2">
-            <Label>Select your document type</Label>
-            <RadioGroup defaultValue="id-document" className="flex gap-4">
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="id-document" id="id-document" />
-                <Label htmlFor="id-document" className="font-normal">ID Document</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="passport" id="passport" />
-                <Label htmlFor="passport" className="font-normal">Passport</Label>
-              </div>
-            </RadioGroup>
-          </div>
-          <div className="flex flex-col md:flex-row gap-4">
-            <FileInput id="document-upload" label="Upload your document" />
-            <FileInput id="selfie-upload" label="Upload a selfie" />
-          </div>
-          <div className="text-xs text-muted-foreground">
-            <p>Make sure the document is clear and all details are visible. For the selfie, please ensure your face is well-lit and not obscured.</p>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="space-y-6">
+        <Card className="border-0 shadow-none">
+          <CardContent className="p-0 space-y-6">
+            <div className="space-y-2">
+              <Label>Select your document type</Label>
+              <RadioGroup defaultValue="id-document" className="flex gap-4">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="id-document" id="id-document" />
+                  <Label htmlFor="id-document" className="font-normal">ID Document</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="passport" id="passport" />
+                  <Label htmlFor="passport" className="font-normal">Passport</Label>
+                </div>
+              </RadioGroup>
+            </div>
+            <div className="flex flex-col md:flex-row gap-4">
+              <FileInput id="document-upload" label="Upload your document" />
+              <FileInput id="selfie-upload" label="Upload a selfie" />
+            </div>
+            <div className="text-xs text-muted-foreground">
+              <p>Make sure the document is clear and all details are visible. For the selfie, please ensure your face is well-lit and not obscured.</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Separator />
+
+        <div className="space-y-6 text-sm">
+            <h3 className="font-semibold text-lg">Frequently asked questions</h3>
+            <div className="space-y-4">
+                <div>
+                    <h4 className="font-semibold">Why do you need to verify your profile?</h4>
+                    <p className="text-muted-foreground">Customers can now see your verification status on your public profile page and on the emails that we send them when you purchase their job request.</p>
+                    <p className="text-muted-foreground mt-2">We are making it mandatory for all Pros to verify their status to build a trusted marketplace. We want your next customer to hire your services with confidence and trust.</p>
+                </div>
+                <div>
+                    <h4 className="font-semibold">How is this badge displayed to customers?</h4>
+                    <p className="text-muted-foreground">The "Pro Verified" badge will appear as a checkmark next to your company name. It will also appear in emails that are sent to your customers.</p>
+                </div>
+                <Card className="bg-secondary/50">
+                    <CardContent className="p-6">
+                        <h4 className="font-bold text-xl">Accsum Accounting Services</h4>
+                        <p className="text-muted-foreground">Accountants and tax consultants</p>
+                        <div className="flex items-center gap-6 mt-4">
+                            <div className="flex items-center gap-2 text-green-600">
+                                <ShieldCheck className="h-5 w-5" />
+                                <span className="font-semibold">Pro Verified</span>
+                            </div>
+                             <div className="flex items-center gap-2 text-green-600">
+                                <BadgeCheck className="h-5 w-5" />
+                                <span className="font-semibold">Background Checked</span>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+      </div>
       <DialogFooter>
         <Button type="submit" className="w-full">Submit for Verification</Button>
       </DialogFooter>
