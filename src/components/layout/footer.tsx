@@ -4,7 +4,7 @@ import { Facebook, Twitter, Linkedin } from 'lucide-react';
 
 const footerSections = [
   {
-    title: 'Doing Business',
+    title: 'For Professionals',
     links: [
       { text: 'Browse Quotes', href: '/browse-quotes' },
       { text: 'Join as a Pro', href: '/pro/signup' },
