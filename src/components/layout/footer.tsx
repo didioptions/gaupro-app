@@ -18,6 +18,7 @@ const footerSections = [
       { text: 'About Us', href: '/about' },
       { text: 'Join Our Team', href: '#' },
       { text: 'Blog', href: '/blog' },
+      { text: "Careers (We're Hiring!)", href: '#' },
     ],
   },
   {
