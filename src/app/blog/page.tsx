@@ -69,11 +69,11 @@ export default function BlogPage() {
             </p>
           </header>
 
-          <div className="grid gap-8">
+          <div className="grid gap-8 max-w-4xl mx-auto">
             {blogPosts.map((post) => (
               <Link href={post.href} key={post.title} className="group">
-                <Card className="overflow-hidden transition-shadow hover:shadow-lg grid md:grid-cols-2">
-                  <div className="relative h-64 md:h-full">
+                <Card className="overflow-hidden transition-shadow hover:shadow-lg">
+                  <div className="relative aspect-video">
                     <Image
                       src={post.imageUrl}
                       alt={post.title}
@@ -82,7 +82,7 @@ export default function BlogPage() {
                       data-ai-hint={post.imageHint}
                     />
                   </div>
-                  <div className="flex flex-col p-6">
+                  <div className="p-6">
                     <CardHeader className="p-0">
                       <div className="text-sm text-muted-foreground mb-2">
                         <span>{post.date}</span> &middot; <span>{post.readTime}</span>
@@ -91,7 +91,7 @@ export default function BlogPage() {
                         {post.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="p-0 mt-4 flex-grow">
+                    <CardContent className="p-0 mt-4">
                       <CardDescription>{post.description}</CardDescription>
                     </CardContent>
                     <div className="mt-6">
