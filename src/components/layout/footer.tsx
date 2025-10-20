@@ -23,7 +23,7 @@ const footerSections = [
     ],
   },
   {
-    title: 'Let us Help You',
+    title: 'For Customers',
     links: [
       { text: 'How It Works', href: '/how-it-works' },
       { text: 'Trust & Safety', href: '#' },
