@@ -13,7 +13,7 @@ const footerSections = [
     ],
   },
   {
-    title: 'Get to Know Us',
+    title: '🏆 About Gaupro',
     links: [
       { text: 'About Us', href: '/about' },
       { text: 'Join Our Team', href: '#' },
