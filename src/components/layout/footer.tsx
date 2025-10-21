@@ -65,7 +65,7 @@ export default function Footer() {
           ))}
           <div>
             <h3 className="font-semibold mb-4">Download Apps</h3>
-            <div className="space-y-4">
+            <div className="flex flex-col space-y-4">
                  <Link href="#" className="inline-block">
                     <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-12"/>
                  </Link>
