@@ -79,7 +79,7 @@ export default function HowToSucceedPage() {
         <article>
           <header className="bg-secondary/50 py-12 md:py-16">
             <div className="container mx-auto px-4 text-center">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight max-w-3xl mx-auto">
+              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight max-w-3xl mx-auto">
                 How to Succeed on Gaupro: Professional Success Strategies
               </h1>
             </div>
