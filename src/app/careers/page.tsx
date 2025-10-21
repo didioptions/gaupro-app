@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import Link from 'next/link';
-import { Briefcase, Globe, TrendingUp, Users, Heart, Lightbulb, CheckCircle, Mail, Linkedin } from 'lucide-react';
+import { Briefcase, Globe, TrendingUp, Users, Heart, Lightbulb, CheckCircle, Mail, Linkedin, Facebook } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -108,6 +108,10 @@ export default function CareersPage() {
                         <li className="flex items-center gap-3">
                             <Linkedin className="h-5 w-5 text-primary" />
                             <Link href="#" className="font-medium hover:underline">Follow us on LinkedIn for updates</Link>
+                        </li>
+                        <li className="flex items-center gap-3">
+                            <Facebook className="h-5 w-5 text-primary" />
+                            <Link href="#" className="font-medium hover:underline">Follow us on Facebook</Link>
                         </li>
                         <li className="flex items-center gap-3">
                              <Mail className="h-5 w-5 text-primary" />
