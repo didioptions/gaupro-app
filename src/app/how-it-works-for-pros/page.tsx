@@ -3,8 +3,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { Rocket, Briefcase, Verified, Star, BarChart, CheckCircle } from 'lucide-react';
+import { Rocket, Briefcase, Verified, Star, BarChart, CheckCircle, Wallet, Map, Tag, Info } from 'lucide-react';
 import GrowClientBaseCta from '@/components/layout/grow-client-base-cta';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const steps = [
   {
@@ -31,7 +32,7 @@ const steps = [
         "You get an instant lead notification email",
         "Review the job details and respond with your quote"
     ],
-    tip: "No commission. No hidden fees. You only pay a small fee to unlock the customer’s contact info."
+    tip: "You only pay a small fee to unlock the customer’s contact info."
   },
   {
     icon: <span className="text-3xl">💰</span>,
@@ -42,7 +43,7 @@ const steps = [
         "You manage your client relationship.",
         "You get paid directly by the customer."
     ],
-    tip: ""
+    tip: "Contact leads within 1 hour for the best chance of getting hired."
   },
   {
     icon: <Star className="h-10 w-10 text-primary" />,
@@ -72,6 +73,29 @@ const benefits = [
     "Build your brand with real customer feedback",
     "Access to support, guides, and Pro Success Stories"
 ];
+
+const leadInfo = [
+    {
+        icon: <Tag className="h-6 w-6 text-primary" />,
+        title: "Lead Pricing (Credits)",
+        content: "Pros buy credits to contact new customers. A single credit is R30, with bulk packs reducing the cost to as low as R24/credit. Each lead costs between 1–5 credits, varying by service category, location, and demand. Often, one job covers months of advertising costs."
+    },
+    {
+        icon: <Wallet className="h-6 w-6 text-primary" />,
+        title: "Fees & Payments",
+        content: "There are no monthly or annual fees. You only pay for the leads you choose to purchase. You can pay for credits via Credit/Debit card or EFT (direct deposit)."
+    },
+    {
+        icon: <Map className="h-6 w-6 text-primary" />,
+        title: "Service Areas",
+        content: "Set your service radius directly in your Gaupro profile. You will only receive lead notifications from customers within your designated area, ensuring all your job alerts are relevant."
+    },
+     {
+        icon: <Info className="h-6 w-6 text-primary" />,
+        title: "Important Note",
+        content: "Gaupro connects you with customers; we do not process payments for jobs. Customers pay you directly based on the terms you agree upon together."
+    }
+]
 
 export default function HowItWorksForProsPage() {
   return (
@@ -118,11 +142,32 @@ export default function HowItWorksForProsPage() {
         
         <section className="py-16 md:py-24 bg-secondary/50">
             <div className="container mx-auto px-4">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl font-bold text-center mb-10">Understanding Leads, Credits & Costs</h2>
+                     <div className="grid md:grid-cols-2 gap-8">
+                        {leadInfo.map((info, index) => (
+                            <Card key={index} className="bg-background">
+                                <CardHeader className="flex flex-row items-center gap-4">
+                                    {info.icon}
+                                    <CardTitle className="text-xl">{info.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-muted-foreground">{info.content}</p>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section className="py-16 md:py-24">
+            <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto">
                      <h2 className="text-3xl font-bold text-center mb-8">💡 Why Pros Love Gaupro</h2>
                      <ul className="space-y-4">
                         {benefits.map(benefit => (
-                            <li key={benefit} className="flex items-start gap-3 p-4 bg-background rounded-lg border">
+                            <li key={benefit} className="flex items-start gap-3 p-4 bg-secondary/50 rounded-lg border">
                                 <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                                 <span className="text-muted-foreground text-lg">{benefit}</span>
                             </li>
@@ -131,6 +176,7 @@ export default function HowItWorksForProsPage() {
                 </div>
             </div>
         </section>
+
 
         <section className="py-16">
             <div className="container mx-auto px-4 text-center">
@@ -153,3 +199,5 @@ export default function HowItWorksForProsPage() {
     </>
   );
 }
+
+    
