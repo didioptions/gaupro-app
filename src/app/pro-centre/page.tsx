@@ -74,7 +74,7 @@ export default function ProCentrePage() {
   return (
     <>
       <Header />
-      <main className="flex-grow bg-background">
+      <main className="flex-grow bg-white">
         
         {/* Hero Section */}
         <section className="bg-secondary/50 py-16 md:py-24">
