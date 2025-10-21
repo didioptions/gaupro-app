@@ -9,7 +9,7 @@ const footerSections = [
       { text: 'Browse Quotes', href: '/browse-quotes' },
       { text: 'Join as a Pro', href: '/pro/signup' },
       { text: 'How it Works for Pros', href: '#' },
-      { text: 'Pro Success Stories', href: '#' },
+      { text: 'Pro Success Stories', href: '/pro-success-stories' },
       { text: 'Pro Centre', href: '#' },
     ],
   },
@@ -65,7 +65,7 @@ export default function Footer() {
           ))}
           <div>
             <h3 className="font-semibold mb-4">Download Apps</h3>
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 mt-6">
                  <Link href="#" className="inline-block">
                     <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-12"/>
                  </Link>
