@@ -40,7 +40,7 @@ export default function ProSuccessStoriesPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow bg-secondary/50">
+      <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <header className="text-center mb-12 max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Gaupro Success Stories</h1>
