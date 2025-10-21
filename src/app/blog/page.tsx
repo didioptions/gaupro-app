@@ -46,6 +46,15 @@ const blogPosts = [
     readTime: '7 min read',
   },
   {
+    title: 'How to Succeed on Gaupro: Professional Success Strategies',
+    description: 'Learn the proven strategies that top-earning professionals on Gaupro use to optimize their profiles, win more jobs, and maximize their income.',
+    href: '/blog/how-to-succeed-on-gaupro',
+    imageUrl: 'https://picsum.photos/seed/blog-success/800/400',
+    imageHint: 'success chart growth',
+    date: 'December 5, 2023',
+    readTime: '9 min read',
+  },
+  {
     title: "Gaupro vs Other Options: Why We're South Africa's #1 Choice",
     description: 'A comprehensive comparison of Gaupro against traditional methods like Facebook, Gumtree, and Google search.',
     href: '/blog/gaupro-vs-others',
@@ -60,7 +69,7 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow bg-secondary/50">
+      <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <header className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Gaupro Blog</h1>
@@ -73,16 +82,16 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <Link href={post.href} key={post.title} className="group">
                 <Card className="overflow-hidden transition-shadow hover:shadow-lg">
-                  <div className="relative aspect-video">
-                    <Image
-                      src={post.imageUrl}
-                      alt={post.title}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={post.imageHint}
-                    />
-                  </div>
-                  <div className="p-6">
+                   <div className="p-6">
+                     <div className="relative aspect-video mb-6">
+                        <Image
+                        src={post.imageUrl}
+                        alt={post.title}
+                        fill
+                        className="object-cover rounded-md"
+                        data-ai-hint={post.imageHint}
+                        />
+                    </div>
                     <CardHeader className="p-0">
                       <div className="text-sm text-muted-foreground mb-2">
                         <span>{post.date}</span> &middot; <span>{post.readTime}</span>
