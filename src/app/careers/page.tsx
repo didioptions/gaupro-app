@@ -4,22 +4,27 @@ import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import Link from 'next/link';
 import { Briefcase, Globe, TrendingUp, Users, Heart, Lightbulb, CheckCircle, Mail, Linkedin } from 'lucide-react';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const whyWorkItems = [
     {
         icon: <Globe className="h-8 w-8 text-primary" />,
         title: "Meaningful Work",
-        description: "Your ideas help thousands of local professionals succeed."
+        description: "Your ideas help thousands of local professionals succeed.",
+        imageId: "meaningful-work-card"
     },
     {
         icon: <TrendingUp className="h-8 w-8 text-primary" />,
         title: "Growth & Learning",
-        description: "We support personal and career development through mentorship and flexibility."
+        description: "We support personal and career development through mentorship and flexibility.",
+        imageId: "growth-learning-card"
     },
     {
         icon: <Users className="h-8 w-8 text-primary" />,
         title: "Positive Culture",
-        description: "Collaborative, remote-friendly, and built on trust, creativity, and impact."
+        description: "Collaborative, remote-friendly, and built on trust, creativity, and impact.",
+        imageId: "positive-culture-card"
     }
 ];
 
@@ -70,13 +75,28 @@ export default function CareersPage() {
                 <h2 className="text-3xl font-bold text-center mb-10">🌟 Why Work at Gaupro?</h2>
                  <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10">We believe in purpose, people, and progress. When you join Gaupro, you become part of a passionate team that values innovation, collaboration, and growth.</p>
                 <div className="grid md:grid-cols-3 gap-8">
-                    {whyWorkItems.map(item => (
-                        <div key={item.title} className="text-center p-6 border rounded-lg bg-card">
-                            <div className="flex justify-center mb-4">{item.icon}</div>
-                            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                            <p className="text-muted-foreground">{item.description}</p>
+                    {whyWorkItems.map(item => {
+                        const image = PlaceHolderImages.find(p => p.id === item.imageId);
+                        return (
+                        <div key={item.title} className="relative text-center p-6 border rounded-lg bg-card overflow-hidden text-white">
+                           {image && (
+                             <Image
+                                src={image.imageUrl}
+                                alt={image.description}
+                                fill
+                                className="object-cover"
+                                data-ai-hint={image.imageHint}
+                              />
+                            )}
+                            <div className="absolute inset-0 bg-black/50"></div>
+                            <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                                <div className="flex justify-center mb-4 bg-white/20 rounded-full p-2">{item.icon}</div>
+                                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                                <p className="text-white/80">{item.description}</p>
+                            </div>
                         </div>
-                    ))}
+                        )
+                    })}
                 </div>
             </section>
             
