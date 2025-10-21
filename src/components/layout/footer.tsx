@@ -8,7 +8,7 @@ const footerSections = [
     links: [
       { text: 'Browse Quotes', href: '/browse-quotes' },
       { text: 'Join as a Pro', href: '/pro/signup' },
-      { text: 'How it Works for Pros', href: '/how-it-works' },
+      { text: 'How it Works for Pros', href: '/how-it-works-for-pros' },
       { text: 'Pro Success Stories', href: '/pro-success-stories' },
       { text: 'Pro Centre', href: '/pro-centre' },
     ],
