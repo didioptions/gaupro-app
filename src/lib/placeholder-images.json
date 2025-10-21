@@ -29,6 +29,12 @@
       "description": "A group of diverse colleagues collaborating happily in an office.",
       "imageUrl": "https://images.unsplash.com/photo-1758873268851-feebbfb1d037?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3NpdGl2ZSUyMHRlYW18ZW58MHx8fHwxNzYxMDg5Mjk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "positive team"
+    },
+    {
+      "id": "mission-hero-image",
+      "description": "A group of diverse professionals working together, symbolizing teamwork and shared mission.",
+      "imageUrl": "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+      "imageHint": "teamwork collaboration"
     }
   ]
 }
