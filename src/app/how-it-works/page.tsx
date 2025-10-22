@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 const howItWorksSteps = [
   {
@@ -71,9 +72,9 @@ export default function HowItWorksPage() {
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
               Find Trusted Local Professionals — Fast, Easy, and Secure. Gaupro helps you connect with qualified local service providers near you. No more endless searching — simply tell us what you need, and we’ll match you with the right pros in minutes.
             </p>
-            <Button asChild size="lg" className="px-8 text-lg">
-              <Link href="/post-request">Get Started Now</Link>
-            </Button>
+            <RequestQuoteDialog>
+              <Button size="lg" className="px-8 text-lg">Get Started Now</Button>
+            </RequestQuoteDialog>
           </div>
         </section>
 
@@ -132,9 +133,9 @@ export default function HowItWorksPage() {
                     Find the right pro for your next project — in just a few clicks.
                 </p>
                  <div className="flex justify-center gap-4">
-                    <Button asChild size="lg">
-                        <Link href="/post-request">Post a Job →</Link>
-                    </Button>
+                    <RequestQuoteDialog>
+                      <Button size="lg">Post a Job →</Button>
+                    </RequestQuoteDialog>
                     <Button asChild size="lg" variant="secondary">
                         <Link href="/how-it-works-for-pros">How Gaupro Works for Pros →</Link>
                     </Button>

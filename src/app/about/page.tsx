@@ -4,6 +4,7 @@ import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 const stats = [
   { value: '15,000+', label: 'Verified Professionals' },
@@ -195,9 +196,9 @@ export default function AboutUsPage() {
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                      <div>
                         <p className="mb-2">For Customers:</p>
-                        <Button asChild size="lg">
-                            <Link href="/post-request">Post a Job Free →</Link>
-                        </Button>
+                        <RequestQuoteDialog>
+                          <Button size="lg">Post a Job Free →</Button>
+                        </RequestQuoteDialog>
                      </div>
                       <div>
                         <p className="mb-2">For Professionals:</p>
