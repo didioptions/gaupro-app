@@ -26,7 +26,7 @@ const footerSections = [
     title: 'For Customers',
     links: [
       { text: 'How It Works', href: '/how-it-works' },
-      { text: 'Trust & Safety', href: '#' },
+      { text: 'Trust & Safety', href: '/trust-and-safety' },
       { text: 'Request Quote', href: '/post-request' },
       { text: 'Contact Us', href: '#' },
     ],
