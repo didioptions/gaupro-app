@@ -92,10 +92,9 @@ export default function PostRequestPage() {
                           {allServices.map((s) => (
                             <CommandItem
                               key={s.value}
-                              value={s.label}
+                              value={s.value}
                               onSelect={(currentValue) => {
-                                const selected = allServices.find(srv => srv.label.toLowerCase() === currentValue);
-                                setService(selected?.value === service ? "" : selected?.value || "");
+                                setService(currentValue === service ? '' : currentValue);
                                 setPopoverOpen(false);
                               }}
                             >
@@ -113,7 +112,7 @@ export default function PostRequestPage() {
                     </Command>
                   </PopoverContent>
                 </Popover>
-                <Button type="submit" size="lg" className="h-12 px-8 text-base">
+                <Button type="submit" size="lg" className="h-12 px-8 text-base" disabled={!service}>
                   Get Started
                 </Button>
               </form>
