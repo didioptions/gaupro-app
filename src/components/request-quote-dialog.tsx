@@ -202,7 +202,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
                     </Button>
                     <div>
                         <DialogDescription>Request for {serviceLabel}</DialogDescription>
-                        <DialogTitle className="text-2xl">Finally, your contact details</DialogTitle>
+                        <DialogTitle className="text-2xl">Where should we send your quotes?</DialogTitle>
                     </div>
                 </div>
             </DialogHeader>
@@ -230,7 +230,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
                 </div>
             </div>
             <div className="flex justify-end">
-                <Button size="lg" type="submit">Submit Request</Button>
+                <Button size="lg" type="submit">Get FREE Quotes</Button>
             </div>
         </form>
     );
