@@ -78,6 +78,8 @@ const serviceOptions: Record<string, { id: string, label: string }[]> = {
 
 const allServices = [
   { value: 'plumber', label: 'Plumber' },
+  { value: 'plumbing-repair', label: 'Plumbing Repair' },
+  { value: 'plumbing-maintenance', label: 'Plumbing Maintenance' },
   { value: 'electrician', label: 'Electrician' },
   { value: 'carpenter', label: 'Carpenter' },
   { value: 'painter', label: 'Painter' },
@@ -108,7 +110,8 @@ export default function PostRequestPage() {
   };
 
   const selectedServiceLabel = allServices.find((s) => s.value === service)?.label || "What service do you need? e.g. Plumber";
-  const currentServiceOptions = serviceOptions[service] || [];
+  const mainService = service.split('-')[0];
+  const currentServiceOptions = serviceOptions[mainService] || [];
 
 
   return (
@@ -149,9 +152,10 @@ export default function PostRequestPage() {
                           {allServices.map((s) => (
                             <CommandItem
                               key={s.value}
-                              value={s.value}
+                              value={s.label}
                               onSelect={(currentValue) => {
-                                setService(currentValue === service ? '' : currentValue);
+                                const selected = allServices.find(srv => srv.label.toLowerCase() === currentValue);
+                                setService(selected?.value === service ? "" : selected?.value || "");
                                 setPopoverOpen(false);
                               }}
                             >
