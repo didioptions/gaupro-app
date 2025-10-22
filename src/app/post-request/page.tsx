@@ -50,7 +50,8 @@ const features = [
   },
 ];
 
-const plumbingServices = [
+const serviceOptions: Record<string, { id: string, label: string }[]> = {
+  plumber: [
     { id: 'emergency', label: 'Emergency Plumbing' },
     { id: 'blocked_drain', label: 'Blocked Drain' },
     { id: 'leaking_pipe', label: 'Burst or leaking pipe' },
@@ -62,7 +63,18 @@ const plumbingServices = [
     { id: 'geyser_installation', label: 'Geyser installation' },
     { id: 'dishwasher_installation', label: 'Washing Machine and Dishwasher Installation' },
     { id: 'compliance_certificate', label: 'Plumbing certificate of compliance' },
-];
+  ],
+  builder: [
+    { id: 'build-garage', label: 'Build a Garage' },
+    { id: 'build-outbuilding', label: 'Build an Outbuilding, Granny Flat or Guest House' },
+    { id: 'new-construction', label: 'New Building Construction' },
+    { id: 'home-remodel', label: 'Home Remodel' },
+    { id: 'home-additions', label: 'Home Additions' },
+    { id: 'restore-repair', label: 'Restore, Renovate or Repair damaged home' },
+    { id: 'build-boundary-wall', label: 'Build a Boundary Wall' },
+    { id: 'other-building-works', label: 'Other building works' },
+  ]
+};
 
 const allServices = [
   { value: 'plumber', label: 'Plumber' },
@@ -96,6 +108,7 @@ export default function PostRequestPage() {
   };
 
   const selectedServiceLabel = allServices.find((s) => s.value === service)?.label || "What service do you need? e.g. Plumber";
+  const currentServiceOptions = serviceOptions[service] || [];
 
 
   return (
@@ -187,29 +200,33 @@ export default function PostRequestPage() {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-[525px]">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Get quotes for {allServices.find(s => s.value === service)?.label || 'Pros'}</DialogTitle>
+            <DialogTitle className="text-2xl font-bold">Get quotes for {selectedServiceLabel}</DialogTitle>
             <DialogDescription>
-              Answer a few questions and we'll connect you with the right pros.
+             Answer a few questions and we'll connect you with the right pros.
             </DialogDescription>
           </DialogHeader>
           <div className="py-4">
-            <h3 className="mb-4 font-semibold text-foreground">What do you need help with?</h3>
-            <RadioGroup defaultValue="emergency">
-                <div className="space-y-3">
-                    {plumbingServices.map((item) => (
-                        <div className="flex items-center" key={item.id}>
-                            <RadioGroupItem value={item.id} id={item.id} />
-                            <Label htmlFor={item.id} className="pl-3 font-normal cursor-pointer">{item.label}</Label>
-                        </div>
-                    ))}
-                </div>
-            </RadioGroup>
+            <h3 className="mb-4 font-semibold text-foreground">What type of service do you need?</h3>
+            {currentServiceOptions.length > 0 ? (
+                <RadioGroup defaultValue={currentServiceOptions[0].id}>
+                    <div className="space-y-3">
+                        {currentServiceOptions.map((item) => (
+                            <div className="flex items-center" key={item.id}>
+                                <RadioGroupItem value={item.id} id={item.id} />
+                                <Label htmlFor={item.id} className="pl-3 font-normal cursor-pointer">{item.label}</Label>
+                            </div>
+                        ))}
+                    </div>
+                </RadioGroup>
+            ) : (
+                <p className="text-muted-foreground text-sm">No specific options for this service. Click below to continue.</p>
+            )}
           </div>
           <DialogFooter>
             <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full"
+                className="w-full bg-red-600 hover:bg-red-700"
                 onClick={() => setIsDialogOpen(false)}
             >
               Get Free Quotes
