@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -28,12 +29,19 @@ export default function Hero() {
           Get free quotes from qualified, trusted and reviewed professionals in your area.
         </p>
         <div className="mx-auto max-w-lg">
-           <RequestQuoteDialog>
-              <Button size="lg" className="h-14 px-8 text-lg w-full">
-                <Search className="mr-2 h-5 w-5" />
-                Get Started
-              </Button>
-            </RequestQuoteDialog>
+           <div className="flex w-full items-center space-x-2 bg-white rounded-md p-2 shadow-lg">
+             <Input 
+                type="text" 
+                placeholder="What service do you need? e.g. Plumber" 
+                className="flex-grow bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 h-12 text-base text-gray-700"
+              />
+              <RequestQuoteDialog>
+                <Button type="submit" size="lg" className="h-12 px-6">
+                  <Search className="mr-2 h-5 w-5" />
+                  Get Started
+                </Button>
+              </RequestQuoteDialog>
+           </div>
         </div>
       </div>
     </section>
