@@ -68,6 +68,24 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
   {
+    service: 'cleaning-service',
+    questions: [
+      {
+        id: 'cleaning_type',
+        text: 'What type of cleaning do you need?',
+        type: 'radio',
+        options: [
+            { value: 'house_cleaning', label: 'House Cleaning' },
+            { value: 'office_cleaning', label: 'Office Cleaning' },
+            { value: 'window_cleaning', label: 'Window Cleaning' },
+            { value: 'blinds_cleaning', label: 'Blinds Cleaning' },
+            { value: 'curtain_cleaning', label: 'Curtain Cleaning' },
+            { value: 'sanitisation', label: 'Sanitisation' },
+        ]
+      },
+    ]
+  },
+  {
     service: 'builder',
     questions: [
       {

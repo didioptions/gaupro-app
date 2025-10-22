@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useCallback } from 'react';
@@ -152,17 +153,18 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
       return (
         <form>
           <DialogHeader>
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
-                <ArrowLeft />
-              </Button>
-              <div>
-                <DialogDescription>Request for {serviceLabel}</DialogDescription>
-                <DialogTitle className="text-2xl">{currentQuestion.text}</DialogTitle>
-              </div>
+             <div className="flex items-center gap-4">
+                <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
+                    <ArrowLeft />
+                </Button>
+                <div>
+                  <DialogTitle className="text-2xl">Get quotes for {serviceLabel}</DialogTitle>
+                  <DialogDescription>Answer a few questions and we'll connect you with the right pros.</DialogDescription>
+                </div>
             </div>
           </DialogHeader>
           <div className="py-8 min-h-[250px]">
+            <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
               <RadioGroup onValueChange={value => handleInputChange(currentQuestion.id, value)}>
                 <div className="space-y-3">
