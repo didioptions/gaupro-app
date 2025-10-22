@@ -1,19 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Pencil, Tags, ThumbsUp, Check, ChevronsUpDown } from 'lucide-react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from '@/components/ui/dialog';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
 import {
   Command,
   CommandEmpty,
@@ -30,6 +21,7 @@ import {
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { allServices } from '@/lib/service-questions';
 
 
 const features = [
@@ -50,69 +42,17 @@ const features = [
   },
 ];
 
-const serviceOptions: Record<string, { id: string, label: string }[]> = {
-  plumber: [
-    { id: 'emergency', label: 'Emergency Plumbing' },
-    { id: 'blocked_drain', label: 'Blocked Drain' },
-    { id: 'leaking_pipe', label: 'Burst or leaking pipe' },
-    { id: 'toilet_repairs', label: 'Toilet repairs' },
-    { id: 'pipe_installation', label: 'Plumbing pipe installation or repair' },
-    { id: 'fixture_installation', label: 'Tap, sink, bath, shower or other water fixture installation' },
-    { id: 'fixture_repair', label: 'Tap, sink, bath, shower or other water fixture repair' },
-    { id: 'geyser_repair', label: 'Geyser repair' },
-    { id: 'geyser_installation', label: 'Geyser installation' },
-    { id: 'dishwasher_installation', label: 'Washing Machine and Dishwasher Installation' },
-    { id: 'compliance_certificate', label: 'Plumbing certificate of compliance' },
-  ],
-  builder: [
-    { id: 'build-garage', label: 'Build a Garage' },
-    { id: 'build-outbuilding', label: 'Build an Outbuilding, Granny Flat or Guest House' },
-    { id: 'new-construction', label: 'New Building Construction' },
-    { id: 'home-remodel', label: 'Home Remodel' },
-    { id: 'home-additions', label: 'Home Additions' },
-    { id: 'restore-repair', label: 'Restore, Renovate or Repair damaged home' },
-    { id: 'build-boundary-wall', label: 'Build a Boundary Wall' },
-    { id: 'other-building-works', label: 'Other building works' },
-  ]
-};
-
-const allServices = [
-  { value: 'plumber', label: 'Plumber' },
-  { value: 'plumbing-repair', label: 'Plumbing Repair' },
-  { value: 'plumbing-maintenance', label: 'Plumbing Maintenance' },
-  { value: 'electrician', label: 'Electrician' },
-  { value: 'carpenter', label: 'Carpenter' },
-  { value: 'painter', label: 'Painter' },
-  { value: 'builder', label: 'Builder' },
-  { value: 'mover', label: 'Mover' },
-  { value: 'cleaning-service', label: 'Cleaning Service' },
-  { value: 'website-designer', label: 'Website Designer' },
-  { value: 'architect', label: 'Architect' },
-  { value: 'dstv-installer', label: 'DSTV Installer' },
-  { value: 'security', label: 'Security' },
-  { value: 'caterer', label: 'Caterer' },
-  { value: 'handyman', label: 'Handyman' },
-  { value: 'roofer', label: 'Roofer' },
-  { value: 'tiler', label: 'Tiler' },
-  { value: 'welder', label: 'Welder' },
-];
-
 export default function PostRequestPage() {
   const [service, setService] = useState('');
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
+  const router = useRouter();
   
   const handleGetStarted = (e: React.FormEvent) => {
     e.preventDefault();
     if (service) {
-      setIsDialogOpen(true);
+      router.push(`/post-request/${service}`);
     }
   };
-
-  const selectedServiceLabel = allServices.find((s) => s.value === service)?.label || "What service do you need? e.g. Plumber";
-  const mainService = service.split('-')[0];
-  const currentServiceOptions = serviceOptions[mainService] || [];
-
 
   return (
     <>
@@ -200,44 +140,6 @@ export default function PostRequestPage() {
           </div>
         </div>
       </section>
-
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-[525px]">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Get quotes for {selectedServiceLabel}</DialogTitle>
-            <DialogDescription>
-             Answer a few questions and we'll connect you with the right pros.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="py-4">
-            <h3 className="mb-4 font-semibold text-foreground">What type of service do you need?</h3>
-            {currentServiceOptions.length > 0 ? (
-                <RadioGroup defaultValue={currentServiceOptions[0].id}>
-                    <div className="space-y-3">
-                        {currentServiceOptions.map((item) => (
-                            <div className="flex items-center" key={item.id}>
-                                <RadioGroupItem value={item.id} id={item.id} />
-                                <Label htmlFor={item.id} className="pl-3 font-normal cursor-pointer">{item.label}</Label>
-                            </div>
-                        ))}
-                    </div>
-                </RadioGroup>
-            ) : (
-                <p className="text-muted-foreground text-sm">No specific options for this service. Click below to continue.</p>
-            )}
-          </div>
-          <DialogFooter>
-            <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full bg-red-600 hover:bg-red-700"
-                onClick={() => setIsDialogOpen(false)}
-            >
-              Get Free Quotes
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
     </main>
       <Footer />
