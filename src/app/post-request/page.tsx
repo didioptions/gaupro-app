@@ -126,9 +126,9 @@ export default function PostRequestPage() {
             Give us a few details and we’ll match you with the right professional.
           </p>
 
-          <Card className="max-w-2xl mx-auto text-left shadow-lg">
+          <Card className="max-w-xl mx-auto text-left shadow-lg">
             <CardContent className="p-6">
-               <form className="flex flex-col md:flex-row gap-4" onSubmit={handleGetStarted}>
+               <form className="flex flex-col sm:flex-row gap-2" onSubmit={handleGetStarted}>
                  <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                   <PopoverTrigger asChild>
                     <Button
