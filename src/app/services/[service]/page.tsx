@@ -63,7 +63,7 @@ export default function ServicePage({ params }: { params: { service: string } })
                         <p className="mt-4 text-lg max-w-xl mx-auto text-white/90">
                             Get matched with top-rated, verified professionals in your area.
                         </p>
-                        <RequestQuoteDialog>
+                        <RequestQuoteDialog service={params.service}>
                             <Button size="lg" variant="destructive" className="mt-8 text-lg px-10 h-14">
                                 Get Free Quotes
                             </Button>

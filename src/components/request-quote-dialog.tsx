@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -40,15 +40,29 @@ type FormData = {
   [key: string]: string | File[];
 };
 
-export function RequestQuoteDialog({ children }: { children: React.ReactNode }) {
+export function RequestQuoteDialog({ children, service }: { children: React.ReactNode, service?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(0); // 0: service selection
-  const [selectedService, setSelectedService] = useState('');
+  const [selectedService, setSelectedService] = useState(service || '');
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({});
+
+  useEffect(() => {
+    if (isOpen && service) {
+      setSelectedService(service);
+      setStep(1); // Skip service selection
+    } else if (!isOpen) {
+      // Reset state when dialog closes
+      setTimeout(() => {
+        setStep(0);
+        setSelectedService(service || '');
+        setFormData({});
+      }, 300);
+    }
+  }, [isOpen, service]);
   
   const questionSet = serviceQuestionSets.find(qs => qs.service === selectedService);
-  const totalSteps = (questionSet ? questionSet.questions.length : 0) + 1 + 1; // service selection + questions + contact info
+  const totalSteps = (questionSet ? questionSet.questions.length : 0) + 1 + (service ? 0 : 1);
   const progress = (step / (totalSteps - 1)) * 100;
   
   const serviceImage = CategoryImages.find(img => img.id === `${selectedService}-image`);
@@ -67,6 +81,9 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
   };
 
   const handleBack = () => {
+    if (step === 1 && service) {
+      setIsOpen(false);
+    }
     setStep(prev => Math.max(prev - 1, 0));
   };
   
@@ -78,13 +95,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
     e.preventDefault();
     console.log('Final Form Data:', { service: selectedService, ...formData });
     alert('Request Submitted! (See console for data)');
-    setIsOpen(false); // Close dialog on submit
-    // Reset state for next time
-    setTimeout(() => {
-        setStep(0);
-        setSelectedService('');
-        setFormData({});
-    }, 500);
+    setIsOpen(false);
   };
 
   const renderStepContent = () => {
@@ -163,7 +174,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
             </div>
              {serviceImage && (
                 <div className="relative h-32 w-full mb-4">
-                  <Image src={serviceImage.imageUrl} alt={serviceImage.description} fill className="object-cover rounded-t-lg" />
+                  <Image src={serviceImage.imageUrl} alt={serviceImage.description || ''} fill className="object-cover rounded-t-lg" data-ai-hint={serviceImage.imageHint} />
                 </div>
               )}
           </DialogHeader>
@@ -193,7 +204,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
           </div>
           <div className="flex justify-between items-center">
             <Button variant="ghost" onClick={handleBack}>Back</Button>
-            <Button size="lg" onClick={handleNext}>Continue</Button>
+            <Button size="lg" onClick={handleNext}>Next</Button>
           </div>
         </form>
       );
