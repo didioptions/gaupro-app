@@ -39,11 +39,8 @@ import { Label } from './ui/label';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { Textarea } from './ui/textarea';
 import { Input } from './ui/input';
-import { FileUpload } from './ui/file-upload';
 import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
-import Link from 'next/link';
-import { Checkbox } from './ui/checkbox';
 import { Calendar } from './ui/calendar';
 import { format } from 'date-fns';
 
@@ -77,16 +74,18 @@ function RequestQuoteDialogContent({
   const progress = step > 0 ? ((step - 1) / (totalSteps - 1)) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
-    (img) => img.id === `${selectedService}-image`
+    (img) => img.id === `${selectedService}-image`.replace('-service', '')
   );
 
   useEffect(() => {
     if (isOpen) {
+      // If a service is pre-selected, start from the first question.
       if (service) {
         setSelectedService(service);
-        setStep(1); // Start at the first question
+        setStep(1); 
       } else {
-        setStep(0); // Start at service selection
+        // Otherwise, start from the service selection.
+        setStep(0); 
       }
     } else {
       // Delay reset to allow for closing animation
@@ -99,6 +98,7 @@ function RequestQuoteDialogContent({
       }, 300);
     }
   }, [isOpen, service]);
+
 
   const handleServiceSelect = (serviceValue: string) => {
     setSelectedService(serviceValue);
@@ -135,19 +135,36 @@ function RequestQuoteDialogContent({
     console.log('Final Form Data:', { service: selectedService, ...formData });
     setIsSubmitted(true);
   };
-
+  
   const renderStepContent = () => {
     const serviceLabel = allServices.find((s) => s.value === selectedService)?.label;
 
     if (isSubmitted) {
       return (
-        <div className="text-center py-12">
-          <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold mb-2">Request Submitted!</h2>
-          <p className="text-muted-foreground mb-6">
-            You'll receive quotes from professionals shortly.
-          </p>
-          <Button onClick={() => setIsOpen(false)}>Done</Button>
+        <div className="text-center py-8">
+          <h2 className="text-2xl font-bold mb-4">✅ Great News! Your Request Has Been Received</h2>
+          <div className="text-muted-foreground space-y-4 text-left">
+            <p>
+              Thanks for posting your job on Gaupro — we’re already matching you with trusted local professionals.
+            </p>
+            <p>
+              To make sure you get the most accurate quotes, our support team may reach out to confirm your details — so please keep your phone nearby 📞.
+            </p>
+            <p>
+              If you’d like to speed things up, verify your contact details when prompted — this helps us connect you to verified pros even faster.
+            </p>
+            <h3 className="font-semibold text-foreground pt-2">Here’s What Happens Next:</h3>
+            <ol className="list-decimal list-inside space-y-2">
+                <li>Receive quotes from qualified service providers — usually within a few hours.</li>
+                <li>Compare prices, view profiles, and read verified customer reviews.</li>
+                <li>Chat or call the pros directly to discuss your needs or ask questions.</li>
+                <li>Hire your favorite pro, agree on the details, and get your project done!</li>
+            </ol>
+            <p>
+                With over 500 service categories, Gaupro connects you to the right expert for any job — from home repairs to creative projects. Let’s make your next project a success 🚀
+            </p>
+          </div>
+          <Button onClick={() => setIsOpen(false)} className="mt-8">Done</Button>
         </div>
       );
     }
@@ -211,14 +228,18 @@ function RequestQuoteDialogContent({
     const questionStepIndex = step - 1;
     const isQuestionStep = questionStepIndex >= 0 && questionStepIndex < questions.length;
     const isFinalStep = step === totalSteps;
-
+    
     // Steps 1 to N: Question Steps
     if (isQuestionStep) {
       const currentQuestion = questions[questionStepIndex];
-      if (!currentQuestion) return null; // Safeguard
+      // If for some reason a question isn't found, gracefully move to final step
+      if (!currentQuestion) {
+          setStep(totalSteps);
+          return null;
+      }
 
       return (
-        <form>
+        <form onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
             <DialogHeader className='text-left'>
               <div className="flex items-center gap-4 mb-4">
                   <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
@@ -301,7 +322,7 @@ function RequestQuoteDialogContent({
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button type="button" size="lg" onClick={handleNext}>
+            <Button type="submit" size="lg">
               Next
             </Button>
           </div>
@@ -347,34 +368,34 @@ function RequestQuoteDialogContent({
               <Input
                 id="email"
                 type="email"
-                placeholder="Your Email"
+                placeholder="Your Email Address"
                 onChange={(e) => handleInputChange('email', e.target.value)}
                 required
               />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Input
-                  id="phoneNumber"
-                  type="tel"
-                  placeholder="Your Cellphone Number"
-                  onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Select onValueChange={(value) => handleInputChange('contact_method', value)} defaultValue="anytime">
-                  <SelectTrigger>
-                    <SelectValue placeholder="Contact me Anytime" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="anytime">Contact me Anytime</SelectItem>
-                    <SelectItem value="morning">Morning</SelectItem>
-                    <SelectItem value="afternoon">Afternoon</SelectItem>
-                    <SelectItem value="evening">Evening</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                    <Input
+                    id="phoneNumber"
+                    type="tel"
+                    placeholder="Your Cellphone Number"
+                    onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                    required
+                    />
+                </div>
+                <div className="space-y-2">
+                    <Select onValueChange={(value) => handleInputChange('contact_method', value)} defaultValue="anytime">
+                    <SelectTrigger>
+                        <SelectValue placeholder="Contact me Anytime" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="anytime">Contact me Anytime</SelectItem>
+                        <SelectItem value="morning">Morning</SelectItem>
+                        <SelectItem value="afternoon">Afternoon</SelectItem>
+                        <SelectItem value="evening">Evening</SelectItem>
+                    </SelectContent>
+                    </Select>
+                </div>
             </div>
           </div>
           <div className="flex justify-between items-center">
