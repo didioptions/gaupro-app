@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,7 +33,7 @@ const CategoryCard = ({ name, href, imageId }: { name: string, href: string, ima
           />
         </div>
         <CardContent className="p-4 bg-card">
-          <p className="font-semibold text-center">{name}</p>
+          <p className="font-semibold text-center text-foreground">{name}</p>
         </CardContent>
       </Card>
     </Link>
@@ -42,7 +43,7 @@ const CategoryCard = ({ name, href, imageId }: { name: string, href: string, ima
 
 export default function PopularCategories() {
   return (
-    <section id="categories" className="py-20 md:py-24">
+    <section id="categories" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <Tabs defaultValue="popular" className="w-full">
           <div className="flex justify-center mb-12">

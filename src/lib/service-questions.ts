@@ -17,7 +17,7 @@ export const allServices = [
   { value: 'electrician', label: 'Electrician' },
   { value: 'carpenter', label: 'Carpenter' },
   { value: 'painter', label: 'Painter' },
-  { value: 'builder', label: 'Builder' },
+  { value: 'builders', label: 'Builders' },
   { value: 'mover', label: 'Mover' },
   { value: 'cleaning-service', label: 'Cleaning Service' },
   { value: 'website-designer', label: 'Website Designer' },
@@ -124,7 +124,7 @@ export const serviceQuestionSets: QuestionSet[] = [
     ]
   },
   {
-    service: 'builder',
+    service: 'builders',
     questions: [
       {
         id: 'building_works_type',
@@ -184,7 +184,7 @@ export const serviceQuestionSets: QuestionSet[] = [
   },
   // Fallback for other services
   ...allServices
-    .filter(service => !['plumber', 'cleaning-service', 'builder', 'electrician'].includes(service.value))
+    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician'].includes(service.value))
     .map(service => ({
       service: service.value,
       questions: commonQuestions,

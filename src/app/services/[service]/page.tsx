@@ -80,7 +80,7 @@ export default function ServicePage({ params }: { params: { service: string } })
                      </div>
                 </section>
 
-                <section className="py-16 bg-secondary/30">
+                <section className="py-16 bg-background">
                     <div className="container mx-auto px-4">
                          <div className="text-center md:text-left mb-8">
                             <p className="text-sm text-muted-foreground">Small > Johannesburg > Plumbers</p>
@@ -96,9 +96,9 @@ export default function ServicePage({ params }: { params: { service: string } })
                                                     <div className="flex items-start gap-4">
                                                         <Image src={`https://picsum.photos/seed/${pro.avatarSeed}/80/80`} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint="company logo" />
                                                         <div>
-                                                            <h2 className="text-xl font-bold">{pro.name}</h2>
+                                                            <h2 className="text-xl font-bold text-foreground">{pro.name}</h2>
                                                             <p className="text-sm text-muted-foreground">{pro.location}</p>
-                                                            <p className="text-sm mt-2">{pro.description}</p>
+                                                            <p className="text-sm mt-2 text-foreground">{pro.description}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -121,7 +121,7 @@ export default function ServicePage({ params }: { params: { service: string } })
                             <aside className="space-y-8">
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="font-semibold mb-3">Need Plumbers in Johannesburg?</h3>
+                                        <h3 className="font-semibold mb-3 text-foreground">Need Plumbers in Johannesburg?</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                             <li>602 Reviews for plumbers</li>
                                             <li>510 Positive Reviews</li>
@@ -132,7 +132,7 @@ export default function ServicePage({ params }: { params: { service: string } })
                                 </Card>
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="font-semibold mb-3">Price Estimate for plumbers in Johannesburg</h3>
+                                        <h3 className="font-semibold mb-3 text-foreground">Price Estimate for plumbers in Johannesburg</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                             {priceEstimates.map(est => <li key={est}>{est}</li>)}
                                         </ul>
