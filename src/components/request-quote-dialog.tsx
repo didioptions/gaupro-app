@@ -24,7 +24,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
-import { Check, ChevronsUpDown, ArrowLeft } from 'lucide-react';
+import { Check, ChevronsUpDown, ArrowLeft, Calendar as CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from './ui/progress';
@@ -35,28 +35,38 @@ import { Input } from './ui/input';
 import { FileUpload } from './ui/file-upload';
 import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
+import Link from 'next/link';
+import { Checkbox } from './ui/checkbox';
+import { Calendar } from './ui/calendar';
+import { format } from 'date-fns';
 
 type FormData = {
-  [key: string]: string | File[];
+  [key: string]: string | File[] | boolean | Date | undefined;
 };
 
 export function RequestQuoteDialog({ children, service }: { children: React.ReactNode, service?: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [step, setStep] = useState(0); // 0: service selection
+  const [step, setStep] = useState(0);
   const [selectedService, setSelectedService] = useState(service || '');
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({});
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [date, setDate] = useState<Date | undefined>();
 
   useEffect(() => {
-    if (isOpen && service) {
-      setSelectedService(service);
-      setStep(1); // Skip service selection
-    } else if (!isOpen) {
+    if (isOpen) {
+      if (service) {
+        setSelectedService(service);
+        setStep(1); // Skip service selection
+      }
+    } else {
       // Reset state when dialog closes
       setTimeout(() => {
         setStep(0);
         setSelectedService(service || '');
         setFormData({});
+        setShowDatePicker(false);
+        setDate(undefined);
       }, 300);
     }
   }, [isOpen, service]);
@@ -81,18 +91,35 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
   };
 
   const handleBack = () => {
+    // If on the first question step and a service was pre-selected, closing back should close the dialog
     if (step === 1 && service) {
       setIsOpen(false);
     }
     setStep(prev => Math.max(prev - 1, 0));
   };
   
-  const handleInputChange = (questionId: string, value: string | File[]) => {
+  const handleInputChange = (questionId: string, value: string | File[] | boolean | Date | undefined) => {
     setFormData(prev => ({ ...prev, [questionId]: value }));
+
+    if (questionId === 'urgency' && value === 'specific_date') {
+        setShowDatePicker(true);
+    } else if (questionId === 'urgency') {
+        setShowDatePicker(false);
+    }
+  };
+
+  const handleDateSelect = (selectedDate: Date | undefined) => {
+    setDate(selectedDate);
+    handleInputChange('urgency_date', selectedDate);
+    setShowDatePicker(false);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.terms) {
+        alert("You must agree to the Terms of Service and Privacy Policy.");
+        return;
+    }
     console.log('Final Form Data:', { service: selectedService, ...formData });
     alert('Request Submitted! (See console for data)');
     setIsOpen(false);
@@ -168,9 +195,10 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
       return (
         <form>
           <DialogHeader className="space-y-0">
-            <DialogTitle className="sr-only">Request a quote: {serviceLabel}</DialogTitle>
+            <DialogTitle className="sr-only">Request a quote for {serviceLabel}</DialogTitle>
              <div className="flex items-center gap-4 mb-4">
                 {step > 0 && <Button variant="ghost" size="icon" onClick={handleBack}><ArrowLeft/></Button>}
+                 <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
             </div>
              {serviceImage && (
                 <div className="relative h-32 w-full mb-4">
@@ -200,6 +228,30 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                 rows={5}
                 onChange={e => handleInputChange(currentQuestion.id, e.target.value)}
               />
+            )}
+            {showDatePicker && currentQuestion.id === 'urgency' && (
+                 <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-full justify-start text-left font-normal mt-4",
+                          !date && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {date ? format(date, "PPP") : <span>Pick a date</span>}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0">
+                      <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={handleDateSelect}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
             )}
           </div>
           <div className="flex justify-between items-center">
@@ -241,10 +293,31 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                     <Label htmlFor="location">Location</Label>
                     <Input id="location" placeholder="e.g. Sandton, Johannesburg" onChange={e => handleInputChange('location', e.target.value)} />
                 </div>
+                <div className='space-y-2'>
+                  <Label>How should professionals contact you?</Label>
+                  <RadioGroup onValueChange={value => handleInputChange('contact_method', value)}>
+                    <div className="grid grid-cols-2 gap-3">
+                      {['Phone call', 'WhatsApp', 'Email', 'Any method'].map(method => (
+                        <div className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary" key={method}>
+                          <RadioGroupItem value={method.toLowerCase().replace(' ', '_')} id={method} />
+                          <Label htmlFor={method} className="pl-3 font-normal cursor-pointer text-base">
+                            {method}
+                          </Label>
+                        </div>
+                      ))}
+                    </div>
+                  </RadioGroup>
+                </div>
                 <div className="space-y-2">
                     <Label>Upload Photos (Optional)</Label>
                     <FileUpload multiple onFilesChange={(files) => handleInputChange('photos', files)} />
                     <p className="text-xs text-muted-foreground">Add photos of the job to get more accurate quotes.</p>
+                </div>
+                <div className="flex items-start space-x-3 pt-4">
+                    <Checkbox id="terms" onCheckedChange={(checked) => handleInputChange('terms', checked as boolean)} />
+                    <Label htmlFor="terms" className="text-sm font-normal text-muted-foreground">
+                        I agree to Gaupro’s <Link href="/terms" className="underline text-primary" target="_blank">Terms of Service</Link> and <Link href="/privacy" className="underline text-primary" target="_blank">Privacy Policy</Link>.
+                    </Label>
                 </div>
             </div>
             <div className="flex justify-end">
@@ -261,7 +334,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
         <div className="absolute top-0 left-0 right-0">
          {step > 0 && <Progress value={progress} className="h-1" />}
         </div>
-        <div className="p-6 pt-8">
+        <div className="p-6 pt-10">
           {renderStepContent()}
         </div>
       </DialogContent>

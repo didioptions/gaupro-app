@@ -2,7 +2,7 @@
 export type Question = {
   id: string;
   text: string;
-  type: 'radio' | 'textarea' | 'text';
+  type: 'radio' | 'textarea' | 'text' | 'date';
   options?: { value: string; label: string }[];
   placeholder?: string;
 };
@@ -33,7 +33,39 @@ export const allServices = [
   { value: 'welder', label: 'Welder' },
 ];
 
-export const serviceQuestionSets: QuestionSet[] = [
+const commonQuestions: Question[] = [
+    {
+        id: 'job_details',
+        text: 'Describe the work you need done in detail. The more info you provide, the better quotes you’ll get.',
+        type: 'textarea',
+        placeholder: 'e.g. My geyser is leaking from the top valve. It is a 150L Kwikot geyser...'
+    },
+    {
+        id: 'urgency',
+        text: 'When do you need this service?',
+        type: 'radio',
+        options: [
+            { value: 'asap', label: 'As soon as possible' },
+            { value: 'within_a_week', label: 'Within a week' },
+            { value: 'flexible', label: 'Flexible' },
+            { value: 'specific_date', label: 'Specific date' },
+        ]
+    },
+    {
+        id: 'budget',
+        text: 'What’s your estimated budget?',
+        type: 'radio',
+        options: [
+            { value: 'under_1000', label: 'Under R1,000' },
+            { value: '1000_5000', label: 'R1,000–R5,000' },
+            { value: '5000_10000', label: 'R5,000–R10,000' },
+            { value: 'above_10000', label: 'Above R10,000' },
+            { value: 'not_sure', label: 'Not sure yet' },
+        ]
+    },
+];
+
+const specificQuestionSets: QuestionSet[] = [
   {
     service: 'plumber',
     questions: [
@@ -142,3 +174,9 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
 ];
+
+// Combine specific and common questions
+export const serviceQuestionSets: QuestionSet[] = specificQuestionSets.map(sqs => ({
+    ...sqs,
+    questions: [...sqs.questions, ...commonQuestions]
+}));
