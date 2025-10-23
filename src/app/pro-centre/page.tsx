@@ -77,11 +77,11 @@ export default function ProCentrePage() {
       <main className="flex-grow bg-background">
         
         {/* Hero Section */}
-        <section className="bg-secondary/50 py-16 md:py-24">
+        <section className="bg-background py-16 md:py-24">
           <div className="container mx-auto px-4 text-center">
             <Badge variant="outline" className="mb-4 text-primary border-primary">Last Updated: June 2025 | Version: 2.0</Badge>
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Gaupro Pro Centre</h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-foreground max-w-2xl mx-auto">
               Empowering South Africa’s Service Pros to Grow Smarter. Your go-to hub for tips, tools, and real-world strategies to attract more clients, build your brand, and grow your business online.
             </p>
             <div className="mt-8 flex justify-center gap-4">
@@ -101,7 +101,7 @@ export default function ProCentrePage() {
             <section id="learn-grow" className="scroll-mt-20">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl font-bold">📘 Learn & Grow</h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto mt-2">
+                    <p className="text-foreground max-w-2xl mx-auto mt-2">
                         Practical guides and insights to help your business stand out. From improving your profile to managing client reviews, every article is written by experts who know what works.
                     </p>
                 </div>
@@ -110,12 +110,12 @@ export default function ProCentrePage() {
                         <Card key={index} className="hover:shadow-lg transition-shadow">
                             <CardContent className="p-6 flex items-center justify-between">
                                 <p className="font-semibold">{topic.title}</p>
-                                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                                <ChevronRight className="h-5 w-5 text-foreground" />
                             </CardContent>
                         </Card>
                     ))}
                 </div>
-                 <div className="text-center mt-4 text-sm text-muted-foreground">
+                 <div className="text-center mt-4 text-sm text-foreground">
                     <p>SEO Keywords: grow your small business online, tips for freelancers South Africa, online marketing for service providers</p>
                 </div>
             </section>
@@ -124,7 +124,7 @@ export default function ProCentrePage() {
             <section id="tools" className="scroll-mt-20">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl font-bold">⚙️ Tools & Resources</h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto mt-2">
+                    <p className="text-foreground max-w-2xl mx-auto mt-2">
                         Access easy-to-use tools that help you manage your profile, respond to client requests faster, and track your growth.
                     </p>
                 </div>
@@ -134,12 +134,12 @@ export default function ProCentrePage() {
                             <CardContent className="p-6 text-center">
                                 <div className="flex justify-center mb-4">{tool.icon}</div>
                                 <h3 className="text-lg font-semibold">{tool.title}</h3>
-                                <p className="text-sm text-muted-foreground">{tool.description}</p>
+                                <p className="text-sm text-foreground">{tool.description}</p>
                             </CardContent>
                         </Card>
                     ))}
                 </div>
-                 <div className="text-center mt-4 text-sm text-muted-foreground">
+                 <div className="text-center mt-4 text-sm text-foreground">
                     <p>SEO Keywords: business tools for professionals, client management South Africa, verified service providers</p>
                 </div>
             </section>
@@ -149,32 +149,32 @@ export default function ProCentrePage() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="text-center md:text-left">
                         <h2 className="text-3xl font-bold">💡 Community & Support</h2>
-                        <p className="text-muted-foreground mt-2">
+                        <p className="text-foreground mt-2">
                             Join thousands of local pros who trust Gaupro to connect them with new clients every day. Learn from success stories, share advice, and grow together.
                         </p>
                         <Button variant="link" asChild className="mt-4 px-0">
                             <Link href="/pro-success-stories">Visit Pro Success Stories →</Link>
                         </Button>
-                        <div className="mt-4 text-sm text-muted-foreground">
+                        <div className="mt-4 text-sm text-foreground">
                             <p>SEO Keywords: trusted professional community South Africa, freelancer network South Africa</p>
                         </div>
                     </div>
-                     <Card className="bg-secondary/50">
+                     <Card className="bg-background">
                         <CardHeader>
                             <CardTitle>Pro Support Centre</CardTitle>
-                            <p className="text-muted-foreground text-sm">Get help when you need it.</p>
+                            <p className="text-foreground text-sm">Get help when you need it.</p>
                         </CardHeader>
                         <CardContent className="space-y-3">
                            {supportChannels.map(channel => (
-                               <Link href={channel.href} key={channel.title} className="flex items-center gap-4 text-sm p-2 rounded-md hover:bg-background">
+                               <Link href={channel.href} key={channel.title} className="flex items-center gap-4 text-sm p-2 rounded-md hover:bg-secondary">
                                    {channel.icon}
                                    <div>
                                        <p className="font-semibold">{channel.title}</p>
-                                       <p className="text-muted-foreground">{channel.details}</p>
+                                       <p className="text-foreground">{channel.details}</p>
                                    </div>
                                </Link>
                            ))}
-                           <div className="text-xs text-center text-muted-foreground pt-2">
+                           <div className="text-xs text-center text-foreground pt-2">
                                <p>Hours: Mon-Fri 8am-6pm, Sat 9am-1pm</p>
                            </div>
                         </CardContent>
@@ -190,7 +190,7 @@ export default function ProCentrePage() {
                         {howItWorksSteps.map((step, index) => (
                             <div key={index}>
                                 <h4 className="text-lg font-semibold mb-2">{index + 1}. {step.title}</h4>
-                                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                                <ul className="list-disc list-inside space-y-1 text-foreground">
                                     {step.points.map(point => <li key={point}>{point}</li>)}
                                 </ul>
                             </div>
@@ -203,7 +203,7 @@ export default function ProCentrePage() {
                         {benefits.map(benefit => (
                             <li key={benefit} className="flex items-start gap-2">
                                 <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                <span className="text-muted-foreground">{benefit}</span>
+                                <span className="text-foreground">{benefit}</span>
                             </li>
                         ))}
                     </ul>
@@ -214,7 +214,7 @@ export default function ProCentrePage() {
             <section>
                  <div className="text-center mb-10">
                     <h2 className="text-3xl font-bold">🎯 Lead Management Centre</h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto mt-2">
+                    <p className="text-foreground max-w-2xl mx-auto mt-2">
                        Convert More Gaupro Leads by responding quickly. Time is critical.
                     </p>
                 </div>
@@ -226,10 +226,10 @@ export default function ProCentrePage() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                             {responseTimes.map(item => (
                                 <div key={item.time} className="p-4 bg-secondary/50 rounded-lg">
-                                    <p className="text-sm font-semibold text-muted-foreground">Response Time</p>
+                                    <p className="text-sm font-semibold text-foreground">Response Time</p>
                                     <p className="font-bold text-lg">{item.time}</p>
                                     <p className="text-3xl font-extrabold text-primary mt-2">{item.conversion}</p>
-                                    <p className="text-sm font-semibold text-muted-foreground">Conversion</p>
+                                    <p className="text-sm font-semibold text-foreground">Conversion</p>
                                 </div>
                             ))}
                         </div>

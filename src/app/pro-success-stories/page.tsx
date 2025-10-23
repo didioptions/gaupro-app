@@ -44,10 +44,10 @@ export default function ProSuccessStoriesPage() {
         <div className="container mx-auto px-4 py-12 md:py-16">
           <header className="text-center mb-12 max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Gaupro Success Stories</h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-foreground">
               Discover how local professionals across South Africa are growing their businesses through Gaupro. From electricians and plumbers to designers and consultants, Gaupro helps experts reach more clients, build credibility, and manage their reputation online.
             </p>
-             <p className="mt-4 text-lg text-muted-foreground">
+             <p className="mt-4 text-lg text-foreground">
               Whether you’re a small business owner or an independent pro, Gaupro gives you the tools to showcase your skills, connect with real clients, and grow your brand — all in one powerful platform.
             </p>
           </header>
@@ -67,13 +67,13 @@ export default function ProSuccessStoriesPage() {
                         />
                         <div>
                             <CardTitle className="text-xl">{story.name}</CardTitle>
-                            <p className="text-sm text-muted-foreground">{story.business} - {story.location}</p>
+                            <p className="text-sm text-foreground">{story.business} - {story.location}</p>
                         </div>
                     </div>
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col justify-between">
                   <div>
-                    <blockquote className="italic text-muted-foreground border-l-4 pl-4 mb-6">
+                    <blockquote className="italic text-foreground border-l-4 pl-4 mb-6">
                       {story.quote}
                     </blockquote>
                     <div className="flex flex-wrap gap-2">
