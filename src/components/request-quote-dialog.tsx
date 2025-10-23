@@ -183,14 +183,8 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     
     // Question steps
     const questionStepIndex = step - 1;
-    if (questionSet && questionStepIndex < questions.length) {
+    if (questionSet && questionStepIndex >= 0 && questionStepIndex < questions.length) {
       const currentQuestion = questions[questionStepIndex];
-
-      // Safeguard against undefined question
-      if (!currentQuestion) {
-        setStep(questions.length + 1); // Skip to final step
-        return null;
-      }
 
       return (
         <form>
@@ -269,14 +263,13 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     return (
         <form onSubmit={handleSubmit}>
             <DialogHeader>
-                <DialogTitle className="sr-only">Contact Information</DialogTitle>
                 <div className="flex items-center gap-4">
                     <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                         <ArrowLeft />
                     </Button>
                     <div>
                         <DialogDescription>Request for {serviceLabel}</DialogDescription>
-                        <h2 className="text-2xl font-bold">Where should we send your quotes?</h2>
+                        <DialogTitle className="text-2xl font-bold">Where should we send your quotes?</DialogTitle>
                     </div>
                 </div>
             </DialogHeader>
@@ -346,5 +339,3 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     </Dialog>
   );
 }
-
-    
