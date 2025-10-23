@@ -1,4 +1,5 @@
 
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -6,6 +7,8 @@ import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import Link from 'next/link';
 import { BarChart2, BookOpen, Bot, CheckCircle, ChevronRight, Clock, Mail, MessageCircle, Phone, Search, Users, Zap } from 'lucide-react';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const learnAndGrowTopics = [
     { title: "5 Ways to Get More Leads on Gaupro" },
@@ -17,17 +20,20 @@ const tools = [
     { 
         icon: <BarChart2 className="h-6 w-6 text-primary" />,
         title: "Analytics Dashboard",
-        description: "See how many clients view your profile"
+        description: "See how many clients view your profile",
+        imageId: "analytics-dashboard-card"
     },
     { 
         icon: <Zap className="h-6 w-6 text-primary" />,
         title: "Instant Quotes",
-        description: "Respond to client requests in real-time"
+        description: "Respond to client requests in real-time",
+        imageId: "instant-quotes-card"
     },
     { 
         icon: <CheckCircle className="h-6 w-6 text-primary" />,
         title: "Verified Badge",
-        description: "Build trust and get more bookings"
+        description: "Build trust and get more bookings",
+        imageId: "verified-badge-card"
     },
 ];
 
@@ -129,15 +135,29 @@ export default function ProCentrePage() {
                     </p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-6">
-                    {tools.map((tool, index) => (
-                        <Card key={index}>
-                            <CardContent className="p-6 text-center">
-                                <div className="flex justify-center mb-4">{tool.icon}</div>
-                                <h3 className="text-lg font-semibold">{tool.title}</h3>
-                                <p className="text-sm text-foreground">{tool.description}</p>
-                            </CardContent>
-                        </Card>
-                    ))}
+                    {tools.map((tool, index) => {
+                        const image = PlaceHolderImages.find(p => p.id === tool.imageId);
+                        return (
+                            <Card key={index} className="overflow-hidden">
+                                {image && (
+                                <div className="relative h-40 w-full">
+                                    <Image
+                                        src={image.imageUrl}
+                                        alt={image.description}
+                                        fill
+                                        className="object-cover"
+                                        data-ai-hint={image.imageHint}
+                                    />
+                                </div>
+                                )}
+                                <CardContent className="p-6 text-center">
+                                    <div className="flex justify-center mb-4">{tool.icon}</div>
+                                    <h3 className="text-lg font-semibold">{tool.title}</h3>
+                                    <p className="text-sm text-foreground">{tool.description}</p>
+                                </CardContent>
+                            </Card>
+                        )
+                    })}
                 </div>
                  <div className="text-center mt-4 text-sm text-foreground">
                     <p>SEO Keywords: business tools for professionals, client management South Africa, verified service providers</p>
@@ -222,7 +242,7 @@ export default function ProCentrePage() {
                     <CardHeader>
                         <CardTitle>Lead Response System: Time is Money</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="p-6">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                             {responseTimes.map(item => (
                                 <div key={item.time} className="p-4 bg-secondary/50 rounded-lg">
