@@ -65,18 +65,20 @@ function RequestQuoteDialogContent({
     serviceQuestionSets.find((qs) => qs.service === 'default');
 
   const questions = questionSet?.questions || [];
-  const totalSteps = questions.length + 1;
-  const progress = step > 0 ? (step / totalSteps) * 100 : 0;
+  const totalSteps = (questions?.length || 0) + 1; // +1 for final contact step
+  const progress = step > 0 ? ((step) / totalSteps) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
     (img) => img.id === `${selectedService}-image`
   );
-
+  
   useEffect(() => {
     if (isOpen) {
       if (service) {
         setSelectedService(service);
-        setStep(1);
+        setStep(1); // Start at the first question
+      } else {
+        setStep(0); // Start at service selection
       }
     } else {
       // Delay reset to allow for closing animation
@@ -101,7 +103,6 @@ function RequestQuoteDialogContent({
 
   const handleBack = () => {
     if (step === 1 && service) {
-      // If a service was passed as a prop, closing is the only "back" action from step 1
       setIsOpen(false);
     } else {
       setStep((prev) => Math.max(prev - 1, 0));
@@ -114,7 +115,7 @@ function RequestQuoteDialogContent({
   ) => {
     setFormData((prev) => ({ ...prev, [questionId]: value }));
   };
-
+  
   const handleDateSelect = (selectedDate: Date | undefined) => {
     setDate(selectedDate);
     handleInputChange('urgency_date', selectedDate);
@@ -193,19 +194,22 @@ function RequestQuoteDialogContent({
     const questionStepIndex = step - 1;
     const isQuestionStep = questionStepIndex >= 0 && questionStepIndex < questions.length;
     const isFinalStep = step === totalSteps;
-
+    
     // Steps 1 to N: Question Steps
     if (isQuestionStep) {
       const currentQuestion = questions[questionStepIndex];
 
       return (
         <form>
-            <div className="flex items-center gap-4 mb-4">
-              <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
-                <ArrowLeft />
-              </Button>
-              <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
-            </div>
+            <DialogHeader className='text-left'>
+              <DialogTitle className='sr-only'>Request for {serviceLabel}</DialogTitle>
+              <div className="flex items-center gap-4 mb-4">
+                  <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
+                    <ArrowLeft />
+                  </Button>
+                  <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
+              </div>
+            </DialogHeader>
 
             {serviceImage && questionStepIndex === 0 && (
               <div className="relative h-32 w-full mb-4">
@@ -276,7 +280,7 @@ function RequestQuoteDialogContent({
             <Button variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button size="lg" onClick={handleNext}>
+            <Button size="lg" onClick={handleNext} className="bg-blue-600 hover:bg-blue-700">
               Next
             </Button>
           </div>
@@ -429,8 +433,9 @@ export function RequestQuoteDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      {/* Pass state and state setter to the content */}
       <RequestQuoteDialogContent service={service} isOpen={isOpen} setIsOpen={setIsOpen} />
     </Dialog>
   );
 }
+
+    
