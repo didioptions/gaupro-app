@@ -10,6 +10,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
+import { CategoryImages } from '@/lib/category-images';
 
 const professionals = [
     {
@@ -40,7 +41,15 @@ const priceEstimates = [
 export default function ServicePage({ params }: { params: { service: string } }) {
     const service = allServices.find(s => s.value === params.service);
     const serviceLabel = service?.label || params.service.charAt(0).toUpperCase() + params.service.slice(1);
-    const heroImage = PlaceHolderImages.find(p => p.id === 'plumber-hero-image');
+    
+    // Dynamically find the image for the service
+    const serviceImageId = `${params.service}-image`.replace('-service', '');
+    let heroImage = CategoryImages.find(p => p.id === serviceImageId);
+    
+    // Fallback to a default placeholder if no specific image is found
+    if (!heroImage) {
+        heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
+    }
 
     return (
         <>
