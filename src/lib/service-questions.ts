@@ -55,6 +55,15 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'coc', label: 'Plumbing certificate of compliance' },
         ],
       },
+       {
+        id: 'is_emergency_plumber',
+        text: 'Is this an emergency?',
+        type: 'radio',
+        options: [
+          { value: 'yes', label: 'Yes, it is' },
+          { value: 'no', label: 'No, it is not' },
+        ],
+      },
     ],
   },
   {

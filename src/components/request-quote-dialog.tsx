@@ -186,7 +186,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
             )}
           </div>
           <div className="flex justify-between items-center">
-            <Button variant="ghost" onClick={handleBack} className="hidden md:inline-flex">Back</Button>
+            <Button variant="ghost" onClick={handleBack}>Back</Button>
             <Button size="lg" onClick={handleNext} variant="destructive">Next</Button>
           </div>
         </form>
