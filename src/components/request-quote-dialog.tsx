@@ -70,8 +70,9 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
   }, [isOpen, service]);
   
   const questionSet = serviceQuestionSets.find(qs => qs.service === selectedService);
-  const totalSteps = (questionSet ? questionSet.questions.length : 0) + (service ? 1 : 2);
-  const progress = (step / (totalSteps - 1)) * 100;
+  const questions = questionSet?.questions || [];
+  const totalSteps = questions.length + 1; // +1 for the final contact step
+  const progress = step > 0 ? (step / totalSteps) * 100 : 0;
   
   const serviceImage = CategoryImages.find(img => img.id === `${selectedService}-image`);
 
@@ -182,8 +183,14 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     
     // Question steps
     const questionStepIndex = step - 1;
-    if (questionSet && questionStepIndex < questionSet.questions.length) {
-      const currentQuestion = questionSet.questions[questionStepIndex];
+    if (questionSet && questionStepIndex < questions.length) {
+      const currentQuestion = questions[questionStepIndex];
+
+      // Safeguard against undefined question
+      if (!currentQuestion) {
+        setStep(questions.length + 1); // Skip to final step
+        return null;
+      }
 
       return (
         <form>
@@ -328,6 +335,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] p-0 flex flex-col">
+         <DialogTitle className="sr-only">Request a Quote</DialogTitle>
         <div className="absolute top-0 left-0 right-0">
          {step > 0 && <Progress value={progress} className="h-1" />}
         </div>
@@ -338,3 +346,5 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     </Dialog>
   );
 }
+
+    
