@@ -80,7 +80,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-lg font-bold text-foreground">
                 <span className="font-extrabold text-2xl tracking-tighter">GAU<span className="text-primary">PRO</span></span>
-              <span className="text-sm font-normal text-muted-foreground ml-2">© 2025</span>
+              <span className="text-sm font-normal text-foreground ml-2">© 2025</span>
             </div>
             <nav className="flex gap-4 sm:gap-6 text-sm">
               <Link href="/terms" className="hover:text-primary text-foreground">Terms</Link>
@@ -88,9 +88,9 @@ export default function Footer() {
               <Link href="#" className="hover:text-primary text-foreground">Cookie Policy</Link>
             </nav>
             <div className="flex gap-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook className="h-5 w-5"/></Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary"><Twitter className="h-5 w-5"/></Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin className="h-5 w-5"/></Link>
+              <Link href="#" className="text-foreground hover:text-primary"><Facebook className="h-5 w-5"/></Link>
+              <Link href="#" className="text-foreground hover:text-primary"><Twitter className="h-5 w-5"/></Link>
+              <Link href="#" className="text-foreground hover:text-primary"><Linkedin className="h-5 w-5"/></Link>
             </div>
           </div>
         </div>
