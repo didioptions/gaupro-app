@@ -14,8 +14,6 @@ export type QuestionSet = {
 
 export const allServices = [
   { value: 'plumber', label: 'Plumber' },
-  { value: 'plumbing-repair', label: 'Plumbing Repair' },
-  { value: 'plumbing-maintenance', label: 'Plumbing Maintenance' },
   { value: 'electrician', label: 'Electrician' },
   { value: 'carpenter', label: 'Carpenter' },
   { value: 'painter', label: 'Painter' },

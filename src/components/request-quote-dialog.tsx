@@ -44,8 +44,16 @@ type FormData = {
   [key: string]: string | File[] | boolean | Date | undefined;
 };
 
-export function RequestQuoteDialog({ children, service }: { children: React.ReactNode, service?: string }) {
-  const [isOpen, setIsOpen] = useState(false);
+// Main Dialog Content Component
+function RequestQuoteDialogContent({ 
+  service, 
+  isOpen, 
+  setIsOpen 
+}: { 
+  service?: string, 
+  isOpen: boolean, 
+  setIsOpen: (open: boolean) => void 
+}) {
   const [step, setStep] = useState(0);
   const [selectedService, setSelectedService] = useState(service || '');
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -79,18 +87,14 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
   const handleServiceSelect = (serviceValue: string) => {
     setSelectedService(serviceValue);
     setPopoverOpen(false);
+    setStep(1);
   };
   
   const handleNext = () => {
-    if (step === 0 && selectedService) {
-      setStep(1);
-    } else {
-      setStep(prev => prev + 1);
-    }
+    setStep(prev => prev + 1);
   };
 
   const handleBack = () => {
-    // If on the first question step and a service was pre-selected, closing back should close the dialog
     if (step === 1 && service) {
       setIsOpen(false);
     } else {
@@ -172,18 +176,14 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
               </PopoverContent>
             </Popover>
           </div>
-          <div className="flex justify-end">
-             <Button size="lg" disabled={!selectedService} onClick={handleNext}>
-                Get Started
-             </Button>
-          </div>
+          {/* This step doesn't have a next button, selection auto-advances */}
         </>
       );
     }
     
     // Question steps
     const questionStepIndex = step - 1;
-    if (questionSet && questionStepIndex >= 0 && questionStepIndex < questions.length) {
+    if (questionStepIndex >= 0 && questionStepIndex < questions.length) {
       const currentQuestion = questions[questionStepIndex];
 
       return (
@@ -197,7 +197,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                 </Button>
                 <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
             </div>
-             {serviceImage && (
+             {serviceImage && step === 1 && (
                 <div className="relative h-32 w-full mb-4">
                   <Image src={serviceImage.imageUrl} alt={serviceImage.description || ''} fill className="object-cover rounded-t-lg" data-ai-hint={serviceImage.imageHint} />
                 </div>
@@ -217,14 +217,6 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                   ))}
                 </div>
               </RadioGroup>
-            )}
-            {currentQuestion.type === 'textarea' && (
-              <Textarea 
-                placeholder={currentQuestion.placeholder}
-                rows={5}
-                onChange={e => handleInputChange(currentQuestion.id, e.target.value)}
-                defaultValue={formData[currentQuestion.id] as string | undefined}
-              />
             )}
             {currentQuestion.id === 'urgency' && formData['urgency'] === 'specific_date' && (
                  <Popover>
@@ -250,6 +242,14 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                     </PopoverContent>
                   </Popover>
             )}
+             {currentQuestion.type === 'textarea' && (
+              <Textarea 
+                placeholder={currentQuestion.placeholder}
+                rows={5}
+                onChange={e => handleInputChange(currentQuestion.id, e.target.value)}
+                defaultValue={formData[currentQuestion.id] as string | undefined}
+              />
+            )}
           </div>
           <div className="flex justify-between items-center">
             <Button variant="ghost" onClick={handleBack}>Back</Button>
@@ -260,7 +260,8 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     }
 
     // Final step: Contact Info
-    return (
+    if (questionStepIndex === questions.length) {
+      return (
         <form onSubmit={handleSubmit}>
             <DialogHeader>
                 <div className="flex items-center gap-4">
@@ -321,21 +322,32 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                 <Button size="lg" type="submit">Get FREE Quotes</Button>
             </div>
         </form>
-    );
+      );
+    }
+
+    return null;
   };
+
+  return (
+    <DialogContent className="sm:max-w-[600px] max-h-[90vh] p-0 flex flex-col">
+      <DialogTitle className="sr-only">Request a Quote</DialogTitle>
+      {step > 0 && <Progress value={progress} className="h-1 absolute top-0 left-0 right-0" />}
+      <div className="p-6 pt-10 overflow-y-auto">
+        {renderStepContent()}
+      </div>
+    </DialogContent>
+  );
+}
+
+
+// Wrapper Component to handle Dialog and DialogTrigger
+export function RequestQuoteDialog({ children, service }: { children: React.ReactNode, service?: string }) {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] p-0 flex flex-col">
-         <DialogTitle className="sr-only">Request a Quote</DialogTitle>
-        <div className="absolute top-0 left-0 right-0">
-         {step > 0 && <Progress value={progress} className="h-1" />}
-        </div>
-        <div className="p-6 pt-10 overflow-y-auto">
-          {renderStepContent()}
-        </div>
-      </DialogContent>
+      <RequestQuoteDialogContent service={service} isOpen={isOpen} setIsOpen={setIsOpen} />
     </Dialog>
   );
 }
