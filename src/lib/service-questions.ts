@@ -102,12 +102,6 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'other', label: 'Other' },
         ],
       },
-      {
-        id: 'project_size',
-        text: 'What is the estimated size or budget?',
-        type: 'textarea',
-        placeholder: 'e.g. A 20sqm room, or a budget of R50,000'
-      },
     ],
   },
   {
