@@ -157,6 +157,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
       return (
         <form>
           <DialogHeader className="space-y-0">
+            <DialogTitle className="sr-only">Request a quote: {serviceLabel}</DialogTitle>
              <div className="flex items-center gap-4 mb-4">
                 {step > 0 && <Button variant="ghost" size="icon" onClick={handleBack}><ArrowLeft/></Button>}
             </div>
