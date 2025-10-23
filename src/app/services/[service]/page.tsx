@@ -7,9 +7,9 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import ServiceQuoteForm from '@/components/services/service-quote-form';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
+import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 const professionals = [
     {
@@ -46,7 +46,7 @@ export default function ServicePage({ params }: { params: { service: string } })
         <>
             <Header />
             <main>
-                <section className="relative min-h-[500px] flex items-center justify-start text-foreground">
+                <section className="relative min-h-[500px] flex items-center justify-center text-center text-white">
                     {heroImage && (
                         <Image
                             src={heroImage.imageUrl}
@@ -57,9 +57,17 @@ export default function ServicePage({ params }: { params: { service: string } })
                             data-ai-hint={heroImage.imageHint}
                         />
                     )}
-                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+                     <div className="absolute inset-0 bg-black/60" />
                      <div className="relative container mx-auto px-4">
-                        <ServiceQuoteForm service={params.service} serviceLabel={serviceLabel} />
+                        <h1 className="text-4xl md:text-5xl font-extrabold">Get Quotes for {serviceLabel}s</h1>
+                        <p className="mt-4 text-lg max-w-xl mx-auto text-white/90">
+                            Get matched with top-rated, verified professionals in your area.
+                        </p>
+                        <RequestQuoteDialog>
+                            <Button size="lg" variant="destructive" className="mt-8 text-lg px-10 h-14">
+                                Get Free Quotes
+                            </Button>
+                        </RequestQuoteDialog>
                      </div>
                 </section>
 
