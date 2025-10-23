@@ -65,7 +65,7 @@ function RequestQuoteDialogContent({
     serviceQuestionSets.find((qs) => qs.service === 'default');
 
   const questions = questionSet?.questions || [];
-  const totalSteps = questions.length + 1; // +1 for final contact step
+  const totalSteps = (questions?.length || 0) + 1; // +1 for final contact step
   const progress = step > 0 ? (step / totalSteps) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
@@ -102,10 +102,12 @@ function RequestQuoteDialogContent({
   };
 
   const handleBack = () => {
-    if (step === 1 && service) {
-      setIsOpen(false);
+    if (step === 1 && !service) {
+      setStep(0);
+    } else if (step > 0) {
+       setStep((prev) => prev - 1);
     } else {
-      setStep((prev) => Math.max(prev - 1, 0));
+      setIsOpen(false);
     }
   };
 
@@ -204,7 +206,7 @@ function RequestQuoteDialogContent({
         <form>
             <DialogHeader className='text-left'>
               <div className="flex items-center gap-4 mb-4">
-                  <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
+                  <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                     <ArrowLeft />
                   </Button>
                   <div>
@@ -255,6 +257,7 @@ function RequestQuoteDialogContent({
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
+                    type="button"
                     variant={'outline'}
                     className={cn(
                       'w-full justify-start text-left font-normal mt-4',
@@ -280,10 +283,10 @@ function RequestQuoteDialogContent({
             )}
           </div>
           <div className="flex justify-between items-center">
-            <Button variant="ghost" onClick={handleBack}>
+            <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button size="lg" onClick={handleNext}>
+            <Button type="button" size="lg" onClick={handleNext} className="bg-blue-600 hover:bg-blue-700">
               Next
             </Button>
           </div>
@@ -297,14 +300,12 @@ function RequestQuoteDialogContent({
         <form onSubmit={handleSubmit}>
           <DialogHeader>
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
+              <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
               </Button>
               <div>
+                 <DialogTitle className="text-2xl font-bold">Where should we send your quotes?</DialogTitle>
                 <DialogDescription>Request for {serviceLabel}</DialogDescription>
-                <DialogTitle className="text-2xl font-bold">
-                  Where should we send your quotes?
-                </DialogTitle>
               </div>
             </div>
           </DialogHeader>
@@ -352,7 +353,7 @@ function RequestQuoteDialogContent({
               <RadioGroup
                 onValueChange={(value) => handleInputChange('contact_method', value)}
                 defaultValue="any_method"
-                className="grid grid-cols-2 gap-4"
+                 className="grid grid-cols-2 gap-4"
               >
                 <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
                   <RadioGroupItem value="phone" id="phone" />
@@ -363,8 +364,8 @@ function RequestQuoteDialogContent({
                   <Label htmlFor="whatsapp" className="pl-3 font-normal cursor-pointer text-base">WhatsApp</Label>
                 </div>
                  <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
-                  <RadioGroupItem value="email" id="email" />
-                  <Label htmlFor="email" className="pl-3 font-normal cursor-pointer text-base">Email</Label>
+                  <RadioGroupItem value="email_contact" id="email_contact" />
+                  <Label htmlFor="email_contact" className="pl-3 font-normal cursor-pointer text-base">Email</Label>
                 </div>
                  <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
                   <RadioGroupItem value="any_method" id="any_method" />
