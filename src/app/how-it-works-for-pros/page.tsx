@@ -107,10 +107,10 @@ export default function HowItWorksForProsPage() {
             <h1 className="text-3xl md:text-4xl font-extrabold mb-4 max-w-3xl mx-auto">
               ⚙️ How Gaupro Works for Pros
             </h1>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-lg text-foreground mb-6 max-w-2xl mx-auto">
               Grow Your Business. Connect with Real Clients. Get Paid Directly.
             </p>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-foreground max-w-3xl mx-auto">
               Gaupro makes it easy for South African professionals to find new customers, win more jobs, and grow their business — all in one place. Whether you’re a plumber, web designer, photographer, or beauty specialist, Gaupro helps you connect with verified local leads that match your skills and service area.
             </p>
           </div>
@@ -126,9 +126,9 @@ export default function HowItWorksForProsPage() {
                   </div>
                   <div className="flex-grow text-center md:text-left">
                     <h2 className="text-2xl font-bold mb-3">{step.title}</h2>
-                    <p className="text-muted-foreground mb-4">{step.description}</p>
+                    <p className="text-foreground mb-4">{step.description}</p>
                     {step.details.length > 0 && (
-                        <ul className="space-y-2 text-left list-disc list-inside text-muted-foreground mb-4">
+                        <ul className="space-y-2 text-left list-disc list-inside text-foreground mb-4">
                             {step.details.map((detail, i) => <li key={i}>{detail}</li>)}
                         </ul>
                     )}
@@ -152,7 +152,7 @@ export default function HowItWorksForProsPage() {
                                     <CardTitle className="text-xl">{info.title}</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-muted-foreground">{info.content}</p>
+                                    <p className="text-foreground">{info.content}</p>
                                 </CardContent>
                             </Card>
                         ))}
@@ -169,7 +169,7 @@ export default function HowItWorksForProsPage() {
                         {benefits.map(benefit => (
                             <li key={benefit} className="flex items-start gap-3 p-4 bg-secondary/50 rounded-lg border">
                                 <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                                <span className="text-muted-foreground text-lg">{benefit}</span>
+                                <span className="text-foreground text-lg">{benefit}</span>
                             </li>
                         ))}
                     </ul>
@@ -194,30 +194,6 @@ export default function HowItWorksForProsPage() {
             </div>
         </section>
         
-         <div className="container mx-auto px-4">
-            <div className="mt-20 border-t pt-16 mb-16">
-                <h2 className="text-3xl font-bold mb-6">Terms and conditions</h2>
-                <div className="space-y-4 text-muted-foreground">
-                    <p>
-                        Gaupro is an online platform that allows customers to find and hire Pros - local service providers across over 100 different types of services, and helps these Pros to grow and manage their businesses.
-                    </p>
-                    <p>
-                        By using the Gaupro Platform, whether as a customer or as a Pro, you are acknowledging your acceptance of the terms below:
-                    </p>
-                    <ul className="space-y-2 list-inside">
-                        <li><Link href="/terms" className="text-primary hover:underline">Gaupro User Terms and Conditions</Link></li>
-                        <li><Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link></li>
-                        <li><Link href="#" className="text-primary hover:underline">PAIA</Link></li>
-                    </ul>
-                        <p className="text-sm">
-                        Please note: Gaupro does not itself provide any of the Pro Services in any way or any products relating to the Pro Services. Pro Services are carried out directly by the Pros, who may be found through use of the Gaupro Platform. All agreements are entered into between the Customer and the Pro.
-                    </p>
-                    <p>
-                        If you have more questions, please feel free to contact us at <Link href="mailto:info@gaupro.co.za" className="text-primary hover:underline">info@gaupro.co.za</Link>
-                    </p>
-                </div>
-            </div>
-        </div>
       </main>
       <Footer />
     </>
