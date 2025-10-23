@@ -60,6 +60,18 @@ function RequestQuoteDialogContent({
   const [formData, setFormData] = useState<FormData>({});
   const [date, setDate] = useState<Date | undefined>();
 
+  const questionSet =
+    serviceQuestionSets.find((qs) => qs.service === selectedService) ||
+    serviceQuestionSets.find((qs) => qs.service === 'default');
+
+  const questions = questionSet?.questions || [];
+  const totalSteps = questions.length + 1;
+  const progress = step > 0 ? (step / totalSteps) * 100 : 0;
+
+  const serviceImage = CategoryImages.find(
+    (img) => img.id === `${selectedService}-image`
+  );
+
   useEffect(() => {
     if (isOpen) {
       if (service) {
@@ -67,6 +79,7 @@ function RequestQuoteDialogContent({
         setStep(1);
       }
     } else {
+      // Delay reset to allow for closing animation
       setTimeout(() => {
         setStep(0);
         setSelectedService(service || '');
@@ -75,18 +88,6 @@ function RequestQuoteDialogContent({
       }, 300);
     }
   }, [isOpen, service]);
-
-  const questionSet =
-    serviceQuestionSets.find((qs) => qs.service === selectedService) ||
-    serviceQuestionSets.find((qs) => qs.service === 'default');
-  
-  const questions = questionSet?.questions || [];
-  const totalSteps = questions.length + 1;
-  const progress = step > 0 ? (step / totalSteps) * 100 : 0;
-  
-  const serviceImage = CategoryImages.find(
-    (img) => img.id === `${selectedService}-image`
-  );
 
   const handleServiceSelect = (serviceValue: string) => {
     setSelectedService(serviceValue);
@@ -100,6 +101,7 @@ function RequestQuoteDialogContent({
 
   const handleBack = () => {
     if (step === 1 && service) {
+      // If a service was passed as a prop, closing is the only "back" action from step 1
       setIsOpen(false);
     } else {
       setStep((prev) => Math.max(prev - 1, 0));
@@ -132,6 +134,7 @@ function RequestQuoteDialogContent({
   const renderStepContent = () => {
     const serviceLabel = allServices.find((s) => s.value === selectedService)?.label;
 
+    // Step 0: Service Selection (only if no service is pre-selected)
     if (step === 0 && !service) {
       return (
         <>
@@ -188,21 +191,23 @@ function RequestQuoteDialogContent({
     }
     
     const questionStepIndex = step - 1;
-    if (questionStepIndex >= 0 && questionStepIndex < questions.length) {
+    const isQuestionStep = questionStepIndex >= 0 && questionStepIndex < questions.length;
+    const isFinalStep = step === totalSteps;
+
+    // Steps 1 to N: Question Steps
+    if (isQuestionStep) {
       const currentQuestion = questions[questionStepIndex];
 
       return (
         <form>
-          <DialogHeader>
-            <DialogTitle className="sr-only">Request a quote for {serviceLabel}</DialogTitle>
-          </DialogHeader>
             <div className="flex items-center gap-4 mb-4">
               <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
               </Button>
               <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
             </div>
-            {serviceImage && step === 1 && (
+
+            {serviceImage && questionStepIndex === 0 && (
               <div className="relative h-32 w-full mb-4">
                 <Image
                   src={serviceImage.imageUrl}
@@ -213,6 +218,7 @@ function RequestQuoteDialogContent({
                 />
               </div>
             )}
+            
           <div className="py-8 min-h-[250px]">
             <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
@@ -277,12 +283,12 @@ function RequestQuoteDialogContent({
         </form>
       );
     }
-
-    if (step === totalSteps) {
+    
+    // Final Step: Contact Information
+    if (isFinalStep) {
       return (
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle className="sr-only">Contact Information</DialogTitle>
             <div className="flex items-center gap-4">
               <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
@@ -398,6 +404,7 @@ function RequestQuoteDialogContent({
       );
     }
     
+    // Fallback, should not be reached if logic is correct
     return null;
   };
 
