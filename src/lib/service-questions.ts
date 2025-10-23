@@ -175,6 +175,19 @@ const specificQuestionSets: QuestionSet[] = [
   },
 ];
 
+const allServiceValues = allServices.map(s => s.value);
+const definedServiceValues = new Set(specificQuestionSets.map(qs => qs.service));
+
+// Create question sets for services that don't have specific ones
+for (const serviceValue of allServiceValues) {
+    if (!definedServiceValues.has(serviceValue)) {
+        specificQuestionSets.push({
+            service: serviceValue,
+            questions: [] // No specific questions, just common ones
+        });
+    }
+}
+
 // Combine specific and common questions
 export const serviceQuestionSets: QuestionSet[] = specificQuestionSets.map(sqs => ({
     ...sqs,

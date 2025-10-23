@@ -193,6 +193,15 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     const questionStepIndex = step - 1;
     if (questionSet && questionStepIndex < questionSet.questions.length) {
       const currentQuestion = questionSet.questions[questionStepIndex];
+
+      // Defensive check
+      if (!currentQuestion) {
+        // This should not happen with the new logic in service-questions.ts, but it's a good safeguard.
+        // Skip to the final step if we run out of questions.
+        setStep(questionSet.questions.length + 1);
+        return null;
+      }
+      
       return (
         <form>
           <DialogHeader className="space-y-0">
@@ -324,7 +333,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                 </div>
             </div>
             <div className="flex justify-end">
-                <Button size="lg" type="submit" variant="destructive">Get FREE Quotes</Button>
+                <Button size="lg" type="submit">Get FREE Quotes</Button>
             </div>
         </form>
     );
@@ -334,6 +343,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[600px] overflow-y-auto max-h-[90vh] p-0">
+        <DialogTitle className="sr-only">Request a Quote</DialogTitle>
         <div className="absolute top-0 left-0 right-0">
          {step > 0 && <Progress value={progress} className="h-1" />}
         </div>
