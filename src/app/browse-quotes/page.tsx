@@ -127,6 +127,8 @@ const jobRequests = [
   },
 ];
 
+const MAX_QUOTES_ALLOWED = 5;
+
 export default function BrowseQuotesPage() {
   const [unlockedJobs, setUnlockedJobs] = useState<number[]>([]);
   const [creditBalance, setCreditBalance] = useState(25); // Test credit balance
@@ -186,6 +188,8 @@ export default function BrowseQuotesPage() {
             <div className="lg:col-span-2 space-y-6">
               {jobRequests.map((job) => {
                 const isUnlocked = unlockedJobs.includes(job.id);
+                const isClosed = job.quotes >= MAX_QUOTES_ALLOWED;
+
                 return (
                   <Card key={job.id} className="bg-card hover:shadow-md transition-shadow">
                     <CardContent className="p-6">
@@ -221,6 +225,8 @@ export default function BrowseQuotesPage() {
                                 <Button className="w-full sm:w-auto">Submit Quote</Button>
                              </form>
                           </div>
+                        ) : isClosed ? (
+                            <Badge variant="destructive">Closed</Badge>
                         ) : (
                           <Button 
                             className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto"
@@ -249,3 +255,5 @@ export default function BrowseQuotesPage() {
       </>
   );
 }
+
+    
