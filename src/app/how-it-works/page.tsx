@@ -64,12 +64,12 @@ export default function HowItWorksPage() {
     <>
       <Header />
       <main className="flex-grow">
-        <section className="py-16 md:py-20 bg-secondary/50">
+        <section className="py-16 md:py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl mx-auto">
               🧭 How Gaupro Works for Customers
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-lg text-foreground mb-8 max-w-3xl mx-auto">
               Find Trusted Local Professionals — Fast, Easy, and Secure. Gaupro helps you connect with qualified local service providers near you. No more endless searching — simply tell us what you need, and we’ll match you with the right pros in minutes.
             </p>
             <RequestQuoteDialog>
@@ -86,14 +86,14 @@ export default function HowItWorksPage() {
                   <div className="text-5xl flex-shrink-0 mx-auto sm:mx-0">{step.icon}</div>
                   <div className="flex-grow text-center sm:text-left">
                     <h2 className="text-2xl font-bold mb-3">{step.title}</h2>
-                    <p className="text-muted-foreground mb-4">{step.description}</p>
+                    <p className="text-foreground mb-4">{step.description}</p>
                     {step.example && (
-                        <p className="text-muted-foreground italic bg-gray-100 p-3 rounded-md">
+                        <p className="text-foreground italic bg-secondary/50 p-3 rounded-md">
                             {step.example}
                         </p>
                     )}
                     {step.details && (
-                        <ul className="space-y-1 text-muted-foreground list-disc list-inside mt-4">
+                        <ul className="space-y-1 text-foreground list-disc list-inside mt-4">
                             {step.details.map(detail => <li key={detail}>{detail}</li>)}
                         </ul>
                     )}
@@ -110,9 +110,9 @@ export default function HowItWorksPage() {
             <div className="grid md:grid-cols-2 gap-12 mt-20 border-t pt-16">
                  <div>
                     <h2 className="text-2xl font-bold mb-6">🛡️ Gaupro Safety & Trust</h2>
-                    <p className="text-muted-foreground mb-4">We take your safety seriously. Every pro on Gaupro goes through a verification process that checks business credentials and customer reviews.</p>
-                     <p className="text-muted-foreground mb-4">🔐 You’re protected with:</p>
-                     <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                    <p className="text-foreground mb-4">We take your safety seriously. Every pro on Gaupro goes through a verification process that checks business credentials and customer reviews.</p>
+                     <p className="text-foreground mb-4">🔐 You’re protected with:</p>
+                     <ul className="list-disc list-inside space-y-2 text-foreground">
                         <li>Verified professional profiles</li>
                         <li>Customer feedback and ratings</li>
                         <li>Transparent communication</li>
@@ -121,7 +121,7 @@ export default function HowItWorksPage() {
                 </div>
                  <div>
                     <h2 className="text-2xl font-bold mb-6">💬 Why Customers Love Gaupro</h2>
-                     <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                     <ul className="list-disc list-inside space-y-2 text-foreground">
                         {customerBenefits.map(benefit => <li key={benefit}>{benefit}</li>)}
                     </ul>
                 </div>
@@ -129,7 +129,7 @@ export default function HowItWorksPage() {
 
             <div className="text-center mt-20 border-t pt-16">
                 <h2 className="text-2xl font-bold mb-4">🏁 Ready to Get Started?</h2>
-                <p className="text-muted-foreground max-w-xl mx-auto mb-8">
+                <p className="text-foreground max-w-xl mx-auto mb-8">
                     Find the right pro for your next project — in just a few clicks.
                 </p>
                  <div className="flex justify-center gap-4">
@@ -144,7 +144,7 @@ export default function HowItWorksPage() {
 
              <div className="mt-20 border-t pt-16">
                 <h2 className="text-3xl font-bold mb-6">Terms and conditions</h2>
-                <div className="space-y-4 text-muted-foreground">
+                <div className="space-y-4 text-foreground">
                     <p>
                         Gaupro is an online platform that allows customers to find and hire Pros - local service providers across over 100 different types of services, and helps these Pros to grow and manage their businesses.
                     </p>
