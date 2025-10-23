@@ -35,7 +35,7 @@ export default function AboutUsPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow bg-white">
+      <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto space-y-12">
             <header className="text-center space-y-4">

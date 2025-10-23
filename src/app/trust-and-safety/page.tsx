@@ -32,7 +32,7 @@ export default function TrustAndSafetyPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow bg-white">
+      <main className="flex-grow bg-background">
         <section className="bg-secondary/50 py-16 md:py-24">
           <div className="container mx-auto px-4 text-center">
             <ShieldCheck className="h-12 w-12 text-primary mx-auto mb-4" />

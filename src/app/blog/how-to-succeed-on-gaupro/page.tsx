@@ -75,7 +75,7 @@ export default function HowToSucceedPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow bg-white">
+      <main className="flex-grow bg-background">
         <article>
           <header className="bg-secondary/50 py-12 md:py-16">
             <div className="container mx-auto px-4 text-center">

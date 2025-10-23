@@ -210,7 +210,7 @@ export default function BrowseQuotesPage() {
                             <MapPin className="h-4 w-4" />
                             <span>{job.location}</span>
                           </div>
-                          <h2 className="text-xl font-bold mb-2">{job.title}</h2>
+                          <h2 className="text-xl font-bold mb-2 text-foreground">{job.title}</h2>
                           <p className="text-foreground text-sm mb-4">{job.description}</p>
                         </div>
                         <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-foreground">
@@ -280,5 +280,3 @@ export default function BrowseQuotesPage() {
       </>
   );
 }
-
-    
