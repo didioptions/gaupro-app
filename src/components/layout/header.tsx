@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -91,19 +92,25 @@ export default function Header() {
     }
 
     return (
-      <nav className="hidden md:flex items-center gap-6 text-sm">
+      <nav className="hidden md:flex items-center gap-2 text-sm">
         <RequestQuoteDialog>
-          <Button variant="ghost" className="transition-colors hover:text-primary text-foreground/60 font-medium">Post Request</Button>
+          <Button variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">Post Request</Button>
         </RequestQuoteDialog>
-        <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60 font-medium">
-          Browse Quotes
-        </Link>
-        <Link href="/how-it-works" className="transition-colors hover:text-primary text-foreground/60 font-medium">
-          How It Works
-        </Link>
-        <Link href="/pro/signup" className="transition-colors hover:text-primary text-foreground/60 font-medium">
-          Join as a Pro
-        </Link>
+        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
+          <Link href="/browse-quotes">
+            Browse Quotes
+          </Link>
+        </Button>
+        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
+          <Link href="/how-it-works">
+            How It Works
+          </Link>
+        </Button>
+        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
+          <Link href="/pro/signup">
+            Join as a Pro
+          </Link>
+        </Button>
         <Button asChild>
            <Link href="/pro/login">Login</Link>
         </Button>
