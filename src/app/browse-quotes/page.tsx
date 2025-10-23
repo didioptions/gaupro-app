@@ -11,6 +11,8 @@ import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Textarea } from '@/components/ui/textarea';
+import { useUser } from '@/firebase';
+import { useRouter } from 'next/navigation';
 
 const jobRequests = [
   {
@@ -132,8 +134,14 @@ const MAX_QUOTES_ALLOWED = 5;
 export default function BrowseQuotesPage() {
   const [unlockedJobs, setUnlockedJobs] = useState<number[]>([]);
   const [creditBalance, setCreditBalance] = useState(25); // Test credit balance
+  const { user } = useUser();
+  const router = useRouter();
 
   const handleUnlock = (jobId: number, creditCost: number) => {
+    if (!user) {
+      router.push('/pro/login');
+      return;
+    }
     if (!unlockedJobs.includes(jobId) && creditBalance >= creditCost) {
       setCreditBalance(prevBalance => prevBalance - creditCost);
       setUnlockedJobs([...unlockedJobs, jobId]);
@@ -156,20 +164,22 @@ export default function BrowseQuotesPage() {
           </div>
 
           <div className="max-w-2xl mx-auto mb-8">
-            <Card className="bg-card shadow-sm mb-8">
-                <CardContent className="p-4 flex justify-between items-center">
-                    <div className="flex items-center gap-3">
-                        <CreditCard className="h-6 w-6 text-primary" />
-                        <h3 className="text-lg font-semibold">Credit Balance</h3>
-                    </div>
-                    <div className="text-right">
-                        <p className="text-2xl font-bold text-primary">{creditBalance}</p>
-                        <Button variant="link" asChild className="h-auto p-0 text-sm">
-                            <Link href="/pro/buy-credits">Buy more credits</Link>
-                        </Button>
-                    </div>
-                </CardContent>
-            </Card>
+            {user && (
+              <Card className="bg-card shadow-sm mb-8">
+                  <CardContent className="p-4 flex justify-between items-center">
+                      <div className="flex items-center gap-3">
+                          <CreditCard className="h-6 w-6 text-primary" />
+                          <h3 className="text-lg font-semibold">Credit Balance</h3>
+                      </div>
+                      <div className="text-right">
+                          <p className="text-2xl font-bold text-primary">{creditBalance}</p>
+                          <Button variant="link" asChild className="h-auto p-0 text-sm">
+                              <Link href="/pro/buy-credits">Buy more credits</Link>
+                          </Button>
+                      </div>
+                  </CardContent>
+              </Card>
+            )}
 
             <form className="flex gap-2">
               <Input
@@ -228,7 +238,7 @@ export default function BrowseQuotesPage() {
                         ) : isClosed ? (
                             <Badge variant="destructive">Closed</Badge>
                         ) : (
-                          <Button 
+                          <Button
                             className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto"
                             onClick={() => handleUnlock(job.id, job.credits)}
                           >
@@ -244,7 +254,22 @@ export default function BrowseQuotesPage() {
             </div>
 
             <aside className="space-y-6">
-             {/* The user is logged in, so these are not needed. */}
+              {!user && (
+                <Card className="bg-card shadow-sm">
+                  <CardHeader>
+                      <CardTitle>Are you a Pro?</CardTitle>
+                      <CardDescription>Sign up to start quoting on jobs.</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                      <Button asChild className="w-full">
+                          <Link href="/pro/signup">Join as a Pro</Link>
+                      </Button>
+                      <Button asChild variant="secondary" className="w-full">
+                          <Link href="/pro/login">Login</Link>
+                      </Button>
+                  </CardContent>
+                </Card>
+              )}
             </aside>
           </div>
         </div>
@@ -255,5 +280,3 @@ export default function BrowseQuotesPage() {
       </>
   );
 }
-
-    
