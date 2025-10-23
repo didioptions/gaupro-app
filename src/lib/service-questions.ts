@@ -38,33 +38,23 @@ export const serviceQuestionSets: QuestionSet[] = [
     service: 'plumber',
     questions: [
       {
-        id: 'plumbing_issue',
-        text: 'What needs fixing?',
+        id: 'plumbing_help',
+        text: 'What do you need help with?',
         type: 'radio',
         options: [
-          { value: 'toilet', label: 'Toilet' },
-          { value: 'geyser', label: 'Geyser' },
-          { value: 'pipes', label: 'Pipes' },
-          { value: 'taps', label: 'Taps / Faucets' },
-          { value: 'other', label: 'Other' },
+          { value: 'emergency', label: 'Emergency Plumbing' },
+          { value: 'blocked_drain', label: 'Blocked Drain' },
+          { value: 'burst_pipe', label: 'Burst or leaking pipe' },
+          { value: 'toilet_repair', label: 'Toilet repairs' },
+          { value: 'pipe_install_repair', label: 'Plumbing pipe installation or repair' },
+          { value: 'tap_sink_shower_install', label: 'Tap, sink, bath, shower or other water fixture installation' },
+          { value: 'tap_sink_shower_repair', label: 'Tap, sink, bath, shower or other water fixture repair' },
+          { value: 'geyser_repair', label: 'Geyser repair' },
+          { value: 'geyser_install', label: 'Geyser installation' },
+          { value: 'washing_machine_install', label: 'Washing Machine and Dishwasher Installation' },
+          { value: 'coc', label: 'Plumbing certificate of compliance' },
         ],
       },
-      {
-        id: 'urgency',
-        text: 'How soon do you need it?',
-        type: 'radio',
-        options: [
-          { value: 'today', label: 'Urgently / Today' },
-          { value: 'this_week', label: 'Within this week' },
-          { value: 'flexible', label: 'I\'m flexible' },
-        ],
-      },
-      {
-        id: 'description',
-        text: 'Can you describe the issue in more detail?',
-        type: 'textarea',
-        placeholder: 'e.g. The toilet is constantly running, or the geyser is not heating up.'
-      }
     ],
   },
   {

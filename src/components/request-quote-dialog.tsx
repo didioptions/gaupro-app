@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -26,7 +26,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Check, ChevronsUpDown, ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { allServices, serviceQuestionSets, QuestionSet } from '@/lib/service-questions';
+import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from './ui/progress';
 import { Label } from './ui/label';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
@@ -232,7 +232,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
                 </div>
             </div>
             <div className="flex justify-end">
-                <Button size="lg" type="submit">Get FREE Quotes</Button>
+                <Button size="lg" type="submit" variant="destructive">Get FREE Quotes</Button>
             </div>
         </form>
     );

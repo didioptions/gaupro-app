@@ -5,17 +5,30 @@ import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Search, MapPin } from "lucide-react";
 import Image from "next/image";
-import { RequestQuoteDialog } from "../request-quote-dialog";
 import { Separator } from "../ui/separator";
 import { useState } from "react";
 import { Autocomplete } from "../ui/autocomplete";
 import { allServices } from "@/lib/service-questions";
 import { allLocations } from "@/lib/locations";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
   const [serviceValue, setServiceValue] = useState('');
   const [locationValue, setLocationValue] = useState('');
+  const router = useRouter();
+
+  const handleSearch = () => {
+    if (serviceValue) {
+      // Basic slugification
+      const serviceSlug = serviceValue.toLowerCase().replace(/\s+/g, '-');
+      router.push(`/services/${serviceSlug}`);
+    } else {
+      // Optional: alert the user or handle the case where no service is selected
+      alert("Please select a service.");
+    }
+  };
 
   return (
     <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center text-white">
@@ -56,11 +69,9 @@ export default function Hero() {
                 placeholder="Durban"
                 inputClassName="text-base text-gray-700"
               />
-              <RequestQuoteDialog>
-                <Button type="submit" size="lg" className="h-full px-8 text-base" variant="destructive">
+                <Button onClick={handleSearch} type="submit" size="lg" className="h-full px-8 text-base" variant="destructive">
                   Search
                 </Button>
-              </RequestQuoteDialog>
            </div>
         </div>
       </div>

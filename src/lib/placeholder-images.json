@@ -35,6 +35,12 @@
       "description": "A group of diverse professionals working together, symbolizing teamwork and shared mission.",
       "imageUrl": "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
       "imageHint": "teamwork collaboration"
+    },
+    {
+      "id": "plumber-hero-image",
+      "description": "A plumber's hands fixing a chrome bathroom faucet.",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1753946264903-8884a2a4b868?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "plumber faucet"
     }
   ]
 }
