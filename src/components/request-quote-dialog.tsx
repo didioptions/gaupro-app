@@ -43,6 +43,8 @@ import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
 import { Calendar } from './ui/calendar';
 import { format } from 'date-fns';
+import { Checkbox } from './ui/checkbox';
+import Link from 'next/link';
 
 type FormData = {
   [key: string]: string | File[] | boolean | Date | undefined;
@@ -64,13 +66,14 @@ function RequestQuoteDialogContent({
   const [formData, setFormData] = useState<FormData>({});
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === selectedService) ||
     serviceQuestionSets.find((qs) => qs.service === 'default');
 
   const questions = questionSet?.questions || [];
-  const totalSteps = questions.length + 1; // +1 for final contact step
+  const totalSteps = (questions?.length || 0) + 1;
   const progress = step > 0 ? ((step - 1) / (totalSteps - 1)) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
@@ -79,22 +82,20 @@ function RequestQuoteDialogContent({
 
   useEffect(() => {
     if (isOpen) {
-      // If a service is pre-selected, start from the first question.
       if (service) {
         setSelectedService(service);
         setStep(1); 
       } else {
-        // Otherwise, start from the service selection.
         setStep(0); 
       }
     } else {
-      // Delay reset to allow for closing animation
       setTimeout(() => {
         setStep(0);
         setSelectedService(service || '');
         setFormData({});
         setDate(undefined);
         setIsSubmitted(false);
+        setAgreedToTerms(false);
       }, 300);
     }
   }, [isOpen, service]);
@@ -132,6 +133,10 @@ function RequestQuoteDialogContent({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!agreedToTerms) {
+        alert("You must agree to the Terms of Service and Privacy Policy.");
+        return;
+    }
     console.log('Final Form Data:', { service: selectedService, ...formData });
     setIsSubmitted(true);
   };
@@ -142,7 +147,9 @@ function RequestQuoteDialogContent({
     if (isSubmitted) {
       return (
         <div className="text-center py-8">
-          <h2 className="text-2xl font-bold mb-4">✅ Great News! Your Request Has Been Received</h2>
+            <DialogHeader>
+                <DialogTitle className="text-2xl font-bold mb-4">✅ Great News! Your Request Has Been Received</DialogTitle>
+            </DialogHeader>
           <div className="text-muted-foreground space-y-4 text-left">
             <p>
               Thanks for posting your job on Gaupro — we’re already matching you with trusted local professionals.
@@ -169,7 +176,6 @@ function RequestQuoteDialogContent({
       );
     }
 
-    // Step 0: Service Selection (only if no service is pre-selected)
     if (step === 0 && !service) {
       return (
         <>
@@ -229,10 +235,8 @@ function RequestQuoteDialogContent({
     const isQuestionStep = questionStepIndex >= 0 && questionStepIndex < questions.length;
     const isFinalStep = step === totalSteps;
     
-    // Steps 1 to N: Question Steps
     if (isQuestionStep) {
       const currentQuestion = questions[questionStepIndex];
-      // If for some reason a question isn't found, gracefully move to final step
       if (!currentQuestion) {
           setStep(totalSteps);
           return null;
@@ -330,7 +334,6 @@ function RequestQuoteDialogContent({
       );
     }
     
-    // Final Step: Contact Information
     if (isFinalStep) {
       return (
         <form onSubmit={handleSubmit}>
@@ -397,6 +400,16 @@ function RequestQuoteDialogContent({
                     </Select>
                 </div>
             </div>
+            <div className="flex items-start space-x-3 pt-4">
+                <Checkbox 
+                    id="terms"
+                    checked={agreedToTerms}
+                    onCheckedChange={(checked) => setAgreedToTerms(!!checked)}
+                />
+                <Label htmlFor="terms" className="text-xs text-muted-foreground font-normal">
+                    I agree to Gaupro’s <Link href="/terms" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
+                </Label>
+            </div>
           </div>
           <div className="flex justify-between items-center">
             <Button type="button" variant="ghost" onClick={handleBack}>
@@ -410,7 +423,6 @@ function RequestQuoteDialogContent({
       );
     }
     
-    // Fallback, should not be reached if logic is correct
     return null;
   };
 
@@ -422,7 +434,6 @@ function RequestQuoteDialogContent({
   );
 }
 
-// Wrapper Component to handle Dialog and DialogTrigger
 export function RequestQuoteDialog({
   children,
   service,
