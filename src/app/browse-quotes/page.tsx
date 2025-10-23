@@ -153,7 +153,7 @@ export default function BrowseQuotesPage() {
     <>
       <Header />
       <main className="flex-grow">
-    <div className="bg-secondary/50">
+    <div className="bg-background">
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
