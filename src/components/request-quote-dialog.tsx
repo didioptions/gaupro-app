@@ -65,8 +65,8 @@ function RequestQuoteDialogContent({
     serviceQuestionSets.find((qs) => qs.service === 'default');
 
   const questions = questionSet?.questions || [];
-  const totalSteps = (questions?.length || 0) + 1; // +1 for final contact step
-  const progress = step > 0 ? ((step) / totalSteps) * 100 : 0;
+  const totalSteps = questions.length + 1; // +1 for final contact step
+  const progress = step > 0 ? (step / totalSteps) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
     (img) => img.id === `${selectedService}-image`
@@ -198,16 +198,19 @@ function RequestQuoteDialogContent({
     // Steps 1 to N: Question Steps
     if (isQuestionStep) {
       const currentQuestion = questions[questionStepIndex];
+      if (!currentQuestion) return null; // Safeguard
 
       return (
         <form>
             <DialogHeader className='text-left'>
-              <DialogTitle className='sr-only'>Request for {serviceLabel}</DialogTitle>
               <div className="flex items-center gap-4 mb-4">
                   <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                     <ArrowLeft />
                   </Button>
-                  <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
+                  <div>
+                    <DialogTitle className="text-xl font-semibold">Request for {serviceLabel}</DialogTitle>
+                    <DialogDescription>Step {step} of {totalSteps}</DialogDescription>
+                  </div>
               </div>
             </DialogHeader>
 
@@ -280,7 +283,7 @@ function RequestQuoteDialogContent({
             <Button variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button size="lg" onClick={handleNext} className="bg-blue-600 hover:bg-blue-700">
+            <Button size="lg" onClick={handleNext}>
               Next
             </Button>
           </div>
@@ -349,25 +352,23 @@ function RequestQuoteDialogContent({
               <RadioGroup
                 onValueChange={(value) => handleInputChange('contact_method', value)}
                 defaultValue="any_method"
+                className="grid grid-cols-2 gap-4"
               >
-                <div className="grid grid-cols-2 gap-3">
-                  {['Phone call', 'WhatsApp', 'Email', 'Any method'].map((method) => (
-                    <div
-                      className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
-                      key={method}
-                    >
-                      <RadioGroupItem
-                        value={method.toLowerCase().replace(' ', '_')}
-                        id={method}
-                      />
-                      <Label
-                        htmlFor={method}
-                        className="pl-3 font-normal cursor-pointer text-base"
-                      >
-                        {method}
-                      </Label>
-                    </div>
-                  ))}
+                <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
+                  <RadioGroupItem value="phone" id="phone" />
+                  <Label htmlFor="phone" className="pl-3 font-normal cursor-pointer text-base">Phone call</Label>
+                </div>
+                 <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
+                  <RadioGroupItem value="whatsapp" id="whatsapp" />
+                  <Label htmlFor="whatsapp" className="pl-3 font-normal cursor-pointer text-base">WhatsApp</Label>
+                </div>
+                 <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
+                  <RadioGroupItem value="email" id="email" />
+                  <Label htmlFor="email" className="pl-3 font-normal cursor-pointer text-base">Email</Label>
+                </div>
+                 <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
+                  <RadioGroupItem value="any_method" id="any_method" />
+                  <Label htmlFor="any_method" className="pl-3 font-normal cursor-pointer text-base">Any method</Label>
                 </div>
               </RadioGroup>
             </div>
@@ -433,9 +434,7 @@ export function RequestQuoteDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <RequestQuoteDialogContent service={service} isOpen={isOpen} setIsOpen={setIsOpen} />
+      {isOpen && <RequestQuoteDialogContent service={service} isOpen={isOpen} setIsOpen={setIsOpen} />}
     </Dialog>
   );
 }
-
-    
