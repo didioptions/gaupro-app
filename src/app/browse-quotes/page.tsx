@@ -158,7 +158,7 @@ export default function BrowseQuotesPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">Latest Job Requests</h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-foreground max-w-2xl mx-auto">
               Browse the latest opportunities from customers in your area. Unlock leads to get contact details and submit your quote.
             </p>
           </div>
@@ -205,15 +205,15 @@ export default function BrowseQuotesPage() {
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row gap-4">
                         <div className="flex-grow">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                          <div className="flex items-center gap-2 text-sm text-foreground mb-2">
                             <Badge variant="secondary" className="bg-blue-100 text-primary hover:bg-blue-200">{job.category}</Badge>
                             <MapPin className="h-4 w-4" />
                             <span>{job.location}</span>
                           </div>
                           <h2 className="text-xl font-bold mb-2">{job.title}</h2>
-                          <p className="text-muted-foreground text-sm mb-4">{job.description}</p>
+                          <p className="text-foreground text-sm mb-4">{job.description}</p>
                         </div>
-                        <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-muted-foreground">
+                        <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-foreground">
                           <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {job.posted}</span></div>
                           <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.needed}</span></div>
                           <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>
@@ -225,7 +225,7 @@ export default function BrowseQuotesPage() {
                           <div className="space-y-4">
                              <div>
                                 <h3 className="text-md font-semibold mb-2 text-foreground">Customer Details</h3>
-                                <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                                <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-foreground">
                                    <div className="flex items-center gap-2"><User className="h-4 w-4" /> <span>{job.customer.name}</span></div>
                                    <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> <span>{job.customer.phone}</span></div>
                                 </div>
@@ -280,3 +280,5 @@ export default function BrowseQuotesPage() {
       </>
   );
 }
+
+    
