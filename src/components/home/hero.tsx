@@ -2,9 +2,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Search } from "lucide-react";
+import { Search, MapPin } from "lucide-react";
 import Image from "next/image";
 import { RequestQuoteDialog } from "../request-quote-dialog";
+import { Separator } from "../ui/separator";
 
 export default function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
@@ -28,17 +29,24 @@ export default function Hero() {
         <p className="mx-auto max-w-2xl text-lg text-white/80 mb-10">
           Get free quotes from qualified, trusted and reviewed professionals in your area.
         </p>
-        <div className="mx-auto max-w-lg">
-           <div className="flex w-full items-center space-x-2 bg-white rounded-md p-2 shadow-lg">
+        <div className="mx-auto max-w-3xl">
+           <div className="flex w-full items-center bg-white rounded-md p-2 shadow-lg h-16">
+             <Search className="h-5 w-5 text-gray-400 mx-3"/>
              <Input 
                 type="text" 
-                placeholder="What service do you need? e.g. Plumber" 
-                className="flex-grow bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 h-12 text-base text-gray-700"
+                placeholder="What service do you need?" 
+                className="flex-grow bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 h-full text-base text-gray-700"
+              />
+              <Separator orientation="vertical" className="h-8 mx-2" />
+              <MapPin className="h-5 w-5 text-gray-400 mx-3"/>
+               <Input 
+                type="text" 
+                placeholder="Durban" 
+                className="flex-grow bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 h-full text-base text-gray-700"
               />
               <RequestQuoteDialog>
-                <Button type="submit" size="lg" className="h-12 px-6">
-                  <Search className="mr-2 h-5 w-5" />
-                  Get Started
+                <Button type="submit" size="lg" className="h-full px-8 text-base" variant="destructive">
+                  Search
                 </Button>
               </RequestQuoteDialog>
            </div>
