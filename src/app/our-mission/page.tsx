@@ -45,49 +45,49 @@ export default function MissionPage() {
         <div className="container mx-auto px-4 py-12 md:py-20">
             <div className="max-w-4xl mx-auto space-y-16">
                 <section className="text-center">
-                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                    <p className="text-lg md:text-xl text-foreground leading-relaxed">
                         At Gaupro, our mission is simple: To help local service providers grow their businesses, connect with real customers, and build trusted reputations online. We believe every hardworking South African — whether you’re a plumber, tutor, designer, or beautician — deserves a fair opportunity to be seen, hired, and celebrated for your skills.
                     </p>
                 </section>
 
-                <section className="p-8 bg-secondary/50 rounded-lg text-center">
+                <section className="p-8 bg-background rounded-lg text-center">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">💪 What Drives Us</h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+                    <p className="text-foreground max-w-2xl mx-auto mb-6">
                         South Africa is full of talent — but too many professionals go unnoticed. That’s why Gaupro exists: to bring visibility, trust, and opportunity together in one platform.
                     </p>
                     <ul className="inline-block text-left space-y-3">
                         <li className="flex items-start gap-3">
                             <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span className="text-muted-foreground">Empower local professionals with smart tools that help them stand out.</span>
+                            <span className="text-foreground">Empower local professionals with smart tools that help them stand out.</span>
                         </li>
                          <li className="flex items-start gap-3">
                             <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span className="text-muted-foreground">Simplify hiring for customers looking for trusted service providers.</span>
+                            <span className="text-foreground">Simplify hiring for customers looking for trusted service providers.</span>
                         </li>
                          <li className="flex items-start gap-3">
                             <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span className="text-muted-foreground">Build lasting trust through verified profiles, reviews, and transparency.</span>
+                            <span className="text-foreground">Build lasting trust through verified profiles, reviews, and transparency.</span>
                         </li>
                     </ul>
                 </section>
 
                 <section>
                     <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">🚀 Our Vision</h2>
-                    <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-8">
+                    <p className="text-foreground text-center max-w-3xl mx-auto mb-8">
                        We’re building South Africa’s most trusted professional network, connecting people and businesses through meaningful relationships. We envision a country where:
                     </p>
                     <div className="grid sm:grid-cols-3 gap-6 text-center">
                         <div className="p-6 border rounded-lg">
                             <h3 className="font-semibold text-lg">Skilled Worker Success</h3>
-                            <p className="text-sm text-muted-foreground mt-1">Every skilled worker can grow and earn fairly.</p>
+                            <p className="text-sm text-foreground mt-1">Every skilled worker can grow and earn fairly.</p>
                         </div>
                         <div className="p-6 border rounded-lg">
                             <h3 className="font-semibold text-lg">Effortless Hiring</h3>
-                            <p className="text-sm text-muted-foreground mt-1">Every customer finds trusted help within minutes.</p>
+                            <p className="text-sm text-foreground mt-1">Every customer finds trusted help within minutes.</p>
                         </div>
                         <div className="p-6 border rounded-lg">
                             <h3 className="font-semibold text-lg">Thriving Communities</h3>
-                            <p className="text-sm text-muted-foreground mt-1">Every community thrives through collaboration and digital empowerment.</p>
+                            <p className="text-sm text-foreground mt-1">Every community thrives through collaboration and digital empowerment.</p>
                         </div>
                     </div>
                 </section>
@@ -99,7 +99,7 @@ export default function MissionPage() {
                             <div key={value.name} className="p-4 border rounded-lg bg-card text-center">
                                 <div className="flex justify-center mb-3">{value.icon}</div>
                                 <p className="font-semibold mb-1">{value.name}</p>
-                                <p className="text-xs text-muted-foreground">{value.detail}</p>
+                                <p className="text-xs text-foreground">{value.detail}</p>
                             </div>
                         ))}
                     </div>
@@ -107,7 +107,7 @@ export default function MissionPage() {
 
                 <section className="text-center border-t pt-16">
                     <h2 className="text-3xl font-bold">📈 Our Promise</h2>
-                    <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+                    <p className="mt-4 text-foreground max-w-xl mx-auto">
                         We’re more than just a business directory — we’re your growth partner. When local professionals succeed, our entire nation moves forward. Because when small businesses grow, communities grow too.
                     </p>
                 </section>
