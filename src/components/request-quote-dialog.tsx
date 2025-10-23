@@ -23,6 +23,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Check, ChevronsUpDown, ArrowLeft, Calendar as CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -66,8 +73,8 @@ function RequestQuoteDialogContent({
 
   const questions = questionSet?.questions || [];
   const totalSteps = (questions?.length || 0) + 1; // +1 for final contact step
-  const progress = step > 0 ? (step / totalSteps) * 100 : 0;
-
+  const progress = step > 0 ? ((step -1) / (totalSteps-1)) * 100 : 0;
+  
   const serviceImage = CategoryImages.find(
     (img) => img.id === `${selectedService}-image`
   );
@@ -125,15 +132,11 @@ function RequestQuoteDialogContent({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.terms) {
-      alert('You must agree to the Terms of Service and Privacy Policy.');
-      return;
-    }
     console.log('Final Form Data:', { service: selectedService, ...formData });
     alert('Request Submitted! (See console for data)');
     setIsOpen(false);
   };
-
+  
   const renderStepContent = () => {
     const serviceLabel = allServices.find((s) => s.value === selectedService)?.label;
 
@@ -286,7 +289,7 @@ function RequestQuoteDialogContent({
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button type="button" size="lg" onClick={handleNext} className="bg-blue-600 hover:bg-blue-700">
+            <Button type="button" size="lg" onClick={handleNext}>
               Next
             </Button>
           </div>
@@ -299,111 +302,67 @@ function RequestQuoteDialogContent({
       return (
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <div className="flex items-center gap-4">
-              <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
-                <ArrowLeft />
-              </Button>
-              <div>
-                 <DialogTitle className="text-2xl font-bold">Where should we send your quotes?</DialogTitle>
-                <DialogDescription>Request for {serviceLabel}</DialogDescription>
-              </div>
-            </div>
+            <DialogTitle className="text-2xl">We're almost done, we just need your contact details.</DialogTitle>
           </DialogHeader>
           <div className="py-8 space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="fullName">Full Name</Label>
-              <Input
-                id="fullName"
-                placeholder="e.g. John Doe"
-                onChange={(e) => handleInputChange('fullName', e.target.value)}
-                required
-              />
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Input
+                  id="firstName"
+                  placeholder="First Name"
+                  onChange={(e) => handleInputChange('firstName', e.target.value)}
+                  required
+                />
+              </div>
+               <div className="space-y-2">
+                <Input
+                  id="lastName"
+                  placeholder="Last Name"
+                  onChange={(e) => handleInputChange('lastName', e.target.value)}
+                  required
+                />
+              </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="phoneNumber">Phone Number</Label>
-              <Input
-                id="phoneNumber"
-                type="tel"
-                placeholder="e.g. 082 123 4567"
-                onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email Address</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="e.g. you@example.com"
+                placeholder="Your Email"
                 onChange={(e) => handleInputChange('email', e.target.value)}
                 required
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="location">Location</Label>
-              <Input
-                id="location"
-                placeholder="e.g. Sandton, Johannesburg"
-                onChange={(e) => handleInputChange('location', e.target.value)}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label>How should professionals contact you?</Label>
-              <RadioGroup
-                onValueChange={(value) => handleInputChange('contact_method', value)}
-                defaultValue="any_method"
-                 className="grid grid-cols-2 gap-4"
-              >
-                <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
-                  <RadioGroupItem value="phone" id="phone" />
-                  <Label htmlFor="phone" className="pl-3 font-normal cursor-pointer text-base">Phone call</Label>
-                </div>
-                 <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
-                  <RadioGroupItem value="whatsapp" id="whatsapp" />
-                  <Label htmlFor="whatsapp" className="pl-3 font-normal cursor-pointer text-base">WhatsApp</Label>
-                </div>
-                 <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
-                  <RadioGroupItem value="email_contact" id="email_contact" />
-                  <Label htmlFor="email_contact" className="pl-3 font-normal cursor-pointer text-base">Email</Label>
-                </div>
-                 <div className="flex items-center p-3 border rounded-md has-[:checked]:border-primary has-[:checked]:bg-secondary/50">
-                  <RadioGroupItem value="any_method" id="any_method" />
-                  <Label htmlFor="any_method" className="pl-3 font-normal cursor-pointer text-base">Any method</Label>
-                </div>
-              </RadioGroup>
-            </div>
-            <div className="space-y-2">
-              <Label>Upload Photos (Optional)</Label>
-              <FileUpload
-                multiple
-                onFilesChange={(files) => handleInputChange('photos', files)}
-              />
-              <p className="text-xs text-muted-foreground">
-                Add photos of the job to get more accurate quotes.
-              </p>
-            </div>
-            <div className="flex items-start space-x-3 pt-4">
-              <Checkbox
-                id="terms"
-                onCheckedChange={(checked) => handleInputChange('terms', checked as boolean)}
-              />
-              <Label htmlFor="terms" className="text-sm font-normal text-muted-foreground">
-                I agree to Gaupro’s{' '}
-                <Link href="/terms" className="underline text-primary" target="_blank">
-                  Terms of Service
-                </Link>{' '}
-                and{' '}
-                <Link href="/privacy" className="underline text-primary" target="_blank">
-                  Privacy Policy
-                </Link>
-                .
-              </Label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Input
+                  id="phoneNumber"
+                  type="tel"
+                  placeholder="Your Cellphone Number"
+                  onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                 <Select onValueChange={(value) => handleInputChange('contact_method', value)} defaultValue="anytime">
+                   <SelectTrigger>
+                     <SelectValue placeholder="Contact me Anytime" />
+                   </SelectTrigger>
+                   <SelectContent>
+                     <SelectItem value="anytime">Contact me Anytime</SelectItem>
+                     <SelectItem value="morning">Morning</SelectItem>
+                     <SelectItem value="afternoon">Afternoon</SelectItem>
+                     <SelectItem value="evening">Evening</SelectItem>
+                   </SelectContent>
+                 </Select>
+              </div>
             </div>
           </div>
-          <div className="flex justify-end">
-            <Button size="lg" type="submit">
-              Get FREE Quotes
+          <div className="flex justify-between items-center">
+             <Button type="button" variant="ghost" onClick={handleBack}>
+              Back
+            </Button>
+            <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700">
+              Submit
             </Button>
           </div>
         </form>
@@ -416,7 +375,7 @@ function RequestQuoteDialogContent({
 
   return (
     <DialogContent className="sm:max-w-[600px] max-h-[90vh] p-0 flex flex-col">
-      {step > 0 && <Progress value={progress} className="h-1 absolute top-0 left-0 right-0" />}
+      {step > 0 && <Progress value={progress} className="h-2 absolute top-0 left-0 right-0" />}
       <div className="p-6 pt-10 overflow-y-auto">{renderStepContent()}</div>
     </DialogContent>
   );
@@ -439,3 +398,5 @@ export function RequestQuoteDialog({
     </Dialog>
   );
 }
+
+    
