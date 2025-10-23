@@ -114,14 +114,13 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'other', label: 'Other' },
         ],
       },
-       {
-        id: 'urgency',
-        text: 'How urgent is this request?',
+      {
+        id: 'is_emergency',
+        text: 'Is this an emergency?',
         type: 'radio',
         options: [
-          { value: 'emergency', label: 'Emergency - need help now' },
-          { value: 'soon', label: 'Soon' },
-          { value: 'flexible', label: 'Flexible' },
+          { value: 'yes', label: 'Yes, it is' },
+          { value: 'no', label: 'No, it is not' },
         ],
       },
        {

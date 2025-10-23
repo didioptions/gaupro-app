@@ -153,10 +153,8 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
       return (
         <form>
           <DialogHeader>
-             <div className="flex items-center gap-4">
-                <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
-                    <ArrowLeft />
-                </Button>
+             <div className="flex items-center gap-4 mb-4">
+                {step > 0 && <Button variant="ghost" size="icon" onClick={handleBack} className="md:hidden"><ArrowLeft/></Button>}
                 <div>
                   <DialogTitle className="text-2xl">Get quotes for {serviceLabel}</DialogTitle>
                   <DialogDescription>Answer a few questions and we'll connect you with the right pros.</DialogDescription>
@@ -187,8 +185,9 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
               />
             )}
           </div>
-          <div className="flex justify-end">
-            <Button size="lg" onClick={handleNext}>Next</Button>
+          <div className="flex justify-between items-center">
+            <Button variant="ghost" onClick={handleBack} className="hidden md:inline-flex">Back</Button>
+            <Button size="lg" onClick={handleNext} variant="destructive">Next</Button>
           </div>
         </form>
       );
@@ -243,7 +242,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[600px] overflow-y-auto max-h-[90vh]">
         {step > 0 && <Progress value={progress} className="h-2 absolute top-0 left-0 right-0" />}
-        <div className="pt-4">
+        <div className="pt-8">
           {renderStepContent()}
         </div>
       </DialogContent>
