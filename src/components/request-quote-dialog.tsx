@@ -154,7 +154,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
         <form>
           <DialogHeader>
              <div className="flex items-center gap-4 mb-4">
-                {step > 0 && <Button variant="ghost" size="icon" onClick={handleBack} className="md:hidden"><ArrowLeft/></Button>}
+                {step > 0 && <Button variant="ghost" size="icon" onClick={handleBack}><ArrowLeft/></Button>}
                 <div>
                   <DialogTitle className="text-2xl">Get quotes for {serviceLabel}</DialogTitle>
                   <DialogDescription>Answer a few questions and we'll connect you with the right pros.</DialogDescription>
