@@ -33,39 +33,46 @@ export const allServices = [
   { value: 'welder', label: 'Welder' },
 ];
 
+const jobDetailsQuestion: Question = {
+    id: 'job_details',
+    text: 'Describe the work you need done in detail. The more info you provide, the better quotes you’ll get.',
+    type: 'textarea',
+    placeholder: 'e.g. My geyser is leaking from the top valve. It is a 150L Kwikot geyser...'
+};
+
+const urgencyQuestion: Question = {
+    id: 'urgency',
+    text: 'When do you need this service?',
+    type: 'radio',
+    options: [
+        { value: 'asap', label: 'As soon as possible' },
+        { value: 'within_a_week', label: 'Within a week' },
+        { value: 'flexible', label: 'Flexible' },
+        { value: 'specific_date', label: 'Specific date' },
+    ]
+};
+
+const budgetQuestion: Question = {
+    id: 'budget',
+    text: 'What’s your estimated budget?',
+    type: 'radio',
+    options: [
+        { value: 'under_1000', label: 'Under R1,000' },
+        { value: '1000_5000', label: 'R1,000–R5,000' },
+        { value: '5000_10000', label: 'R5,000–R10,000' },
+        { value: 'above_10000', label: 'Above R10,000' },
+        { value: 'not_sure', label: 'Not sure yet' },
+    ]
+};
+
 const commonQuestions: Question[] = [
-    {
-        id: 'job_details',
-        text: 'Describe the work you need done in detail. The more info you provide, the better quotes you’ll get.',
-        type: 'textarea',
-        placeholder: 'e.g. My geyser is leaking from the top valve. It is a 150L Kwikot geyser...'
-    },
-    {
-        id: 'urgency',
-        text: 'When do you need this service?',
-        type: 'radio',
-        options: [
-            { value: 'asap', label: 'As soon as possible' },
-            { value: 'within_a_week', label: 'Within a week' },
-            { value: 'flexible', label: 'Flexible' },
-            { value: 'specific_date', label: 'Specific date' },
-        ]
-    },
-    {
-        id: 'budget',
-        text: 'What’s your estimated budget?',
-        type: 'radio',
-        options: [
-            { value: 'under_1000', label: 'Under R1,000' },
-            { value: '1000_5000', label: 'R1,000–R5,000' },
-            { value: '5000_10000', label: 'R5,000–R10,000' },
-            { value: 'above_10000', label: 'Above R10,000' },
-            { value: 'not_sure', label: 'Not sure yet' },
-        ]
-    },
+    jobDetailsQuestion,
+    urgencyQuestion,
+    budgetQuestion
 ];
 
-const specificQuestionSets: QuestionSet[] = [
+
+export const serviceQuestionSets: QuestionSet[] = [
   {
     service: 'plumber',
     questions: [
@@ -96,6 +103,7 @@ const specificQuestionSets: QuestionSet[] = [
           { value: 'no', label: 'No, it is not' },
         ],
       },
+      ...commonQuestions
     ],
   },
   {
@@ -114,6 +122,7 @@ const specificQuestionSets: QuestionSet[] = [
             { value: 'sanitisation', label: 'Sanitisation' },
         ]
       },
+      ...commonQuestions
     ]
   },
   {
@@ -134,6 +143,7 @@ const specificQuestionSets: QuestionSet[] = [
           { value: 'other', label: 'Other' },
         ],
       },
+      ...commonQuestions
     ],
   },
   {
@@ -171,25 +181,14 @@ const specificQuestionSets: QuestionSet[] = [
           { value: 'industrial', label: 'Industrial' },
         ],
       },
+      ...commonQuestions
     ],
   },
+  // Fallback for other services
+  ...allServices
+    .filter(service => !['plumber', 'cleaning-service', 'builder', 'electrician'].includes(service.value))
+    .map(service => ({
+      service: service.value,
+      questions: commonQuestions,
+    }))
 ];
-
-const allServiceValues = allServices.map(s => s.value);
-const definedServiceValues = new Set(specificQuestionSets.map(qs => qs.service));
-
-// Create question sets for services that don't have specific ones
-for (const serviceValue of allServiceValues) {
-    if (!definedServiceValues.has(serviceValue)) {
-        specificQuestionSets.push({
-            service: serviceValue,
-            questions: [] // No specific questions, just common ones
-        });
-    }
-}
-
-// Combine specific and common questions
-export const serviceQuestionSets: QuestionSet[] = specificQuestionSets.map(sqs => ({
-    ...sqs,
-    questions: [...sqs.questions, ...commonQuestions]
-}));

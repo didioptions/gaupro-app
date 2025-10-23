@@ -50,7 +50,6 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
   const [selectedService, setSelectedService] = useState(service || '');
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({});
-  const [showDatePicker, setShowDatePicker] = useState(false);
   const [date, setDate] = useState<Date | undefined>();
 
   useEffect(() => {
@@ -65,14 +64,13 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
         setStep(0);
         setSelectedService(service || '');
         setFormData({});
-        setShowDatePicker(false);
         setDate(undefined);
       }, 300);
     }
   }, [isOpen, service]);
   
   const questionSet = serviceQuestionSets.find(qs => qs.service === selectedService);
-  const totalSteps = (questionSet ? questionSet.questions.length : 0) + 1 + (service ? 0 : 1);
+  const totalSteps = (questionSet ? questionSet.questions.length : 0) + (service ? 1 : 2);
   const progress = (step / (totalSteps - 1)) * 100;
   
   const serviceImage = CategoryImages.find(img => img.id === `${selectedService}-image`);
@@ -101,18 +99,11 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
   
   const handleInputChange = (questionId: string, value: string | File[] | boolean | Date | undefined) => {
     setFormData(prev => ({ ...prev, [questionId]: value }));
-
-    if (questionId === 'urgency' && value === 'specific_date') {
-        setShowDatePicker(true);
-    } else if (questionId === 'urgency') {
-        setShowDatePicker(false);
-    }
   };
 
   const handleDateSelect = (selectedDate: Date | undefined) => {
     setDate(selectedDate);
     handleInputChange('urgency_date', selectedDate);
-    setShowDatePicker(false);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -194,28 +185,22 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     if (questionSet && questionStepIndex < questionSet.questions.length) {
       const currentQuestion = questionSet.questions[questionStepIndex];
 
-      // Defensive check
-      if (!currentQuestion) {
-        // This should not happen with the new logic in service-questions.ts, but it's a good safeguard.
-        // Skip to the final step if we run out of questions.
-        setStep(questionSet.questions.length + 1);
-        return null;
-      }
-      
       return (
         <form>
-          <DialogHeader className="space-y-0">
-            <DialogTitle className="sr-only">Request a quote for {serviceLabel}</DialogTitle>
-             <div className="flex items-center gap-4 mb-4">
-                {(step > 0 && !service) || (step > 1 && service) ? <Button variant="ghost" size="icon" onClick={handleBack}><ArrowLeft/></Button> : <div className="w-10 h-10"></div>}
-                 <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
+            <DialogHeader>
+               <DialogTitle className="sr-only">Request a quote for {serviceLabel}</DialogTitle>
+            </DialogHeader>
+            <div className="flex items-center gap-4 mb-4">
+                <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
+                    <ArrowLeft/>
+                </Button>
+                <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
             </div>
              {serviceImage && (
                 <div className="relative h-32 w-full mb-4">
                   <Image src={serviceImage.imageUrl} alt={serviceImage.description || ''} fill className="object-cover rounded-t-lg" data-ai-hint={serviceImage.imageHint} />
                 </div>
               )}
-          </DialogHeader>
           <div className="py-8 min-h-[250px]">
             <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
@@ -240,8 +225,8 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                 defaultValue={formData[currentQuestion.id] as string | undefined}
               />
             )}
-            {currentQuestion.id === 'urgency' && showDatePicker && (
-                 <Popover open={showDatePicker} onOpenChange={setShowDatePicker}>
+            {currentQuestion.id === 'urgency' && formData['urgency'] === 'specific_date' && (
+                 <Popover>
                     <PopoverTrigger asChild>
                       <Button
                         variant={"outline"}
@@ -277,12 +262,12 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     return (
         <form onSubmit={handleSubmit}>
             <DialogHeader>
-                 <div className="flex items-center gap-4">
+                <DialogTitle className="sr-only">Contact Information</DialogTitle>
+                <div className="flex items-center gap-4">
                     <Button variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                         <ArrowLeft />
                     </Button>
                     <div>
-                        <DialogTitle className="sr-only">Contact Information</DialogTitle>
                         <DialogDescription>Request for {serviceLabel}</DialogDescription>
                         <h2 className="text-2xl font-bold">Where should we send your quotes?</h2>
                     </div>
@@ -342,12 +327,11 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] overflow-y-auto max-h-[90vh] p-0">
-        <DialogTitle className="sr-only">Request a Quote</DialogTitle>
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] p-0 flex flex-col">
         <div className="absolute top-0 left-0 right-0">
          {step > 0 && <Progress value={progress} className="h-1" />}
         </div>
-        <div className="p-6 pt-10">
+        <div className="p-6 pt-10 overflow-y-auto">
           {renderStepContent()}
         </div>
       </DialogContent>
