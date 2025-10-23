@@ -31,7 +31,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { Check, ChevronsUpDown, ArrowLeft, Calendar as CalendarIcon } from 'lucide-react';
+import { Check, ChevronsUpDown, ArrowLeft, Calendar as CalendarIcon, CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from './ui/progress';
@@ -66,19 +66,20 @@ function RequestQuoteDialogContent({
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({});
   const [date, setDate] = useState<Date | undefined>();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === selectedService) ||
     serviceQuestionSets.find((qs) => qs.service === 'default');
 
   const questions = questionSet?.questions || [];
-  const totalSteps = (questions?.length || 0) + 1; // +1 for final contact step
-  const progress = step > 0 ? ((step -1) / (totalSteps-1)) * 100 : 0;
-  
+  const totalSteps = questions.length + 1; // +1 for final contact step
+  const progress = step > 0 ? ((step - 1) / (totalSteps - 1)) * 100 : 0;
+
   const serviceImage = CategoryImages.find(
     (img) => img.id === `${selectedService}-image`
   );
-  
+
   useEffect(() => {
     if (isOpen) {
       if (service) {
@@ -94,6 +95,7 @@ function RequestQuoteDialogContent({
         setSelectedService(service || '');
         setFormData({});
         setDate(undefined);
+        setIsSubmitted(false);
       }, 300);
     }
   }, [isOpen, service]);
@@ -111,10 +113,8 @@ function RequestQuoteDialogContent({
   const handleBack = () => {
     if (step === 1 && !service) {
       setStep(0);
-    } else if (step > 0) {
-       setStep((prev) => prev - 1);
-    } else {
-      setIsOpen(false);
+    } else if (step > 1) {
+      setStep((prev) => prev - 1);
     }
   };
 
@@ -124,7 +124,7 @@ function RequestQuoteDialogContent({
   ) => {
     setFormData((prev) => ({ ...prev, [questionId]: value }));
   };
-  
+
   const handleDateSelect = (selectedDate: Date | undefined) => {
     setDate(selectedDate);
     handleInputChange('urgency_date', selectedDate);
@@ -133,12 +133,24 @@ function RequestQuoteDialogContent({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Final Form Data:', { service: selectedService, ...formData });
-    alert('Request Submitted! (See console for data)');
-    setIsOpen(false);
+    setIsSubmitted(true);
   };
-  
+
   const renderStepContent = () => {
     const serviceLabel = allServices.find((s) => s.value === selectedService)?.label;
+
+    if (isSubmitted) {
+      return (
+        <div className="text-center py-12">
+          <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold mb-2">Request Submitted!</h2>
+          <p className="text-muted-foreground mb-6">
+            You'll receive quotes from professionals shortly.
+          </p>
+          <Button onClick={() => setIsOpen(false)}>Done</Button>
+        </div>
+      );
+    }
 
     // Step 0: Service Selection (only if no service is pre-selected)
     if (step === 0 && !service) {
@@ -195,11 +207,11 @@ function RequestQuoteDialogContent({
         </>
       );
     }
-    
+
     const questionStepIndex = step - 1;
     const isQuestionStep = questionStepIndex >= 0 && questionStepIndex < questions.length;
     const isFinalStep = step === totalSteps;
-    
+
     // Steps 1 to N: Question Steps
     if (isQuestionStep) {
       const currentQuestion = questions[questionStepIndex];
@@ -301,11 +313,19 @@ function RequestQuoteDialogContent({
     if (isFinalStep) {
       return (
         <form onSubmit={handleSubmit}>
-          <DialogHeader>
-            <DialogTitle className="text-2xl">We're almost done, we just need your contact details.</DialogTitle>
+          <DialogHeader className="text-left">
+            <div className="flex items-center gap-4 mb-4">
+              <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
+                <ArrowLeft />
+              </Button>
+              <div>
+                <DialogTitle className="text-xl font-semibold">We're almost done, we just need your details.</DialogTitle>
+                 <DialogDescription>Step {step} of {totalSteps}</DialogDescription>
+              </div>
+            </div>
           </DialogHeader>
           <div className="py-8 space-y-4">
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Input
                   id="firstName"
@@ -314,7 +334,7 @@ function RequestQuoteDialogContent({
                   required
                 />
               </div>
-               <div className="space-y-2">
+              <div className="space-y-2">
                 <Input
                   id="lastName"
                   placeholder="Last Name"
@@ -343,22 +363,22 @@ function RequestQuoteDialogContent({
                 />
               </div>
               <div className="space-y-2">
-                 <Select onValueChange={(value) => handleInputChange('contact_method', value)} defaultValue="anytime">
-                   <SelectTrigger>
-                     <SelectValue placeholder="Contact me Anytime" />
-                   </SelectTrigger>
-                   <SelectContent>
-                     <SelectItem value="anytime">Contact me Anytime</SelectItem>
-                     <SelectItem value="morning">Morning</SelectItem>
-                     <SelectItem value="afternoon">Afternoon</SelectItem>
-                     <SelectItem value="evening">Evening</SelectItem>
-                   </SelectContent>
-                 </Select>
+                <Select onValueChange={(value) => handleInputChange('contact_method', value)} defaultValue="anytime">
+                  <SelectTrigger>
+                    <SelectValue placeholder="Contact me Anytime" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="anytime">Contact me Anytime</SelectItem>
+                    <SelectItem value="morning">Morning</SelectItem>
+                    <SelectItem value="afternoon">Afternoon</SelectItem>
+                    <SelectItem value="evening">Evening</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
           </div>
           <div className="flex justify-between items-center">
-             <Button type="button" variant="ghost" onClick={handleBack}>
+            <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
             <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700">
@@ -375,7 +395,7 @@ function RequestQuoteDialogContent({
 
   return (
     <DialogContent className="sm:max-w-[600px] max-h-[90vh] p-0 flex flex-col">
-      {step > 0 && <Progress value={progress} className="h-2 absolute top-0 left-0 right-0" />}
+      {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 absolute top-0 left-0 right-0" />}
       <div className="p-6 pt-10 overflow-y-auto">{renderStepContent()}</div>
     </DialogContent>
   );
@@ -398,5 +418,3 @@ export function RequestQuoteDialog({
     </Dialog>
   );
 }
-
-    
