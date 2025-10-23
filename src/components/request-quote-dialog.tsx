@@ -33,6 +33,8 @@ import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { Textarea } from './ui/textarea';
 import { Input } from './ui/input';
 import { FileUpload } from './ui/file-upload';
+import Image from 'next/image';
+import { CategoryImages } from '@/lib/category-images';
 
 type FormData = {
   [key: string]: string | File[];
@@ -48,6 +50,8 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
   const questionSet = serviceQuestionSets.find(qs => qs.service === selectedService);
   const totalSteps = (questionSet ? questionSet.questions.length : 0) + 1 + 1; // service selection + questions + contact info
   const progress = (step / (totalSteps - 1)) * 100;
+  
+  const serviceImage = CategoryImages.find(img => img.id === `${selectedService}-image`);
 
   const handleServiceSelect = (serviceValue: string) => {
     setSelectedService(serviceValue);
@@ -152,14 +156,15 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
       const currentQuestion = questionSet.questions[questionStepIndex];
       return (
         <form>
-          <DialogHeader>
+          <DialogHeader className="space-y-0">
              <div className="flex items-center gap-4 mb-4">
                 {step > 0 && <Button variant="ghost" size="icon" onClick={handleBack}><ArrowLeft/></Button>}
-                <div>
-                  <DialogTitle className="text-2xl">Get quotes for {serviceLabel}</DialogTitle>
-                  <DialogDescription>Answer a few questions and we'll connect you with the right pros.</DialogDescription>
-                </div>
             </div>
+             {serviceImage && (
+                <div className="relative h-32 w-full mb-4">
+                  <Image src={serviceImage.imageUrl} alt={serviceImage.description} fill className="object-cover rounded-t-lg" />
+                </div>
+              )}
           </DialogHeader>
           <div className="py-8 min-h-[250px]">
             <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
@@ -167,7 +172,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
               <RadioGroup onValueChange={value => handleInputChange(currentQuestion.id, value)}>
                 <div className="space-y-3">
                   {currentQuestion.options?.map(option => (
-                    <div className="flex items-center" key={option.value}>
+                    <div className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary" key={option.value}>
                       <RadioGroupItem value={option.value} id={option.value} />
                       <Label htmlFor={option.value} className="pl-3 font-normal cursor-pointer text-base">
                         {option.label}
@@ -187,7 +192,7 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
           </div>
           <div className="flex justify-between items-center">
             <Button variant="ghost" onClick={handleBack}>Back</Button>
-            <Button size="lg" onClick={handleNext} variant="destructive">Next</Button>
+            <Button size="lg" onClick={handleNext}>Continue</Button>
           </div>
         </form>
       );
@@ -240,9 +245,11 @@ export function RequestQuoteDialog({ children }: { children: React.ReactNode }) 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] overflow-y-auto max-h-[90vh]">
-        {step > 0 && <Progress value={progress} className="h-2 absolute top-0 left-0 right-0" />}
-        <div className="pt-8">
+      <DialogContent className="sm:max-w-[600px] overflow-y-auto max-h-[90vh] p-0">
+        <div className="absolute top-0 left-0 right-0">
+         {step > 0 && <Progress value={progress} className="h-1" />}
+        </div>
+        <div className="p-6 pt-8">
           {renderStepContent()}
         </div>
       </DialogContent>

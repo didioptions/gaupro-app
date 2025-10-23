@@ -88,14 +88,17 @@ export const serviceQuestionSets: QuestionSet[] = [
     service: 'builder',
     questions: [
       {
-        id: 'project_type',
-        text: 'What type of project is it?',
+        id: 'building_works_type',
+        text: 'What kind of building works do you need?',
         type: 'radio',
         options: [
-          { value: 'renovation', label: 'Renovation' },
-          { value: 'new_build', label: 'New Build' },
-          { value: 'repair', label: 'Repair' },
-          { value: 'boundary_wall', label: 'Boundary Wall' },
+          { value: 'new_construction', label: 'New construction' },
+          { value: 'extensions', label: 'Extensions or addition to a building' },
+          { value: 'conversion', label: 'Building conversion e.g. double garage to flat' },
+          { value: 'renovation', label: 'Renovation & remodelling' },
+          { value: 'repair', label: 'Repair & maintenance' },
+          { value: 'paving', label: 'Paving and driveways' },
+          { value: 'roofing', label: 'Roofing' },
           { value: 'other', label: 'Other' },
         ],
       },
