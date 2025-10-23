@@ -62,12 +62,13 @@ function RequestQuoteDialogContent({
 
   useEffect(() => {
     if (isOpen) {
+      // If a service is passed in, skip the service selection step
       if (service) {
         setSelectedService(service);
-        setStep(1); // Skip service selection
+        setStep(1);
       }
     } else {
-      // Reset state when dialog closes
+      // Reset state when dialog closes. Delay to allow for exit animation.
       setTimeout(() => {
         setStep(0);
         setSelectedService(service || '');
@@ -95,6 +96,7 @@ function RequestQuoteDialogContent({
   };
 
   const handleBack = () => {
+    // If on the first question step AND a service was pre-selected, closing the dialog is the only "back" option.
     if (step === 1 && service) {
       setIsOpen(false);
     } else {
@@ -347,6 +349,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
+      {/* Pass state and state setter to the content */}
       <RequestQuoteDialogContent service={service} isOpen={isOpen} setIsOpen={setIsOpen} />
     </Dialog>
   );
