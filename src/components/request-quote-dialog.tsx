@@ -94,8 +94,9 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
     // If on the first question step and a service was pre-selected, closing back should close the dialog
     if (step === 1 && service) {
       setIsOpen(false);
+    } else {
+      setStep(prev => Math.max(prev - 1, 0));
     }
-    setStep(prev => Math.max(prev - 1, 0));
   };
   
   const handleInputChange = (questionId: string, value: string | File[] | boolean | Date | undefined) => {
@@ -128,7 +129,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
   const renderStepContent = () => {
     const serviceLabel = allServices.find(s => s.value === selectedService)?.label;
 
-    if (step === 0) {
+    if (step === 0 && !service) {
       return (
         <>
           <DialogHeader>
@@ -197,7 +198,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
           <DialogHeader className="space-y-0">
             <DialogTitle className="sr-only">Request a quote for {serviceLabel}</DialogTitle>
              <div className="flex items-center gap-4 mb-4">
-                {step > 0 && <Button variant="ghost" size="icon" onClick={handleBack}><ArrowLeft/></Button>}
+                {(step > 0 && !service) || (step > 1 && service) ? <Button variant="ghost" size="icon" onClick={handleBack}><ArrowLeft/></Button> : <div className="w-10 h-10"></div>}
                  <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
             </div>
              {serviceImage && (
@@ -209,7 +210,7 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
           <div className="py-8 min-h-[250px]">
             <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
-              <RadioGroup onValueChange={value => handleInputChange(currentQuestion.id, value)}>
+              <RadioGroup onValueChange={value => handleInputChange(currentQuestion.id, value)} value={formData[currentQuestion.id] as string | undefined}>
                 <div className="space-y-3">
                   {currentQuestion.options?.map(option => (
                     <div className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary" key={option.value}>
@@ -227,10 +228,11 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                 placeholder={currentQuestion.placeholder}
                 rows={5}
                 onChange={e => handleInputChange(currentQuestion.id, e.target.value)}
+                defaultValue={formData[currentQuestion.id] as string | undefined}
               />
             )}
-            {showDatePicker && currentQuestion.id === 'urgency' && (
-                 <Popover>
+            {currentQuestion.id === 'urgency' && showDatePicker && (
+                 <Popover open={showDatePicker} onOpenChange={setShowDatePicker}>
                     <PopoverTrigger asChild>
                       <Button
                         variant={"outline"}
@@ -271,31 +273,32 @@ export function RequestQuoteDialog({ children, service }: { children: React.Reac
                         <ArrowLeft />
                     </Button>
                     <div>
+                        <DialogTitle className="sr-only">Contact Information</DialogTitle>
                         <DialogDescription>Request for {serviceLabel}</DialogDescription>
-                        <DialogTitle className="text-2xl">Where should we send your quotes?</DialogTitle>
+                        <h2 className="text-2xl font-bold">Where should we send your quotes?</h2>
                     </div>
                 </div>
             </DialogHeader>
             <div className="py-8 space-y-4">
                 <div className="space-y-2">
                     <Label htmlFor="fullName">Full Name</Label>
-                    <Input id="fullName" placeholder="e.g. John Doe" onChange={e => handleInputChange('fullName', e.target.value)} />
+                    <Input id="fullName" placeholder="e.g. John Doe" onChange={e => handleInputChange('fullName', e.target.value)} required/>
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="phoneNumber">Phone Number</Label>
-                    <Input id="phoneNumber" type="tel" placeholder="e.g. 082 123 4567" onChange={e => handleInputChange('phoneNumber', e.target.value)} />
+                    <Input id="phoneNumber" type="tel" placeholder="e.g. 082 123 4567" onChange={e => handleInputChange('phoneNumber', e.target.value)} required/>
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="email">Email Address</Label>
-                    <Input id="email" type="email" placeholder="e.g. you@example.com" onChange={e => handleInputChange('email', e.target.value)} />
+                    <Input id="email" type="email" placeholder="e.g. you@example.com" onChange={e => handleInputChange('email', e.target.value)} required/>
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="location">Location</Label>
-                    <Input id="location" placeholder="e.g. Sandton, Johannesburg" onChange={e => handleInputChange('location', e.target.value)} />
+                    <Input id="location" placeholder="e.g. Sandton, Johannesburg" onChange={e => handleInputChange('location', e.target.value)} required/>
                 </div>
                 <div className='space-y-2'>
                   <Label>How should professionals contact you?</Label>
-                  <RadioGroup onValueChange={value => handleInputChange('contact_method', value)}>
+                  <RadioGroup onValueChange={value => handleInputChange('contact_method', value)} defaultValue="any_method">
                     <div className="grid grid-cols-2 gap-3">
                       {['Phone call', 'WhatsApp', 'Email', 'Any method'].map(method => (
                         <div className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary" key={method}>
