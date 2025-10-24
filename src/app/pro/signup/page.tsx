@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -50,9 +51,9 @@ export default function ProSignupPage() {
       <main className="flex-grow">
     <div className="bg-background">
       {/* Hero Section */}
-      <section className="bg-secondary/50 py-20 md:py-32">
+      <section className="bg-background py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl mb-6 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6 max-w-3xl mx-auto">
              Gaupro empowers service providers across South Africa to expand their reach and connect with a wider client base.
           </h1>
           <Button asChild size="lg" className="px-8 py-6 text-lg">
@@ -72,7 +73,7 @@ export default function ProSignupPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
+                  <p className="text-foreground">{step.description}</p>
                 </div>
               </div>
             ))}
