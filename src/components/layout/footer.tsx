@@ -28,7 +28,7 @@ const footerSections = [
       { text: 'How It Works', href: '/how-it-works' },
       { text: 'Trust & Safety', href: '/trust-and-safety' },
       { text: 'Request Quote', href: '/post-request' },
-      { text: 'Contact Us', href: '#' },
+      { text: 'Contact Us', href: '/contact' },
     ],
   },
 ];
