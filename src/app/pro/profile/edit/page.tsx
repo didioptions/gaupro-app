@@ -1,6 +1,7 @@
 
 'use client';
 
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -9,10 +10,28 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { allServices } from '@/lib/service-questions';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
+import { Autocomplete } from '@/components/ui/autocomplete';
+import { Badge } from '@/components/ui/badge';
+import { X } from 'lucide-react';
 
 export default function EditProfilePage() {
+  const [keyword, setKeyword] = useState('');
+  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
+
+  const handleKeywordSelect = (value: string) => {
+    const service = allServices.find((s) => s.value === value);
+    if (service && !selectedKeywords.includes(service.label) && selectedKeywords.length < 30) {
+      setSelectedKeywords([...selectedKeywords, service.label]);
+    }
+    setKeyword(''); // Reset input after selection
+  };
+
+  const removeKeyword = (keywordToRemove: string) => {
+    setSelectedKeywords(selectedKeywords.filter((k) => k !== keywordToRemove));
+  };
+
+
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -126,8 +145,34 @@ export default function EditProfilePage() {
                         <h2 className="text-xl font-semibold">Keywords</h2>
                         <p className="text-sm text-muted-foreground mt-1">Add keywords that relate specifically to your business. Customer requests are matched to your keywords and sent to you.</p>
                         <div className="mt-4">
-                            <Input placeholder="Type in the first 3 letters of the keyword and select one that appears from the list." />
-                            <p className="text-xs text-muted-foreground mt-2 text-right">0 Service Keywords (Limit of 30)</p>
+                            <Autocomplete
+                                options={allServices}
+                                value={keyword}
+                                onValueChange={(value) => {
+                                  if (allServices.some(s => s.value === value)) {
+                                    handleKeywordSelect(value);
+                                  } else {
+                                    setKeyword(value);
+                                  }
+                                }}
+                                placeholder="Type in the first 3 letters of the keyword and select one that appears from the list."
+                            />
+                             <div className="mt-4 flex flex-wrap gap-2">
+                              {selectedKeywords.map((kw) => (
+                                <Badge key={kw} variant="secondary" className="pl-3 pr-1 py-1 text-sm">
+                                  {kw}
+                                  <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="h-5 w-5 ml-1"
+                                    onClick={() => removeKeyword(kw)}
+                                  >
+                                    <X className="h-3 w-3" />
+                                  </Button>
+                                </Badge>
+                              ))}
+                            </div>
+                            <p className="text-xs text-muted-foreground mt-2 text-right">{selectedKeywords.length} Service Keywords (Limit of 30)</p>
                         </div>
                     </div>
 
