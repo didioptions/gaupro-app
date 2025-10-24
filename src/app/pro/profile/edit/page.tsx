@@ -18,6 +18,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Link from 'next/link';
+import { RequestReviewDialog } from '@/components/pro/request-review-dialog';
 
 export default function EditProfilePage() {
   const [keyword, setKeyword] = useState('');
@@ -303,19 +304,31 @@ export default function EditProfilePage() {
            </TabsContent>
            <TabsContent value="reviews" className="mt-6">
             <div className="space-y-6">
-              <Card>
-                <CardContent className="p-8 text-center space-y-4">
-                  <p className="text-muted-foreground">Getting customer reviews make you twice as likely to be hired on Gaupro.</p>
-                  <Button className="bg-red-500 hover:bg-red-600">Get Customer Reviews</Button>
-                </CardContent>
-              </Card>
+                <RequestReviewDialog
+                    businessName="bravo projects"
+                    userName="Jabulani Sya"
+                >
+                    <Card className="cursor-pointer hover:shadow-lg transition-shadow">
+                        <CardContent className="p-8 text-center space-y-4">
+                        <p className="text-muted-foreground">Getting customer reviews make you twice as likely to be hired on Gaupro.</p>
+                        <Button asChild className="bg-red-500 hover:bg-red-600">
+                            <span>Get Customer Reviews</span>
+                        </Button>
+                        </CardContent>
+                    </Card>
+                </RequestReviewDialog>
               <Alert className="bg-blue-50 border-blue-200 text-blue-800 text-center">
                   <AlertDescription>
                       Your business profile does not have any reviews. Getting customer reviews make you twice as likely to be hired on Gaupro.
                       <br />
-                      <Button variant="link" className="text-blue-800 h-auto p-0 mt-2">
-                          Get Customer Reviews
-                      </Button>
+                        <RequestReviewDialog
+                            businessName="bravo projects"
+                            userName="Jabulani Sya"
+                        >
+                            <Button variant="link" className="text-blue-800 h-auto p-0 mt-2">
+                                Get Customer Reviews
+                            </Button>
+                        </RequestReviewDialog>
                   </AlertDescription>
               </Alert>
             </div>
