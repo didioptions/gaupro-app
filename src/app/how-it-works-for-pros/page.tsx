@@ -104,7 +104,7 @@ export default function HowItWorksForProsPage() {
       <main className="flex-grow bg-background">
         <section className="bg-secondary/50 py-16 md:py-20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl md:text-4xl font-extrabold mb-4 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-normal mb-4 max-w-3xl mx-auto">
               ⚙️ How Gaupro Works for Pros
             </h1>
             <p className="text-lg text-foreground mb-6 max-w-2xl mx-auto">
@@ -125,7 +125,7 @@ export default function HowItWorksForProsPage() {
                     {step.icon}
                   </div>
                   <div className="flex-grow text-center md:text-left">
-                    <h2 className="text-2xl font-bold mb-3">{step.title}</h2>
+                    <h2 className="text-2xl font-normal mb-3">{step.title}</h2>
                     <p className="text-foreground mb-4">{step.description}</p>
                     {step.details.length > 0 && (
                         <ul className="space-y-2 text-left list-disc list-inside text-foreground mb-4">
@@ -143,7 +143,7 @@ export default function HowItWorksForProsPage() {
         <section className="py-16 md:py-24 bg-secondary/50">
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-10">Understanding Leads, Credits & Costs</h2>
+                    <h2 className="text-3xl font-normal text-center mb-10">Understanding Leads, Credits & Costs</h2>
                      <div className="grid md:grid-cols-2 gap-8">
                         {leadInfo.map((info, index) => (
                           <Link key={index} href="#" className="group">
@@ -166,7 +166,7 @@ export default function HowItWorksForProsPage() {
         <section className="py-16 md:py-24">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto">
-                     <h2 className="text-3xl font-bold text-center mb-8">💡 Why Pros Love Gaupro</h2>
+                     <h2 className="text-3xl font-normal text-center mb-8">💡 Why Pros Love Gaupro</h2>
                      <ul className="space-y-3">
                         {benefits.map(benefit => (
                             <li key={benefit} className="flex items-start gap-3 p-4 bg-secondary/50 rounded-lg border">
