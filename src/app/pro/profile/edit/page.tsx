@@ -10,6 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { allServices } from '@/lib/service-questions';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function EditProfilePage() {
   return (
@@ -119,25 +120,43 @@ export default function EditProfilePage() {
             </div>
           </TabsContent>
           <TabsContent value="services" className="mt-6">
-             <Card>
-              <CardContent className="p-8">
-                <h2 className="text-xl font-semibold mb-6">Select Your Services</h2>
-                <p className="text-muted-foreground mb-6">Choose all the services your business offers. This helps customers find you for the right jobs.</p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                  {allServices.map((service) => (
-                    <div key={service.value} className="flex items-center space-x-2">
-                      <Checkbox id={`service-${service.value}`} />
-                      <Label htmlFor={`service-${service.value}`} className="font-normal cursor-pointer">
-                        {service.label}
-                      </Label>
+            <Card>
+                <CardContent className="p-8 space-y-8">
+                    <div>
+                        <h2 className="text-xl font-semibold">Keywords</h2>
+                        <p className="text-sm text-muted-foreground mt-1">Add keywords that relate specifically to your business. Customer requests are matched to your keywords and sent to you.</p>
+                        <div className="mt-4">
+                            <Input placeholder="Type in the first 3 letters of the keyword and select one that appears from the list." />
+                            <p className="text-xs text-muted-foreground mt-2 text-right">0 Service Keywords (Limit of 30)</p>
+                        </div>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-             </Card>
-               <div className="flex justify-end gap-2 mt-6">
+
+                    <div>
+                        <h2 className="text-xl font-semibold">Categories</h2>
+                        <p className="text-sm text-muted-foreground mt-1">Categories are grouped by the keywords selected. Please ensure that your categories match your business services.</p>
+                    </div>
+
+                    <div>
+                        <h2 className="text-xl font-semibold">Tag Line</h2>
+                        <p className="text-sm text-muted-foreground mt-1">Enter a short catchy phrase that best describes your business and services (maximum of 200 characters)</p>
+                        <div className="mt-4">
+                            <Input placeholder="" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-xl font-semibold">About Us</h2>
+                        <p className="text-sm text-muted-foreground mt-1">Enter a detailed description of what your business does and its experience</p>
+                        <div className="mt-4">
+                            <Textarea rows={8} />
+                        </div>
+                    </div>
+
+                </CardContent>
+            </Card>
+            <div className="flex justify-end gap-2 mt-6">
                 <Button variant="outline">Cancel</Button>
-                <Button className="bg-red-500 hover:bg-red-600">Save Services</Button>
+                <Button className="bg-red-500 hover:bg-red-600">Save</Button>
             </div>
           </TabsContent>
           <TabsContent value="media" className="mt-6">
