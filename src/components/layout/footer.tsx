@@ -85,7 +85,7 @@ export default function Footer() {
             <nav className="flex gap-4 sm:gap-6 text-sm">
               <Link href="/terms" className="hover:text-primary text-foreground">Terms</Link>
               <Link href="/privacy" className="hover:text-primary text-foreground">Privacy</Link>
-              <Link href="#" className="hover:text-primary text-foreground">Cookie Policy</Link>
+              <Link href="/cookie-policy" className="hover:text-primary text-foreground">Cookie Policy</Link>
             </nav>
             <div className="flex gap-4">
               <Link href="#" className="text-foreground hover:text-primary"><Facebook className="h-5 w-5"/></Link>
