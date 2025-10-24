@@ -17,6 +17,7 @@ import { X, Image as ImageIcon } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import Link from 'next/link';
 
 export default function EditProfilePage() {
   const [keyword, setKeyword] = useState('');
@@ -301,7 +302,23 @@ export default function EditProfilePage() {
             </div>
            </TabsContent>
            <TabsContent value="reviews" className="mt-6">
-             <p className="text-muted-foreground text-center p-8">Reviews management coming soon.</p>
+            <div className="space-y-6">
+              <Card>
+                <CardContent className="p-8 text-center space-y-4">
+                  <p className="text-muted-foreground">Getting customer reviews make you twice as likely to be hired on Gaupro.</p>
+                  <Button className="bg-red-500 hover:bg-red-600">Get Customer Reviews</Button>
+                </CardContent>
+              </Card>
+              <Alert className="bg-blue-50 border-blue-200 text-blue-800 text-center">
+                  <AlertDescription>
+                      Your business profile does not have any reviews. Getting customer reviews make you twice as likely to be hired on Gaupro.
+                      <br />
+                      <Button variant="link" className="text-blue-800 h-auto p-0 mt-2">
+                          Get Customer Reviews
+                      </Button>
+                  </AlertDescription>
+              </Alert>
+            </div>
           </TabsContent>
           <TabsContent value="qa" className="mt-6">
              <p className="text-muted-foreground text-center p-8">Q & A management coming soon.</p>
