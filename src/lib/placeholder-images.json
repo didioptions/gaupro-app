@@ -59,6 +59,60 @@
       "description": "A close-up of a blue verified checkmark badge, symbolizing trust and authenticity.",
       "imageUrl": "https://images.unsplash.com/photo-1592181572975-1d0d8880d175?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2ZXJpZmllZCUyMGNoZWNrbWFya3xlbnwwfHx8fDE3NjEyNTg2NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "verified checkmark"
+    },
+    {
+      "id": "pro-signup-hero",
+      "description": "A diverse group of smiling professionals, including a designer, an electrician, and a personal trainer.",
+      "imageUrl": "https://images.unsplash.com/photo-1578366941741-9e517759c620?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkaXZlcnNlJTIwcHJvZmVzc2lvbmFscyUyMHRlYW18ZW58MHx8fHwxNzYxMzMyMDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diverse professionals team"
+    },
+    {
+      "id": "pro-handshake-icon",
+      "description": "Close-up of a firm handshake between a professional and a client.",
+      "imageUrl": "https://images.unsplash.com/photo-1712571674564-0621d28bcd9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYW5kc2hha2UlMjBkZWFsfGVufDB8fHx8MTc2MTMzMjAzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "handshake deal"
+    },
+    {
+      "id": "pro-phone-icon",
+      "description": "A smartphone screen showing a job request notification.",
+      "imageUrl": "https://images.unsplash.com/photo-1754821130727-685b74ac81fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwaG9uZSUyMG5vdGlmaWNhdGlvbnxlbnwwfHx8fDE3NjEyOTAyNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "phone notification"
+    },
+    {
+      "id": "pro-star-icon",
+      "description": "A shining five-star rating icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1701877339447-019a4fd89d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdGFyJTIwcmF0aW5nfGVufDB8fHx8MTc2MTMzMTU3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "star rating"
+    },
+    {
+      "id": "pro-plumber-grid",
+      "description": "A friendly plumber working under a sink.",
+      "imageUrl": "https://images.unsplash.com/photo-1750749761538-3aea36066a4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwbHVtYmVyJTIwd29ya2luZ3xlbnwwfHx8fDE3NjEyNTEzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "plumber working"
+    },
+    {
+      "id": "pro-dj-grid",
+      "description": "A DJ mixing music at an event.",
+      "imageUrl": "https://images.unsplash.com/photo-1719847394950-65bfc73dae36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxESiUyMGV2ZW50fGVufDB8fHx8MTc2MTMzMjAzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "DJ event"
+    },
+    {
+      "id": "pro-designer-grid",
+      "description": "A web designer focused on their computer screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3ZWIlMjBkZXNpZ25lcnxlbnwwfHx8fDE3NjEzMzIwMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web designer"
+    },
+    {
+      "id": "pro-trainer-grid",
+      "description": "A personal trainer helping a client in a gym.",
+      "imageUrl": "https://images.unsplash.com/photo-1584466977773-e625c37cdd50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb25hbCUyMHRyYWluZXJ8ZW58MHx8fHwxNzYxMzAxMDM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "personal trainer"
+    },
+    {
+      "id": "pro-celebration",
+      "description": "A happy professional shaking hands with a satisfied client.",
+      "imageUrl": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGNsaWVudHxlbnwwfHx8fDE3NjEzMzIwMzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy client"
     }
   ]
 }
