@@ -20,6 +20,7 @@ const footerSections = [
       { text: 'Our Mission', href: '/our-mission' },
       { text: 'Blog', href: '/blog' },
       { text: "Careers (We're Hiring!)", href: '/careers' },
+      { text: 'Contact Us', href: '/contact' },
     ],
   },
   {
@@ -28,7 +29,6 @@ const footerSections = [
       { text: 'How It Works', href: '/how-it-works' },
       { text: 'Trust & Safety', href: '/trust-and-safety' },
       { text: 'Request Quote', href: '/post-request' },
-      { text: 'Contact Us', href: '/contact' },
     ],
   },
 ];
