@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useMemo } from 'react';
@@ -34,9 +35,9 @@ export default function BuyCreditsPage() {
       <div className="py-12 md:py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold">Buy Credits</h1>
+            <h1 className="text-3xl md:text-4xl font-normal">Buy Credits</h1>
             <p className="text-xl text-muted-foreground mt-2">
-              Your current balance is <span className="font-bold text-red-600">25</span> Credits
+              Your current balance is <span className="font-normal text-red-600">25</span> Credits
             </p>
           </div>
 
@@ -54,12 +55,12 @@ export default function BuyCreditsPage() {
                         <RadioGroupItem value={pack.id} id={`pack-${pack.id}`} />
                         <Label htmlFor={`pack-${pack.id}`} className="flex-grow flex items-center justify-between ml-4 cursor-pointer">
                           <div className="flex items-baseline gap-3">
-                            <span className="font-semibold">{pack.credits} Credits</span>
+                            <span className="font-normal">{pack.credits} Credits</span>
                             {pack.discount && <span className="text-sm text-green-600">({pack.discount})</span>}
                             <span className="text-sm text-primary">R{pack.pricePerCredit}/credit</span>
                           </div>
                           <div className="text-right">
-                            <p className="font-bold text-lg">R {pack.price}</p>
+                            <p className="font-normal text-lg">R {pack.price}</p>
                             {pack.save && <p className="text-sm text-green-600">{pack.save}</p>}
                           </div>
                         </Label>
@@ -78,8 +79,8 @@ export default function BuyCreditsPage() {
                 <div className="p-4 rounded-lg border flex items-center">
                     <Checkbox id="addon-checkbox" checked={includeAddon} onCheckedChange={(checked) => setIncludeAddon(!!checked)} />
                      <Label htmlFor="addon-checkbox" className="flex-grow flex items-center justify-between ml-4 cursor-pointer">
-                        <span className="font-semibold">Snupit Hero Leads <span className="text-sm text-primary">R{addOn.pricePerLead}/lead</span></span>
-                        <span className="font-bold text-lg">R {addOn.price}</span>
+                        <span className="font-normal">Snupit Hero Leads <span className="text-sm text-primary">R{addOn.pricePerLead}/lead</span></span>
+                        <span className="font-normal text-lg">R {addOn.price}</span>
                      </Label>
                 </div>
                 <div className="mt-6 p-4 bg-secondary/50 rounded-lg">
@@ -98,8 +99,8 @@ export default function BuyCreditsPage() {
 
              <Card>
                 <CardContent className="p-6 flex items-center justify-between">
-                    <h3 className="text-xl font-bold">Transaction Total</h3>
-                    <p className="text-2xl font-extrabold text-primary">R {transactionTotal.toFixed(2)}</p>
+                    <h3 className="text-xl font-normal">Transaction Total</h3>
+                    <p className="text-2xl font-normal text-primary">R {transactionTotal.toFixed(2)}</p>
                 </CardContent>
              </Card>
              
