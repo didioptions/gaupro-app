@@ -15,10 +15,13 @@ import { Autocomplete } from '@/components/ui/autocomplete';
 import { Badge } from '@/components/ui/badge';
 import { X, Image as ImageIcon } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { allLocations } from '@/lib/locations';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export default function EditProfilePage() {
   const [keyword, setKeyword] = useState('');
   const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
+  const [locationArea, setLocationArea] = useState('');
 
   const handleKeywordSelect = (value: string) => {
     const service = allServices.find((s) => s.value === value);
@@ -237,8 +240,66 @@ export default function EditProfilePage() {
             </div>
           </TabsContent>
            <TabsContent value="location" className="mt-6">
-             <p className="text-muted-foreground text-center p-8">Location editing coming soon.</p>
-          </TabsContent>
+            <Card>
+              <CardContent className="p-8 space-y-8">
+                <div>
+                  <h2 className="text-xl font-semibold mb-6">Address</h2>
+                  <div className="space-y-2 mb-6">
+                    <Label htmlFor="area">Area</Label>
+                    <Autocomplete
+                        options={allLocations}
+                        value={locationArea}
+                        onValueChange={setLocationArea}
+                        placeholder="Type in the first three letters of the area..."
+                    />
+                    <p className="text-xs text-muted-foreground">Type in the first three letters of the area your business is located and select the correct area from the list that appears.</p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="space-y-2">
+                        <Label htmlFor="building">Building</Label>
+                        <Input id="building" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="street-address">Street Address</Label>
+                        <Input id="street-address" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="postal-code">Postal Code</Label>
+                        <Input id="postal-code" />
+                    </div>
+                  </div>
+                </div>
+
+                <Separator />
+
+                <div>
+                    <h2 className="text-xl font-semibold mb-4">Radius for Service Area</h2>
+                     <p className="text-sm text-muted-foreground mb-4">Set the radius from your City which covers your service area, we'll only send you customer requests within this coverage.</p>
+                     <div className="flex items-center gap-4">
+                        <Select defaultValue="50">
+                            <SelectTrigger className="w-[120px]">
+                                <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="10">10 KM</SelectItem>
+                                <SelectItem value="20">20 KM</SelectItem>
+                                <SelectItem value="30">30 KM</SelectItem>
+                                <SelectItem value="50">50 KM</SelectItem>
+                                <SelectItem value="100">100 KM</SelectItem>
+                                <SelectItem value="200">200+ KM</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        <Input defaultValue="Randburg" className="w-[200px]" />
+                     </div>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="flex justify-end gap-2 mt-6">
+              <Button variant="outline">Cancel</Button>
+              <Button className="bg-red-500 hover:bg-red-600">Save</Button>
+            </div>
+           </TabsContent>
            <TabsContent value="reviews" className="mt-6">
              <p className="text-muted-foreground text-center p-8">Reviews management coming soon.</p>
           </TabsContent>
