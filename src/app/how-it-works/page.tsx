@@ -64,7 +64,7 @@ export default function HowItWorksPage() {
     <>
       <Header />
       <main className="flex-grow">
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl mx-auto">
               🧭 How Gaupro Works for Customers
@@ -73,12 +73,12 @@ export default function HowItWorksPage() {
               Find Trusted Local Professionals — Fast, Easy, and Secure. Gaupro helps you connect with qualified local service providers near you. No more endless searching — simply tell us what you need, and we’ll match you with the right pros in minutes.
             </p>
             <RequestQuoteDialog>
-              <Button size="lg" className="px-8 text-lg">Get Started Now</Button>
+              <Button size="lg" className="px-8 text-lg">Post Request</Button>
             </RequestQuoteDialog>
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="space-y-16">
               {howItWorksSteps.map((step, index) => (
