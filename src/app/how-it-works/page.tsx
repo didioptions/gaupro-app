@@ -67,7 +67,7 @@ export default function HowItWorksPage() {
         <section className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl md:text-4xl font-normal mb-4 max-w-2xl mx-auto">
-              🧭 How Gaupro Works for Customers
+              How Gaupro Works for Customers
             </h1>
             <p className="text-lg text-foreground mb-8 max-w-3xl mx-auto">
               Find Trusted Local Professionals — Fast, Easy, and Secure. Gaupro helps you connect with qualified local service providers near you. No more endless searching — simply tell us what you need, and we’ll match you with the right pros in minutes.
@@ -140,29 +140,6 @@ export default function HowItWorksPage() {
                         <Link href="/how-it-works-for-pros">How Gaupro Works for Pros →</Link>
                     </Button>
                  </div>
-            </div>
-
-             <div className="mt-20 border-t pt-16">
-                <h2 className="text-3xl font-bold mb-6">Terms and conditions</h2>
-                <div className="space-y-4 text-foreground">
-                    <p>
-                        Gaupro is an online platform that allows customers to find and hire Pros - local service providers across over 100 different types of services, and helps these Pros to grow and manage their businesses.
-                    </p>
-                    <p>
-                        By using the Gaupro Platform, whether as a customer or as a Pro, you are acknowledging your acceptance of the terms below:
-                    </p>
-                    <ul className="space-y-2 list-inside">
-                        <li><Link href="/terms" className="text-primary hover:underline">Gaupro User Terms and Conditions</Link></li>
-                        <li><Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link></li>
-                        <li><Link href="#" className="text-primary hover:underline">PAIA</Link></li>
-                    </ul>
-                        <p className="text-sm">
-                        Please note: Gaupro does not itself provide any of the Pro Services in any way or any products relating to the Pro Services. Pro Services are carried out directly by the Pros, who may be found through use of the Gaupro Platform. All agreements are entered into between the Customer and the Pro.
-                    </p>
-                    <p>
-                        If you have more questions, please feel free to contact us at <Link href="mailto:info@gaupro.co.za" className="text-primary hover:underline">info@gaupro.co.za</Link>
-                    </p>
-                </div>
             </div>
 
           </div>
