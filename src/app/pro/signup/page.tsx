@@ -81,7 +81,7 @@ export default function ProSignupPage() {
         <section className="bg-background py-16 md:py-24 text-center">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-extrabold mb-4 max-w-3xl mx-auto">
-              Gaupro empowers service providers across South Africa to expand their reach and connect with a wider client base.
+              “Gaupro helps service providers across South Africa grow their business by connecting them with more clients and new local opportunities.”
             </h1>
             <div className="mt-8">
               <Button asChild size="lg" className="px-8 py-6 text-lg">
