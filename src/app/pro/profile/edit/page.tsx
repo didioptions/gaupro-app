@@ -13,7 +13,8 @@ import { allServices } from '@/lib/service-questions';
 import { Textarea } from '@/components/ui/textarea';
 import { Autocomplete } from '@/components/ui/autocomplete';
 import { Badge } from '@/components/ui/badge';
-import { X } from 'lucide-react';
+import { X, Image as ImageIcon } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function EditProfilePage() {
   const [keyword, setKeyword] = useState('');
@@ -205,7 +206,35 @@ export default function EditProfilePage() {
             </div>
           </TabsContent>
           <TabsContent value="media" className="mt-6">
-             <p className="text-muted-foreground text-center p-8">Media editing coming soon.</p>
+            <Card>
+              <CardContent className="p-8 space-y-8">
+                <div>
+                  <h2 className="text-xl font-semibold mb-4">Logo</h2>
+                  <div className="flex items-center gap-6">
+                    <div className="w-24 h-24 border rounded-md flex flex-col items-center justify-center bg-gray-50 text-muted-foreground">
+                      <ImageIcon className="h-8 w-8 text-gray-400" />
+                      <span className="text-xs mt-1">No Logo</span>
+                    </div>
+                    <div className="flex gap-4">
+                      <Button variant="outline">Upload Logo</Button>
+                      <Button variant="outline">Upload Photos</Button>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-xl font-semibold mb-4">Photos</h2>
+                  <Alert className="bg-blue-50 border-blue-200 text-blue-800">
+                    <AlertDescription>
+                      There are no photos
+                    </AlertDescription>
+                  </Alert>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="flex justify-start gap-2 mt-6">
+              <Button variant="outline">Cancel</Button>
+            </div>
           </TabsContent>
            <TabsContent value="location" className="mt-6">
              <p className="text-muted-foreground text-center p-8">Location editing coming soon.</p>
