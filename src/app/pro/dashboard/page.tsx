@@ -11,8 +11,41 @@ import {
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
+import { useUser } from '@/firebase';
 
 export default function ProDashboardPage() {
+  const { user } = useUser();
+
+  const handleInvite = () => {
+    const userName = user?.displayName || 'A friend';
+    const ownerName = user?.displayName || 'Your Friend';
+
+    const subject = `${userName} thinks Gaupro is the perfect way for you to find new customers and grow your business!`;
+    const body = `
+Join Gaupro today and start connecting with real clients looking for trusted professionals like you.
+
+As a welcome gift, when you sign up and activate your profile, you’ll receive 5 free credits to get started.
+Use our promo code: STARTUP-0217 to claim your credits. 
+
+How Gaupro Works
+
+Customers tell us what they need.
+
+We send you free notifications of relevant quote requests that match your services.
+
+When you find a request you like, use your Gaupro credits to unlock the customer’s contact details.
+
+Send your quote, chat directly with the client, and once hired — get the job done and grow your reputation!
+
+Connecting with the right customers has never been easier.
+
+— The Gaupro Team, on behalf of ${ownerName}
+    `;
+
+    const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.trim())}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4">
@@ -124,7 +157,7 @@ export default function ProDashboardPage() {
 
             <Card className="md:col-span-2 lg:col-span-1">
               <CardContent className="p-6">
-                <Button variant="outline" className="w-full h-16 text-lg">
+                <Button variant="outline" className="w-full h-16 text-lg" onClick={handleInvite}>
                   <UserPlus className="mr-2 h-6 w-6" />
                   Invite Friends
                 </Button>
