@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -23,6 +24,8 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { useAuth } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
 
 const formSchema = z.object({
   email: z.string().email({
@@ -31,6 +34,7 @@ const formSchema = z.object({
   password: z.string().min(6, {
     message: 'Password must be at least 6 characters.',
   }),
+  rememberMe: z.boolean().optional(),
 });
 
 export default function ProLoginPage() {
@@ -44,6 +48,7 @@ export default function ProLoginPage() {
     defaultValues: {
       email: '',
       password: '',
+      rememberMe: false,
     },
   });
 
@@ -116,6 +121,22 @@ export default function ProLoginPage() {
                       </FormItem>
                     )}
                   />
+                  <FormField
+                    control={form.control}
+                    name="rememberMe"
+                    render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2">
+                           <FormControl>
+                             <Checkbox
+                                id="remember-me"
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                           </FormControl>
+                           <Label htmlFor="remember-me" className="font-normal text-sm text-muted-foreground">Remember me</Label>
+                        </FormItem>
+                    )}
+                   />
 
                   <Button type="submit" className="w-full h-12 text-base" size="lg" disabled={isLoading}>
                     {isLoading ? 'Logging in...' : 'Login'}
