@@ -80,7 +80,7 @@ export default function ProSignupPage() {
         {/* New Hero Section */}
         <section className="bg-background py-16 md:py-24 text-center">
           <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-extrabold mb-4 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-semibold mb-4 max-w-3xl mx-auto">
               “Gaupro helps service providers across South Africa grow their business by connecting them with more clients and new local opportunities.”
             </h1>
             <div className="mt-8">
@@ -92,12 +92,13 @@ export default function ProSignupPage() {
         </section>
 
         {/* Detailed Info Section */}
-        <section className="py-16 md:py-24 bg-secondary/50">
+        <section className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl font-bold mb-4">🧰 Join as a Pro — Grow Your Business with Gaupro</h2>
                 <p className="text-lg text-foreground mb-6">Get more customers. Save time. Build your reputation.</p>
                 <p className="max-w-3xl mx-auto text-foreground">
-                    Thousands of people use Gaupro every day to find trusted local professionals — from electricians and plumbers to tutors, photographers, and more. Join free today and start receiving real leads from customers who are ready to hire.
+                    Thousands of people use Gaupro every day to find trusted local professionals — from electricians and plumbers to tutors, photographers, and more.
+Join free today and start receiving real leads from customers who are ready to hire.
                 </p>
                 {heroImage && (
                     <div className="relative h-96 w-full max-w-5xl mx-auto mt-12 rounded-lg overflow-hidden shadow-lg">
@@ -153,7 +154,7 @@ export default function ProSignupPage() {
         </section>
 
         {/* How It Works Section */}
-        <section className="py-16 md:py-24 bg-secondary/50">
+        <section className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold">⚙️ How Gaupro Works</h2>
@@ -211,7 +212,7 @@ export default function ProSignupPage() {
         </section>
         
         {/* Join in Minutes Section */}
-        <section className="py-16 md:py-24 bg-secondary/50">
+        <section className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl font-bold mb-4">🚀 Join Gaupro Free in Minutes</h2>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-lg font-semibold my-8">
