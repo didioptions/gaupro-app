@@ -84,7 +84,7 @@ export default function Footer() {
             </div>
             <nav className="flex gap-4 sm:gap-6 text-sm">
               <Link href="/terms" className="hover:text-primary text-foreground">Terms</Link>
-              <Link href="#" className="hover:text-primary text-foreground">Privacy</Link>
+              <Link href="/privacy" className="hover:text-primary text-foreground">Privacy</Link>
               <Link href="#" className="hover:text-primary text-foreground">Cookie Policy</Link>
             </nav>
             <div className="flex gap-4">
