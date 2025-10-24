@@ -15,6 +15,8 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Check } from 'lucide-react';
+import Link from 'next/link';
 
 interface InviteFriendsDialogProps {
   user: User | null;
@@ -24,6 +26,7 @@ interface InviteFriendsDialogProps {
 export function InviteFriendsDialog({ user, children }: InviteFriendsDialogProps) {
   const [open, setOpen] = useState(false);
   const [emails, setEmails] = useState('');
+  const [isSent, setIsSent] = useState(false);
 
   const ownerName = user?.displayName || user?.email || 'Your Friend';
 
@@ -50,47 +53,72 @@ Connecting with the right customers has never been easier.
   const handleSend = () => {
     console.log('Sending invites to:', emails);
     // In a real application, this would trigger an API call to a backend service to send emails.
-    setOpen(false); // Close the dialog after sending
+    setIsSent(true);
   };
   
+  const resetAndClose = () => {
+    setOpen(false);
+    // Reset state after a short delay to allow the dialog to close smoothly
+    setTimeout(() => {
+        setIsSent(false);
+        setEmails('');
+    }, 300);
+  }
+
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={(isOpen) => {
+        if (!isOpen) {
+            resetAndClose();
+        } else {
+            setOpen(true);
+        }
+    }}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
-        <DialogHeader>
-          <DialogTitle className="text-2xl text-center font-normal">Invite Friends</DialogTitle>
-        </DialogHeader>
-        <div className="py-4 space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="emails">Enter email addresses manually</Label>
-            <Textarea
-              id="emails"
-              placeholder="Separate each email address with a comma."
-              value={emails}
-              onChange={(e) => setEmails(e.target.value)}
-              rows={3}
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="subject">Subject</Label>
-            <Input id="subject" value={subject} readOnly className="bg-secondary" />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea id="message" value={message} readOnly rows={10} className="bg-secondary" />
-             <p className="text-xs text-muted-foreground">Note: Each person will receive a separate email. This is not a group email.</p>
-          </div>
-        </div>
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button type="button" variant="outline">
-              Cancel
-            </Button>
-          </DialogClose>
-          <Button type="button" onClick={handleSend} className="bg-red-500 hover:bg-red-600">
-            Send
-          </Button>
-        </DialogFooter>
+        {!isSent ? (
+          <>
+            <DialogHeader>
+              <DialogTitle className="text-2xl text-center font-normal">Invite Friends</DialogTitle>
+            </DialogHeader>
+            <div className="py-4 space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="emails">Enter email addresses manually</Label>
+                <Textarea
+                  id="emails"
+                  placeholder="Separate each email address with a comma."
+                  value={emails}
+                  onChange={(e) => setEmails(e.target.value)}
+                  rows={3}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="subject">Subject</Label>
+                <Input id="subject" value={subject} readOnly className="bg-secondary" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea id="message" value={message} readOnly rows={10} className="bg-secondary" />
+                 <p className="text-xs text-muted-foreground">Note: Each person will receive a separate email. This is not a group email.</p>
+              </div>
+            </div>
+            <DialogFooter>
+              <Button type="button" variant="outline" onClick={resetAndClose}>
+                Cancel
+              </Button>
+              <Button type="button" onClick={handleSend} className="bg-red-500 hover:bg-red-600">
+                Send
+              </Button>
+            </DialogFooter>
+          </>
+        ) : (
+            <div className="flex flex-col items-center justify-center text-center p-8 space-y-6">
+                <Check className="h-12 w-12 text-teal-500"/>
+                <p className="text-lg">Thank you. Your invite was sent successfully to friends!</p>
+                <Button onClick={resetAndClose} className="bg-teal-500 hover:bg-teal-600 text-white">
+                    Back to Dashboard
+                </Button>
+            </div>
+        )}
       </DialogContent>
     </Dialog>
   );
