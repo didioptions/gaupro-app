@@ -75,7 +75,7 @@ export default function Header() {
                     <User />
                   </AvatarFallback>
                 </Avatar>
-                <span className="hidden md:inline">{user?.email || 'Pro Account'}</span>
+                <span className="hidden md:inline">{user?.displayName || user?.email || 'Pro Account'}</span>
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
