@@ -146,7 +146,8 @@ export default function HowItWorksForProsPage() {
                     <h2 className="text-3xl font-bold text-center mb-10">Understanding Leads, Credits & Costs</h2>
                      <div className="grid md:grid-cols-2 gap-8">
                         {leadInfo.map((info, index) => (
-                            <Card key={index} className="bg-background">
+                          <Link key={index} href="#" className="group">
+                            <Card className="bg-background h-full transition-shadow group-hover:shadow-lg">
                                 <CardHeader className="flex flex-row items-center gap-4">
                                     {info.icon}
                                     <CardTitle className="text-xl">{info.title}</CardTitle>
@@ -155,6 +156,7 @@ export default function HowItWorksForProsPage() {
                                     <p className="text-foreground">{info.content}</p>
                                 </CardContent>
                             </Card>
+                          </Link>
                         ))}
                     </div>
                 </div>
