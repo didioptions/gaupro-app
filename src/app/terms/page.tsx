@@ -9,10 +9,10 @@ export default function TermsPage() {
       <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">
               ⚖️ Gaupro Terms and Conditions
             </h1>
-            <div className="space-y-8 text-muted-foreground">
+            <div className="space-y-8 text-foreground">
               <p className="font-semibold text-foreground">
                 Welcome to Gaupro – South Africa’s trusted platform to find and hire local service professionals.
               </p>
