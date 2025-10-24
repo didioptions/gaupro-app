@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -5,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import { useAuth } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
@@ -66,7 +67,11 @@ export default function ProRegisterPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     try {
-      await createUserWithEmailAndPassword(auth, values.email, values.password);
+      const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+      // After creating the user, update their profile with the full name
+      await updateProfile(userCredential.user, {
+        displayName: values.fullName
+      });
       router.push('/pro/dashboard');
     } catch (error: any) {
       console.error("Registration failed:", error);
