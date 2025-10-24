@@ -66,7 +66,7 @@ export default function HowItWorksPage() {
       <main className="flex-grow">
         <section className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-normal mb-4 max-w-2xl mx-auto">
               🧭 How Gaupro Works for Customers
             </h1>
             <p className="text-lg text-foreground mb-8 max-w-3xl mx-auto">
