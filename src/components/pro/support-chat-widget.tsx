@@ -8,11 +8,18 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { MessageSquare, Send, X, KeyRound, CreditCard, User, FileQuestion, HelpCircle } from 'lucide-react';
+import { MessageSquare, Send, X, KeyRound, CreditCard, User, FileQuestion, HelpCircle, Loader2 } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 import { Input } from '../ui/input';
+import { getSupportResponse } from '@/ai/flows/support-chat-flow';
 
-const initialMessages = [
+type Message = {
+  id: number;
+  sender: 'bot' | 'user';
+  text: string;
+};
+
+const initialMessages: Message[] = [
   {
     id: 1,
     sender: 'bot',
@@ -38,10 +45,11 @@ const quickActions = [
 
 export function SupportChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState(initialMessages);
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [newMessage, setNewMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSendMessage = (e: React.FormEvent, text?: string) => {
+  const handleSendMessage = async (e: React.FormEvent, text?: string) => {
     e.preventDefault();
     const messageText = (text || newMessage).trim();
     if (messageText === '') return;
@@ -57,15 +65,29 @@ export function SupportChatWidget() {
       text: messageText,
     };
     
-    // Simulate bot response
-    const botResponse = {
-        id: messages.length + 2,
-        sender: 'bot',
-        text: 'A support team member will join shortly — please stay on this page.'
-    }
-
-    setMessages([...messages, userMessage, botResponse]);
+    setMessages(prev => [...prev, userMessage]);
     setNewMessage('');
+    setIsLoading(true);
+
+    try {
+      const aiResponse = await getSupportResponse(messageText);
+      const botMessage = {
+        id: messages.length + 2,
+        sender: 'bot' as const,
+        text: aiResponse,
+      };
+      setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error('AI response error:', error);
+      const errorMessage = {
+        id: messages.length + 2,
+        sender: 'bot' as const,
+        text: "Sorry, I'm having a little trouble connecting. Please try again in a moment.",
+      };
+       setMessages(prev => [...prev, errorMessage]);
+    } finally {
+        setIsLoading(false);
+    }
   };
 
   return (
@@ -113,6 +135,14 @@ export function SupportChatWidget() {
                     </div>
                   </div>
                 ))}
+                 {isLoading && (
+                  <div className="flex items-end gap-2 justify-start">
+                    <div className="max-w-xs rounded-lg px-3 py-2 text-sm bg-secondary flex items-center">
+                       <Loader2 className="h-4 w-4 animate-spin mr-2"/>
+                       Thinking...
+                    </div>
+                  </div>
+                )}
                  {messages.length === 1 && ( // Only show topics initially
                      <div className="space-y-2 pt-2">
                         <p className="text-sm text-muted-foreground">Choose a topic below or just type your message:</p>
@@ -147,8 +177,9 @@ export function SupportChatWidget() {
                   placeholder="Type your message..."
                   className="flex-grow"
                   onFocus={() => setIsOpen(true)}
+                  disabled={isLoading}
                 />
-                <Button type="submit" size="icon" disabled={!newMessage.trim()}>
+                <Button type="submit" size="icon" disabled={!newMessage.trim() || isLoading}>
                   <Send className="h-4 w-4" />
                 </Button>
               </form>

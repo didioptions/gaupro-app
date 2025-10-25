@@ -8,12 +8,19 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCircleIcon } from 'lucide-react';
+import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCircleIcon, Loader2 } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 import { Input } from '../ui/input';
 import { usePathname } from 'next/navigation';
+import { getSupportResponse } from '@/ai/flows/support-chat-flow';
 
-const initialMessages = [
+type Message = {
+  id: number;
+  sender: 'bot' | 'user';
+  text: string;
+};
+
+const initialMessages: Message[] = [
   {
     id: 1,
     sender: 'bot',
@@ -30,8 +37,9 @@ const topicOptions = [
 
 export default function PublicChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState(initialMessages);
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [newMessage, setNewMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
 
   // Don't render the widget on pro-specific pages
@@ -39,7 +47,7 @@ export default function PublicChatWidget() {
     return null;
   }
 
-  const handleSendMessage = (e: React.FormEvent, text?: string) => {
+  const handleSendMessage = async (e: React.FormEvent, text?: string) => {
     e.preventDefault();
     const messageText = (text || newMessage).trim();
     if (messageText === '') return;
@@ -50,19 +58,29 @@ export default function PublicChatWidget() {
       text: messageText,
     };
 
-    const newMessages = [...messages, userMessage];
-
-    // Add automated bot responses
-    if (messageText === 'I want to request a quote') {
-        newMessages.push({ id: newMessages.length + 1, sender: 'bot', text: 'Great! Please tell us what service you need and your area — our support team will guide you to the quote form.' });
-    } else if (messageText === 'I’m a service provider and want to join') {
-        newMessages.push({ id: newMessages.length + 1, sender: 'bot', text: 'Awesome! Gaupro connects local professionals with real customers across South Africa. You can join free here 👉 Join as a Pro.' });
-    } else if (messageText === 'Something else') {
-        newMessages.push({ id: newMessages.length + 1, sender: 'bot', text: 'No problem! Please describe your question, and one of our team members will reply shortly.' });
-    }
-
-    setMessages(newMessages);
+    setMessages(prev => [...prev, userMessage]);
     setNewMessage('');
+    setIsLoading(true);
+
+    try {
+      const aiResponse = await getSupportResponse(messageText);
+      const botMessage = {
+        id: messages.length + 2,
+        sender: 'bot' as const,
+        text: aiResponse,
+      };
+      setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error('AI response error:', error);
+      const errorMessage = {
+        id: messages.length + 2,
+        sender: 'bot' as const,
+        text: "Sorry, I'm having a little trouble connecting. Please try again in a moment.",
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
 
@@ -111,6 +129,14 @@ export default function PublicChatWidget() {
                     </div>
                   </div>
                 ))}
+                 {isLoading && (
+                  <div className="flex items-end gap-2 justify-start">
+                    <div className="max-w-xs rounded-lg px-3 py-2 text-sm bg-secondary flex items-center">
+                       <Loader2 className="h-4 w-4 animate-spin mr-2"/>
+                       Thinking...
+                    </div>
+                  </div>
+                )}
                 {messages.length === 1 && ( // Only show topics initially
                      <div className="space-y-2 pt-2">
                         {topicOptions.map((topic, i) => (
@@ -139,8 +165,9 @@ export default function PublicChatWidget() {
                   placeholder="Type your message..."
                   className="flex-grow"
                   onFocus={() => setIsOpen(true)}
+                  disabled={isLoading}
                 />
-                <Button type="submit" size="icon" disabled={!newMessage.trim()}>
+                <Button type="submit" size="icon" disabled={!newMessage.trim() || isLoading}>
                   <Send className="h-4 w-4" />
                 </Button>
               </form>
