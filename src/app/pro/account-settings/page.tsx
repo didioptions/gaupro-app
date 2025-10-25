@@ -33,12 +33,6 @@ export default function AccountSettingsPage() {
                 User Profile
               </TabsTrigger>
               <TabsTrigger
-                value="billing-details"
-                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-foreground"
-              >
-                Billing Details
-              </TabsTrigger>
-              <TabsTrigger
                 value="notifications"
                 className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-foreground"
               >
@@ -139,11 +133,6 @@ export default function AccountSettingsPage() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-          <TabsContent value="billing-details" className="mt-6">
-            <p className="text-muted-foreground text-center p-8">
-              Billing Details coming soon.
-            </p>
           </TabsContent>
           <TabsContent value="notifications" className="mt-8">
             <Card className="max-w-2xl mx-auto bg-transparent border-0 shadow-none">
