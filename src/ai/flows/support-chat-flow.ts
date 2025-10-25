@@ -4,8 +4,6 @@
  * @fileOverview A support chatbot flow for Gaupro.
  *
  * - getSupportResponse - A function that returns an AI-generated response to a user's query.
- * - SupportChatInput - The input type for the getSupportResponse function.
- * - SupportChatOutput - The return type for the getSupportResponse function.
  */
 
 import { ai } from '@/ai/genkit';
@@ -43,7 +41,7 @@ Here is some context about Gaupro:
 A user has sent the following message:
 "{{{input}}}"
 
-Please provide a helpful response.`,
+Please provide a helpful response. If you cannot answer the question, respond with: "I'm sorry, I don't have information about that. For more complex issues, you can email our team at support@gaupro.co.za."`,
 });
 
 
