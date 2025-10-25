@@ -13,6 +13,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
 import { useUser } from '@/firebase';
 import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
+import { ChatWidget } from '@/components/pro/chat-widget';
 
 export default function ProDashboardPage() {
   const { user } = useUser();
@@ -136,6 +137,10 @@ export default function ProDashboardPage() {
                 </InviteFriendsDialog>
               </CardContent>
             </Card>
+
+            <div className="md:col-span-2 lg:col-span-3">
+              <ChatWidget />
+            </div>
           </div>
         </div>
       </div>
