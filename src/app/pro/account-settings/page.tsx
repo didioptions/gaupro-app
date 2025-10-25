@@ -12,7 +12,7 @@ export default function AccountSettingsPage() {
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-3xl md:text-4xl mb-8 text-center text-foreground">
+        <h1 className="text-3xl md:text-4xl mb-8 text-center text-foreground font-normal">
           Edit Account Profile
         </h1>
 
@@ -77,13 +77,13 @@ export default function AccountSettingsPage() {
                     <div className="space-y-4">
                         <div className="flex items-start space-x-2">
                             <Checkbox id="marketing" />
-                            <Label htmlFor="marketing" className="font-normal text-muted-foreground">I want to receive marketing and promotional offers</Label>
+                            <Label htmlFor="marketing" className="font-normal text-foreground">I want to receive marketing and promotional offers</Label>
                         </div>
                          <div className="flex items-start space-x-2">
                             <Checkbox id="no-communication" />
                             <div className="grid gap-1.5 leading-none">
-                                <Label htmlFor="no-communication" className="font-normal text-muted-foreground">I don't want any form of communication from Gaupro.</Label>
-                                <p className="text-sm text-muted-foreground">Remove me from all mailing lists</p>
+                                <Label htmlFor="no-communication" className="font-normal text-foreground">I don't want any form of communication from Gaupro.</Label>
+                                <p className="text-sm text-foreground">Remove me from all mailing lists</p>
                             </div>
                         </div>
                     </div>
