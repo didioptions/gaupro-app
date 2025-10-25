@@ -1,6 +1,7 @@
+
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Popover,
@@ -48,6 +49,16 @@ export function SupportChatWidget() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [newMessage, setNewMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTo({
+        top: scrollAreaRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }, [messages, isLoading]);
 
   const handleSendMessage = async (e: React.FormEvent, text?: string) => {
     e.preventDefault();
@@ -115,7 +126,7 @@ export function SupportChatWidget() {
             </Button>
           </CardHeader>
           <CardContent className="flex-grow flex flex-col p-0">
-            <ScrollArea className="flex-grow p-4">
+            <ScrollArea className="flex-grow p-4" ref={scrollAreaRef}>
               <div className="space-y-4">
                 {messages.map((message, index) => (
                   <div

@@ -1,6 +1,7 @@
+
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Popover,
@@ -41,6 +42,16 @@ export default function PublicChatWidget() {
   const [newMessage, setNewMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTo({
+        top: scrollAreaRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }, [messages, isLoading]);
 
   // Don't render the widget on pro-specific pages
   if (pathname.startsWith('/pro/')) {
@@ -109,7 +120,7 @@ export default function PublicChatWidget() {
             </Button>
           </CardHeader>
           <CardContent className="flex-grow flex flex-col p-0">
-            <ScrollArea className="flex-grow p-4">
+            <ScrollArea className="flex-grow p-4" ref={scrollAreaRef}>
               <div className="space-y-4">
                 {messages.map((message, index) => (
                   <div
