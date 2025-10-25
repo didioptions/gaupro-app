@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { FirebaseClientProvider } from '@/firebase';
 import CookieConsentBanner from '@/components/layout/cookie-consent-banner';
+import PublicChatWidget from '@/components/layout/public-chat-widget';
 
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default function RootLayout({
           <div className="flex-grow">{children}</div>
           <Toaster />
           <CookieConsentBanner />
+          <PublicChatWidget />
         </FirebaseClientProvider>
       </body>
     </html>

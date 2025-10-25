@@ -1,0 +1,153 @@
+'use client';
+
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCircleIcon } from 'lucide-react';
+import { ScrollArea } from '../ui/scroll-area';
+import { Input } from '../ui/input';
+import { usePathname } from 'next/navigation';
+
+const initialMessages = [
+  {
+    id: 1,
+    sender: 'bot',
+    text: '👋 Welcome to Gaupro! How can we help you today?',
+  },
+];
+
+const topicOptions = [
+    { icon: <FileText className="h-5 w-5" />, text: 'I want to request a quote' },
+    { icon: <Briefcase className="h-5 w-5" />, text: 'I’m a service provider and want to join' },
+    { icon: <MessageCircleIcon className="h-5 w-5" />, text: 'I need help with my existing request' },
+    { icon: <MessageSquare className="h-5 w-5" />, text: 'Something else' },
+];
+
+export default function PublicChatWidget() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState(initialMessages);
+  const [newMessage, setNewMessage] = useState('');
+  const pathname = usePathname();
+
+  // Don't render the widget on pro-specific pages
+  if (pathname.startsWith('/pro/')) {
+    return null;
+  }
+
+  const handleSendMessage = (e: React.FormEvent, text?: string) => {
+    e.preventDefault();
+    const messageText = (text || newMessage).trim();
+    if (messageText === '') return;
+
+    const userMessage = {
+      id: messages.length + 1,
+      sender: 'user',
+      text: messageText,
+    };
+
+    const newMessages = [...messages, userMessage];
+
+    // Add automated bot responses
+    if (messageText === 'I want to request a quote') {
+        newMessages.push({ id: newMessages.length + 1, sender: 'bot', text: 'Great! Please tell us what service you need and your area — our support team will guide you to the quote form.' });
+    } else if (messageText === 'I’m a service provider and want to join') {
+        newMessages.push({ id: newMessages.length + 1, sender: 'bot', text: 'Awesome! Gaupro connects local professionals with real customers across South Africa. You can join free here 👉 Join as a Pro.' });
+    } else if (messageText === 'Something else') {
+        newMessages.push({ id: newMessages.length + 1, sender: 'bot', text: 'No problem! Please describe your question, and one of our team members will reply shortly.' });
+    }
+
+    setMessages(newMessages);
+    setNewMessage('');
+  };
+
+
+  return (
+    <Popover open={isOpen} onOpenChange={setIsOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="default"
+          className="fixed bottom-4 right-4 h-16 w-auto px-6 rounded-full shadow-lg text-lg"
+        >
+          <MessageSquare className="mr-2 h-6 w-6" />
+          Have a question? Chat with Gaupro!
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent
+        side="top"
+        align="end"
+        className="w-80 md:w-96 rounded-lg shadow-xl p-0 border-0"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
+        <Card className="flex flex-col h-[60vh] border-0">
+          <CardHeader className="flex flex-row items-center justify-between bg-primary text-primary-foreground p-4 rounded-t-lg">
+            <CardTitle className="text-lg font-semibold">Chat with Gaupro</CardTitle>
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="h-8 w-8 hover:bg-primary/80">
+              <X className="h-5 w-5" />
+            </Button>
+          </CardHeader>
+          <CardContent className="flex-grow flex flex-col p-0">
+            <ScrollArea className="flex-grow p-4">
+              <div className="space-y-4">
+                {messages.map((message, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-end gap-2 ${
+                      message.sender === 'bot' ? 'justify-start' : 'justify-end'
+                    }`}
+                  >
+                    <div
+                      className={`max-w-xs rounded-lg px-3 py-2 text-sm ${
+                        message.sender === 'bot'
+                          ? 'bg-secondary'
+                          : 'bg-primary text-primary-foreground'
+                      }`}
+                    >
+                      {message.text}
+                    </div>
+                  </div>
+                ))}
+                {messages.length === 1 && ( // Only show topics initially
+                     <div className="space-y-2 pt-2">
+                        {topicOptions.map((topic, i) => (
+                            <Button
+                                key={i}
+                                variant="outline"
+                                className="w-full justify-start h-auto py-2"
+                                onClick={(e) => handleSendMessage(e, topic.text)}
+                            >
+                                {topic.icon}
+                                <span className="ml-2">{topic.text}</span>
+                            </Button>
+                        ))}
+                    </div>
+                )}
+              </div>
+            </ScrollArea>
+             <div className="text-center text-xs text-muted-foreground p-2 border-t">
+                Our team usually replies in under 5 minutes.
+            </div>
+            <div className="p-3 border-t bg-background">
+              <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+                <Input
+                  value={newMessage}
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  placeholder="Type your message..."
+                  className="flex-grow"
+                  onFocus={() => setIsOpen(true)}
+                />
+                <Button type="submit" size="icon" disabled={!newMessage.trim()}>
+                  <Send className="h-4 w-4" />
+                </Button>
+              </form>
+            </div>
+          </CardContent>
+        </Card>
+      </PopoverContent>
+    </Popover>
+  );
+}
