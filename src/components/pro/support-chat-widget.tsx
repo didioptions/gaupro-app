@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -72,7 +71,7 @@ export function SupportChatWidget() {
 
     const userMessage = {
       id: messages.length + 1,
-      sender: 'user',
+      sender: 'user' as const,
       text: messageText,
     };
     
@@ -115,17 +114,17 @@ export function SupportChatWidget() {
       <PopoverContent
         side="top"
         align="end"
-        className="w-80 md:w-96 rounded-lg shadow-xl p-0 border-0"
+        className="w-80 md:w-96 h-[70vh] max-h-[600px] rounded-lg shadow-xl p-0 border-0 flex"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <Card className="flex flex-col h-[70vh] max-h-[700px] border-0">
+        <Card className="flex flex-col w-full border-0">
           <CardHeader className="flex flex-row items-center justify-between bg-primary text-primary-foreground p-4 rounded-t-lg">
             <CardTitle className="text-lg font-semibold">Gaupro Support</CardTitle>
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="h-8 w-8 hover:bg-primary/80">
               <X className="h-5 w-5" />
             </Button>
           </CardHeader>
-          <CardContent className="flex-grow flex flex-col p-0">
+          <CardContent className="flex-grow flex flex-col p-0 overflow-hidden">
             <ScrollArea className="flex-grow p-4" ref={scrollAreaRef}>
               <div className="space-y-4">
                 {messages.map((message, index) => (
