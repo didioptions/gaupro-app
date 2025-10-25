@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -8,7 +9,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCircleIcon, Loader2 } from 'lucide-react';
+import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCircleIcon, Loader2, Info } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 import { Input } from '../ui/input';
 import { usePathname } from 'next/navigation';
@@ -32,7 +33,8 @@ const topicOptions = [
     { icon: <FileText className="h-5 w-5" />, text: 'I want to request a quote' },
     { icon: <Briefcase className="h-5 w-5" />, text: 'I’m a service provider and want to join' },
     { icon: <MessageCircleIcon className="h-5 w-5" />, text: 'I need help with my existing request' },
-    { icon: <MessageSquare className="h-5 w-5" />, text: 'Something else' },
+    { icon: <Info className="h-5 w-5" />, text: 'Something else' },
+    { icon: <X className="h-5 w-5" />, text: 'Close Chat' },
 ];
 
 export default function PublicChatWidget() {
@@ -45,7 +47,7 @@ export default function PublicChatWidget() {
 
   useEffect(() => {
     if (scrollAreaRef.current) {
-      scrollAreaRef.current.scrollTo({
+      scrollAreaRef.current.parentElement?.scrollTo({
         top: scrollAreaRef.current.scrollHeight,
         behavior: 'smooth',
       });
@@ -61,6 +63,18 @@ export default function PublicChatWidget() {
     e.preventDefault();
     const messageText = (text || newMessage).trim();
     if (messageText === '') return;
+    
+    if (messageText === 'Close Chat') {
+      const closingMessage = {
+        id: messages.length + 1,
+        sender: 'bot' as const,
+        text: '✅ Thank you for chatting with Gaupro!\n\nWe’re always here to help you find the right professional — or to help you grow your business with Gaupro.',
+      };
+      setMessages(prev => [...prev, closingMessage]);
+      setTimeout(() => setIsOpen(false), 2000); // Close after a delay
+      return;
+    }
+
 
     const userMessage = {
       id: messages.length + 1,
@@ -108,7 +122,7 @@ export default function PublicChatWidget() {
       <PopoverContent
         side="top"
         align="end"
-        className="w-80 md:w-96 h-[60vh] max-h-[500px] rounded-lg shadow-xl p-0 border-0 flex"
+        className="w-80 md:w-96 h-[70vh] max-h-[500px] rounded-lg shadow-xl p-0 border-0 flex"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <Card className="flex flex-col w-full border-0">
@@ -129,7 +143,7 @@ export default function PublicChatWidget() {
                     }`}
                   >
                     <div
-                      className={`max-w-xs rounded-lg px-3 py-2 text-sm ${
+                      className={`max-w-xs rounded-lg px-3 py-2 text-sm whitespace-pre-wrap ${
                         message.sender === 'bot'
                           ? 'bg-secondary'
                           : 'bg-primary text-primary-foreground'
