@@ -25,7 +25,7 @@ export async function getSupportResponse(
 
 const supportChatPrompt = ai.definePrompt({
   name: 'supportChatPrompt',
-  input: { schema: SupportChatInputSchema },
+  input: { schema: z.string() },
   output: { schema: SupportChatOutputSchema },
   prompt: `You are a friendly and helpful support agent for Gaupro, a platform that connects service professionals with customers in South Africa.
 
@@ -41,7 +41,7 @@ Here is some context about Gaupro:
 A user has sent the following message:
 "{{{input}}}"
 
-Please provide a helpful response. If you cannot answer the question, respond with: "I'm sorry, I don't have information about that. For more complex issues, you can email our team at support@gaupro.co.za."`,
+Please provide a helpful response. If you cannot answer the question from the context provided, you MUST respond with: "I'm sorry, I don't have information about that. For more complex issues, you can email our team at support@gaupro.co.za."`,
 });
 
 
@@ -53,6 +53,12 @@ const supportChatFlow = ai.defineFlow(
   },
   async (input) => {
     const { output } = await supportChatPrompt(input);
-    return output!;
+    
+    // Fallback in case the model returns null or an empty string.
+    if (!output) {
+      return "I'm sorry, I'm having trouble understanding. Could you please rephrase your question?";
+    }
+
+    return output;
   }
 );
