@@ -5,6 +5,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
 
@@ -44,62 +51,175 @@ export default function AccountSettingsPage() {
             <Card className="max-w-2xl mx-auto bg-transparent border-0 shadow-none">
               <CardContent className="p-0 md:p-8 space-y-8">
                 <div className="space-y-6">
-                   <div className="space-y-2">
+                  <div className="space-y-2">
                     <Label htmlFor="cellphone">Cellphone Number to Login</Label>
-                    <Input id="cellphone" defaultValue="0784292760" disabled className="bg-secondary"/>
+                    <Input
+                      id="cellphone"
+                      defaultValue="0784292760"
+                      disabled
+                      className="bg-secondary"
+                    />
                   </div>
-                   <div className="space-y-2">
+                  <div className="space-y-2">
                     <Label>Password</Label>
-                    <Link href="#" className="text-primary text-sm block hover:underline">Click here to change password</Link>
+                    <Link
+                      href="#"
+                      className="text-primary text-sm block hover:underline"
+                    >
+                      Click here to change password
+                    </Link>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="first-name">First Name</Label>
-                      <Input id="first-name" defaultValue="COSSAM M" disabled className="bg-secondary"/>
+                      <Input
+                        id="first-name"
+                        defaultValue="COSSAM M"
+                        disabled
+                        className="bg-secondary"
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="last-name">Last Name</Label>
-                      <Input id="last-name" defaultValue="NGWENYA" disabled className="bg-secondary"/>
+                      <Input
+                        id="last-name"
+                        defaultValue="NGWENYA"
+                        disabled
+                        className="bg-secondary"
+                      />
                     </div>
                   </div>
-                   <div className="space-y-2">
+                  <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" defaultValue="bravosa@gmail.com" />
+                    <Input
+                      id="email"
+                      type="email"
+                      defaultValue="bravosa@gmail.com"
+                    />
                   </div>
-                   <div className="space-y-2">
+                  <div className="space-y-2">
                     <Label htmlFor="landline">Land Line</Label>
                     <Input id="landline" placeholder="Land Line" />
                   </div>
                 </div>
 
                 <div>
-                    <h2 className="text-lg font-semibold mb-4">Update your email preferences</h2>
-                    <div className="space-y-4">
-                        <div className="flex items-start space-x-2">
-                            <Checkbox id="marketing" />
-                            <Label htmlFor="marketing" className="font-normal text-foreground">I want to receive marketing and promotional offers</Label>
-                        </div>
-                         <div className="flex items-start space-x-2">
-                            <Checkbox id="no-communication" />
-                            <div className="grid gap-1.5 leading-none">
-                                <Label htmlFor="no-communication" className="font-normal text-foreground">I don't want any form of communication from Gaupro.</Label>
-                                <p className="text-sm text-foreground">Remove me from all mailing lists</p>
-                            </div>
-                        </div>
+                  <h2 className="text-lg font-semibold mb-4 text-foreground">
+                    Update your email preferences
+                  </h2>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-2">
+                      <Checkbox id="marketing" />
+                      <Label
+                        htmlFor="marketing"
+                        className="font-normal text-foreground"
+                      >
+                        I want to receive marketing and promotional offers
+                      </Label>
                     </div>
+                    <div className="flex items-start space-x-2">
+                      <Checkbox id="no-communication" />
+                      <div className="grid gap-1.5 leading-none">
+                        <Label
+                          htmlFor="no-communication"
+                          className="font-normal text-foreground"
+                        >
+                          I don't want any form of communication from Gaupro.
+                        </Label>
+                        <p className="text-sm text-foreground">
+                          Remove me from all mailing lists
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                 <div className="flex justify-end gap-2 pt-4">
-                    <Button variant="outline">Cancel</Button>
-                    <Button className="bg-red-500 hover:bg-red-600">Update</Button>
+                <div className="flex justify-end gap-2 pt-4">
+                  <Button variant="outline">Cancel</Button>
+                  <Button className="bg-red-500 hover:bg-red-600">Update</Button>
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
           <TabsContent value="billing-details" className="mt-6">
-             <p className="text-muted-foreground text-center p-8">Billing Details coming soon.</p>
+            <p className="text-muted-foreground text-center p-8">
+              Billing Details coming soon.
+            </p>
           </TabsContent>
-           <TabsContent value="notifications" className="mt-6">
-             <p className="text-muted-foreground text-center p-8">Notifications settings coming soon.</p>
+          <TabsContent value="notifications" className="mt-8">
+            <Card className="max-w-2xl mx-auto bg-transparent border-0 shadow-none">
+              <CardContent className="p-0 md:p-8 space-y-8">
+                <div className="space-y-2">
+                  <Label htmlFor="business-profile">
+                    Select Business Profile for related settings
+                  </Label>
+                  <Select defaultValue="bravo-projects">
+                    <SelectTrigger id="business-profile">
+                      <SelectValue placeholder="Select a profile" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="bravo-projects">
+                        bravo projects, Randburg
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-lg font-semibold text-foreground">
+                      Email Notifications
+                    </h2>
+                    <p className="text-muted-foreground text-sm">
+                      Choose the emails you want to receive from Gaupro.
+                    </p>
+                  </div>
+                  <div className="space-y-4 ml-2">
+                    <div className="flex items-center justify-between">
+                      <Label
+                        htmlFor="new-requests"
+                        className="font-normal text-foreground"
+                      >
+                        New Customer Requests email notifications
+                      </Label>
+                      <Checkbox id="new-requests" />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <Label
+                        htmlFor="request-reminders"
+                        className="font-normal text-foreground"
+                      >
+                        Request Reminders
+                      </Label>
+                      <Checkbox id="request-reminders" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-lg font-semibold text-foreground">
+                      Mobile App Notifications
+                    </h2>
+                  </div>
+                  <div className="space-y-4 ml-2">
+                    <div className="flex items-center justify-between">
+                      <Label
+                        htmlFor="push-notifications"
+                        className="font-normal text-foreground"
+                      >
+                        Customer Request Push Notifications
+                      </Label>
+                      <Checkbox id="push-notifications" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-end gap-2 pt-4">
+                  <Button variant="outline">Cancel</Button>
+                  <Button className="bg-red-500 hover:bg-red-600">Update</Button>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </div>
