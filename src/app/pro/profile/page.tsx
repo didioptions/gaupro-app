@@ -14,7 +14,7 @@ export default function ProProfilePage() {
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8">
+        <h1 className="text-3xl md:text-4xl mb-8">
           Business Profiles
         </h1>
 
@@ -68,14 +68,14 @@ export default function ProProfilePage() {
                         </div>
                     </div>
                     <div className="border-t md:border-t-0 md:border-l md:pl-6 pt-6 md:pt-0">
-                        <h3 className="font-semibold">Profile Strength</h3>
+                        <h3 className="font-semibold text-foreground">Profile Strength</h3>
                         <div className="flex items-center gap-2 mt-2">
                             <Progress value={10} className="h-2" />
-                            <span className="text-sm font-semibold">10%</span>
+                            <span className="text-sm font-semibold text-foreground">10%</span>
                         </div>
                         <div className="mt-4">
-                            <h4 className="font-semibold text-sm">Tips</h4>
-                            <ul className="text-sm text-muted-foreground list-inside mt-1 space-y-1">
+                            <h4 className="font-semibold text-sm text-foreground">Tips</h4>
+                            <ul className="text-sm text-foreground list-inside mt-1 space-y-1">
                                 <li>Upload 5+ photos of your work</li>
                                 <li>Get 5+ reviews</li>
                             </ul>
