@@ -26,7 +26,6 @@ export async function getSupportResponse(
 const supportChatPrompt = ai.definePrompt({
   name: 'supportChatPrompt',
   input: { schema: z.string() },
-  output: { schema: SupportChatOutputSchema },
   prompt: `You are a friendly and helpful support agent for Gaupro, a platform that connects service professionals with customers in South Africa.
 
 Your goal is to answer user questions accurately and guide them to the right part of the website. Be concise and helpful.
@@ -52,7 +51,8 @@ const supportChatFlow = ai.defineFlow(
     outputSchema: SupportChatOutputSchema,
   },
   async (input) => {
-    const { output } = await supportChatPrompt(input);
+    const result = await supportChatPrompt(input);
+    const output = result.text;
     
     // Fallback in case the model returns null or an empty string.
     if (!output) {
