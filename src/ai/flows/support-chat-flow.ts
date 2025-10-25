@@ -11,11 +11,11 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 
-export const SupportChatInputSchema = z.string().describe('The user\'s message or question to the support chatbot.');
-export type SupportChatInput = z.infer<typeof SupportChatInputSchema>;
+const SupportChatInputSchema = z.string().describe('The user\'s message or question to the support chatbot.');
+type SupportChatInput = z.infer<typeof SupportChatInputSchema>;
 
-export const SupportChatOutputSchema = z.string().describe('The AI-generated response to the user\'s message.');
-export type SupportChatOutput = z.infer<typeof SupportChatOutputSchema>;
+const SupportChatOutputSchema = z.string().describe('The AI-generated response to the user\'s message.');
+type SupportChatOutput = z.infer<typeof SupportChatOutputSchema>;
 
 
 export async function getSupportResponse(
