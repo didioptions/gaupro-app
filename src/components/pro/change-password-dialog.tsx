@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import { Checkbox } from '../ui/checkbox';
 
 interface ChangePasswordDialogProps {
   children: React.ReactNode;
@@ -23,6 +24,7 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast();
 
   const handleChangePassword = () => {
@@ -64,7 +66,7 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
           <div className="space-y-2">
             <Input
               id="currentPassword"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Current Password"
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
@@ -73,7 +75,7 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
           <div className="space-y-2">
             <Input
               id="newPassword"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="New Password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
@@ -82,11 +84,15 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
           <div className="space-y-2">
             <Input
               id="confirmPassword"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Confirm New Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="show-password" onCheckedChange={() => setShowPassword(!showPassword)} />
+            <Label htmlFor="show-password" className="text-sm font-normal text-muted-foreground">Show password</Label>
           </div>
         </div>
         <DialogFooter className="sm:justify-between">
