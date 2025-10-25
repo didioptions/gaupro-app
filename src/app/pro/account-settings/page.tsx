@@ -10,9 +10,9 @@ import Link from 'next/link';
 
 export default function AccountSettingsPage() {
   return (
-    <div className="py-12 md:py-16 bg-background">
+    <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        <h1 className="text-3xl md:text-4xl mb-8 text-center text-foreground">
           Edit Account Profile
         </h1>
 
@@ -21,19 +21,19 @@ export default function AccountSettingsPage() {
             <TabsList className="bg-transparent p-0 h-auto">
               <TabsTrigger
                 value="user-profile"
-                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base"
+                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-foreground"
               >
                 User Profile
               </TabsTrigger>
               <TabsTrigger
                 value="billing-details"
-                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base"
+                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-foreground"
               >
                 Billing Details
               </TabsTrigger>
               <TabsTrigger
                 value="notifications"
-                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base"
+                className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-foreground"
               >
                 Notifications
               </TabsTrigger>
@@ -41,8 +41,8 @@ export default function AccountSettingsPage() {
           </div>
 
           <TabsContent value="user-profile" className="mt-8">
-            <Card className="max-w-2xl mx-auto">
-              <CardContent className="p-8 space-y-8">
+            <Card className="max-w-2xl mx-auto bg-transparent border-0 shadow-none">
+              <CardContent className="p-0 md:p-8 space-y-8">
                 <div className="space-y-6">
                    <div className="space-y-2">
                     <Label htmlFor="cellphone">Cellphone Number to Login</Label>
