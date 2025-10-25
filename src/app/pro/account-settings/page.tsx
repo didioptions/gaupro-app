@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
+import { ChangePasswordDialog } from '@/components/pro/change-password-dialog';
 
 export default function AccountSettingsPage() {
   return (
@@ -56,12 +57,11 @@ export default function AccountSettingsPage() {
                   </div>
                   <div className="space-y-2">
                     <Label>Password</Label>
-                    <Link
-                      href="#"
-                      className="text-primary text-sm block hover:underline"
-                    >
-                      Click here to change password
-                    </Link>
+                    <ChangePasswordDialog>
+                      <span className="text-primary text-sm block hover:underline cursor-pointer">
+                        Click here to change password
+                      </span>
+                    </ChangePasswordDialog>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
