@@ -248,6 +248,24 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
+   {
+    service: 'tree-felling',
+    questions: [
+      {
+        id: 'tree_service_type',
+        text: 'What tree services do you need?',
+        type: 'radio',
+        options: [
+          { value: 'felling', label: 'Tree felling (complete removal)' },
+          { value: 'stump_removal', label: 'Stump grinding / removal' },
+          { value: 'trimming', label: 'Tree trimming / pruning' },
+          { value: 'emergency', label: 'Emergency tree service' },
+          { value: 'clearing', label: 'Site clearing' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
   {
     service: 'cleaning-service',
     questions: [
@@ -328,7 +346,7 @@ export const serviceQuestionSets: QuestionSet[] = [
   },
   // Fallback for other services - this maps all other services to the common questions
   ...allServices
-    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers', 'skip-hire'].includes(service.value))
+    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers', 'skip-hire', 'tree-felling'].includes(service.value))
     .map(service => ({
       service: service.value,
       questions: [
@@ -347,3 +365,6 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
     }))
 ];
+
+
+    
