@@ -19,7 +19,6 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Input } from './input';
-import { Button } from './button';
 
 interface AutocompleteOption {
   value: string;
@@ -32,7 +31,6 @@ interface AutocompleteProps {
   onValueChange: (value: string) => void;
   placeholder?: string;
   inputClassName?: string;
-  isDialog?: boolean;
 }
 
 export function Autocomplete({
@@ -41,84 +39,85 @@ export function Autocomplete({
   onValueChange,
   placeholder,
   inputClassName,
-  isDialog = false,
 }: AutocompleteProps) {
   const [open, setOpen] = React.useState(false);
-  const [inputValue, setInputValue] = React.useState(value);
+  
+  const selectedOption = React.useMemo(() => 
+    options.find(option => option.value === value), 
+    [options, value]
+  );
+  
+  const [inputValue, setInputValue] = React.useState(selectedOption?.label || '');
 
   React.useEffect(() => {
-     const currentOption = options.find(option => option.value === value);
-     setInputValue(currentOption ? currentOption.label : value);
-  }, [value, options]);
-
+    setInputValue(selectedOption?.label || (open ? inputValue : ''));
+  }, [selectedOption, open]);
+  
   const handleSelect = (currentValue: string) => {
     const newValue = currentValue === value ? '' : currentValue;
     onValueChange(newValue);
     setOpen(false);
+    const selected = options.find(option => option.value === newValue);
+    setInputValue(selected?.label || '');
   };
-  
-  const filteredOptions = inputValue 
-    ? options.filter(option => 
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newInputValue = e.target.value;
+    setInputValue(newInputValue);
+    if (!open) {
+      setOpen(true);
+    }
+    // Clear the main value if input is cleared
+    if (newInputValue === '') {
+      onValueChange('');
+    }
+  };
+
+  const filteredOptions = inputValue
+    ? options.filter(option =>
         option.label.toLowerCase().includes(inputValue.toLowerCase())
       )
     : options;
 
-  const TriggerComponent = isDialog ? Input : Button;
-
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        {isDialog ? (
-             <Input
-                value={inputValue}
-                onChange={(e) => {
-                    setInputValue(e.target.value)
-                    if(!open) setOpen(true);
-                }}
-                placeholder={placeholder}
-                className={cn(
-                    'w-full bg-background border-input focus-visible:ring-2 focus-visible:ring-ring',
-                    inputClassName
-                )}
-                onFocus={() => setOpen(true)}
-            />
-        ) : (
-             <TriggerComponent
-                variant="outline"
-                role="combobox"
-                aria-expanded={open}
-                className={cn("w-full justify-between", !value && "text-muted-foreground", inputClassName)}
-              >
-                {value
-                  ? options.find((option) => option.value === value)?.label
-                  : placeholder}
-                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-              </TriggerComponent>
-        )}
+        <Input
+          value={inputValue}
+          onChange={handleInputChange}
+          onFocus={() => setOpen(true)}
+          placeholder={placeholder}
+          className={cn(
+            'w-full bg-transparent border-0 ring-0 focus-visible:ring-0 focus-visible:ring-offset-0',
+            inputClassName
+          )}
+          role="combobox"
+          aria-expanded={open}
+        />
       </PopoverTrigger>
       <PopoverContent className="w-[--radix-popover-trigger-width] p-0" onOpenAutoFocus={(e) => e.preventDefault()}>
         <Command>
-            <CommandInput 
-              placeholder="Search services..."
-              value={inputValue}
-              onValueChange={setInputValue}
-            />
+          <CommandInput
+            placeholder="Search services..."
+            value={inputValue}
+            onValueChange={setInputValue}
+          />
           <CommandList>
-             <CommandEmpty>No results found.</CommandEmpty>
+            <CommandEmpty>No results found.</CommandEmpty>
             {filteredOptions.length > 0 && (
-                <CommandGroup>
+              <CommandGroup>
                 {filteredOptions.map((option) => (
                   <CommandItem
                     key={option.value}
                     value={option.label}
                     onSelect={() => handleSelect(option.value)}
                   >
-                     <Check
-                        className={cn(
-                          "mr-2 h-4 w-4",
-                          value === option.value ? "opacity-100" : "opacity-0"
-                        )}
-                      />
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        value === option.value ? "opacity-100" : "opacity-0"
+                      )}
+                    />
                     {option.label}
                   </CommandItem>
                 ))}

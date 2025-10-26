@@ -43,7 +43,6 @@ export default function Hero() {
               onValueChange={setServiceValue}
               placeholder="What service do you need?"
               inputClassName="text-base text-gray-700"
-              isDialog={true}
             />
             <RequestQuoteDialog service={serviceValue}>
               <Button
