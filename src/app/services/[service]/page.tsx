@@ -1,6 +1,4 @@
 
-'use client'
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -13,7 +11,6 @@ import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
-import { useSearchParams } from 'next/navigation';
 
 const allProfessionals = {
     movers: [
@@ -62,9 +59,8 @@ const priceEstimates = [
 ]
 
 
-export default function ServicePage({ params }: { params: { service: string } }) {
-    const searchParams = useSearchParams();
-    const locationQuery = searchParams.get('location');
+export default function ServicePage({ params, searchParams }: { params: { service: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
+    const locationQuery = searchParams?.location;
 
     const service = allServices.find(s => s.value === params.service);
     const serviceLabel = service?.label || params.service.charAt(0).toUpperCase() + params.service.slice(1);
@@ -85,7 +81,7 @@ export default function ServicePage({ params }: { params: { service: string } })
         heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
     }
 
-    const locationName = locationQuery 
+    const locationName = typeof locationQuery === 'string'
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "Johannesburg";
 
