@@ -86,7 +86,7 @@ export default function ProCentrePage() {
         <section className="bg-background py-16 md:py-24">
           <div className="container mx-auto px-4 text-center">
             <Badge variant="outline" className="mb-4 text-primary border-primary">Last Updated: June 2025 | Version: 2.0</Badge>
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Gaupro Pro Centre</h1>
+            <h1 className="text-3xl md:text-4xl tracking-tight">Gaupro Pro Centre</h1>
             <p className="mt-4 text-lg text-foreground max-w-2xl mx-auto">
               Empowering South Africa’s Service Pros to Grow Smarter. Your go-to hub for tips, tools, and real-world strategies to attract more clients, build your brand, and grow your business online.
             </p>
@@ -106,7 +106,7 @@ export default function ProCentrePage() {
             {/* Section 1: Learn & Grow */}
             <section id="learn-grow" className="scroll-mt-20">
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl font-bold">📘 Learn & Grow</h2>
+                    <h2 className="text-3xl">📘 Learn & Grow</h2>
                     <p className="text-foreground max-w-2xl mx-auto mt-2">
                         Practical guides and insights to help your business stand out. From improving your profile to managing client reviews, every article is written by experts who know what works.
                     </p>
@@ -129,7 +129,7 @@ export default function ProCentrePage() {
             {/* Section 2: Tools & Resources */}
             <section id="tools" className="scroll-mt-20">
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl font-bold">⚙️ Tools & Resources</h2>
+                    <h2 className="text-3xl">⚙️ Tools & Resources</h2>
                     <p className="text-foreground max-w-2xl mx-auto mt-2">
                         Access easy-to-use tools that help you manage your profile, respond to client requests faster, and track your growth.
                     </p>
@@ -168,7 +168,7 @@ export default function ProCentrePage() {
             <section id="community" className="scroll-mt-20">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="text-center md:text-left">
-                        <h2 className="text-3xl font-bold">💡 Community & Support</h2>
+                        <h2 className="text-3xl">💡 Community & Support</h2>
                         <p className="text-foreground mt-2">
                             Join thousands of local pros who trust Gaupro to connect them with new clients every day. Learn from success stories, share advice, and grow together.
                         </p>
@@ -205,7 +205,7 @@ export default function ProCentrePage() {
             {/* How It Works & Benefits */}
             <section className="grid md:grid-cols-2 gap-12">
                 <div>
-                    <h3 className="text-2xl font-bold mb-6">How Gaupro Works for Pros</h3>
+                    <h3 className="text-2xl mb-6">How Gaupro Works for Pros</h3>
                     <div className="space-y-6">
                         {howItWorksSteps.map((step, index) => (
                             <div key={index}>
@@ -218,7 +218,7 @@ export default function ProCentrePage() {
                     </div>
                 </div>
                  <div>
-                    <h3 className="text-2xl font-bold mb-6">Why Join Gaupro</h3>
+                    <h3 className="text-2xl mb-6">Why Join Gaupro</h3>
                     <ul className="space-y-3">
                         {benefits.map(benefit => (
                             <li key={benefit} className="flex items-start gap-2">
@@ -233,7 +233,7 @@ export default function ProCentrePage() {
             {/* Lead Management */}
             <section>
                  <div className="text-center mb-10">
-                    <h2 className="text-3xl font-bold">🎯 Lead Management Centre</h2>
+                    <h2 className="text-3xl">🎯 Lead Management Centre</h2>
                     <p className="text-foreground max-w-2xl mx-auto mt-2">
                        Convert More Gaupro Leads by responding quickly. Time is critical.
                     </p>
