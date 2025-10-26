@@ -28,7 +28,7 @@ export default function ServicesByLocationPage({ params }: { params: { location:
                 <div className="columns-2 md:columns-4 gap-x-8">
                     {sortedServices.map((serviceLabel) => {
                         const service = allServices.find(s => s.label === serviceLabel);
-                        const href = service ? `/services/${service.value}` : '#';
+                        const href = service ? `/services/${service.value}?location=${params.location}` : '#';
                         return (
                             <Link key={serviceLabel} href={href} className="block text-sm text-foreground hover:text-primary py-1.5">
                                 {serviceLabel}

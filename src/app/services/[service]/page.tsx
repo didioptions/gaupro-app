@@ -1,4 +1,6 @@
 
+'use client'
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -11,6 +13,7 @@ import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
+import { useSearchParams } from 'next/navigation';
 
 const allProfessionals = {
     movers: [
@@ -60,6 +63,9 @@ const priceEstimates = [
 
 
 export default function ServicePage({ params }: { params: { service: string } }) {
+    const searchParams = useSearchParams();
+    const locationQuery = searchParams.get('location');
+
     const service = allServices.find(s => s.value === params.service);
     const serviceLabel = service?.label || params.service.charAt(0).toUpperCase() + params.service.slice(1);
     
@@ -79,8 +85,10 @@ export default function ServicePage({ params }: { params: { service: string } })
         heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
     }
 
-    // Placeholder location
-    const location = "Rosebank";
+    const locationName = locationQuery 
+        ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        : "Johannesburg";
+
 
     return (
         <>
@@ -105,15 +113,15 @@ export default function ServicePage({ params }: { params: { service: string } })
                               Get matched with top-rated, verified professionals in your area.
                           </p>
                         </div>
-                        <InlineQuoteForm service={params.service} location={location} />
+                        <InlineQuoteForm service={params.service} location={locationName} />
                      </div>
                 </section>
 
                 <section className="py-16 bg-background">
                     <div className="container mx-auto px-4">
                          <div className="text-center md:text-left mb-8">
-                            <p className="text-sm text-muted-foreground">Small &gt; Johannesburg &gt; {pluralServiceLabel}</p>
-                            <h2 className="text-3xl font-bold mt-1">Top {pluralServiceLabel} in Rosebank, Johannesburg</h2>
+                            <p className="text-sm text-muted-foreground">Small &gt; {locationName} &gt; {pluralServiceLabel}</p>
+                            <h2 className="text-3xl font-bold mt-1">Top {pluralServiceLabel} in {locationName}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
@@ -150,18 +158,18 @@ export default function ServicePage({ params }: { params: { service: string } })
                             <aside className="space-y-8">
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="font-semibold mb-3 text-foreground">Need {pluralServiceLabel} in Johannesburg?</h3>
+                                        <h3 className="font-semibold mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                             <li>602 Reviews for {singularOrPluralLowercase}</li>
                                             <li>510 Positive Reviews</li>
                                             <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
-                                            <li>View Johannesburg Pros for {singularOrPluralLowercase} today</li>
+                                            <li>View {locationName} Pros for {singularOrPluralLowercase} today</li>
                                         </ul>
                                     </CardContent>
                                 </Card>
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="font-semibold mb-3 text-foreground">Price Estimate for {singularOrPluralLowercase} in Johannesburg</h3>
+                                        <h3 className="font-semibold mb-3 text-foreground">Price Estimate for {singularOrPluralLowercase} in {locationName}</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                             {priceEstimates.map(est => <li key={est}>{est}</li>)}
                                         </ul>
