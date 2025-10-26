@@ -166,6 +166,23 @@ const commonQuestions: Question[] = [
 
 export const serviceQuestionSets: QuestionSet[] = [
   {
+      service: 'default', // Fallback question set
+      questions: [
+        {
+          id: 'project_type',
+          text: 'What best describes your project?',
+          type: 'radio',
+          options: [
+            { value: 'new_project', label: 'New Project' },
+            { value: 'repair', label: 'Repair or Maintenance' },
+            { value: 'consultation', label: 'Consultation' },
+            { value: 'other', label: 'Other' },
+          ],
+        },
+        ...commonQuestions,
+      ],
+  },
+  {
     service: 'plumber',
     questions: [
       {
@@ -276,11 +293,24 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions
     ],
   },
-  // Fallback for other services
+  // Fallback for other services - this maps all other services to the common questions
   ...allServices
     .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician'].includes(service.value))
     .map(service => ({
       service: service.value,
-      questions: commonQuestions,
+      questions: [
+          {
+            id: 'project_type',
+            text: 'What best describes your project?',
+            type: 'radio',
+            options: [
+                { value: 'new_project', label: 'New Project' },
+                { value: 'repair', label: 'Repair or Maintenance' },
+                { value: 'consultation', label: 'Consultation' },
+                { value: 'other', label: 'Other' },
+            ],
+          },
+          ...commonQuestions
+      ],
     }))
 ];
