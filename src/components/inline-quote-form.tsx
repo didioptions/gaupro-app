@@ -15,6 +15,7 @@ interface InlineQuoteFormProps {
 
 export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
   const [selectedOption, setSelectedOption] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const questionSet = serviceQuestionSets.find((qs) => qs.service === service);
   const firstQuestion = questionSet?.questions?.[0];
@@ -33,7 +34,15 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
     [firstQuestion.id]: selectedOption,
   };
 
+  const handleOpenDialog = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (selectedOption) {
+      setIsDialogOpen(true);
+    }
+  };
+
   return (
+    <>
       <Card className="bg-white/90 backdrop-blur-sm text-card-foreground p-6">
         <CardContent className="p-0">
             <h3 className="font-semibold mb-4 text-lg">{firstQuestion.text}</h3>
@@ -54,24 +63,31 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
               ))}
             </RadioGroup>
             
-            <RequestQuoteDialog 
-              service={service} 
-              initialStep={1}
-              initialData={initialData}
+            <Button 
+                type="button" 
+                size="lg" 
+                className="w-full h-12 text-base" 
+                variant="destructive"
+                disabled={!selectedOption}
+                onClick={handleOpenDialog}
             >
-                <Button 
-                    type="button" 
-                    size="lg" 
-                    className="w-full h-12 text-base" 
-                    variant="destructive"
-                    disabled={!selectedOption}
-                >
-                    Get Free Quotes
-                </Button>
-            </RequestQuoteDialog>
+                Get Free Quotes
+            </Button>
 
              <p className="text-xs text-muted-foreground mt-2 text-center">From verified businesses and trade professionals</p>
         </CardContent>
       </Card>
+      
+      {isDialogOpen && (
+         <RequestQuoteDialog 
+            open={isDialogOpen}
+            onOpenChange={setIsDialogOpen}
+            service={service} 
+            initialStep={1}
+            initialData={initialData}
+        />
+      )}
+    </>
   );
 }
+
