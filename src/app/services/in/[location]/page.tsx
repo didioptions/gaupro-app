@@ -22,20 +22,6 @@ export default function ServicesByLocationPage({ params }: { params: { location:
                 Looking for a service professional in {locationName}? Gaupro has you covered, whether you're looking for a handyman, a contractor, an accountant or anything in between. With thousands of skilled professionals and businesses rated by {locationName} residents, you're sure to find what you need.
               </p>
             </header>
-            
-            <div className="border rounded-lg p-8">
-              <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-x-8">
-                {sortedServices.map(service => (
-                  <Link 
-                    key={service.value} 
-                    href={`/services/${service.value}`} 
-                    className="block text-muted-foreground hover:text-primary hover:underline py-1.5"
-                  >
-                    {service.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </main>
