@@ -3,25 +3,26 @@
 
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Search, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { Autocomplete } from "../ui/autocomplete";
 import { allServices } from "@/lib/service-questions";
 import { allLocations } from "@/lib/locations";
-import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 export default function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
   const [serviceValue, setServiceValue] = useState('');
-  const [locationValue, setLocationValue] = useState('johannesburg'); // Default location
+  const [locationValue, setLocationValue] = useState('');
   const router = useRouter();
 
   const handleSearch = () => {
     if (serviceValue) {
       const locationSlug = locationValue.toLowerCase().replace(/\s+/g, '-');
-      router.push(`/services/${serviceValue}?location=${locationSlug}`);
+      const query = locationSlug ? `?location=${locationSlug}` : '';
+      router.push(`/services/${serviceValue}${query}`);
     }
   };
 
@@ -45,34 +46,38 @@ export default function Hero() {
         <p className="mx-auto max-w-2xl text-lg text-white/80 mb-10">
           Get free quotes from qualified, trusted and reviewed professionals in your area.
         </p>
-        <div className="mx-auto max-w-2xl">
-          <div className="flex w-full items-center bg-white rounded-md p-2 shadow-lg h-16">
-            <Search className="h-5 w-5 text-gray-400 mx-3" />
-            <Autocomplete
-              options={allServices}
-              value={serviceValue}
-              onValueChange={setServiceValue}
-              placeholder="What service do you need?"
-              inputClassName="text-base text-gray-700"
-            />
-            <Separator orientation="vertical" className="h-8 mx-2 bg-gray-200" />
-            <MapPin className="h-5 w-5 text-gray-400 mx-3" />
-             <Autocomplete
-              options={allLocations}
-              value={locationValue}
-              onValueChange={setLocationValue}
-              placeholder="Location"
-              inputClassName="text-base text-gray-700"
-            />
+        <div className="mx-auto max-w-3xl">
+          <div className="flex flex-col md:flex-row w-full items-center bg-white rounded-lg p-2 shadow-lg gap-2">
+            <div className="bg-white rounded-md p-2 flex-grow w-full">
+              <Label htmlFor="service-input" className="text-xs text-left block text-muted-foreground">What service do you need?</Label>
+              <Autocomplete
+                id="service-input"
+                options={allServices}
+                value={serviceValue}
+                onValueChange={setServiceValue}
+                placeholder="Eg. plumbing, handyman, etc..."
+                inputClassName="text-base text-gray-700 placeholder:text-sm border-0 px-0 h-auto py-1"
+              />
+            </div>
+             <div className="bg-white rounded-md p-2 w-full md:w-auto">
+               <Label htmlFor="location-input" className="text-xs text-left block text-muted-foreground">Where?</Label>
+               <Autocomplete
+                id="location-input"
+                options={allLocations}
+                value={locationValue}
+                onValueChange={setLocationValue}
+                placeholder="Enter suburb"
+                inputClassName="text-base text-gray-700 placeholder:text-sm border-0 px-0 h-auto py-1"
+              />
+            </div>
             <Button
-              type="submit"
+              type="button"
               size="lg"
-              className="h-full px-8 text-base"
-              variant="destructive"
+              className="h-12 px-8 text-base w-full md:w-auto"
               onClick={handleSearch}
               disabled={!serviceValue || !locationValue}
             >
-              Search
+              Get Started
             </Button>
           </div>
         </div>
