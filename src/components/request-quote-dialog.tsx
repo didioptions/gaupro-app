@@ -140,9 +140,9 @@ function RequestQuoteDialogContent({
       return (
         <div className="text-center py-8">
             <DialogHeader>
-                <DialogTitle className="text-2xl font-bold mb-4">✅ Great News! Your Request Has Been Received</DialogTitle>
+                <DialogTitle className="text-2xl font-bold mb-4">✅ Your Request Has Been Received</DialogTitle>
             </DialogHeader>
-          <div className="text-muted-foreground space-y-4 text-left">
+          <div className="text-foreground space-y-4 text-left">
             <p>
               Thanks for posting your job on Gaupro — we’re already matching you with trusted local professionals.
             </p>
@@ -152,7 +152,7 @@ function RequestQuoteDialogContent({
             <p>
               If you’d like to speed things up, verify your contact details when prompted — this helps us connect you to verified pros even faster.
             </p>
-            <h3 className="font-semibold text-foreground pt-2">Here’s What Happens Next:</h3>
+            <p className="text-foreground pt-2">Here’s What Happens Next:</p>
             <ol className="list-decimal list-inside space-y-2">
                 <li>Receive quotes from qualified service providers — usually within a few hours.</li>
                 <li>Compare prices, view profiles, and read verified customer reviews.</li>
