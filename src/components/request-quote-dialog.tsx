@@ -55,15 +55,19 @@ function RequestQuoteDialogContent({
   service,
   isOpen,
   setIsOpen,
+  initialStep = 0,
+  initialData = {},
 }: {
   service?: string;
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
+  initialStep?: number;
+  initialData?: FormData;
 }) {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(initialStep);
   const [selectedService, setSelectedService] = useState(service || '');
   const [popoverOpen, setPopoverOpen] = useState(false);
-  const [formData, setFormData] = useState<FormData>({});
+  const [formData, setFormData] = useState<FormData>(initialData);
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -84,10 +88,11 @@ function RequestQuoteDialogContent({
     if (isOpen) {
       if (service) {
         setSelectedService(service);
-        setStep(1); 
+        setStep(initialStep > 0 ? initialStep : 1);
       } else {
-        setStep(0); 
+        setStep(initialStep);
       }
+      setFormData(initialData);
     } else {
       setTimeout(() => {
         setStep(0);
@@ -98,7 +103,7 @@ function RequestQuoteDialogContent({
         setAgreedToTerms(false);
       }, 300);
     }
-  }, [isOpen, service]);
+  }, [isOpen, service, initialStep, initialData]);
 
 
   const handleServiceSelect = (serviceValue: string) => {
@@ -437,16 +442,41 @@ function RequestQuoteDialogContent({
 export function RequestQuoteDialog({
   children,
   service,
+  initialStep,
+  initialData,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   service?: string;
+  initialStep?: number;
+  initialData?: FormData;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // If the component is rendered without a trigger (children), open it programmatically.
+    if (!children) {
+      setIsOpen(true);
+    }
+  }, [children]);
+
+  const dialogContent = isOpen ? (
+    <RequestQuoteDialogContent 
+      service={service} 
+      isOpen={isOpen} 
+      setIsOpen={setIsOpen} 
+      initialStep={initialStep}
+      initialData={initialData}
+    />
+  ) : null;
+
+  if (!children) {
+    return <Dialog open={isOpen} onOpenChange={setIsOpen}>{dialogContent}</Dialog>;
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      {isOpen && <RequestQuoteDialogContent service={service} isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {dialogContent}
     </Dialog>
   );
 }

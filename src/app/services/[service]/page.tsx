@@ -9,8 +9,8 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
-import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 import { CategoryImages } from '@/lib/category-images';
+import InlineQuoteForm from '@/components/inline-quote-form';
 
 const professionals = [
     {
@@ -67,16 +67,14 @@ export default function ServicePage({ params }: { params: { service: string } })
                         />
                     )}
                      <div className="absolute inset-0 bg-black/60" />
-                     <div className="relative container mx-auto px-4">
-                        <h1 className="text-4xl md:text-5xl font-extrabold">Get Quotes for {serviceLabel}s</h1>
-                        <p className="mt-4 text-lg max-w-xl mx-auto text-white/90">
-                            Get matched with top-rated, verified professionals in your area.
-                        </p>
-                        <RequestQuoteDialog service={params.service}>
-                            <Button size="lg" variant="destructive" className="mt-8 text-lg px-10 h-14">
-                                Get Free Quotes
-                            </Button>
-                        </RequestQuoteDialog>
+                     <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center text-left">
+                        <div>
+                          <h1 className="text-4xl md:text-5xl font-extrabold">Get Quotes for {serviceLabel}s</h1>
+                          <p className="mt-4 text-lg text-white/90">
+                              Get matched with top-rated, verified professionals in your area.
+                          </p>
+                        </div>
+                        <InlineQuoteForm service={params.service} />
                      </div>
                 </section>
 
