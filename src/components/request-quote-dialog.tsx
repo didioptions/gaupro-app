@@ -439,25 +439,34 @@ function RequestQuoteDialogContent({
   );
 }
 
+interface RequestQuoteDialogProps {
+  children?: React.ReactNode;
+  service?: string;
+  initialStep?: number;
+  initialData?: FormData;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
 export function RequestQuoteDialog({
   children,
   service,
   initialStep,
   initialData,
-}: {
-  children?: React.ReactNode;
-  service?: string;
-  initialStep?: number;
-  initialData?: FormData;
-}) {
-  const [isOpen, setIsOpen] = useState(false);
+  open: controlledOpen,
+  onOpenChange: setControlledOpen,
+}: RequestQuoteDialogProps) {
+  const [internalOpen, setInternalOpen] = useState(false);
 
+  const isOpen = controlledOpen ?? internalOpen;
+  const setIsOpen = setControlledOpen ?? setInternalOpen;
+  
   useEffect(() => {
-    // If the component is rendered without a trigger (children), open it programmatically.
-    if (!children) {
+    // If the component is rendered without a trigger (children) and is not controlled, open it programmatically.
+    if (!children && controlledOpen === undefined) {
       setIsOpen(true);
     }
-  }, [children]);
+  }, [children, controlledOpen]);
 
   const dialogContent = isOpen ? (
     <RequestQuoteDialogContent 

@@ -75,6 +75,8 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
 
       {isDialogOpen && (
         <RequestQuoteDialog
+          open={isDialogOpen}
+          onOpenChange={setIsDialogOpen}
           service={service}
           initialStep={2} // Start from the second question
           initialData={initialData}
