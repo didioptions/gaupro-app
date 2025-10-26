@@ -1,3 +1,4 @@
+
 import Hero from '@/components/home/hero';
 import PopularCategories from '@/components/home/popular-categories';
 import HowItWorks from '@/components/home/how-it-works';
@@ -5,7 +6,6 @@ import Testimonials from '@/components/home/testimonials';
 import ProCta from '@/components/home/pro-cta';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import Locations from '@/components/layout/locations';
 import GrowClientBaseCta from '@/components/layout/grow-client-base-cta';
 
 export default function Home() {
@@ -18,7 +18,6 @@ export default function Home() {
         <HowItWorks />
         <Testimonials />
         <ProCta />
-        <Locations />
         <GrowClientBaseCta />
       </main>
       <Footer />

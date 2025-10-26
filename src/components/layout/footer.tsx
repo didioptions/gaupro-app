@@ -33,22 +33,54 @@ const footerSections = [
   },
 ];
 
-const AppButton = ({ platform, icon }: { platform: string, icon: React.ReactNode }) => (
-    <button className="flex items-center justify-center w-36 h-12 bg-background border border-gray-300 rounded-md text-foreground hover:bg-gray-100 transition-colors">
-        {icon}
-        <div className="text-left ml-2">
-            <p className="text-xs leading-none">GET IT ON</p>
-            <p className="text-sm font-semibold leading-tight">{platform}</p>
-        </div>
-    </button>
-);
+const locationsData = {
+    Gauteng: ["Alberton", "Benoni", "Boksburg", "Brakpan", "Centurion", "Edenvale", "Germiston", "Johannesburg", "Kempton Park", "Krugersdorp", "Midrand", "Pretoria", "Randburg", "Roodepoort", "Sandton", "Soweto", "Springs", "Vanderbijlpark", "Vereeniging"],
+    "KwaZulu-Natal": ["Amanzimtoti", "Ballito", "Chatsworth", "Durban", "Hillcrest", "Howick", "Kloof", "Ladysmith", "Newcastle", "Phoenix", "Pietermaritzburg", "Pinetown", "Port Shepstone", "Richards Bay", "Stanger", "Umhlanga"],
+    "Western Cape": ["Brackenfell", "Cape Town", "George", "Goodwood", "Kraaifontein", "Kuils River", "Mossel Bay", "Paarl", "Plettenberg Bay", "Somerset West", "Stellenbosch", "Table View"],
+    "North West": ["Klerksdorp", "Potchefstroom", "Rustenburg"],
+    Mpumalanga: ["Nelspruit", "Witbank"],
+    "Free State": ["Bloemfontein"],
+    "Eastern Cape": ["East London", "Port Elizabeth"],
+    Limpopo: ["Polokwane"],
+};
 
 
 export default function Footer() {
   return (
     <footer className="bg-background text-foreground border-t">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+        <div className="mb-12">
+            <h2 className="text-xl font-bold text-center md:text-left mb-8">Browse Top Service Professionals in South Africa</h2>
+            <div className="columns-2 md:columns-4 lg:columns-6 gap-8">
+              {Object.entries(locationsData).map(([province, cities]) => (
+                <div key={province} className="break-inside-avoid-column mb-6">
+                  <h3 className="font-bold mb-2 text-foreground">
+                    <Link href="#" className="hover:text-primary">
+                      {province}
+                    </Link>
+                  </h3>
+                  <ul className="space-y-1">
+                    {cities.map((city) => (
+                      <li key={city}>
+                        <Link href="#" className="text-sm text-foreground hover:text-primary">
+                          {city}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+               <div className="break-inside-avoid-column mb-6">
+                  <h3 className="font-bold mb-2 text-red-600">
+                    <Link href="#" className="hover:text-red-700">
+                      More...
+                    </Link>
+                  </h3>
+                </div>
+            </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 border-t pt-12">
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="font-semibold mb-4 text-foreground">{section.title}</h3>
