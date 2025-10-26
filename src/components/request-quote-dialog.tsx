@@ -11,14 +11,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/ui/command';
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -31,7 +23,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { Check, ChevronsUpDown, ArrowLeft, Calendar as CalendarIcon, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Calendar as CalendarIcon, CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from './ui/progress';
@@ -45,6 +37,7 @@ import { Calendar } from './ui/calendar';
 import { format } from 'date-fns';
 import { Checkbox } from './ui/checkbox';
 import Link from 'next/link';
+import { Autocomplete } from './ui/autocomplete';
 
 type FormData = {
   [key: string]: string | File[] | boolean | Date | undefined;
@@ -64,7 +57,6 @@ function RequestQuoteDialogContent({
 }) {
   const [step, setStep] = useState(initialStep);
   const [selectedService, setSelectedService] = useState(service || '');
-  const [popoverOpen, setPopoverOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialData);
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -95,7 +87,6 @@ function RequestQuoteDialogContent({
 
   const handleServiceSelect = (serviceValue: string) => {
     setSelectedService(serviceValue);
-    setPopoverOpen(false);
     setStep(1);
   };
 
@@ -152,7 +143,7 @@ function RequestQuoteDialogContent({
             <p>
               If you’d like to speed things up, verify your contact details when prompted — this helps us connect you to verified pros even faster.
             </p>
-            <p className="text-foreground pt-2">Here’s What Happens Next:</p>
+            <p className="font-semibold pt-2">Here’s What Happens Next:</p>
             <ol className="list-decimal list-inside space-y-2">
                 <li>Receive quotes from qualified service providers — usually within a few hours.</li>
                 <li>Compare prices, view profiles, and read verified customer reviews.</li>
@@ -178,46 +169,19 @@ function RequestQuoteDialogContent({
             </DialogDescription>
           </DialogHeader>
           <div className="py-8">
-            <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={popoverOpen}
-                  className="h-12 text-base w-full justify-between text-muted-foreground font-normal hover:bg-background"
-                >
-                  {selectedService
-                    ? allServices.find((s) => s.value === selectedService)?.label
-                    : 'What service do you need? e.g. Plumber'}
-                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-                <Command>
-                  <CommandInput placeholder="Search for a service..." />
-                  <CommandEmpty>No service found.</CommandEmpty>
-                  <CommandList>
-                    <CommandGroup>
-                      {allServices.map((s) => (
-                        <CommandItem
-                          key={s.value}
-                          value={s.value}
-                          onSelect={handleServiceSelect}
-                        >
-                          <Check
-                            className={cn(
-                              'mr-2 h-4 w-4',
-                              selectedService === s.value ? 'opacity-100' : 'opacity-0'
-                            )}
-                          />
-                          {s.label}
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </PopoverContent>
-            </Popover>
+            <Autocomplete
+              options={allServices}
+              value={selectedService}
+              onValueChange={(value) => {
+                const serviceExists = allServices.some(s => s.value === value);
+                setSelectedService(value);
+                if (serviceExists) {
+                  handleServiceSelect(value);
+                }
+              }}
+              placeholder="What service do you need? e.g. Plumber"
+              inputClassName="h-12 text-base w-full justify-between text-muted-foreground font-normal"
+            />
           </div>
         </>
       );

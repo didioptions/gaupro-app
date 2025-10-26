@@ -19,6 +19,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Input } from './input';
+import { Button } from './button';
 
 interface AutocompleteOption {
   value: string;
@@ -31,6 +32,7 @@ interface AutocompleteProps {
   onValueChange: (value: string) => void;
   placeholder?: string;
   inputClassName?: string;
+  isDialog?: boolean;
 }
 
 export function Autocomplete({
@@ -38,31 +40,36 @@ export function Autocomplete({
   value,
   onValueChange,
   placeholder,
-  inputClassName
+  inputClassName,
+  isDialog = false,
 }: AutocompleteProps) {
   const [open, setOpen] = React.useState(false);
   const [inputValue, setInputValue] = React.useState(value);
 
   React.useEffect(() => {
-    setInputValue(value);
-  }, [value]);
+     const currentOption = options.find(option => option.value === value);
+     setInputValue(currentOption ? currentOption.label : value);
+  }, [value, options]);
 
   const handleSelect = (currentValue: string) => {
     const newValue = currentValue === value ? '' : currentValue;
     onValueChange(newValue);
-    setInputValue(newValue);
     setOpen(false);
   };
   
-  const filteredOptions = options.filter(option => 
-    option.label.toLowerCase().includes(inputValue.toLowerCase())
-  );
+  const filteredOptions = inputValue 
+    ? options.filter(option => 
+        option.label.toLowerCase().includes(inputValue.toLowerCase())
+      )
+    : options;
+
+  const TriggerComponent = isDialog ? Input : Button;
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <div className="relative w-full">
-            <Input
+        {isDialog ? (
+             <Input
                 value={inputValue}
                 onChange={(e) => {
                     setInputValue(e.target.value)
@@ -70,17 +77,35 @@ export function Autocomplete({
                 }}
                 placeholder={placeholder}
                 className={cn(
-                    'flex-grow bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 h-full',
+                    'w-full bg-background border-input focus-visible:ring-2 focus-visible:ring-ring',
                     inputClassName
                 )}
                 onFocus={() => setOpen(true)}
             />
-        </div>
+        ) : (
+             <TriggerComponent
+                variant="outline"
+                role="combobox"
+                aria-expanded={open}
+                className={cn("w-full justify-between", !value && "text-muted-foreground", inputClassName)}
+              >
+                {value
+                  ? options.find((option) => option.value === value)?.label
+                  : placeholder}
+                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+              </TriggerComponent>
+        )}
       </PopoverTrigger>
       <PopoverContent className="w-[--radix-popover-trigger-width] p-0" onOpenAutoFocus={(e) => e.preventDefault()}>
         <Command>
+            <CommandInput 
+              placeholder="Search services..."
+              value={inputValue}
+              onValueChange={setInputValue}
+            />
           <CommandList>
-            {filteredOptions.length > 0 ? (
+             <CommandEmpty>No results found.</CommandEmpty>
+            {filteredOptions.length > 0 && (
                 <CommandGroup>
                 {filteredOptions.map((option) => (
                   <CommandItem
@@ -88,12 +113,16 @@ export function Autocomplete({
                     value={option.label}
                     onSelect={() => handleSelect(option.value)}
                   >
+                     <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          value === option.value ? "opacity-100" : "opacity-0"
+                        )}
+                      />
                     {option.label}
                   </CommandItem>
                 ))}
               </CommandGroup>
-            ) : (
-              <CommandEmpty>No results found.</CommandEmpty>
             )}
           </CommandList>
         </Command>
