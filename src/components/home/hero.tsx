@@ -3,16 +3,27 @@
 
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Search } from "lucide-react";
+import { Search, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { Autocomplete } from "../ui/autocomplete";
 import { allServices } from "@/lib/service-questions";
-import { RequestQuoteDialog } from "../request-quote-dialog";
+import { allLocations } from "@/lib/locations";
+import { Separator } from "../ui/separator";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
   const [serviceValue, setServiceValue] = useState('');
+  const [locationValue, setLocationValue] = useState('johannesburg'); // Default location
+  const router = useRouter();
+
+  const handleSearch = () => {
+    if (serviceValue) {
+      const locationSlug = locationValue.toLowerCase().replace(/\s+/g, '-');
+      router.push(`/services/${serviceValue}?location=${locationSlug}`);
+    }
+  };
 
   return (
     <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center text-white">
@@ -34,7 +45,7 @@ export default function Hero() {
         <p className="mx-auto max-w-2xl text-lg text-white/80 mb-10">
           Get free quotes from qualified, trusted and reviewed professionals in your area.
         </p>
-        <div className="mx-auto max-w-lg">
+        <div className="mx-auto max-w-2xl">
           <div className="flex w-full items-center bg-white rounded-md p-2 shadow-lg h-16">
             <Search className="h-5 w-5 text-gray-400 mx-3" />
             <Autocomplete
@@ -44,17 +55,25 @@ export default function Hero() {
               placeholder="What service do you need?"
               inputClassName="text-base text-gray-700"
             />
-            <RequestQuoteDialog service={serviceValue}>
-              <Button
-                type="submit"
-                size="lg"
-                className="h-full px-8 text-base"
-                variant="destructive"
-                disabled={!serviceValue}
-              >
-                Get Started
-              </Button>
-            </RequestQuoteDialog>
+            <Separator orientation="vertical" className="h-8 mx-2 bg-gray-200" />
+            <MapPin className="h-5 w-5 text-gray-400 mx-3" />
+             <Autocomplete
+              options={allLocations}
+              value={locationValue}
+              onValueChange={setLocationValue}
+              placeholder="Location"
+              inputClassName="text-base text-gray-700"
+            />
+            <Button
+              type="submit"
+              size="lg"
+              className="h-full px-8 text-base"
+              variant="destructive"
+              onClick={handleSearch}
+              disabled={!serviceValue || !locationValue}
+            >
+              Search
+            </Button>
           </div>
         </div>
       </div>
