@@ -91,7 +91,7 @@ const locationsData = [
     { type: 'province', name: 'Mpumalanga' },
     { type: 'city', name: 'Nelspruit' },
     { type: 'city', name: 'Witbank' },
-    { type: 'province', 'name': 'Free State' },
+    { type: 'province', name: 'Free State' },
     { type: 'city', name: 'Bloemfontein' },
     { type: 'province', name: 'Eastern Cape' },
     { type: 'city', name: 'East London' },

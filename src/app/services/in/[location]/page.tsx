@@ -16,9 +16,9 @@ export default function ServicesByLocationPage({ params }: { params: { location:
       <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-5xl mx-auto">
-            <header className="text-center mb-10">
+            <header className="mb-10">
               <h1 className="text-3xl md:text-4xl font-bold">{locationName} Contractors and Professional Services</h1>
-              <p className="mt-4 text-muted-foreground max-w-3xl mx-auto">
+              <p className="mt-4 text-muted-foreground max-w-4xl">
                 Looking for a service professional in {locationName}? Gaupro has you covered, whether you're looking for a handyman, a contractor, an accountant or anything in between. With thousands of skilled professionals and businesses rated by {locationName} residents, you're sure to find what you need.
               </p>
             </header>
