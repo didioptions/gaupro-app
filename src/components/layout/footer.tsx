@@ -33,16 +33,72 @@ const footerSections = [
   },
 ];
 
-const locationsData = {
-    Gauteng: ["Alberton", "Benoni", "Boksburg", "Brakpan", "Centurion", "Edenvale", "Germiston", "Johannesburg", "Kempton Park", "Krugersdorp", "Midrand", "Pretoria", "Randburg", "Roodepoort", "Sandton", "Soweto", "Springs", "Vanderbijlpark", "Vereeniging"],
-    "KwaZulu-Natal": ["Amanzimtoti", "Ballito", "Chatsworth", "Durban", "Hillcrest", "Howick", "Kloof", "Ladysmith", "Newcastle", "Phoenix", "Pietermaritzburg", "Pinetown", "Port Shepstone", "Richards Bay", "Stanger", "Umhlanga"],
-    "Western Cape": ["Brackenfell", "Cape Town", "George", "Goodwood", "Kraaifontein", "Kuils River", "Mossel Bay", "Paarl", "Plettenberg Bay", "Somerset West", "Stellenbosch", "Table View"],
-    "North West": ["Klerksdorp", "Potchefstroom", "Rustenburg"],
-    Mpumalanga: ["Nelspruit", "Witbank"],
-    "Free State": ["Bloemfontein"],
-    "Eastern Cape": ["East London", "Port Elizabeth"],
-    Limpopo: ["Polokwane"],
-};
+const locationsData = [
+    { type: 'province', name: 'Gauteng' },
+    { type: 'city', name: 'Alberton' },
+    { type: 'city', name: 'Benoni' },
+    { type: 'city', name: 'Boksburg' },
+    { type: 'city', name: 'Brakpan' },
+    { type: 'city', name: 'Centurion' },
+    { type: 'city', name: 'Edenvale' },
+    { type: 'city', name: 'Germiston' },
+    { type: 'city', name: 'Johannesburg' },
+    { type: 'city', name: 'Kempton Park' },
+    { type: 'city', name: 'Krugersdorp' },
+    { type: 'city', name: 'Midrand' },
+    { type: 'city', name: 'Pretoria' },
+    { type: 'city', name: 'Randburg' },
+    { type: 'city', name: 'Roodepoort' },
+    { type: 'city', name: 'Sandton' },
+    { type: 'city', name: 'Soweto' },
+    { type: 'city', name: 'Springs' },
+    { type: 'city', name: 'Vanderbijlpark' },
+    { type: 'city', name: 'Vereeniging' },
+    { type: 'province', name: 'KwaZulu-Natal' },
+    { type: 'city', name: 'Amanzimtoti' },
+    { type: 'city', name: 'Ballito' },
+    { type: 'city', name: 'Chatsworth' },
+    { type: 'city', name: 'Durban' },
+    { type: 'city', name: 'Hillcrest' },
+    { type: 'city', name: 'Howick' },
+    { type: 'city', name: 'Kloof' },
+    { type: 'city', name: 'Ladysmith' },
+    { type: 'city', name: 'Newcastle' },
+    { type: 'city', name: 'Phoenix' },
+    { type: 'city', name: 'Pietermaritzburg' },
+    { type: 'city', name: 'Pinetown' },
+    { type: 'city', name: 'Port Shepstone' },
+    { type: 'city', name: 'Richards Bay' },
+    { type: 'city', name: 'Stanger' },
+    { type: 'city', name: 'Umhlanga' },
+    { type: 'province', name: 'Western Cape' },
+    { type: 'city', name: 'Brackenfell' },
+    { type: 'city', name: 'Cape Town' },
+    { type: 'city', name: 'George' },
+    { type: 'city', name: 'Goodwood' },
+    { type: 'city', name: 'Kraaifontein' },
+    { type: 'city', name: 'Kuils River' },
+    { type: 'city', name: 'Mossel Bay' },
+    { type: 'city', name: 'Paarl' },
+    { type: 'city', name: 'Plettenberg Bay' },
+    { type: 'city', name: 'Somerset West' },
+    { type: 'city', name: 'Stellenbosch' },
+    { type: 'city', name: 'Table View' },
+    { type: 'province', name: 'North West' },
+    { type: 'city', name: 'Klerksdorp' },
+    { type: 'city', name: 'Potchefstroom' },
+    { type: 'city', name: 'Rustenburg' },
+    { type: 'province', name: 'Mpumalanga' },
+    { type: 'city', name: 'Nelspruit' },
+    { type: 'city', name: 'Witbank' },
+    { type: 'province', name: 'Free State' },
+    { type: 'city', name: 'Bloemfontein' },
+    { type: 'province', name: 'Eastern Cape' },
+    { type: 'city', name: 'East London' },
+    { type: 'city', name: 'Port Elizabeth' },
+    { type: 'province', name: 'Limpopo' },
+    { type: 'city', name: 'Polokwane' },
+];
 
 
 export default function Footer() {
@@ -51,31 +107,21 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="mb-12">
             <h2 className="text-xl font-bold text-center md:text-left mb-8">Browse Top Service Professionals in South Africa</h2>
-            <div className="columns-2 md:columns-4 lg:columns-6 gap-8">
-              {Object.entries(locationsData).map(([province, cities]) => (
-                <div key={province} className="break-inside-avoid-column mb-6">
-                  <h3 className="font-bold mb-2 text-foreground">
-                    <Link href="#" className="hover:text-primary">
-                      {province}
-                    </Link>
-                  </h3>
-                  <ul className="space-y-1">
-                    {cities.map((city) => (
-                      <li key={city}>
-                        <Link href="#" className="text-sm text-foreground hover:text-primary">
-                          {city}
+             <div className="columns-2 md:columns-4 lg:columns-6 gap-x-8 text-sm">
+                {locationsData.map((loc, index) => (
+                    <div
+                        key={index}
+                        className={loc.type === 'province' ? 'font-bold text-foreground pt-4' : 'text-foreground'}
+                    >
+                        <Link href="#" className="hover:text-primary block py-1">
+                            {loc.name}
                         </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-               <div className="break-inside-avoid-column mb-6">
-                  <h3 className="font-bold mb-2 text-red-600">
-                    <Link href="#" className="hover:text-red-700">
-                      More...
+                    </div>
+                ))}
+                <div className="text-red-600">
+                    <Link href="#" className="hover:text-red-700 block py-1">
+                        More...
                     </Link>
-                  </h3>
                 </div>
             </div>
         </div>
