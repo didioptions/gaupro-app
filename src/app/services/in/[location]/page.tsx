@@ -7,9 +7,6 @@ import Link from 'next/link';
 export default function ServicesByLocationPage({ params }: { params: { location: string } }) {
   const locationName = params.location.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
-  // Sorting services alphabetically for consistent order, as shown in the image
-  const sortedServices = [...allServices].sort((a, b) => a.label.localeCompare(b.label));
-
   return (
     <>
       <Header />
