@@ -1,6 +1,9 @@
 
+'use client';
+
 import Link from "next/link";
 import { Facebook, Twitter, Linkedin } from 'lucide-react';
+import { usePathname } from "next/navigation";
 
 const footerSections = [
   {
@@ -102,33 +105,38 @@ const locationsData = [
 
 
 export default function Footer() {
+  const pathname = usePathname();
+  const showLocations = pathname === '/';
+
   return (
     <footer className="bg-background text-foreground border-t">
       <div className="container mx-auto px-4 py-12">
-        <div className="mb-12">
-            <h2 className="text-xl font-bold text-center md:text-left mb-8">Browse Top Service Professionals in South Africa</h2>
-             <div className="columns-2 md:columns-4 lg:columns-6 gap-x-8 text-sm">
-                {locationsData.map((loc, index) => {
-                    const slug = loc.name.toLowerCase().replace(/\s+/g, '-');
-                    const href = `/services/in/${slug}`;
-                    return (
-                        <div
-                            key={index}
-                            className={loc.type === 'province' ? 'font-bold text-foreground pt-4' : 'text-foreground'}
-                        >
-                            <Link href={href} className="hover:text-primary block py-1">
-                                {loc.name}
-                            </Link>
-                        </div>
-                    );
-                })}
-                <div className="text-red-600">
-                    <Link href="#" className="hover:text-red-700 block py-1">
-                        More...
-                    </Link>
-                </div>
-            </div>
-        </div>
+        {showLocations && (
+          <div className="mb-12">
+              <h2 className="text-xl font-bold text-center md:text-left mb-8">Browse Top Service Professionals in South Africa</h2>
+               <div className="columns-2 md:columns-4 lg:columns-6 gap-x-8 text-sm">
+                  {locationsData.map((loc, index) => {
+                      const slug = loc.name.toLowerCase().replace(/\s+/g, '-');
+                      const href = `/services/in/${slug}`;
+                      return (
+                          <div
+                              key={index}
+                              className={loc.type === 'province' ? 'font-bold text-foreground pt-4' : 'text-foreground'}
+                          >
+                              <Link href={href} className="hover:text-primary block py-1">
+                                  {loc.name}
+                              </Link>
+                          </div>
+                      );
+                  })}
+                  <div className="text-red-600">
+                      <Link href="#" className="hover:text-red-700 block py-1">
+                          More...
+                      </Link>
+                  </div>
+              </div>
+          </div>
+        )}
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 border-t pt-12">
           {footerSections.map((section) => (
