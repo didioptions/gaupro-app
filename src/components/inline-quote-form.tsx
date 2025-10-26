@@ -35,6 +35,7 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
     if (selectedOption) {
       setIsDialogOpen(true);
     } else {
+      // This is a simple validation. A more robust solution like react-hook-form could be used.
       alert('Please select an option.');
     }
   };
@@ -72,16 +73,14 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
           </form>
         </CardContent>
       </Card>
-
-      {isDialogOpen && (
-        <RequestQuoteDialog
-          open={isDialogOpen}
-          onOpenChange={setIsDialogOpen}
-          service={service}
-          initialStep={2} // Start from the second question
-          initialData={initialData}
-        />
-      )}
+      
+      <RequestQuoteDialog
+        open={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+        service={service}
+        initialStep={2} // Start from the second question
+        initialData={initialData}
+      />
     </>
   );
 }

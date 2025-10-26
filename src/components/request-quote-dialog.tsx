@@ -94,6 +94,7 @@ function RequestQuoteDialogContent({
       }
       setFormData(initialData);
     } else {
+      // Delay reset to allow for closing animation
       setTimeout(() => {
         setStep(0);
         setSelectedService(service || '');
@@ -461,14 +462,7 @@ export function RequestQuoteDialog({
   const isOpen = controlledOpen ?? internalOpen;
   const setIsOpen = setControlledOpen ?? setInternalOpen;
   
-  useEffect(() => {
-    // If the component is rendered without a trigger (children) and is not controlled, open it programmatically.
-    if (!children && controlledOpen === undefined) {
-      setIsOpen(true);
-    }
-  }, [children, controlledOpen]);
-
-  const dialogContent = isOpen ? (
+  const dialogContent = (
     <RequestQuoteDialogContent 
       service={service} 
       isOpen={isOpen} 
@@ -476,16 +470,12 @@ export function RequestQuoteDialog({
       initialStep={initialStep}
       initialData={initialData}
     />
-  ) : null;
-
-  if (!children) {
-    return <Dialog open={isOpen} onOpenChange={setIsOpen}>{dialogContent}</Dialog>;
-  }
+  );
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>{children}</DialogTrigger>
-      {dialogContent}
+      {children && <DialogTrigger asChild>{children}</DialogTrigger>}
+      {isOpen && dialogContent}
     </Dialog>
   );
 }
