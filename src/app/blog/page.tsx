@@ -72,7 +72,7 @@ export default function BlogPage() {
       <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <header className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Gaupro Blog</h1>
+            <h1 className="text-3xl md:text-4xl font-normal tracking-tight">Gaupro Blog</h1>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
               Insights, tips, and stories on finding the best service professionals and growing your business in South Africa.
             </p>
@@ -96,7 +96,7 @@ export default function BlogPage() {
                       <div className="text-sm text-muted-foreground mb-2">
                         <span>{post.date}</span> &middot; <span>{post.readTime}</span>
                       </div>
-                      <CardTitle className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors">
+                      <CardTitle className="text-xl md:text-2xl group-hover:text-primary transition-colors">
                         {post.title}
                       </CardTitle>
                     </CardHeader>

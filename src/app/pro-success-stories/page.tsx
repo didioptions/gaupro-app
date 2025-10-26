@@ -43,7 +43,7 @@ export default function ProSuccessStoriesPage() {
       <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <header className="text-center mb-12 max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Gaupro Success Stories</h1>
+            <h1 className="text-3xl md:text-4xl font-normal tracking-tight">Gaupro Success Stories</h1>
             <p className="mt-4 text-lg text-foreground">
               Discover how local professionals across South Africa are growing their businesses through Gaupro. From electricians and plumbers to designers and consultants, Gaupro helps experts reach more clients, build credibility, and manage their reputation online.
             </p>

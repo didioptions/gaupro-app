@@ -11,13 +11,13 @@ export default function GauproDifferencePage() {
         <article>
           <header className="bg-secondary/50 py-12 md:py-16">
             <div className="container mx-auto px-4 text-center">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight max-w-3xl mx-auto">
+              <h1 className="text-3xl md:text-4xl font-normal tracking-tight max-w-3xl mx-auto">
                 The Gaupro Difference: Traditional Hiring vs Smart Hiring
               </h1>
             </div>
           </header>
           <div className="container mx-auto px-4 py-12 md:py-16">
-            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-bold prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
+            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
               <p className="lead text-xl text-muted-foreground">
                 Let's be honest about how frustrating finding service professionals used to be. Here's how Gaupro revolutionizes the process.
               </p>

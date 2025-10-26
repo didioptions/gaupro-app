@@ -10,13 +10,13 @@ export default function HowGauproWorksPostPage() {
         <article>
           <header className="bg-secondary/50 py-12 md:py-16">
             <div className="container mx-auto px-4 text-center">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight max-w-3xl mx-auto">
+              <h1 className="text-3xl md:text-4xl font-normal tracking-tight max-w-3xl mx-auto">
                 How Gaupro Works: Your 3-Step Solution to Any Service Need
               </h1>
             </div>
           </header>
           <div className="container mx-auto px-4 py-12 md:py-16">
-            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-bold prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
+            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
               <section id="how-gaupro-works" className="space-y-6 scroll-mt-20">
                 <div>
                   <h3 className="text-xl font-semibold">Step 1: Post Your Job on Gaupro (2 Minutes)</h3>

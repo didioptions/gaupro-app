@@ -12,13 +12,13 @@ export default function GauproVsOthersPage() {
         <article>
           <header className="bg-secondary/50 py-12 md:py-16">
             <div className="container mx-auto px-4 text-center">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight max-w-3xl mx-auto">
+              <h1 className="text-3xl md:text-4xl font-normal tracking-tight max-w-3xl mx-auto">
                 Gaupro vs Other Options: Why We're South Africa's #1 Choice
               </h1>
             </div>
           </header>
           <div className="container mx-auto px-4 py-12 md:py-16">
-            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-bold prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
+            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
               <section id="comparison" className="space-y-6 scroll-mt-20">
                 <h2 className="text-2xl">Comprehensive Platform Comparison</h2>
                 <div className="overflow-x-auto">

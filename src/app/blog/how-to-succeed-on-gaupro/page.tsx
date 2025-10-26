@@ -79,13 +79,13 @@ export default function HowToSucceedPage() {
         <article>
           <header className="bg-secondary/50 py-12 md:py-16">
             <div className="container mx-auto px-4 text-center">
-              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight max-w-3xl mx-auto">
+              <h1 className="text-2xl md:text-3xl font-normal tracking-tight max-w-3xl mx-auto">
                 How to Succeed on Gaupro: Professional Success Strategies
               </h1>
             </div>
           </header>
           <div className="container mx-auto px-4 py-12 md:py-16">
-            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-bold prose-headings:text-foreground">
+            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground">
                 <p className="lead text-xl text-muted-foreground">
                     Based on analyzing successful Gaupro professionals earning R50,000+ monthly, here's the proven Gaupro success strategy.
                 </p>
