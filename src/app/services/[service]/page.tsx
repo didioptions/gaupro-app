@@ -1,4 +1,5 @@
 
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -117,7 +118,7 @@ export default function ServicePage({ params, searchParams }: { params: { servic
                     <div className="container mx-auto px-4">
                          <div className="text-center md:text-left mb-8">
                             <p className="text-sm text-muted-foreground">Small &gt; {locationName} &gt; {pluralServiceLabel}</p>
-                            <h2 className="text-3xl font-bold mt-1">Top {pluralServiceLabel} in {locationName}</h2>
+                            <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
@@ -129,7 +130,7 @@ export default function ServicePage({ params, searchParams }: { params: { servic
                                                     <div className="flex items-start gap-4">
                                                         <Image src={`https://picsum.photos/seed/${pro.avatarSeed}/80/80`} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint="company logo" />
                                                         <div>
-                                                            <h3 className="text-xl font-bold text-foreground">{pro.name}</h3>
+                                                            <h3 className="text-xl text-foreground">{pro.name}</h3>
                                                             <p className="text-sm text-muted-foreground">{pro.location}</p>
                                                             <p className="text-sm mt-2 text-foreground">{pro.description}</p>
                                                         </div>
@@ -154,7 +155,7 @@ export default function ServicePage({ params, searchParams }: { params: { servic
                             <aside className="space-y-8">
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="font-semibold mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
+                                        <h3 className="mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                             <li>602 Reviews for {singularOrPluralLowercase}</li>
                                             <li>510 Positive Reviews</li>
@@ -165,7 +166,7 @@ export default function ServicePage({ params, searchParams }: { params: { servic
                                 </Card>
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="font-semibold mb-3 text-foreground">Price Estimate for {singularOrPluralLowercase} in {locationName}</h3>
+                                        <h3 className="mb-3 text-foreground">Price Estimate for {singularOrPluralLowercase} in {locationName}</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                             {priceEstimates.map(est => <li key={est}>{est}</li>)}
                                         </ul>
