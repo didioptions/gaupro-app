@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function ServicesByLocationPage({ params }: { params: { location: string } }) {
   const locationName = params.location.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
-  // Sorting services alphabetically for consistent order
+  // Sorting services alphabetically for consistent order, as shown in the image
   const sortedServices = [...allServices].sort((a, b) => a.label.localeCompare(b.label));
 
   return (
@@ -24,12 +24,12 @@ export default function ServicesByLocationPage({ params }: { params: { location:
             </header>
             
             <div className="border rounded-lg p-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
+              <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-x-8">
                 {sortedServices.map(service => (
                   <Link 
                     key={service.value} 
                     href={`/services/${service.value}`} 
-                    className="text-muted-foreground hover:text-primary hover:underline"
+                    className="block text-muted-foreground hover:text-primary hover:underline py-1.5"
                   >
                     {service.label}
                   </Link>
