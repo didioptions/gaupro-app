@@ -42,6 +42,11 @@ export default function ServicePage({ params }: { params: { service: string } })
     const service = allServices.find(s => s.value === params.service);
     const serviceLabel = service?.label || params.service.charAt(0).toUpperCase() + params.service.slice(1);
     
+    // Improved pluralization
+    const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
+    const singularOrPluralLowercase = serviceLabel.endsWith('s') ? serviceLabel.toLowerCase() : `${serviceLabel.toLowerCase()}s`;
+
+
     // Dynamically find the image for the service
     const serviceImageId = `${params.service}-image`.replace('-service', '');
     let heroImage = CategoryImages.find(p => p.id === serviceImageId);
@@ -69,7 +74,7 @@ export default function ServicePage({ params }: { params: { service: string } })
                      <div className="absolute inset-0 bg-black/60" />
                      <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                         <div>
-                          <h1 className="text-4xl md:text-5xl font-extrabold">Get Quotes for {serviceLabel}s</h1>
+                          <h1 className="text-4xl md:text-5xl font-extrabold">Get Quotes for {pluralServiceLabel}</h1>
                           <p className="mt-4 text-lg text-white/90">
                               Get matched with top-rated, verified professionals in your area.
                           </p>
@@ -81,8 +86,8 @@ export default function ServicePage({ params }: { params: { service: string } })
                 <section className="py-16 bg-background">
                     <div className="container mx-auto px-4">
                          <div className="text-center md:text-left mb-8">
-                            <p className="text-sm text-muted-foreground">Small &gt; Johannesburg &gt; {serviceLabel}s</p>
-                            <h2 className="text-3xl font-bold mt-1">Top {serviceLabel}s in Rosebank, Johannesburg</h2>
+                            <p className="text-sm text-muted-foreground">Small &gt; Johannesburg &gt; {pluralServiceLabel}</p>
+                            <h2 className="text-3xl font-bold mt-1">Top {pluralServiceLabel} in Rosebank, Johannesburg</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
@@ -119,18 +124,18 @@ export default function ServicePage({ params }: { params: { service: string } })
                             <aside className="space-y-8">
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="font-semibold mb-3 text-foreground">Need {serviceLabel}s in Johannesburg?</h3>
+                                        <h3 className="font-semibold mb-3 text-foreground">Need {pluralServiceLabel} in Johannesburg?</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                                            <li>602 Reviews for {serviceLabel.toLowerCase()}s</li>
+                                            <li>602 Reviews for {singularOrPluralLowercase}</li>
                                             <li>510 Positive Reviews</li>
                                             <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
-                                            <li>View Johannesburg Pros for {serviceLabel.toLowerCase()}s today</li>
+                                            <li>View Johannesburg Pros for {singularOrPluralLowercase} today</li>
                                         </ul>
                                     </CardContent>
                                 </Card>
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="font-semibold mb-3 text-foreground">Price Estimate for {serviceLabel.toLowerCase()}s in Johannesburg</h3>
+                                        <h3 className="font-semibold mb-3 text-foreground">Price Estimate for {singularOrPluralLowercase} in Johannesburg</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                             {priceEstimates.map(est => <li key={est}>{est}</li>)}
                                         </ul>
