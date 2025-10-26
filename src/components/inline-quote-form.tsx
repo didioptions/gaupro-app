@@ -72,6 +72,6 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
 
         <p className="text-xs text-muted-foreground mt-2 text-center">From verified businesses and trade professionals</p>
       </CardContent>
-    </Card>>
+    </Card>
   );
 }
