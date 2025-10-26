@@ -19,6 +19,8 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
   const questionSet = serviceQuestionSets.find((qs) => qs.service === service);
   const firstQuestion = questionSet?.questions?.[0];
 
+  // If there's no specific first question, or it's not a radio type,
+  // show a simple "Get Free Quotes" button that opens the dialog at the start.
   if (!firstQuestion || firstQuestion.type !== 'radio') {
     return (
         <RequestQuoteDialog service={service}>
@@ -54,10 +56,11 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
           ))}
         </RadioGroup>
         
+        {/* The Dialog Trigger is the button. When clicked, it opens the dialog. */}
         <RequestQuoteDialog
             service={service}
-            initialStep={1}
-            initialData={initialData}
+            initialStep={1} // Start at step 1 (the second question)
+            initialData={initialData} // Pass the pre-selected data
         >
             <Button 
                 type="button" 

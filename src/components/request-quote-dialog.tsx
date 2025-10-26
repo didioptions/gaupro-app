@@ -431,8 +431,6 @@ interface RequestQuoteDialogProps {
   service?: string;
   initialStep?: number;
   initialData?: FormData;
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
 }
 
 export function RequestQuoteDialog({
@@ -440,24 +438,9 @@ export function RequestQuoteDialog({
   service,
   initialStep = 0,
   initialData = {},
-  open: controlledOpen,
-  onOpenChange: setControlledOpen,
 }: RequestQuoteDialogProps) {
-  const [internalOpen, setInternalOpen] = useState(false);
-
-  const isOpen = controlledOpen ?? internalOpen;
-  const setIsOpen = setControlledOpen ?? setInternalOpen;
+  const [isOpen, setIsOpen] = useState(false);
   
-  // Reset logic when dialog is closed
-  useEffect(() => {
-    if (!isOpen) {
-      // Add a delay to allow animations to finish before resetting
-      setTimeout(() => {
-        // You can add reset logic here if needed, but the content component already resets itself
-      }, 300);
-    }
-  }, [isOpen]);
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
