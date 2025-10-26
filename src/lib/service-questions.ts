@@ -216,6 +216,22 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
   {
+    service: 'movers',
+    questions: [
+      {
+        id: 'moving_type',
+        text: 'What type of service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'local', label: 'Local Moving (Under 50kms)' },
+          { value: 'long_distance', label: 'Long Distance Moving' },
+          { value: 'office', label: 'Office Moving' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
     service: 'cleaning-service',
     questions: [
       {
@@ -295,7 +311,7 @@ export const serviceQuestionSets: QuestionSet[] = [
   },
   // Fallback for other services - this maps all other services to the common questions
   ...allServices
-    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician'].includes(service.value))
+    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers'].includes(service.value))
     .map(service => ({
       service: service.value,
       questions: [

@@ -79,6 +79,9 @@ export default function ServicePage({ params }: { params: { service: string } })
         heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
     }
 
+    // Placeholder location
+    const location = "Rosebank";
+
     return (
         <>
             <Header />
@@ -96,13 +99,13 @@ export default function ServicePage({ params }: { params: { service: string } })
                     )}
                      <div className="absolute inset-0 bg-black/60" />
                      <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
-                        <div>
+                        <div className="hidden md:block">
                           <h1 className="text-4xl md:text-5xl font-extrabold">Get Quotes for {pluralServiceLabel}</h1>
                           <p className="mt-4 text-lg text-white/90">
                               Get matched with top-rated, verified professionals in your area.
                           </p>
                         </div>
-                        <InlineQuoteForm service={params.service} />
+                        <InlineQuoteForm service={params.service} location={location} />
                      </div>
                 </section>
 
