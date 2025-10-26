@@ -12,24 +12,45 @@ import Link from 'next/link';
 import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 
-const professionals = [
-    {
-        name: "Gwasa Electrical",
-        location: "Rosebank, Johannesburg",
-        description: "Registered Electrical and Solar systems Experts in Inspection reporting and installation. We are registered with the Electrical Contractor Association (ECA) and Department of Labour (DOL). Our commitment to quality work has been recognized by... show more",
-        rating: 4.6,
-        reviews: 0,
-        avatarSeed: "gwasa-electrical"
-    },
-    {
-        name: "Inqama Yethu Holdings",
-        location: "Rosebank, Johannesburg",
-        description: "A new, fresh, exciting company who will handle all your garden, landscaping, cleaning, construction, renovation and rubble needs. We are a new, fresh and exciting company that...",
-        rating: 0.0,
-        reviews: 0,
-        avatarSeed: "inqama-yethu"
-    }
-]
+const allProfessionals = {
+    movers: [
+        {
+            name: "Swift Moves SA",
+            location: "Rosebank, Johannesburg",
+            description: "Your reliable moving partner for local and long-distance relocations. We offer packing, transport, and storage services to make your move stress-free. Our team is trained, professional, and ready to assist.",
+            rating: 4.8,
+            reviews: 125,
+            avatarSeed: "swift-moves"
+        },
+        {
+            name: "Joburg Movers Co.",
+            location: "Sandton, Johannesburg",
+            description: "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
+            rating: 4.7,
+            reviews: 88,
+            avatarSeed: "joburg-movers"
+        }
+    ],
+    default: [
+        {
+            name: "Pro Services Inc.",
+            location: "Rosebank, Johannesburg",
+            description: "Your trusted experts for quality service. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small.",
+            rating: 4.6,
+            reviews: 42,
+            avatarSeed: "pro-services-inc"
+        },
+        {
+            name: "General Solutions Pty",
+            location: "Rosebank, Johannesburg",
+            description: "A new, fresh, exciting company who will handle all your needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction.",
+            rating: 0.0,
+            reviews: 0,
+            avatarSeed: "general-solutions"
+        }
+    ]
+};
+
 
 const priceEstimates = [
     "Hourly rate up to R600",
@@ -46,6 +67,8 @@ export default function ServicePage({ params }: { params: { service: string } })
     const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
     const singularOrPluralLowercase = serviceLabel.endsWith('s') ? serviceLabel.toLowerCase() : `${serviceLabel.toLowerCase()}s`;
 
+    // Dynamically choose professionals based on service
+    const professionals = allProfessionals[params.service as keyof typeof allProfessionals] || allProfessionals.default;
 
     // Dynamically find the image for the service
     const serviceImageId = `${params.service}-image`.replace('-service', '');
