@@ -7,6 +7,9 @@ import Link from 'next/link';
 export default function ServicesByLocationPage({ params }: { params: { location: string } }) {
   const locationName = params.location.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
+  // Sort services alphabetically for consistent column flow
+  const sortedServices = [...allServices].sort((a, b) => a.label.localeCompare(b.label));
+
   return (
     <>
       <Header />
@@ -19,6 +22,19 @@ export default function ServicesByLocationPage({ params }: { params: { location:
                 Looking for a service professional in {locationName}? Gaupro has you covered, whether you're looking for a handyman, a contractor, an accountant or anything in between. With thousands of skilled professionals and businesses rated by {locationName} residents, you're sure to find what you need.
               </p>
             </header>
+
+            <div className="border rounded-lg p-8">
+              <div className="columns-2 md:columns-3 lg:columns-4 gap-x-8">
+                {sortedServices.map(service => (
+                  <div key={service.value} className="mb-3">
+                    <Link href={`/services/${service.value}`} className="text-foreground hover:text-primary hover:underline">
+                      {service.label}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </main>
