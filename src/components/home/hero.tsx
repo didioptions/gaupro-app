@@ -9,7 +9,6 @@ import { Autocomplete } from "../ui/autocomplete";
 import { allServices } from "@/lib/service-questions";
 import { allLocations } from "@/lib/locations";
 import { useRouter } from "next/navigation";
-import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 
 export default function Hero() {
@@ -19,10 +18,9 @@ export default function Hero() {
   const router = useRouter();
 
   const handleSearch = () => {
-    if (serviceValue) {
-      const locationSlug = locationValue.toLowerCase().replace(/\s+/g, '-');
-      const query = locationSlug ? `?location=${locationSlug}` : '';
-      router.push(`/services/${serviceValue}${query}`);
+    if (serviceValue && locationValue) {
+      const locationSlug = allLocations.find(l => l.value === locationValue)?.value || locationValue.toLowerCase().replace(/\s+/g, '-');
+      router.push(`/services/${serviceValue}?location=${locationSlug}`);
     }
   };
 
@@ -48,26 +46,26 @@ export default function Hero() {
         </p>
         <div className="mx-auto max-w-3xl">
           <div className="flex flex-col md:flex-row w-full items-center bg-white rounded-lg p-2 shadow-lg gap-2">
-            <div className="bg-white rounded-md p-2 flex-grow w-full">
-              <Label htmlFor="service-input" className="text-xs text-left block text-muted-foreground">What service do you need?</Label>
+            <div className="bg-white rounded-md p-2 flex-grow w-full text-left">
+              <Label htmlFor="service-input" className="text-xs text-muted-foreground">What service do you need?</Label>
               <Autocomplete
                 id="service-input"
                 options={allServices}
                 value={serviceValue}
                 onValueChange={setServiceValue}
                 placeholder="Eg. plumbing, handyman, etc..."
-                inputClassName="text-base text-gray-700 placeholder:text-sm border-0 px-0 h-auto py-1"
+                inputClassName="text-base text-gray-700 placeholder:text-sm h-auto py-1"
               />
             </div>
-             <div className="bg-white rounded-md p-2 w-full md:w-auto">
-               <Label htmlFor="location-input" className="text-xs text-left block text-muted-foreground">Where?</Label>
+             <div className="bg-white rounded-md p-2 flex-grow w-full text-left">
+               <Label htmlFor="location-input" className="text-xs text-muted-foreground">Where?</Label>
                <Autocomplete
                 id="location-input"
                 options={allLocations}
                 value={locationValue}
                 onValueChange={setLocationValue}
                 placeholder="Enter suburb"
-                inputClassName="text-base text-gray-700 placeholder:text-sm border-0 px-0 h-auto py-1"
+                inputClassName="text-base text-gray-700 placeholder:text-sm h-auto py-1"
               />
             </div>
             <Button
