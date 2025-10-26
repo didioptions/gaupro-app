@@ -39,7 +39,7 @@ export default function AboutUsPage() {
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto space-y-12">
             <header className="text-center space-y-4">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">About Gaupro - South Africa's Leading Service Professional Marketplace</h1>
+              <h1 className="text-3xl md:text-4xl tracking-tight">About Gaupro - South Africa's Leading Service Professional Marketplace</h1>
               <p className="text-xl font-semibold text-primary">🌍 Connecting South Africa with Trusted Local Professionals</p>
               <p className="text-lg text-foreground">
                 Gaupro is South Africa's fastest-growing platform for finding, comparing, and hiring verified local service professionals — making it simple, safe, and stress-free to get any job done right.
@@ -50,7 +50,7 @@ export default function AboutUsPage() {
             </header>
             
             <section className="space-y-4 text-center p-8 bg-background rounded-lg">
-                <h2 className="text-2xl font-bold">🚀 Our Mission: Transforming How South Africa Hires Professionals</h2>
+                <h2 className="text-2xl">🚀 Our Mission: Transforming How South Africa Hires Professionals</h2>
                 <p className="text-foreground max-w-3xl mx-auto">
                     At Gaupro, we're on a mission to revolutionize the service industry in South Africa by:
                 </p>
@@ -64,7 +64,7 @@ export default function AboutUsPage() {
             </section>
 
             <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-center">🤝 How Gaupro Works: Simple, Fast, Effective</h2>
+                <h2 className="text-2xl text-center">🤝 How Gaupro Works: Simple, Fast, Effective</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                     <div className="p-6 border rounded-lg">
                         <h3 className="text-xl font-semibold mb-3">For Customers:</h3>
@@ -89,7 +89,7 @@ export default function AboutUsPage() {
             </section>
             
             <section className="space-y-6">
-                <h2 className="text-2xl font-bold text-center">💡 Why 50,000+ South Africans Choose Gaupro</h2>
+                <h2 className="text-2xl text-center">💡 Why 50,000+ South Africans Choose Gaupro</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 className="text-xl font-semibold mb-4">For Customers:</h3>
@@ -117,7 +117,7 @@ export default function AboutUsPage() {
             </section>
 
              <section className="space-y-6 text-center">
-                <h2 className="text-2xl font-bold">🌱 Empowering South Africa's Service Economy</h2>
+                <h2 className="text-2xl">🌱 Empowering South Africa's Service Economy</h2>
                  <p className="text-foreground max-w-3xl mx-auto">
                     Gaupro is more than a marketplace — we're a catalyst for economic growth in South Africa.
                 </p>
@@ -135,7 +135,7 @@ export default function AboutUsPage() {
             </section>
 
             <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-center">📍 Serving Every Corner of South Africa</h2>
+                <h2 className="text-2xl text-center">📍 Serving Every Corner of South Africa</h2>
                  <p className="text-foreground text-center">
                     Gaupro operates nationwide, with strong networks of professionals in:
                 </p>
@@ -167,7 +167,7 @@ export default function AboutUsPage() {
             </section>
 
             <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-center">🏅 Our Commitment to Quality & Trust</h2>
+                <h2 className="text-2xl text-center">🏅 Our Commitment to Quality & Trust</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                      <div className="p-6 border rounded-lg">
                         <h3 className="text-xl font-semibold mb-3">Professional Verification Process:</h3>
@@ -192,7 +192,7 @@ export default function AboutUsPage() {
             </section>
 
             <section className="space-y-6 text-center border-t pt-12">
-                 <h2 className="text-2xl font-bold">🚀 Join the Gaupro Community Today</h2>
+                 <h2 className="text-2xl">🚀 Join the Gaupro Community Today</h2>
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                      <div>
                         <p className="mb-2">For Customers:</p>
