@@ -50,7 +50,7 @@ export default function CareersPage() {
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4 text-center">
             <Briefcase className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Careers at Gaupro</h1>
+            <h1 className="text-3xl md:text-4xl tracking-tight">Careers at Gaupro</h1>
             <p className="mt-4 text-lg text-foreground max-w-2xl mx-auto">
               Join the Team Building South Africa’s #1 Service Marketplace
             </p>
@@ -72,7 +72,7 @@ export default function CareersPage() {
             </section>
             
             <section>
-                <h2 className="text-3xl font-bold text-center mb-10">🌟 Why Work at Gaupro?</h2>
+                <h2 className="text-3xl text-center mb-10">🌟 Why Work at Gaupro?</h2>
                  <p className="text-foreground text-center max-w-2xl mx-auto mb-10">We believe in purpose, people, and progress. When you join Gaupro, you become part of a passionate team that values innovation, collaboration, and growth.</p>
                 <div className="grid md:grid-cols-3 gap-8">
                     {whyWorkItems.map(item => {
@@ -102,7 +102,7 @@ export default function CareersPage() {
             
             <section className="grid md:grid-cols-2 gap-12 items-center p-8 rounded-lg">
                 <div>
-                    <h2 className="text-3xl font-bold mb-4">📬 Stay Connected</h2>
+                    <h2 className="text-3xl mb-4">📬 Stay Connected</h2>
                     <p className="text-foreground mb-6">Here’s how to stay in touch. We’re growing fast — new roles in tech, marketing, operations, and customer success open regularly!</p>
                     <ul className="space-y-4">
                         <li className="flex items-center gap-3">
@@ -133,7 +133,7 @@ export default function CareersPage() {
             </section>
 
              <section>
-                <h2 className="text-3xl font-bold text-center mb-6">❤️ Our Culture</h2>
+                <h2 className="text-3xl text-center mb-6">❤️ Our Culture</h2>
                  <p className="text-foreground text-center max-w-2xl mx-auto mb-10">We’re a team of doers, creators, and problem-solvers. At Gaupro, every voice matters — and every idea helps us improve the way South Africans connect with trusted services.</p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     {values.map(value => (
@@ -147,7 +147,7 @@ export default function CareersPage() {
             </section>
 
             <section className="text-center border-t pt-16">
-                <h2 className="text-3xl font-bold">🚀 Join Our Mission</h2>
+                <h2 className="text-3xl">🚀 Join Our Mission</h2>
                 <p className="mt-4 text-foreground max-w-xl mx-auto">
                     Even if there’s no opening today, we’d love to hear from you. Your passion could help shape the future of local services in South Africa.
                 </p>
