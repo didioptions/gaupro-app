@@ -53,13 +53,11 @@ type FormData = {
 // Main Dialog Content Component
 function RequestQuoteDialogContent({
   service,
-  isOpen,
   setIsOpen,
   initialStep = 0,
   initialData = {},
 }: {
   service?: string;
-  isOpen: boolean;
   setIsOpen: (open: boolean) => void;
   initialStep?: number;
   initialData?: FormData;
@@ -85,7 +83,6 @@ function RequestQuoteDialogContent({
   );
 
   useEffect(() => {
-    if (isOpen) {
       if (service) {
         setSelectedService(service);
         setStep(initialStep > 0 ? initialStep : 1);
@@ -93,18 +90,7 @@ function RequestQuoteDialogContent({
         setStep(initialStep);
       }
       setFormData(initialData);
-    } else {
-      // Delay reset to allow for closing animation
-      setTimeout(() => {
-        setStep(0);
-        setSelectedService(service || '');
-        setFormData({});
-        setDate(undefined);
-        setIsSubmitted(false);
-        setAgreedToTerms(false);
-      }, 300);
-    }
-  }, [isOpen, service, initialStep, initialData]);
+  }, [service, initialStep, initialData]);
 
 
   const handleServiceSelect = (serviceValue: string) => {
@@ -452,8 +438,8 @@ interface RequestQuoteDialogProps {
 export function RequestQuoteDialog({
   children,
   service,
-  initialStep,
-  initialData,
+  initialStep = 0,
+  initialData = {},
   open: controlledOpen,
   onOpenChange: setControlledOpen,
 }: RequestQuoteDialogProps) {
@@ -462,16 +448,27 @@ export function RequestQuoteDialog({
   const isOpen = controlledOpen ?? internalOpen;
   const setIsOpen = setControlledOpen ?? setInternalOpen;
   
+  // Reset logic when dialog is closed
+  useEffect(() => {
+    if (!isOpen) {
+      // Add a delay to allow animations to finish before resetting
+      setTimeout(() => {
+        // You can add reset logic here if needed, but the content component already resets itself
+      }, 300);
+    }
+  }, [isOpen]);
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
-      <RequestQuoteDialogContent 
-        service={service} 
-        isOpen={isOpen} 
-        setIsOpen={setIsOpen} 
-        initialStep={initialStep}
-        initialData={initialData}
-      />
+      {isOpen && (
+        <RequestQuoteDialogContent 
+          service={service} 
+          setIsOpen={setIsOpen} 
+          initialStep={initialStep}
+          initialData={initialData}
+        />
+      )}
     </Dialog>
   );
 }
