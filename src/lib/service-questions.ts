@@ -232,6 +232,23 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
   {
+    service: 'skip-hire',
+    questions: [
+      {
+        id: 'waste_type',
+        text: 'What type of waste do you need to dispose of?',
+        type: 'radio',
+        options: [
+          { value: 'general', label: 'General & Mixed Waste' },
+          { value: 'garden', label: 'Garden Waste' },
+          { value: 'rubble', label: 'Building Rubble' },
+          { value: 'sand_soil', label: 'Sand, Stone & Soil' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
     service: 'cleaning-service',
     questions: [
       {
@@ -311,7 +328,7 @@ export const serviceQuestionSets: QuestionSet[] = [
   },
   // Fallback for other services - this maps all other services to the common questions
   ...allServices
-    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers'].includes(service.value))
+    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers', 'skip-hire'].includes(service.value))
     .map(service => ({
       service: service.value,
       questions: [
