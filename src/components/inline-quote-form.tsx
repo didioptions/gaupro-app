@@ -15,7 +15,6 @@ interface InlineQuoteFormProps {
 
 export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
   const [selectedOption, setSelectedOption] = useState('');
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const questionSet = serviceQuestionSets.find((qs) => qs.service === service);
   const firstQuestion = questionSet?.questions?.[0];
@@ -30,25 +29,13 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
     );
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (selectedOption) {
-      setIsDialogOpen(true);
-    } else {
-      // This is a simple validation. A more robust solution like react-hook-form could be used.
-      alert('Please select an option.');
-    }
-  };
-
   const initialData = {
     [firstQuestion.id]: selectedOption,
   };
 
   return (
-    <>
       <Card className="bg-white/90 backdrop-blur-sm text-card-foreground p-6">
         <CardContent className="p-0">
-          <form onSubmit={handleSubmit}>
             <h3 className="font-semibold mb-4 text-lg">{firstQuestion.text}</h3>
             <RadioGroup value={selectedOption} onValueChange={setSelectedOption} className="space-y-3 mb-6">
               {firstQuestion.options?.map((option) => (
@@ -56,9 +43,9 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
                   key={option.value}
                   className="flex items-center p-3 border rounded-md bg-white has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
                 >
-                  <RadioGroupItem value={option.value} id={option.value} />
+                  <RadioGroupItem value={option.value} id={`inline-${option.value}`} />
                   <Label
-                    htmlFor={option.value}
+                    htmlFor={`inline-${option.value}`}
                     className="pl-3 font-normal cursor-pointer text-base"
                   >
                     {option.label}
@@ -66,21 +53,25 @@ export default function InlineQuoteForm({ service }: InlineQuoteFormProps) {
                 </div>
               ))}
             </RadioGroup>
-            <Button type="submit" size="lg" className="w-full h-12 text-base" variant="destructive">
-              Get Free Quotes
-            </Button>
+            
+            <RequestQuoteDialog 
+              service={service} 
+              initialStep={1}
+              initialData={initialData}
+            >
+                <Button 
+                    type="button" 
+                    size="lg" 
+                    className="w-full h-12 text-base" 
+                    variant="destructive"
+                    disabled={!selectedOption}
+                >
+                    Get Free Quotes
+                </Button>
+            </RequestQuoteDialog>
+
              <p className="text-xs text-muted-foreground mt-2 text-center">From verified businesses and trade professionals</p>
-          </form>
         </CardContent>
       </Card>
-      
-      <RequestQuoteDialog
-        open={isDialogOpen}
-        onOpenChange={setIsDialogOpen}
-        service={service}
-        initialStep={2} // Start from the second question
-        initialData={initialData}
-      />
-    </>
   );
 }

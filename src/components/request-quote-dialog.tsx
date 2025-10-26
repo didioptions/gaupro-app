@@ -462,20 +462,16 @@ export function RequestQuoteDialog({
   const isOpen = controlledOpen ?? internalOpen;
   const setIsOpen = setControlledOpen ?? setInternalOpen;
   
-  const dialogContent = (
-    <RequestQuoteDialogContent 
-      service={service} 
-      isOpen={isOpen} 
-      setIsOpen={setIsOpen} 
-      initialStep={initialStep}
-      initialData={initialData}
-    />
-  );
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
-      {isOpen && dialogContent}
+      <RequestQuoteDialogContent 
+        service={service} 
+        isOpen={isOpen} 
+        setIsOpen={setIsOpen} 
+        initialStep={initialStep}
+        initialData={initialData}
+      />
     </Dialog>
   );
 }
