@@ -11,7 +11,7 @@ const popularServices = [
   { name: "Builders", href: "/services/builders", imageId: "builders-image" },
   { name: "Movers", href: "/services/movers", imageId: "movers-image" },
   { name: "Security", href: "/services/security", imageId: "security-image" },
-  { name: "Handyman", href: "/services/handyman", imageId: "website-designers-image" },
+  { name: "Handyman", href: "/services/handyman", imageId: "handyman-image" },
   { name: "Architects", href: "/services/architects", imageId: "architects-image" },
   { name: "DSTV Installers", href: "/services/dstv-installers", imageId: "dstv-installers-image" },
   { name: "Cleaning Services", href: "/services/cleaning-service", imageId: "cleaning-image" },
