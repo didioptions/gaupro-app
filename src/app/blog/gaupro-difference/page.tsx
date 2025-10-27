@@ -5,6 +5,33 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, XCircle, MousePointerClick, List, MessageSquare, Briefcase, Award, Shield, User, Camera, MapPin, AlertTriangle, BadgeDollarSign, MessageCircleIcon, Star, HandCoins } from 'lucide-react';
 
+const WhatsAppIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+  </svg>
+);
+
+const FacebookIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+  </svg>
+);
+
+const LinkedinIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-700">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+  </svg>
+);
+
+const MailIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500">
+        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+    </svg>
+);
+
 export default function GauproDifferencePage() {
   return (
     <>
@@ -171,18 +198,15 @@ export default function GauproDifferencePage() {
                 <section className="space-y-4 pt-8 mt-8 border-t bg-secondary/50 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold">About This Article</h3>
                     <p className="text-sm text-muted-foreground">This comprehensive guide is maintained by the Gaupro content team and updated monthly with the latest platform features, success stories, and market insights.</p>
-                    <p className="text-sm"><strong className="text-foreground">Last Updated:</strong> December 2024</p>
-                    <p className="text-sm"><strong className="text-foreground">Next Update:</strong> January 2025</p>
+                    <p className="text-sm"><strong className="text-foreground">Last Updated:</strong> May 2025</p>
+                    <p className="text-sm"><strong className="text-foreground">Next Update:</strong> February 2026</p>
                     <div className="mt-4">
                         <p className="text-sm font-semibold">Share this guide and help other South Africans discover smarter hiring:</p>
-                        <div className="flex gap-2 flex-wrap text-sm mt-2">
-                          <a href="#" className="text-primary hover:underline">[Share on WhatsApp]</a>
-                          <span className="text-muted-foreground">|</span>
-                          <a href="#" className="text-primary hover:underline">[Share on Facebook]</a>
-                          <span className="text-muted-foreground">|</span>
-                          <a href="#" className="text-primary hover:underline">[Share on LinkedIn]</a>
-                          <span className="text-muted-foreground">|</span>
-                          <a href="#" className="text-primary hover:underline">[Email to Friend]</a>
+                        <div className="flex gap-4 flex-wrap text-sm mt-2">
+                          <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><WhatsAppIcon /> Share on WhatsApp</a>
+                          <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><FacebookIcon /> Share on Facebook</a>
+                          <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><LinkedinIcon /> Share on LinkedIn</a>
+                          <a href="mailto:?subject=Check out this guide from Gaupro" className="text-primary hover:underline flex items-center gap-1.5"><MailIcon /> Email to Friend</a>
                         </div>
                     </div>
                 </section>
