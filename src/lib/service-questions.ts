@@ -113,6 +113,7 @@ export const allServices = [
     { value: 'roofer', label: 'Roofer' },
     { value: 'tiler', label: 'Tiler' },
     { value: 'welder', label: 'Welder' },
+    { value: 'handyman', label: 'Handyman' },
 ];
 
 
