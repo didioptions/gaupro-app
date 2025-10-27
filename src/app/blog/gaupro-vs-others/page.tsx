@@ -3,10 +3,12 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import Link from 'next/link';
-import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, Star, TrendingUp, Users, Target, Shield, MessageCircle, Smartphone } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 
 const comparisonData = [
     {
@@ -218,6 +220,197 @@ export default function GauproVsOthersPage() {
                 </div>
               </section>
 
+              <section id="pro-benefits" className="scroll-mt-20">
+                <h2 className="text-2xl text-center mb-8">Why Professionals Prefer Gaupro</h2>
+                <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <Card className="p-4 border-0 shadow-none">
+                        <CardContent className="p-0">
+                            <TrendingUp className="h-10 w-10 text-primary mx-auto mb-2" />
+                            <p className="font-semibold">40% more leads</p>
+                            <p className="text-sm text-muted-foreground">than competitors</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="p-4 border-0 shadow-none">
+                        <CardContent className="p-0">
+                            <Star className="h-10 w-10 text-primary mx-auto mb-2" />
+                            <p className="font-semibold">Better quality</p>
+                            <p className="text-sm text-muted-foreground">customers</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="p-4 border-0 shadow-none">
+                        <CardContent className="p-0">
+                             <p className="text-3xl font-bold text-primary">R1,200</p>
+                            <p className="font-semibold">Higher job values</p>
+                            <p className="text-sm text-muted-foreground">(avg)</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="p-4 border-0 shadow-none">
+                        <CardContent className="p-0">
+                            <Target className="h-10 w-10 text-primary mx-auto mb-2" />
+                            <p className="font-semibold">Targeted matches</p>
+                            <p className="text-sm text-muted-foreground">not spam</p>
+                        </CardContent>
+                    </Card>
+                </div>
+              </section>
+
+              <section id="coverage-comparison" className="scroll-mt-20">
+                <h2 className="text-2xl text-center mb-8">City Coverage Comparison</h2>
+                <div className="overflow-x-auto">
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>City</TableHead>
+                                <TableHead>Gaupro</TableHead>
+                                <TableHead>Kandua</TableHead>
+                                <TableHead>Bark</TableHead>
+                                <TableHead>Facebook</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell className="font-semibold">Johannesburg</TableCell>
+                                <TableCell>✅ 5000+ pros</TableCell>
+                                <TableCell>✅ 2000+</TableCell>
+                                <TableCell>⚠️ 500+</TableCell>
+                                <TableCell>Random</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-semibold">Cape Town</TableCell>
+                                <TableCell>✅ 3500+ pros</TableCell>
+                                <TableCell>✅ 1500+</TableCell>
+                                <TableCell>⚠️ 300+</TableCell>
+                                <TableCell>Random</TableCell>
+                            </TableRow>
+                             <TableRow>
+                                <TableCell className="font-semibold">Durban</TableCell>
+                                <TableCell>✅ 2000+ pros</TableCell>
+                                <TableCell>⚠️ 800+</TableCell>
+                                <TableCell>❌ Limited</TableCell>
+                                <TableCell>Random</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-semibold">Pretoria</TableCell>
+                                <TableCell>✅ 2500+ pros</TableCell>
+                                <TableCell>⚠️ 1000+</TableCell>
+                                <TableCell>❌ Limited</TableCell>
+                                <TableCell>Random</TableCell>
+                            </TableRow>
+                             <TableRow>
+                                <TableCell className="font-semibold">Smaller towns</TableCell>
+                                <TableCell>✅ Growing</TableCell>
+                                <TableCell>⚠️ Some</TableCell>
+                                <TableCell>❌ Rare</TableCell>
+                                <TableCell>Variable</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </div>
+              </section>
+
+              <section id="cost-comparison" className="scroll-mt-20">
+                  <h2 className="text-2xl text-center mb-8">Cost Comparison for Customers</h2>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 className="text-xl font-semibold mb-4">Platform Fees</h3>
+                        <div className="space-y-4">
+                            <Card className="bg-green-50 border-green-200">
+                                <CardContent className="p-4"><p><span className="font-bold">Gaupro:</span> 💚 R0 Forever free</p></CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent className="p-4"><p><span className="font-bold">Kandua:</span> 💚 R0 Free posting</p></CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent className="p-4"><p><span className="font-bold">Bark:</span> 💸 R50-200 Per job (credits)</p></CardContent>
+                            </Card>
+                             <Card>
+                                <CardContent className="p-4"><p><span className="font-bold">Facebook:</span> 💚 R0 But time cost is high</p></CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-4">Hidden Costs of Wrong Choices</h3>
+                        <div className="space-y-4">
+                            <Card className="bg-red-50 border-red-200">
+                                <CardContent className="p-4 flex items-center gap-2"><AlertTriangle className="h-5 w-5 text-red-600"/> <span>Time wasted without verification</span></CardContent>
+                            </Card>
+                             <Card className="bg-red-50 border-red-200">
+                                <CardContent className="p-4 flex items-center gap-2"><AlertTriangle className="h-5 w-5 text-red-600"/> <span>Bad hires can cost 3x more to fix</span></CardContent>
+                            </Card>
+                             <Card className="bg-red-50 border-red-200">
+                                <CardContent className="p-4 flex items-center gap-2"><AlertTriangle className="h-5 w-5 text-red-600"/> <span>No recourse or support means problems are yours alone</span></CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                  </div>
+              </section>
+              
+              <section id="advantage" className="scroll-mt-20">
+                  <h2 className="text-2xl text-center mb-8">The Gaupro Advantage</h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-center max-w-3xl mx-auto">
+                        <Card className="p-4">
+                            <CardContent className="p-0">
+                                <Shield className="h-8 w-8 text-primary mx-auto mb-2" />
+                                <h3 className="font-semibold">Safety</h3>
+                                <p className="text-sm text-muted-foreground">100% verified</p>
+                            </CardContent>
+                        </Card>
+                         <Card className="p-4">
+                            <CardContent className="p-0">
+                                <MessageCircle className="h-8 w-8 text-primary mx-auto mb-2" />
+                                <h3 className="font-semibold">Support</h3>
+                                <p className="text-sm text-muted-foreground">24/7 help</p>
+                            </CardContent>
+                        </Card>
+                         <Card className="p-4">
+                            <CardContent className="p-0">
+                                <Smartphone className="h-8 w-8 text-primary mx-auto mb-2" />
+                                <h3 className="font-semibold">Mobile App</h3>
+                                <p className="text-sm text-muted-foreground">Full-featured</p>
+                            </CardContent>
+                        </Card>
+                         <Card className="p-4">
+                            <CardContent className="p-0">
+                                <Star className="h-8 w-8 text-primary mx-auto mb-2" />
+                                <h3 className="font-semibold">Reviews</h3>
+                                <p className="text-sm text-muted-foreground">Verified only</p>
+                            </CardContent>
+                        </Card>
+                         <Card className="p-4">
+                            <CardContent className="p-0">
+                                <p className="text-3xl font-bold text-primary">R0</p>
+                                <h3 className="font-semibold">Free</h3>
+                                <p className="text-sm text-muted-foreground">No hidden costs</p>
+                            </CardContent>
+                        </Card>
+                  </div>
+              </section>
+
+              <section id="faq" className="scroll-mt-20">
+                  <h2 className="text-2xl text-center mb-8">Quick FAQs</h2>
+                  <Accordion type="single" collapsible className="w-full max-w-2xl mx-auto">
+                      <AccordionItem value="item-1">
+                          <AccordionTrigger>Why is Gaupro free?</AccordionTrigger>
+                          <AccordionContent>
+                          Professionals pay a small fee to send you a quote, which means the service remains completely free for customers.
+                          </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-2">
+                          <AccordionTrigger>Is the 2-hour response time guaranteed?</AccordionTrigger>
+                          <AccordionContent>
+                          While not guaranteed, 87% of job posts receive their first quote within 2 hours. This can vary based on the service and location.
+                          </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-3">
+                          <AccordionTrigger>How are all pros verified?</AccordionTrigger>
+                          <AccordionContent>
+                          We have a multi-step process that includes ID verification and checking for relevant qualifications or certifications where applicable.
+                          </AccordionContent>
+                      </AccordionItem>
+                  </Accordion>
+              </section>
+
+
                <section className="text-center border-t pt-16">
                     <h2 className="text-3xl">See Why We're #1</h2>
                     <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
@@ -238,3 +431,5 @@ export default function GauproVsOthersPage() {
     </>
   );
 }
+
+    
