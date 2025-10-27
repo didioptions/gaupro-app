@@ -3,7 +3,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, XCircle } from 'lucide-react';
+import { CheckCircle, XCircle, MousePointerSquare, List, MessageSquare, Briefcase, Award, Shield, User, Camera, MapPin, AlertTriangle, BadgeDollarSign, MessageCircleIcon, Star, HandCoins } from 'lucide-react';
 
 export default function GauproDifferencePage() {
   return (
@@ -112,71 +112,52 @@ export default function GauproDifferencePage() {
                 </div>
               </section>
 
-              <section id="how-gaupro-works" className="space-y-6 scroll-mt-20 pt-12">
+              <section id="how-gaupro-works" className="space-y-12 scroll-mt-20 pt-12">
                 <h2 className="text-2xl">How Gaupro Works: Your 3-Step Solution to Any Service Need</h2>
-                <div>
+                
+                <div className="space-y-4">
                   <h3 className="text-xl font-semibold">Step 1: Post Your Job on Gaupro (2 Minutes)</h3>
                   <p>It's incredibly simple:</p>
-                  <ul className="list-disc list-inside">
-                    <li>Visit Gaupro.co.za or open the Gaupro app</li>
-                    <li>Click "Post a Job" (it's FREE)</li>
-                    <li>Select your service category (e.g., Plumbing, Electrical, Painting)</li>
-                    <li>Answer a few quick questions about your needs</li>
-                    <li>Add photos if relevant</li>
-                    <li>Click submit</li>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3"><MousePointerSquare className="h-5 w-5 text-primary mt-1" /><span>Visit Gaupro.co.za and click "Post a Job" (it's FREE)</span></li>
+                    <li className="flex items-start gap-3"><List className="h-5 w-5 text-primary mt-1" /><span>Select your service category (e.g., Plumbing, Electrical)</span></li>
+                    <li className="flex items-start gap-3"><MessageSquare className="h-5 w-5 text-primary mt-1" /><span>Answer a few quick questions and add photos if relevant</span></li>
                   </ul>
                   <h4 className="font-semibold mt-4">What makes Gaupro's job posting special:</h4>
-                  <ul className="list-disc list-inside">
-                    <li>Smart forms that adapt to your service type</li>
-                    <li>Photo uploads for accurate quotes</li>
-                    <li>Location detection to find nearby pros</li>
-                    <li>Urgency options for emergency services</li>
-                    <li>Budget ranges to filter responses</li>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-green-500 mt-1" /><span>Smart forms that adapt to your service type</span></li>
+                    <li className="flex items-start gap-3"><Camera className="h-5 w-5 text-green-500 mt-1" /><span>Photo uploads for 40% more accurate quotes</span></li>
+                    <li className="flex items-start gap-3"><MapPin className="h-5 w-5 text-green-500 mt-1" /><span>Location detection to find the closest pros</span></li>
+                    <li className="flex items-start gap-3"><AlertTriangle className="h-5 w-5 text-green-500 mt-1" /><span>Urgency options for emergency services</span></li>
+                    <li className="flex items-start gap-3"><BadgeDollarSign className="h-5 w-5 text-green-500 mt-1" /><span>Budget ranges to filter responses</span></li>
                   </ul>
-                  <p className="font-semibold italic mt-2">Pro Tip: The more details you provide on Gaupro, the more accurate your quotes will be. Our smart system helps professionals understand exactly what you need.</p>
+                  <p className="font-semibold italic mt-2">💡 Pro Tip: The more details you provide, the more accurate your quotes will be.</p>
                 </div>
-                <div>
+
+                <div className="space-y-4">
                   <h3 className="text-xl font-semibold">Step 2: Receive & Compare Quotes on Gaupro</h3>
-                   <p>Within hours, Gaupro delivers:</p>
-                  <ul className="list-disc list-inside">
-                    <li>Multiple quotes from interested professionals (average 3-5)</li>
-                    <li>Detailed profiles including:
-                      <ul className="list-['-_'] list-inside ml-4">
-                        <li>Professional's Gaupro verification badge</li>
-                        <li>Years of experience</li>
-                        <li>Completed jobs on Gaupro</li>
-                        <li>Customer reviews and ratings</li>
-                        <li>Response time statistics</li>
-                        <li>Gallery of previous work</li>
-                        <li>Certifications and qualifications</li>
-                      </ul>
-                    </li>
+                   <p>Within hours, Gaupro delivers multiple quotes from interested professionals (average 3-5). You get access to:</p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3"><User className="h-5 w-5 text-primary mt-1" /><span>Detailed profiles with verification badges, experience, and job history</span></li>
+                    <li className="flex items-start gap-3"><Star className="h-5 w-5 text-primary mt-1" /><span>Genuine customer reviews and ratings for past work</span></li>
+                    <li className="flex items-start gap-3"><Briefcase className="h-5 w-5 text-primary mt-1" /><span>Portfolios with photos of their previous projects</span></li>
                   </ul>
                    <h4 className="font-semibold mt-4">Gaupro's Comparison Tools:</h4>
-                  <ul className="list-disc list-inside">
-                    <li>Side-by-side quote comparison</li>
-                    <li>Sort by price, rating, or response time</li>
-                    <li>Filter by availability</li>
-                    <li>Direct messaging without sharing your phone number</li>
-                    <li>Save favorites for later</li>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-green-500 mt-1" /><span>Side-by-side quote comparison dashboard</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-green-500 mt-1" /><span>Sort by price, rating, or response time</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-green-500 mt-1" /><span>Secure messaging without sharing your phone number</span></li>
                   </ul>
                 </div>
-                <div>
+
+                <div className="space-y-4">
                   <h3 className="text-xl font-semibold">Step 3: Hire with Confidence Through Gaupro</h3>
-                  <p>Once you've chosen your professional:</p>
-                  <ul className="list-disc list-inside">
-                    <li>Click "Accept Quote" on Gaupro</li>
-                    <li>Your contact details are shared securely</li>
-                    <li>Arrange the service directly</li>
-                    <li>Pay the professional (not Gaupro - we don't handle payments)</li>
-                    <li>Rate and review after completion</li>
-                  </ul>
+                  <p>Once you've chosen your professional, click "Accept Quote," arrange the service directly, and pay the pro upon completion. We don't handle payments.</p>
                   <h4 className="font-semibold mt-4">Gaupro Protection Benefits:</h4>
-                  <ul className="list-disc list-inside">
-                    <li>Dispute support if issues arise</li>
-                    <li>Review system ensures accountability</li>
-                    <li>Professional standards enforcement</li>
-                    <li>Blacklist system for problematic users</li>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3"><Shield className="h-5 w-5 text-primary mt-1" /><span>Dispute support if issues arise</span></li>
+                    <li className="flex items-start gap-3"><Star className="h-5 w-5 text-primary mt-1" /><span>Review system ensures accountability</span></li>
+                    <li className="flex items-start gap-3"><Award className="h-5 w-5 text-primary mt-1" /><span>Professional standards enforcement</span></li>
                   </ul>
                 </div>
               </section>
