@@ -13,8 +13,8 @@ import {
 } from '@/components/ui/accordion';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, WhatsApp, Mail, Copy, CheckCircle, X, ArrowRight, Star, Clock, BarChart, FileText, RadioGroup } from 'lucide-react';
-import { RadioGroupItem } from '@/components/ui/radio-group';
+import { Facebook, Twitter, Linkedin, WhatsApp, Mail, Copy, CheckCircle, X, ArrowRight, Star, Clock, BarChart, FileText } from 'lucide-react';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 
 const problems = [
