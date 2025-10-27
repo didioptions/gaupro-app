@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Image from 'next/image';
-import { Star, Clock, CheckCircle, Shield, Zap, Users, Phone, MessageSquare, Briefcase, XCircle, Facebook, Linkedin, Mail } from 'lucide-react';
+import { Star, CheckCircle, XCircle, Facebook, Linkedin, Mail, MessageSquare } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
