@@ -1,3 +1,4 @@
+
 {
   "categoryImages": [
     {
@@ -14,12 +15,12 @@
     },
     {
       "id": "cleaning-image",
-      "description": "A person in yellow gloves cleaning a stove top.",
-      "imageUrl": "https://picsum.photos/seed/cleaning/300/200",
+      "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_cleaning.PNG?alt=media&token=8dcf53be-6f53-4518-b860-6271185fe3d3",
       "imageHint": "cleaning service"
     },
     {
-      "id": "website-designers-image",
+      "id": "handyman-image",
       "description": "A friendly handyman holding a set of tools.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_handyman.PNG?alt=media&token=473d643f-b3cd-46ae-9dd4-84d26772e15a",
       "imageHint": "handyman tools"
