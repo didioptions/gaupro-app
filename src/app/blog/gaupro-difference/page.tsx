@@ -2,6 +2,8 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Card, CardContent } from '@/components/ui/card';
+import { CheckCircle, XCircle } from 'lucide-react';
 
 export default function GauproDifferencePage() {
   return (
@@ -17,49 +19,51 @@ export default function GauproDifferencePage() {
             </div>
           </header>
           <div className="container mx-auto px-4 py-12 md:py-16">
-            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
+            <div className="max-w-4xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
               <p className="lead text-xl text-muted-foreground">
                 Let's be honest about how frustrating finding service professionals used to be. Here's how Gaupro revolutionizes the process.
               </p>
                 
               <section id="gaupro-difference" className="space-y-6 scroll-mt-20">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">The Old Way (Without Gaupro) 😓</h3>
-                    <p className="font-semibold text-foreground">The Traditional Struggle:</p>
-                    <ul className="list-none p-0 space-y-2 text-muted-foreground">
-                      <li>❌ Hours of searching through classifieds and Facebook groups</li>
-                      <li>❌ No verification - anyone can claim they're qualified</li>
-                      <li>❌ Price mystery - quotes vary wildly with no transparency</li>
-                      <li>❌ Zero accountability - no reviews, no recourse</li>
-                      <li>❌ Safety concerns - inviting strangers with no background checks</li>
-                      <li>❌ Time wasted - waiting days for callbacks</li>
-                      <li>❌ Geographic limitations - only knowing professionals in your immediate area</li>
-                    </ul>
-                    <blockquote className="mt-4 border-l-4 pl-4 italic text-muted-foreground">
-                      "I once spent an entire week trying to find an electrician. Made 15 calls, got 3 callbacks, 1 showed up, and the quote was ridiculous. Never again!"
-                      <cite className="block not-italic mt-2 font-semibold">- Sarah from Sandton</cite>
-                    </blockquote>
-                  </div>
+                <div className="grid md:grid-cols-2 gap-8 not-prose">
+                    <Card className="bg-red-50/50 border-red-200">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4 text-red-800">The Old Way (Without Gaupro) 😓</h3>
+                        <p className="font-semibold text-foreground mb-3">The Traditional Struggle:</p>
+                        <ul className="space-y-3">
+                          <li className="flex items-start gap-2"><XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Hours of searching through classifieds and Facebook groups</span></li>
+                          <li className="flex items-start gap-2"><XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">No verification - anyone can claim they're qualified</span></li>
+                          <li className="flex items-start gap-2"><XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Price mystery - quotes vary wildly with no transparency</span></li>
+                          <li className="flex items-start gap-2"><XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Zero accountability - no reviews, no recourse</span></li>
+                          <li className="flex items-start gap-2"><XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Safety concerns - inviting strangers with no background checks</span></li>
+                          <li className="flex items-start gap-2"><XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Time wasted - waiting days for callbacks</span></li>
+                        </ul>
+                        <blockquote className="mt-6 border-l-4 border-red-300 pl-4 italic text-red-900/80">
+                          "I once spent an entire week trying to find an electrician. Made 15 calls, got 3 callbacks, 1 showed up, and the quote was ridiculous. Never again!"
+                          <cite className="block not-italic mt-2 font-semibold">- Sarah from Sandton</cite>
+                        </blockquote>
+                      </CardContent>
+                    </Card>
 
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">The Gaupro Way (Smart Hiring) 🚀</h3>
-                      <p className="font-semibold text-foreground">Here's how Gaupro revolutionizes the process:</p>
-                    <ul className="list-none p-0 space-y-2 text-muted-foreground">
-                      <li>✅ Instant Connections - Post once, reach hundreds of professionals</li>
-                      <li>✅ Pre-Verified Pros - Every professional is ID and credential checked</li>
-                      <li>✅ Transparent Pricing - Compare multiple quotes side-by-side</li>
-                      <li>✅ Authentic Reviews - Read experiences from verified customers</li>
-                      <li>✅ Protected Communication - Your number stays private until you choose</li>
-                      <li>✅ 24/7 Availability - Post jobs anytime, get responses within hours</li>
-                      <li>✅ Nationwide Network - Access professionals across all of South Africa</li>
-                    </ul>
-                      <blockquote className="mt-4 border-l-4 pl-4 italic text-muted-foreground">
-                      "Posted my electrical job at 9am, had 4 quotes by lunch, hired someone with 47 five-star reviews, job done perfectly by 5pm. Game-changer!"
-                      <cite className="block not-italic mt-2 font-semibold">- Sarah's Gaupro Experience</cite>
-                    </blockquote>
+                    <Card className="bg-green-50/50 border-green-200">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4 text-green-800">The Gaupro Way (Smart Hiring) 🚀</h3>
+                        <p className="font-semibold text-foreground mb-3">Here's how Gaupro revolutionizes the process:</p>
+                        <ul className="space-y-3">
+                            <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Post once, reach hundreds of professionals</span></li>
+                            <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Every professional is ID and credential checked</span></li>
+                            <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Compare multiple quotes side-by-side</span></li>
+                            <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Read experiences from verified customers</span></li>
+                            <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Your number stays private until you choose</span></li>
+                            <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" /> <span className="text-muted-foreground">Get responses within hours</span></li>
+                        </ul>
+                         <blockquote className="mt-6 border-l-4 border-green-300 pl-4 italic text-green-900/80">
+                          "Posted my electrical job at 9am, had 4 quotes by lunch, hired someone with 47 five-star reviews, job done perfectly by 5pm. Game-changer!"
+                          <cite className="block not-italic mt-2 font-semibold">- Sarah's Gaupro Experience</cite>
+                        </blockquote>
+                      </CardContent>
+                    </Card>
                   </div>
-                </div>
 
                 <h3 className="text-xl font-semibold pt-6">Why Gaupro Makes Everything Easier</h3>
                 <div className="overflow-x-auto">
