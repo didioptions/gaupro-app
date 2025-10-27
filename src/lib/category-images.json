@@ -20,9 +20,9 @@
     },
     {
       "id": "website-designers-image",
-      "description": "A person working on a website design on multiple screens.",
-      "imageUrl": "https://picsum.photos/seed/web-design/300/200",
-      "imageHint": "website design"
+      "description": "A friendly handyman holding a set of tools.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_handyman.PNG?alt=media&token=473d643f-b3cd-46ae-9dd4-84d26772e15a",
+      "imageHint": "handyman tools"
     },
     {
       "id": "architects-image",
