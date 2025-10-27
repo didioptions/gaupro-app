@@ -3,7 +3,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import Link from 'next/link';
-import { CheckCircle, XCircle, AlertTriangle, Star, TrendingUp, Users, Target, Shield, MessageCircle, Smartphone, Linkedin, Facebook, Copy, Share2, Bot, Mail, Phone, MessageSquare, Twitter, Instagram, Youtube, HardHat, Home, Handshake, Briefcase } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, Star, TrendingUp, Users, Target, Shield, MessageCircle, Smartphone, Linkedin, Facebook, Copy, Share2, Bot, Mail, Phone, MessageSquare, Twitter, Instagram, Youtube, HardHat, Home, Handshake, Briefcase, Zap, Search, HandCoins, Rocket, ShieldCheck, Clock, FileText, BadgePercent } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -193,30 +193,42 @@ export default function GauproVsOthersPage() {
                 <div className="text-center pt-12">
                     <h2 className="text-2xl">Why Gaupro Wins Every Time</h2>
                     <div className="mt-8 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        <div className="p-6 border rounded-lg">
-                            <h3 className="text-xl font-semibold mb-2">Security & Trust</h3>
-                            <ul className="list-disc list-inside text-muted-foreground text-left">
-                                <li>Only Gaupro verifies every professional</li>
-                                <li>Only Gaupro offers dispute protection</li>
-                                <li>Only Gaupro has accountability measures</li>
-                            </ul>
-                        </div>
-                        <div className="p-6 border rounded-lg">
-                            <h3 className="text-xl font-semibold mb-2">Speed & Convenience</h3>
-                            <ul className="list-disc list-inside text-muted-foreground text-left">
-                                <li>Fastest quote turnaround in SA</li>
-                                <li>One post reaches hundreds of pros</li>
-                                <li>Mobile-first design for on-the-go hiring</li>
-                            </ul>
-                        </div>
-                        <div className="p-6 border rounded-lg">
-                            <h3 className="text-xl font-semibold mb-2">Value & Transparency</h3>
-                            <ul className="list-disc list-inside text-muted-foreground text-left">
-                                <li>Competitive quotes through competition</li>
-                                <li>Clear pricing upfront</li>
-                                <li>No middleman markups</li>
-                            </ul>
-                        </div>
+                        <Card className="p-6">
+                            <CardHeader className="p-0 mb-4">
+                                <CardTitle className="flex items-center gap-2 text-xl font-semibold"><ShieldCheck className="h-6 w-6 text-primary" />Security & Trust</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-0">
+                                <ul className="space-y-3 text-left">
+                                    <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />Only Gaupro verifies every professional</li>
+                                    <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />Only Gaupro offers dispute protection</li>
+                                    <li className="flex items-start gap-3"><CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />Only Gaupro has accountability measures</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                         <Card className="p-6">
+                            <CardHeader className="p-0 mb-4">
+                                <CardTitle className="flex items-center gap-2 text-xl font-semibold"><Rocket className="h-6 w-6 text-primary" />Speed & Convenience</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-0">
+                                <ul className="space-y-3 text-left">
+                                    <li className="flex items-start gap-3"><Clock className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />Fastest quote turnaround in SA</li>
+                                    <li className="flex items-start gap-3"><Users className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />One post reaches hundreds of pros</li>
+                                    <li className="flex items-start gap-3"><Smartphone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />Mobile-first design for on-the-go hiring</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                         <Card className="p-6">
+                            <CardHeader className="p-0 mb-4">
+                                <CardTitle className="flex items-center gap-2 text-xl font-semibold"><HandCoins className="h-6 w-6 text-primary" />Value & Transparency</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-0">
+                                <ul className="space-y-3 text-left">
+                                    <li className="flex items-start gap-3"><BadgePercent className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />Competitive quotes through competition</li>
+                                    <li className="flex items-start gap-3"><FileText className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />Clear pricing upfront</li>
+                                    <li className="flex items-start gap-3"><XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />No middleman markups</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
                     </div>
                 </div>
               </section>
