@@ -5,9 +5,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import Image from 'next/image';
+import { Star, Clock, CheckCircle, Shield, Zap, Users, Phone, MessageSquare, Briefcase } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
-
-export default function BlogPostPage() {
+export default function WhyChooseGauproPage() {
   return (
     <>
       <Header />
@@ -16,65 +20,50 @@ export default function BlogPostPage() {
           <header className="bg-secondary/50 py-12 md:py-16">
             <div className="container mx-auto px-4 text-center">
               <h1 className="text-3xl md:text-4xl font-normal tracking-tight max-w-3xl mx-auto">
-                Why 50,000+ South Africans Choose Gaupro Over Traditional Hiring Methods
+                Why 50,000+ South Africans Choose Gaupro Over Traditional Hiring Methods [2024 Complete Review]
               </h1>
+              <p className="mt-4 text-sm text-muted-foreground">Updated: December 2024 | 15 min read</p>
             </div>
           </header>
           <div className="container mx-auto px-4 py-12 md:py-16">
             <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
-                <p className="lead text-xl text-muted-foreground">
-                    Remember the last time you needed a plumber urgently? The frantic Google searches, endless phone calls, waiting for callbacks that never came, and the anxiety of not knowing if you're being overcharged?
-                </p>
-                <p>
-                    That's exactly why we created Gaupro.
-                </p>
-                <p>
-                    Gaupro is transforming how South Africans find and hire service professionals. Whether you need an emergency electrician in Johannesburg, a reliable builder in Cape Town, or a skilled web developer in Durban, Gaupro connects you with verified professionals in minutes, not days.
-                </p>
+              
+              <div className="relative w-full aspect-video mb-8">
+                <Image 
+                    src="https://picsum.photos/seed/choose-gaupro-hero/1200/600"
+                    alt="50000 South Africans choose Gaupro over traditional hiring"
+                    fill
+                    className="object-cover rounded-lg"
+                    data-ai-hint="happy person app"
+                />
+              </div>
 
-                <Card className="my-8 bg-blue-50 border-blue-200">
-                    <CardContent className="p-6 space-y-4">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                            <div>
-                                <p className="font-normal text-sm text-muted-foreground">HIRING TIME</p>
-                                <p><span className="font-semibold">Before:</span> 6-8 hours</p>
-                                <p><span className="font-semibold">With Gaupro:</span> Under 2 hours</p>
-                            </div>
-                             <div>
-                                <p className="font-normal text-sm text-muted-foreground">SUCCESS RATE</p>
-                                <p className="text-3xl font-bold text-primary">94%</p>
-                            </div>
-                            <div>
-                                <p className="font-normal text-sm text-muted-foreground">TRUST FACTOR</p>
-                                <p className="text-lg font-semibold">100% Verified</p>
-                            </div>
-                            <div>
-                                <p className="font-normal text-sm text-muted-foreground">QUOTES</p>
-                                <p className="text-3xl font-bold text-primary">3-5</p>
-                            </div>
+              <section id="hiring-nightmare" className="scroll-mt-20">
+                <h2 className='text-2xl'>The Hiring Nightmare Every South African Knows Too Well</h2>
+                <p className="text-muted-foreground">
+                    Remember the last time you needed a plumber urgently? The frantic Google searches, endless phone calls, waiting for callbacks that never came, and the anxiety of not knowing if you're being overcharged? That's exactly why we created Gaupro.
+                </p>
+                <Card className="my-8">
+                    <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <p className="text-3xl font-bold text-primary">6-8</p>
+                            <p className="text-xs text-muted-foreground">Hours searching</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-bold text-primary">15+</p>
+                            <p className="text-xs text-muted-foreground">Calls made</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-bold text-primary">40%</p>
+                            <p className="text-xs text-muted-foreground">Overpayment risk</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-bold text-primary">73%</p>
+                            <p className="text-xs text-muted-foreground">Felt anxious</p>
                         </div>
                     </CardContent>
                 </Card>
-
-                <p>This comprehensive guide shows you exactly how Gaupro makes hiring professionals easier, safer, and more affordable than ever before.</p>
-
-                <Card className="my-8">
-                    <CardContent className="p-6">
-                        <h2 className="text-xl font-normal mt-0">Table of Contents</h2>
-                        <ul className="space-y-2 list-none p-0">
-                            <li><a href="#gaupro-difference">1. The Gaupro Difference: Traditional Hiring vs Smart Hiring</a></li>
-                            <li><a href="#how-gaupro-works">2. How Gaupro Works: Your 3-Step Solution</a></li>
-                            <li><a href="#why-pros-love">3. Why Professionals Love Gaupro</a></li>
-                            <li><a href="#success-stories">4. Real Success Stories from Gaupro Users</a></li>
-                            <li><a href="#verification">5. Gaupro's Verification Process: Your Safety First</a></li>
-                            <li><a href="#pricing-transparency">6. Pricing Transparency with Gaupro</a></li>
-                            <li><a href="#city-coverage">7. City-by-City: Gaupro Across South Africa</a></li>
-                            <li><a href="#comparison">8. Gaupro vs Other Platforms</a></li>
-                            <li><a href="#getting-started">9. Getting Started with Gaupro</a></li>
-                            <li><a href="#faq">10. Frequently Asked Questions</a></li>
-                        </ul>
-                    </CardContent>
-                </Card>
+              </section>
 
                 <section id="gaupro-difference" className="space-y-6 scroll-mt-20">
                   <h2 className="text-2xl">1. The Gaupro Difference: Traditional Hiring vs Smart Hiring</h2>
@@ -163,12 +152,77 @@ export default function BlogPostPage() {
                     </Table>
                   </div>
                 </section>
-                <section className="space-y-6 pt-12 mt-12 border-t">
-                    <h2 className="text-2xl">Connect with Gaupro</h2>
-                    <p>Website: <a href="http://www.gaupro.co.za">www.gaupro.co.za</a></p>
-                    <p>Email: <a href="mailto:support@gaupro.co.za">support@gaupro.co.za</a></p>
-                    <p>WhatsApp: 060 123 4567</p>
+                
+                <section id="how-it-works" className="scroll-mt-20 pt-12">
+                    <h2 className="text-2xl">2. How Gaupro Works: Your 3-Step Solution</h2>
+                    <div className="space-y-8 mt-6">
+                        <div className="flex items-start gap-4">
+                            <div className="text-4xl">1.</div>
+                            <div>
+                                <h3 className="text-xl font-semibold">Post Your Job</h3>
+                                <p>Tell us what you need. Add details and photos for more accurate quotes. It's free and takes 2 minutes.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-4">
+                            <div className="text-4xl">2.</div>
+                            <div>
+                                <h3 className="text-xl font-semibold">Receive & Compare Quotes</h3>
+                                <p>Get multiple quotes from verified, local pros. Compare their profiles, reviews, and pricing.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-4">
+                            <div className="text-4xl">3.</div>
+                            <div>
+                                <h3 className="text-xl font-semibold">Hire with Confidence</h3>
+                                <p>Choose the right pro for you. Contact them directly, finalize details, and get the job done.</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
+
+                <section id="faq" className="scroll-mt-20 pt-12">
+                    <h2 className="text-2xl">Frequently Asked Questions</h2>
+                    <Accordion type="single" collapsible className="w-full">
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger>Is Gaupro really free for customers?</AccordionTrigger>
+                            <AccordionContent>
+                            Yes! It's 100% free to post jobs and receive quotes. Professionals pay a small fee for leads.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-2">
+                            <AccordionTrigger>How quickly will I get quotes?</AccordionTrigger>
+                            <AccordionContent>
+                            Most users receive first quotes within 30 minutes and 3-5 quotes within 2 hours.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-3">
+                            <AccordionTrigger>Is it safe?</AccordionTrigger>
+                            <AccordionContent>
+                            Yes. All professionals are verified. Your contact details are only shared after you accept a quote.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-4">
+                            <AccordionTrigger>Which areas do you cover?</AccordionTrigger>
+                            <AccordionContent>
+                            We cover all major cities and most towns across South Africa.
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                </section>
+
+                <section className="text-center border-t pt-12 mt-12">
+                    <h2 className="text-3xl">Ready to Experience the Gaupro Difference?</h2>
+                    <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Join 50,000+ South Africans who've made the switch to smarter hiring.</p>
+                    <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                        <RequestQuoteDialog>
+                            <Button size="lg">Post a Job Free - Takes 2 Minutes</Button>
+                        </RequestQuoteDialog>
+                         <Button asChild size="lg" variant="secondary">
+                            <Link href="#">Download the App</Link>
+                        </Button>
+                    </div>
+                </section>
+
                 <section className="space-y-4 pt-8 mt-8 border-t bg-secondary/50 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold">About This Article</h3>
                     <p className="text-sm text-muted-foreground">This comprehensive guide is maintained by the Gaupro content team and updated monthly with the latest platform features, success stories, and market insights.</p>
@@ -195,3 +249,5 @@ export default function BlogPostPage() {
     </>
   );
 }
+
+    
