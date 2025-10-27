@@ -3,7 +3,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, XCircle, MousePointerSquare, List, MessageSquare, Briefcase, Award, Shield, User, Camera, MapPin, AlertTriangle, BadgeDollarSign, MessageCircleIcon, Star, HandCoins } from 'lucide-react';
+import { CheckCircle, XCircle, MousePointerClick, List, MessageSquare, Briefcase, Award, Shield, User, Camera, MapPin, AlertTriangle, BadgeDollarSign, MessageCircleIcon, Star, HandCoins } from 'lucide-react';
 
 export default function GauproDifferencePage() {
   return (
@@ -119,7 +119,7 @@ export default function GauproDifferencePage() {
                   <h3 className="text-xl font-semibold">Step 1: Post Your Job on Gaupro (2 Minutes)</h3>
                   <p>It's incredibly simple:</p>
                   <ul className="space-y-2">
-                    <li className="flex items-start gap-3"><MousePointerSquare className="h-5 w-5 text-primary mt-1" /><span>Visit Gaupro.co.za and click "Post a Job" (it's FREE)</span></li>
+                    <li className="flex items-start gap-3"><MousePointerClick className="h-5 w-5 text-primary mt-1" /><span>Visit Gaupro.co.za and click "Post a Job" (it's FREE)</span></li>
                     <li className="flex items-start gap-3"><List className="h-5 w-5 text-primary mt-1" /><span>Select your service category (e.g., Plumbing, Electrical)</span></li>
                     <li className="flex items-start gap-3"><MessageSquare className="h-5 w-5 text-primary mt-1" /><span>Answer a few quick questions and add photos if relevant</span></li>
                   </ul>
