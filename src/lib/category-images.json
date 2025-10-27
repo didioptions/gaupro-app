@@ -3,7 +3,7 @@
     {
       "id": "builders-image",
       "description": "A professional builder in a hard hat, smiling confidently at a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_BUILDER%20PIC.PNG?alt=media&token=f0d2c0b0-7711-4775-8b38-410a56f643e2",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_BUILDER%20PIC.PNG?alt=media&token=d550e261-754d-495c-9be8-f542981f4a47",
       "imageHint": "builder construction"
     },
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "security-image",
-      "description": "A security guard with an earpiece, looking vigilant.",
-      "imageUrl": "https://picsum.photos/seed/security/300/200",
-      "imageHint": "security guard"
+      "description": "A security professional in uniform, representing safety and trust.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_SECURR.PNG?alt=media&token=fcab37d6-0776-4477-80ff-e19359412cbf",
+      "imageHint": "security professional"
     },
     {
       "id": "caterers-image",
