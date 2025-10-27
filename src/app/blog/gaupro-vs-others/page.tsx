@@ -3,6 +3,75 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import Link from 'next/link';
+import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
+
+const comparisonData = [
+    {
+        feature: 'Verified Professionals',
+        gaupro: { text: 'All verified', icon: <CheckCircle className="text-green-500" /> },
+        facebook: { text: 'No verification', icon: <XCircle className="text-red-500" /> },
+        gumtree: { text: 'Limited', icon: <XCircle className="text-red-500" /> },
+        google: { text: 'No verification', icon: <XCircle className="text-red-500" /> },
+        wordOfMouth: { text: "Can't verify", icon: <XCircle className="text-red-500" /> },
+    },
+    {
+        feature: 'Instant Multiple Quotes',
+        gaupro: { text: '2-4 hours', icon: <CheckCircle className="text-green-500" /> },
+        facebook: { text: 'Days/weeks', icon: <XCircle className="text-red-500" /> },
+        gumtree: { text: 'Individual contact', icon: <XCircle className="text-red-500" /> },
+        google: { text: 'One at a time', icon: <XCircle className="text-red-500" /> },
+        wordOfMouth: { text: 'Very slow', icon: <XCircle className="text-red-500" /> },
+    },
+    {
+        feature: 'Authentic Reviews',
+        gaupro: { text: 'Verified only', icon: <CheckCircle className="text-green-500" /> },
+        facebook: { text: 'Can be fake', icon: <XCircle className="text-red-500" /> },
+        gumtree: { text: 'Some fake', icon: <AlertTriangle className="text-yellow-500" /> },
+        google: { text: 'Mixed sources', icon: <AlertTriangle className="text-yellow-500" /> },
+        wordOfMouth: { text: 'Trusted but limited', icon: <CheckCircle className="text-green-500" /> },
+    },
+    {
+        feature: 'Price Transparency',
+        gaupro: { text: 'Full visibility', icon: <CheckCircle className="text-green-500" /> },
+        facebook: { text: 'None', icon: <XCircle className="text-red-500" /> },
+        gumtree: { text: 'Limited', icon: <AlertTriangle className="text-yellow-500" /> },
+        google: { text: 'None', icon: <XCircle className="text-red-500" /> },
+        wordOfMouth: { text: 'Awkward to ask', icon: <XCircle className="text-red-500" /> },
+    },
+    {
+        feature: 'Dispute Protection',
+        gaupro: { text: 'Full support', icon: <CheckCircle className="text-green-500" /> },
+        facebook: { text: 'None', icon: <XCircle className="text-red-500" /> },
+        gumtree: { text: 'None', icon: <XCircle className="text-red-500" /> },
+        google: { text: 'None', icon: <XCircle className="text-red-500" /> },
+        wordOfMouth: { text: 'Relationship risk', icon: <XCircle className="text-red-500" /> },
+    },
+    {
+        feature: 'Mobile App',
+        gaupro: { text: 'iOS & Android', icon: <CheckCircle className="text-green-500" /> },
+        facebook: { text: 'Facebook app', icon: <AlertTriangle className="text-yellow-500" /> },
+        gumtree: { text: 'Basic app', icon: <AlertTriangle className="text-yellow-500" /> },
+        google: { text: 'None', icon: <XCircle className="text-red-500" /> },
+        wordOfMouth: { text: 'None', icon: <XCircle className="text-red-500" /> },
+    },
+    {
+        feature: 'Cost to Use',
+        gaupro: { text: 'FREE', icon: <CheckCircle className="text-green-500" /> },
+        facebook: { text: 'Free', icon: <CheckCircle className="text-green-500" /> },
+        gumtree: { text: 'Free', icon: <CheckCircle className="text-green-500" /> },
+        google: { text: 'Free', icon: <CheckCircle className="text-green-500" /> },
+        wordOfMouth: { text: 'Free', icon: <CheckCircle className="text-green-500" /> },
+    },
+];
+
+const renderStars = (count: number) => (
+    <div className="flex">
+        {[...Array(5)].map((_, i) => (
+            <Star key={i} className={`h-5 w-5 ${i < count ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
+        ))}
+    </div>
+);
+
 
 export default function GauproVsOthersPage() {
   return (
@@ -18,7 +87,7 @@ export default function GauproVsOthersPage() {
             </div>
           </header>
           <div className="container mx-auto px-4 py-12 md:py-16">
-            <div className="max-w-3xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
+            <div className="max-w-4xl mx-auto prose lg:prose-lg prose-headings:font-normal prose-headings:text-foreground prose-a:text-primary hover:prose-a:underline">
               <section id="comparison" className="space-y-6 scroll-mt-20">
                 <h2 className="text-2xl">Comprehensive Platform Comparison</h2>
                 <div className="overflow-x-auto">
@@ -34,69 +103,23 @@ export default function GauproVsOthersPage() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      <TableRow>
-                        <TableCell>Verified Professionals</TableCell>
-                        <TableCell>✅ All verified</TableCell>
-                        <TableCell>❌ No verification</TableCell>
-                        <TableCell>❌ Limited</TableCell>
-                        <TableCell>❌ No verification</TableCell>
-                        <TableCell>❌ Can't verify</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Instant Multiple Quotes</TableCell>
-                        <TableCell>✅ 2-4 hours</TableCell>
-                        <TableCell>❌ Days/weeks</TableCell>
-                        <TableCell>❌ Individual contact</TableCell>
-                        <TableCell>❌ One at a time</TableCell>
-                        <TableCell>❌ Very slow</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Authentic Reviews</TableCell>
-                        <TableCell>✅ Verified only</TableCell>
-                        <TableCell>❌ Can be fake</TableCell>
-                        <TableCell>⚠️ Some fake</TableCell>
-                        <TableCell>⚠️ Mixed sources</TableCell>
-                        <TableCell>✅ Trusted but limited</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Price Transparency</TableCell>
-                        <TableCell>✅ Full visibility</TableCell>
-                        <TableCell>❌ None</TableCell>
-                        <TableCell>⚠️ Limited</TableCell>
-                        <TableCell>❌ None</TableCell>
-                        <TableCell>❌ Awkward to ask</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Dispute Protection</TableCell>
-                        <TableCell>✅ Full support</TableCell>
-                        <TableCell>❌ None</TableCell>
-                        <TableCell>❌ None</TableCell>
-                        <TableCell>❌ None</TableCell>
-                        <TableCell>❌ Relationship risk</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Mobile App</TableCell>
-                        <TableCell>✅ iOS & Android</TableCell>
-                        <TableCell>⚠️ Facebook app</TableCell>
-                        <TableCell>⚠️ Basic app</TableCell>
-                        <TableCell>❌ None</TableCell>
-                        <TableCell>❌ None</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Cost to Use</TableCell>
-                        <TableCell>✅ FREE</TableCell>
-                        <TableCell>✅ Free</TableCell>
-                        <TableCell>✅ Free</TableCell>
-                        <TableCell>✅ Free</TableCell>
-                        <TableCell>✅ Free</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Professional Quality</TableCell>
-                        <TableCell>⭐⭐⭐⭐⭐</TableCell>
-                        <TableCell>⭐⭐</TableCell>
-                        <TableCell>⭐⭐</TableCell>
-                        <TableCell>⭐⭐⭐</TableCell>
-                        <TableCell>⭐⭐⭐⭐</TableCell>
+                      {comparisonData.map((row, index) => (
+                        <TableRow key={index}>
+                            <TableCell className="font-semibold">{row.feature}</TableCell>
+                            <TableCell><div className="flex items-center gap-2">{row.gaupro.icon} {row.gaupro.text}</div></TableCell>
+                            <TableCell><div className="flex items-center gap-2">{row.facebook.icon} {row.facebook.text}</div></TableCell>
+                            <TableCell><div className="flex items-center gap-2">{row.gumtree.icon} {row.gumtree.text}</div></TableCell>
+                            <TableCell><div className="flex items-center gap-2">{row.google.icon} {row.google.text}</div></TableCell>
+                            <TableCell><div className="flex items-center gap-2">{row.wordOfMouth.icon} {row.wordOfMouth.text}</div></TableCell>
+                        </TableRow>
+                      ))}
+                       <TableRow>
+                        <TableCell className="font-semibold">Professional Quality</TableCell>
+                        <TableCell>{renderStars(5)}</TableCell>
+                        <TableCell>{renderStars(2)}</TableCell>
+                        <TableCell>{renderStars(2)}</TableCell>
+                        <TableCell>{renderStars(3)}</TableCell>
+                        <TableCell>{renderStars(4)}</TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>
