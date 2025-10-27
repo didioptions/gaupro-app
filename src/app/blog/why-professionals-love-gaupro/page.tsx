@@ -13,7 +13,9 @@ import {
 } from '@/components/ui/accordion';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, WhatsApp, Mail, Copy, CheckCircle, X, ArrowRight, Star, Clock, BarChart, FileText } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, WhatsApp, Mail, Copy, CheckCircle, X, ArrowRight, Star, Clock, BarChart, FileText, RadioGroup } from 'lucide-react';
+import { RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 
 const problems = [
     { title: "Expensive Advertising with Poor ROI", icon: <X className="text-red-500"/> },
@@ -86,6 +88,13 @@ const successStories = [
         avatarSeed: "pro-precious-beauty"
     }
 ]
+
+const creditPacks = [
+  { id: '10', credits: 10, price: 300, pricePerCredit: 30, discount: null, save: null },
+  { id: '25', credits: 25, price: 650, pricePerCredit: 26, discount: '13% less', save: 'Save R 100' },
+  { id: '50', credits: 50, price: 1200, pricePerCredit: 24, discount: '20% less', save: 'Save R 300' },
+];
+
 
 export default function WhyProfessionalsLoveGauproPage() {
   return (
@@ -191,53 +200,35 @@ export default function WhyProfessionalsLoveGauproPage() {
 
                 <h2 className="text-2xl pt-8">✅ Flexible Membership Options That Fit Your Budget</h2>
                 <p>Whether you're just starting out or ready to scale, Gaupro has a plan that's right for you. Start for free and upgrade as you grow.</p>
-                <div className="not-prose grid md:grid-cols-3 gap-6 my-8 text-center">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>FREE STARTER</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <p className="text-3xl font-bold">R0<span className="text-sm font-normal text-muted-foreground">/month</span></p>
-                            <ul className="text-sm text-muted-foreground space-y-2">
-                                <li>5 lead credits/month</li>
-                                <li>Basic profile</li>
-                                <li>Standard support</li>
-                            </ul>
-                            <Button variant="outline" className="w-full">Start Free</Button>
-                        </CardContent>
-                    </Card>
-                     <Card className="border-primary border-2 relative">
-                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Most Popular</div>
-                        <CardHeader>
-                            <CardTitle>PROFESSIONAL</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <p className="text-3xl font-bold">R299<span className="text-sm font-normal text-muted-foreground">/month</span></p>
-                            <ul className="text-sm text-muted-foreground space-y-2">
-                                <li>30 lead credits/month</li>
-                                <li>Enhanced profile</li>
-                                <li>Priority support</li>
-                                <li>Analytics dashboard</li>
-                            </ul>
-                            <Button className="w-full">Go Pro</Button>
-                        </CardContent>
-                    </Card>
-                     <Card>
-                        <CardHeader>
-                            <CardTitle>BUSINESS</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <p className="text-3xl font-bold">R899<span className="text-sm font-normal text-muted-foreground">/month</span></p>
-                            <ul className="text-sm text-muted-foreground space-y-2">
-                                <li>Unlimited leads</li>
-                                <li>Premium profile</li>
-                                <li>Dedicated support</li>
-                                <li>Advanced analytics</li>
-                                <li>Team accounts</li>
-                            </ul>
-                            <Button variant="outline" className="w-full">Scale Up</Button>
-                        </CardContent>
-                    </Card>
+                <div className="not-prose my-8">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Select Credit Pack</CardTitle>
+                      <p className="text-muted-foreground !mt-2">Top up your credits by selecting a credit pack below.</p>
+                    </CardHeader>
+                    <CardContent>
+                      <RadioGroup>
+                        <div className="space-y-4">
+                          {creditPacks.map((pack) => (
+                            <div key={pack.id} className="p-4 rounded-lg border flex items-center has-[:checked]:bg-blue-50 has-[:checked]:border-primary">
+                              <RadioGroupItem value={pack.id} id={`pack-${pack.id}`} />
+                              <Label htmlFor={`pack-${pack.id}`} className="flex-grow flex items-center justify-between ml-4 cursor-pointer">
+                                <div className="flex items-baseline gap-3">
+                                  <span className="font-semibold">{pack.credits} Credits</span>
+                                  {pack.discount && <span className="text-sm text-green-600">({pack.discount})</span>}
+                                  <span className="text-sm text-primary">R{pack.pricePerCredit}/credit</span>
+                                </div>
+                                <div className="text-right">
+                                  <p className="font-semibold text-lg">R {pack.price}</p>
+                                  {pack.save && <p className="text-sm text-green-600">{pack.save}</p>}
+                                </div>
+                              </Label>
+                            </div>
+                          ))}
+                        </div>
+                      </RadioGroup>
+                    </CardContent>
+                  </Card>
                 </div>
 
                 <h2 className="text-2xl pt-8">Success Story Spotlight: From Struggling to Thriving</h2>
