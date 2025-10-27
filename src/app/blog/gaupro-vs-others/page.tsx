@@ -3,11 +3,12 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import Link from 'next/link';
-import { CheckCircle, XCircle, AlertTriangle, Star, TrendingUp, Users, Target, Shield, MessageCircle, Smartphone } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, Star, TrendingUp, Users, Target, Shield, MessageCircle, Smartphone, Linkedin, Facebook, Copy, Share2, Bot, Mail, Phone, MessageSquare, Twitter, Instagram, Youtube, HardHat, Home, Handshake, Briefcase } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import Image from 'next/image';
 
 
 const comparisonData = [
@@ -411,17 +412,46 @@ export default function GauproVsOthersPage() {
               </section>
 
 
-               <section className="text-center border-t pt-16">
+              <section className="text-center border-t pt-16 relative overflow-hidden rounded-lg">
+                <Image 
+                    src="https://picsum.photos/seed/cta-bg/1200/400"
+                    alt="Abstract background"
+                    fill
+                    className="object-cover"
+                    data-ai-hint="abstract background"
+                />
+                <div className="absolute inset-0 bg-primary/80"></div>
+                <div className="relative z-10 text-primary-foreground p-8">
                     <h2 className="text-3xl">See Why We're #1</h2>
-                    <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+                    <p className="mt-4 max-w-xl mx-auto">
                        Join 50,000+ South Africans who have made the switch to smarter hiring.
                     </p>
                     <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                        <Button size="lg" asChild>
+                        <Button size="lg" asChild className="bg-white text-primary hover:bg-white/90">
                            <Link href="/post-request">Try Gaupro Free - No Sign-up</Link>
                         </Button>
                     </div>
-                </section>
+                </div>
+              </section>
+
+              <section className="text-center border-t pt-12">
+                <h3 className="text-xl font-semibold mb-4">Share This Comparison</h3>
+                <p className="text-muted-foreground mb-6">Help others choose smart:</p>
+                <div className="flex justify-center gap-4">
+                    <Button variant="outline" size="lg">
+                        <Share2 className="mr-2 h-5 w-5" /> WhatsApp
+                    </Button>
+                    <Button variant="outline" size="lg">
+                        <Facebook className="mr-2 h-5 w-5" /> Facebook
+                    </Button>
+                    <Button variant="outline" size="lg">
+                        <Linkedin className="mr-2 h-5 w-5" /> LinkedIn
+                    </Button>
+                    <Button variant="outline" size="icon" size="lg">
+                        <Copy className="h-5 w-5" />
+                    </Button>
+                </div>
+              </section>
 
             </div>
           </div>
@@ -431,5 +461,3 @@ export default function GauproVsOthersPage() {
     </>
   );
 }
-
-    
