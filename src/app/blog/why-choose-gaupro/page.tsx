@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Image from 'next/image';
-import { Star, Clock, CheckCircle, Shield, Zap, Users, Phone, MessageSquare, Briefcase, XCircle } from 'lucide-react';
+import { Star, Clock, CheckCircle, Shield, Zap, Users, Phone, MessageSquare, Briefcase, XCircle, Facebook, Linkedin, Mail } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
@@ -232,14 +232,11 @@ export default function WhyChooseGauproPage() {
                     <p className="text-sm"><strong className="text-foreground">Next Update:</strong> February 2026</p>
                     <div className="mt-4">
                         <p className="text-sm font-semibold">Share this guide and help other South Africans discover smarter hiring:</p>
-                        <div className="flex gap-2 flex-wrap text-sm mt-2">
-                          <a href="#" className="text-primary hover:underline">[Share on WhatsApp]</a>
-                          <span className="text-muted-foreground">|</span>
-                          <a href="#" className="text-primary hover:underline">[Share on Facebook]</a>
-                          <span className="text-muted-foreground">|</span>
-                          <a href="#" className="text-primary hover:underline">[Share on LinkedIn]</a>
-                          <span className="text-muted-foreground">|</span>
-                          <a href="#" className="text-primary hover:underline">[Email to Friend]</a>
+                        <div className="flex gap-4 flex-wrap text-sm mt-2">
+                          <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><MessageSquare className="h-4 w-4"/> Share on WhatsApp</a>
+                          <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><Facebook className="h-4 w-4"/> Share on Facebook</a>
+                          <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><Linkedin className="h-4 w-4"/> Share on LinkedIn</a>
+                          <a href="mailto:?subject=Check out this guide from Gaupro" className="text-primary hover:underline flex items-center gap-1.5"><Mail className="h-4 w-4"/> Email to Friend</a>
                         </div>
                     </div>
                 </section>
