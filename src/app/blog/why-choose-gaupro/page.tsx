@@ -22,7 +22,7 @@ export default function WhyChooseGauproPage() {
               <h1 className="text-3xl md:text-4xl font-normal tracking-tight max-w-3xl mx-auto">
                 Why 50,000+ South Africans Choose Gaupro Over Traditional Hiring Methods [2024 Complete Review]
               </h1>
-              <p className="mt-4 text-sm text-muted-foreground">Updated: December 2024 | 15 min read</p>
+              <p className="mt-4 text-sm text-muted-foreground">Updated: May 2025 | 15 min read</p>
             </div>
           </header>
           <div className="container mx-auto px-4 py-12 md:py-16">
