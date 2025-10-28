@@ -10,7 +10,7 @@ const testimonials = [
     quote: "Gaupro made it so easy to find a reliable plumber. I got three quotes within an hour and the job was done the next day. Highly recommend!",
     author: "Sarah L.",
     location: "Johannesburg",
-    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/ssahar_with_bgc.png?alt=media&token=5ff80b39-0784-4e48-ab79-0beed01c61c0",
+    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/real_sara_with_bgc.png?alt=media&token=a490681a-36e3-4af2-b156-cb909ef6def4",
     avatarSeed: "1",
   },
   {
