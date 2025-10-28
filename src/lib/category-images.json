@@ -45,8 +45,8 @@
     },
     {
       "id": "caterers-image",
-      "description": "A display of small fruit tarts from a caterer.",
-      "imageUrl": "https://picsum.photos/seed/catering/300/200",
+      "description": "A close-up shot of a gourmet food platter with various appetizers.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_caterers%20(1).PNG?alt=media&token=c495bdd6-f40b-4bb1-8106-2a692841db91",
       "imageHint": "catering food"
     }
   ]
