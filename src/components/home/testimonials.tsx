@@ -24,6 +24,7 @@ const testimonials = [
     quote: "As a small business owner, finding a good web designer was crucial. Gaupro connected me with a talented developer who built a fantastic website for us.",
     author: "Mike T.",
     location: "Durban",
+    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/mike_t_with_bgc.png?alt=media&token=9db3b083-28e0-484b-bc3f-a5aab0731e09",
     avatarSeed: "3",
   },
   {
