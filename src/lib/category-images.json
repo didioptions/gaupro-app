@@ -32,10 +32,10 @@
       "imageHint": "architect blueprint"
     },
     {
-      "id": "dstv-installers-image",
-      "description": "A technician in a red cap installing a satellite dish.",
-      "imageUrl": "https://picsum.photos/seed/dstv/300/200",
-      "imageHint": "satellite dish"
+      "id": "solar-systems-image",
+      "description": "A modern solar panel installation on a residential roof.",
+      "imageUrl": "https://picsum.photos/seed/solar-panels/300/200",
+      "imageHint": "solar panels"
     },
     {
       "id": "security-image",
