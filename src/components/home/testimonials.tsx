@@ -10,6 +10,7 @@ const testimonials = [
     quote: "Gaupro made it so easy to find a reliable plumber. I got three quotes within an hour and the job was done the next day. Highly recommend!",
     author: "Sarah L.",
     location: "Johannesburg",
+    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/ssahar_with_bgc.png?alt=media&token=5ff80b39-0784-4e48-ab79-0beed01c61c0",
     avatarSeed: "1",
   },
   {
@@ -45,7 +46,9 @@ export default function Testimonials() {
           className="w-full"
         >
           <CarouselContent>
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => {
+              const imageUrl = (testimonial as any).avatarUrl || `https://picsum.photos/seed/${testimonial.avatarSeed}/64/64`;
+              return (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card className="h-full">
@@ -58,7 +61,7 @@ export default function Testimonials() {
                       </div>
                       <div className="flex items-center gap-4">
                         <Image
-                          src={`https://picsum.photos/seed/${testimonial.avatarSeed}/64/64`}
+                          src={imageUrl}
                           alt={`Avatar of ${testimonial.author}`}
                           width={64}
                           height={64}
@@ -74,7 +77,7 @@ export default function Testimonials() {
                   </Card>
                 </div>
               </CarouselItem>
-            ))}
+            )})}
           </CarouselContent>
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
