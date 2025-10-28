@@ -1,3 +1,4 @@
+
 'use client';
 import Image from 'next/image';
 import { Card, CardContent } from "@/components/ui/card";
@@ -57,10 +58,10 @@ export default function Testimonials() {
                       </div>
                       <div className="flex items-center gap-4">
                         <Image
-                          src={`https://picsum.photos/seed/${testimonial.avatarSeed}/48/48`}
+                          src={`https://picsum.photos/seed/${testimonial.avatarSeed}/64/64`}
                           alt={`Avatar of ${testimonial.author}`}
-                          width={48}
-                          height={48}
+                          width={64}
+                          height={64}
                           className="rounded-full"
                           data-ai-hint="profile picture"
                         />
