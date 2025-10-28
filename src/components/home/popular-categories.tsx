@@ -10,12 +10,12 @@ import { CategoryImages } from "@/lib/category-images";
 const popularServices = [
   { name: "Builders", href: "/services/builders", imageId: "builders-image" },
   { name: "Movers", href: "/services/movers", imageId: "movers-image" },
-  { name: "Security", href: "/services/security", imageId: "security-image" },
-  { name: "Handyman", href: "/services/handyman", imageId: "handyman-image" },
-  { name: "Architects", href: "/services/architects", imageId: "architects-image" },
-  { name: "Solar Panel Installation", href: "/services/solar-systems", imageId: "solar-systems-image" },
-  { name: "Cleaning Services", href: "/services/cleaning-service", imageId: "cleaning-image" },
   { name: "Caterers", href: "/services/caterers", imageId: "caterers-image" },
+  { name: "Architects", href: "/services/architects", imageId: "architects-image" },
+  { name: "Handyman", href: "/services/handyman", imageId: "handyman-image" },
+  { name: "Solar Panel Installation", href: "/services/solar-systems", imageId: "solar-systems-image" },
+  { name: "Security", href: "/services/security", imageId: "security-image" },
+  { name: "Cleaning Services", href: "/services/cleaning-service", imageId: "cleaning-service-image" },
 ];
 
 const CategoryCard = ({ name, href, imageId }: { name: string, href: string, imageId: string }) => {
