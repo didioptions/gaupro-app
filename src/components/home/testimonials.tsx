@@ -31,6 +31,7 @@ const testimonials = [
     quote: "I needed my garden completely redone. The quotes were fair, and the pro I hired did an incredible job. My backyard is now my favorite place to be.",
     author: "Jessica P.",
     location: "Pretoria",
+    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Jessica_P._with_bgc.png?alt=media&token=cdf8bb8d-dbc0-4489-b222-595a1a90f4cc",
     avatarSeed: "4",
   },
 ];
