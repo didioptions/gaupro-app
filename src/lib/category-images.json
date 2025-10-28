@@ -27,8 +27,8 @@
     },
     {
       "id": "architects-image",
-      "description": "Architects reviewing blueprints and color swatches.",
-      "imageUrl": "https://picsum.photos/seed/architects/300/200",
+      "description": "An architect reviewing blueprints at a desk.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_ach.PNG?alt=media&token=aa79857d-f581-4e17-ada9-3353cbf333bd",
       "imageHint": "architect blueprint"
     },
     {
