@@ -17,6 +17,7 @@ const testimonials = [
     quote: "The quality of professionals on this platform is outstanding. We found an amazing photographer for our wedding and couldn't be happier with the results.",
     author: "David & Emily R.",
     location: "Cape Town",
+    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/david_pic_with_bgc.png?alt=media&token=c3502e6c-7d0a-438b-bc17-b898723ce40b",
     avatarSeed: "2",
   },
   {
