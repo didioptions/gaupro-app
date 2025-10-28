@@ -4,7 +4,7 @@
     {
       "id": "builders-image",
       "description": "A professional builder in a hard hat, smiling confidently at a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_BUILDER%20PIC.PNG?alt=media&token=d550e261-754d-495c-9be8-f542981f4a47",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_1%20builders.PNG?alt=media&token=c8657b47-e129-43cc-a767-84fa59b2effc",
       "imageHint": "builder construction"
     },
     {
@@ -14,7 +14,7 @@
       "imageHint": "movers boxes"
     },
     {
-      "id": "cleaning-image",
+      "id": "cleaning-service-image",
       "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_cleaning.PNG?alt=media&token=8dcf53be-6f53-4518-b860-6271185fe3d3",
       "imageHint": "cleaning service"
