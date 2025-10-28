@@ -47,7 +47,7 @@ export default function Testimonials() {
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => {
-              const imageUrl = (testimonial as any).avatarUrl || `https://picsum.photos/seed/${testimonial.avatarSeed}/64/64`;
+              const imageUrl = (testimonial as any).avatarUrl || `https://picsum.photos/seed/${testimonial.avatarSeed}/80/80`;
               return (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
@@ -63,8 +63,8 @@ export default function Testimonials() {
                         <Image
                           src={imageUrl}
                           alt={`Avatar of ${testimonial.author}`}
-                          width={64}
-                          height={64}
+                          width={80}
+                          height={80}
                           className="rounded-full"
                           data-ai-hint="profile picture"
                         />
