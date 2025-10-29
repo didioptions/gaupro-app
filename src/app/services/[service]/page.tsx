@@ -250,6 +250,12 @@ export default function ServicePage() {
             </>
         );
     };
+    
+    const priceEstimates = [
+      'The average cost is R500 - R1500.',
+      'The cheapest price is R250',
+      'The most expensive price is R10500',
+    ];
 
     return (
         <>
