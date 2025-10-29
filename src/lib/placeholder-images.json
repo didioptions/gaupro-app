@@ -131,6 +131,12 @@
       "description": "Logo for Themba Rubble Removers company.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_Themba%20Rubble%20Removers.PNG?alt=media&token=4a19ff0d-71d6-471d-ad01-301973c1d348",
       "imageHint": "company logo"
+    },
+    {
+      "id": "general-solutions",
+      "description": "Logo for General Solutions Pty.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_744b9037f97e4b8aa91a1ad7cd8ef083.jpg?alt=media&token=153fb39d-2d36-4c3e-94ba-6a0d6d15cbb7",
+      "imageHint": "company logo"
     }
   ]
 }
