@@ -40,7 +40,7 @@ import Link from 'next/link';
 import { Autocomplete } from './ui/autocomplete';
 
 type FormData = {
-  [key: string]: string | File[] | boolean | Date | undefined;
+  [key: string]: string | string[] | File[] | boolean | Date | undefined;
 };
 
 // Main Dialog Content Component
@@ -104,9 +104,18 @@ function RequestQuoteDialogContent({
 
   const handleInputChange = (
     questionId: string,
-    value: string | File[] | boolean | Date | undefined
+    value: string | string[] | File[] | boolean | Date | undefined
   ) => {
     setFormData((prev) => ({ ...prev, [questionId]: value }));
+  };
+
+   const handleCheckboxChange = (questionId: string, checked: boolean | string, optionValue: string) => {
+    const currentValues = (formData[questionId] as string[] | undefined) || [];
+    if (checked) {
+        handleInputChange(questionId, [...currentValues, optionValue]);
+    } else {
+        handleInputChange(questionId, currentValues.filter((v) => v !== optionValue));
+    }
   };
 
   const handleDateSelect = (selectedDate: Date | undefined) => {
@@ -198,6 +207,14 @@ function RequestQuoteDialogContent({
           return null;
       }
 
+      const isNextButtonDisabled = () => {
+        const value = formData[currentQuestion.id];
+        if (currentQuestion.type === 'checkbox') {
+          return !value || (Array.isArray(value) && value.length === 0);
+        }
+        return !value;
+      };
+
       return (
         <form onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
             <DialogHeader className='text-left'>
@@ -249,6 +266,30 @@ function RequestQuoteDialogContent({
                 </div>
               </RadioGroup>
             )}
+            {currentQuestion.type === 'checkbox' && (
+                <div className="space-y-3">
+                  {currentQuestion.options?.map((option) => (
+                    <div
+                      key={option.value}
+                      className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
+                    >
+                      <Checkbox
+                        id={option.value}
+                        onCheckedChange={(checked) =>
+                          handleCheckboxChange(currentQuestion.id, checked, option.value)
+                        }
+                        checked={((formData[currentQuestion.id] as string[]) || []).includes(option.value)}
+                      />
+                      <Label
+                        htmlFor={option.value}
+                        className="pl-3 font-normal cursor-pointer text-base"
+                      >
+                        {option.label}
+                      </Label>
+                    </div>
+                  ))}
+                </div>
+              )}
             {currentQuestion.id === 'urgency' && formData['urgency'] === 'specific_date' && (
               <Popover>
                 <PopoverTrigger asChild>
@@ -282,7 +323,7 @@ function RequestQuoteDialogContent({
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button type="submit" size="lg">
+            <Button type="submit" size="lg" disabled={isNextButtonDisabled()}>
               Next
             </Button>
           </div>
