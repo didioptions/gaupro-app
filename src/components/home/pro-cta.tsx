@@ -20,7 +20,7 @@ export default function ProCta() {
                 <Link href="/pro/signup">Start Getting Leads</Link>
               </Button>
             </div>
-            <div className="relative h-64 md:h-full min-h-[300px] bg-primary/80">
+            <div className="relative h-64 md:h-full min-h-[300px]">
               <Image
                 src={ctaImage?.imageUrl || "https://picsum.photos/seed/pro-tools/800/600"}
                 alt={ctaImage?.description || "Professional with tools"}
