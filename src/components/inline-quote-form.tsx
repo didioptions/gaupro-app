@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { RequestQuoteDialog } from './request-quote-dialog';
 import { Badge } from './ui/badge';
+import { Checkbox } from './ui/checkbox';
 
 interface InlineQuoteFormProps {
   service: string;
@@ -16,7 +17,7 @@ interface InlineQuoteFormProps {
 }
 
 export default function InlineQuoteForm({ service, location }: InlineQuoteFormProps) {
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === service) ||
@@ -40,9 +41,17 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
         </RequestQuoteDialog>
     );
   }
+  
+  const handleCheckboxChange = (checked: boolean | string, value: string) => {
+    if (checked) {
+      setSelectedOptions((prev) => [...prev, value]);
+    } else {
+      setSelectedOptions((prev) => prev.filter((option) => option !== value));
+    }
+  };
 
   const initialData = {
-    [firstQuestion.id]: selectedOption,
+    [firstQuestion.id]: firstQuestion.type === 'radio' ? selectedOptions[0] : selectedOptions,
   };
 
   return (
@@ -56,7 +65,7 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
         
         <h3 className="font-semibold mb-4 text-lg">{firstQuestion.text}</h3>
         {firstQuestion.type === 'radio' && firstQuestion.options ? (
-          <RadioGroup value={selectedOption} onValueChange={setSelectedOption} className="space-y-3 mb-6">
+          <RadioGroup value={selectedOptions[0]} onValueChange={(value) => setSelectedOptions([value])} className="space-y-3 mb-6">
             {firstQuestion.options.map((option) => (
               <div
                 key={option.value}
@@ -72,8 +81,29 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
               </div>
             ))}
           </RadioGroup>
+        ) : firstQuestion.type === 'checkbox' && firstQuestion.options ? (
+            <div className="space-y-3 mb-6">
+                {firstQuestion.options.map((option) => (
+                  <div
+                    key={option.value}
+                    className="flex items-center p-3 border rounded-md bg-white has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
+                  >
+                     <Checkbox 
+                        id={`inline-${option.value}`} 
+                        checked={selectedOptions.includes(option.value)}
+                        onCheckedChange={(checked) => handleCheckboxChange(checked.toString(), option.value)}
+                    />
+                    <Label
+                      htmlFor={`inline-${option.value}`}
+                      className="pl-3 font-normal cursor-pointer text-base"
+                    >
+                      {option.label}
+                    </Label>
+                  </div>
+                ))}
+            </div>
         ) : (
-           // Fallback for non-radio questions, though the default is radio.
+           // Fallback for other question types
           <p className="text-muted-foreground mb-6">Tell us about your project to get started.</p>
         )}
         
@@ -88,7 +118,7 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
                 size="lg" 
                 className="w-full h-12 text-base" 
                 variant="destructive"
-                disabled={firstQuestion.type === 'radio' && !selectedOption}
+                disabled={selectedOptions.length === 0}
             >
                 Get Free Quotes
             </Button>

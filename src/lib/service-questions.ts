@@ -2,7 +2,7 @@
 export type Question = {
   id: string;
   text: string;
-  type: 'radio' | 'textarea' | 'text' | 'date';
+  type: 'radio' | 'textarea' | 'text' | 'date' | 'checkbox';
   options?: { value: string; label: string }[];
   placeholder?: string;
 };
@@ -175,6 +175,25 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
   {
+    service: 'rubble-removal',
+    questions: [
+      {
+        id: 'removal_type',
+        text: 'What would you like removed? (Select all that apply)',
+        type: 'checkbox',
+        options: [
+          { value: 'garden_refuse', label: 'Garden Refuse' },
+          { value: 'building_rubble', label: 'Building rubble' },
+          { value: 'household_refuse', label: 'Household refuse' },
+          { value: 'old_furniture', label: 'Old Furniture' },
+          { value: 'appliances', label: 'Appliances, electronics or old computers' },
+          { value: 'scrap_metal', label: 'Scrap Metal' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
     service: 'plumber',
     questions: [
       {
@@ -338,7 +357,7 @@ export const serviceQuestionSets: QuestionSet[] = [
   },
   // Fallback for other services - this maps all other services to the common questions
   ...allServices
-    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers', 'skip-hire', 'tree-felling'].includes(service.value))
+    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers', 'skip-hire', 'tree-felling', 'rubble-removal'].includes(service.value))
     .map(service => ({
       service: service.value,
       questions: [
