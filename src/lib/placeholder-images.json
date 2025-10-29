@@ -119,6 +119,12 @@
       "description": "Friendly customer support agent with a headset smiling.",
       "imageUrl": "https://images.unsplash.com/photo-1709715357479-591f9971fb05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHN1cHBvcnR8ZW58MHx8fHwxNzYxMzA2NTA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "customer support"
+    },
+    {
+      "id": "skip-boys-logo",
+      "description": "Logo for Skip Boys company.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/CompressJPEG.Online_img(80x80).jpg?alt=media&token=8168093f-54be-4847-ade5-70edad0d1767",
+      "imageHint": "company logo"
     }
   ]
 }

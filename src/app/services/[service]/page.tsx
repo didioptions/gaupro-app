@@ -52,7 +52,7 @@ const allProfessionals = {
             description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance.",
             rating: 4.2,
             reviews: 18,
-            avatarSeed: "quick-fix-pros"
+            avatarSeed: "skip-boys-logo"
         },
         {
             name: "Themba Rubble Removers",
@@ -146,35 +146,41 @@ export default function ServicePage({ params, searchParams }: { params: { servic
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
-                                {professionals.map(pro => (
-                                    <Card key={pro.name} className="bg-card">
-                                        <CardContent className="p-6">
-                                            <div className="grid sm:grid-cols-4 gap-6">
-                                                <div className="sm:col-span-3">
-                                                    <div className="flex items-start gap-4">
-                                                        <Image src={`https://picsum.photos/seed/${pro.avatarSeed}/80/80`} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint="company logo" />
-                                                        <div>
-                                                            <h3 className="text-xl text-foreground">{pro.name}</h3>
-                                                            <p className="text-sm text-muted-foreground">{pro.location}</p>
-                                                            <p className="text-sm mt-2 text-foreground">{pro.description}</p>
+                                {professionals.map(pro => {
+                                    const proImage = PlaceHolderImages.find(p => p.id === pro.avatarSeed);
+                                    const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${pro.avatarSeed}/80/80`;
+                                    const imageHint = proImage ? proImage.imageHint : "company logo";
+
+                                    return (
+                                        <Card key={pro.name} className="bg-card">
+                                            <CardContent className="p-6">
+                                                <div className="grid sm:grid-cols-4 gap-6">
+                                                    <div className="sm:col-span-3">
+                                                        <div className="flex items-start gap-4">
+                                                            <Image src={imageUrl} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint={imageHint} />
+                                                            <div>
+                                                                <h3 className="text-xl text-foreground">{pro.name}</h3>
+                                                                <p className="text-sm text-muted-foreground">{pro.location}</p>
+                                                                <p className="text-sm mt-2 text-foreground">{pro.description}</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="text-left sm:text-right">
-                                                    <Badge className="text-base font-bold bg-green-100 text-green-800 border-green-200">{pro.rating.toFixed(1)}</Badge>
-                                                    <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                                    <div className="flex items-center gap-0.5 mt-2 justify-start sm:justify-end">
-                                                        {[...Array(5)].map((_, i) => (
-                                                            <Star key={i} className={`h-4 w-4 ${pro.rating > i ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
-                                                        ))}
+                                                    <div className="text-left sm:text-right">
+                                                        <Badge className="text-base font-bold bg-green-100 text-green-800 border-green-200">{pro.rating.toFixed(1)}</Badge>
+                                                        <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
+                                                        <div className="flex items-center gap-0.5 mt-2 justify-start sm:justify-end">
+                                                            {[...Array(5)].map((_, i) => (
+                                                                <Star key={i} className={`h-4 w-4 ${pro.rating > i ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
+                                                            ))}
+                                                        </div>
+                                                        <Button variant="outline" className="mt-4 w-full sm:w-auto">Request a Quote</Button>
                                                     </div>
-                                                    <Button variant="outline" className="mt-4 w-full sm:w-auto">Request a Quote</Button>
                                                 </div>
-                                            </div>
-                                             <p className="text-xs text-muted-foreground mt-4">Have you used this business? <Link href="#" className="underline">Write Review</Link></p>
-                                        </CardContent>
-                                    </Card>
-                                ))}
+                                                 <p className="text-xs text-muted-foreground mt-4">Have you used this business? <Link href="#" className="underline">Write Review</Link></p>
+                                            </CardContent>
+                                        </Card>
+                                    )
+                                })}
                             </div>
                             <aside className="space-y-8">
                                 <Card className="bg-card">
