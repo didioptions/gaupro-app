@@ -9,7 +9,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Image from 'next/image';
 import { Star, CheckCircle, XCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500">
@@ -244,9 +243,9 @@ export default function WhyChooseGauproPage() {
                     <h2 className="text-3xl">Ready to Experience the Gaupro Difference?</h2>
                     <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Join 50,000+ South Africans who've made the switch to smarter hiring.</p>
                     <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                        <RequestQuoteDialog>
-                            <Button size="lg">Post a Job Free - Takes 2 Minutes</Button>
-                        </RequestQuoteDialog>
+                        <Button asChild size="lg">
+                            <Link href="/post-request">Post a Job Free - Takes 2 Minutes</Link>
+                        </Button>
                          <Button asChild size="lg" variant="secondary">
                             <Link href="#">Download the App</Link>
                         </Button>

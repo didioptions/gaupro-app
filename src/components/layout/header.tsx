@@ -19,7 +19,6 @@ import { useAuth } from '@/firebase';
 import { useRouter } from 'next/navigation';
 import { Skeleton } from '../ui/skeleton';
 import { Badge } from '../ui/badge';
-import { RequestQuoteDialog } from '../request-quote-dialog';
 
 export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -92,9 +91,9 @@ export default function Header() {
 
     return (
       <nav className="hidden md:flex items-center gap-2 text-sm">
-        <RequestQuoteDialog>
-          <Button variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">Post Request</Button>
-        </RequestQuoteDialog>
+        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
+            <Link href="/post-request">Post Request</Link>
+        </Button>
         <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
           <Link href="/browse-quotes">
             Browse Quotes
@@ -146,11 +145,9 @@ export default function Header() {
 
     return (
       <>
-        <RequestQuoteDialog>
-          <Button variant="ghost" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+        <Link href="/post-request" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
             Post Request
-          </Button>
-        </RequestQuoteDialog>
+        </Link>
         <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
           Browse Quotes
         </Link>
