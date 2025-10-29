@@ -353,7 +353,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-2xl">
+      <DialogContent className="sm:max-w-lg">
         <DialogHeader>
             <DialogTitle className="sr-only">Request a Quote</DialogTitle>
         </DialogHeader>
