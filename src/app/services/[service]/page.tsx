@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useSearchParams, useParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -79,7 +79,7 @@ const allProfessionals = {
             rating: 4.6,
             reviews: 42,
             address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
-            website: "www.eastrandwaste.co.za",
+            
             yearsInBusiness: 9,
             employees: 4,
             isProVerified: true,
@@ -107,7 +107,7 @@ const allProfessionals = {
             rating: 0.0,
             reviews: 0,
             address: "789 Industrial Rd, Germiston",
-            website: "www.generalsolutions.co.za",
+            
             yearsInBusiness: 1,
             employees: 2,
             isProVerified: false,
@@ -124,7 +124,7 @@ const allProfessionals = {
             rating: 4.2,
             reviews: 18,
             address: "101 Skip Avenue, Boksburg",
-            website: "www.skipboys.co.za",
+            
             yearsInBusiness: 3,
             employees: 5,
             isProVerified: true,
@@ -149,7 +149,7 @@ const allProfessionals = {
             rating: 4.9,
             reviews: 76,
             address: "24 Worker's Way, Soweto",
-            website: "www.thembarubble.co.za",
+            
             yearsInBusiness: 12,
             employees: 8,
             isProVerified: true,
@@ -175,7 +175,7 @@ const allProfessionals = {
             rating: 4.5,
             reviews: 31,
             address: "55 Elite Crescent, Sandton",
-            website: "www.eliteservices.co.za",
+            
             yearsInBusiness: 7,
             employees: 15,
             isProVerified: true,
@@ -270,6 +270,63 @@ export default function ServicePage() {
       'The most expensive price is R10500',
     ];
 
+    const memoizedProfessionals = useMemo(() => {
+        return professionals.map(pro => {
+            const proImage = PlaceHolderImages.find(p => p.id === pro.avatarSeed);
+            const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${pro.avatarSeed}/80/80`;
+            const imageHint = proImage ? proImage.imageHint : "company logo";
+
+            return (
+                <Card key={pro.id} className="bg-card hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                        <div className="grid sm:grid-cols-4 gap-6">
+                            <div className="sm:col-span-3">
+                                <div className="flex items-start gap-4">
+                                    <Image src={imageUrl} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint={imageHint} />
+                                    <div>
+                                      <Link href={`/pro/${pro.id}?service=${currentService}`} className="hover:underline">
+                                        <h3 className="text-xl text-foreground">{pro.name}</h3>
+                                      </Link>
+                                      <p className="text-sm text-muted-foreground">{pro.location}</p>
+                                      <p className="text-sm mt-2 text-foreground">
+                                          {renderDescription(pro)}
+                                      </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="text-left sm:text-right">
+                                <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
+                                <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
+                                <RequestQuoteDialog
+                                  service={currentService}
+                                  initialStep={0}
+                                  initialData={{}}
+                                >
+                                    <Button variant="outline" className="mt-4 w-full sm:w-auto">
+                                        Request a Quote
+                                    </Button>
+                                </RequestQuoteDialog>
+                            </div>
+                        </div>
+                        {pro.reviewData && pro.reviewData.length > 0 && (
+                          <div className="mt-4 pt-4 border-t">
+                              <div className="flex items-center gap-2">
+                                  <div className="flex">
+                                      {[...Array(5)].map((_, i) => (
+                                          <Star key={i} className={`h-4 w-4 ${i < pro.reviewData[0].rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
+                                      ))}
+                                  </div>
+                                  <p className="text-sm text-muted-foreground">by {pro.reviewData[0].author}{pro.reviewData[0].phone && `, ${pro.reviewData[0].phone}`}</p>
+                              </div>
+                              <p className="text-sm text-foreground mt-2 italic">"{pro.reviewData[0].comment}"</p>
+                          </div>
+                        )}
+                    </CardContent>
+                </Card>
+            )
+        });
+    }, [professionals, expandedDescriptions, currentService]);
+
     return (
         <>
             <Header />
@@ -305,59 +362,7 @@ export default function ServicePage() {
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
-                                {professionals.length > 0 ? professionals.map(pro => {
-                                    const proImage = PlaceHolderImages.find(p => p.id === pro.avatarSeed);
-                                    const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${pro.avatarSeed}/80/80`;
-                                    const imageHint = proImage ? proImage.imageHint : "company logo";
-
-                                    return (
-                                        <Card key={pro.id} className="bg-card hover:shadow-lg transition-shadow">
-                                            <CardContent className="p-6">
-                                                <div className="grid sm:grid-cols-4 gap-6">
-                                                    <div className="sm:col-span-3">
-                                                        <div className="flex items-start gap-4">
-                                                            <Image src={imageUrl} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint={imageHint} />
-                                                            <div>
-                                                                <Link href={`/pro/${pro.id}?service=${currentService}`} className="hover:underline">
-                                                                  <h3 className="text-xl text-foreground">{pro.name}</h3>
-                                                                </Link>
-                                                                <p className="text-sm text-muted-foreground">{pro.location}</p>
-                                                                <p className="text-sm mt-2 text-foreground">
-                                                                    {renderDescription(pro)}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="text-left sm:text-right">
-                                                        <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
-                                                        <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                                        <RequestQuoteDialog
-                                                          service={currentService}
-                                                          initialStep={0}
-                                                        >
-                                                            <Button variant="outline" className="mt-4 w-full sm:w-auto">
-                                                                Request a Quote
-                                                            </Button>
-                                                        </RequestQuoteDialog>
-                                                    </div>
-                                                </div>
-                                                {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.slice(0, 1).map((review: any, index: number) => (
-                                                <div key={index} className="mt-4 pt-4 border-t">
-                                                    <div className="flex items-center gap-2">
-                                                        <div className="flex">
-                                                            {[...Array(5)].map((_, i) => (
-                                                                <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
-                                                            ))}
-                                                        </div>
-                                                        <p className="text-sm text-muted-foreground">by {review.author}{review.phone && `, ${review.phone}`}</p>
-                                                    </div>
-                                                    <p className="text-sm text-foreground mt-2 italic">"{review.comment}"</p>
-                                                </div>
-                                                ))}
-                                            </CardContent>
-                                        </Card>
-                                    )
-                                }) : (
+                                {professionals.length > 0 ? memoizedProfessionals : (
                                     <Card>
                                         <CardContent className="p-6 text-center">
                                             <p className="text-lg text-muted-foreground">No professionals found for "{pluralServiceLabel}" in {locationName}.</p>
