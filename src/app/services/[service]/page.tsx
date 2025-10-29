@@ -20,104 +20,174 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 const allProfessionals = {
     movers: [
         {
+            id: "swift-moves-sa",
             name: "Swift Moves SA",
             location: "Rosebank, Johannesburg",
+            address: "123 Oxford Road, Rosebank, Johannesburg",
+            website: "www.swiftmoves.co.za",
             description: "Your reliable moving partner for local and long-distance relocations. We offer packing, transport, and storage services to make your move stress-free. Our team is trained, professional, and ready to assist.",
             rating: 4.8,
             reviews: 125,
+            yearsInBusiness: 5,
+            employees: 12,
+            isProVerified: true,
             reviewData: [{
                 author: "Richard",
                 phone: "061****434",
                 rating: 5,
                 comment: "They came through prepared to work. They did an excellent job. I am happy with their services I even gave a tip. Hard workers too. Arrived in Kimberley on time."
             }],
+            photos: [
+                "https://picsum.photos/seed/mover1/600/400",
+                "https://picsum.photos/seed/mover2/600/400",
+                "https://picsum.photos/seed/mover3/600/400",
+            ],
             avatarSeed: "swift-moves"
         },
         {
+            id: "joburg-movers-co",
             name: "Joburg Movers Co.",
             location: "Sandton, Johannesburg",
+            address: "456 Rivonia Road, Sandton, Johannesburg",
+            website: "www.joburgmovers.co.za",
             description: "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
             rating: 4.7,
             reviews: 88,
+            yearsInBusiness: 8,
+            employees: 20,
+            isProVerified: true,
             reviewData: [{
                 author: "Jane D.",
                 phone: "082****567",
                 rating: 4,
                 comment: "Good service, but they were a bit late. Otherwise, the move went smoothly and nothing was damaged."
             }],
+             photos: [
+                "https://picsum.photos/seed/mover4/600/400",
+                "https://picsum.photos/seed/mover5/600/400",
+            ],
             avatarSeed: "joburg-movers"
         }
     ],
     default: [
         {
+            id: "east-rand-waste",
             name: "East Rand Waste & Pool Service Pty Ltd",
             description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
             reviews: 42,
+            address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
+            website: "www.eastrandwaste.co.za",
+            yearsInBusiness: 9,
+            employees: 4,
+            isProVerified: true,
             reviewData: [{
                 author: "Katleho",
                 phone: "061****434",
                 rating: 5,
                 comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team."
             }],
+             photos: [
+                "https://picsum.photos/seed/waste1/600/400",
+                "https://picsum.photos/seed/waste2/600/400",
+                "https://picsum.photos/seed/waste3/600/400",
+                "https://picsum.photos/seed/waste4/600/400",
+            ],
             avatarSeed: "pro-services-inc"
         },
         {
+            id: "general-solutions-pty",
             name: "General Solutions Pty",
             description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
             rating: 0.0,
             reviews: 0,
+            address: "789 Industrial Rd, Germiston",
+            website: "www.generalsolutions.co.za",
+            yearsInBusiness: 1,
+            employees: 2,
+            isProVerified: false,
             reviewData: [],
+            photos: [],
             avatarSeed: "general-solutions"
         },
         {
+            id: "skip-boys",
             name: "Skip Boys",
             description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
             rating: 4.2,
             reviews: 18,
+            address: "101 Skip Avenue, Boksburg",
+            website: "www.skipboys.co.za",
+            yearsInBusiness: 3,
+            employees: 5,
+            isProVerified: true,
             reviewData: [{
                 author: "Anonymous",
                 phone: "",
                 rating: 4,
                 comment: "Good service and fair pricing. The skip was delivered on time. Would use them again."
             }],
+             photos: [
+                "https://picsum.photos/seed/skip1/600/400",
+                "https://picsum.photos/seed/skip2/600/400",
+            ],
             avatarSeed: "skip-boys-logo"
         },
         {
+            id: "themba-rubble-removers",
             name: "Themba Rubble Removers",
             description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
             rating: 4.9,
             reviews: 76,
+            address: "24 Worker's Way, Soweto",
+            website: "www.thembarubble.co.za",
+            yearsInBusiness: 12,
+            employees: 8,
+            isProVerified: true,
             reviewData: [{
                 author: "Sarah P.",
                 phone: "072****123",
                 rating: 5,
                 comment: "Extremely professional and efficient. They cleared my site in half the expected time. Highly recommended!"
             }],
+             photos: [
+                "https://picsum.photos/seed/rubble1/600/400",
+                "https://picsum.photos/seed/rubble2/600/400",
+                "https://picsum.photos/seed/rubble3/600/400",
+            ],
             avatarSeed: "themba-rubble-removers-logo"
         },
         {
+            id: "elite-services-group",
             name: "Elite Services Group",
             description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
             rating: 4.5,
             reviews: 31,
+            address: "55 Elite Crescent, Sandton",
+            website: "www.eliteservices.co.za",
+            yearsInBusiness: 7,
+            employees: 15,
+            isProVerified: true,
             reviewData: [{
                 author: "Mike",
                 phone: "083****789",
                 rating: 5,
                 comment: "Very happy with the service. They were professional from start to finish."
             }],
+            photos: [],
             avatarSeed: "elite-services"
         }
     ]
 };
 
-
-const priceEstimates = [
-    "Hourly rate up to R600",
-    "Emergency call-outs: R800 - R1500",
-    "After Hours Rate: +50%"
-]
+// Exporting for use in the profile page
+export function getProfessionalById(id: string) {
+    for (const category in allProfessionals) {
+        const pro = (allProfessionals as any)[category].find((p: any) => p.id === id);
+        if (pro) return pro;
+    }
+    return null;
+}
 
 
 export default function ServicePage() {
@@ -138,8 +208,9 @@ export default function ServicePage() {
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "Johannesburg";
 
-    const baseProfessionals = allProfessionals[currentService as keyof typeof allProfessionals] || allProfessionals.default;
-    const professionals = baseProfessionals.map(pro => ({
+    const baseProfessionals = (allProfessionals as any)[currentService] || allProfessionals.default;
+    
+    const professionals = baseProfessionals.map((pro: any) => ({
         ...pro,
         location: `${locationName}`,
         description: pro.description.replace('{service}', singularOrPluralLowercase),
@@ -221,43 +292,45 @@ export default function ServicePage() {
                                     const imageHint = proImage ? proImage.imageHint : "company logo";
 
                                     return (
-                                        <Card key={pro.name} className="bg-card">
-                                            <CardContent className="p-6">
-                                                <div className="grid sm:grid-cols-4 gap-6">
-                                                    <div className="sm:col-span-3">
-                                                        <div className="flex items-start gap-4">
-                                                            <Image src={imageUrl} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint={imageHint} />
-                                                            <div>
-                                                                <h3 className="text-xl text-foreground">{pro.name}</h3>
-                                                                <p className="text-sm text-muted-foreground">{pro.location}</p>
-                                                                <p className="text-sm mt-2 text-foreground">{renderDescription(pro)}</p>
+                                        <Link key={pro.id} href={`/pro/${pro.id}?service=${currentService}`} className="block">
+                                            <Card className="bg-card hover:shadow-lg transition-shadow">
+                                                <CardContent className="p-6">
+                                                    <div className="grid sm:grid-cols-4 gap-6">
+                                                        <div className="sm:col-span-3">
+                                                            <div className="flex items-start gap-4">
+                                                                <Image src={imageUrl} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint={imageHint} />
+                                                                <div>
+                                                                    <h3 className="text-xl text-foreground">{pro.name}</h3>
+                                                                    <p className="text-sm text-muted-foreground">{pro.location}</p>
+                                                                    <p className="text-sm mt-2 text-foreground">
+                                                                        {pro.description.substring(0, 150)}
+                                                                        {pro.description.length > 150 && '...'}
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="text-left sm:text-right">
-                                                         <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
-                                                        <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                                        <Button variant="outline" className="mt-4 w-full sm:w-auto">Request a Quote</Button>
-                                                    </div>
-                                                </div>
-                                                {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.map((review, index) => (
-                                                <div key={index} className="mt-4 pt-4 border-t">
-                                                    <div className="flex items-center gap-2">
-                                                        <div className="flex">
-                                                            {[...Array(5)].map((_, i) => (
-                                                                <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
-                                                            ))}
+                                                        <div className="text-left sm:text-right">
+                                                            <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
+                                                            <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
+                                                            <Button variant="outline" className="mt-4 w-full sm:w-auto">View Profile</Button>
                                                         </div>
-                                                        <p className="text-sm text-muted-foreground">by {review.author}{review.phone && `, ${review.phone}`}</p>
                                                     </div>
-                                                    <p className="text-sm text-foreground mt-2 italic">"{review.comment}"</p>
-                                                </div>
-                                                ))}
-                                                {pro.reviews === 0 && (
-                                                     <p className="text-xs text-muted-foreground mt-4">Have you used this business? <Link href="#" className="underline">Write Review</Link></p>
-                                                )}
-                                            </CardContent>
-                                        </Card>
+                                                    {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.map((review: any, index: number) => (
+                                                    <div key={index} className="mt-4 pt-4 border-t">
+                                                        <div className="flex items-center gap-2">
+                                                            <div className="flex">
+                                                                {[...Array(5)].map((_, i) => (
+                                                                    <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
+                                                                ))}
+                                                            </div>
+                                                            <p className="text-sm text-muted-foreground">by {review.author}{review.phone && `, ${review.phone}`}</p>
+                                                        </div>
+                                                        <p className="text-sm text-foreground mt-2 italic">"{review.comment}"</p>
+                                                    </div>
+                                                    ))}
+                                                </CardContent>
+                                            </Card>
+                                        </Link>
                                     )
                                 })}
                             </div>
