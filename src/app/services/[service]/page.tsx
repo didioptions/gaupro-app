@@ -55,10 +55,10 @@ const allProfessionals = {
             rating: 4.6,
             reviews: 42,
             reviewData: [{
-                author: "Richard",
+                author: "Katleho",
                 phone: "061****434",
                 rating: 5,
-                comment: "They came through prepared to work. They did an excellent job. I am happy with their services I even gave a tip. Hard workers too. Arrived in Kimberley on time."
+                comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team."
             }],
             avatarSeed: "pro-services-inc"
         },
