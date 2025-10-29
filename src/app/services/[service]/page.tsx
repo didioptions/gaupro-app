@@ -321,7 +321,7 @@ export default function ServicePage() {
                                                             <Button variant="outline" className="mt-4 w-full sm:w-auto">View Profile</Button>
                                                         </div>
                                                     </div>
-                                                    {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.map((review: any, index: number) => (
+                                                    {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.slice(0, 1).map((review: any, index: number) => (
                                                     <div key={index} className="mt-4 pt-4 border-t">
                                                         <div className="flex items-center gap-2">
                                                             <div className="flex">
