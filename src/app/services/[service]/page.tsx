@@ -3,7 +3,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -120,12 +120,13 @@ const priceEstimates = [
 ]
 
 
-export default function ServicePage({ params }: { params: { service: string }}) {
+export default function ServicePage() {
+    const params = useParams();
     const searchParams = useSearchParams();
     const locationQuery = searchParams.get('location');
     const [expandedDescriptions, setExpandedDescriptions] = useState<string[]>([]);
 
-    const currentService = params.service;
+    const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
 
     const service = allServices.find(s => s.value === currentService);
     const serviceLabel = service?.label || currentService.charAt(0).toUpperCase() + currentService.slice(1);
