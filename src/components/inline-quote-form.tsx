@@ -91,7 +91,7 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
                      <Checkbox 
                         id={`inline-${option.value}`} 
                         checked={selectedOptions.includes(option.value)}
-                        onCheckedChange={(checked) => handleCheckboxChange(checked.toString(), option.value)}
+                        onCheckedChange={(checked) => handleCheckboxChange(checked, option.value)}
                     />
                     <Label
                       htmlFor={`inline-${option.value}`}
@@ -116,8 +116,7 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
             <Button 
                 type="button" 
                 size="lg" 
-                className="w-full h-11 text-base" 
-                variant="destructive"
+                className="w-full h-11 text-base bg-red-600 hover:bg-red-700" 
                 disabled={selectedOptions.length === 0}
             >
                 Get Free Quotes

@@ -35,7 +35,7 @@ export const allServices = [
     { value: 'carports', label: 'Carports' },
     { value: 'cctv', label: 'Cctv' },
     { value: 'ceiling-installers', label: 'Ceiling Installers' },
-    { value: 'cleaning-services', label: 'Cleaning Services' },
+    { value: 'cleaning-service', label: 'Cleaning Services' },
     { value: 'company-registrations', label: 'Company Registrations' },
     { value: 'computer-courses', label: 'Computer Courses' },
     { value: 'computer-repairs', label: 'Computer Repairs' },
@@ -83,7 +83,7 @@ export const allServices = [
     { value: 'private-investigators', label: 'Private Investigators' },
     { value: 'psychologists', label: 'Psychologists' },
     { value: 'roofing', label: 'Roofing' },
-    { value: 'rubble-removal', label: 'Rubble Removal' },
+    { value: 'rubble-removal', label: 'Rubble Removals' },
     { value: 'security', label: 'Security' },
     { value: 'shadeports', label: 'Shadeports' },
     { value: 'shuttle-services', label: 'Shuttle Services' },
@@ -109,7 +109,7 @@ export const allServices = [
     { value: 'electrician', label: 'Electrician' },
     { value: 'carpenter', label: 'Carpenter' },
     { value: 'painter', label: 'Painter' },
-    { value: 'mover', label: 'Movers' },
+    { value: 'movers', label: 'Movers' },
     { value: 'roofer', label: 'Roofer' },
     { value: 'tiler', label: 'Tiler' },
     { value: 'welder', label: 'Welder' },
@@ -376,6 +376,3 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
     }))
 ];
-
-
-    

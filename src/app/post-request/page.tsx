@@ -1,16 +1,9 @@
 
 'use client';
 
-import { useState } from 'react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, CheckCircle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from '@/components/ui/progress';
 import { Label } from '@/components/ui/label';
@@ -30,14 +23,18 @@ import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent } from '@/components/ui/card';
+import { useSearchParams } from 'next/navigation';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
 };
 
 export default function PostRequestPage() {
+  const searchParams = useSearchParams();
+  const serviceQuery = searchParams.get('service') || '';
+
   const [step, setStep] = useState(0);
-  const [selectedService, setSelectedService] = useState('');
+  const [selectedService, setSelectedService] = useState(serviceQuery);
   const [formData, setFormData] = useState<FormData>({});
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -48,7 +45,7 @@ export default function PostRequestPage() {
     serviceQuestionSets.find((qs) => qs.service === 'default');
 
   const questions = questionSet?.questions || [];
-  const totalSteps = (questions?.length || 0) + 1;
+  const totalSteps = (questions?.length || 0) + 1; // +1 for the final details step
   const progress = step > 0 ? ((step - 1) / (totalSteps - 1)) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
@@ -115,9 +112,6 @@ export default function PostRequestPage() {
             <p>
               To make sure you get the most accurate quotes, our support team may reach out to confirm your details — so please keep your phone nearby 📞.
             </p>
-            <p>
-              If you’d like to speed things up, verify your contact details when prompted — this helps us connect you to verified pros even faster.
-            </p>
             <p className="font-semibold pt-2">Here’s What Happens Next:</p>
             <ol className="list-decimal list-inside space-y-2">
                 <li>Receive quotes from qualified service providers — usually within a few hours.</li>
@@ -174,6 +168,7 @@ export default function PostRequestPage() {
       }
 
       const isNextButtonDisabled = () => {
+        if(currentQuestion.type === 'textarea') return false; // Allow empty textarea
         const value = formData[currentQuestion.id];
         if (currentQuestion.type === 'checkbox') {
           return !value || (Array.isArray(value) && value.length === 0);
@@ -339,29 +334,14 @@ export default function PostRequestPage() {
                 required
               />
             </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                    <Input
-                    id="phoneNumber"
-                    type="tel"
-                    placeholder="Your Cellphone Number"
-                    onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                    required
-                    />
-                </div>
-                <div className="space-y-2">
-                    <Select onValueChange={(value) => handleInputChange('contact_method', value)} defaultValue="anytime">
-                    <SelectTrigger>
-                        <SelectValue placeholder="Contact me Anytime" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="anytime">Contact me Anytime</SelectItem>
-                        <SelectItem value="morning">Morning</SelectItem>
-                        <SelectItem value="afternoon">Afternoon</SelectItem>
-                        <SelectItem value="evening">Evening</SelectItem>
-                    </SelectContent>
-                    </Select>
-                </div>
+             <div className="space-y-2">
+                <Input
+                id="phoneNumber"
+                type="tel"
+                placeholder="Your Cellphone Number"
+                onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                required
+                />
             </div>
             <div className="flex items-start space-x-3 pt-4">
                 <Checkbox 
@@ -378,8 +358,8 @@ export default function PostRequestPage() {
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700">
-              Submit
+            <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700" disabled={!agreedToTerms}>
+              Get Quotes
             </Button>
           </div>
         </form>
