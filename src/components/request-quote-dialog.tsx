@@ -7,7 +7,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
@@ -353,12 +352,12 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-lg p-0">
         <DialogHeader>
             <DialogTitle className="sr-only">Request a Quote</DialogTitle>
         </DialogHeader>
+        {step > 0 && !isSubmitted && <Progress value={progress} className="h-2" />}
         <div className="p-6 md:p-8">
-            {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 mb-6" />}
             {renderStepContent()}
         </div>
       </DialogContent>
