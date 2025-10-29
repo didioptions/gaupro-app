@@ -82,7 +82,7 @@ const allProfessionals = {
             yearsInBusiness: 9,
             employees: 4,
             isProVerified: true,
-            serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "alberton"],
+            serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton"],
             reviewData: [
                 { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." },
                 { author: "Sarah J.", phone: "082****112", rating: 5, comment: "Fantastic service! The team was friendly, efficient, and very professional. They cleared out our garden refuse in no time. I'll definitely use them again." },
@@ -222,7 +222,7 @@ export default function ServicePage() {
     const baseProfessionals = (allProfessionals as any)[currentService] || allProfessionals.default;
     
     const professionals = baseProfessionals
-        .filter((pro: any) => pro.serviceLocations && pro.serviceLocations.includes(locationQuery))
+        .filter((pro: any) => !locationQuery || (pro.serviceLocations && pro.serviceLocations.includes(locationQuery)))
         .map((pro: any) => ({
             ...pro,
             description: pro.description.replace('{service}', singularOrPluralLowercase),
@@ -329,7 +329,7 @@ export default function ServicePage() {
                                                         <div className="text-left sm:text-right">
                                                             <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
                                                             <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                                            <Button variant="outline" className="mt-4 w-full sm:w-auto">View Profile</Button>
+                                                            <Button variant="outline" className="mt-4 w-full sm:w-auto">Request a Quote</Button>
                                                         </div>
                                                     </div>
                                                     {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.slice(0, 1).map((review: any, index: number) => (
