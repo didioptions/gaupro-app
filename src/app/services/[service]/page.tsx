@@ -310,44 +310,46 @@ export default function ServicePage() {
                                     const imageHint = proImage ? proImage.imageHint : "company logo";
 
                                     return (
-                                        <Link key={pro.id} href={`/pro/${pro.id}?service=${currentService}`} className="block">
-                                            <Card className="bg-card hover:shadow-lg transition-shadow">
-                                                <CardContent className="p-6">
-                                                    <div className="grid sm:grid-cols-4 gap-6">
-                                                        <div className="sm:col-span-3">
-                                                            <div className="flex items-start gap-4">
-                                                                <Image src={imageUrl} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint={imageHint} />
-                                                                <div>
-                                                                    <h3 className="text-xl text-foreground">{pro.name}</h3>
-                                                                    <p className="text-sm text-muted-foreground">{pro.location}</p>
-                                                                    <p className="text-sm mt-2 text-foreground">
-                                                                        {renderDescription(pro)}
-                                                                    </p>
-                                                                </div>
+                                        <Card key={pro.id} className="bg-card hover:shadow-lg transition-shadow">
+                                            <CardContent className="p-6">
+                                                <div className="grid sm:grid-cols-4 gap-6">
+                                                    <div className="sm:col-span-3">
+                                                        <div className="flex items-start gap-4">
+                                                            <Image src={imageUrl} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint={imageHint} />
+                                                            <div>
+                                                                <Link href={`/pro/${pro.id}?service=${currentService}`} className="hover:underline">
+                                                                  <h3 className="text-xl text-foreground">{pro.name}</h3>
+                                                                </Link>
+                                                                <p className="text-sm text-muted-foreground">{pro.location}</p>
+                                                                <p className="text-sm mt-2 text-foreground">
+                                                                    {renderDescription(pro)}
+                                                                </p>
                                                             </div>
                                                         </div>
-                                                        <div className="text-left sm:text-right">
-                                                            <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
-                                                            <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                                            <Button variant="outline" className="mt-4 w-full sm:w-auto">Request a Quote</Button>
-                                                        </div>
                                                     </div>
-                                                    {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.slice(0, 1).map((review: any, index: number) => (
-                                                    <div key={index} className="mt-4 pt-4 border-t">
-                                                        <div className="flex items-center gap-2">
-                                                            <div className="flex">
-                                                                {[...Array(5)].map((_, i) => (
-                                                                    <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
-                                                                ))}
-                                                            </div>
-                                                            <p className="text-sm text-muted-foreground">by {review.author}{review.phone && `, ${review.phone}`}</p>
-                                                        </div>
-                                                        <p className="text-sm text-foreground mt-2 italic">"{review.comment}"</p>
+                                                    <div className="text-left sm:text-right">
+                                                        <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
+                                                        <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
+                                                        <Button asChild variant="outline" className="mt-4 w-full sm:w-auto">
+                                                            <Link href={`/post-request?service=${currentService}`}>Request a Quote</Link>
+                                                        </Button>
                                                     </div>
-                                                    ))}
-                                                </CardContent>
-                                            </Card>
-                                        </Link>
+                                                </div>
+                                                {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.slice(0, 1).map((review: any, index: number) => (
+                                                <div key={index} className="mt-4 pt-4 border-t">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="flex">
+                                                            {[...Array(5)].map((_, i) => (
+                                                                <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
+                                                            ))}
+                                                        </div>
+                                                        <p className="text-sm text-muted-foreground">by {review.author}{review.phone && `, ${review.phone}`}</p>
+                                                    </div>
+                                                    <p className="text-sm text-foreground mt-2 italic">"{review.comment}"</p>
+                                                </div>
+                                                ))}
+                                            </CardContent>
+                                        </Card>
                                     )
                                 }) : (
                                     <Card>
