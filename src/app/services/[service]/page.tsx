@@ -16,6 +16,7 @@ import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
+import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 const allProfessionals = {
     movers: [
@@ -330,9 +331,14 @@ export default function ServicePage() {
                                                     <div className="text-left sm:text-right">
                                                         <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
                                                         <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                                        <Button asChild variant="outline" className="mt-4 w-full sm:w-auto">
-                                                            <Link href={`/post-request?service=${currentService}`}>Request a Quote</Link>
-                                                        </Button>
+                                                        <RequestQuoteDialog
+                                                          service={currentService}
+                                                          initialStep={0}
+                                                        >
+                                                            <Button variant="outline" className="mt-4 w-full sm:w-auto">
+                                                                Request a Quote
+                                                            </Button>
+                                                        </RequestQuoteDialog>
                                                     </div>
                                                 </div>
                                                 {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.slice(0, 1).map((review: any, index: number) => (

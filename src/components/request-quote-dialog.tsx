@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -63,7 +64,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
 
   const questions = questionSet?.questions || [];
   const totalSteps = (questions?.length || 0); // Total steps doesn't include service selection
-  const progress = step > 0 ? ((step) / (totalSteps -1)) * 100 : 0;
+  const progress = step > 0 ? ((step) / (totalSteps)) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
     (img) => img.id === `${selectedService}-image`.replace('-service', '')
@@ -352,10 +353,10 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-2xl">
-          <CardContent className="p-6 md:p-8">
+          <div className="p-6 md:p-8">
               {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 mb-6" />}
               {renderStepContent()}
-          </CardContent>
+          </div>
       </DialogContent>
     </Dialog>
   );
