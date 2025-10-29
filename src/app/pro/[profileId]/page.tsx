@@ -29,7 +29,7 @@ export default function ProfessionalProfilePage() {
       if (proData && serviceQuery) {
         const singularOrPluralLowercase = serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`;
         proData.tags = [proData.description.match(/{service}/) ? singularOrPluralLowercase : 'general services'];
-        proDara.description = proData.description.replace('{service}', singularOrPluralLowercase);
+        proData.description = proData.description.replace('{service}', singularOrPluralLowercase);
       }
       
       setProfessional(proData);
