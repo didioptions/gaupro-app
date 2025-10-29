@@ -13,6 +13,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Star, ShieldCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, Globe, AlertTriangle } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 export default function ProfessionalProfilePage() {
   const params = useParams();
@@ -39,7 +41,11 @@ export default function ProfessionalProfilePage() {
   if (!professional) {
     // You can return a loading skeleton here
     return (
+      <>
+        <Header />
         <div className="container mx-auto px-4 py-12">Loading...</div>
+        <Footer />
+      </>
     );
   }
 
@@ -49,6 +55,7 @@ export default function ProfessionalProfilePage() {
   
   return (
     <>
+      <Header />
       <main className="bg-secondary/50">
         <div className="container mx-auto px-4 py-12">
           <div className="grid lg:grid-cols-3 gap-8">
@@ -214,6 +221,7 @@ export default function ProfessionalProfilePage() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

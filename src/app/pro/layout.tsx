@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect } from 'react';
@@ -31,6 +32,7 @@ export default function ProLayout({
 
   // If the route is public, just render the children (e.g., login, register, or profile page)
   if (isPublicProRoute) {
+    // The profile page now includes its own Header and Footer, so we don't need to wrap it here.
     return <>{children}</>;
   }
   
