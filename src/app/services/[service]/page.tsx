@@ -34,7 +34,7 @@ const allProfessionals = {
     ],
     default: [
         {
-            name: "Pro Services Inc.",
+            name: "East Rand Waste & Pool Service Pty Ltd",
             description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal and demolitions.",
             rating: 4.6,
             reviews: 42,
@@ -48,14 +48,14 @@ const allProfessionals = {
             avatarSeed: "general-solutions"
         },
         {
-            name: "Quick Fix Pros",
+            name: "Skip Boys",
             description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance.",
             rating: 4.2,
             reviews: 18,
             avatarSeed: "quick-fix-pros"
         },
         {
-            name: "Expert Connect",
+            name: "Themba Rubble Removers",
             description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions and large-scale removals.",
             rating: 4.9,
             reviews: 76,
@@ -141,7 +141,7 @@ export default function ServicePage({ params, searchParams }: { params: { servic
                 <section className="py-16 bg-background">
                     <div className="container mx-auto px-4">
                          <div className="text-center md:text-left mb-8">
-                            <p className="text-sm text-muted-foreground">Small &gt; {locationName} &gt; {pluralServiceLabel}</p>
+                            <p className="text-sm text-muted-foreground">Small > {locationName} > {pluralServiceLabel}</p>
                             <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
