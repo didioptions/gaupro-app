@@ -35,7 +35,6 @@ const allProfessionals = {
     default: [
         {
             name: "Pro Services Inc.",
-            location: "Rosebank, Johannesburg",
             description: "Your trusted experts for quality service. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small.",
             rating: 4.6,
             reviews: 42,
@@ -43,11 +42,31 @@ const allProfessionals = {
         },
         {
             name: "General Solutions Pty",
-            location: "Rosebank, Johannesburg",
             description: "A new, fresh, exciting company who will handle all your needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction.",
             rating: 0.0,
             reviews: 0,
             avatarSeed: "general-solutions"
+        },
+        {
+            name: "Quick Fix Pros",
+            description: "Reliable and efficient services for all your needs. We pride ourselves on quick response times and high-quality workmanship.",
+            rating: 4.2,
+            reviews: 18,
+            avatarSeed: "quick-fix-pros"
+        },
+        {
+            name: "Expert Connect",
+            description: "Connecting you with top-tier experts. Our network of professionals is vetted for skill and reliability.",
+            rating: 4.9,
+            reviews: 76,
+            avatarSeed: "expert-connect"
+        },
+        {
+            name: "Elite Services Group",
+            description: "Providing premium services with a focus on customer satisfaction. For projects that require a touch of excellence.",
+            rating: 4.5,
+            reviews: 31,
+            avatarSeed: "elite-services"
         }
     ]
 };
@@ -70,8 +89,17 @@ export default function ServicePage({ params, searchParams }: { params: { servic
     const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
     const singularOrPluralLowercase = serviceLabel.endsWith('s') ? serviceLabel.toLowerCase() : `${serviceLabel.toLowerCase()}s`;
 
-    // Dynamically choose professionals based on service
-    const professionals = allProfessionals[params.service as keyof typeof allProfessionals] || allProfessionals.default;
+    const locationName = typeof locationQuery === 'string'
+        ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        : "Johannesburg";
+
+    // Dynamically choose professionals based on service and add the location
+    const baseProfessionals = allProfessionals[params.service as keyof typeof allProfessionals] || allProfessionals.default;
+    const professionals = baseProfessionals.map(pro => ({
+        ...pro,
+        location: `${locationName}`,
+    }));
+
 
     // Dynamically find the image for the service
     const serviceImageId = `${params.service}-image`.replace('-service', '');
@@ -81,11 +109,6 @@ export default function ServicePage({ params, searchParams }: { params: { servic
     if (!heroImage) {
         heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
     }
-
-    const locationName = typeof locationQuery === 'string'
-        ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-        : "Johannesburg";
-
 
     return (
         <>
