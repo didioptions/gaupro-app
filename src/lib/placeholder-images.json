@@ -125,6 +125,12 @@
       "description": "Logo for Skip Boys company.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/CompressJPEG.Online_img(80x80).jpg?alt=media&token=8168093f-54be-4847-ade5-70edad0d1767",
       "imageHint": "company logo"
+    },
+    {
+      "id": "themba-rubble-removers-logo",
+      "description": "Logo for Themba Rubble Removers company.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_Themba%20Rubble%20Removers.PNG?alt=media&token=4a19ff0d-71d6-471d-ad01-301973c1d348",
+      "imageHint": "company logo"
     }
   ]
 }

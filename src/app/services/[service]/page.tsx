@@ -59,7 +59,7 @@ const allProfessionals = {
             description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions and large-scale removals.",
             rating: 4.9,
             reviews: 76,
-            avatarSeed: "expert-connect"
+            avatarSeed: "themba-rubble-removers-logo"
         },
         {
             name: "Elite Services Group",
