@@ -29,7 +29,7 @@ export default function ProfessionalProfilePage() {
       if (proData && serviceQuery) {
         const singularOrPluralLowercase = serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`;
         proData.tags = [proData.description.match(/{service}/) ? singularOrPluralLowercase : 'general services'];
-        proData.description = proData.description.replace('{service}', singularOrPluralLowercase);
+        proDara.description = proData.description.replace('{service}', singularOrPluralLowercase);
       }
       
       setProfessional(proData);
@@ -93,18 +93,49 @@ export default function ProfessionalProfilePage() {
                         <TabsList>
                             <TabsTrigger value="overview">Overview</TabsTrigger>
                             <TabsTrigger value="photos">Photos</TabsTrigger>
-                            <TabsTrigger value="reviews">Reviews</TabsTrigger>
+                            <TabsTrigger value="reviews">Reviews ({professional.reviewData.length})</TabsTrigger>
                             <TabsTrigger value="qa">Q & A</TabsTrigger>
                         </TabsList>
                         <TabsContent value="overview">
                             <Card>
                                 <CardContent className="p-6 space-y-4">
-                                    <p>{professional.description}</p>
-                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                        {professional.photos.map((photo: string, index: number) => (
-                                            <Image key={index} src={photo} alt={`${professional.name} work photo ${index + 1}`} width={200} height={150} className="rounded-md object-cover aspect-video" data-ai-hint="project photo" />
-                                        ))}
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-2">About Us</h3>
+                                        <p>{professional.description}</p>
                                     </div>
+                                    
+                                    {professional.photos && professional.photos.length > 0 &&
+                                    <div className="pt-4">
+                                        <h3 className="font-semibold text-lg mb-2">Photos</h3>
+                                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                            {professional.photos.slice(0, 4).map((photo: string, index: number) => (
+                                                <Image key={index} src={photo} alt={`${professional.name} work photo ${index + 1}`} width={200} height={150} className="rounded-md object-cover aspect-video" data-ai-hint="project photo" />
+                                            ))}
+                                        </div>
+                                    </div>
+                                    }
+                                    
+                                    {professional.reviewData && professional.reviewData.length > 0 &&
+                                    <div className="pt-4">
+                                        <h3 className="font-semibold text-lg mb-4">Latest Reviews</h3>
+                                        <div className="space-y-6">
+                                            {professional.reviewData.slice(0, 5).map((review: any, index: number) => (
+                                                <div key={index} className="border-b pb-6 last:border-b-0 last:pb-0">
+                                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                                        <div className="flex">
+                                                            {[...Array(5)].map((_, i) => (
+                                                                <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
+                                                            ))}
+                                                        </div>
+                                                        <span>by {review.author} {review.phone}</span>
+                                                        <Badge variant="secondary" className="bg-green-100 text-green-800">verified</Badge>
+                                                    </div>
+                                                    <p className="mt-2 italic">"{review.comment}"</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    }
                                 </CardContent>
                             </Card>
                         </TabsContent>
@@ -165,7 +196,7 @@ export default function ProfessionalProfilePage() {
                     </CardHeader>
                     <CardContent className="text-sm space-y-3">
                         <p className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0"/>{professional.address}</p>
-                        <p>(click to view)</p>
+                        <p className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 flex-shrink-0"/>061****434</p>
                         <Button variant="outline" className="w-full mt-2"><AlertTriangle className="h-4 w-4 mr-2" /> Report Error</Button>
                     </CardContent>
                 </Card>

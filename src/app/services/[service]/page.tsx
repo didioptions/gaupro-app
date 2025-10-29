@@ -81,12 +81,13 @@ const allProfessionals = {
             yearsInBusiness: 9,
             employees: 4,
             isProVerified: true,
-            reviewData: [{
-                author: "Katleho",
-                phone: "061****434",
-                rating: 5,
-                comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team."
-            }],
+            reviewData: [
+                { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." },
+                { author: "Sarah J.", phone: "082****112", rating: 5, comment: "Fantastic service! The team was friendly, efficient, and very professional. They cleared out our garden refuse in no time. I'll definitely use them again." },
+                { author: "Mike L.", phone: "071****334", rating: 4, comment: "Good, reliable service for skip hire. The skip was delivered and collected on time. My only suggestion would be better communication on the day of collection." },
+                { author: "Anonymous", phone: "", rating: 5, comment: "Hired them for a site clearing project. They did an amazing job and went above and beyond to ensure the area was completely clean. Highly recommended for any large-scale removal." },
+                { author: "Jennifer P.", phone: "084****556", rating: 5, comment: "We had a lot of old furniture and appliances to get rid of after moving. East Rand Waste made it so easy. They gave a fair quote and the team was incredibly helpful." }
+            ],
              photos: [
                 "https://picsum.photos/seed/waste1/600/400",
                 "https://picsum.photos/seed/waste2/600/400",
@@ -238,7 +239,7 @@ export default function ServicePage() {
                 <>
                     {pro.description}
                     {pro.description.length > 150 && (
-                         <button onClick={() => toggleDescription(pro.name)} className="text-red-600 font-semibold ml-1">...show less</button>
+                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleDescription(pro.name); }} className="text-red-600 font-semibold ml-1">...show less</button>
                     )}
                 </>
             );
@@ -246,7 +247,7 @@ export default function ServicePage() {
         return (
             <>
                 {pro.description.substring(0, 150)}
-                <button onClick={() => toggleDescription(pro.name)} className="text-red-600 font-semibold ml-1">...show more</button>
+                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleDescription(pro.name); }} className="text-red-600 font-semibold ml-1">...show more</button>
             </>
         );
     };
@@ -309,8 +310,7 @@ export default function ServicePage() {
                                                                     <h3 className="text-xl text-foreground">{pro.name}</h3>
                                                                     <p className="text-sm text-muted-foreground">{pro.location}</p>
                                                                     <p className="text-sm mt-2 text-foreground">
-                                                                        {pro.description.substring(0, 150)}
-                                                                        {pro.description.length > 150 && '...'}
+                                                                        {renderDescription(pro)}
                                                                     </p>
                                                                 </div>
                                                             </div>
