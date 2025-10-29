@@ -73,6 +73,7 @@ const allProfessionals = {
         {
             id: "east-rand-waste",
             name: "East Rand Waste & Pool Service Pty Ltd",
+            location: "Alberton",
             description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
             reviews: 42,
@@ -81,6 +82,7 @@ const allProfessionals = {
             yearsInBusiness: 9,
             employees: 4,
             isProVerified: true,
+            serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "alberton"],
             reviewData: [
                 { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." },
                 { author: "Sarah J.", phone: "082****112", rating: 5, comment: "Fantastic service! The team was friendly, efficient, and very professional. They cleared out our garden refuse in no time. I'll definitely use them again." },
@@ -99,6 +101,7 @@ const allProfessionals = {
         {
             id: "general-solutions-pty",
             name: "General Solutions Pty",
+            location: "Germiston",
             description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
             rating: 0.0,
             reviews: 0,
@@ -107,6 +110,7 @@ const allProfessionals = {
             yearsInBusiness: 1,
             employees: 2,
             isProVerified: false,
+            serviceLocations: ["germiston", "bedfordview", "edenvale"],
             reviewData: [],
             photos: [],
             avatarSeed: "general-solutions"
@@ -114,6 +118,7 @@ const allProfessionals = {
         {
             id: "skip-boys",
             name: "Skip Boys",
+            location: "Boksburg",
             description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
             rating: 4.2,
             reviews: 18,
@@ -122,6 +127,7 @@ const allProfessionals = {
             yearsInBusiness: 3,
             employees: 5,
             isProVerified: true,
+            serviceLocations: ["boksburg", "benoni", "kempton-park", "springs"],
             reviewData: [{
                 author: "Anonymous",
                 phone: "",
@@ -137,6 +143,7 @@ const allProfessionals = {
         {
             id: "themba-rubble-removers",
             name: "Themba Rubble Removers",
+            location: "Soweto",
             description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
             rating: 4.9,
             reviews: 76,
@@ -145,6 +152,7 @@ const allProfessionals = {
             yearsInBusiness: 12,
             employees: 8,
             isProVerified: true,
+            serviceLocations: ["soweto", "johannesburg"],
             reviewData: [{
                 author: "Sarah P.",
                 phone: "072****123",
@@ -161,6 +169,7 @@ const allProfessionals = {
         {
             id: "elite-services-group",
             name: "Elite Services Group",
+            location: "Sandton",
             description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
             rating: 4.5,
             reviews: 31,
@@ -169,6 +178,7 @@ const allProfessionals = {
             yearsInBusiness: 7,
             employees: 15,
             isProVerified: true,
+            serviceLocations: ["sandton", "rosebank", "bryanston"],
             reviewData: [{
                 author: "Mike",
                 phone: "083****789",
@@ -207,15 +217,16 @@ export default function ServicePage() {
 
     const locationName = typeof locationQuery === 'string'
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-        : "Johannesburg";
+        : "South Africa";
 
     const baseProfessionals = (allProfessionals as any)[currentService] || allProfessionals.default;
     
-    const professionals = baseProfessionals.map((pro: any) => ({
-        ...pro,
-        location: `${locationName}`,
-        description: pro.description.replace('{service}', singularOrPluralLowercase),
-    }));
+    const professionals = baseProfessionals
+        .filter((pro: any) => pro.serviceLocations && pro.serviceLocations.includes(locationQuery))
+        .map((pro: any) => ({
+            ...pro,
+            description: pro.description.replace('{service}', singularOrPluralLowercase),
+        }));
 
     const serviceImageId = `${currentService}-image`.replace('-service', '');
     let heroImage = CategoryImages.find(p => p.id === serviceImageId);
@@ -293,7 +304,7 @@ export default function ServicePage() {
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
-                                {professionals.map(pro => {
+                                {professionals.length > 0 ? professionals.map(pro => {
                                     const proImage = PlaceHolderImages.find(p => p.id === pro.avatarSeed);
                                     const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${pro.avatarSeed}/80/80`;
                                     const imageHint = proImage ? proImage.imageHint : "company logo";
@@ -338,7 +349,14 @@ export default function ServicePage() {
                                             </Card>
                                         </Link>
                                     )
-                                })}
+                                }) : (
+                                    <Card>
+                                        <CardContent className="p-6 text-center">
+                                            <p className="text-lg text-muted-foreground">No professionals found for "{pluralServiceLabel}" in {locationName}.</p>
+                                            <p className="mt-2">Try widening your search or check back soon!</p>
+                                        </CardContent>
+                                    </Card>
+                                )}
                             </div>
                             <aside className="space-y-8">
                                 <Card className="bg-card">
