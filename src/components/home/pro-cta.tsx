@@ -25,6 +25,7 @@ export default function ProCta() {
                 alt={ctaImage?.description || "Professional with tools"}
                 fill
                 className="object-cover"
+                objectPosition="center bottom"
                 data-ai-hint={ctaImage?.imageHint || "professional tools"}
               />
             </div>
