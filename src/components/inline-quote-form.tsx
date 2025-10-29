@@ -58,7 +58,7 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
     <Card className="bg-white/90 backdrop-blur-sm text-card-foreground p-6">
       <CardContent className="p-0">
         <div className="flex justify-between items-start">
-            <h2 className="text-2xl font-bold mb-1">Get quotes for {pluralServiceLabel.toLowerCase()} in {location}</h2>
+            <h2 className="text-2xl mb-1">Get quotes for {pluralServiceLabel.toLowerCase()} in {location}</h2>
             <Badge variant="secondary" className="bg-teal-100 text-teal-800 border-teal-200 whitespace-nowrap">37 near you</Badge>
         </div>
         <p className="text-muted-foreground mb-4 text-sm">Answer a few questions and we’ll connect you with the best pros for {pluralServiceLabel.toLowerCase()} near you.</p>
