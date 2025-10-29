@@ -1,11 +1,12 @@
 
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import {
   Dialog,
   DialogContent,
+  DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -353,10 +354,13 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-2xl">
-          <div className="p-6 md:p-8">
-              {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 mb-6" />}
-              {renderStepContent()}
-          </div>
+        <DialogHeader>
+            <DialogTitle className="sr-only">Request a Quote</DialogTitle>
+        </DialogHeader>
+        <div className="p-6 md:p-8">
+            {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 mb-6" />}
+            {renderStepContent()}
+        </div>
       </DialogContent>
     </Dialog>
   );
