@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,12 +20,12 @@ export default function ProCta() {
                 <Link href="/pro/signup">Start Getting Leads</Link>
               </Button>
             </div>
-            <div className="relative h-64 md:h-full min-h-[300px]">
+            <div className="relative h-64 md:h-full min-h-[300px] bg-primary/80">
               <Image
                 src={ctaImage?.imageUrl || "https://picsum.photos/seed/pro-tools/800/600"}
                 alt={ctaImage?.description || "Professional with tools"}
                 fill
-                className="object-cover"
+                className="object-contain"
                 data-ai-hint={ctaImage?.imageHint || "professional tools"}
               />
             </div>
