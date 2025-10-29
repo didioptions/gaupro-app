@@ -21,13 +21,15 @@ export default function ProCta() {
               </Button>
             </div>
             <div className="relative h-64 md:h-full min-h-[300px]">
-              <Image
-                src={ctaImage?.imageUrl || "https://picsum.photos/seed/pro-tools/800/600"}
-                alt={ctaImage?.description || "Professional with tools"}
-                fill
-                className="object-contain"
-                data-ai-hint={ctaImage?.imageHint || "professional tools"}
-              />
+              {ctaImage && (
+                <Image
+                  src={ctaImage.imageUrl}
+                  alt={ctaImage.description}
+                  fill
+                  className="object-contain"
+                  data-ai-hint={ctaImage.imageHint}
+                />
+              )}
             </div>
           </div>
         </div>
