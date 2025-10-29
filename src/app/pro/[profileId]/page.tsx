@@ -6,8 +6,6 @@ import { getProfessionalById } from '@/app/services/[service]/page';
 import { notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -41,11 +39,7 @@ export default function ProfessionalProfilePage() {
   if (!professional) {
     // You can return a loading skeleton here
     return (
-        <>
-            <Header />
-            <div className="container mx-auto px-4 py-12">Loading...</div>
-            <Footer />
-        </>
+        <div className="container mx-auto px-4 py-12">Loading...</div>
     );
   }
 
@@ -55,7 +49,6 @@ export default function ProfessionalProfilePage() {
   
   return (
     <>
-      <Header />
       <main className="bg-secondary/50">
         <div className="container mx-auto px-4 py-12">
           <div className="grid lg:grid-cols-3 gap-8">
@@ -172,8 +165,7 @@ export default function ProfessionalProfilePage() {
                     </CardHeader>
                     <CardContent className="text-sm space-y-3">
                         <p className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0"/>{professional.address}</p>
-                        <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> 086 123 4567 (click to view)</p>
-                        {professional.website && <p className="flex items-center gap-2"><Globe className="h-4 w-4" /><a href={`https://${professional.website}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{professional.website}</a></p>}
+                        <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> (click to view)</p>
                         <Button variant="outline" className="w-full mt-2"><AlertTriangle className="h-4 w-4 mr-2" /> Report Error</Button>
                     </CardContent>
                 </Card>
@@ -191,7 +183,6 @@ export default function ProfessionalProfilePage() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }
