@@ -35,35 +35,35 @@ const allProfessionals = {
     default: [
         {
             name: "Pro Services Inc.",
-            description: "Your trusted experts for quality service. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small.",
+            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal and demolitions.",
             rating: 4.6,
             reviews: 42,
             avatarSeed: "pro-services-inc"
         },
         {
             name: "General Solutions Pty",
-            description: "A new, fresh, exciting company who will handle all your needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction.",
+            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing.",
             rating: 0.0,
             reviews: 0,
             avatarSeed: "general-solutions"
         },
         {
             name: "Quick Fix Pros",
-            description: "Reliable and efficient services for all your needs. We pride ourselves on quick response times and high-quality workmanship.",
+            description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance.",
             rating: 4.2,
             reviews: 18,
             avatarSeed: "quick-fix-pros"
         },
         {
             name: "Expert Connect",
-            description: "Connecting you with top-tier experts. Our network of professionals is vetted for skill and reliability.",
+            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions and large-scale removals.",
             rating: 4.9,
             reviews: 76,
             avatarSeed: "expert-connect"
         },
         {
             name: "Elite Services Group",
-            description: "Providing premium services with a focus on customer satisfaction. For projects that require a touch of excellence.",
+            description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal.",
             rating: 4.5,
             reviews: 31,
             avatarSeed: "elite-services"
@@ -98,6 +98,7 @@ export default function ServicePage({ params, searchParams }: { params: { servic
     const professionals = baseProfessionals.map(pro => ({
         ...pro,
         location: `${locationName}`,
+        description: pro.description.replace('{service}', singularOrPluralLowercase),
     }));
 
 
