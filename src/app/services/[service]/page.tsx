@@ -1,5 +1,8 @@
 
 
+'use client';
+
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -21,6 +24,12 @@ const allProfessionals = {
             description: "Your reliable moving partner for local and long-distance relocations. We offer packing, transport, and storage services to make your move stress-free. Our team is trained, professional, and ready to assist.",
             rating: 4.8,
             reviews: 125,
+            reviewData: [{
+                author: "Richard",
+                phone: "061****434",
+                rating: 5,
+                comment: "They came through prepared to work. They did an excellent job. I am happy with their services I even gave a tip. Hard workers too. Arrived in Kimberley on time."
+            }],
             avatarSeed: "swift-moves"
         },
         {
@@ -29,43 +38,74 @@ const allProfessionals = {
             description: "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
             rating: 4.7,
             reviews: 88,
+            reviewData: [{
+                author: "Jane D.",
+                phone: "082****567",
+                rating: 4,
+                comment: "Good service, but they were a bit late. Otherwise, the move went smoothly and nothing was damaged."
+            }],
             avatarSeed: "joburg-movers"
         }
     ],
     default: [
         {
             name: "East Rand Waste & Pool Service Pty Ltd",
-            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal and demolitions.",
+            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
             reviews: 42,
+            reviewData: [{
+                author: "Richard",
+                phone: "061****434",
+                rating: 5,
+                comment: "They came through prepared to work. They did an excellent job. I am happy with their services I even gave a tip. Hard workers too. Arrived in Kimberley on time."
+            }],
             avatarSeed: "pro-services-inc"
         },
         {
             name: "General Solutions Pty",
-            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing.",
+            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
             rating: 0.0,
             reviews: 0,
+            reviewData: [],
             avatarSeed: "general-solutions"
         },
         {
             name: "Skip Boys",
-            description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance.",
+            description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
             rating: 4.2,
             reviews: 18,
+            reviewData: [{
+                author: "Anonymous",
+                phone: "",
+                rating: 4,
+                comment: "Good service and fair pricing. The skip was delivered on time. Would use them again."
+            }],
             avatarSeed: "skip-boys-logo"
         },
         {
             name: "Themba Rubble Removers",
-            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions and large-scale removals.",
+            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
             rating: 4.9,
             reviews: 76,
+            reviewData: [{
+                author: "Sarah P.",
+                phone: "072****123",
+                rating: 5,
+                comment: "Extremely professional and efficient. They cleared my site in half the expected time. Highly recommended!"
+            }],
             avatarSeed: "themba-rubble-removers-logo"
         },
         {
             name: "Elite Services Group",
-            description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal.",
+            description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
             rating: 4.5,
             reviews: 31,
+            reviewData: [{
+                author: "Mike",
+                phone: "083****789",
+                rating: 5,
+                comment: "Very happy with the service. They were professional from start to finish."
+            }],
             avatarSeed: "elite-services"
         }
     ]
@@ -81,11 +121,11 @@ const priceEstimates = [
 
 export default function ServicePage({ params, searchParams }: { params: { service: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
     const locationQuery = searchParams?.location;
+    const [expandedDescriptions, setExpandedDescriptions] = useState<string[]>([]);
 
     const service = allServices.find(s => s.value === params.service);
     const serviceLabel = service?.label || params.service.charAt(0).toUpperCase() + params.service.slice(1);
     
-    // Improved pluralization
     const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
     const singularOrPluralLowercase = serviceLabel.endsWith('s') ? serviceLabel.toLowerCase() : `${serviceLabel.toLowerCase()}s`;
 
@@ -93,7 +133,6 @@ export default function ServicePage({ params, searchParams }: { params: { servic
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "Johannesburg";
 
-    // Dynamically choose professionals based on service and add the location
     const baseProfessionals = allProfessionals[params.service as keyof typeof allProfessionals] || allProfessionals.default;
     const professionals = baseProfessionals.map(pro => ({
         ...pro,
@@ -101,15 +140,40 @@ export default function ServicePage({ params, searchParams }: { params: { servic
         description: pro.description.replace('{service}', singularOrPluralLowercase),
     }));
 
-
-    // Dynamically find the image for the service
     const serviceImageId = `${params.service}-image`.replace('-service', '');
     let heroImage = CategoryImages.find(p => p.id === serviceImageId);
     
-    // Fallback to a default placeholder if no specific image is found
     if (!heroImage) {
         heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
     }
+
+    const toggleDescription = (name: string) => {
+        if (expandedDescriptions.includes(name)) {
+            setExpandedDescriptions(expandedDescriptions.filter(n => n !== name));
+        } else {
+            setExpandedDescriptions([...expandedDescriptions, name]);
+        }
+    };
+    
+    const renderDescription = (pro: typeof professionals[0]) => {
+        const isExpanded = expandedDescriptions.includes(pro.name);
+        if (isExpanded || pro.description.length <= 150) {
+            return (
+                <>
+                    {pro.description}
+                    {pro.description.length > 150 && (
+                         <button onClick={() => toggleDescription(pro.name)} className="text-red-600 font-semibold ml-1">...show less</button>
+                    )}
+                </>
+            );
+        }
+        return (
+            <>
+                {pro.description.substring(0, 150)}
+                <button onClick={() => toggleDescription(pro.name)} className="text-red-600 font-semibold ml-1">...show more</button>
+            </>
+        );
+    };
 
     return (
         <>
@@ -129,7 +193,7 @@ export default function ServicePage({ params, searchParams }: { params: { servic
                      <div className="absolute inset-0 bg-black/60" />
                      <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                         <div className="hidden md:block">
-                          <h1 className="text-4xl md:text-5xl font-extrabold">Get Quotes for {pluralServiceLabel}</h1>
+                          <h1 className="text-4xl md:text-5xl font-extrabold">{pluralServiceLabel}</h1>
                           <p className="mt-4 text-lg text-white/90">
                               Get matched with top-rated, verified professionals in your area.
                           </p>
@@ -161,22 +225,32 @@ export default function ServicePage({ params, searchParams }: { params: { servic
                                                             <div>
                                                                 <h3 className="text-xl text-foreground">{pro.name}</h3>
                                                                 <p className="text-sm text-muted-foreground">{pro.location}</p>
-                                                                <p className="text-sm mt-2 text-foreground">{pro.description}</p>
+                                                                <p className="text-sm mt-2 text-foreground">{renderDescription(pro)}</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div className="text-left sm:text-right">
-                                                        <Badge className="text-base font-bold bg-green-100 text-green-800 border-green-200">{pro.rating.toFixed(1)}</Badge>
+                                                         <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
                                                         <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                                        <div className="flex items-center gap-0.5 mt-2 justify-start sm:justify-end">
-                                                            {[...Array(5)].map((_, i) => (
-                                                                <Star key={i} className={`h-4 w-4 ${pro.rating > i ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
-                                                            ))}
-                                                        </div>
                                                         <Button variant="outline" className="mt-4 w-full sm:w-auto">Request a Quote</Button>
                                                     </div>
                                                 </div>
-                                                 <p className="text-xs text-muted-foreground mt-4">Have you used this business? <Link href="#" className="underline">Write Review</Link></p>
+                                                {pro.reviewData && pro.reviewData.length > 0 && pro.reviewData.map((review, index) => (
+                                                <div key={index} className="mt-4 pt-4 border-t">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="flex">
+                                                            {[...Array(5)].map((_, i) => (
+                                                                <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
+                                                            ))}
+                                                        </div>
+                                                        <p className="text-sm text-muted-foreground">by {review.author}{review.phone && `, ${review.phone}`}</p>
+                                                    </div>
+                                                    <p className="text-sm text-foreground mt-2 italic">"{review.comment}"</p>
+                                                </div>
+                                                ))}
+                                                {pro.reviews === 0 && (
+                                                     <p className="text-xs text-muted-foreground mt-4">Have you used this business? <Link href="#" className="underline">Write Review</Link></p>
+                                                )}
                                             </CardContent>
                                         </Card>
                                     )
@@ -212,5 +286,3 @@ export default function ServicePage({ params, searchParams }: { params: { servic
         </>
     );
 }
-
-    
