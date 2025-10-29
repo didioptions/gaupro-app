@@ -59,7 +59,7 @@ export default function ProfessionalProfilePage() {
                         <div className="flex flex-col sm:flex-row gap-6">
                             <Image src={imageUrl} alt={professional.name} width={120} height={120} className="rounded-md border mx-auto sm:mx-0" data-ai-hint={imageHint} />
                             <div className="flex-grow">
-                                <h1 className="text-3xl font-bold">{professional.name}</h1>
+                                <h1 className="text-3xl">{professional.name}</h1>
                                 <p className="text-muted-foreground">{professional.location}</p>
                                 {professional.tags && (
                                   <div className="flex flex-wrap gap-2 mt-2">
@@ -165,7 +165,7 @@ export default function ProfessionalProfilePage() {
                     </CardHeader>
                     <CardContent className="text-sm space-y-3">
                         <p className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0"/>{professional.address}</p>
-                        <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> (click to view)</p>
+                        <p>(click to view)</p>
                         <Button variant="outline" className="w-full mt-2"><AlertTriangle className="h-4 w-4 mr-2" /> Report Error</Button>
                     </CardContent>
                 </Card>
