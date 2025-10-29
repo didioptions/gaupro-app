@@ -19,9 +19,9 @@ export default function ServicesByLocationPage({ params }: { params: { location:
       <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
             <header className="mb-10">
-                <h1 className="text-3xl font-normal mb-2">{locationName} Contractors and Professional Services</h1>
+                <h1 className="text-3xl font-normal mb-2">Find Trusted Service Professionals in {locationName}</h1>
                 <p className="text-muted-foreground max-w-4xl">
-                    Looking for a service professional in {locationName}? Gaupro has you covered, whether you're looking for a handyman, a contractor, an accountant or anything in between. With thousands of skilled professionals and businesses rated by {locationName} residents, you're sure to find what you need.
+                    Looking for reliable home or business services in {locationName}? Gaupro connects you with top-rated local professionals — from handymen, plumbers, and electricians to accountants and contractors. Discover over 575 verified experts and businesses, reviewed by real {locationName} residents. Compare quotes, check ratings, and hire with confidence today.
                 </p>
             </header>
             <div className="border p-6 md:p-10 rounded-lg">
