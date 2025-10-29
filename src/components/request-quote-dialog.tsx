@@ -183,7 +183,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
               </div>
             )}
             
-          <div className="py-8 min-h-[250px]">
+          <div className="py-4">
             <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
               <RadioGroup
@@ -354,7 +354,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-lg p-0">
-        <DialogHeader>
+        <DialogHeader className="p-0">
             <DialogTitle className="sr-only">Request a Quote</DialogTitle>
         </DialogHeader>
         {step > 0 && !isSubmitted && <Progress value={progress} className="h-2" />}
