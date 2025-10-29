@@ -24,6 +24,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { useSearchParams } from 'next/navigation';
+import { allLocations } from '@/lib/locations';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -39,6 +40,7 @@ export default function PostRequestPage() {
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [locationValue, setLocationValue] = useState('');
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === selectedService) ||
@@ -168,7 +170,7 @@ export default function PostRequestPage() {
       }
 
       const isNextButtonDisabled = () => {
-        if(currentQuestion.type === 'textarea') return false; // Allow empty textarea
+        if(currentQuestion.type === 'textarea' || currentQuestion.type === 'location') return false; // Allow empty textarea/location
         const value = formData[currentQuestion.id];
         if (currentQuestion.type === 'checkbox') {
           return !value || (Array.isArray(value) && value.length === 0);
@@ -251,6 +253,31 @@ export default function PostRequestPage() {
                   ))}
                 </div>
               )}
+             {currentQuestion.type === 'location' && (
+                <div className="space-y-4">
+                    <div>
+                        <Label htmlFor="city">City</Label>
+                        <Input 
+                            id="city" 
+                            placeholder="e.g. Johannesburg" 
+                            onChange={(e) => handleInputChange('city', e.target.value)}
+                            defaultValue={formData['city'] as string | undefined}
+                        />
+                    </div>
+                    <div>
+                        <Label htmlFor="suburb">Suburb</Label>
+                        <Autocomplete
+                            options={allLocations}
+                            value={locationValue}
+                            onValueChange={(value) => {
+                                setLocationValue(value);
+                                handleInputChange('suburb', value);
+                            }}
+                            placeholder="Type to search your suburb..."
+                        />
+                    </div>
+                </div>
+             )}
             {currentQuestion.id === 'urgency' && formData['urgency'] === 'specific_date' && (
               <Popover>
                 <PopoverTrigger asChild>

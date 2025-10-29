@@ -2,7 +2,7 @@
 export type Question = {
   id: string;
   text: string;
-  type: 'radio' | 'textarea' | 'text' | 'date' | 'checkbox';
+  type: 'radio' | 'textarea' | 'text' | 'date' | 'checkbox' | 'location';
   options?: { value: string; label: string }[];
   placeholder?: string;
 };
@@ -124,6 +124,12 @@ const jobDetailsQuestion: Question = {
     placeholder: 'e.g. My geyser is leaking from the top valve. It is a 150L Kwikot geyser...'
 };
 
+const locationQuestion: Question = {
+    id: 'location',
+    text: 'Where do you need this service?',
+    type: 'location',
+};
+
 const urgencyQuestion: Question = {
     id: 'urgency',
     text: 'When do you need this service?',
@@ -151,6 +157,7 @@ const budgetQuestion: Question = {
 
 const commonQuestions: Question[] = [
     jobDetailsQuestion,
+    locationQuestion,
     urgencyQuestion,
     budgetQuestion
 ];
