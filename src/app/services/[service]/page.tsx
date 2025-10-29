@@ -125,8 +125,10 @@ export default function ServicePage({ params }: { params: { service: string }}) 
     const locationQuery = searchParams.get('location');
     const [expandedDescriptions, setExpandedDescriptions] = useState<string[]>([]);
 
-    const service = allServices.find(s => s.value === params.service);
-    const serviceLabel = service?.label || params.service.charAt(0).toUpperCase() + params.service.slice(1);
+    const currentService = params.service;
+
+    const service = allServices.find(s => s.value === currentService);
+    const serviceLabel = service?.label || currentService.charAt(0).toUpperCase() + currentService.slice(1);
     
     const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
     const singularOrPluralLowercase = serviceLabel.endsWith('s') ? serviceLabel.toLowerCase() : `${serviceLabel.toLowerCase()}s`;
@@ -135,14 +137,14 @@ export default function ServicePage({ params }: { params: { service: string }}) 
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "Johannesburg";
 
-    const baseProfessionals = allProfessionals[params.service as keyof typeof allProfessionals] || allProfessionals.default;
+    const baseProfessionals = allProfessionals[currentService as keyof typeof allProfessionals] || allProfessionals.default;
     const professionals = baseProfessionals.map(pro => ({
         ...pro,
         location: `${locationName}`,
         description: pro.description.replace('{service}', singularOrPluralLowercase),
     }));
 
-    const serviceImageId = `${params.service}-image`.replace('-service', '');
+    const serviceImageId = `${currentService}-image`.replace('-service', '');
     let heroImage = CategoryImages.find(p => p.id === serviceImageId);
     
     if (!heroImage) {
@@ -200,7 +202,7 @@ export default function ServicePage({ params }: { params: { service: string }}) 
                               Get matched with top-rated, verified professionals in your area.
                           </p>
                         </div>
-                        <InlineQuoteForm service={params.service} location={locationName} />
+                        <InlineQuoteForm service={currentService} location={locationName} />
                      </div>
                 </section>
 
