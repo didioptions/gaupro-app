@@ -295,8 +295,8 @@ const allProfessionals = {
             reviewData: [{
                 author: "Mike",
                 phone: "083****789",
-                rating: 5,
-                comment: "Very happy with the service. They were professional from start to finish."
+                "rating": 5,
+                "comment": "Very happy with the service. They were professional from start to finish."
             }],
             photos: [],
             avatarSeed: "elite-services"
@@ -388,6 +388,18 @@ export default function ServicePage() {
             const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${pro.avatarSeed}/80/80`;
             const imageHint = proImage ? proImage.imageHint : "company logo";
 
+            const dialog = (
+              <RequestQuoteDialog
+                service={currentService}
+                initialStep={0}
+                initialData={{}}
+              >
+                <Button variant="outline" className="mt-4 w-full sm:w-auto">
+                  Request a Quote
+                </Button>
+              </RequestQuoteDialog>
+            );
+
             return (
                 <Card key={pro.id} className="bg-card hover:shadow-lg transition-shadow">
                     <CardContent className="p-6">
@@ -409,15 +421,7 @@ export default function ServicePage() {
                             <div className="text-left sm:text-right">
                                 <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
                                 <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                <RequestQuoteDialog
-                                  service={currentService}
-                                  initialStep={0}
-                                  initialData={{}}
-                                >
-                                    <Button variant="outline" className="mt-4 w-full sm:w-auto">
-                                        Request a Quote
-                                    </Button>
-                                </RequestQuoteDialog>
+                                {dialog}
                             </div>
                         </div>
                         {pro.reviewData && pro.reviewData.length > 0 && (
@@ -437,6 +441,8 @@ export default function ServicePage() {
                 </Card>
             )
         });
+    // The dependency array should include `professionals` and `expandedDescriptions`
+    // because the output depends on them.
     }, [professionals, expandedDescriptions, currentService]);
 
     return (
@@ -513,3 +519,5 @@ export default function ServicePage() {
         </>
     );
 }
+
+    
