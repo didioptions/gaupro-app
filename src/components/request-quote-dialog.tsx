@@ -8,7 +8,6 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogClose,
 } from '@/components/ui/dialog';
 import {
   AlertDialog,
@@ -182,17 +181,19 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       return (
         <form onSubmit={(e) => { e.preventDefault(); handleNext(); }} className="flex flex-col h-full">
             <DialogHeader className='text-left p-4 border-b'>
-              <div className="flex items-center gap-4">
-                  {step > 0 && <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
-                    <ArrowLeft />
-                  </Button>}
-                   <div className={step === 0 ? 'w-full text-center' : ''}>
-                     <DialogTitle className="text-xl font-semibold">Request for {serviceLabel}</DialogTitle>
-                     <p className="text-muted-foreground text-sm">Step {step + 1} of {totalSteps + 1}</p>
-                   </div>
-              </div>
+                <DialogTitle>
+                  <div className="flex items-center gap-4">
+                      {step > 0 && <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
+                        <ArrowLeft />
+                      </Button>}
+                       <div className={step === 0 ? 'w-full text-center' : ''}>
+                         <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
+                         <p className="text-muted-foreground text-sm">Step {step + 1} of {totalSteps + 1}</p>
+                       </div>
+                  </div>
+                </DialogTitle>
             </DialogHeader>
-            <ScrollArea className="flex-grow">
+            <div className="flex-grow overflow-y-auto">
                 <div className="p-6">
                     {serviceImage && questionStepIndex === 0 && (
                       <div className="relative h-32 w-full mb-4">
@@ -308,7 +309,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                       />
                     )}
                 </div>
-            </ScrollArea>
+            </div>
           <div className="flex justify-between items-center p-4 border-t">
              {step > 0 ? <Button type="button" variant="ghost" onClick={handleBack}>
               Back
@@ -325,18 +326,19 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       return (
         <form onSubmit={handleSubmit} className="flex flex-col h-full">
           <DialogHeader className="text-left p-4 border-b">
-            <div className="flex items-center gap-4">
-              <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
-                <ArrowLeft />
-              </Button>
-              <div>
-                <DialogTitle className="text-xl font-semibold">We're almost done, we just need your details.</DialogTitle>
-                 <p className="text-muted-foreground text-sm">Step {totalSteps + 1} of {totalSteps + 1}</p>
-              </div>
-            </div>
+            <DialogTitle>
+                <div className="flex items-center gap-4">
+                <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
+                    <ArrowLeft />
+                </Button>
+                <div>
+                    <h2 className="text-xl font-semibold">We're almost done, we just need your details.</h2>
+                    <p className="text-muted-foreground text-sm">Step {totalSteps + 1} of {totalSteps + 1}</p>
+                </div>
+                </div>
+            </DialogTitle>
           </DialogHeader>
-          <ScrollArea className="flex-grow">
-            <div className="p-6 space-y-4">
+          <div className="flex-grow p-6 space-y-4 overflow-y-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Input
@@ -383,8 +385,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                       I agree to Gaupro’s <Link href="/terms" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
                   </Label>
               </div>
-            </div>
-          </ScrollArea>
+          </div>
           <div className="flex justify-between items-center p-4 border-t">
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
@@ -403,10 +404,10 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-lg p-0 border-0 flex flex-col h-[90vh] max-h-[700px] overflow-hidden">
+      <DialogContent className="sm:max-w-lg p-0 border-0 flex flex-col h-[90vh] max-h-[700px]">
         <AlertDialog>
           <AlertDialogTrigger asChild>
-             <button className="absolute right-2 top-2 z-10 p-2 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+             <button className="absolute right-4 top-3 z-10 p-2 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
                 <X className="h-4 w-4" />
                 <span className="sr-only">Close</span>
              </button>
@@ -421,13 +422,13 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
               <AlertDialogFooter>
                   <AlertDialogAction onClick={() => setOpen(false)}>Cancel Request</AlertDialogAction>
                   <AlertDialogCancel asChild>
-                    <Button variant="destructive">Continue Request</Button>
+                    <Button variant="outline">Continue Request</Button>
                   </AlertDialogCancel>
               </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
 
-        {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 rounded-none absolute top-0 left-0 right-0" />}
+        {step > 0 && !isSubmitted && <Progress value={progress} className="h-1 rounded-none absolute top-0 left-0 right-0" />}
         {renderStepContent()}
       </DialogContent>
     </Dialog>
