@@ -31,7 +31,7 @@ const allProfessionals = {
             "yearsInBusiness": 9,
             "employees": 4,
             "isProVerified": true,
-            "serviceLocations": ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton"],
+            "serviceLocations": ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton", "vereeniging"],
             "reviewData": [
                 { "author": "Katleho", "phone": "061****434", "rating": 5, "comment": "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." },
                 { "author": "Sarah J.", "phone": "082****112", "rating": 5, "comment": "Fantastic service! The team was friendly, efficient, and very professional. They cleared out our garden refuse in no time. I'll definitely use them again." }
@@ -55,7 +55,7 @@ const allProfessionals = {
             "yearsInBusiness": 3,
             "employees": 5,
             "isProVerified": true,
-            "serviceLocations": ["boksburg", "benoni", "kempton-park", "springs"],
+            "serviceLocations": ["boksburg", "benoni", "kempton-park", "springs", "vereeniging"],
             "reviewData": [{
                 "author": "Anonymous",
                 "phone": "",
@@ -79,7 +79,7 @@ const allProfessionals = {
             "yearsInBusiness": 12,
             "employees": 8,
             "isProVerified": true,
-            "serviceLocations": ["soweto", "johannesburg"],
+            "serviceLocations": ["soweto", "johannesburg", "vereeniging"],
             "reviewData": [{
                 "author": "Sarah P.",
                 "phone": "072****123",
@@ -104,7 +104,7 @@ const allProfessionals = {
             "yearsInBusiness": 1,
             "employees": 2,
             "isProVerified": false,
-            "serviceLocations": ["germiston", "bedfordview", "edenvale"],
+            "serviceLocations": ["germiston", "bedfordview", "edenvale", "vereeniging"],
             "reviewData": [],
             "photos": [],
             "avatarSeed": "general-solutions"
@@ -120,7 +120,7 @@ const allProfessionals = {
             "yearsInBusiness": 7,
             "employees": 15,
             "isProVerified": true,
-            "serviceLocations": ["sandton", "rosebank", "bryanston"],
+            "serviceLocations": ["sandton", "rosebank", "bryanston", "vereeniging"],
             "reviewData": [{
                 "author": "Mike",
                 "phone": "083****789",
@@ -160,20 +160,20 @@ const allProfessionals = {
         {
             id: "joburg-movers-co",
             name: "Joburg Movers Co.",
-            location: "Sandton, Johannesburg",
-            address: "456 Rivonia Road, Sandton, Johannesburg",
-            website: "www.joburgmovers.co.za",
-            description: "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
-            rating: 4.7,
-            reviews: 88,
-            yearsInBusiness: 8,
-            employees: 20,
-            isProVerified: true,
-            reviewData: [{
+            "location": "Sandton, Johannesburg",
+            "address": "456 Rivonia Road, Sandton, Johannesburg",
+            "website": "www.joburgmovers.co.za",
+            "description": "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
+            "rating": 4.7,
+            "reviews": 88,
+            "yearsInBusiness": 8,
+            "employees": 20,
+            "isProVerified": true,
+            "reviewData": [{
                 author: "Jane D.",
                 phone: "082****567",
-                rating: 4,
-                comment: "Good service, but they were a bit late. Otherwise, the move went smoothly and nothing was damaged."
+                "rating": 4,
+                "comment": "Good service, but they were a bit late. Otherwise, the move went smoothly and nothing was damaged."
             }],
              photos: [
                 "https://picsum.photos/seed/mover4/600/400",
@@ -186,11 +186,11 @@ const allProfessionals = {
         {
             id: "east-rand-waste",
             name: "East Rand Waste & Pool Service Pty Ltd",
-            location: "Alberton",
-            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
-            rating: 4.6,
-            reviews: 42,
-            address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
+            "location": "Alberton",
+            "description": "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
+            "rating": 4.6,
+            "reviews": 42,
+            "address": "16 Porth Pean Street, New Redruth, Alberton - 1449",
             
             yearsInBusiness: 9,
             employees: 4,
@@ -209,97 +209,97 @@ const allProfessionals = {
                 "https://picsum.photos/seed/waste3/600/400",
                 "https://picsum.photos/seed/waste4/600/400",
             ],
-            avatarSeed: "pro-services-inc"
+            avatarSeed": "pro-services-inc"
         },
         {
             id: "general-solutions-pty",
-            name: "General Solutions Pty",
-            location: "Germiston",
-            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
-            rating: 0.0,
-            reviews: 0,
-            address: "789 Industrial Rd, Germiston",
+            name": "General Solutions Pty",
+            "location": "Germiston",
+            "description": "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
+            "rating": 0.0,
+            "reviews": 0,
+            "address": "789 Industrial Rd, Germiston",
             
-            yearsInBusiness: 1,
-            employees: 2,
-            isProVerified: false,
-            serviceLocations: ["germiston", "bedfordview", "edenvale"],
-            reviewData: [],
-            photos: [],
-            avatarSeed: "general-solutions"
+            yearsInBusiness": 1,
+            employees": 2,
+            isProVerified": false,
+            "serviceLocations": ["germiston", "bedfordview", "edenvale"],
+            "reviewData": [],
+            "photos": [],
+            "avatarSeed": "general-solutions"
         },
         {
             id: "skip-boys",
-            name: "Skip Boys",
-            location: "Boksburg",
-            description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
-            rating: 4.2,
-            reviews: 18,
-            address: "101 Skip Avenue, Boksburg",
+            name": "Skip Boys",
+            "location": "Boksburg",
+            "description": "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
+            "rating": 4.2,
+            "reviews": 18,
+            "address": "101 Skip Avenue, Boksburg",
             
-            yearsInBusiness: 3,
-            employees: 5,
-            isProVerified: true,
-            serviceLocations: ["boksburg", "benoni", "kempton-park", "springs"],
-            reviewData: [{
-                author: "Anonymous",
-                phone: "",
-                rating: 4,
-                comment: "Good service and fair pricing. The skip was delivered on time. Would use them again."
+            yearsInBusiness": 3,
+            "employees": 5,
+            "isProVerified": true,
+            "serviceLocations": ["boksburg", "benoni", "kempton-park", "springs"],
+            "reviewData": [{
+                "author": "Anonymous",
+                "phone": "",
+                "rating": 4,
+                "comment": "Good service and fair pricing. The skip was delivered on time. Would use them again."
             }],
              photos: [
                 "https://picsum.photos/seed/skip1/600/400",
                 "https://picsum.photos/seed/skip2/600/400",
             ],
-            avatarSeed: "skip-boys-logo"
+            "avatarSeed": "skip-boys-logo"
         },
         {
             id: "themba-rubble-removers",
-            name: "Themba Rubble Removers",
-            location: "Soweto",
-            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
-            rating: 4.9,
-            reviews: 76,
-            address: "24 Worker's Way, Soweto",
+            "name": "Themba Rubble Removers",
+            "location": "Soweto",
+            "description": "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
+            "rating": 4.9,
+            "reviews": 76,
+            "address": "24 Worker's Way, Soweto",
             
-            yearsInBusiness: 12,
-            employees: 8,
-            isProVerified: true,
-            serviceLocations: ["soweto", "johannesburg"],
-            reviewData: [{
-                author: "Sarah P.",
-                phone: "072****123",
-                rating: 5,
-                comment: "Extremely professional and efficient. They cleared my site in half the expected time. Highly recommended!"
+            yearsInBusiness": 12,
+            "employees": 8,
+            "isProVerified": true,
+            "serviceLocations": ["soweto", "johannesburg"],
+            "reviewData": [{
+                "author": "Sarah P.",
+                "phone": "072****123",
+                "rating": 5,
+                "comment": "Extremely professional and efficient. They cleared my site in half the expected time. Highly recommended!"
             }],
              photos: [
                 "https://picsum.photos/seed/rubble1/600/400",
                 "https://picsum.photos/seed/rubble2/600/400",
                 "https://picsum.photos/seed/rubble3/600/400",
             ],
-            avatarSeed: "themba-rubble-removers-logo"
+            "avatarSeed": "themba-rubble-removers-logo"
         },
         {
             id: "elite-services-group",
-            name: "Elite Services Group",
-            location: "Sandton",
-            description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
-            rating: 4.5,
-            reviews: 31,
-            address: "55 Elite Crescent, Sandton",
+            "name": "Elite Services Group",
+            "location": "Sandton",
+            "description": "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
+            "rating": 4.5,
+            "reviews": 31,
+            "address": "55 Elite Crescent, Sandton",
             
-            yearsInBusiness: 7,
-            employees: 15,
-            isProVerified: true,
-            serviceLocations: ["sandton", "rosebank", "bryanston"],
-            reviewData: [{
-                author: "Mike",
-                phone: "083****789",
+            yearsInBusiness": 7,
+            "employees": 15,
+            isProVerified": true,
+            "serviceLocations": ["sandton", "rosebank", "bryanston"],
+            "reviewData": [{
+                "author": "Mike",
+                "phone": "083****789",
                 "rating": 5,
                 "comment": "Very happy with the service. They were professional from start to finish."
             }],
-            photos: [],
-            avatarSeed: "elite-services"
+            "photos": [],
+            "avatarSeed": "elite-services"
         }
     ]
 };
@@ -394,9 +394,11 @@ export default function ServicePage() {
                 initialStep={0}
                 initialData={{}}
               >
-                <Button variant="outline" className="mt-4 w-full sm:w-auto">
-                  Request a Quote
-                </Button>
+                 <DialogTrigger asChild>
+                    <Button variant="outline" className="mt-4 w-full sm:w-auto">
+                      Request a Quote
+                    </Button>
+                  </DialogTrigger>
               </RequestQuoteDialog>
             );
 
@@ -519,5 +521,7 @@ export default function ServicePage() {
         </>
     );
 }
+
+    
 
     
