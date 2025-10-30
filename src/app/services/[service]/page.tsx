@@ -789,6 +789,18 @@ export default function ServicePage() {
     // because the output depends on them.
     }, [professionals, expandedDescriptions, currentService]);
 
+    const introText = currentService === 'builders' && locationName.toLowerCase().includes('johannesburg') 
+        ? (
+            <div className="my-8 text-foreground prose prose-lg max-w-none">
+                <h2 className="text-2xl font-semibold">Building Dreams Across Johannesburg with Trusted Building Contractors</h2>
+                <p>Building your dream home or renovating a property takes time, dedication, and a reliable team. In Johannesburg, homeowners and businesses can choose from hundreds of professional building contractors — but finding the right one makes all the difference.</p>
+                <p>At GauPro, we connect you with verified builders and construction experts who deliver quality workmanship, honest communication, and attention to detail. Whether you need a small repair, home extension, or complete building project, our contractors are ready to bring your vision to life.</p>
+                <p>Many also provide finishing and interior services, such as tiling, plastering, and painting, to give your kitchen, bathroom, or office space the perfect final touch.</p>
+            </div>
+        )
+        : null;
+
+
     return (
         <>
             <Header />
@@ -820,6 +832,7 @@ export default function ServicePage() {
                     <div className="container mx-auto px-4">
                          <div className="text-center md:text-left mb-8">
                             <p className="text-sm text-muted-foreground">Small > {locationName} > {pluralServiceLabel}</p>
+                             {introText}
                             <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
@@ -867,6 +880,7 @@ export default function ServicePage() {
     
 
     
+
 
 
 
