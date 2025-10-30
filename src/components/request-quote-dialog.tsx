@@ -123,7 +123,9 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     if (isSubmitted) {
       return (
         <div className="text-center py-8">
-          <h2 className="text-2xl font-bold mb-4">✅ Your Request Has Been Received</h2>
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold mb-4">✅ Your Request Has Been Received</DialogTitle>
+          </DialogHeader>
           <div className="text-foreground space-y-4 text-left">
             <p>
               Thanks for posting your job on Gaupro — we’re already matching you with trusted local professionals.
@@ -164,17 +166,17 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
 
       return (
         <form onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
-            <header className='text-left'>
-              <div className="flex items-center gap-4 mb-4">
+            <DialogHeader className='text-left mb-4'>
+              <div className="flex items-center gap-4">
                   {step > 0 && <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                     <ArrowLeft />
                   </Button>}
                   <div className={step === 0 ? 'w-full text-center' : ''}>
-                    <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
-                    <p className="text-muted-foreground">Step {step + 1} of {totalSteps + 1}</p>
+                    <DialogTitle className="text-xl font-semibold">Request for {serviceLabel}</DialogTitle>
+                    <p className="text-muted-foreground text-sm">Step {step + 1} of {totalSteps + 1}</p>
                   </div>
               </div>
-            </header>
+            </DialogHeader>
 
             {serviceImage && questionStepIndex === 0 && (
               <div className="relative h-32 w-full mb-4">
@@ -306,17 +308,17 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     if (isFinalStep) {
       return (
         <form onSubmit={handleSubmit}>
-          <header className="text-left">
-            <div className="flex items-center gap-4 mb-4">
+          <DialogHeader className="text-left mb-4">
+            <div className="flex items-center gap-4">
               <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
               </Button>
               <div>
-                <h2 className="text-xl font-semibold">We're almost done, we just need your details.</h2>
-                 <p className="text-muted-foreground">Step {totalSteps + 1} of {totalSteps + 1}</p>
+                <DialogTitle className="text-xl font-semibold">We're almost done, we just need your details.</DialogTitle>
+                 <p className="text-muted-foreground text-sm">Step {totalSteps + 1} of {totalSteps + 1}</p>
               </div>
             </div>
-          </header>
+          </DialogHeader>
           <div className="py-8 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -388,9 +390,11 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
         </DialogClose>
-        {step > 0 && !isSubmitted && <Progress value={progress} className="h-2" />}
-        <div className="p-4 md:p-6">
-            {renderStepContent()}
+        <div className="space-y-4">
+            {step > 0 && !isSubmitted && <Progress value={progress} className="h-2" />}
+            <div className="p-4 md:p-6 pt-0">
+                {renderStepContent()}
+            </div>
         </div>
       </DialogContent>
     </Dialog>
