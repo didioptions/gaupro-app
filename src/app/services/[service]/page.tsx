@@ -724,6 +724,18 @@ export default function ServicePage() {
       'The most expensive price is R10500',
     ];
 
+    const introText = currentService === 'builders'
+    ? (
+        <div className="my-8 text-foreground prose-lg max-w-none space-y-4">
+            <h2 className="text-2xl font-normal">Building Dreams Across {locationName} with Trusted Building Contractors</h2>
+            <p>Building your dream home or renovating a property takes time, dedication, and a reliable team. In {locationName}, homeowners and businesses can choose from hundreds of professional building contractors — but finding the right one makes all the difference.</p>
+            <div className="mb-4" /> 
+            <p>At GauPro, we connect you with verified builders and construction experts who deliver quality workmanship, honest communication, and attention to detail. Whether you need a small repair, home extension, or complete building project, our contractors are ready to bring your vision to life.</p>
+            <p>Many also provide finishing and interior services, such as tiling, plastering, and painting, to give your kitchen, bathroom, or office space the perfect final touch.</p>
+        </div>
+    )
+    : null;
+
     const memoizedProfessionals = useMemo(() => {
         return professionals.map(pro => {
             const proImage = PlaceHolderImages.find(p => p.id === pro.avatarSeed);
@@ -788,17 +800,7 @@ export default function ServicePage() {
     // The dependency array should include `professionals` and `expandedDescriptions`
     // because the output depends on them.
     }, [professionals, expandedDescriptions, currentService]);
-
-    const introText = currentService === 'builders' && locationName.toLowerCase().includes('johannesburg') 
-        ? (
-            <div className="my-8 text-foreground prose-lg max-w-none space-y-4">
-                <h2 className="text-2xl font-normal">Building Dreams Across Johannesburg with Trusted Building Contractors</h2>
-                <p>Building your dream home or renovating a property takes time, dedication, and a reliable team. In Johannesburg, homeowners and businesses can choose from hundreds of professional building contractors — but finding the right one makes all the difference.</p>
-                <p>At GauPro, we connect you with verified builders and construction experts who deliver quality workmanship, honest communication, and attention to detail. Whether you need a small repair, home extension, or complete building project, our contractors are ready to bring your vision to life.</p>
-                <p>Many also provide finishing and interior services, such as tiling, plastering, and painting, to give your kitchen, bathroom, or office space the perfect final touch.</p>
-            </div>
-        )
-        : null;
+    
 
 
     return (
@@ -880,6 +882,7 @@ export default function ServicePage() {
     
 
     
+
 
 
 
