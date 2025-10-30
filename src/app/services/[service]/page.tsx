@@ -229,7 +229,7 @@ const allProfessionals = {
             reviewData: [{
                 author: "Chris V.",
                 phone: "079****888",
-                rating": 4,
+                rating: 4,
                 comment: "They were very fast as their name suggests. A bit pricey but worth it for the speed."
             }],
             photos: [],
@@ -625,3 +625,4 @@ export default function ServicePage() {
     
 
     
+
