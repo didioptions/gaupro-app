@@ -102,8 +102,8 @@ const allProfessionals = {
             reviews: 0,
             address: "789 Industrial Rd, Germiston",
             yearsInBusiness: 1,
-            employees": 2,
-            isProVerified": false,
+            employees: 2,
+            isProVerified: false,
             serviceLocations: ["germiston", "bedfordview", "edenvale"],
             reviewData: [],
             photos: [],
@@ -114,12 +114,12 @@ const allProfessionals = {
             name: "Elite Services Group",
             location: "Sandton",
             description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
-            rating": 4.5,
+            rating: 4.5,
             reviews: 31,
             address: "55 Elite Crescent, Sandton",
             yearsInBusiness: 7,
             employees: 15,
-            isProVerified": true,
+            isProVerified: true,
             serviceLocations: ["sandton", "rosebank", "bryanston"],
             reviewData: [{
                 author: "Mike",
@@ -138,9 +138,9 @@ const allProfessionals = {
             rating: 4.8,
             reviews: 55,
             address: "10 Steel Rd, Vereeniging",
-            yearsInBusiness": 8,
-            employees": 6,
-            isProVerified": true,
+            yearsInBusiness: 8,
+            employees: 6,
+            isProVerified: true,
             serviceLocations: ["vereeniging"],
             reviewData: [{
                 author: "Busi",
@@ -149,7 +149,7 @@ const allProfessionals = {
                 comment: "Quick and efficient! The team cleared my entire backyard in just a few hours. Very impressed."
             }],
             photos: ["https://picsum.photos/seed/vaal1/600/400"],
-            avatarSeed": "vaal-pros-logo"
+            avatarSeed: "vaal-pros-logo"
         },
         {
             id: "vereeniging-waste-solutions",
@@ -159,81 +159,81 @@ const allProfessionals = {
             rating: 4.5,
             reviews: 30,
             address: "22 Union St, Vereeniging",
-            yearsInBusiness": 5,
-            employees": 4,
-            isProVerified": true,
-            serviceLocations": ["vereeniging"],
-            reviewData": [{
+            yearsInBusiness: 5,
+            employees: 4,
+            isProVerified: true,
+            serviceLocations: ["vereeniging"],
+            reviewData: [{
                 author: "John D.",
                 phone: "073****123",
-                rating": 5,
-                comment": "Reliable service. They dropped off the skip on time and collected it as soon as I called. Will use them again."
+                rating: 5,
+                comment: "Reliable service. They dropped off the skip on time and collected it as soon as I called. Will use them again."
             }],
-            photos": ["https://picsum.photos/seed/vaal2/600/400"],
-            avatarSeed": "vereeniging-waste-logo"
+            photos: ["https://picsum.photos/seed/vaal2/600/400"],
+            avatarSeed: "vereeniging-waste-logo"
         },
         {
             id: "3-rivers-disposal",
             name: "Three Rivers Disposal",
-            location": "Vereeniging",
-            description": "Your go-to for affordable and quick {service}. Based in Three Rivers, we proudly serve the entire Vereeniging area for all site clearing and waste disposal needs.",
+            location: "Vereeniging",
+            description: "Your go-to for affordable and quick {service}. Based in Three Rivers, we proudly serve the entire Vereeniging area for all site clearing and waste disposal needs.",
             rating: 4.6,
             reviews: 41,
-            address": "88 River Rd, Three Rivers, Vereeniging",
-            yearsInBusiness": 6,
-            employees": 5,
-            isProVerified": true,
-            serviceLocations": ["vereeniging"],
-            reviewData": [{
+            address: "88 River Rd, Three Rivers, Vereeniging",
+            yearsInBusiness: 6,
+            employees: 5,
+            isProVerified: true,
+            serviceLocations: ["vereeniging"],
+            reviewData: [{
                 author: "Anonymous",
-                phone": "",
-                rating": 4,
-                comment": "Good price and they got the job done. Communication could be a bit better, but overall happy with the result."
+                phone: "",
+                rating: 4,
+                comment: "Good price and they got the job done. Communication could be a bit better, but overall happy with the result."
             }],
-            photos": [],
-            avatarSeed": "3-rivers-logo"
+            photos: [],
+            avatarSeed: "3-rivers-logo"
         },
         {
             id: "mzanzi-clean-sites",
             name: "Mzanzi Clean Sites",
-            location": "Vereeniging",
-            description": "Proudly South African {service}. We offer residential and commercial site clearing services across Vereeniging, ensuring a clean and safe environment for your next project.",
+            location: "Vereeniging",
+            description: "Proudly South African {service}. We offer residential and commercial site clearing services across Vereeniging, ensuring a clean and safe environment for your next project.",
             rating: 4.9,
-            reviews": 68,
-            address": "100 Main Reef Rd, Vereeniging",
-            yearsInBusiness": 10,
-            employees": 10,
-            isProVerified": true,
-            serviceLocations": ["vereeniging"],
-            reviewData": [{
-                author": "Lerato M.",
-                phone": "062****555",
-                rating": 5,
-                comment": "Absolutely fantastic service. Professional, friendly, and left my property spotless. Highly recommend Mzanzi Clean Sites!"
+            reviews: 68,
+            address: "100 Main Reef Rd, Vereeniging",
+            yearsInBusiness: 10,
+            employees: 10,
+            isProVerified: true,
+            serviceLocations: ["vereeniging"],
+            reviewData: [{
+                author: "Lerato M.",
+                phone: "062****555",
+                rating: 5,
+                comment: "Absolutely fantastic service. Professional, friendly, and left my property spotless. Highly recommend Mzanzi Clean Sites!"
             }],
-            photos": ["https://picsum.photos/seed/vaal3/600/400", "https://picsum.photos/seed/vaal4/600/400"],
-            avatarSeed": "mzanzi-clean-logo"
+            photos: ["https://picsum.photos/seed/vaal3/600/400", "https://picsum.photos/seed/vaal4/600/400"],
+            avatarSeed: "mzanzi-clean-logo"
         },
         {
             id: "speedy-site-clearers",
             name: "Speedy Site Clearers",
-            location": "Vereeniging",
-            description": "Need it gone now? We offer the fastest {service} in Vereeniging. Perfect for urgent clear-outs and post-renovation cleanups. Call us for a quick quote!",
+            location: "Vereeniging",
+            description: "Need it gone now? We offer the fastest {service} in Vereeniging. Perfect for urgent clear-outs and post-renovation cleanups. Call us for a quick quote!",
             rating: 4.3,
             reviews: 25,
-            address": "45 Industrial Ave, Vereeniging",
-            yearsInBusiness": 2,
-            employees": 3,
-            isProVerified": false,
-            serviceLocations": ["vereeniging"],
-            reviewData": [{
-                author": "Chris V.",
-                phone": "079****888",
+            address: "45 Industrial Ave, Vereeniging",
+            yearsInBusiness: 2,
+            employees: 3,
+            isProVerified: false,
+            serviceLocations: ["vereeniging"],
+            reviewData: [{
+                author: "Chris V.",
+                phone: "079****888",
                 rating": 4,
-                comment": "They were very fast as their name suggests. A bit pricey but worth it for the speed."
+                comment: "They were very fast as their name suggests. A bit pricey but worth it for the speed."
             }],
-            photos": [],
-            avatarSeed": "speedy-clear-logo"
+            photos: [],
+            avatarSeed: "speedy-clear-logo"
         }
     ],
     movers: [
@@ -265,20 +265,20 @@ const allProfessionals = {
         {
             id: "joburg-movers-co",
             name: "Joburg Movers Co.",
-            "location": "Sandton, Johannesburg",
-            "address": "456 Rivonia Road, Sandton, Johannesburg",
-            "website": "www.joburgmovers.co.za",
-            "description": "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
-            "rating": 4.7,
-            "reviews": 88,
-            "yearsInBusiness": 8,
-            "employees": 20,
-            "isProVerified": true,
-            "reviewData": [{
+            location: "Sandton, Johannesburg",
+            address: "456 Rivonia Road, Sandton, Johannesburg",
+            website: "www.joburgmovers.co.za",
+            description: "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
+            rating: 4.7,
+            reviews: 88,
+            yearsInBusiness: 8,
+            employees: 20,
+            isProVerified: true,
+            reviewData: [{
                 author: "Jane D.",
                 phone: "082****567",
-                "rating": 4,
-                "comment": "Good service, but they were a bit late. Otherwise, the move went smoothly and nothing was damaged."
+                rating: 4,
+                comment: "Good service, but they were a bit late. Otherwise, the move went smoothly and nothing was damaged."
             }],
              photos: [
                 "https://picsum.photos/seed/mover4/600/400",
@@ -296,7 +296,6 @@ const allProfessionals = {
             rating: 4.6,
             reviews: 42,
             address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
-            
             yearsInBusiness: 9,
             employees: 4,
             isProVerified: true,
@@ -324,7 +323,6 @@ const allProfessionals = {
             rating: 0.0,
             reviews: 0,
             address: "789 Industrial Rd, Germiston",
-            
             yearsInBusiness: 1,
             employees: 2,
             isProVerified: false,
@@ -341,7 +339,6 @@ const allProfessionals = {
             rating: 4.2,
             reviews: 18,
             address: "101 Skip Avenue, Boksburg",
-            
             yearsInBusiness: 3,
             employees: 5,
             isProVerified: true,
@@ -364,10 +361,9 @@ const allProfessionals = {
             location: "Soweto",
             description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
             rating: 4.9,
-            reviews": 76,
+            reviews: 76,
             address: "24 Worker's Way, Soweto",
-            
-            yearsInBusiness": 12,
+            yearsInBusiness: 12,
             employees: 8,
             isProVerified: true,
             serviceLocations: ["soweto", "johannesburg"],
@@ -392,7 +388,6 @@ const allProfessionals = {
             rating: 4.5,
             reviews: 31,
             address: "55 Elite Crescent, Sandton",
-            
             yearsInBusiness: 7,
             employees: 15,
             isProVerified: true,
@@ -630,4 +625,3 @@ export default function ServicePage() {
     
 
     
-
