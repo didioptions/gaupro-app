@@ -8,9 +8,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from '@/components/ui/progress';
 import { Label } from '@/components/ui/label';
@@ -27,6 +28,8 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import { Autocomplete } from './ui/autocomplete';
+import { allLocations } from '@/lib/locations';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -47,6 +50,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [locationValue, setLocationValue] = useState('');
 
   useEffect(() => {
     // When the dialog opens, reset to the initial state
@@ -56,6 +60,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       setFormData(initialData);
       setIsSubmitted(false);
       setAgreedToTerms(false);
+      setLocationValue('');
     }
   }, [open, initialStep, service, initialData]);
 
@@ -149,7 +154,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       }
 
       const isNextButtonDisabled = () => {
-        if (currentQuestion.type === 'textarea') return false; // allow empty textarea
+        if (currentQuestion.type === 'textarea' || currentQuestion.type === 'location') return false; // allow empty textarea/location
         const value = formData[currentQuestion.id];
         if (currentQuestion.type === 'checkbox') {
           return !value || (Array.isArray(value) && value.length === 0);
@@ -183,7 +188,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
               </div>
             )}
             
-          <div className="py-4">
+          <div className="py-4 min-h-[250px]">
             <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
               <RadioGroup
@@ -232,6 +237,31 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                   ))}
                 </div>
               )}
+            {currentQuestion.type === 'location' && (
+                <div className="space-y-4">
+                    <div>
+                        <Label htmlFor="city">City</Label>
+                        <Input 
+                            id="city" 
+                            placeholder="e.g. Johannesburg" 
+                            onChange={(e) => handleInputChange('city', e.target.value)}
+                            defaultValue={formData['city'] as string | undefined}
+                        />
+                    </div>
+                    <div>
+                        <Label htmlFor="suburb">Suburb</Label>
+                        <Autocomplete
+                            options={allLocations}
+                            value={locationValue}
+                            onValueChange={(value) => {
+                                setLocationValue(value);
+                                handleInputChange('suburb', value);
+                            }}
+                            placeholder="Type to search your suburb..."
+                        />
+                    </div>
+                </div>
+             )}
             {currentQuestion.id === 'urgency' && formData['urgency'] === 'specific_date' && (
               <Popover>
                 <PopoverTrigger asChild>
@@ -353,12 +383,13 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-lg p-0">
-        <DialogHeader className="p-0">
-            <DialogTitle className="sr-only">Request a Quote</DialogTitle>
-        </DialogHeader>
+      <DialogContent className="sm:max-w-lg p-0 border-0">
+         <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground z-10">
+            <X className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+        </DialogClose>
         {step > 0 && !isSubmitted && <Progress value={progress} className="h-2" />}
-        <div className="p-6 md:p-8">
+        <div className="p-4 md:p-6">
             {renderStepContent()}
         </div>
       </DialogContent>
