@@ -31,7 +31,7 @@ const allProfessionals = {
             yearsInBusiness: 9,
             employees: 4,
             isProVerified: true,
-            serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton"],
+            serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton", "midrand", "sandton"],
             reviewData: [
                 { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." },
                 { author: "Sarah J.", phone: "082****112", rating: 5, comment: "Fantastic service! The team was friendly, efficient, and very professional. They cleared out our garden refuse in no time. I'll definitely use them again." }
@@ -55,7 +55,7 @@ const allProfessionals = {
             yearsInBusiness: 3,
             employees: 5,
             isProVerified: true,
-            serviceLocations: ["boksburg", "benoni", "kempton-park", "springs"],
+            serviceLocations: ["boksburg", "benoni", "kempton-park", "springs", "midrand", "germiston"],
             reviewData: [{
                 author: "Anonymous",
                 phone: "",
@@ -79,7 +79,7 @@ const allProfessionals = {
             yearsInBusiness: 12,
             employees: 8,
             isProVerified: true,
-            serviceLocations: ["soweto", "johannesburg"],
+            serviceLocations: ["soweto", "johannesburg", "midrand", "sandton", "roodepoort"],
             reviewData: [{
                 author: "Sarah P.",
                 phone: "072****123",
@@ -104,7 +104,7 @@ const allProfessionals = {
             yearsInBusiness: 1,
             employees: 2,
             isProVerified: false,
-            serviceLocations: ["germiston", "bedfordview", "edenvale"],
+            serviceLocations: ["germiston", "bedfordview", "edenvale", "midrand"],
             reviewData: [],
             photos: [],
             avatarSeed: "general-solutions"
@@ -120,7 +120,7 @@ const allProfessionals = {
             yearsInBusiness: 7,
             employees: 15,
             isProVerified: true,
-            serviceLocations: ["sandton", "rosebank", "bryanston"],
+            serviceLocations: ["sandton", "rosebank", "bryanston", "midrand", "johannesburg", "pretoria"],
             reviewData: [{
                 author: "Mike",
                 phone: "083****789",
@@ -625,4 +625,5 @@ export default function ServicePage() {
     
 
     
+
 
