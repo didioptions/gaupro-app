@@ -394,13 +394,10 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
         </DialogClose>
-        <div className="flex flex-col flex-grow">
-            {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 rounded-none" />}
-            <div className="flex-grow overflow-y-auto">
-                {renderStepContent()}
-            </div>
-        </div>
+        {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 rounded-none" />}
+        {renderStepContent()}
       </DialogContent>
     </Dialog>
   );
 }
+
