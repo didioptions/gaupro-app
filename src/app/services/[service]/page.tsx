@@ -7,7 +7,7 @@ import { useSearchParams, useParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star } from 'lucide-react';
+import { Star, ChevronRight } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import Image from 'next/image';
@@ -726,7 +726,7 @@ export default function ServicePage() {
 
     const introText = currentService === 'builders'
     ? (
-        <div className="my-8 text-foreground prose-lg max-w-none space-y-4">
+        <div className="my-8 text-foreground prose prose-lg max-w-none space-y-4">
             <h2 className="text-2xl font-normal">Building Dreams Across {locationName} with Trusted Building Contractors</h2>
             <p>Building your dream home or renovating a property takes time, dedication, and a reliable team. In {locationName}, homeowners and businesses can choose from hundreds of professional building contractors — but finding the right one makes all the difference.</p>
             <div className="mb-4" /> 
@@ -833,7 +833,13 @@ export default function ServicePage() {
                 <section className="py-16 bg-background">
                     <div className="container mx-auto px-4">
                          <div className="text-center md:text-left mb-8">
-                            <p className="text-sm text-muted-foreground">Small > {locationName} > {pluralServiceLabel}</p>
+                            <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                                <Link href="/" className="hover:text-primary">Gaupro</Link>
+                                <ChevronRight className="h-4 w-4" />
+                                <Link href={`/services/in/${locationQuery}`} className="hover:text-primary">{locationName}</Link>
+                                <ChevronRight className="h-4 w-4" />
+                                <span className="font-medium text-foreground">{pluralServiceLabel}</span>
+                            </div>
                              {introText}
                             <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
                         </div>
@@ -882,6 +888,7 @@ export default function ServicePage() {
     
 
     
+
 
 
 
