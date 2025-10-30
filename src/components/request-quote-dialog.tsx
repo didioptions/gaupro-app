@@ -10,6 +10,18 @@ import {
   DialogTrigger,
   DialogClose,
 } from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
+
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, X } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
@@ -180,7 +192,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                    </div>
               </div>
             </DialogHeader>
-            <div className="flex-grow overflow-y-auto">
+            <ScrollArea className="flex-grow">
                 <div className="p-6">
                     {serviceImage && questionStepIndex === 0 && (
                       <div className="relative h-32 w-full mb-4">
@@ -296,7 +308,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                       />
                     )}
                 </div>
-            </div>
+            </ScrollArea>
           <div className="flex justify-between items-center p-4 border-t">
              {step > 0 ? <Button type="button" variant="ghost" onClick={handleBack}>
               Back
@@ -323,54 +335,56 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
               </div>
             </div>
           </DialogHeader>
-          <div className="p-6 space-y-4 flex-grow overflow-y-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Input
-                  id="firstName"
-                  placeholder="First Name"
-                  onChange={(e) => handleInputChange('firstName', e.target.value)}
-                  required
-                />
+          <ScrollArea className="flex-grow">
+            <div className="p-6 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Input
+                    id="firstName"
+                    placeholder="First Name"
+                    onChange={(e) => handleInputChange('firstName', e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Input
+                    id="lastName"
+                    placeholder="Last Name"
+                    onChange={(e) => handleInputChange('lastName', e.target.value)}
+                    required
+                  />
+                </div>
               </div>
               <div className="space-y-2">
                 <Input
-                  id="lastName"
-                  placeholder="Last Name"
-                  onChange={(e) => handleInputChange('lastName', e.target.value)}
+                  id="email"
+                  type="email"
+                  placeholder="Your Email Address"
+                  onChange={(e) => handleInputChange('email', e.target.value)}
                   required
                 />
               </div>
+               <div className="space-y-2">
+                  <Input
+                  id="phoneNumber"
+                  type="tel"
+                  placeholder="Your Cellphone Number"
+                  onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                  required
+                  />
+              </div>
+              <div className="flex items-start space-x-3 pt-4">
+                  <Checkbox 
+                      id="terms-dialog"
+                      checked={agreedToTerms}
+                      onCheckedChange={(checked) => setAgreedToTerms(!!checked)}
+                  />
+                  <Label htmlFor="terms-dialog" className="text-xs text-muted-foreground font-normal">
+                      I agree to Gaupro’s <Link href="/terms" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
+                  </Label>
+              </div>
             </div>
-            <div className="space-y-2">
-              <Input
-                id="email"
-                type="email"
-                placeholder="Your Email Address"
-                onChange={(e) => handleInputChange('email', e.target.value)}
-                required
-              />
-            </div>
-             <div className="space-y-2">
-                <Input
-                id="phoneNumber"
-                type="tel"
-                placeholder="Your Cellphone Number"
-                onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                required
-                />
-            </div>
-            <div className="flex items-start space-x-3 pt-4">
-                <Checkbox 
-                    id="terms-dialog"
-                    checked={agreedToTerms}
-                    onCheckedChange={(checked) => setAgreedToTerms(!!checked)}
-                />
-                <Label htmlFor="terms-dialog" className="text-xs text-muted-foreground font-normal">
-                    I agree to Gaupro’s <Link href="/terms" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
-                </Label>
-            </div>
-          </div>
+          </ScrollArea>
           <div className="flex justify-between items-center p-4 border-t">
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
@@ -389,15 +403,33 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-lg p-0 border-0 flex flex-col h-[90vh] max-h-[700px]">
-         <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground z-10">
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-        </DialogClose>
-        {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 rounded-none" />}
+      <DialogContent className="sm:max-w-lg p-0 border-0 flex flex-col h-[90vh] max-h-[700px] overflow-hidden">
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+             <button className="absolute right-2 top-2 z-10 p-2 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+                <X className="h-4 w-4" />
+                <span className="sr-only">Close</span>
+             </button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+              <AlertDialogHeader>
+                  <AlertDialogTitle>Are you sure you want to cancel the request?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                      Don't stop now. You're {Math.round(progress)}% done with your request.
+                  </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                  <AlertDialogAction onClick={() => setOpen(false)}>Cancel Request</AlertDialogAction>
+                  <AlertDialogCancel asChild>
+                    <Button variant="destructive">Continue Request</Button>
+                  </AlertDialogCancel>
+              </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+        {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 rounded-none absolute top-0 left-0 right-0" />}
         {renderStepContent()}
       </DialogContent>
     </Dialog>
   );
 }
-
