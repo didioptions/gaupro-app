@@ -48,6 +48,12 @@
       "description": "A close-up shot of a gourmet food platter with various appetizers.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_caterers%20(1).PNG?alt=media&token=c495bdd6-f40b-4bb1-8106-2a692841db91",
       "imageHint": "catering food"
+    },
+    {
+      "id": "rubble-removal-image",
+      "description": "A clean and tidy living room after a rubble removal service.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_hm%20rubble.PNG?alt=media&token=43a2b937-6dc1-41ad-964d-abc2b4dc058c",
+      "imageHint": "clean room"
     }
   ]
 }
