@@ -19,6 +19,118 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 const allProfessionals = {
+    "rubble-removal": [
+        {
+            "id": "east-rand-waste",
+            "name": "East Rand Waste & Pool Service Pty Ltd",
+            "location": "Alberton",
+            "description": "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
+            "rating": 4.6,
+            "reviews": 42,
+            "address": "16 Porth Pean Street, New Redruth, Alberton - 1449",
+            "yearsInBusiness": 9,
+            "employees": 4,
+            "isProVerified": true,
+            "serviceLocations": ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton"],
+            "reviewData": [
+                { "author": "Katleho", "phone": "061****434", "rating": 5, "comment": "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." },
+                { "author": "Sarah J.", "phone": "082****112", "rating": 5, "comment": "Fantastic service! The team was friendly, efficient, and very professional. They cleared out our garden refuse in no time. I'll definitely use them again." }
+            ],
+            "photos": [
+                "https://picsum.photos/seed/waste1/600/400",
+                "https://picsum.photos/seed/waste2/600/400",
+                "https://picsum.photos/seed/waste3/600/400",
+                "https://picsum.photos/seed/waste4/600/400",
+            ],
+            "avatarSeed": "pro-services-inc"
+        },
+        {
+            "id": "skip-boys",
+            "name": "Skip Boys",
+            "location": "Boksburg",
+            "description": "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
+            "rating": 4.2,
+            "reviews": 18,
+            "address": "101 Skip Avenue, Boksburg",
+            "yearsInBusiness": 3,
+            "employees": 5,
+            "isProVerified": true,
+            "serviceLocations": ["boksburg", "benoni", "kempton-park", "springs"],
+            "reviewData": [{
+                "author": "Anonymous",
+                "phone": "",
+                "rating": 4,
+                "comment": "Good service and fair pricing. The skip was delivered on time. Would use them again."
+            }],
+            "photos": [
+                "https://picsum.photos/seed/skip1/600/400",
+                "https://picsum.photos/seed/skip2/600/400",
+            ],
+            "avatarSeed": "skip-boys-logo"
+        },
+        {
+            "id": "themba-rubble-removers",
+            "name": "Themba Rubble Removers",
+            "location": "Soweto",
+            "description": "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
+            "rating": 4.9,
+            "reviews": 76,
+            "address": "24 Worker's Way, Soweto",
+            "yearsInBusiness": 12,
+            "employees": 8,
+            "isProVerified": true,
+            "serviceLocations": ["soweto", "johannesburg"],
+            "reviewData": [{
+                "author": "Sarah P.",
+                "phone": "072****123",
+                "rating": 5,
+                "comment": "Extremely professional and efficient. They cleared my site in half the expected time. Highly recommended!"
+            }],
+            "photos": [
+                "https://picsum.photos/seed/rubble1/600/400",
+                "https://picsum.photos/seed/rubble2/600/400",
+                "https://picsum.photos/seed/rubble3/600/400",
+            ],
+            "avatarSeed": "themba-rubble-removers-logo"
+        },
+        {
+            "id": "general-solutions-pty",
+            "name": "General Solutions Pty",
+            "location": "Germiston",
+            "description": "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
+            "rating": 0.0,
+            "reviews": 0,
+            "address": "789 Industrial Rd, Germiston",
+            "yearsInBusiness": 1,
+            "employees": 2,
+            "isProVerified": false,
+            "serviceLocations": ["germiston", "bedfordview", "edenvale"],
+            "reviewData": [],
+            "photos": [],
+            "avatarSeed": "general-solutions"
+        },
+        {
+            "id": "elite-services-group",
+            "name": "Elite Services Group",
+            "location": "Sandton",
+            "description": "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
+            "rating": 4.5,
+            "reviews": 31,
+            "address": "55 Elite Crescent, Sandton",
+            "yearsInBusiness": 7,
+            "employees": 15,
+            "isProVerified": true,
+            "serviceLocations": ["sandton", "rosebank", "bryanston"],
+            "reviewData": [{
+                "author": "Mike",
+                "phone": "083****789",
+                "rating": 5,
+                "comment": "Very happy with the service. They were professional from start to finish."
+            }],
+            "photos": [],
+            "avatarSeed": "elite-services"
+        }
+    ],
     movers: [
         {
             id: "swift-moves-sa",
@@ -345,7 +457,7 @@ export default function ServicePage() {
                      <div className="absolute inset-0 bg-black/60" />
                      <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                         <div className="hidden md:block">
-                          <h1 className="text-4xl md:text-5xl font-extrabold">{pluralServiceLabel}</h1>
+                          <h1 className="text-4xl md:text-5xl font-bold">{pluralServiceLabel}</h1>
                           <p className="mt-4 text-lg text-white/90">
                               Get matched with top-rated, verified professionals in your area.
                           </p>
