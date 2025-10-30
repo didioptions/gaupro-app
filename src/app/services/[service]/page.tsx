@@ -209,20 +209,20 @@ const allProfessionals = {
                 "https://picsum.photos/seed/waste3/600/400",
                 "https://picsum.photos/seed/waste4/600/400",
             ],
-            avatarSeed": "pro-services-inc"
+            avatarSeed: "pro-services-inc"
         },
         {
             id: "general-solutions-pty",
-            name": "General Solutions Pty",
+            name: "General Solutions Pty",
             "location": "Germiston",
             "description": "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
             "rating": 0.0,
             "reviews": 0,
             "address": "789 Industrial Rd, Germiston",
             
-            yearsInBusiness": 1,
-            employees": 2,
-            isProVerified": false,
+            yearsInBusiness: 1,
+            employees: 2,
+            isProVerified: false,
             "serviceLocations": ["germiston", "bedfordview", "edenvale"],
             "reviewData": [],
             "photos": [],
@@ -230,14 +230,14 @@ const allProfessionals = {
         },
         {
             id: "skip-boys",
-            name": "Skip Boys",
+            name: "Skip Boys",
             "location": "Boksburg",
             "description": "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
             "rating": 4.2,
             "reviews": 18,
             "address": "101 Skip Avenue, Boksburg",
             
-            yearsInBusiness": 3,
+            yearsInBusiness: 3,
             "employees": 5,
             "isProVerified": true,
             "serviceLocations": ["boksburg", "benoni", "kempton-park", "springs"],
@@ -262,7 +262,7 @@ const allProfessionals = {
             "reviews": 76,
             "address": "24 Worker's Way, Soweto",
             
-            yearsInBusiness": 12,
+            yearsInBusiness: 12,
             "employees": 8,
             "isProVerified": true,
             "serviceLocations": ["soweto", "johannesburg"],
@@ -288,9 +288,9 @@ const allProfessionals = {
             "reviews": 31,
             "address": "55 Elite Crescent, Sandton",
             
-            yearsInBusiness": 7,
+            yearsInBusiness: 7,
             "employees": 15,
-            isProVerified": true,
+            isProVerified: true,
             "serviceLocations": ["sandton", "rosebank", "bryanston"],
             "reviewData": [{
                 "author": "Mike",
@@ -394,11 +394,11 @@ export default function ServicePage() {
                 initialStep={0}
                 initialData={{}}
               >
-                 <DialogTrigger asChild>
+                 
                     <Button variant="outline" className="mt-4 w-full sm:w-auto">
                       Request a Quote
                     </Button>
-                  </DialogTrigger>
+                  
               </RequestQuoteDialog>
             );
 
