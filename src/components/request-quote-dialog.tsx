@@ -30,6 +30,7 @@ import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { Autocomplete } from './ui/autocomplete';
 import { allLocations } from '@/lib/locations';
+import { ScrollArea } from './ui/scroll-area';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -122,11 +123,11 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
 
     if (isSubmitted) {
       return (
-        <div className="text-center py-8">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold mb-4">✅ Your Request Has Been Received</DialogTitle>
-          </DialogHeader>
-          <div className="text-foreground space-y-4 text-left">
+        <div className="flex flex-col h-full">
+            <DialogHeader className="p-4 border-b">
+              <DialogTitle className="text-xl font-bold text-center">✅ Your Request Has Been Received</DialogTitle>
+            </DialogHeader>
+          <div className="flex-grow p-6 text-foreground space-y-4 text-left overflow-y-auto">
             <p>
               Thanks for posting your job on Gaupro — we’re already matching you with trusted local professionals.
             </p>
@@ -137,9 +138,11 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                 <li>Hire your favorite pro, agree on the details, and get your project done!</li>
             </ol>
           </div>
-          <Button onClick={() => setOpen(false)} className="mt-8">
-              Done
-          </Button>
+          <div className="p-4 border-t">
+              <Button onClick={() => setOpen(false)} className="w-full">
+                Done
+              </Button>
+          </div>
         </div>
       );
     }
@@ -165,135 +168,136 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       };
 
       return (
-        <form onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
-            <DialogHeader className='text-left mb-4'>
+        <form onSubmit={(e) => { e.preventDefault(); handleNext(); }} className="flex flex-col h-full">
+            <DialogHeader className='text-left p-4 border-b'>
               <div className="flex items-center gap-4">
                   {step > 0 && <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                     <ArrowLeft />
                   </Button>}
-                  <div className={step === 0 ? 'w-full text-center' : ''}>
-                    <DialogTitle className="text-xl font-semibold">Request for {serviceLabel}</DialogTitle>
-                    <p className="text-muted-foreground text-sm">Step {step + 1} of {totalSteps + 1}</p>
-                  </div>
+                   <div className={step === 0 ? 'w-full text-center' : ''}>
+                     <DialogTitle className="text-xl font-semibold">Request for {serviceLabel}</DialogTitle>
+                     <p className="text-muted-foreground text-sm">Step {step + 1} of {totalSteps + 1}</p>
+                   </div>
               </div>
             </DialogHeader>
-
-            {serviceImage && questionStepIndex === 0 && (
-              <div className="relative h-32 w-full mb-4">
-                <Image
-                  src={serviceImage.imageUrl}
-                  alt={serviceImage.description || ''}
-                  fill
-                  className="object-cover rounded-t-lg"
-                  data-ai-hint={serviceImage.imageHint}
-                />
-              </div>
-            )}
-            
-          <div className="py-4 min-h-[250px]">
-            <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
-            {currentQuestion.type === 'radio' && (
-              <RadioGroup
-                onValueChange={(value) => handleInputChange(currentQuestion.id, value)}
-                value={formData[currentQuestion.id] as string | undefined}
-              >
-                <div className="space-y-3">
-                  {currentQuestion.options?.map((option) => (
-                    <div
-                      className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
-                      key={option.value}
-                    >
-                      <RadioGroupItem value={option.value} id={option.value} />
-                      <Label
-                        htmlFor={option.value}
-                        className="pl-3 font-normal cursor-pointer text-base"
-                      >
-                        {option.label}
-                      </Label>
-                    </div>
-                  ))}
-                </div>
-              </RadioGroup>
-            )}
-            {currentQuestion.type === 'checkbox' && (
-                <div className="space-y-3">
-                  {currentQuestion.options?.map((option) => (
-                    <div
-                      key={option.value}
-                      className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
-                    >
-                      <Checkbox
-                        id={option.value}
-                        onCheckedChange={(checked) =>
-                          handleCheckboxChange(currentQuestion.id, checked, option.value)
-                        }
-                        checked={((formData[currentQuestion.id] as string[]) || []).includes(option.value)}
-                      />
-                      <Label
-                        htmlFor={option.value}
-                        className="pl-3 font-normal cursor-pointer text-base"
-                      >
-                        {option.label}
-                      </Label>
-                    </div>
-                  ))}
-                </div>
-              )}
-            {currentQuestion.type === 'location' && (
-                <div className="space-y-4">
-                    <div>
-                        <Label htmlFor="city">City</Label>
-                        <Input 
-                            id="city" 
-                            placeholder="e.g. Johannesburg" 
-                            onChange={(e) => handleInputChange('city', e.target.value)}
-                            defaultValue={formData['city'] as string | undefined}
+            <div className="flex-grow overflow-y-auto">
+                <div className="p-6">
+                    {serviceImage && questionStepIndex === 0 && (
+                      <div className="relative h-32 w-full mb-4">
+                        <Image
+                          src={serviceImage.imageUrl}
+                          alt={serviceImage.description || ''}
+                          fill
+                          className="object-cover rounded-t-lg"
+                          data-ai-hint={serviceImage.imageHint}
                         />
-                    </div>
-                    <div>
-                        <Label htmlFor="suburb">Suburb</Label>
-                        <Autocomplete
-                            options={allLocations}
-                            value={locationValue}
-                            onValueChange={(value) => {
-                                setLocationValue(value);
-                                handleInputChange('suburb', value);
-                            }}
-                            placeholder="Type to search your suburb..."
-                        />
-                    </div>
-                </div>
-             )}
-            {currentQuestion.id === 'urgency' && formData['urgency'] === 'specific_date' && (
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    type="button"
-                    variant={'outline'}
-                    className={cn(
-                      'w-full justify-start text-left font-normal mt-4',
-                      !date && 'text-muted-foreground'
+                      </div>
                     )}
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {date ? format(date, 'PPP') : <span>Pick a date</span>}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                  <Calendar mode="single" selected={date} onSelect={handleDateSelect} initialFocus />
-                </PopoverContent>
-              </Popover>
-            )}
-            {currentQuestion.type === 'textarea' && (
-              <Textarea
-                placeholder={currentQuestion.placeholder}
-                rows={5}
-                onChange={(e) => handleInputChange(currentQuestion.id, e.target.value)}
-                defaultValue={formData[currentQuestion.id] as string | undefined}
-              />
-            )}
-          </div>
-          <div className="flex justify-between items-center">
+                    
+                  <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
+                    {currentQuestion.type === 'radio' && (
+                      <RadioGroup
+                        onValueChange={(value) => handleInputChange(currentQuestion.id, value)}
+                        value={formData[currentQuestion.id] as string | undefined}
+                      >
+                        <div className="space-y-3">
+                          {currentQuestion.options?.map((option) => (
+                            <div
+                              className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
+                              key={option.value}
+                            >
+                              <RadioGroupItem value={option.value} id={option.value} />
+                              <Label
+                                htmlFor={option.value}
+                                className="pl-3 font-normal cursor-pointer text-base"
+                              >
+                                {option.label}
+                              </Label>
+                            </div>
+                          ))}
+                        </div>
+                      </RadioGroup>
+                    )}
+                    {currentQuestion.type === 'checkbox' && (
+                        <div className="space-y-3">
+                          {currentQuestion.options?.map((option) => (
+                            <div
+                              key={option.value}
+                              className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
+                            >
+                              <Checkbox
+                                id={option.value}
+                                onCheckedChange={(checked) =>
+                                  handleCheckboxChange(currentQuestion.id, checked, option.value)
+                                }
+                                checked={((formData[currentQuestion.id] as string[]) || []).includes(option.value)}
+                              />
+                              <Label
+                                htmlFor={option.value}
+                                className="pl-3 font-normal cursor-pointer text-base"
+                              >
+                                {option.label}
+                              </Label>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    {currentQuestion.type === 'location' && (
+                        <div className="space-y-4">
+                            <div>
+                                <Label htmlFor="city">City</Label>
+                                <Input 
+                                    id="city" 
+                                    placeholder="e.g. Johannesburg" 
+                                    onChange={(e) => handleInputChange('city', e.target.value)}
+                                    defaultValue={formData['city'] as string | undefined}
+                                />
+                            </div>
+                            <div>
+                                <Label htmlFor="suburb">Suburb</Label>
+                                <Autocomplete
+                                    options={allLocations}
+                                    value={locationValue}
+                                    onValueChange={(value) => {
+                                        setLocationValue(value);
+                                        handleInputChange('suburb', value);
+                                    }}
+                                    placeholder="Type to search your suburb..."
+                                />
+                            </div>
+                        </div>
+                     )}
+                    {currentQuestion.id === 'urgency' && formData['urgency'] === 'specific_date' && (
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            type="button"
+                            variant={'outline'}
+                            className={cn(
+                              'w-full justify-start text-left font-normal mt-4',
+                              !date && 'text-muted-foreground'
+                            )}
+                          >
+                            <CalendarIcon className="mr-2 h-4 w-4" />
+                            {date ? format(date, 'PPP') : <span>Pick a date</span>}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0">
+                          <Calendar mode="single" selected={date} onSelect={handleDateSelect} initialFocus />
+                        </PopoverContent>
+                      </Popover>
+                    )}
+                    {currentQuestion.type === 'textarea' && (
+                      <Textarea
+                        placeholder={currentQuestion.placeholder}
+                        rows={5}
+                        onChange={(e) => handleInputChange(currentQuestion.id, e.target.value)}
+                        defaultValue={formData[currentQuestion.id] as string | undefined}
+                      />
+                    )}
+                </div>
+            </div>
+          <div className="flex justify-between items-center p-4 border-t">
              {step > 0 ? <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button> : <div /> }
@@ -307,8 +311,8 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     
     if (isFinalStep) {
       return (
-        <form onSubmit={handleSubmit}>
-          <DialogHeader className="text-left mb-4">
+        <form onSubmit={handleSubmit} className="flex flex-col h-full">
+          <DialogHeader className="text-left p-4 border-b">
             <div className="flex items-center gap-4">
               <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
@@ -319,7 +323,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
               </div>
             </div>
           </DialogHeader>
-          <div className="py-8 space-y-4">
+          <div className="p-6 space-y-4 flex-grow overflow-y-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Input
@@ -367,7 +371,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                 </Label>
             </div>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center p-4 border-t">
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
@@ -385,14 +389,14 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-lg p-0 border-0">
+      <DialogContent className="sm:max-w-lg p-0 border-0 flex flex-col h-[90vh] max-h-[700px]">
          <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground z-10">
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
         </DialogClose>
-        <div className="space-y-4">
-            {step > 0 && !isSubmitted && <Progress value={progress} className="h-2" />}
-            <div className="p-4 md:p-6 pt-0">
+        <div className="flex flex-col flex-grow">
+            {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 rounded-none" />}
+            <div className="flex-grow overflow-y-auto">
                 {renderStepContent()}
             </div>
         </div>
