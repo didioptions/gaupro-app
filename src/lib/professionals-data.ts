@@ -1,3 +1,4 @@
+
 export const allProfessionals = {
     "painter": [
         {
@@ -556,7 +557,7 @@ export const allProfessionals = {
             avatarSeed: "speedy-clear-logo"
         }
     ],
-    movers: [
+    "movers": [
         {
             id: "swift-moves-sa",
             name: "Swift Moves SA",
@@ -607,7 +608,7 @@ export const allProfessionals = {
             avatarSeed: "joburg-movers"
         }
     ],
-    default: [
+    "default": [
         {
             id: "east-rand-waste",
             name: "East Rand Waste & Pool Service Pty Ltd",
@@ -723,12 +724,3 @@ export const allProfessionals = {
         }
     ]
 };
-
-// Exporting for use in the profile page
-export function getProfessionalById(id: string) {
-    for (const category in allProfessionals) {
-        const pro = (allProfessionals as any)[category].find((p: any) => p.id === id);
-        if (pro) return pro;
-    }
-    return null;
-}

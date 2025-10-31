@@ -1,11 +1,12 @@
 
-
 'use client';
 
 import { useParams, useSearchParams } from 'next/navigation';
 import { notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { getProfessionalById } from '@/lib/professionals-data';
+import { useDoc, useMemoFirebase, useFirestore } from '@/firebase';
+import { doc } from 'firebase/firestore';
+
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -16,42 +17,80 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function ProfessionalProfilePage() {
   const params = useParams();
   const searchParams = useSearchParams();
+  const firestore = useFirestore();
 
-  const [professional, setProfessional] = useState<any>(null);
+  const profileId = Array.isArray(params.profileId) ? params.profileId[0] : params.profileId;
+
+  // Memoize the document reference to prevent re-renders
+  const professionalRef = useMemoFirebase(() => {
+    if (!profileId) return null;
+    return doc(firestore, 'professionals', profileId);
+  }, [firestore, profileId]);
+  
+  const { data: professional, isLoading } = useDoc<any>(professionalRef);
+  
+  const [displayData, setDisplayData] = useState<any>(null);
 
   useEffect(() => {
-    if (params.profileId) {
-      const profileId = Array.isArray(params.profileId) ? params.profileId[0] : params.profileId;
-      const proData = getProfessionalById(profileId);
-      
+    if (professional) {
       const serviceQuery = searchParams.get('service');
-      if (proData && serviceQuery) {
-        const singularOrPluralLowercase = serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`;
-        proData.tags = [proData.description.match(/{service}/) ? singularOrPluralLowercase : 'general services'];
-        proData.description = proData.description.replace('{service}', singularOrPluralLowercase);
-      }
-      
-      setProfessional(proData);
-    }
-  }, [params.profileId, searchParams]);
+      const singularOrPluralLowercase = serviceQuery ? (serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`) : 'general services';
 
-  if (!professional) {
-    // You can return a loading skeleton here
+      const updatedData = {
+        ...professional,
+        tags: professional.tags ? professional.tags : [singularOrPluralLowercase],
+        description: professional.description.replace('{service}', singularOrPluralLowercase),
+      };
+      setDisplayData(updatedData);
+    }
+  }, [professional, searchParams]);
+  
+
+  if (isLoading) {
     return (
       <>
         <Header />
-        <div className="container mx-auto px-4 py-12">Loading...</div>
+        <main className="bg-secondary/50">
+          <div className="container mx-auto px-4 py-12">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-6">
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex gap-6">
+                      <Skeleton className="h-[120px] w-[120px] rounded-md" />
+                      <div className="space-y-2 flex-grow">
+                        <Skeleton className="h-8 w-3/4" />
+                        <Skeleton className="h-4 w-1/2" />
+                        <Skeleton className="h-4 w-1/4" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Skeleton className="h-96 w-full" />
+              </div>
+              <div className="space-y-6">
+                <Skeleton className="h-48 w-full" />
+                <Skeleton className="h-32 w-full" />
+              </div>
+            </div>
+          </div>
+        </main>
         <Footer />
       </>
     );
   }
 
-  const proImage = PlaceHolderImages.find(p => p.id === professional.avatarSeed);
-  const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/80/80`;
+  if (!displayData) {
+    return notFound();
+  }
+
+  const proImage = PlaceHolderImages.find(p => p.id === displayData.avatarSeed);
+  const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${displayData.avatarSeed}/80/80`;
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
   return (
@@ -65,26 +104,26 @@ export default function ProfessionalProfilePage() {
                 <Card>
                     <CardContent className="p-6">
                         <div className="flex flex-col sm:flex-row gap-6">
-                            <Image src={imageUrl} alt={professional.name} width={120} height={120} className="rounded-md border mx-auto sm:mx-0" data-ai-hint={imageHint} />
+                            <Image src={imageUrl} alt={displayData.name} width={120} height={120} className="rounded-md border mx-auto sm:mx-0" data-ai-hint={imageHint} />
                             <div className="flex-grow">
-                                <h1 className="text-3xl">{professional.name}</h1>
-                                <p className="text-muted-foreground">{professional.location}</p>
-                                {professional.tags && (
+                                <h1 className="text-3xl">{displayData.name}</h1>
+                                <p className="text-muted-foreground">{displayData.location}</p>
+                                {displayData.tags && (
                                   <div className="flex flex-wrap gap-2 mt-2">
-                                    {professional.tags.map((tag: string) => <Badge variant="outline" key={tag}>{tag}</Badge>)}
+                                    {displayData.tags.map((tag: string) => <Badge variant="outline" key={tag}>{tag}</Badge>)}
                                   </div>
                                 )}
                                 <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground mt-4">
-                                    {professional.isProVerified && <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-green-500" /> Pro Verified</span>}
-                                    {professional.yearsInBusiness && <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {professional.yearsInBusiness} Years in Business</span>}
-                                    {professional.employees && <span className="flex items-center gap-1.5"><Users className="h-4 w-4" /> {professional.employees} Employees</span>}
+                                    {displayData.isProVerified && <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-green-500" /> Pro Verified</span>}
+                                    {displayData.yearsInBusiness && <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {displayData.yearsInBusiness} Years in Business</span>}
+                                    {displayData.employees && <span className="flex items-center gap-1.5"><Users className="h-4 w-4" /> {displayData.employees} Employees</span>}
                                 </div>
                             </div>
                             <div className="text-center flex-shrink-0">
                                 <div className="bg-teal-500 text-white font-bold text-2xl rounded-md w-16 h-16 flex items-center justify-center mx-auto">
-                                    {professional.rating.toFixed(1)}
+                                    {displayData.rating.toFixed(1)}
                                 </div>
-                                <p className="text-xs text-muted-foreground mt-1">{professional.reviews} reviews</p>
+                                <p className="text-xs text-muted-foreground mt-1">{displayData.reviews} reviews</p>
                             </div>
                         </div>
 
@@ -101,7 +140,7 @@ export default function ProfessionalProfilePage() {
                         <TabsList>
                             <TabsTrigger value="overview">Overview</TabsTrigger>
                             <TabsTrigger value="photos">Photos</TabsTrigger>
-                            <TabsTrigger value="reviews">Reviews ({professional.reviewData.length})</TabsTrigger>
+                            <TabsTrigger value="reviews">Reviews ({displayData.reviewData.length})</TabsTrigger>
                             <TabsTrigger value="qa">Q & A</TabsTrigger>
                         </TabsList>
                         <TabsContent value="overview">
@@ -109,25 +148,25 @@ export default function ProfessionalProfilePage() {
                                 <CardContent className="p-6 space-y-4">
                                     <div>
                                         <h3 className="font-semibold text-lg mb-2">About Us</h3>
-                                        <p>{professional.description}</p>
+                                        <p>{displayData.description}</p>
                                     </div>
                                     
-                                    {professional.photos && professional.photos.length > 0 &&
+                                    {displayData.photos && displayData.photos.length > 0 &&
                                     <div className="pt-4">
                                         <h3 className="font-semibold text-lg mb-2">Photos</h3>
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                            {professional.photos.slice(0, 4).map((photo: string, index: number) => (
-                                                <Image key={index} src={photo} alt={`${professional.name} work photo ${index + 1}`} width={200} height={150} className="rounded-md object-cover aspect-video" data-ai-hint="project photo" />
+                                            {displayData.photos.slice(0, 4).map((photo: string, index: number) => (
+                                                <Image key={index} src={photo} alt={`${displayData.name} work photo ${index + 1}`} width={200} height={150} className="rounded-md object-cover aspect-video" data-ai-hint="project photo" />
                                             ))}
                                         </div>
                                     </div>
                                     }
                                     
-                                    {professional.reviewData && professional.reviewData.length > 0 &&
+                                    {displayData.reviewData && displayData.reviewData.length > 0 &&
                                     <div className="pt-4">
                                         <h3 className="font-semibold text-lg mb-4">Latest Reviews</h3>
                                         <div className="space-y-6">
-                                            {professional.reviewData.slice(0, 5).map((review: any, index: number) => (
+                                            {displayData.reviewData.slice(0, 5).map((review: any, index: number) => (
                                                 <div key={index} className="border-b pb-6 last:border-b-0 last:pb-0">
                                                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                                         <div className="flex">
@@ -151,8 +190,8 @@ export default function ProfessionalProfilePage() {
                              <Card>
                                 <CardContent className="p-6">
                                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                        {professional.photos.map((photo: string, index: number) => (
-                                            <Image key={index} src={photo} alt={`${professional.name} work photo ${index + 1}`} width={200} height={150} className="rounded-md object-cover aspect-video" data-ai-hint="project photo" />
+                                        {displayData.photos.map((photo: string, index: number) => (
+                                            <Image key={index} src={photo} alt={`${displayData.name} work photo ${index + 1}`} width={200} height={150} className="rounded-md object-cover aspect-video" data-ai-hint="project photo" />
                                         ))}
                                     </div>
                                 </CardContent>
@@ -161,7 +200,7 @@ export default function ProfessionalProfilePage() {
                         <TabsContent value="reviews">
                              <Card>
                                 <CardContent className="p-6 space-y-6">
-                                    {professional.reviewData.map((review: any, index: number) => (
+                                    {displayData.reviewData.map((review: any, index: number) => (
                                         <div key={index} className="border-b pb-6 last:border-b-0 last:pb-0">
                                             <h4 className="font-semibold">Excellent</h4>
                                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -176,13 +215,13 @@ export default function ProfessionalProfilePage() {
                                             <p className="mt-2 italic">"{review.comment}"</p>
                                             <Card className="mt-4 bg-secondary/50">
                                                 <CardContent className="p-4 text-sm">
-                                                    <h5 className="font-semibold">{professional.name}'s response</h5>
+                                                    <h5 className="font-semibold">{displayData.name}'s response</h5>
                                                     <p>Morning Mr {review.author}, Thank you for using our service.</p>
                                                 </CardContent>
                                             </Card>
                                         </div>
                                     ))}
-                                    {professional.reviewData.length === 0 && <p>No reviews yet.</p>}
+                                    {displayData.reviewData.length === 0 && <p>No reviews yet.</p>}
                                 </CardContent>
                             </Card>
                         </TabsContent>
@@ -203,7 +242,7 @@ export default function ProfessionalProfilePage() {
                         <CardTitle className="text-lg">Contact Details</CardTitle>
                     </CardHeader>
                     <CardContent className="text-sm space-y-3">
-                        <p className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0"/>{professional.address}</p>
+                        <p className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0"/>{displayData.address}</p>
                         <p className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 flex-shrink-0"/>061****434</p>
                         <Button variant="outline" className="w-full mt-2"><AlertTriangle className="h-4 w-4 mr-2" /> Report Error</Button>
                     </CardContent>

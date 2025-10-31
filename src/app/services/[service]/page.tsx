@@ -17,7 +17,9 @@ import Link from 'next/link';
 import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
-import { allProfessionals } from '@/lib/professionals-data';
+import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { collection, query, where } from 'firebase/firestore';
+import { Skeleton } from '@/components/ui/skeleton';
 
 
 export default function ServicePage() {
@@ -38,14 +40,44 @@ export default function ServicePage() {
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
 
-    const baseProfessionals = (allProfessionals as any)[currentService] || allProfessionals.default;
+    const firestore = useFirestore();
+
+    // Build the query
+    const professionalsQuery = useMemoFirebase(() => {
+        const baseCollection = collection(firestore, 'professionals');
+        const serviceFilter = where('serviceCategory', '==', currentService);
+        
+        if (locationQuery) {
+            const locationFilter = where('serviceLocations', 'array-contains', locationQuery);
+            return query(baseCollection, serviceFilter, locationFilter);
+        }
+        
+        return query(baseCollection, serviceFilter);
+    }, [firestore, currentService, locationQuery]);
+
+    const { data: professionals, isLoading, error } = useCollection<any>(professionalsQuery);
     
-    const professionals = baseProfessionals
-        .filter((pro: any) => !locationQuery || (pro.serviceLocations && pro.serviceLocations.includes(locationQuery)))
-        .map((pro: any) => ({
-            ...pro,
-            description: pro.description.replace('{service}', singularOrPluralLowercase),
-        }));
+    // If there's an error (like a missing Firestore index), display it.
+    if (error) {
+        return (
+            <>
+                <Header />
+                <main className="container mx-auto px-4 py-16">
+                    <Card>
+                        <CardContent className="p-6">
+                            <h2 className="text-xl font-bold text-destructive">Error Fetching Data</h2>
+                            <p className="mt-2 text-muted-foreground">There was a problem loading professionals for this category.</p>
+                            <pre className="mt-4 p-4 bg-secondary rounded-md text-xs whitespace-pre-wrap">{error.message}</pre>
+                            <p className="mt-4 text-sm text-muted-foreground">
+                                This is often caused by a missing Firestore index. If the error message above includes a link to create an index, please click it to resolve the issue. It may take a few minutes for the index to build.
+                            </p>
+                        </CardContent>
+                    </Card>
+                </main>
+                <Footer />
+            </>
+        )
+    }
 
     const serviceImageId = `${currentService}-image`.replace('-service', '');
     let heroImage = CategoryImages.find(p => p.id === serviceImageId);
@@ -62,13 +94,14 @@ export default function ServicePage() {
         }
     };
     
-    const renderDescription = (pro: typeof professionals[0]) => {
+    const renderDescription = (pro: any) => {
+        const description = pro.description.replace('{service}', singularOrPluralLowercase);
         const isExpanded = expandedDescriptions.includes(pro.name);
-        if (isExpanded || pro.description.length <= 150) {
+        if (isExpanded || description.length <= 150) {
             return (
                 <>
-                    {pro.description}
-                    {pro.description.length > 150 && (
+                    {description}
+                    {description.length > 150 && (
                          <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleDescription(pro.name); }} className="text-red-600 font-semibold ml-1">...show less</button>
                     )}
                 </>
@@ -76,7 +109,7 @@ export default function ServicePage() {
         }
         return (
             <>
-                {pro.description.substring(0, 150)}
+                {description.substring(0, 150)}
                 <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleDescription(pro.name); }} className="text-red-600 font-semibold ml-1">...show more</button>
             </>
         );
@@ -103,25 +136,47 @@ export default function ServicePage() {
         return texts[currentService] || null;
     }, [currentService, locationName]);
 
-    const memoizedProfessionals = useMemo(() => {
+    const ProfessionalList = () => {
+        if (isLoading) {
+            return Array.from({ length: 5 }).map((_, index) => (
+                <Card key={index}>
+                    <CardContent className="p-6">
+                        <div className="grid sm:grid-cols-4 gap-6">
+                            <div className="sm:col-span-3 flex items-start gap-4">
+                                <Skeleton className="h-20 w-20 rounded-md" />
+                                <div className="space-y-2 flex-grow">
+                                    <Skeleton className="h-6 w-3/4" />
+                                    <Skeleton className="h-4 w-1/4" />
+                                    <Skeleton className="h-4 w-full" />
+                                    <Skeleton className="h-4 w-5/6" />
+                                </div>
+                            </div>
+                            <div className="space-y-2 text-left sm:text-right">
+                                <Skeleton className="h-6 w-16 ml-auto" />
+                                <Skeleton className="h-4 w-20 ml-auto" />
+                                <Skeleton className="h-10 w-32 mt-4 ml-auto" />
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            ));
+        }
+
+        if (!professionals || professionals.length === 0) {
+            return (
+                <Card>
+                    <CardContent className="p-6 text-center">
+                        <p className="text-lg text-muted-foreground">No professionals found for "{pluralServiceLabel}" in {locationName}.</p>
+                        <p className="mt-2">Try widening your search or check back soon!</p>
+                    </CardContent>
+                </Card>
+            );
+        }
+        
         return professionals.map(pro => {
             const proImage = PlaceHolderImages.find(p => p.id === pro.avatarSeed);
             const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${pro.avatarSeed}/80/80`;
             const imageHint = proImage ? proImage.imageHint : "company logo";
-
-            const dialog = (
-              <RequestQuoteDialog
-                service={currentService}
-                initialStep={0}
-                initialData={{}}
-              >
-                 
-                    <Button variant="outline" className="mt-4 w-full sm:w-auto">
-                      Request a Quote
-                    </Button>
-                  
-              </RequestQuoteDialog>
-            );
 
             return (
                 <Card key={pro.id} className="bg-card hover:shadow-lg transition-shadow">
@@ -144,7 +199,15 @@ export default function ServicePage() {
                             <div className="text-left sm:text-right">
                                 <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
                                 <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                {dialog}
+                                <RequestQuoteDialog
+                                    service={currentService}
+                                    initialStep={0}
+                                    initialData={{}}
+                                >
+                                    <Button variant="outline" className="mt-4 w-full sm:w-auto">
+                                        Request a Quote
+                                    </Button>
+                                </RequestQuoteDialog>
                             </div>
                         </div>
                         {pro.reviewData && pro.reviewData.length > 0 && (
@@ -164,9 +227,7 @@ export default function ServicePage() {
                 </Card>
             )
         });
-    // The dependency array should include `professionals` and `expandedDescriptions`
-    // because the output depends on them.
-    }, [professionals, expandedDescriptions, currentService]);
+    };
     
 
 
@@ -178,7 +239,7 @@ export default function ServicePage() {
                     {heroImage && (
                         <Image
                             src={heroImage.imageUrl}
-                            alt={heroImage.description}
+                            alt={heroImage.description || "Service background image"}
                             fill
                             className="object-cover"
                             priority
@@ -212,14 +273,7 @@ export default function ServicePage() {
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
-                                {professionals.length > 0 ? memoizedProfessionals : (
-                                    <Card>
-                                        <CardContent className="p-6 text-center">
-                                            <p className="text-lg text-muted-foreground">No professionals found for "{pluralServiceLabel}" in {locationName}.</p>
-                                            <p className="mt-2">Try widening your search or check back soon!</p>
-                                        </CardContent>
-                                    </Card>
-                                )}
+                                <ProfessionalList />
                             </div>
                             <aside className="space-y-8">
                                 <Card className="bg-card">
