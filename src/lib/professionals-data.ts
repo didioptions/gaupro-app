@@ -1,4 +1,5 @@
 
+
 export const allProfessionals = {
     "painter": [
         {
@@ -723,4 +724,15 @@ export const allProfessionals = {
             avatarSeed: "elite-services"
         }
     ]
+};
+
+export const getProfessionalById = (id: string) => {
+    for (const category in allProfessionals) {
+        const professionalsInCategory = (allProfessionals as any)[category];
+        const found = professionalsInCategory.find((pro: any) => pro.id === id);
+        if (found) {
+            return found;
+        }
+    }
+    return null;
 };

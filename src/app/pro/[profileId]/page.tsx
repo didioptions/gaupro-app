@@ -4,9 +4,7 @@
 import { useParams, useSearchParams } from 'next/navigation';
 import { notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useDoc, useMemoFirebase, useFirestore } from '@/firebase';
-import { doc } from 'firebase/firestore';
-
+import { getProfessionalById } from '@/lib/professionals-data';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -22,19 +20,20 @@ import { Skeleton } from '@/components/ui/skeleton';
 export default function ProfessionalProfilePage() {
   const params = useParams();
   const searchParams = useSearchParams();
-  const firestore = useFirestore();
-
+  
   const profileId = Array.isArray(params.profileId) ? params.profileId[0] : params.profileId;
-
-  // Memoize the document reference to prevent re-renders
-  const professionalRef = useMemoFirebase(() => {
-    if (!profileId) return null;
-    return doc(firestore, 'professionals', profileId);
-  }, [firestore, profileId]);
   
-  const { data: professional, isLoading } = useDoc<any>(professionalRef);
-  
+  const [professional, setProfessional] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [displayData, setDisplayData] = useState<any>(null);
+
+  useEffect(() => {
+    if (profileId) {
+      const proData = getProfessionalById(profileId);
+      setProfessional(proData);
+      setIsLoading(false);
+    }
+  }, [profileId]);
 
   useEffect(() => {
     if (professional) {

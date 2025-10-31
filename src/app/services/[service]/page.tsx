@@ -17,9 +17,8 @@ import Link from 'next/link';
 import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
-import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
-import { collection, query, where } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
+import { allProfessionals } from '@/lib/professionals-data';
 
 
 export default function ServicePage() {
@@ -40,19 +39,18 @@ export default function ServicePage() {
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
 
-    const firestore = useFirestore();
-
-    // Build the query
-    const professionalsQuery = useMemoFirebase(() => {
-        const baseCollection = collection(firestore, 'professionals');
-        const serviceFilter = where('serviceCategory', '==', currentService);
-        
-        // Temporarily removed location filter to fix Firestore index issue.
-        // The query will now only filter by service.
-        return query(baseCollection, serviceFilter);
-    }, [firestore, currentService]);
-
-    const { data: professionals, isLoading, error } = useCollection<any>(professionalsQuery);
+    const professionals = useMemo(() => {
+        const baseProfessionals = (allProfessionals as any)[currentService] || allProfessionals.default;
+        if (!locationQuery) {
+            return baseProfessionals;
+        }
+        return baseProfessionals.filter((pro: any) => 
+            pro.serviceLocations && pro.serviceLocations.includes(locationQuery)
+        );
+    }, [currentService, locationQuery]);
+    
+    const isLoading = false; // Set to false as we are using static data
+    const error = null; // Set to null as we are using static data
     
     // If there's an error (like a missing Firestore index), display it.
     if (error) {
@@ -170,7 +168,7 @@ export default function ServicePage() {
             );
         }
         
-        return professionals.map(pro => {
+        return professionals.map((pro: any) => {
             const proImage = PlaceHolderImages.find(p => p.id === pro.avatarSeed);
             const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${pro.avatarSeed}/80/80`;
             const imageHint = proImage ? proImage.imageHint : "company logo";
