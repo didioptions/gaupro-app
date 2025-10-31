@@ -1,4 +1,3 @@
-
 {
   "categoryImages": [
     {
@@ -54,6 +53,12 @@
       "description": "A clean and tidy living room after a rubble removal service.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_hm%20rubble.PNG?alt=media&token=43a2b937-6dc1-41ad-964d-abc2b4dc058c",
       "imageHint": "clean room"
+    },
+    {
+      "id": "painter-image",
+      "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_painters.PNG?alt=media&token=d52fc5c0-7f81-41b4-9aba-369375321e7c",
+      "imageHint": "living room decor"
     }
   ]
 }
