@@ -95,8 +95,8 @@ export default function Header() {
             <Link href="/post-request">Post Request</Link>
         </Button>
         <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
-          <Link href="/browse-quotes">
-            Browse Quotes
+          <Link href="/find-pro">
+            Find a Pro
           </Link>
         </Button>
         <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
@@ -148,8 +148,8 @@ export default function Header() {
         <Link href="/post-request" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
             Post Request
         </Link>
-        <Link href="/browse-quotes" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
-          Browse Quotes
+        <Link href="/find-pro" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+          Find a Pro
         </Link>
         <Link href="/how-it-works" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
           How It Works
