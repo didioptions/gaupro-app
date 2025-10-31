@@ -19,6 +19,104 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 const allProfessionals = {
+    "painters": [
+        {
+            id: "madiway-projects",
+            name: "Madiway Projects (Pty) Ltd",
+            location: "Birch Acres, Kempton Park",
+            description: "Madiway Projects is a Proudly South African painting and renovation company known for excellent service, reliable workmanship, and attention to detail. Whether it’s a single room, an office block, or a full exterior repaint, our team transforms spaces with precision.",
+            rating: 4.4,
+            reviews: 7,
+            address: "Birch Acres, Kempton Park",
+            yearsInBusiness: 5,
+            employees: 8,
+            isProVerified: true,
+            serviceLocations: ["kempton-park", "johannesburg", "benoni", "edenvale", "tembisa"],
+            reviewData: [{ author: "Brendan", phone: "083**476*", rating: 5, comment: "Sam and his team did an amazing paint job on our ramp and boundary walls. Clean, reliable, and exceeded expectations." }],
+            photos: ["https://picsum.photos/seed/madiway1/600/400", "https://picsum.photos/seed/madiway2/600/400"],
+            avatarSeed: "madiway-logo"
+        },
+        {
+            id: "revision-contracting",
+            name: "Revision Contracting & Projects (Pty) Ltd",
+            location: "Norkem Park, Kempton Park",
+            description: "Revision Contracting & Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
+            rating: 5.0,
+            reviews: 1,
+            address: "Norkem Park, Kempton Park",
+            yearsInBusiness: 3,
+            employees: 4,
+            isProVerified: true,
+            serviceLocations: ["kempton-park", "johannesburg", "pretoria", "centurion"],
+            reviewData: [{ author: "Diane", phone: "071**848*", rating: 5, comment: "Sphamandla arrived early, well-prepared, and did a perfect paint repair. Friendly, professional, and tidy." }],
+            photos: ["https://picsum.photos/seed/revision1/600/400"],
+            avatarSeed: "revision-logo"
+        },
+        {
+            id: "paintmasters-renovations",
+            name: "PaintMasters Renovations",
+            location: "Isando, Kempton Park",
+            description: "PaintMasters Renovations are experienced interior and exterior painters offering high-quality results for homes, offices, and complexes. They specialize in color matching, roof painting, and surface waterproofing.",
+            rating: 4.8,
+            reviews: 9,
+            address: "Isando, Kempton Park",
+            yearsInBusiness: 10,
+            employees: 12,
+            isProVerified: true,
+            serviceLocations: ["kempton-park", "johannesburg", "germiston", "boksburg", "edenvale"],
+            reviewData: [{ author: "Rethabile", phone: "082**910*", rating: 5, comment: "Excellent service from start to finish! My house looks brand new — thank you PaintMasters." }],
+            photos: ["https://picsum.photos/seed/paintmaster1/600/400", "https://picsum.photos/seed/paintmaster2/600/400"],
+            avatarSeed: "paintmasters-logo"
+        },
+        {
+            id: "brightcoat-projects",
+            name: "BrightCoat Projects",
+            location: "Edleen, Kempton Park",
+            description: "BrightCoat Projects focuses on painting, renovations, and maintenance for residential and commercial clients. Their painters are known for reliability, quick turnaround, and smooth, streak-free finishes.",
+            rating: 4.7,
+            reviews: 6,
+            address: "Edleen, Kempton Park",
+            yearsInBusiness: 6,
+            employees: 5,
+            isProVerified: true,
+            serviceLocations: ["kempton-park", "edenvale", "tembisa", "benoni"],
+            reviewData: [{ author: "Thandi", phone: "078**642*", rating: 5, comment: "They repainted our offices beautifully. Great quality, affordable prices, and friendly staff." }],
+            photos: ["https://picsum.photos/seed/brightcoat1/600/400"],
+            avatarSeed: "brightcoat-logo"
+        },
+        {
+            id: "freshtone-painters",
+            name: "FreshTone Painters & Decor",
+            location: "Aston Manor, Kempton Park",
+            description: "FreshTone Painters brings over 12 years of experience in wall coatings, ceiling painting, and interior décor finishes. Using premium paints, they deliver vibrant, long-lasting color for every surface.",
+            rating: 4.9,
+            reviews: 8,
+            address: "Aston Manor, Kempton Park",
+            yearsInBusiness: 12,
+            employees: 10,
+            isProVerified: true,
+            serviceLocations: ["kempton-park", "benoni", "boksburg", "johannesburg"],
+            reviewData: [{ author: "Lunga", phone: "079**534*", rating: 5, comment: "The team did an incredible job in my living room — smooth finish and no mess. Highly recommend!" }],
+            photos: ["https://picsum.photos/seed/freshtone1/600/400"],
+            avatarSeed: "freshtone-logo"
+        },
+        {
+            id: "proedge-coatings",
+            name: "ProEdge Coatings",
+            location: "Spartan, Kempton Park",
+            description: "ProEdge Coatings provides industrial, commercial, and residential painting solutions with a focus on durability and precision. They handle factories, retail spaces, and modern homes with equal skill.",
+            rating: 4.8,
+            reviews: 10,
+            address: "Spartan, Kempton Park",
+            yearsInBusiness: 7,
+            employees: 15,
+            isProVerified: true,
+            serviceLocations: ["kempton-park", "johannesburg", "isando", "germiston", "midrand"],
+            reviewData: [{ author: "Neo", phone: "083**290*", rating: 5, comment: "The workmanship was top-notch! They painted our warehouse and left it spotless afterward." }],
+            photos: ["https://picsum.photos/seed/proedge1/600/400", "https://picsum.photos/seed/proedge2/600/400"],
+            avatarSeed: "proedge-logo"
+        }
+    ],
     "builders": [
         {
             id: "urbanbuild-projects",
@@ -346,7 +444,7 @@ const allProfessionals = {
             yearsInBusiness: 1,
             employees: 2,
             isProVerified: false,
-            serviceLocations: ["germiston", "bedfordview", "edenvale", "midrand"],
+            serviceLocations: ["germiston", "bedfordview", "edenvale", "midrand", "johannesburg", "pretoria", "tembisa", "benoni", "boksburg", "kempton-park"],
             reviewData: [],
             photos: [],
             avatarSeed: "general-solutions"
@@ -840,7 +938,7 @@ export default function ServicePage() {
                                 <ChevronRight className="h-4 w-4" />
                                 <span className="font-medium text-foreground">{pluralServiceLabel}</span>
                             </div>
-                             {introText}
+                             {introText && <div dangerouslySetInnerHTML={{ __html: introText.props.children.map((child: any) => child.props.children).join('') }} />}
                             <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
@@ -888,6 +986,7 @@ export default function ServicePage() {
     
 
     
+
 
 
 
