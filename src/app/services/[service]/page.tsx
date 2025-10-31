@@ -1,13 +1,10 @@
-
-
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useSearchParams, useParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Star, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import Image from 'next/image';
@@ -16,16 +13,15 @@ import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
-import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 import { allProfessionals } from '@/lib/professionals-data';
+import ProfessionalCard from '@/components/services/professional-card';
 
 
 export default function ServicePage() {
     const params = useParams();
     const searchParams = useSearchParams();
     const locationQuery = searchParams.get('location');
-    const [expandedDescriptions, setExpandedDescriptions] = useState<string[]>([]);
 
     const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
 
@@ -33,8 +29,7 @@ export default function ServicePage() {
     const serviceLabel = service?.label || currentService.charAt(0).toUpperCase() + currentService.slice(1);
     
     const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
-    const singularOrPluralLowercase = serviceLabel.endsWith('s') ? serviceLabel.toLowerCase() : `${serviceLabel.toLowerCase()}s`;
-
+    
     const locationName = typeof locationQuery === 'string'
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
@@ -49,10 +44,9 @@ export default function ServicePage() {
         );
     }, [currentService, locationQuery]);
     
-    const isLoading = false; // Set to false as we are using static data
-    const error = null; // Set to null as we are using static data
+    const isLoading = false;
+    const error = null;
     
-    // If there's an error (like a missing Firestore index), display it.
     if (error) {
         return (
             <>
@@ -62,10 +56,6 @@ export default function ServicePage() {
                         <CardContent className="p-6">
                             <h2 className="text-xl font-bold text-destructive">Error Fetching Data</h2>
                             <p className="mt-2 text-muted-foreground">There was a problem loading professionals for this category.</p>
-                            <pre className="mt-4 p-4 bg-secondary rounded-md text-xs whitespace-pre-wrap">{error.message}</pre>
-                            <p className="mt-4 text-sm text-muted-foreground">
-                                This is often caused by a missing Firestore index. If the error message above includes a link to create an index, please click it to resolve the issue. It may take a few minutes for the index to build.
-                            </p>
                         </CardContent>
                     </Card>
                 </main>
@@ -80,35 +70,6 @@ export default function ServicePage() {
     if (!heroImage) {
         heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
     }
-
-    const toggleDescription = (name: string) => {
-        if (expandedDescriptions.includes(name)) {
-            setExpandedDescriptions(expandedDescriptions.filter(n => n !== name));
-        } else {
-            setExpandedDescriptions([...expandedDescriptions, name]);
-        }
-    };
-    
-    const renderDescription = (pro: any) => {
-        const description = pro.description.replace('{service}', singularOrPluralLowercase);
-        const isExpanded = expandedDescriptions.includes(pro.name);
-        if (isExpanded || description.length <= 150) {
-            return (
-                <>
-                    {description}
-                    {description.length > 150 && (
-                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleDescription(pro.name); }} className="text-red-600 font-semibold ml-1">...show less</button>
-                    )}
-                </>
-            );
-        }
-        return (
-            <>
-                {description.substring(0, 150)}
-                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleDescription(pro.name); }} className="text-red-600 font-semibold ml-1">...show more</button>
-            </>
-        );
-    };
     
     const priceEstimates = [
       'The average cost is R500 - R1500.',
@@ -168,64 +129,11 @@ export default function ServicePage() {
             );
         }
         
-        return professionals.map((pro: any) => {
-            const proImage = PlaceHolderImages.find(p => p.id === pro.avatarSeed);
-            const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${pro.avatarSeed}/80/80`;
-            const imageHint = proImage ? proImage.imageHint : "company logo";
-
-            return (
-                <Card key={pro.id} className="bg-card hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6">
-                        <div className="grid sm:grid-cols-4 gap-6">
-                            <div className="sm:col-span-3">
-                                <div className="flex items-start gap-4">
-                                    <Image src={imageUrl} alt={pro.name} width={80} height={80} className="rounded-md border" data-ai-hint={imageHint} />
-                                    <div>
-                                      <Link href={`/pro/${pro.id}?service=${currentService}`} className="hover:underline">
-                                        <h3 className="text-xl text-foreground">{pro.name}</h3>
-                                      </Link>
-                                      <p className="text-sm text-muted-foreground">{pro.location}</p>
-                                      <p className="text-sm mt-2 text-foreground">
-                                          {renderDescription(pro)}
-                                      </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-left sm:text-right">
-                                <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{pro.rating > 0 ? pro.rating.toFixed(1) : '0.0'}</Badge>
-                                <p className="text-xs text-muted-foreground mt-1">{pro.reviews} reviews</p>
-                                <RequestQuoteDialog
-                                    service={currentService}
-                                    initialStep={0}
-                                    initialData={{}}
-                                >
-                                    <Button variant="outline" className="mt-4 w-full sm:w-auto">
-                                        Request a Quote
-                                    </Button>
-                                </RequestQuoteDialog>
-                            </div>
-                        </div>
-                        {pro.reviewData && pro.reviewData.length > 0 && (
-                          <div className="mt-4 pt-4 border-t">
-                              <div className="flex items-center gap-2">
-                                  <div className="flex">
-                                      {[...Array(5)].map((_, i) => (
-                                          <Star key={i} className={`h-4 w-4 ${i < pro.reviewData[0].rating ? 'text-red-500 fill-red-500' : 'text-gray-300'}`} />
-                                      ))}
-                                  </div>
-                                  <p className="text-sm text-muted-foreground">by {pro.reviewData[0].author}{pro.reviewData[0].phone && `, ${pro.reviewData[0].phone}`}</p>
-                              </div>
-                              <p className="text-sm text-foreground mt-2 italic">"{pro.reviewData[0].comment}"</p>
-                          </div>
-                        )}
-                    </CardContent>
-                </Card>
-            )
-        });
+        return professionals.map((pro: any) => (
+            <ProfessionalCard key={pro.id} professional={pro} service={currentService} />
+        ));
     };
     
-
-
     return (
         <>
             <Header />
@@ -275,16 +183,16 @@ export default function ServicePage() {
                                     <CardContent className="p-6">
                                         <h3 className="mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                                            <li>602 Reviews for {singularOrPluralLowercase}</li>
+                                            <li>602 Reviews for {pluralServiceLabel.toLowerCase()}</li>
                                             <li>510 Positive Reviews</li>
                                             <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
-                                            <li>View {locationName} Pros for {singularOrPluralLowercase} today</li>
+                                            <li>View {locationName} Pros for {pluralServiceLabel.toLowerCase()} today</li>
                                         </ul>
                                     </CardContent>
                                 </Card>
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="mb-3 text-foreground">Price Estimate for {singularOrPluralLowercase} in {locationName}</h3>
+                                        <h3 className="mb-3 text-foreground">Price Estimate for {pluralServiceLabel.toLowerCase()} in {locationName}</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                             {priceEstimates.map(est => <li key={est}>{est}</li>)}
                                         </ul>
