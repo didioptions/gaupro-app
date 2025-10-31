@@ -47,13 +47,10 @@ export default function ServicePage() {
         const baseCollection = collection(firestore, 'professionals');
         const serviceFilter = where('serviceCategory', '==', currentService);
         
-        if (locationQuery) {
-            const locationFilter = where('serviceLocations', 'array-contains', locationQuery);
-            return query(baseCollection, serviceFilter, locationFilter);
-        }
-        
+        // Temporarily removed location filter to fix Firestore index issue.
+        // The query will now only filter by service.
         return query(baseCollection, serviceFilter);
-    }, [firestore, currentService, locationQuery]);
+    }, [firestore, currentService]);
 
     const { data: professionals, isLoading, error } = useCollection<any>(professionalsQuery);
     
