@@ -19,7 +19,7 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 const allProfessionals = {
-    "painters": [
+    "painter": [
         {
             id: "madiway-projects",
             name: "Madiway Projects (Pty) Ltd",
@@ -639,7 +639,7 @@ const allProfessionals = {
             yearsInBusiness: 9,
             employees: 4,
             isProVerified: true,
-            serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton"],
+            serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton", "midrand", "sandton", "johannesburg", "pretoria", "tembisa"],
             reviewData: [
                 { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." },
                 { author: "Sarah J.", phone: "082****112", rating: 5, comment: "Fantastic service! The team was friendly, efficient, and very professional. They cleared out our garden refuse in no time. I'll definitely use them again." },
@@ -666,7 +666,7 @@ const allProfessionals = {
             yearsInBusiness: 1,
             employees: 2,
             isProVerified: false,
-            serviceLocations: ["germiston", "bedfordview", "edenvale"],
+            serviceLocations: ["germiston", "bedfordview", "edenvale", "midrand", "johannesburg", "pretoria", "tembisa", "benoni", "boksburg", "kempton-park"],
             reviewData: [],
             photos: [],
             avatarSeed: "general-solutions"
@@ -682,7 +682,7 @@ const allProfessionals = {
             yearsInBusiness: 3,
             employees: 5,
             isProVerified: true,
-            serviceLocations: ["boksburg", "benoni", "kempton-park", "springs"],
+            serviceLocations: ["boksburg", "benoni", "kempton-park", "springs", "midrand", "germiston", "johannesburg"],
             reviewData: [{
                 author: "Anonymous",
                 phone: "",
@@ -706,7 +706,7 @@ const allProfessionals = {
             yearsInBusiness: 12,
             employees: 8,
             isProVerified: true,
-            serviceLocations: ["soweto", "johannesburg"],
+            serviceLocations: ["soweto", "johannesburg", "midrand", "sandton", "roodepoort"],
             reviewData: [{
                 author: "Sarah P.",
                 phone: "072****123",
@@ -731,7 +731,7 @@ const allProfessionals = {
             yearsInBusiness: 7,
             employees: 15,
             isProVerified: true,
-            serviceLocations: ["sandton", "rosebank", "bryanston"],
+            serviceLocations: ["sandton", "rosebank", "bryanston", "midrand", "johannesburg", "pretoria"],
             reviewData: [{
                 author: "Mike",
                 phone: "083****789",
@@ -822,17 +822,20 @@ export default function ServicePage() {
       'The most expensive price is R10500',
     ];
 
-    const introText = currentService === 'builders'
-    ? (
-        <div className="my-8 text-foreground prose prose-lg max-w-none space-y-4">
-            <h2 className="text-2xl font-normal">Building Dreams Across {locationName} with Trusted Building Contractors</h2>
-            <p>Building your dream home or renovating a property takes time, dedication, and a reliable team. In {locationName}, homeowners and businesses can choose from hundreds of professional building contractors — but finding the right one makes all the difference.</p>
-            <div className="mb-4" /> 
-            <p>At GauPro, we connect you with verified builders and construction experts who deliver quality workmanship, honest communication, and attention to detail. Whether you need a small repair, home extension, or complete building project, our contractors are ready to bring your vision to life.</p>
-            <p>Many also provide finishing and interior services, such as tiling, plastering, and painting, to give your kitchen, bathroom, or office space the perfect final touch.</p>
-        </div>
-    )
-    : null;
+    const introText = useMemo(() => {
+        const texts: { [key: string]: JSX.Element } = {
+            builders: (
+                <div className="my-8 text-foreground prose prose-lg max-w-none space-y-4">
+                    <h2 className="text-2xl font-normal">Building Dreams Across {locationName} with Trusted Building Contractors</h2>
+                    <p>Building your dream home or renovating a property takes time, dedication, and a reliable team. In {locationName}, homeowners and businesses can choose from hundreds of professional building contractors — but finding the right one makes all the difference.</p>
+                    <div className="mb-4" /> 
+                    <p>At GauPro, we connect you with verified builders and construction experts who deliver quality workmanship, honest communication, and attention to detail. Whether you need a small repair, home extension, or complete building project, our contractors are ready to bring your vision to life.</p>
+                    <p>Many also provide finishing and interior services, such as tiling, plastering, and painting, to give your kitchen, bathroom, or office space the perfect final touch.</p>
+                </div>
+            )
+        };
+        return texts[currentService] || null;
+    }, [currentService, locationName]);
 
     const memoizedProfessionals = useMemo(() => {
         return professionals.map(pro => {
@@ -938,7 +941,7 @@ export default function ServicePage() {
                                 <ChevronRight className="h-4 w-4" />
                                 <span className="font-medium text-foreground">{pluralServiceLabel}</span>
                             </div>
-                             {introText && <div dangerouslySetInnerHTML={{ __html: introText.props.children.map((child: any) => child.props.children).join('') }} />}
+                             {introText}
                             <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
@@ -986,6 +989,7 @@ export default function ServicePage() {
     
 
     
+
 
 
 
