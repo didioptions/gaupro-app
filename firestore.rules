@@ -63,13 +63,13 @@ service cloud.firestore {
     /**
      * @description Controls access to the main professionals collection.
      * @path /professionals/{professionalId}
-     * @allow (get, list) Any user can retrieve professional profiles.
+     * @allow (read) Any user can retrieve professional profiles.
      * @deny (write) No one can write to this collection from the client.
      * @principle Allows public read access for listings, restricts all writes.
      */
-    match /professionals/{professionalId} {
-      allow get, list: if true;
-      allow create, update, delete: if false;
+    match /professionals/{document=**} {
+      allow read: if true;
+      allow write: if false;
     }
 
     /**
@@ -207,5 +207,3 @@ service cloud.firestore {
     }
   }
 }
-
-    
