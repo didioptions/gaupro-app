@@ -1,10 +1,11 @@
 
+
 'use client';
 
 import { useParams, useSearchParams } from 'next/navigation';
-import { getProfessionalById } from '@/app/services/[service]/page';
 import { notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { getProfessionalById } from '@/lib/professionals-data';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
