@@ -9,7 +9,8 @@
  *
  * Data Structure:
  * - /users/{userId}: Stores user profiles.
- * - /professionalProfiles/{professionalProfileId}: Stores professional profiles.
+ * - /professionals/{professionalId}: The main collection for all professional profiles.
+ * - /professionalProfiles/{professionalProfileId}: Stores professional profiles. (Legacy or alternative path)
  * - /users/{userId}/serviceRequests/{serviceRequestId}: Stores service requests submitted by users.
  * - /professionalProfiles/{professionalProfileId}/quotes/{quoteId}: Stores quotes provided by professionals.
  * - /users/{userId}/serviceRequests/{serviceRequestId}/quotes/{quoteId}: Stores quotes related to user service requests.
@@ -57,6 +58,18 @@ service cloud.firestore {
       allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == userId;
       allow update: if isSignedIn() && isOwner(userId) && resource.data.id == userId;
       allow delete: if isSignedIn() && isExistingOwner(userId);
+    }
+    
+    /**
+     * @description Controls access to the main professionals collection.
+     * @path /professionals/{professionalId}
+     * @allow (get, list) Any user can retrieve professional profiles.
+     * @deny (write) No one can write to this collection from the client.
+     * @principle Allows public read access for listings, restricts all writes.
+     */
+    match /professionals/{professionalId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
     }
 
     /**
@@ -194,3 +207,5 @@ service cloud.firestore {
     }
   }
 }
+
+    

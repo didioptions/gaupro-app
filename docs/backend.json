@@ -252,6 +252,22 @@
         }
       },
       {
+        "path": "/professionals/{professionalId}",
+        "definition": {
+          "entityName": "ProfessionalProfile",
+          "schema": {
+            "$ref": "#/backend/entities/ProfessionalProfile"
+          },
+          "description": "Stores all professional profiles. This is the main collection for publicly listed professionals.",
+          "params": [
+            {
+              "name": "professionalId",
+              "description": "The unique identifier of the professional profile."
+            }
+          ]
+        }
+      },
+      {
         "path": "/professionalProfiles/{professionalProfileId}",
         "definition": {
           "entityName": "ProfessionalProfile",
@@ -379,3 +395,5 @@
     "reasoning": "The Firestore structure is designed to support the Gaupro application's core features, including user profiles, professional profiles, service requests, quotes, and reviews, while prioritizing security and scalability. It implements Authorization Independence by denormalizing authorization data where necessary, ensuring that rules can be evaluated without complex `get()` operations. Structural Segregation is used to maintain a homogeneous security posture within each collection. Access Modeling follows consistent patterns, leveraging path-based ownership and membership maps for collaborative data.\n\nUsers and Professional Profiles are stored in separate collections to allow for distinct security rules and scalability. Service Requests are stored as subcollections of Users, enabling easy retrieval of a user's requests. Quotes are nested under Service Requests and professional profile, allowing filtering by professional or by service request. Reviews are also stored as subcollections of both Service Requests and Professional Profiles enabling easy aggregation and filtering for reviews.\n\nThe design ensures QAPs by:\n\n*   Segregating user-owned data (Service Requests) under `/users/{userId}`.\n*   Using path-based ownership for user data.\n*   Storing Professional Profiles separately to allow public listing while maintaining secure access to profile details."
   }
 }
+
+    
