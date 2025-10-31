@@ -67,8 +67,8 @@ service cloud.firestore {
      * @deny (write) No one can write to this collection from the client.
      * @principle Allows public read access for listings, restricts all writes.
      */
-    match /professionals/{document=**} {
-      allow read: if true;
+    match /professionals/{professionalId} {
+      allow get, list: if true;
       allow write: if false;
     }
 
