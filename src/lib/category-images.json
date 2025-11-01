@@ -108,6 +108,42 @@
       "description": "A photographer taking a picture of a newly married couple.",
       "imageUrl": "https://picsum.photos/seed/wedding-photographers-image/400/300",
       "imageHint": "wedding photographer"
+    },
+    {
+      "id": "plumber-image",
+      "description": "A professional plumber working under a kitchen sink.",
+      "imageUrl": "https://picsum.photos/seed/plumber-image/400/300",
+      "imageHint": "plumber sink"
+    },
+    {
+      "id": "electrician-image",
+      "description": "An electrician carefully working on a circuit breaker panel.",
+      "imageUrl": "https://picsum.photos/seed/electrician-image/400/300",
+      "imageHint": "electrician panel"
+    },
+    {
+      "id": "gardeners-image",
+      "description": "A gardener trimming hedges in a beautiful, well-maintained garden.",
+      "imageUrl": "https://picsum.photos/seed/gardeners-image/400/300",
+      "imageHint": "gardener trimming"
+    },
+    {
+      "id": "pest-control-image",
+      "description": "A pest control professional safely spraying indoors.",
+      "imageUrl": "https://picsum.photos/seed/pest-control-image/400/300",
+      "imageHint": "pest control"
+    },
+    {
+      "id": "tree-felling-image",
+      "description": "A person with safety gear cutting a tree branch.",
+      "imageUrl": "https://picsum.photos/seed/tree-felling-image/400/300",
+      "imageHint": "tree felling"
+    },
+    {
+      "id": "carpenters-image",
+      "description": "A carpenter measuring a piece of wood in a workshop.",
+      "imageUrl": "https://picsum.photos/seed/carpenters-image/400/300",
+      "imageHint": "carpenter wood"
     }
   ]
 }
