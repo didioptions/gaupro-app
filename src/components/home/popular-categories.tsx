@@ -40,6 +40,17 @@ const homeServices = [
   { name: "Carpenters", href: "/services/carpenter", imageId: "carpenters-image" },
 ];
 
+const businessServices = [
+    { name: "Accounting", href: "/services/accounting", imageId: "accounting-image" },
+    { name: "Auditors", href: "/services/auditors", imageId: "auditors-image" },
+    { name: "Debt Counsellors", href: "/services/debt-counsellors", imageId: "debt-counsellors-image" },
+    { name: "Financial Advisors", href: "/services/financial-advisors", imageId: "financial-advisors-image" },
+    { name: "Home Loans", href: "/services/home-loans", imageId: "home-loans-image" },
+    { name: "Insurance", href: "/services/insurance", imageId: "insurance-image" },
+    { name: "Business Consultants", href: "/services/business-consultants", imageId: "business-consultants-image" },
+    { name: "Company Registrations", href: "/services/company-registrations", imageId: "company-registrations-image" },
+];
+
 const CategoryCard = ({ name, href, imageId }: { name: string, href: string, imageId: string }) => {
   const categoryImage = CategoryImages.find(c => c.id === imageId);
   return (
@@ -71,8 +82,8 @@ export default function PopularCategories() {
           <div className="flex justify-center mb-12">
             <TabsList className="grid w-full max-w-4xl grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto">
               <TabsTrigger value="popular" className="py-2.5">Popular Services</TabsTrigger>
-              <TabsTrigger value="weddings" className="py-2.5">Weddings & Events</TabsTrigger>
               <TabsTrigger value="home" className="py-2.5">Home, Building & Garden</TabsTrigger>
+              <TabsTrigger value="weddings" className="py-2.5">Weddings & Events</TabsTrigger>
               <TabsTrigger value="business" className="py-2.5">Business & Finance</TabsTrigger>
               <TabsTrigger value="more" className="py-2.5">More...</TabsTrigger>
             </TabsList>
@@ -100,7 +111,11 @@ export default function PopularCategories() {
             </div>
           </TabsContent>
           <TabsContent value="business">
-             <div className="text-center text-muted-foreground">Coming soon...</div>
+             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
+              {businessServices.map((category) => (
+                <CategoryCard key={category.name} {...category} />
+              ))}
+            </div>
           </TabsContent>
           <TabsContent value="more">
              <div className="text-center text-muted-foreground">Coming soon...</div>

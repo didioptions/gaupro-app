@@ -144,6 +144,54 @@
       "description": "A carpenter measuring a piece of wood in a workshop.",
       "imageUrl": "https://picsum.photos/seed/carpenters-image/400/300",
       "imageHint": "carpenter wood"
+    },
+    {
+      "id": "accounting-image",
+      "description": "A calculator and pen on top of financial documents.",
+      "imageUrl": "https://picsum.photos/seed/accounting-image/400/300",
+      "imageHint": "accounting finance"
+    },
+    {
+      "id": "auditors-image",
+      "description": "A person with a magnifying glass examining a financial report.",
+      "imageUrl": "https://picsum.photos/seed/auditors-image/400/300",
+      "imageHint": "auditor report"
+    },
+    {
+      "id": "debt-counsellors-image",
+      "description": "A supportive handshake over a desk, symbolizing financial help.",
+      "imageUrl": "https://picsum.photos/seed/debt-counsellors-image/400/300",
+      "imageHint": "financial help"
+    },
+    {
+      "id": "financial-advisors-image",
+      "description": "A financial advisor discussing charts with a client.",
+      "imageUrl": "https://picsum.photos/seed/financial-advisors-image/400/300",
+      "imageHint": "financial advisor"
+    },
+    {
+      "id": "home-loans-image",
+      "description": "A miniature house model held in hands.",
+      "imageUrl": "https://picsum.photos/seed/home-loans-image/400/300",
+      "imageHint": "house model"
+    },
+    {
+      "id": "insurance-image",
+      "description": "An umbrella protecting a family, symbolizing insurance coverage.",
+      "imageUrl": "https://picsum.photos/seed/insurance-image/400/300",
+      "imageHint": "insurance protection"
+    },
+    {
+      "id": "business-consultants-image",
+      "description": "A business consultant presenting a growth strategy on a whiteboard.",
+      "imageUrl": "https://picsum.photos/seed/business-consultants-image/400/300",
+      "imageHint": "business strategy"
+    },
+    {
+      "id": "company-registrations-image",
+      "description": "A person signing an official company registration document.",
+      "imageUrl": "https://picsum.photos/seed/company-registrations-image/400/300",
+      "imageHint": "document signing"
     }
   ]
 }
