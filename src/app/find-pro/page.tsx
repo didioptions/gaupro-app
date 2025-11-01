@@ -20,8 +20,14 @@ import { allProfessionals } from '@/lib/professionals-data';
 import ProfessionalCard from '@/components/services/professional-card';
 import { Professional } from '@/components/services/professional-card';
 
-// Flatten the allProfessionals object into a single array
-const allProsArray = Object.values(allProfessionals).flat();
+// Correctly flatten the allProfessionals object while preserving the category
+const allProsArray = Object.entries(allProfessionals).flatMap(([category, pros]) => 
+  (pros as Professional[]).map(pro => ({
+    ...pro,
+    serviceCategory: category // Attach the category to each pro object
+  }))
+);
+
 
 export default function FindProPage() {
   const [description, setDescription] = useState('');
