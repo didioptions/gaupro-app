@@ -1,18 +1,18 @@
-
 'use client';
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, Phone, User, CreditCard } from 'lucide-react';
+import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { Textarea } from '@/components/ui/textarea';
 import { useUser } from '@/firebase';
 import { useRouter } from 'next/navigation';
+import { useToast } from '@/hooks/use-toast';
+import { QuoteDialog } from '@/components/pro/quote-dialog';
 
 const jobRequests = [
   {
@@ -129,154 +129,131 @@ const jobRequests = [
   },
 ];
 
+type Job = typeof jobRequests[0];
+
 const MAX_QUOTES_ALLOWED = 5;
 
 export default function BrowseQuotesPage() {
-  const [unlockedJobs, setUnlockedJobs] = useState<number[]>([]);
-  const [creditBalance, setCreditBalance] = useState(25); // Test credit balance
+  const [creditBalance, setCreditBalance] = useState(25);
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const { user } = useUser();
   const router = useRouter();
+  const { toast } = useToast();
 
-  const handleUnlock = (jobId: number, creditCost: number) => {
+  const handleUnlockClick = (job: Job) => {
     if (!user) {
       router.push('/pro/login');
       return;
     }
-    if (!unlockedJobs.includes(jobId) && creditBalance >= creditCost) {
-      setCreditBalance(prevBalance => prevBalance - creditCost);
-      setUnlockedJobs([...unlockedJobs, jobId]);
+    if (creditBalance >= job.credits) {
+      setCreditBalance(prevBalance => prevBalance - job.credits);
+      setSelectedJob(job);
+    } else {
+      toast({
+        variant: 'destructive',
+        title: 'Insufficient Credits',
+        description: 'You do not have enough credits to unlock this job. Please buy more credits.',
+      });
     }
-    // Optional: Add an else block to show an error if credits are insufficient
   };
 
   return (
     <>
       <Header />
       <main className="flex-grow">
-    <div className="bg-background">
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Latest Job Requests</h1>
-            <p className="text-foreground max-w-2xl mx-auto">
-              Browse the latest opportunities from customers in your area. Unlock leads to get contact details and submit your quote.
-            </p>
-          </div>
+        <div className="bg-secondary/30">
+          <section className="py-16 md:py-24">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-12">
+                <h1 className="text-3xl md:text-4xl font-normal mb-4">Latest Job Requests</h1>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Browse the latest opportunities from customers in your area. Unlock leads to get contact details and submit your quote.
+                </p>
+              </div>
 
-          <div className="max-w-2xl mx-auto mb-8">
-            {user && (
-              <Card className="bg-card shadow-sm mb-8">
-                  <CardContent className="p-4 flex justify-between items-center">
+              <div className="max-w-3xl mx-auto mb-8">
+                {user && (
+                  <Card className="bg-card shadow-sm mb-8">
+                    <CardContent className="p-4 flex justify-between items-center">
                       <div className="flex items-center gap-3">
-                          <CreditCard className="h-6 w-6 text-primary" />
-                          <h3 className="text-lg font-semibold">Credit Balance</h3>
+                        <CreditCard className="h-6 w-6 text-primary" />
+                        <h3 className="text-lg font-semibold">Credit Balance</h3>
                       </div>
                       <div className="text-right">
-                          <p className="text-2xl font-bold text-primary">{creditBalance}</p>
-                          <Button variant="link" asChild className="h-auto p-0 text-sm">
-                              <Link href="/pro/buy-credits">Buy more credits</Link>
-                          </Button>
-                      </div>
-                  </CardContent>
-              </Card>
-            )}
-
-            <form className="flex gap-2">
-              <Input
-                type="search"
-                placeholder="Search for job titles or categories..."
-                className="h-12 flex-grow text-base"
-              />
-              <Button type="submit" size="lg" className="h-12">
-                <Search className="mr-2 h-5 w-5 md:hidden" />
-                <span className="hidden md:inline">Search</span>
-              </Button>
-            </form>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-6">
-              {jobRequests.map((job) => {
-                const isUnlocked = unlockedJobs.includes(job.id);
-                const isClosed = job.quotes >= MAX_QUOTES_ALLOWED;
-
-                return (
-                  <Card key={job.id} className="bg-card hover:shadow-md transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <div className="flex-grow">
-                          <div className="flex items-center gap-2 text-sm text-foreground mb-2">
-                            <Badge variant="secondary" className="bg-blue-100 text-primary hover:bg-blue-200">{job.category}</Badge>
-                            <MapPin className="h-4 w-4" />
-                            <span>{job.location}</span>
-                          </div>
-                          <h2 className="text-xl font-bold mb-2 text-foreground">{job.title}</h2>
-                          <p className="text-foreground text-sm mb-4">{job.description}</p>
-                        </div>
-                        <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-foreground">
-                          <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {job.posted}</span></div>
-                          <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.needed}</span></div>
-                          <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>
-                          <div className="flex items-center gap-2"><Users className="h-4 w-4" /> <span>{job.quotes} quotes submitted</span></div>
-                        </div>
-                      </div>
-                       <div className="mt-4 pt-4 border-t">
-                        {isUnlocked ? (
-                          <div className="space-y-4">
-                             <div>
-                                <h3 className="text-md font-semibold mb-2 text-foreground">Customer Details</h3>
-                                <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-foreground">
-                                   <div className="flex items-center gap-2"><User className="h-4 w-4" /> <span>{job.customer.name}</span></div>
-                                   <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> <span>{job.customer.phone}</span></div>
-                                </div>
-                             </div>
-                             <form className="space-y-2">
-                                <Textarea placeholder={`Your quote for ${job.title}...`} rows={3} />
-                                <Button className="w-full sm:w-auto">Submit Quote</Button>
-                             </form>
-                          </div>
-                        ) : isClosed ? (
-                            <Badge variant="destructive">Closed</Badge>
-                        ) : (
-                          <Button
-                            className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto"
-                            onClick={() => handleUnlock(job.id, job.credits)}
-                          >
-                              <Lock className="mr-2 h-4 w-4" />
-                              Unlock & Quote ({job.credits} Credits)
-                          </Button>
-                        )}
+                        <p className="text-2xl font-bold text-primary">{creditBalance}</p>
+                        <Button variant="link" asChild className="h-auto p-0 text-sm">
+                          <Link href="/pro/buy-credits">Buy more credits</Link>
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
-                )
-              })}
-            </div>
+                )}
 
-            <aside className="space-y-6">
-              {!user && (
-                <Card className="bg-card shadow-sm">
-                  <CardHeader>
-                      <CardTitle>Are you a Pro?</CardTitle>
-                      <CardDescription>Sign up to start quoting on jobs.</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                      <Button asChild className="w-full">
-                          <Link href="/pro/signup">Join as a Pro</Link>
-                      </Button>
-                      <Button asChild variant="secondary" className="w-full">
-                          <Link href="/pro/login">Login</Link>
-                      </Button>
-                  </CardContent>
-                </Card>
-              )}
-            </aside>
-          </div>
+                <form className="flex gap-2">
+                  <Input
+                    type="search"
+                    placeholder="Search for job titles or categories..."
+                    className="h-12 flex-grow text-base bg-card"
+                  />
+                  <Button type="submit" size="lg" className="h-12">
+                    <Search className="mr-2 h-5 w-5 md:hidden" />
+                    <span className="hidden md:inline">Search</span>
+                  </Button>
+                </form>
+              </div>
+
+              <div className="space-y-6 max-w-3xl mx-auto">
+                {jobRequests.map((job) => {
+                  const isClosed = job.quotes >= MAX_QUOTES_ALLOWED;
+
+                  return (
+                    <Card key={job.id} className="bg-card hover:shadow-md transition-shadow">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col sm:flex-row gap-4">
+                          <div className="flex-grow">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                              <Badge variant="secondary" className="bg-blue-100 text-primary hover:bg-blue-200">{job.category}</Badge>
+                              <MapPin className="h-4 w-4" />
+                              <span>{job.location}</span>
+                            </div>
+                            <h2 className="text-xl font-bold mb-2 text-foreground">{job.title}</h2>
+                            <p className="text-muted-foreground text-sm mb-4">{job.description}</p>
+                          </div>
+                          <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-muted-foreground">
+                            <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {job.posted}</span></div>
+                            <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.needed}</span></div>
+                            <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>
+                            <div className="flex items-center gap-2"><Users className="h-4 w-4" /> <span>{job.quotes} quotes submitted</span></div>
+                          </div>
+                        </div>
+                        <div className="mt-4 pt-4 border-t">
+                          {isClosed ? (
+                            <Badge variant="destructive">Job Closed</Badge>
+                          ) : (
+                            <Button
+                              className="w-full sm:w-auto"
+                              onClick={() => handleUnlockClick(job)}
+                            >
+                              <Lock className="mr-2 h-4 w-4" />
+                              Unlock & Quote ({job.credits} Credits)
+                            </Button>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
-    </main>
+      </main>
       <Footer />
-      </>
+      <QuoteDialog
+        job={selectedJob}
+        isOpen={!!selectedJob}
+        onClose={() => setSelectedJob(null)}
+      />
+    </>
   );
 }
