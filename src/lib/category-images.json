@@ -1,3 +1,4 @@
+
 {
   "categoryImages": [
     {
@@ -59,6 +60,54 @@
       "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_painters.PNG?alt=media&token=d52fc5c0-7f81-41b4-9aba-369375321e7c",
       "imageHint": "living room decor"
+    },
+    {
+      "id": "djs-image",
+      "description": "A DJ mixing music on a turntable at a lively event.",
+      "imageUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxESiUyMGV2ZW50fGVufDB8fHx8MTc2MzczMzY3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "DJ event"
+    },
+    {
+      "id": "event-decorations-image",
+      "description": "A beautifully decorated table setting for a wedding or event.",
+      "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxldmVudCUyMGRlY29yYXRpb258ZW58MHx8fHwxNzYzNzMzNjc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event decoration"
+    },
+    {
+      "id": "party-planners-image",
+      "description": "A party planner with a clipboard, smiling at a well-organized event.",
+      "imageUrl": "https://images.unsplash.com/photo-1519412666095-9ce9a29c3a37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXJ0eSUyMHBsYW5uZXJ8ZW58MHx8fHwxNzYzNzMzNjc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "party planner"
+    },
+    {
+      "id": "tent-hire-image",
+      "description": "A large white event tent set up on a grassy field for a wedding.",
+      "imageUrl": "https://images.unsplash.com/photo-1596701135210-98d7c44243a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxldmVudCUyMHRlbnR8ZW58MHx8fHwxNzYzNzMzNjc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event tent"
+    },
+    {
+      "id": "photographers-image",
+      "description": "A photographer holding a professional camera, ready to shoot.",
+      "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoZXJ8ZW58MHx8fHwxNzYzNzMzNjc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "photographer camera"
+    },
+    {
+      "id": "toilet-hire-image",
+      "description": "A row of clean, modern portable toilets for an outdoor event.",
+      "imageUrl": "https://images.unsplash.com/photo-1621263721389-9a7450aff2b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3J0YWJsZSUyMHRvaWxldHxlbnwwfHx8fDE3NjM3MzM2ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portable toilets"
+    },
+    {
+      "id": "videographers-image",
+      "description": "A videographer operating a camera on a tripod during an event.",
+      "imageUrl": "https://images.unsplash.com/photo-1577741334133-39572c6209ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2aWRlb2dyYXBoZXJ8ZW58MHx8fHwxNzYzNzMzNjgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "videographer camera"
+    },
+    {
+      "id": "wedding-photographers-image",
+      "description": "A photographer taking a picture of a newly married couple.",
+      "imageUrl": "https://images.unsplash.com/photo-1583935218739-835b3749a18d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaGVyfGVufDB8fHx8MTc2MzczMzY4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding photographer"
     }
   ]
 }
