@@ -100,6 +100,11 @@ export default function Header() {
           </Link>
         </Button>
         <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
+          <Link href="/browse-leads">
+            Browse Leads
+          </Link>
+        </Button>
+        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
           <Link href="/pro/signup">
             Join as a Pro
           </Link>
@@ -145,6 +150,9 @@ export default function Header() {
         </Link>
         <Link href="/how-it-works" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
           How It Works
+        </Link>
+        <Link href="/browse-leads" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+          Browse Leads
         </Link>
         <Link href="/pro/signup" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
           Join as a Pro
