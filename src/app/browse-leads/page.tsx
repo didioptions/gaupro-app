@@ -1,16 +1,41 @@
 
+'use client';
+
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus } from 'lucide-react';
+import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus, Search } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { jobRequests } from '@/lib/job-requests-data';
+import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 const MAX_QUOTES_ALLOWED = 5;
 
 export default function BrowseLeadsPage() {
+  const [serviceQuery, setServiceQuery] = useState('');
+  const [locationQuery, setLocationQuery] = useState('');
+  
+  const filteredJobs = useMemo(() => {
+    return jobRequests.filter(job => {
+      const serviceMatch = !serviceQuery || 
+        job.title.toLowerCase().includes(serviceQuery.toLowerCase()) || 
+        job.category.toLowerCase().includes(serviceQuery.toLowerCase());
+      const locationMatch = !locationQuery || 
+        job.location.toLowerCase().includes(locationQuery.toLowerCase());
+      return serviceMatch && locationMatch;
+    });
+  }, [serviceQuery, locationQuery]);
+
   return (
     <>
       <Header />
@@ -31,8 +56,48 @@ export default function BrowseLeadsPage() {
                 </Button>
               </div>
 
+              <div className="max-w-4xl mx-auto mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2 bg-card p-2 rounded-lg shadow-md">
+                    <div className="relative md:col-span-2">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Input
+                            type="text"
+                            placeholder="e.g. plumbing services"
+                            className="h-12 pl-10 text-base"
+                            value={serviceQuery}
+                            onChange={(e) => setServiceQuery(e.target.value)}
+                        />
+                    </div>
+                     <div className="relative">
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Input
+                            type="text"
+                            placeholder="Durban"
+                            className="h-12 pl-10 text-base"
+                            value={locationQuery}
+                            onChange={(e) => setLocationQuery(e.target.value)}
+                        />
+                    </div>
+                    <div className="flex gap-2">
+                       <Select>
+                            <SelectTrigger className="h-12 text-base">
+                                <SelectValue placeholder="Radius" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="10">10km</SelectItem>
+                                <SelectItem value="20">20km</SelectItem>
+                                <SelectItem value="50">50km</SelectItem>
+                                <SelectItem value="100">100km</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        <Button className="h-12 px-6" disabled>GO</Button>
+                    </div>
+                </div>
+              </div>
+
+
               <div className="space-y-6 max-w-3xl mx-auto">
-                {jobRequests.map((job) => {
+                {filteredJobs.length > 0 ? filteredJobs.map((job) => {
                   const isClosed = job.quotes >= MAX_QUOTES_ALLOWED;
 
                   return (
@@ -67,7 +132,13 @@ export default function BrowseLeadsPage() {
                       </CardContent>
                     </Card>
                   );
-                })}
+                }) : (
+                  <Card>
+                    <CardContent className="p-10 text-center text-muted-foreground">
+                      No job requests found matching your criteria.
+                    </CardContent>
+                  </Card>
+                )}
               </div>
             </div>
           </section>
