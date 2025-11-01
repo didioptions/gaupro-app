@@ -1,4 +1,5 @@
 
+
 export const jobRequests = [
   {
     id: 1,
@@ -6,7 +7,7 @@ export const jobRequests = [
     location: 'Sandton, Johannesburg',
     title: 'Leaky kitchen sink faucet',
     description: 'The faucet under my kitchen sink has a steady drip. Need a plumber to diagnose and fix the issue. It seems to be coming from the base of the faucet itself.',
-    posted: '1 minute ago',
+    posted: '1 hour ago',
     needed: 'As soon as possible',
     budget: 'R500 - R1000',
     quotes: 2,
@@ -14,6 +15,38 @@ export const jobRequests = [
     customer: {
       name: 'Jane Doe',
       phone: '082 123 4567',
+    }
+  },
+  {
+    id: 8,
+    category: 'Solar Systems',
+    location: 'Durbanville, Cape Town',
+    title: 'Quote for residential solar installation',
+    description: 'I\'m looking for quotes for a 5kW hybrid solar system for my home. Please include pricing for panels, inverter, and battery storage. My monthly electricity usage is around 600 kWh.',
+    posted: '2 hours ago',
+    needed: 'Within a month',
+    budget: 'Quote Required',
+    quotes: 1,
+    credits: 5,
+    customer: {
+      name: 'David Miller',
+      phone: '081 222 3333',
+    }
+  },
+  {
+    id: 9,
+    category: 'Website Designers',
+    location: 'Umhlanga, Durban',
+    title: 'Build a new e-commerce website for a small boutique',
+    description: 'I need a clean and modern e-commerce website built on Shopify or a similar platform. The site should have around 20 products, a payment gateway, and a simple blog section.',
+    posted: '8 hours ago',
+    needed: 'In the next 2 months',
+    budget: 'R10000 - R20000',
+    quotes: 0,
+    credits: 4,
+    customer: {
+      name: 'Priya Naidoo',
+      phone: '072 444 5555',
     }
   },
   {
@@ -25,7 +58,7 @@ export const jobRequests = [
     posted: '1 day ago',
     needed: 'In the next few days',
     budget: 'Quote Required',
-    quotes: 5,
+    quotes: 4,
     credits: 3,
     customer: {
       name: 'John Smith',
@@ -57,7 +90,7 @@ export const jobRequests = [
     posted: '5 days ago',
     needed: 'As soon as possible',
     budget: 'R800 - R1500',
-    quotes: 8,
+    quotes: 3,
     credits: 2,
     customer: {
       name: 'Susan Williams',
@@ -83,13 +116,13 @@ export const jobRequests = [
   {
     id: 6,
     category: 'Cleaning',
-    location: 'Cape Town, Western Cape',
+    location: 'Sea Point, Cape Town',
     title: 'Deep clean of 3-bedroom house',
     description: 'End-of-lease deep cleaning required for a 3-bedroom, 2-bathroom house. Includes oven, windows, and carpets. Must be completed by the end of the week.',
     posted: '1 week ago',
     needed: 'By this weekend',
     budget: 'R1500 - R2500',
-    quotes: 11,
+    quotes: 5,
     credits: 2,
     customer: {
       name: 'Emily Davis',
@@ -99,7 +132,7 @@ export const jobRequests = [
   {
     id: 7,
     category: 'Handyman',
-    location: 'Durban, KwaZulu-Natal',
+    location: 'Ballito, KwaZulu-Natal',
     title: 'Hang pictures and assemble flat-pack furniture',
     description: 'I have 5 large pictures to hang on various walls and a new bookshelf from a flat-pack that needs to be assembled. Need someone with their own tools.',
     posted: '2 weeks ago',
@@ -112,4 +145,20 @@ export const jobRequests = [
       phone: '076 777 8888',
     }
   },
+   {
+    id: 10,
+    category: 'CCTV',
+    location: 'Centurion, Gauteng',
+    title: 'Install 4 security cameras on my property',
+    description: 'I need 4 outdoor CCTV cameras installed around my house. I have already purchased a Hikvision system but need a professional to run the cables and set up the DVR.',
+    posted: '3 weeks ago',
+    needed: 'Within two weeks',
+    budget: 'R2000 - R3500',
+    quotes: 2,
+    credits: 4,
+    customer: {
+      name: 'Ben Kruger',
+      phone: '083 654 3210',
+    }
+  }
 ];
