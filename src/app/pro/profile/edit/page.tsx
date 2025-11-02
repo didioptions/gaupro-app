@@ -19,11 +19,26 @@ import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Link from 'next/link';
 import { RequestReviewDialog } from '@/components/pro/request-review-dialog';
+import { FileUpload } from '@/components/ui/file-upload';
+import { useUser } from '@/firebase';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { useToast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function EditProfilePage() {
   const [keyword, setKeyword] = useState('');
   const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
   const [locationArea, setLocationArea] = useState('');
+  
+  const [logoFile, setLogoFile] = useState<File[]>([]);
+  const [photoFiles, setPhotoFiles] = useState<File[]>([]);
+  const [isUploading, setIsUploading] = useState(false);
+
+  const { user } = useUser();
+  const { toast } = useToast();
+  const router = useRouter();
+
 
   const handleKeywordSelect = (value: string) => {
     const service = allServices.find((s) => s.value === value);
@@ -35,6 +50,49 @@ export default function EditProfilePage() {
 
   const removeKeyword = (keywordToRemove: string) => {
     setSelectedKeywords(selectedKeywords.filter((k) => k !== keywordToRemove));
+  };
+  
+  const handleSaveMedia = async () => {
+    if (!user) {
+        toast({ variant: 'destructive', title: 'Error', description: 'You must be logged in to upload files.' });
+        return;
+    }
+    if (logoFile.length === 0 && photoFiles.length === 0) {
+        toast({ variant: 'destructive', title: 'No files selected', description: 'Please select a logo or photos to upload.' });
+        return;
+    }
+
+    setIsUploading(true);
+    const storage = getStorage();
+
+    try {
+        if (logoFile.length > 0) {
+            const file = logoFile[0];
+            const storageRef = ref(storage, `profiles/${user.uid}/logo/${file.name}`);
+            await uploadBytes(storageRef, file);
+            const downloadURL = await getDownloadURL(storageRef);
+            console.log('Logo uploaded:', downloadURL);
+        }
+
+        if (photoFiles.length > 0) {
+            for (const file of photoFiles) {
+                const storageRef = ref(storage, `profiles/${user.uid}/photos/${file.name}`);
+                await uploadBytes(storageRef, file);
+                const downloadURL = await getDownloadURL(storageRef);
+                console.log('Photo uploaded:', downloadURL);
+            }
+        }
+
+        toast({ title: 'Success!', description: 'Your media has been uploaded.' });
+        setLogoFile([]);
+        setPhotoFiles([]);
+
+    } catch (error) {
+        console.error('Upload failed:', error);
+        toast({ variant: 'destructive', title: 'Upload Failed', description: 'There was an error uploading your files. Please try again.' });
+    } finally {
+        setIsUploading(false);
+    }
   };
 
 
@@ -215,30 +273,24 @@ export default function EditProfilePage() {
               <CardContent className="p-8 space-y-8">
                 <div>
                   <h2 className="text-xl font-semibold mb-4">Logo</h2>
-                  <div className="flex items-center gap-6">
-                    <div className="w-24 h-24 border rounded-md flex flex-col items-center justify-center bg-gray-50 text-muted-foreground">
-                      <ImageIcon className="h-8 w-8 text-gray-400" />
-                      <span className="text-xs mt-1">No Logo</span>
-                    </div>
-                    <div className="flex gap-4">
-                      <Button variant="outline">Upload Logo</Button>
-                      <Button variant="outline">Upload Photos</Button>
-                    </div>
-                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">Upload a square image that represents your business (e.g., your company logo).</p>
+                  <FileUpload onFilesChange={setLogoFile} />
                 </div>
-
+                
+                <Separator />
+                
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Photos</h2>
-                  <Alert className="bg-blue-50 border-blue-200 text-blue-800">
-                    <AlertDescription>
-                      There are no photos
-                    </AlertDescription>
-                  </Alert>
+                  <h2 className="text-xl font-semibold mb-4">Portfolio Photos</h2>
+                  <p className="text-sm text-muted-foreground mb-4">Upload up to 10 high-quality photos of your work to show potential customers what you can do.</p>
+                  <FileUpload multiple onFilesChange={setPhotoFiles} />
                 </div>
               </CardContent>
             </Card>
-            <div className="flex justify-start gap-2 mt-6">
+            <div className="flex justify-end gap-2 mt-6">
               <Button variant="outline">Cancel</Button>
+              <Button className="bg-red-500 hover:bg-red-600" onClick={handleSaveMedia} disabled={isUploading}>
+                {isUploading ? 'Uploading...' : 'Save Media'}
+              </Button>
             </div>
           </TabsContent>
            <TabsContent value="location" className="mt-6">
