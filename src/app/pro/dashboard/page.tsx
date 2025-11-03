@@ -1,6 +1,7 @@
+
 'use client';
 
-import { AlertCircle, Star, UserPlus } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, Image as ImageIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -128,7 +129,7 @@ export default function ProDashboardPage() {
                 </CardContent>
               </Card>
 
-              <Card className="md:col-span-2 lg:col-span-1">
+              <Card>
                 <CardContent className="p-6">
                   <InviteFriendsDialog user={user}>
                     <Button variant="outline" className="w-full h-16 text-lg">
@@ -138,6 +139,24 @@ export default function ProDashboardPage() {
                   </InviteFriendsDialog>
                 </CardContent>
               </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Media Manager</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center text-center">
+                  <ImageIcon className="h-10 w-10 text-primary mb-2" />
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Upload and manage your site's media assets.
+                  </p>
+                  <Button asChild variant="secondary" className="w-full">
+                    <Link href="/pro/admin/media-manager">
+                      Open Media Manager
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+              
             </div>
           </div>
         </div>
