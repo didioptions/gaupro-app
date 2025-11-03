@@ -58,7 +58,7 @@
     {
       "id": "painter-image",
       "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_painters.PNG?alt=media&token=d52fc5c0-7f81-41b4-9aba-369375321e7c",
+      "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=400&q=80",
       "imageHint": "living room decor"
     },
     {
@@ -106,7 +106,7 @@
     {
       "id": "wedding-photographers-image",
       "description": "A photographer taking a picture of a newly married couple.",
-      "imageUrl": "https://images.unsplash.com/photo-1588979355313-6711a0d8880d1741?w=400&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1588979355313-6711a0d8880d?w=400&q=80",
       "imageHint": "wedding photographer"
     },
     {
