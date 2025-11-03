@@ -40,7 +40,7 @@
     {
       "id": "security-image",
       "description": "A modern security camera mounted on an exterior wall.",
-      "imageUrl": "https://images.unsplash.com/photo-1589935447037-127157c13437?w=400&q=80",
+      "imageUrl": "https://picsum.photos/seed/security-image/400/300",
       "imageHint": "security camera"
     },
     {
@@ -112,25 +112,25 @@
     {
       "id": "plumber-image",
       "description": "A professional plumber working under a kitchen sink.",
-      "imageUrl": "https://images.unsplash.com/photo-1579482811867-a1310d735165?w=400&q=80",
+      "imageUrl": "https://picsum.photos/seed/plumber-image/400/300",
       "imageHint": "plumber working"
     },
     {
       "id": "electrician-image",
       "description": "An electrician carefully working on a circuit breaker panel.",
-      "imageUrl": "https://images.unsplash.com/photo-1497758534358-c022a96a32a6?w=400&q=80",
+      "imageUrl": "https://picsum.photos/seed/electrician-image/400/300",
       "imageHint": "electrician working"
     },
     {
       "id": "gardeners-image",
       "description": "A lush, green, well-maintained garden with blooming flowers.",
-      "imageUrl": "https://images.unsplash.com/photo-1466692496962-47da657d0541?w=400&q=80",
+      "imageUrl": "https://picsum.photos/seed/gardeners-image/400/300",
       "imageHint": "garden flowers"
     },
     {
       "id": "pest-control-image",
       "description": "A pest control professional in uniform inspecting the exterior of a clean house.",
-      "imageUrl": "https://images.unsplash.com/photo-1628174935414-879f38059434?w=400&q=80",
+      "imageUrl": "https://picsum.photos/seed/pest-control-image/400/300",
       "imageHint": "pest control"
     },
     {
