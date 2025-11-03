@@ -1,4 +1,5 @@
 
+
 {
   "categoryImages": [
     {
@@ -10,7 +11,7 @@
     {
       "id": "movers-image",
       "description": "Two professional movers in uniform carrying a large box.",
-      "imageUrl": "https://images.unsplash.com/photo-1587588787838-b2ac760b2559?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_movers.PNG?alt=media&token=16198f39-f9c2-48f8-8097-cc74c335832a",
       "imageHint": "movers boxes"
     },
     {
@@ -40,7 +41,7 @@
     {
       "id": "security-image",
       "description": "A modern security camera mounted on an exterior wall.",
-      "imageUrl": "https://images.unsplash.com/photo-1586922415847-a83f18544d67?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_sec.PNG?alt=media&token=5712e132-2638-4f81-8070-760775a95393",
       "imageHint": "security camera"
     },
     {
@@ -58,79 +59,79 @@
     {
       "id": "painter-image",
       "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
-      "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_painter.PNG?alt=media&token=f0d2c676-e1e1-4328-98e3-057d727b1407",
       "imageHint": "living room decor"
     },
     {
       "id": "djs-image",
       "description": "A DJ mixing music on a turntable at a lively event.",
-      "imageUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_djs.PNG?alt=media&token=b7f8373b-f4b9-43c3-8f0a-7ed4010b9f5f",
       "imageHint": "DJ event"
     },
     {
       "id": "event-decorations-image",
       "description": "A beautifully decorated table setting for a wedding or event.",
-      "imageUrl": "https://images.unsplash.com/photo-1522335789203-a74f874254b7?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_dec.PNG?alt=media&token=b4d8a556-55c3-4d6d-9783-a7ce2e49c719",
       "imageHint": "event decoration"
     },
     {
       "id": "party-planners-image",
       "description": "A party planner with a clipboard, smiling at a well-organized event.",
-      "imageUrl": "https://images.unsplash.com/photo-1549497531-645b2b005399?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_planner.PNG?alt=media&token=8d27a3c3-3e11-4560-951c-8e47b99c0d3a",
       "imageHint": "party planner"
     },
     {
       "id": "tent-hire-image",
       "description": "A large white event tent set up on a grassy field for a wedding.",
-      "imageUrl": "https://images.unsplash.com/photo-1568822617270-50b599577a16?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_tent.PNG?alt=media&token=0973a941-0f72-460d-a34f-0153835f8fc3",
       "imageHint": "event tent"
     },
     {
       "id": "photographers-image",
       "description": "A photographer holding a professional camera, ready to shoot.",
-      "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_photographer.PNG?alt=media&token=d1532f8f-1de4-4861-8f52-8700203f7e6f",
       "imageHint": "photographer camera"
     },
     {
       "id": "toilet-hire-image",
       "description": "A row of clean, modern portable toilets for an outdoor event.",
-      "imageUrl": "https://images.unsplash.com/photo-1621491039818-68e3057a1e09?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_toilet.PNG?alt=media&token=404d55b8-d21d-4009-8488-825501ba16d9",
       "imageHint": "portable toilets"
     },
     {
       "id": "videographers-image",
       "description": "A videographer operating a camera on a tripod during an event.",
-      "imageUrl": "https://images.unsplash.com/photo-1533694038193-c35815a5a725?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_vid.PNG?alt=media&token=6a1843b0-6815-46aa-bde6-834c38d21b36",
       "imageHint": "videographer camera"
     },
     {
       "id": "wedding-photographers-image",
       "description": "A photographer taking a picture of a newly married couple.",
-      "imageUrl": "https://images.unsplash.com/photo-1588979355313-6711a0d8880d?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_wed.PNG?alt=media&token=46d0a7a3-5353-4876-aa43-6c2e3919e951",
       "imageHint": "wedding photographer"
     },
     {
       "id": "plumber-image",
       "description": "A professional plumber working under a kitchen sink.",
-      "imageUrl": "https://images.unsplash.com/photo-1581092921462-6849a37b6a67?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_plumber.PNG?alt=media&token=8d27576a-54a8-48b9-9133-28f0907e6005",
       "imageHint": "plumber working"
     },
     {
       "id": "electrician-image",
       "description": "An electrician carefully working on a circuit breaker panel.",
-      "imageUrl": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_elec.PNG?alt=media&token=6c747796-03ac-4b95-a131-778fe83d1c1c",
       "imageHint": "electrician working"
     },
     {
       "id": "gardeners-image",
       "description": "A lush, green, well-maintained garden with blooming flowers.",
-      "imageUrl": "https://images.unsplash.com/photo-1558293833-c4f275751934?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_garden.PNG?alt=media&token=38c11696-6f87-430c-8822-77291a136ea5",
       "imageHint": "garden flowers"
     },
     {
       "id": "pest-control-image",
       "description": "A pest control professional in uniform inspecting the exterior of a clean house.",
-      "imageUrl": "https://images.unsplash.com/photo-1628188258618-a83503610433?w=400&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_pest.PNG?alt=media&token=624f2b3e-f6a4-4a4a-a0cb-1033b0e33471",
       "imageHint": "pest control"
     },
     {
@@ -195,3 +196,4 @@
     }
   ]
 }
+
