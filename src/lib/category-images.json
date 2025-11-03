@@ -1,5 +1,4 @@
 
-
 {
   "categoryImages": [
     {
@@ -11,7 +10,7 @@
     {
       "id": "movers-image",
       "description": "Two professional movers in uniform carrying a large box.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_movers.PNG?alt=media&token=d017a6af-de3d-411d-8924-0a798a18bbd7",
+      "imageUrl": "https://images.unsplash.com/photo-1587588787838-b2ac760b2559?w=400&q=80",
       "imageHint": "movers boxes"
     },
     {
@@ -40,9 +39,9 @@
     },
     {
       "id": "security-image",
-      "description": "A security professional in uniform, representing safety and trust.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_SECURR.PNG?alt=media&token=fcab37d6-0776-4477-80ff-e19359412cbf",
-      "imageHint": "security professional"
+      "description": "A modern security camera mounted on an exterior wall.",
+      "imageUrl": "https://images.unsplash.com/photo-1589935447037-127157c13437?w=400&q=80",
+      "imageHint": "security camera"
     },
     {
       "id": "caterers-image",
@@ -107,31 +106,31 @@
     {
       "id": "wedding-photographers-image",
       "description": "A photographer taking a picture of a newly married couple.",
-      "imageUrl": "https://images.unsplash.com/photo-1588979355313-6711a0354141?w=400&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1588979355313-6711a0d8880d1741?w=400&q=80",
       "imageHint": "wedding photographer"
     },
     {
       "id": "plumber-image",
       "description": "A professional plumber working under a kitchen sink.",
-      "imageUrl": "https://picsum.photos/seed/plumber-image/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1621905252472-942224524458?w=400&q=80",
       "imageHint": "plumber sink"
     },
     {
       "id": "electrician-image",
       "description": "An electrician carefully working on a circuit breaker panel.",
-      "imageUrl": "https://picsum.photos/seed/electrician-image/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1621905251919-085324531a69?w=400&q=80",
       "imageHint": "electrician panel"
     },
     {
       "id": "gardeners-image",
-      "description": "A gardener trimming hedges in a beautiful, well-maintained garden.",
-      "imageUrl": "https://picsum.photos/seed/gardeners-image/400/300",
-      "imageHint": "gardener trimming"
+      "description": "A lush, green, well-maintained garden with blooming flowers.",
+      "imageUrl": "https://images.unsplash.com/photo-1558294384-2248a7536357?w=400&q=80",
+      "imageHint": "garden flowers"
     },
     {
       "id": "pest-control-image",
-      "description": "A pest control professional safely spraying indoors.",
-      "imageUrl": "https://picsum.photos/seed/pest-control-image/400/300",
+      "description": "A pest control professional in uniform inspecting the exterior of a clean house.",
+      "imageUrl": "https://images.unsplash.com/photo-1601831201416-920f0a4f553f?w=400&q=80",
       "imageHint": "pest control"
     },
     {
@@ -196,4 +195,3 @@
     }
   ]
 }
-
