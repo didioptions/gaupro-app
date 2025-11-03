@@ -1,5 +1,3 @@
-
-
 {
   "categoryImages": [
     {
@@ -137,63 +135,62 @@
     {
       "id": "tree-felling-image",
       "description": "A person with safety gear cutting a tree branch.",
-      "imageUrl": "https://picsum.photos/seed/tree-felling-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_tree.PNG?alt=media&token=b367098e-49b0-4f59-994c-e837d04f14e4",
       "imageHint": "tree felling"
     },
     {
       "id": "carpenters-image",
       "description": "A carpenter measuring a piece of wood in a workshop.",
-      "imageUrl": "https://picsum.photos/seed/carpenters-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_carpenter.PNG?alt=media&token=8667b3b3-85f2-4521-99c5-ab65e0486c9f",
       "imageHint": "carpenter wood"
     },
     {
       "id": "accounting-image",
       "description": "A calculator and pen on top of financial documents.",
-      "imageUrl": "https://picsum.photos/seed/accounting-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_accounting.PNG?alt=media&token=9635034c-1d07-4228-ae71-d64e101f3796",
       "imageHint": "accounting finance"
     },
     {
       "id": "auditors-image",
       "description": "A person with a magnifying glass examining a financial report.",
-      "imageUrl": "https://picsum.photos/seed/auditors-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_auditors.PNG?alt=media&token=98c3973c-6625-45dc-bfde-276709405d46",
       "imageHint": "auditor report"
     },
     {
       "id": "debt-counsellors-image",
       "description": "A supportive handshake over a desk, symbolizing financial help.",
-      "imageUrl": "https://picsum.photos/seed/debt-counsellors-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_debt.PNG?alt=media&token=df4f4946-b6f1-43c3-b452-972149b01ddc",
       "imageHint": "financial help"
     },
     {
       "id": "financial-advisors-image",
       "description": "A financial advisor discussing charts with a client.",
-      "imageUrl": "https://picsum.photos/seed/financial-advisors-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_financial.PNG?alt=media&token=d16075bc-695c-4235-9008-a0e2a3b04c8f",
       "imageHint": "financial advisor"
     },
     {
       "id": "home-loans-image",
       "description": "A miniature house model held in hands.",
-      "imageUrl": "https://picsum.photos/seed/home-loans-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_homeloan.PNG?alt=media&token=9b207ac9-1588-466d-9b5f-5541604a8b7c",
       "imageHint": "house model"
     },
     {
       "id": "insurance-image",
       "description": "An umbrella protecting a family, symbolizing insurance coverage.",
-      "imageUrl": "https://picsum.photos/seed/insurance-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_ins.PNG?alt=media&token=d6a9926d-944f-40e9-b5d7-d7e5563914a2",
       "imageHint": "insurance protection"
     },
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://picsum.photos/seed/business-consultants-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_cons.PNG?alt=media&token=f03126be-b94f-4318-bc1c-9b776269229e",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://picsum.photos/seed/company-registrations-image/400/300",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_reg.PNG?alt=media&token=487d27e9-d757-410a-bf1f-b510ed97c8ef",
       "imageHint": "document signing"
     }
   ]
 }
-
