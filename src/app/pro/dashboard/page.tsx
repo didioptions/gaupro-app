@@ -142,12 +142,14 @@ export default function ProDashboardPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Media Manager</CardTitle>
+                  <CardTitle className="flex items-center gap-2 text-lg">
+                    <ImageIcon className="h-6 w-6 text-primary" />
+                    Media Manager
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center text-center">
-                  <ImageIcon className="h-10 w-10 text-primary mb-2" />
                   <p className="text-sm text-muted-foreground mb-4">
-                    Upload and manage your site's media assets.
+                    Upload new images for your site and get their URLs here. This is your personal tool to manage all media assets.
                   </p>
                   <Button asChild variant="secondary" className="w-full">
                     <Link href="/pro/admin/media-manager">
