@@ -41,23 +41,21 @@ export default function AllCategoriesPage() {
               Find trusted professionals for any service you need in South Africa.
             </p>
           </header>
-          <div className="columns-2 md:columns-4 lg:columns-5 gap-x-8">
+          <div className="max-w-5xl mx-auto space-y-12">
             {allCategories.map((group) => (
-              <div key={group.category} className="mb-8 break-inside-avoid">
-                <h3 className="font-semibold text-lg mb-3 border-b pb-2">{group.category}</h3>
-                <ul className="space-y-2">
+              <div key={group.category}>
+                <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
                   {group.services.map((serviceName) => {
                     const service = allServices.find(s => s.label === serviceName);
                     const href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
                     return (
-                      <li key={serviceName}>
-                        <Link href={href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                          {serviceName}
-                        </Link>
-                      </li>
+                      <Link key={serviceName} href={href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        {serviceName}
+                      </Link>
                     );
                   })}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
