@@ -88,6 +88,93 @@ export const allProfessionals = {
             avatarSeed: "pta-tiling-logo"
         }
     ],
+    "tree-felling": [
+        {
+            id: "joburg-tree-experts",
+            name: "Joburg Tree Experts",
+            location: "Sandton, Johannesburg",
+            description: "Safe and professional {service}. We handle large and dangerous tree removals, stump grinding, and site clearing with modern equipment and a focus on safety.",
+            rating: 4.9,
+            reviews: 52,
+            isProVerified: true,
+            reviewData: [{
+                author: "David R.",
+                phone: "083****789",
+                rating: 5,
+                comment: "They removed a massive blue gum tree that was overhanging my house. The team was incredibly professional, safe, and they cleaned up everything afterwards. Highly recommend!"
+            }],
+            photos: ["https://picsum.photos/seed/treefelling1/600/400", "https://picsum.photos/seed/treefelling2/600/400"],
+            avatarSeed: "joburg-tree-logo"
+        },
+        {
+            id: "cape-arborists",
+            name: "Cape Arborists",
+            location: "Stellenbosch, Western Cape",
+            description: "Certified arborists providing expert {service}, pruning, and tree health assessments. We serve the entire Cape Winelands area with a commitment to preserving tree health and safety.",
+            rating: 5.0,
+            reviews: 38,
+            isProVerified: true,
+            reviewData: [{
+                author: "Susan C.",
+                phone: "082****111",
+                rating: 5,
+                comment: "Incredibly knowledgeable and professional. They saved our old oak tree and did a fantastic job pruning it back to health."
+            }],
+            photos: ["https://picsum.photos/seed/treefelling3/600/400"],
+            avatarSeed: "cape-arborists-logo"
+        },
+        {
+            id: "durban-tree-fellers",
+            name: "Durban Tree Fellers",
+            location: "Berea, Durban",
+            description: "Fast, reliable, and affordable {service} in the greater Durban area. We offer 24/7 emergency services for storm-damaged trees, as well as palm tree trimming and stump removal.",
+            rating: 4.7,
+            reviews: 61,
+            isProVerified: true,
+            reviewData: [{
+                author: "Mike P.",
+                phone: "071****222",
+                rating: 5,
+                comment: "Called them after a big storm and they were there within an hour. Removed a fallen tree from my driveway quickly and safely."
+            }],
+            photos: ["https://picsum.photos/seed/treefelling4/600/400", "https://picsum.photos/seed/treefelling5/600/400"],
+            avatarSeed: "durban-fellers-logo"
+        },
+        {
+            id: "the-stump-grinders",
+            name: "The Stump Grinders",
+            location: "Centurion, Pretoria",
+            description: "Specialists in stump grinding and removal. We turn unsightly stumps into mulch, leaving your yard clean and ready for new planting. We also offer general {service}.",
+            rating: 4.8,
+            reviews: 45,
+            isProVerified: true,
+            reviewData: [{
+                author: "Frikkie V.",
+                phone: "076****333",
+                rating: 5,
+                comment: "The best in the business for stump removal. Fast, effective, and they leave no mess behind. Fair pricing too."
+            }],
+            photos: ["https://picsum.photos/seed/treefelling6/600/400"],
+            avatarSeed: "stump-grinders-logo"
+        },
+        {
+            id: "eco-tree-care",
+            name: "Eco Tree Care",
+            location: "Randburg, Johannesburg",
+            description: "Environmentally conscious {service} and garden services. We focus on preserving as much as possible while ensuring safety. We recycle all our green waste.",
+            rating: 4.6,
+            reviews: 33,
+            isProVerified: false,
+            reviewData: [{
+                author: "Lindiwe S.",
+                phone: "084****444",
+                rating: 4,
+                comment: "I chose them because of their eco-friendly approach. They did a good job trimming my trees and cleared the garden refuse."
+            }],
+            photos: [],
+            avatarSeed: "eco-tree-care-logo"
+        }
+    ],
     "swimming-pool-builders": [
         {
             id: "aquadream-pools",
@@ -97,7 +184,9 @@ export const allProfessionals = {
             rating: 5.0,
             reviews: 6,
             isProVerified: true,
+            yearsInBusiness: 15,
             reviewData: [{ author: "Thabo", phone: "073**224", rating: 5, comment: "They transformed our cracked marbelite pool into a smooth fibreglass finish — looks brand new! Excellent service and communication." }],
+            photos: ["https://picsum.photos/seed/aquadream1/600/400", "https://picsum.photos/seed/aquadream2/600/400"],
             avatarSeed: "aquadream-logo"
         },
         {
@@ -109,6 +198,7 @@ export const allProfessionals = {
             reviews: 9,
             isProVerified: true,
             reviewData: [{ author: "Zanele", phone: "078**912", rating: 5, comment: "They completed our pool on time and kept everything neat. Highly professional team!" }],
+            photos: ["https://picsum.photos/seed/crystalblue1/600/400"],
             avatarSeed: "crystal-blue-logo"
         },
         {
@@ -120,6 +210,7 @@ export const allProfessionals = {
             reviews: 5,
             isProVerified: true,
             reviewData: [{ author: "Kabelo", phone: "082**015", rating: 5, comment: "Our pool looks straight out of a magazine. The heat pump works perfectly, and the tiles are flawless!" }],
+            photos: ["https://picsum.photos/seed/deepsplash1/600/400", "https://picsum.photos/seed/deepsplash2/600/400"],
             avatarSeed: "deepsplash-logo"
         },
         {
@@ -131,6 +222,7 @@ export const allProfessionals = {
             reviews: 7,
             isProVerified: true,
             reviewData: [{ author: "Rene", phone: "063**808", rating: 4, comment: "They saved our old pool — now it looks better than when we first built it." }],
+            photos: ["https://picsum.photos/seed/bluestone1/600/400"],
             avatarSeed: "bluestone-logo"
         },
         {
@@ -142,6 +234,7 @@ export const allProfessionals = {
             reviews: 8,
             isProVerified: true,
             reviewData: [{ author: "Prince", phone: "072**640", rating: 5, comment: "My pool was leaking for months. They found the problem in one day and fixed it perfectly!" }],
+            photos: ["https://picsum.photos/seed/clearwave1/600/400"],
             avatarSeed: "clearwave-logo"
         },
         {
@@ -153,6 +246,7 @@ export const allProfessionals = {
             reviews: 4,
             isProVerified: true,
             reviewData: [{ author: "Julia", phone: "079**302", rating: 5, comment: "They did a complete fibreglass renovation — amazing work, smooth and spotless!" }],
+            photos: ["https://picsum.photos/seed/pureflow1/600/400"],
             avatarSeed: "pureflow-logo"
         },
         {
@@ -164,6 +258,7 @@ export const allProfessionals = {
             reviews: 6,
             isProVerified: true,
             reviewData: [{ author: "Musa", phone: "076**019", rating: 4, comment: "They were fast and honest about costs. No surprises, just good work." }],
+            photos: [],
             avatarSeed: "aquapro-logo"
         },
         {
@@ -175,6 +270,7 @@ export const allProfessionals = {
             reviews: 5,
             isProVerified: true,
             reviewData: [{ author: "Chantelle", phone: "083**555", rating: 5, comment: "Our pool and spa combo looks incredible — they handled everything, even the paving!" }],
+            photos: ["https://picsum.photos/seed/oceanic1/600/400"],
             avatarSeed: "oceanic-logo"
         },
         {
@@ -186,6 +282,7 @@ export const allProfessionals = {
             reviews: 10,
             isProVerified: true,
             reviewData: [{ author: "Vusi", phone: "071**799", rating: 5, comment: "Very responsive and knowledgeable — my pool hasn’t looked this clean in years." }],
+            photos: ["https://picsum.photos/seed/smartpool1/600/400"],
             avatarSeed: "smartpool-logo"
         },
         {
@@ -197,6 +294,7 @@ export const allProfessionals = {
             reviews: 6,
             isProVerified: true,
             reviewData: [{ author: "Nicky", phone: "084**301", rating: 5, comment: "They built my dream pool exactly as I imagined — beautiful, fast, and friendly team!" }],
+            photos: ["https://picsum.photos/seed/bluehorizon1/600/400"],
             avatarSeed: "bluehorizon-logo"
         }
     ],
@@ -1014,4 +1112,5 @@ export const getProfessionalById = (id: string) => {
     }
     return null;
 };
+
 
