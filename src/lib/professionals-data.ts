@@ -1,6 +1,118 @@
 
 
 export const allProfessionals = {
+    "swimming-pool-builders": [
+        {
+            id: "aquadream-pools",
+            name: "AquaDream Pools",
+            location: "Randburg, Johannesburg",
+            description: "At AquaDream Pools, we bring your backyard to life with over 15 years of experience in custom pool design and renovation. We specialize in fibreglass conversions, leak repairs, and heating installations for year-round enjoyment.",
+            rating: 5.0,
+            reviews: 6,
+            isProVerified: true,
+            reviewData: [{ author: "Thabo", phone: "073**224", rating: 5, comment: "They transformed our cracked marbelite pool into a smooth fibreglass finish — looks brand new! Excellent service and communication." }],
+            avatarSeed: "aquadream-logo"
+        },
+        {
+            id: "crystal-blue-pools",
+            name: "Crystal Blue Pools SA",
+            location: "Edenvale, Johannesburg",
+            description: "Crystal Blue Pools focuses on high-quality pool building and maintenance. We handle everything from new installations to repainting, pump replacements, and weekly cleaning services.",
+            rating: 4.7,
+            reviews: 9,
+            isProVerified: true,
+            reviewData: [{ author: "Zanele", phone: "078**912", rating: 5, comment: "They completed our pool on time and kept everything neat. Highly professional team!" }],
+            avatarSeed: "crystal-blue-logo"
+        },
+        {
+            id: "deepsplash-pool-masters",
+            name: "DeepSplash Pool Masters",
+            location: "Northcliff, Johannesburg",
+            description: "Experts in luxury custom pools and modern finishes. DeepSplash Pool Masters provides design, tiling, decking, and heating systems to give you a five-star pool experience.",
+            rating: 5.0,
+            reviews: 5,
+            isProVerified: true,
+            reviewData: [{ author: "Kabelo", phone: "082**015", rating: 5, comment: "Our pool looks straight out of a magazine. The heat pump works perfectly, and the tiles are flawless!" }],
+            avatarSeed: "deepsplash-logo"
+        },
+        {
+            id: "bluestone-pool-projects",
+            name: "BlueStone Pool Projects",
+            location: "Fourways, Johannesburg",
+            description: "BlueStone Pool Projects has over a decade in pool renovation and fibreglass relining. We repair cracked pools, install filtration systems, and maintain crystal-clear water all year.",
+            rating: 4.5,
+            reviews: 7,
+            isProVerified: true,
+            reviewData: [{ author: "Rene", phone: "063**808", rating: 4, comment: "They saved our old pool — now it looks better than when we first built it." }],
+            avatarSeed: "bluestone-logo"
+        },
+        {
+            id: "clearwave-pool-renovators",
+            name: "ClearWave Pool Renovators",
+            location: "Alberton, Johannesburg",
+            description: "We specialize in fibreglass resurfacing, marbelite restoration, and monthly maintenance. ClearWave Pool Renovators delivers durable, beautiful pools for homes and lodges.",
+            rating: 5.0,
+            reviews: 8,
+            isProVerified: true,
+            reviewData: [{ author: "Prince", phone: "072**640", rating: 5, comment: "My pool was leaking for months. They found the problem in one day and fixed it perfectly!" }],
+            avatarSeed: "clearwave-logo"
+        },
+        {
+            id: "pureflow-pool-builders",
+            name: "PureFlow Pool Builders",
+            location: "Sandton, Johannesburg",
+            description: "PureFlow offers premium pool construction with energy-efficient pumps and modern heating solutions. Whether it’s a new build or a refurbishment, we handle it all.",
+            rating: 5.0,
+            reviews: 4,
+            isProVerified: true,
+            reviewData: [{ author: "Julia", phone: "079**302", rating: 5, comment: "They did a complete fibreglass renovation — amazing work, smooth and spotless!" }],
+            avatarSeed: "pureflow-logo"
+        },
+        {
+            id: "aquapro-pool-works",
+            name: "AquaPro Pool Works",
+            location: "Kensington, Johannesburg",
+            description: "Reliable and affordable pool services. AquaPro specializes in waterline tile replacement, pool waterproofing, and pump installations for both residential and commercial clients.",
+            rating: 4.3,
+            reviews: 6,
+            isProVerified: true,
+            reviewData: [{ author: "Musa", phone: "076**019", rating: 4, comment: "They were fast and honest about costs. No surprises, just good work." }],
+            avatarSeed: "aquapro-logo"
+        },
+        {
+            id: "oceanic-pools-solutions",
+            name: "Oceanic Pools & Spa Solutions",
+            location: "Bedfordview, Johannesburg",
+            description: "We design and maintain pools that bring resort-style comfort to your home. From new builds to spa integration and heating, we’ve got you covered.",
+            rating: 5.0,
+            reviews: 5,
+            isProVerified: true,
+            reviewData: [{ author: "Chantelle", phone: "083**555", rating: 5, comment: "Our pool and spa combo looks incredible — they handled everything, even the paving!" }],
+            avatarSeed: "oceanic-logo"
+        },
+        {
+            id: "smartpool-revive",
+            name: "SmartPool Revive",
+            location: "Roodepoort, Johannesburg",
+            description: "SmartPool Revive is all about giving old pools a fresh life. We specialize in fibreglass layering, suction line repairs, and automated chlorinators.",
+            rating: 4.6,
+            reviews: 10,
+            isProVerified: true,
+            reviewData: [{ author: "Vusi", phone: "071**799", rating: 5, comment: "Very responsive and knowledgeable — my pool hasn’t looked this clean in years." }],
+            avatarSeed: "smartpool-logo"
+        },
+        {
+            id: "blue-horizon-pools",
+            name: "Blue Horizon Pool Creations",
+            location: "Midrand, Johannesburg",
+            description: "Blue Horizon builds custom-designed pools with modern technology. We handle excavation, design, marbelite, fibreglass, and heating systems.",
+            rating: 5.0,
+            reviews: 6,
+            isProVerified: true,
+            reviewData: [{ author: "Nicky", phone: "084**301", rating: 5, comment: "They built my dream pool exactly as I imagined — beautiful, fast, and friendly team!" }],
+            avatarSeed: "bluehorizon-logo"
+        }
+    ],
     "plant-hire": [
         {
             id: "wasteden-demolitions",

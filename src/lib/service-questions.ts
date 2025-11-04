@@ -279,6 +279,23 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions
     ],
   },
+   {
+    service: 'swimming-pool-builders',
+    questions: [
+      {
+        id: 'service_type',
+        text: 'What type of service do you require?',
+        type: 'radio',
+        options: [
+          { value: 'repairs', label: 'Repairs to swimming pool' },
+          { value: 'new_installation', label: 'New swimming pool installation' },
+          { value: 'maintenance', label: 'Cleaning and maintenance of swimming pool' },
+          { value: 'heating', label: 'Swimming Pool Heating' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
   {
     service: 'movers',
     questions: [
