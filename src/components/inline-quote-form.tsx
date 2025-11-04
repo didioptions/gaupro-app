@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { RequestQuoteDialog } from './request-quote-dialog';
 import { Badge } from './ui/badge';
 import { Checkbox } from './ui/checkbox';
+import { Textarea } from './ui/textarea';
 
 interface InlineQuoteFormProps {
   service: string;
@@ -18,6 +19,7 @@ interface InlineQuoteFormProps {
 
 export default function InlineQuoteForm({ service, location }: InlineQuoteFormProps) {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const [textareaValue, setTextareaValue] = useState('');
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === service) ||
@@ -30,9 +32,7 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
   const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
 
 
-  // This check should now always find a question, thanks to the default fallback.
   if (!firstQuestion) {
-    // This fallback will rarely be used, but is safe to keep.
     return (
         <RequestQuoteDialog service={service}>
             <Button size="lg" variant="destructive" className="mt-8 text-lg px-10 h-14">
@@ -50,8 +50,18 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
     }
   };
 
+  const handleTextareaChange = (value: string) => {
+    setTextareaValue(value);
+  };
+
+  const isButtonDisabled = firstQuestion.type === 'textarea' 
+    ? textareaValue.trim() === '' 
+    : selectedOptions.length === 0;
+
   const initialData = {
-    [firstQuestion.id]: firstQuestion.type === 'radio' ? selectedOptions[0] : selectedOptions,
+    [firstQuestion.id]: firstQuestion.type === 'textarea'
+      ? textareaValue
+      : (firstQuestion.type === 'radio' ? selectedOptions[0] : selectedOptions),
   };
 
   return (
@@ -59,7 +69,7 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
       <CardContent className="p-0">
         <div className="flex justify-between items-start">
             <h2 className="text-xl mb-1">Get quotes for {pluralServiceLabel.toLowerCase()} in {location}</h2>
-            <Badge variant="secondary" className="bg-teal-100 text-teal-800 border-teal-200 whitespace-nowrap">13 near you</Badge>
+            <Badge variant="secondary" className="bg-teal-100 text-teal-800 border-teal-200 whitespace-nowrap">66 near you</Badge>
         </div>
         <p className="text-muted-foreground mb-2 text-sm">Answer a few questions and we’ll connect you with the best pros for {serviceLabel.toLowerCase()} near you.</p>
         
@@ -102,22 +112,29 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
                   </div>
                 ))}
             </div>
+        ) : firstQuestion.type === 'textarea' ? (
+          <Textarea
+            id={`inline-${firstQuestion.id}`}
+            placeholder={firstQuestion.placeholder}
+            rows={8}
+            onChange={(e) => handleTextareaChange(e.target.value)}
+            value={textareaValue}
+            className="mb-4"
+          />
         ) : (
-           // Fallback for other question types
           <p className="text-muted-foreground mb-4">Tell us about your project to get started.</p>
         )}
         
-        {/* The Dialog Trigger is the button. When clicked, it opens the dialog. */}
         <RequestQuoteDialog
             service={service}
-            initialStep={1} // Start at step 1 (the second question)
-            initialData={initialData} // Pass the pre-selected data
+            initialStep={1}
+            initialData={initialData}
         >
             <Button 
                 type="button" 
                 size="lg" 
                 className="w-full h-11 text-base bg-red-600 hover:bg-red-700" 
-                disabled={selectedOptions.length === 0}
+                disabled={isButtonDisabled}
             >
                 Get Free Quotes
             </Button>
