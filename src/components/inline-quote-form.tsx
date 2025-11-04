@@ -59,9 +59,9 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
       <CardContent className="p-0">
         <div className="flex justify-between items-start">
             <h2 className="text-xl mb-1">Get quotes for {pluralServiceLabel.toLowerCase()} in {location}</h2>
-            <Badge variant="secondary" className="bg-teal-100 text-teal-800 border-teal-200 whitespace-nowrap">37 near you</Badge>
+            <Badge variant="secondary" className="bg-teal-100 text-teal-800 border-teal-200 whitespace-nowrap">13 near you</Badge>
         </div>
-        <p className="text-muted-foreground mb-2 text-sm">Answer a few questions and we’ll connect you with the best pros near you.</p>
+        <p className="text-muted-foreground mb-2 text-sm">Answer a few questions and we’ll connect you with the best pros for {serviceLabel.toLowerCase()} near you.</p>
         
         <h3 className="font-semibold mb-2 text-base">{firstQuestion.text}</h3>
         {firstQuestion.type === 'radio' && firstQuestion.options ? (
@@ -82,11 +82,11 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
             ))}
           </RadioGroup>
         ) : firstQuestion.type === 'checkbox' && firstQuestion.options ? (
-            <div className="space-y-2 mb-4">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
                 {firstQuestion.options.map((option) => (
                   <div
                     key={option.value}
-                    className="flex items-center p-2 border rounded-md bg-white has-[:checked]:bg-blue-50 has-[:checked]:border-primary"
+                    className="flex items-center"
                   >
                      <Checkbox 
                         id={`inline-${option.value}`} 
