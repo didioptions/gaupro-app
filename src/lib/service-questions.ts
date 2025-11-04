@@ -172,7 +172,7 @@ const commonQuestions: Question[] = [
 const plantHireQuestions: Question[] = [
   {
     id: 'hire_type',
-    text: 'What would you like to hire?',
+    text: 'What would you like to hire? (Select all that apply)',
     type: 'checkbox',
     options: [
       { value: 'crane', label: 'Crane' },
@@ -257,6 +257,23 @@ export const serviceQuestionSets: QuestionSet[] = [
         options: [
           { value: 'yes', label: 'Yes, it is' },
           { value: 'no', label: 'No, it is not' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+   {
+    service: 'bathroom-renovations',
+    questions: [
+      {
+        id: 'work_type',
+        text: 'What kind of work would you like done?',
+        type: 'radio',
+        options: [
+          { value: 'complete_remodel', label: 'Complete bathroom remodel' },
+          { value: 'partial_remodel', label: 'Partial bathroom remodel' },
+          { value: 'repairs_replacements', label: 'Simple bathroom repairs and replacements' },
+          { value: 'new_bathroom', label: 'Addition of new bathroom' },
         ],
       },
       ...commonQuestions
@@ -393,30 +410,10 @@ export const serviceQuestionSets: QuestionSet[] = [
   },
   {
     service: 'plant-hire',
-    questions: plantHireQuestions
+    questions: plantHireQuestions,
   },
   {
     service: 'tlb-hire',
-    questions: plantHireQuestions
+    questions: plantHireQuestions,
   },
-  // Fallback for other services - this maps all other services to the common questions
-  ...allServices
-    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers', 'skip-hire', 'tree-felling', 'rubble-removal', 'plant-hire', 'tlb-hire'].includes(service.value))
-    .map(service => ({
-      service: service.value,
-      questions: [
-          {
-            id: 'project_type',
-            text: 'What best describes your project?',
-            type: 'radio',
-            options: [
-                { value: 'new_project', label: 'New Project' },
-                { value: 'repair', label: 'Repair or Maintenance' },
-                { value: 'consultation', label: 'Consultation' },
-                { value: 'other', label: 'Other' },
-            ],
-          },
-          ...commonQuestions
-      ],
-    }))
 ];
