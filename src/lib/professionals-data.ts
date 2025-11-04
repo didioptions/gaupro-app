@@ -1,6 +1,5 @@
 
 
-
 export const allProfessionals = {
     "plant-hire": [
         {
@@ -861,10 +860,12 @@ export const allProfessionals = {
 
 export const getProfessionalById = (id: string) => {
     for (const category in allProfessionals) {
-        const professionalsInCategory = (allProfessionals as any)[category];
-        const found = professionalsInCategory.find((pro: any) => pro.id === id);
-        if (found) {
-            return found;
+        if (Object.prototype.hasOwnProperty.call(allProfessionals, category)) {
+            const professionalsInCategory = (allProfessionals as any)[category];
+            const found = professionalsInCategory.find((pro: any) => pro.id === id);
+            if (found) {
+                return found;
+            }
         }
     }
     return null;
