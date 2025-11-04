@@ -464,4 +464,25 @@ export const serviceQuestionSets: QuestionSet[] = [
     service: 'tlb-hire',
     questions: plantHireQuestions,
   },
+  {
+    service: 'handyman',
+    questions: [
+      {
+        id: 'handyman_tasks',
+        text: 'What do you need a handyman for?',
+        type: 'checkbox',
+        options: [
+          { value: 'general_repairs', label: 'General repairs & maintenance' },
+          { value: 'hanging', label: 'Hanging pictures, shelves, or TVs' },
+          { value: 'assembly', label: 'Furniture assembly' },
+          { value: 'minor_plumbing', label: 'Minor plumbing (e.g., leaky tap)' },
+          { value: 'minor_electrical', label: 'Minor electrical (e.g., changing light fittings)' },
+          { value: 'painting', label: 'Painting touch-ups' },
+          { value: 'door_window_repair', label: 'Door or window repairs' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
 ];
