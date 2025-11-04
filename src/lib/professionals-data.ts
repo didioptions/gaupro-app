@@ -1,6 +1,93 @@
 
 
 export const allProfessionals = {
+    "tiling": [
+        {
+            id: "precision-tiling-co",
+            name: "Precision Tiling Co",
+            location: "Sandton, Johannesburg",
+            description: "Your trusted experts for quality tilings. We specialize in high-end ceramic, porcelain, and natural stone tile installations for kitchens, bathrooms, and outdoor areas. Our commitment to perfect lines and flawless finishes is recognized by many happy customers.",
+            rating: 4.9,
+            reviews: 35,
+            isProVerified: true,
+            reviewData: [{
+                author: "Priya N.",
+                phone: "082****123",
+                rating: 5,
+                comment: "Absolutely stunning work on our bathroom renovation. The attention to detail was incredible. Highly recommended for any tiling project!"
+            }],
+            photos: ["https://picsum.photos/seed/tiling1/600/400", "https://picsum.photos/seed/tiling2/600/400"],
+            avatarSeed: "precision-tiling-logo"
+        },
+        {
+            id: "the-tile-guru-jhb",
+            name: "The Tile Guru JHB",
+            location: "Randburg, Johannesburg",
+            description: "From mosaic backsplashes to large format floor tiles, we handle it all. With over 10 years of experience, The Tile Guru provides clean, fast, and durable tiling solutions for any room in your house.",
+            rating: 4.8,
+            reviews: 42,
+            isProVerified: true,
+            reviewData: [{
+                author: "John D.",
+                phone: "071****567",
+                rating: 5,
+                comment: "Professional, punctual, and the final result is flawless. Our patio area has been completely transformed. Thank you!"
+            }],
+            photos: ["https://picsum.photos/seed/tiling3/600/400"],
+            avatarSeed: "tile-guru-logo"
+        },
+        {
+            id: "cape-floor-wall-tilers",
+            name: "Cape Floor & Wall Tilers",
+            location: "Cape Town City Bowl",
+            description: "Specialists in residential and commercial tiling services in the Western Cape. We provide waterproofing, screeding, and expert installation of all tile types, ensuring a perfect finish every time.",
+            rating: 4.7,
+            reviews: 28,
+            isProVerified: true,
+            reviewData: [{
+                author: "Samantha R.",
+                phone: "084****890",
+                rating: 5,
+                comment: "They retiled our entire office floor over a weekend. Minimal disruption and a very professional job. Looks fantastic."
+            }],
+            photos: ["https://picsum.photos/seed/tiling4/600/400", "https://picsum.photos/seed/tiling5/600/400"],
+            avatarSeed: "cape-tilers-logo"
+        },
+        {
+            id: "durban-tile-wizards",
+            name: "Durban Tile Wizards",
+            location: "Umhlanga, Durban",
+            description: "We bring magic to your floors and walls! Our services include bathroom tiling, kitchen splashbacks, outdoor patios, and tile repairs. No job is too big or too small for the Tile Wizards.",
+            rating: 4.6,
+            reviews: 19,
+            isProVerified: true,
+            reviewData: [{
+                author: "Mike G.",
+                phone: "060****112",
+                rating: 4,
+                comment: "Good work on my kitchen splashback. The team was friendly and cleaned up well afterwards. Would recommend."
+            }],
+            photos: [],
+            avatarSeed: "durban-wizards-logo"
+        },
+        {
+            id: "pta-tiling-solutions",
+            name: "PTA Tiling Solutions",
+            location: "Centurion, Pretoria",
+            description: "Affordable and reliable tiling services for Pretoria and surrounding areas. We focus on providing high-quality workmanship for residential renovations, new builds, and tile repair jobs.",
+            rating: 4.5,
+            reviews: 22,
+            isProVerified: false,
+            reviewData: [{
+                author: "Lindiwe M.",
+                phone: "076****334",
+                rating: 5,
+                comment: "Very happy with the price and the quality of the work. They did a great job on my bathroom floor."
+            }],
+            photos: ["https://picsum.photos/seed/tiling6/600/400"],
+            avatarSeed: "pta-tiling-logo"
+        }
+    ],
     "swimming-pool-builders": [
         {
             id: "aquadream-pools",
@@ -855,10 +942,10 @@ export const allProfessionals = {
     ],
     "default": [
         {
-            id: "east-rand-waste",
-            name: "East Rand Waste & Pool Service Pty Ltd",
+            id: "pro-services-inc",
+            name: "Pro Services Inc.",
             location: "Alberton",
-            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
+            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, and pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
             reviews: 42,
             address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
@@ -867,17 +954,11 @@ export const allProfessionals = {
             isProVerified: true,
             serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton", "midrand", "sandton", "johannesburg", "pretoria", "tembisa"],
             reviewData: [
-                { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent rubble removal service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." },
-                { author: "Sarah J.", phone: "082****112", rating: 5, comment: "Fantastic service! The team was friendly, efficient, and very professional. They cleared out our garden refuse in no time. I'll definitely use them again." },
-                { author: "Mike L.", phone: "071****334", rating: 4, comment: "Good, reliable service for skip hire. The skip was delivered and collected on time. My only suggestion would be better communication on the day of collection." },
-                { author: "Anonymous", phone: "", rating: 5, comment: "Hired them for a site clearing project. They did an amazing job and went above and beyond to ensure the area was completely clean. Highly recommended for any large-scale removal." },
-                { author: "Jennifer P.", phone: "084****556", rating: 5, comment: "We had a lot of old furniture and appliances to get rid of after moving. East Rand Waste made it so easy. They gave a fair quote and the team was incredibly helpful." }
+                { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." }
             ],
              photos: [
-                "https://picsum.photos/seed/waste1/600/400",
-                "https://picsum.photos/seed/waste2/600/400",
-                "https://picsum.photos/seed/waste3/600/400",
-                "https://picsum.photos/seed/waste4/600/400",
+                "https://picsum.photos/seed/pro1/600/400",
+                "https://picsum.photos/seed/pro2/600/400",
             ],
             avatarSeed: "pro-services-inc"
         },
@@ -885,7 +966,7 @@ export const allProfessionals = {
             id: "general-solutions-pty",
             name: "General Solutions Pty",
             location: "Germiston",
-            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
+            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from start to finish.",
             rating: 0.0,
             reviews: 0,
             address: "789 Industrial Rd, Germiston",
@@ -898,74 +979,25 @@ export const allProfessionals = {
             avatarSeed: "general-solutions"
         },
         {
-            id: "skip-boys",
-            name: "Skip Boys",
-            location: "Boksburg",
-            description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
-            rating: 4.2,
-            reviews: 18,
-            address: "101 Skip Avenue, Boksburg",
-            yearsInBusiness: 3,
-            employees: 5,
-            isProVerified: true,
-            serviceLocations: ["boksburg", "benoni", "kempton-park", "springs", "midrand", "germiston", "johannesburg"],
-            reviewData: [{
-                author: "Anonymous",
-                phone: "",
-                rating: 4,
-                comment: "Good service and fair pricing. The skip was delivered on time. Would use them again."
-            }],
-             photos: [
-                "https://picsum.photos/seed/skip1/600/400",
-                "https://picsum.photos/seed/skip2/600/400",
-            ],
-            avatarSeed: "skip-boys-logo"
-        },
-        {
-            id: "themba-rubble-removers",
-            name: "Themba Rubble Removers",
+            id: "expert-crew",
+            name: "Expert Crew SA",
             location: "Soweto",
-            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
+            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
             rating: 4.9,
             reviews: 76,
             address: "24 Worker's Way, Soweto",
             yearsInBusiness: 12,
             employees: 8,
             isProVerified: true,
-            serviceLocations: ["soweto", "johannesburg", "midrand", "sandton", "roodepoort"],
+            serviceLocations: ["soweto", "johannesburg", "midrand", "sandton", "roodepoort", "pretoria", "tembisa", "benoni", "boksburg"],
             reviewData: [{
                 author: "Sarah P.",
                 phone: "072****123",
                 rating: 5,
-                comment: "Extremely professional and efficient. They cleared my site in half the expected time. Highly recommended!"
+                comment: "Extremely professional and efficient. They finished the job in half the expected time. Highly recommended!"
             }],
-             photos: [
-                "https://picsum.photos/seed/rubble1/600/400",
-                "https://picsum.photos/seed/rubble2/600/400",
-                "https://picsum.photos/seed/rubble3/600/400",
-            ],
-            avatarSeed: "themba-rubble-removers-logo"
-        },
-        {
-            id: "elite-services-group",
-            name: "Elite Services Group",
-            location: "Sandton",
-            description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
-            rating: 4.5,
-            reviews: 31,
-            address: "55 Elite Crescent, Sandton",
-            yearsInBusiness: 7,
-            employees: 15,
-            isProVerified: true,
-            serviceLocations: ["sandton", "rosebank", "bryanston", "midrand", "johannesburg", "pretoria"],
-            reviewData: [{
-                author: "Mike",
-                phone: "083****789",
-                rating: 5,
-                comment: "Very happy with the service. They were professional from start to finish."
-            }],
-            photos: [],
-            avatarSeed: "elite-services"
+            photos: [ "https://picsum.photos/seed/expert1/600/400",],
+            avatarSeed: "expert-crew-logo"
         }
     ]
 };
@@ -982,3 +1014,4 @@ export const getProfessionalById = (id: string) => {
     }
     return null;
 };
+
