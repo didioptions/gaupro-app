@@ -136,7 +136,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       return (
         <div className="flex flex-col h-full">
             <DialogHeader className="p-4 border-b">
-              <DialogTitle className="text-xl font-bold text-center">✅ Your Request Has Been Received</DialogTitle>
+              <DialogTitle className="text-xl text-center">✅ Your Request Has Been Received</DialogTitle>
             </DialogHeader>
           <div className="flex-grow p-6 text-foreground space-y-4 text-left overflow-y-auto">
             <p>
@@ -187,7 +187,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                         <ArrowLeft />
                       </Button>}
                        <div className={step === 0 ? 'w-full text-center' : ''}>
-                         <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
+                         <h2 className="text-xl">Request for {serviceLabel}</h2>
                          <p className="text-muted-foreground text-sm">Step {step + 1} of {totalSteps + 1}</p>
                        </div>
                   </div>
@@ -207,7 +207,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                       </div>
                     )}
                     
-                  <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
+                  <h3 className="mb-4 text-lg">{currentQuestion.text}</h3>
                     {currentQuestion.type === 'radio' && (
                       <RadioGroup
                         onValueChange={(value) => handleInputChange(currentQuestion.id, value)}
@@ -332,7 +332,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                     <ArrowLeft />
                 </Button>
                 <div>
-                    <h2 className="text-xl font-semibold">We're almost done, we just need your details.</h2>
+                    <h2 className="text-xl">We're almost done, we just need your details.</h2>
                     <p className="text-muted-foreground text-sm">Step {totalSteps + 1} of {totalSteps + 1}</p>
                 </div>
                 </div>

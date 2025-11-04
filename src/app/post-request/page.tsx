@@ -106,7 +106,7 @@ export default function PostRequestPage() {
     if (isSubmitted) {
       return (
         <div className="text-center py-8">
-          <h2 className="text-2xl font-bold mb-4">✅ Your Request Has Been Received</h2>
+          <h2 className="text-2xl mb-4">✅ Your Request Has Been Received</h2>
           <div className="text-foreground space-y-4 text-left">
             <p>
               Thanks for posting your job on Gaupro — we’re already matching you with trusted local professionals.
@@ -135,7 +135,7 @@ export default function PostRequestPage() {
     if (step === 0) {
       return (
         <>
-          <h2 className="text-2xl font-semibold">Request a Quote</h2>
+          <h2 className="text-2xl">Request a Quote</h2>
           <p className="text-muted-foreground">
             Give us a few details and we’ll match you with the right professional.
           </p>
@@ -186,7 +186,7 @@ export default function PostRequestPage() {
                     <ArrowLeft />
                   </Button>
                   <div>
-                    <h2 className="text-xl font-semibold">Request for {serviceLabel}</h2>
+                    <h2 className="text-xl">Request for {serviceLabel}</h2>
                     <p className="text-muted-foreground">Step {step} of {totalSteps}</p>
                   </div>
               </div>
@@ -205,7 +205,7 @@ export default function PostRequestPage() {
             )}
             
           <div className="py-8 min-h-[250px]">
-            <h3 className="font-semibold mb-4 text-lg">{currentQuestion.text}</h3>
+            <h3 className="mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
               <RadioGroup
                 onValueChange={(value) => handleInputChange(currentQuestion.id, value)}
@@ -328,7 +328,7 @@ export default function PostRequestPage() {
                 <ArrowLeft />
               </Button>
               <div>
-                <h2 className="text-xl font-semibold">We're almost done, we just need your details.</h2>
+                <h2 className="text-xl">We're almost done, we just need your details.</h2>
                  <p className="text-muted-foreground">Step {step} of {totalSteps}</p>
               </div>
             </div>
