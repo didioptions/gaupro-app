@@ -1,6 +1,139 @@
 
 
+
 export const allProfessionals = {
+    "plant-hire": [
+        {
+            id: "wasteden-demolitions",
+            name: "Wasteden Demolitions & Waste Removals",
+            location: "Johannesburg",
+            description: "We handle all types of demolition and rubble removals — both interior and exterior — as well as bulk earthworks and site cleaning.",
+            tags: ["Demolition", "rubble removal", "bulk earthworks", "site cleaning", "interior demolition"],
+            rating: 5.0,
+            reviews: 1,
+            isProVerified: true,
+            reviewData: [{ author: "Jabu", phone: "082**544", rating: 5, comment: "Thanks, great job!" }],
+            photos: ["https://picsum.photos/seed/wasteden1/600/400", "https://picsum.photos/seed/wasteden2/600/400"],
+            avatarSeed: "wasteden-logo"
+        },
+        {
+            id: "kotata-holdings",
+            name: "Kotata Holdings Pty Ltd",
+            location: "Kensington, Johannesburg",
+            description: "Founded in 2015 by a construction expert. We specialize in security walls (clear view, palisade, brickwork), general construction, and maintenance. Reliable, skilled, and passionate about building quality structures.",
+            tags: ["Security walls", "clear view fencing", "palisade", "brickwork", "general construction"],
+            rating: 4.8,
+            reviews: 15,
+            isProVerified: true,
+            reviewData: [{ author: "Thabo", phone: "071**123", rating: 5, comment: "The clear view fence they installed is top quality. Very professional team." }],
+            photos: ["https://picsum.photos/seed/kotata1/600/400"],
+            avatarSeed: "kotata-logo"
+        },
+        {
+            id: "sid-plant-hire",
+            name: "Sid Plant",
+            location: "Parktown, Johannesburg",
+            description: "TLB & tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
+            tags: ["TLB hire", "tipper truck hire", "site clearing", "demolitions", "trenching"],
+            rating: 5.0,
+            reviews: 1,
+            isProVerified: true,
+            reviewData: [{ author: "Muzi", phone: "076**326", rating: 5, comment: "Incredible service. The owner was polite and professional — job done on time and within budget!" }],
+            photos: ["https://picsum.photos/seed/sidplant1/600/400", "https://picsum.photos/seed/sidplant2/600/400"],
+            avatarSeed: "sid-plant-logo"
+        },
+        {
+            id: "rubble-removal-jhb",
+            name: "Rubble Removal Johannesburg",
+            location: "Johannesburg",
+            description: "Nationwide rubble removal, waste clearance, and site clean-ups. We specialize in removing unwanted clutter, junk, wreckage, and debris quickly and safely.",
+            tags: ["Rubble removal", "waste clearance", "site clean-up", "junk removal"],
+            rating: 4.5,
+            reviews: 32,
+            isProVerified: true,
+            reviewData: [{ author: "David", phone: "083**456", rating: 5, comment: "Fast and efficient service. They cleared my whole backyard in an afternoon." }],
+            photos: ["https://picsum.photos/seed/rubblejhb1/600/400"],
+            avatarSeed: "rubble-jhb-logo"
+        },
+        {
+            id: "jb-plant-hire",
+            name: "JB Plant Hire",
+            location: "Midrand, Johannesburg",
+            description: "Your source for TLB hire, tipper trucks, compaction rollers, and site clearing. We are known for fast delivery, affordable rates, and skilled operators.",
+            tags: ["TLB hire", "tipper trucks", "compaction rollers", "site clearing"],
+            rating: 4.7,
+            reviews: 21,
+            isProVerified: true,
+            reviewData: [{ author: "Fikile", phone: "072**789", rating: 5, comment: "The TLB was delivered on time and the operator was very experienced. Made my project much easier." }],
+            photos: ["https://picsum.photos/seed/jbplant1/600/400", "https://picsum.photos/seed/jbplant2/600/400"],
+            avatarSeed: "jb-plant-logo"
+        },
+        {
+            id: "makhado-earthworks",
+            name: "Makhado Earthworks",
+            location: "Johannesburg South",
+            description: "Trusted by contractors for reliable machines and professional service. We provide bulk earthworks, site levelling, trenching, and equipment hire including TLBs and excavators.",
+            tags: ["Bulk earthworks", "site levelling", "trenching", "equipment hire", "excavators"],
+            rating: 4.9,
+            reviews: 18,
+            isProVerified: true,
+            reviewData: [{ author: "Chris", phone: "084**101", rating: 5, comment: "Makhado Earthworks is my go-to for all big projects. Their machines are well-maintained and their team is professional." }],
+            photos: ["https://picsum.photos/seed/makhado1/600/400"],
+            avatarSeed: "makhado-logo"
+        },
+        {
+            id: "thabos-plant-hire",
+            name: "Thabo’s Plant & Equipment Hire",
+            location: "Soweto, Johannesburg",
+            description: "TLB hire, grader hire, and rubble removal for small to large projects. Ideal for both private residential jobs and municipal work.",
+            tags: ["TLB hire", "grader hire", "rubble removal"],
+            rating: 4.6,
+            reviews: 14,
+            isProVerified: false,
+            reviewData: [{ author: "Lindiwe", phone: "060**202", rating: 5, comment: "Very helpful and affordable. Thabo helped me choose the right machine for my yard work." }],
+            photos: [],
+            avatarSeed: "thabos-logo"
+        },
+        {
+            id: "urbansite-tlb-hire",
+            name: "UrbanSite TLB Hire",
+            location: "Sandton, Johannesburg",
+            description: "Modern machinery and licensed operators for TLB and tipper hire, demolition, and earthmoving. We focus on safety and efficiency for high-end residential and commercial sites.",
+            tags: ["TLB hire", "tipper hire", "demolition", "earthmoving", "modern machinery"],
+            rating: 4.8,
+            reviews: 25,
+            isProVerified: true,
+            reviewData: [{ author: "Michael", phone: "076**303", rating: 5, comment: "Top-class equipment and very professional service. They were a pleasure to work with on our commercial site." }],
+            photos: ["https://picsum.photos/seed/urbansite1/600/400", "https://picsum.photos/seed/urbansite2/600/400"],
+            avatarSeed: "urbansite-logo"
+        },
+        {
+            id: "eagle-earthmovers",
+            name: "Eagle Earthmovers",
+            location: "Johannesburg CBD",
+            description: "Heavy machinery hire including TLBs, excavators, and tipper trucks. Specializing in site clearing and trenching with a promise of quick response and 24/7 service availability.",
+            tags: ["Heavy machinery hire", "24/7 service", "excavator hire", "trenching"],
+            rating: 4.4,
+            reviews: 19,
+            isProVerified: true,
+            reviewData: [{ author: "Alex", phone: "081**404", rating: 4, comment: "They were available on short notice which was great. The job got done effectively." }],
+            photos: ["https://picsum.photos/seed/eagle1/600/400"],
+            avatarSeed: "eagle-logo"
+        },
+        {
+            id: "ndlovu-site-services",
+            name: "Ndlovu Site Services",
+            location: "Roodepoort, Johannesburg",
+            description: "Dependable equipment and excellent turnaround times for demolitions, rubble removal, and TLB hire for construction and landscaping projects.",
+            tags: ["Demolitions", "rubble removal", "TLB hire", "landscaping"],
+            rating: 4.9,
+            reviews: 28,
+            isProVerified: true,
+            reviewData: [{ author: "Brenda", phone: "073**505", rating: 5, comment: "Excellent service from start to finish. The team was professional, on time, and left the site perfectly clean." }],
+            photos: ["https://picsum.photos/seed/ndlovu1/600/400", "https://picsum.photos/seed/ndlovu2/600/400"],
+            avatarSeed: "ndlovu-logo"
+        }
+    ],
     "painter": [
         {
             id: "madiway-projects",
