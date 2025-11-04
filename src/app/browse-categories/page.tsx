@@ -1,0 +1,75 @@
+
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
+import { allServices } from '@/lib/service-questions';
+import Link from 'next/link';
+
+const allCategories = [
+  { category: 'Accommodation & Venues', services: ['Holiday Accommodation', 'Venues', 'Wedding Venues'] },
+  { category: 'Agricultural', services: ['Agricultural Equipment', 'Agricultural Services', 'Irrigation'] },
+  { category: 'Alarms & Security', services: ['Access Control', 'Alarm Systems', 'Armed Response', 'Car Alarms', 'Car Tracking', 'CCTV', 'Fire Safety', 'Private Investigators', 'Security', 'Tracing'] },
+  { category: 'Architecture & Engineering', services: ['Architects', 'Borehole Drillers', 'Town Planners'] },
+  { category: 'Business & Finance', services: ['Accounting', 'Auditors', 'Business Consultants', 'Company Registrations', 'Debt Collection', 'Debt Counsellors', 'Financial Advisors', 'Insurance', 'Loans', 'Medical Aid', 'Recruitment Agencies'] },
+  { category: 'Cars & Automotive', services: ['Auto Electricians', 'Auto Glass', 'Batteries', 'Brakes and Clutches', 'Car Aircon Regassing', 'Car Window Tinting', 'Engine Overhauls', 'Fuels', 'Gearboxes', 'Mechanics', 'Panel Beaters', 'Towing', 'Tow Bars'] },
+  { category: 'Computers & Telecommunications', services: ['Cellphone Repairs', 'Computers', 'Computer Repairs', 'Internet Solutions', 'Laptop Repairs', 'Networking', 'Office Equipment', 'Printer Cartridges'] },
+  { category: 'Digital Design, Media & Marketing', services: ['Graphic Designers', 'Logo Design', 'Printing', 'Signs', 'Website Designers'] },
+  { category: 'Family Care', services: ['Baby Sitters', 'Creches', 'Day Care Centres', 'Pre-Schools'] },
+  { category: 'Fashion, Tailors & Outfitters', services: ['Dressmakers', 'Embroidery'] },
+  { category: 'Food & Beverage', services: ['Cake Shops', 'Caterers'] },
+  { category: 'Health, Wellness & Beauty', services: ['Beauty Salons', 'Chiropractors', 'Counsellors', 'Dentists', 'Dermatologists', 'Dieticians', 'Gynaecologists', 'Hair Stylists', 'Laser Clinics', 'Make Up Artists', 'Marriage Counsellors', 'Massage Therapists', 'Personal Trainers', 'Physiotherapists', 'Plastic Surgeons', 'Psychologists'] },
+  { category: 'Heavy Equipment & Machinery', services: ['Generators', 'Plant Hire', 'Skip Hire', 'Tlb Hire'] },
+  { category: 'Home Appliances & Equipment', services: ['Appliance Repairs', 'DSTV Installers', 'Fridge Repairs', 'Tv Installers', 'Tv Repairs'] },
+  { category: 'Home, Building & Gardening', services: ['Air Conditioning', 'Aluminium Doors and Windows', 'Awnings', 'Balustrades', 'Bathroom Renovations', 'Blinds', 'Builders', 'Burglar Bars', 'Carpenters', 'Carpeting', 'Carpet Cleaning', 'Carports', 'Ceiling Installers', 'Cleaning Services', 'Concrete Slabs', 'Curtains', 'Doors', 'Drywalls', 'Electricians', 'Electric Fencing', 'Fencing', 'Flooring', 'Garage Doors', 'Garage Door Motors', 'Gardeners', 'Gas Installers', 'Gates', 'Gate Motors', 'Glass Works', 'Guttering', 'Handymen', 'High Pressure Cleaning', 'Home Improvements', 'Interior Designing', 'Kitchen Renovations', 'Laminate Flooring', 'Landscaping', 'Laundry Services', 'Locksmiths', 'Office Cleaning', 'Painters', 'Palisade Fencing', 'Paving', 'Pest Control', 'Plastering', 'Plumbers', 'Pool Cleaning', 'Precast Fencing', 'Prepaid Electricity Meters', 'Roofing', 'Security Gates', 'Shadeports', 'Shower Doors', 'Solar Geysers', 'Solar Systems', 'Swimming Pool Builders', 'Tar Surfacing', 'Thatched Roofing', 'Tiling', 'Tree Felling', 'Upholsterers', 'Upholstery Cleaning', 'Waterproofing', 'Welders', 'Wendy Houses', 'Window Cleaning', 'Window Tinting', 'Wire Mesh Fencing', 'Wooden Decking'] },
+  { category: 'Lessons & Training', services: ['Computer Courses', 'Driving Schools', 'Firearm Training', 'First Aid', 'Forklift Training', 'Life Coaches', 'Security Training', 'Swimming Lessons', 'Team Building'] },
+  { category: 'Manufacturers & Suppliers', services: ['Building Materials', 'Gas Suppliers', 'Marble and Granite Suppliers', 'Personal Protection Equipment', 'Stationery', 'Swimming Pool Supplies'] },
+  { category: 'Pets', services: ['Groomers', 'Pet Sitters'] },
+  { category: 'Property & Legal', services: ['Conveyancers', 'Divorce Lawyers', 'Estate Agents', 'Labour Lawyers', 'Lawyers'] },
+  { category: 'Transportation & Logistics', services: ['Couriers', 'Movers', 'Rubble Removal', 'School Transport', 'Shuttle Services', 'Taxis', 'Transportation'] },
+  { category: 'Tourism & Outdoor Activities', services: ['Tour Operators', 'Travel Agents'] },
+  { category: 'Weddings, Events & Entertainment', services: ['Djs', 'Event Decorations', 'Event Planners', 'Florists', 'Party Planners', 'Photographers', 'Tent Hire', 'Toilet Hire', 'Videographers', 'Wedding Photographers'] },
+];
+
+export default function AllCategoriesPage() {
+  const serviceUrlMap = new Map(allServices.map(s => {
+    const normalizedLabel = s.label.toLowerCase().replace(/s$/, '');
+    return [normalizedLabel, s.value];
+  }));
+
+  return (
+    <>
+      <Header />
+      <main className="flex-grow bg-background">
+        <div className="container mx-auto px-4 py-12 md:py-16">
+          <header className="text-center mb-12">
+            <h1 className="text-3xl md:text-4xl font-normal tracking-tight">All Service Categories</h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Find trusted professionals for any service you need in South Africa.
+            </p>
+          </header>
+          <div className="columns-2 md:columns-4 lg:columns-5 gap-x-8">
+            {allCategories.map((group) => (
+              <div key={group.category} className="mb-8 break-inside-avoid">
+                <h3 className="font-semibold text-lg mb-3 border-b pb-2">{group.category}</h3>
+                <ul className="space-y-2">
+                  {group.services.map((serviceName) => {
+                    const normalizedServiceName = serviceName.toLowerCase().replace(/s$/, '');
+                    const serviceValue = serviceUrlMap.get(normalizedServiceName) || allServices.find(s => s.label === serviceName)?.value;
+                    const href = serviceValue ? `/services/${serviceValue}` : '#';
+                    return (
+                      <li key={serviceName}>
+                        <Link href={href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                          {serviceName}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
