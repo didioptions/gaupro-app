@@ -283,7 +283,7 @@ export const serviceQuestionSets: QuestionSet[] = [
     service: 'swimming-pool-builders',
     questions: [
       {
-        id: 'service_type',
+        id: 'pool_service_type',
         text: 'What type of service do you require?',
         type: 'radio',
         options: [
@@ -423,6 +423,22 @@ export const serviceQuestionSets: QuestionSet[] = [
         ],
       },
       ...commonQuestions
+    ],
+  },
+  {
+    service: 'generators',
+    questions: [
+      {
+        id: 'generator_service_type',
+        text: 'What type of service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'Generator Installation' },
+          { value: 'repairs', label: 'Generator Repairs' },
+          { value: 'hire', label: 'Generator Hire' },
+        ],
+      },
+      ...commonQuestions,
     ],
   },
   {
