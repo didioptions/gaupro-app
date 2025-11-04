@@ -1,8 +1,13 @@
 
+'use client';
+
+import { useState, useMemo } from 'react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
+import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
 
 const allCategories = [
   { category: 'Home, Building & Gardening', services: ['Air Conditioning', 'Aluminium Doors And Windows', 'Awnings', 'Balustrades', 'Bathroom Renovations', 'Blinds', 'Builders', 'Burglar Bars', 'Carpenters', 'Carpeting', 'Carpet Cleaning', 'Carports', 'Ceiling Installers', 'Cleaning Services', 'Concrete Slabs', 'Curtains', 'Doors', 'Drywalls', 'Electricians', 'Electric Fencing', 'Fencing', 'Flooring', 'Garage Doors', 'Garage Door Motors', 'Gardeners', 'Gas Installers', 'Gates', 'Gate Motors', 'Glass Works', 'Guttering', 'Handymen', 'High Pressure Cleaning', 'Home Improvements', 'Interior Designing', 'Kitchen Renovations', 'Laminate Flooring', 'Landscaping', 'Laundry Services', 'Locksmiths', 'Office Cleaning', 'Painters', 'Palisade Fencing', 'Paving', 'Pest Control', 'Plastering', 'Plumbers', 'Pool Cleaning', 'Precast Fencing', 'Prepaid Electricity Meters', 'Roofing', 'Security Gates', 'Shadeports', 'Shower Doors', 'Solar Geysers', 'Solar Systems', 'Swimming Pool Builders', 'Tar Surfacing', 'Thatched Roofing', 'Tiling', 'Tree Felling', 'Upholsterers', 'Upholstery Cleaning', 'Waterproofing', 'Welders', 'Wendy Houses', 'Window Cleaning', 'Window Tinting', 'Wire Mesh Fencing', 'Wooden Decking'] },
@@ -30,6 +35,33 @@ const allCategories = [
 ];
 
 export default function AllCategoriesPage() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredCategories = useMemo(() => {
+    if (!searchQuery) {
+      return allCategories;
+    }
+    const lowercasedQuery = searchQuery.toLowerCase();
+
+    const newCategories = allCategories
+      .map(group => {
+        const services = group.services.filter(service =>
+          service.toLowerCase().includes(lowercasedQuery)
+        );
+        if (group.category.toLowerCase().includes(lowercasedQuery) || services.length > 0) {
+          return {
+            ...group,
+            services: services.length > 0 ? services : group.services,
+          };
+        }
+        return null;
+      })
+      .filter((g): g is NonNullable<typeof g> => g !== null);
+
+    return newCategories;
+  }, [searchQuery]);
+
+
   return (
     <>
       <Header />
@@ -40,24 +72,41 @@ export default function AllCategoriesPage() {
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
               Find trusted professionals for any service you need in South Africa.
             </p>
+            <div className="relative max-w-lg mx-auto mt-8">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input
+                type="text"
+                placeholder="What service do you need?"
+                className="h-12 pl-10 text-base"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
           </header>
           <div className="max-w-5xl mx-auto space-y-12">
-            {allCategories.map((group) => (
-              <div key={group.category}>
-                <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
-                  {group.services.map((serviceName) => {
-                    const service = allServices.find(s => s.label === serviceName);
-                    const href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
-                    return (
-                      <Link key={serviceName} href={href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                        {serviceName}
-                      </Link>
-                    );
-                  })}
+            {filteredCategories.length > 0 ? (
+                filteredCategories.map((group) => (
+                <div key={group.category}>
+                    <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
+                    {group.services.map((serviceName) => {
+                        const service = allServices.find(s => s.label === serviceName);
+                        const href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
+                        return (
+                        <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
+                            {serviceName}
+                        </Link>
+                        );
+                    })}
+                    </div>
                 </div>
-              </div>
-            ))}
+                ))
+            ) : (
+                <div className="text-center text-muted-foreground py-16">
+                    <p className="text-lg">No services found for "{searchQuery}"</p>
+                    <p>Try a different search term or browse the full list.</p>
+                </div>
+            )}
           </div>
         </div>
       </main>
