@@ -113,6 +113,7 @@ export const allServices = [
     { value: 'tow-bars', label: 'Tow Bars' },
     { value: 'towing', label: 'Towing' },
     { value: 'tree-felling', label: 'Tree Felling' },
+    { value: 'tlb-hire', label: 'Tlb Hire' },
     { value: 'upholsterers', label: 'Upholsterers' },
     { value: 'upholstery-cleaning', label: 'Upholstery Cleaning' },
     { value: 'videographers', label: 'Videographers' },
@@ -168,6 +169,28 @@ const commonQuestions: Question[] = [
     budgetQuestion
 ];
 
+const plantHireQuestions: Question[] = [
+  {
+    id: 'hire_type',
+    text: 'What would you like to hire?',
+    type: 'checkbox',
+    options: [
+      { value: 'crane', label: 'Crane' },
+      { value: 'forklift', label: 'Forklift' },
+      { value: 'grader', label: 'Grader' },
+      { value: 'excavator', label: 'Excavator' },
+      { value: 'dump_truck', label: 'Dump Truck / Tipper' },
+      { value: 'tlb', label: 'TLB' },
+      { value: 'lhd_scoop', label: 'LHD Scoop' },
+      { value: 'cement_mixer', label: 'Cement Mixer' },
+      { value: 'loader', label: 'Loader' },
+      { value: 'honeysucker', label: 'Honeysucker Tank' },
+      { value: 'payloader', label: 'Payloader' },
+      { value: 'other', label: 'Other' },
+    ],
+  },
+  ...commonQuestions,
+];
 
 export const serviceQuestionSets: QuestionSet[] = [
   {
@@ -368,9 +391,17 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions
     ],
   },
+  {
+    service: 'plant-hire',
+    questions: plantHireQuestions
+  },
+  {
+    service: 'tlb-hire',
+    questions: plantHireQuestions
+  },
   // Fallback for other services - this maps all other services to the common questions
   ...allServices
-    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers', 'skip-hire', 'tree-felling', 'rubble-removal'].includes(service.value))
+    .filter(service => !['plumber', 'cleaning-service', 'builders', 'electrician', 'movers', 'skip-hire', 'tree-felling', 'rubble-removal', 'plant-hire', 'tlb-hire'].includes(service.value))
     .map(service => ({
       service: service.value,
       questions: [
