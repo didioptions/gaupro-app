@@ -26,6 +26,7 @@ export const allServices = [
     { value: 'blinds', label: 'Blinds' },
     { value: 'borehole-drillers', label: 'Borehole Drillers' },
     { value: 'builders', label: 'Builders' },
+    { value: 'building-materials', label: 'Building Materials' },
     { value: 'business-consultants', label: 'Business Consultants' },
     { value: 'car-alarms', label: 'Car Alarms' },
     { value: 'car-tracking', label: 'Car Tracking' },
@@ -293,7 +294,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'heating', label: 'Swimming Pool Heating' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -439,6 +440,20 @@ export const serviceQuestionSets: QuestionSet[] = [
         ],
       },
       ...commonQuestions,
+    ],
+  },
+   {
+    service: 'building-materials',
+    questions: [
+      {
+        id: 'job_details',
+        text: 'What building materials do you need?',
+        type: 'textarea',
+        placeholder: 'Please enter all the products you need and the quantity (e.g., 500 stock bricks, 10 bags of cement, 1 ton of river sand).',
+      },
+      locationQuestion,
+      urgencyQuestion,
+      budgetQuestion,
     ],
   },
   {
