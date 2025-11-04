@@ -1,6 +1,76 @@
 
 
 export const allProfessionals = {
+    "handyman": [
+        {
+            id: "mmsl-corporate",
+            name: "MMSL Corporate",
+            location: "Johannesburg",
+            description: "We are a professional company who looks after the clients needs. For all your commercial and domestic roofing, gates, carports and many more steel work services, plus general handyman tasks. We offer the best quality.",
+            rating: 5.0,
+            reviews: 6,
+            isProVerified: true,
+            reviewData: [{
+                author: "John",
+                phone: "082****120",
+                rating: 5,
+                comment: "Wonderful service, friendly staff, great work. Will definitely recommend and use again in future. Thanks Mlulaki!"
+            }],
+            photos: ["https://picsum.photos/seed/mmsl1/600/400"],
+            avatarSeed: "mmsl-logo"
+        },
+        {
+            id: "garden-of-eden-projects",
+            name: "Garden Of Eden Projects",
+            location: "Johannesburg",
+            description: "HANDYMAN ON CALL! Painting, cleaning, DSTV installation, CCTV, and electrical fencing. We handle all your property maintenance needs.",
+            rating: 5.0,
+            reviews: 5,
+            isProVerified: true,
+            reviewData: [{
+                author: "Jane S.",
+                phone: "071****567",
+                rating: 5,
+                comment: "They fixed everything on my to-do list in one afternoon. Very efficient and professional."
+            }],
+            photos: ["https://picsum.photos/seed/goe1/600/400"],
+            avatarSeed: "garden-of-eden-logo"
+        },
+        {
+            id: "joburg-handy-solutions",
+            name: "Joburg Handy Solutions",
+            location: "Sandton, Johannesburg",
+            description: "From hanging pictures to assembling furniture and fixing leaky taps, no job is too small. We are your reliable partner for all home repairs and maintenance tasks.",
+            rating: 4.8,
+            reviews: 45,
+            isProVerified: true,
+            reviewData: [{
+                author: "David R.",
+                phone: "083****789",
+                rating: 5,
+                comment: "Punctual, professional, and did a fantastic job assembling our new cabinets. Will definitely call them again."
+            }],
+            photos: ["https://picsum.photos/seed/handy1/600/400", "https://picsum.photos/seed/handy2/600/400"],
+            avatarSeed: "joburg-handy-logo"
+        },
+        {
+            id: "the-fix-it-fellows",
+            name: "The Fix-It Fellows",
+            location: "Randburg, Johannesburg",
+            description: "Your go-to team for all home repairs. We specialize in plumbing, electrical fixes, painting touch-ups, and general maintenance. Quick, reliable, and affordable service.",
+            rating: 4.7,
+            reviews: 32,
+            isProVerified: true,
+            reviewData: [{
+                author: "Sarah P.",
+                phone: "072****123",
+                rating: 5,
+                comment: "They fixed my broken gate motor and repaired a leaking pipe in the same visit. So convenient and well-priced."
+            }],
+            photos: ["https://picsum.photos/seed/fixit1/600/400"],
+            avatarSeed: "fix-it-fellows-logo"
+        }
+    ],
     "tiling": [
         {
             id: "precision-tiling-co",
@@ -1052,7 +1122,7 @@ export const allProfessionals = {
             isProVerified: true,
             serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton", "midrand", "sandton", "johannesburg", "pretoria", "tembisa"],
             reviewData: [
-                { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent service. They were quick to respond, cleared all the construction waste from my property, and left the site spotless. Very professional and hard-working team." }
+                { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent service. They were quick to respond, finished the job quickly, and left the site spotless. Very professional and hard-working team." }
             ],
              photos: [
                 "https://picsum.photos/seed/pro1/600/400",
@@ -1077,7 +1147,7 @@ export const allProfessionals = {
             avatarSeed: "general-solutions"
         },
         {
-            id: "expert-crew",
+            id: "expert-crew-sa",
             name: "Expert Crew SA",
             location: "Soweto",
             description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
@@ -1112,5 +1182,6 @@ export const getProfessionalById = (id: string) => {
     }
     return null;
 };
+
 
 
