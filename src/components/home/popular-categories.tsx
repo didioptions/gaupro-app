@@ -75,17 +75,19 @@ const CategoryCard = ({ name, href, imageId }: { name: string, href: string, ima
 
 
 export default function PopularCategories() {
+  const triggerStyles = "px-4 py-2 rounded-md text-sm font-medium transition-colors bg-secondary/50 text-secondary-foreground hover:bg-primary/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md";
+
   return (
     <section id="categories" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <Tabs defaultValue="popular" className="w-full">
           <div className="flex justify-center mb-12">
-            <TabsList className="grid w-full max-w-4xl grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto">
-              <TabsTrigger value="popular" className="py-2.5">Popular Services</TabsTrigger>
-              <TabsTrigger value="home" className="py-2.5">Home, Building & Garden</TabsTrigger>
-              <TabsTrigger value="weddings" className="py-2.5">Weddings & Events</TabsTrigger>
-              <TabsTrigger value="business" className="py-2.5">Business & Finance</TabsTrigger>
-              <TabsTrigger value="more" className="py-2.5">More...</TabsTrigger>
+            <TabsList className="flex flex-wrap items-center justify-center gap-2 h-auto bg-transparent">
+              <TabsTrigger value="popular" className={triggerStyles}>Popular Services</TabsTrigger>
+              <TabsTrigger value="home" className={triggerStyles}>Home, Building & Garden</TabsTrigger>
+              <TabsTrigger value="weddings" className={triggerStyles}>Weddings & Events</TabsTrigger>
+              <TabsTrigger value="business" className={triggerStyles}>Business & Finance</TabsTrigger>
+              <TabsTrigger value="more" className={triggerStyles}>More...</TabsTrigger>
             </TabsList>
           </div>
 
