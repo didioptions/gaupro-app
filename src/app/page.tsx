@@ -15,11 +15,11 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <section className="py-16 md:py-20 bg-background">
-          <div className="container mx-auto px-4 text-center max-w-3xl">
+          <div className="container mx-auto px-4 text-center max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-normal mb-4">
               🏡 Connect with Trusted Local Experts in Minutes
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base text-muted-foreground">
               Need help at home or work? Gaupro makes it easy to find verified service professionals anywhere in South Africa. From builders and electricians to cleaners and plumbers, compare multiple quotes, read real reviews, and hire the right expert fast. No calls, no waiting — just reliable service you can trust.
             </p>
           </div>
