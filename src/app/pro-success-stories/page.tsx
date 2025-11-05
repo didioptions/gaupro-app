@@ -49,22 +49,40 @@ const impactStats = [
     {
         icon: <Users className="h-10 w-10 text-primary" />,
         stat: "2x-3x More Jobs",
-        description: "Many small businesses have doubled or tripled their weekly jobs."
+        description: "Many small businesses have doubled or tripled their weekly jobs by connecting with clients directly through Gaupro."
     }
 ];
 
 const whatProsSay = [
     {
         quote: "I never imagined finding reliable clients could be this easy. Gaupro changed the game for my business.",
-        author: "– Thabo, Plumber"
+        author: "– Thabo, Plumber",
+        avatarSeed: 'pro-thabo-says'
     },
     {
         quote: "Being on Gaupro boosted my credibility. Clients trust me because of the reviews and professional profile.",
-        author: "– Lerato, Designer"
+        author: "– Lerato, Designer",
+        avatarSeed: 'pro-lerato-says'
     },
     {
         quote: "The platform is simple to use and really works. I recommend it to any local professional.",
-        author: "– Sizwe, Electrician"
+        author: "– Sizwe, Electrician",
+        avatarSeed: 'pro-sizwe-says'
+    },
+    {
+        quote: "Before Gaupro, we struggled with scattered advertising on every sites. Now, the platform makes finding new clients simple. With email notifications for leads, we no longer have to keep checking the site, and excellent support makes the experience even better. Gaupro has truly streamlined our client acquisition.",
+        author: "– Keke Sithole, IntePro",
+        avatarSeed: 'pro-keke-says'
+    },
+    {
+        quote: "Gaupro connects me with clients who need small repairs or larger projects without the usual hassle of advertising. Everything from bookings to client communication is easy to manage, and my reputation grows with every completed job.",
+        author: "– Jabu, Handyman, Soweto",
+        avatarSeed: 'pro-jabu-says'
+    },
+    {
+        quote: "Finding steady work used to be a challenge, but Gaupro changed that. I now have regular leads and can showcase my projects online, giving clients confidence in my services. The platform is simple, reliable, and has helped my business grow faster than I imagined.",
+        author: "– Michael, Builder, Durban",
+        avatarSeed: 'pro-michael-says'
     }
 ];
 
@@ -115,24 +133,20 @@ export default function ProSuccessStoriesPage() {
                 <h2 className="text-2xl font-normal text-center mb-10">Real Success Stories from South African Professionals</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                     {realStories.map((story) => (
-                    <Card key={story.name} className="flex flex-col border-0 shadow-none">
-                        <CardContent className="p-0">
-                             <div className="flex items-start gap-4">
-                                <Image
-                                    src={`https://picsum.photos/seed/${story.avatarSeed}/80/80`}
-                                    alt={`Avatar of ${story.name}`}
-                                    width={80}
-                                    height={80}
-                                    className="rounded-full"
-                                    data-ai-hint="professional portrait"
-                                />
-                                <div>
-                                    <blockquote className="italic text-foreground mb-3">
-                                    {story.quote}
-                                    </blockquote>
-                                    <p className="font-semibold text-sm">{story.name} – <span className="text-muted-foreground font-normal">{story.business}</span></p>
-                                </div>
-                            </div>
+                    <Card key={story.name} className="bg-secondary/50 border h-full">
+                        <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                            <Image
+                                src={`https://picsum.photos/seed/${story.avatarSeed}/80/80`}
+                                alt={`Avatar of ${story.name}`}
+                                width={80}
+                                height={80}
+                                className="rounded-full mb-4"
+                                data-ai-hint="professional portrait"
+                            />
+                            <blockquote className="italic text-foreground mb-4 flex-grow">
+                            {story.quote}
+                            </blockquote>
+                            <p className="font-semibold text-sm">{story.name} – <span className="text-muted-foreground font-normal">{story.business}</span></p>
                         </CardContent>
                     </Card>
                     ))}
@@ -156,9 +170,17 @@ export default function ProSuccessStoriesPage() {
                  <h2 className="text-2xl font-normal text-center mb-10">What Our Professionals Say</h2>
                  <div className="grid md:grid-cols-3 gap-8">
                     {whatProsSay.map(testimonial => (
-                        <Card key={testimonial.author} className="bg-secondary/50 border">
-                            <CardContent className="p-6">
-                                <blockquote className="italic text-foreground mb-4">"{testimonial.quote}"</blockquote>
+                        <Card key={testimonial.author} className="bg-secondary/50 border h-full">
+                            <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                                <Image
+                                    src={`https://picsum.photos/seed/${testimonial.avatarSeed}/80/80`}
+                                    alt={`Avatar of ${testimonial.author}`}
+                                    width={80}
+                                    height={80}
+                                    className="rounded-full mb-4"
+                                    data-ai-hint="professional portrait"
+                                />
+                                <blockquote className="italic text-foreground mb-4 flex-grow">"{testimonial.quote}"</blockquote>
                                 <p className="font-semibold text-sm">{testimonial.author}</p>
                             </CardContent>
                         </Card>
