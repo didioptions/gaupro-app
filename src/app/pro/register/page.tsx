@@ -103,7 +103,7 @@ export default function ProRegisterPage() {
           
           <div className="p-8">
             <div className="text-left mb-8">
-              <h1 className="text-2xl font-bold text-foreground">Create your Free Pro Account</h1>
+              <h1 className="text-2xl font-normal text-foreground">Create your Free Pro Account</h1>
             </div>
 
             <Form {...form}>
