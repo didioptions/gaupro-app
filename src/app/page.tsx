@@ -46,7 +46,7 @@ export default function Home() {
             </div>
             <div className="mt-8">
               <Button asChild size="lg">
-                <Link href="/pro/signup">Join as a Pro Today</Link>
+                <Link href="/pro/signup">Start getting leads today</Link>
               </Button>
             </div>
           </div>
