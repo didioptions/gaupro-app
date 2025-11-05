@@ -23,7 +23,7 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-20 md:py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">How It Works</h2>
+        <h2 className="text-3xl md:text-4xl font-normal text-center mb-12 font-headline">How It Works</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <div key={index}>
