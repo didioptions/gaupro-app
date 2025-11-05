@@ -33,7 +33,7 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-normal mb-6">
               💼 Grow Your Service Business with Gaupro – South Africa’s Trusted Platform
             </h2>
-            <div className="text-base text-foreground space-y-4 max-w-4xl mx-auto">
+            <div className="text-base text-foreground space-y-4">
               <p>
                 Looking for steady work and reliable clients? Gaupro connects South Africa’s builders, plumbers, electricians, cleaners, painters, handymen etc directly with customers who are ready to hire.
               </p>
