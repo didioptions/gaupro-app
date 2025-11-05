@@ -80,7 +80,7 @@ export default function ProSignupPage() {
         {/* New Hero Section */}
         <section className="bg-background py-16 md:py-24 text-center">
           <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-semibold mb-4 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-normal mb-4 max-w-3xl mx-auto">
               “Gaupro helps service providers across South Africa grow their business by connecting them with more clients and new local opportunities.”
             </h1>
             <div className="mt-8">
