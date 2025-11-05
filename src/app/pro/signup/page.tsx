@@ -94,7 +94,7 @@ export default function ProSignupPage() {
         {/* Detailed Info Section */}
         <section className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-3xl font-bold mb-4">🧰 Join as a Pro — Grow Your Business with Gaupro</h2>
+                <h2 className="text-3xl font-normal mb-4">🧰 Join as a Pro — Grow Your Business with Gaupro</h2>
                 <p className="text-lg text-foreground mb-6">Get more customers. Save time. Build your reputation.</p>
                 <p className="max-w-3xl mx-auto text-foreground">
                     Thousands of people use Gaupro every day to find trusted local professionals — from electricians and plumbers to tutors, photographers, and more.
@@ -118,7 +118,7 @@ Join free today and start receiving real leads from customers who are ready to h
         <section className="py-16 md:py-24">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold">💡 Why Join Gaupro?</h2>
+                    <h2 className="text-3xl font-normal">💡 Why Join Gaupro?</h2>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     {whyJoinItems.map(item => {
@@ -157,7 +157,7 @@ Join free today and start receiving real leads from customers who are ready to h
         <section className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold">⚙️ How Gaupro Works</h2>
+                    <h2 className="text-3xl font-normal">⚙️ How Gaupro Works</h2>
                 </div>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
                     {howItWorksSteps.map(step => (
@@ -177,7 +177,7 @@ Join free today and start receiving real leads from customers who are ready to h
         <section className="py-16 md:py-24">
             <div className="container mx-auto px-4">
                  <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold">👷‍♀️ Who Can Join Gaupro</h2>
+                    <h2 className="text-3xl font-normal">👷‍♀️ Who Can Join Gaupro</h2>
                     <p className="max-w-2xl mx-auto mt-4 text-foreground">
                         Gaupro is built for professionals across all industries — whether you’re a solo expert, small business, or growing team.
                     </p>
@@ -214,7 +214,7 @@ Join free today and start receiving real leads from customers who are ready to h
         {/* Join in Minutes Section */}
         <section className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-3xl font-bold mb-4">🚀 Join Gaupro Free in Minutes</h2>
+                <h2 className="text-3xl font-normal mb-4">🚀 Join Gaupro Free in Minutes</h2>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-lg font-semibold my-8">
                     <span>Step 1: Click Join as a Pro</span>
                     <span className="text-primary">&rarr;</span>
@@ -235,7 +235,7 @@ Join free today and start receiving real leads from customers who are ready to h
                     </div>
                 )}
                  <div className="mt-8">
-                    <h3 className="text-2xl font-bold mb-2">✅ Ready to Get Started?</h3>
+                    <h3 className="text-2xl font-normal mb-2">✅ Ready to Get Started?</h3>
                     <p className="mb-6 text-foreground">Start growing your business today with Gaupro.</p>
                     <Button asChild size="lg" className="px-10 py-7 text-xl">
                         <Link href="/pro/register">Join as a Pro</Link>
