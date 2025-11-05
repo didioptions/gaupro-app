@@ -29,11 +29,11 @@ export default function Home() {
         <PopularCategories />
 
         <section className="py-16 md:py-20 bg-background">
-          <div className="container mx-auto px-4 text-center max-w-4xl">
+          <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl md:text-3xl font-normal mb-6">
               💼 Grow Your Service Business with Gaupro – South Africa’s Trusted Platform
             </h2>
-            <div className="text-base text-foreground space-y-4">
+            <div className="text-base text-foreground space-y-4 max-w-4xl mx-auto">
               <p>
                 Looking for steady work and reliable clients? Gaupro connects South Africa’s builders, plumbers, electricians, cleaners, painters, handymen etc directly with customers who are ready to hire.
               </p>
