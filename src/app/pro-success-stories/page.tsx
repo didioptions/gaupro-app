@@ -1,40 +1,96 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Star } from 'lucide-react';
+import { Star, TrendingUp, CheckCircle, Users, User, Tv, Edit, MessageSquare, Handshake } from 'lucide-react';
 import GrowClientBaseCta from '@/components/layout/grow-client-base-cta';
 
-const successStories = [
+const realStories = [
   {
-    name: 'Sarah M.',
-    business: 'Interior Designer',
-    location: 'Cape Town',
-    quote: '“Before Gaupro, finding steady clients was tough. Within weeks of joining, I was getting real leads from verified homeowners. It’s completely changed how I grow my business.”',
-    tags: ['interior design', 'Cape Town decorators', 'local business growth'],
-    avatarSeed: 'pro-sarah',
-  },
-  {
-    name: 'Themba K.',
-    business: 'Electrician',
-    location: 'Johannesburg',
-    quote: '“I got over 30 new clients through Gaupro in just three months. The review system helps me stand out and gain trust fast.”',
-    tags: ['electrician in Johannesburg', 'trusted electrical services', 'home improvement'],
+    name: 'Thabo',
+    business: 'Electrician, Johannesburg',
+    quote: '“Before Gaupro, finding reliable clients was a constant struggle. Now, I get calls daily from people who need my services. My reputation online has never been stronger!”',
     avatarSeed: 'pro-themba',
   },
   {
-    name: 'Lindiwe P.',
-    business: 'Mobile Beautician',
-    location: 'Durban',
-    quote: '“Clients love that they can find and book me easily. Gaupro helped me go from part-time to full-time within 6 months.”',
-    tags: ['mobile beauty', 'Durban beautician', 'service business'],
-    avatarSeed: 'pro-lindiwe',
+    name: 'Lerato',
+    business: 'Interior Designer, Cape Town',
+    quote: '“Gaupro helped me showcase my portfolio professionally. I now attract high-quality leads and have repeat clients who trust my work.”',
+    avatarSeed: 'pro-lerato',
+  },
+  {
+    name: 'Nokuthula',
+    business: 'Painter, Pretoria',
+    quote: '“I went from 2 jobs a week to 10, just through Gaupro. I no longer spend money on advertising, and referrals are flowing in naturally.”',
+    avatarSeed: 'pro-nokuthula',
+  },
+  {
+    name: 'Sizwe',
+    business: 'Plumber, Durban',
+    quote: '“Gaupro made connecting with clients simple. I can focus on doing great work while the platform helps me manage bookings and reviews.”',
+    avatarSeed: 'pro-sizwe',
   },
 ];
+
+const impactStats = [
+    {
+        icon: <TrendingUp className="h-10 w-10 text-primary" />,
+        stat: "70% Increase",
+        description: "in client inquiries reported by pros within the first 3 months."
+    },
+    {
+        icon: <Star className="h-10 w-10 text-primary" />,
+        stat: "95% of Users",
+        description: "say their online credibility improved thanks to verified reviews."
+    },
+    {
+        icon: <Users className="h-10 w-10 text-primary" />,
+        stat: "2x-3x More Jobs",
+        description: "Many small businesses have doubled or tripled their weekly jobs."
+    }
+];
+
+const whatProsSay = [
+    {
+        quote: "I never imagined finding reliable clients could be this easy. Gaupro changed the game for my business.",
+        author: "– Thabo, Plumber"
+    },
+    {
+        quote: "Being on Gaupro boosted my credibility. Clients trust me because of the reviews and professional profile.",
+        author: "– Lerato, Designer"
+    },
+    {
+        quote: "The platform is simple to use and really works. I recommend it to any local professional.",
+        author: "– Sizwe, Electrician"
+    }
+];
+
+const howItWorksSteps = [
+    {
+        icon: <Edit className="h-8 w-8 text-primary"/>,
+        title: "Create Your Profile",
+        description: "Highlight your skills, services, and portfolio."
+    },
+    {
+        icon: <Tv className="h-8 w-8 text-primary"/>,
+        title: "Showcase Your Work",
+        description: "Share pictures, descriptions, and past projects."
+    },
+    {
+        icon: <MessageSquare className="h-8 w-8 text-primary"/>,
+        title: "Connect with Verified Clients",
+        description: "Get leads and inquiries from people looking for your services."
+    },
+    {
+        icon: <Handshake className="h-8 w-8 text-primary"/>,
+        title: "Get Hired & Build Your Reputation",
+        description: "Manage bookings, earn reviews, and grow your brand online."
+    }
+]
+
 
 export default function ProSuccessStoriesPage() {
   return (
@@ -42,52 +98,102 @@ export default function ProSuccessStoriesPage() {
       <Header />
       <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
-          <header className="text-center mb-12 max-w-3xl mx-auto">
+          <header className="text-center mb-16 max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-normal tracking-tight">Gaupro Success Stories</h1>
-            <p className="mt-4 text-lg text-foreground">
-              Discover how local professionals across South Africa are growing their businesses through Gaupro. From electricians and plumbers to designers and consultants, Gaupro helps experts reach more clients, build credibility, and manage their reputation online.
-            </p>
-             <p className="mt-4 text-lg text-foreground">
-              Whether you’re a small business owner or an independent pro, Gaupro gives you the tools to showcase your skills, connect with real clients, and grow your brand — all in one powerful platform.
-            </p>
+            <div className="mt-6 text-foreground space-y-4">
+                <p>
+                    Discover how local professionals across South Africa are growing their businesses through Gaupro. From electricians and plumbers to designers and consultants, Gaupro helps experts reach more clients, build credibility, and manage their reputation online.
+                </p>
+                <p>
+                    Whether you’re a small business owner or an independent professional, Gaupro gives you the tools to showcase your skills, connect with real clients, and grow your brand — all in one powerful platform.
+                </p>
+            </div>
           </header>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {successStories.map((story) => (
-              <Card key={story.name} className="flex flex-col">
-                <CardHeader>
-                    <div className="flex items-center gap-4">
-                        <Image
-                            src={`https://picsum.photos/seed/${story.avatarSeed}/64/64`}
-                            alt={`Avatar of ${story.name}`}
-                            width={64}
-                            height={64}
-                            className="rounded-full"
-                            data-ai-hint="professional portrait"
-                        />
-                        <div>
-                            <CardTitle className="text-xl">{story.name}</CardTitle>
-                            <p className="text-sm text-foreground">{story.business} - {story.location}</p>
+          <section className="space-y-12">
+            <div>
+                <h2 className="text-2xl font-normal text-center mb-10">Real Success Stories from South African Professionals</h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                    {realStories.map((story) => (
+                    <Card key={story.name} className="flex flex-col border-0 shadow-none">
+                        <CardContent className="p-0">
+                             <div className="flex items-start gap-4">
+                                <Image
+                                    src={`https://picsum.photos/seed/${story.avatarSeed}/80/80`}
+                                    alt={`Avatar of ${story.name}`}
+                                    width={80}
+                                    height={80}
+                                    className="rounded-full"
+                                    data-ai-hint="professional portrait"
+                                />
+                                <div>
+                                    <blockquote className="italic text-foreground mb-3">
+                                    {story.quote}
+                                    </blockquote>
+                                    <p className="font-semibold text-sm">{story.name} – <span className="text-muted-foreground font-normal">{story.business}</span></p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    ))}
+                </div>
+            </div>
+
+            <div className="border-t pt-12">
+                 <h2 className="text-2xl font-normal text-center mb-10">Before & After: Real Impact</h2>
+                 <div className="grid md:grid-cols-3 gap-8 text-center">
+                    {impactStats.map(stat => (
+                        <Card key={stat.stat} className="bg-card border p-6">
+                            <div className="flex justify-center mb-4">{stat.icon}</div>
+                            <p className="text-2xl font-semibold text-primary">{stat.stat}</p>
+                            <p className="text-foreground mt-1">{stat.description}</p>
+                        </Card>
+                    ))}
+                 </div>
+            </div>
+
+             <div className="border-t pt-12">
+                 <h2 className="text-2xl font-normal text-center mb-10">What Our Professionals Say</h2>
+                 <div className="grid md:grid-cols-3 gap-8">
+                    {whatProsSay.map(testimonial => (
+                        <Card key={testimonial.author} className="bg-secondary/50 border">
+                            <CardContent className="p-6">
+                                <blockquote className="italic text-foreground mb-4">"{testimonial.quote}"</blockquote>
+                                <p className="font-semibold text-sm">{testimonial.author}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                 </div>
+            </div>
+            
+            <div className="border-t pt-12">
+                 <h2 className="text-2xl font-normal text-center mb-10">How Gaupro Works</h2>
+                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+                    {howItWorksSteps.map(step => (
+                        <div key={step.title} className="text-center">
+                            <div className="flex justify-center mb-4">{step.icon}</div>
+                            <h3 className="font-semibold text-lg">{step.title}</h3>
+                            <p className="text-muted-foreground text-sm mt-1">{step.description}</p>
                         </div>
-                    </div>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col justify-between">
-                  <div>
-                    <blockquote className="italic text-foreground border-l-4 pl-4 mb-6">
-                      {story.quote}
-                    </blockquote>
-                    <div className="flex flex-wrap gap-2">
-                      {story.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary">{tag}</Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                    ))}
+                 </div>
+            </div>
+
+            <div className="border-t pt-12 text-center bg-primary text-primary-foreground p-10 rounded-lg">
+                <h2 className="text-3xl font-bold">Join Gaupro Today & Start Your Success Story</h2>
+                <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/80">
+                    Gaupro is the platform for South African professionals who want steady work, reliable clients, and growth opportunities.
+                </p>
+                <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/80">
+                    Don’t wait — showcase your skills, attract clients, and build your business now.
+                </p>
+                <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-6 text-lg">
+                    <Link href="/pro/signup">Join Now</Link>
+                </Button>
+            </div>
+
+          </section>
         </div>
-        <GrowClientBaseCta />
       </main>
       <Footer />
     </>
