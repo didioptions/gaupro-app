@@ -30,7 +30,7 @@ export default function Home() {
 
         <section className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-4 text-center max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-normal mb-2">
+            <h2 className="text-2xl md:text-3xl font-normal mb-2">
               💼 Join Gaupro – Get More Leads and Grow Your Business
             </h2>
             <h3 className="text-xl text-primary font-semibold mb-6">
