@@ -30,18 +30,18 @@ export default function Home() {
 
         <section className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-4 text-center max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-normal mb-2">
-              💼 Join Gaupro – Get More Leads and Grow Your Business
+            <h2 className="text-2xl md:text-3xl font-normal mb-6">
+              💼 Grow Your Service Business with Gaupro – South Africa’s Trusted Platform
             </h2>
-            <h3 className="text-xl text-primary font-semibold mb-6">
-              Connect with Real Customers Ready to Hire
-            </h3>
             <div className="text-base text-foreground space-y-4">
               <p>
-                Looking for steady work and reliable clients? Gaupro is South Africa’s trusted platform that helps service providers get hired faster. Whether you’re a builder, plumber, cleaner, electrician, painter, or handyman, Gaupro connects you directly with people who need your services now.
+                Looking for steady work and reliable clients? Gaupro connects South Africa’s builders, plumbers, electricians, cleaners, painters, handymen etc directly with customers who are ready to hire.
               </p>
               <p>
-                No more chasing clients or spending money on ads — we send qualified leads straight to you. Simply create your profile, showcase your work, and start receiving real job requests in your area.
+                Why join Gaupro? It gives you verified leads from real clients, helping you save time and money while growing your reputation. Showcase your skills, upload photos of your work, and collect reviews that make you stand out. With Gaupro, you choose the jobs that fit your schedule and expertise, giving you control while expanding your reach locally.
+              </p>
+              <p>
+                No more chasing clients or spending on ads — Gaupro delivers qualified job requests straight to you, making it easy to turn leads into loyal customers. Sign up today and start growing your service business with confidence.
               </p>
             </div>
             <div className="mt-8">
