@@ -116,7 +116,7 @@ export default function ProSuccessStoriesPage() {
       <Header />
       <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
-          <header className="text-center mb-16 max-w-3xl mx-auto">
+          <header className="text-center mb-16 max-w-4xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-normal tracking-tight">Gaupro Success Stories</h1>
             <div className="mt-6 text-foreground space-y-4">
                 <p>
@@ -210,7 +210,7 @@ export default function ProSuccessStoriesPage() {
                     Don’t wait — showcase your skills, attract clients, and build your business now.
                 </p>
                 <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-6 text-lg">
-                    <Link href="/pro/signup">Join Now</Link>
+                    <Link href="/pro/register">Join Now</Link>
                 </Button>
             </div>
 
