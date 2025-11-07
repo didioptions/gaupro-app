@@ -34,6 +34,7 @@ export default function EditProfilePage() {
   const [logoFile, setLogoFile] = useState<File[]>([]);
   const [photoFiles, setPhotoFiles] = useState<File[]>([]);
   const [isUploading, setIsUploading] = useState(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
   const { user } = useUser();
   const { toast } = useToast();
@@ -50,6 +51,16 @@ export default function EditProfilePage() {
 
   const removeKeyword = (keywordToRemove: string) => {
     setSelectedKeywords(selectedKeywords.filter((k) => k !== keywordToRemove));
+  };
+
+  const handleGenericSave = () => {
+    // This is a placeholder for actual save logic.
+    // In a real app, you would collect form data and send it to the backend.
+    console.log("Saving data...");
+    setShowSuccessAlert(true);
+    setTimeout(() => {
+      setShowSuccessAlert(false);
+    }, 5000); // Hide alert after 5 seconds
   };
   
   const handleSaveMedia = async () => {
@@ -86,6 +97,7 @@ export default function EditProfilePage() {
         toast({ title: 'Success!', description: 'Your media has been uploaded.' });
         setLogoFile([]);
         setPhotoFiles([]);
+        handleGenericSave(); // Show the success alert
 
     } catch (error) {
         console.error('Upload failed:', error);
@@ -99,12 +111,23 @@ export default function EditProfilePage() {
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="mb-8">
+        <div className="mb-4">
           <p className="text-muted-foreground">Edit Business Profile for</p>
           <h1 className="text-2xl md:text-3xl font-normal">
             bravo projects <span className="font-normal text-muted-foreground">Randburg Waterfront, Randburg</span>
           </h1>
         </div>
+
+        {showSuccessAlert && (
+          <Alert className="bg-green-100 border-green-300 text-green-800 my-4">
+            <AlertDescription className="flex justify-between items-center">
+              Updated successfully
+              <button onClick={() => setShowSuccessAlert(false)} className="opacity-70 hover:opacity-100">
+                <X className="h-4 w-4" />
+              </button>
+            </AlertDescription>
+          </Alert>
+        )}
 
         <Tabs defaultValue="info">
           <div className="flex justify-between items-center border-b">
@@ -116,7 +139,7 @@ export default function EditProfilePage() {
               <TabsTrigger value="reviews" className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none">Reviews</TabsTrigger>
               <TabsTrigger value="qa" className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none">Q & A</TabsTrigger>
             </TabsList>
-            <Button className="bg-red-500 hover:bg-red-600">Save</Button>
+            <Button className="bg-red-500 hover:bg-red-600" onClick={handleGenericSave}>Save</Button>
           </div>
 
           <TabsContent value="info" className="mt-6">
@@ -199,7 +222,7 @@ export default function EditProfilePage() {
             </Card>
             <div className="flex justify-end gap-2 mt-6">
               <Button variant="outline">Cancel</Button>
-              <Button className="bg-red-500 hover:bg-red-600">Save</Button>
+              <Button className="bg-red-500 hover:bg-red-600" onClick={handleGenericSave}>Save</Button>
             </div>
           </TabsContent>
           <TabsContent value="services" className="mt-6">
@@ -265,7 +288,7 @@ export default function EditProfilePage() {
             </Card>
             <div className="flex justify-end gap-2 mt-6">
                 <Button variant="outline">Cancel</Button>
-                <Button className="bg-red-500 hover:bg-red-600">Save</Button>
+                <Button className="bg-red-500 hover:bg-red-600" onClick={handleGenericSave}>Save</Button>
             </div>
           </TabsContent>
           <TabsContent value="media" className="mt-6">
@@ -351,7 +374,7 @@ export default function EditProfilePage() {
             </Card>
             <div className="flex justify-end gap-2 mt-6">
               <Button variant="outline">Cancel</Button>
-              <Button className="bg-red-500 hover:bg-red-600">Save</Button>
+              <Button className="bg-red-500 hover:bg-red-600" onClick={handleGenericSave}>Save</Button>
             </div>
            </TabsContent>
            <TabsContent value="reviews" className="mt-6">
