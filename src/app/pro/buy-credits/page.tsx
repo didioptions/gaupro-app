@@ -16,7 +16,7 @@ const creditPacks = [
 
 const addOn = {
   id: 'hero-leads',
-  name: 'Snupit Hero Leads',
+  name: 'Gaupro Hero Leads',
   price: 200,
   pricePerLead: 6,
 };
@@ -73,13 +73,13 @@ export default function BuyCreditsPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Snupit Add-on</CardTitle>
+                <CardTitle>Gaupro Add-on</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="p-4 rounded-lg border flex items-center">
                     <Checkbox id="addon-checkbox" checked={includeAddon} onCheckedChange={(checked) => setIncludeAddon(!!checked)} />
                      <Label htmlFor="addon-checkbox" className="flex-grow flex items-center justify-between ml-4 cursor-pointer">
-                        <span className="font-normal">Snupit Hero Leads <span className="text-sm text-primary">R{addOn.pricePerLead}/lead</span></span>
+                        <span className="font-normal">Gaupro Hero Leads <span className="text-sm text-primary">R{addOn.pricePerLead}/lead</span></span>
                         <span className="font-normal text-lg">R {addOn.price}</span>
                      </Label>
                 </div>
@@ -91,7 +91,7 @@ export default function BuyCreditsPage() {
                         <li>Each Hero Lead can only be viewed by 3 Pros</li>
                     </ul>
                     <p className="text-xs text-muted-foreground mt-4">
-                        Add-on pack functionality only available on the Snupit website and not mobile applications. Snupit add-on available when purchasing a credit pack, using credit card or EFT/Card with Payfast, and valid for 30 days from date of purchase.
+                        Add-on pack functionality only available on the Gaupro website and not mobile applications. Gaupro add-on available when purchasing a credit pack, using credit card or EFT/Card with Payfast, and valid for 30 days from date of purchase.
                     </p>
                 </div>
               </CardContent>
