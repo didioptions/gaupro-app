@@ -20,8 +20,8 @@ export default function ProLayout({
   const pathname = usePathname();
 
   // A route is considered public if it's in the list OR it's a dynamic profile page.
-  // We identify profile pages by checking if the path starts with /pro/ and has more than 2 segments.
-  const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || /^\/pro\/[^/]+$/.test(pathname);
+  // The regex now excludes known protected routes from being matched as public profiles.
+  const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || /^\/pro\/(?!dashboard|profile|buy-credits|account-settings|verify|login|register|signup|admin)[^/]+$/.test(pathname);
 
   useEffect(() => {
     // If it's not a public route and the user is not logged in after checking, redirect to login.
@@ -32,7 +32,7 @@ export default function ProLayout({
 
   // If the route is public, just render the children (e.g., login, register, or profile page)
   if (isPublicProRoute) {
-    // The profile page now includes its own Header and Footer, so we don't need to wrap it here.
+    // Public profile pages include their own Header and Footer.
     return <>{children}</>;
   }
   
