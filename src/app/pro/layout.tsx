@@ -6,7 +6,6 @@ import { useUser } from '@/firebase';
 import { Skeleton } from '@/components/ui/skeleton';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import ProNav from '@/components/pro/pro-nav';
 
 const PUBLIC_PRO_ROUTES = ['/pro/login', '/pro/register', '/pro/signup'];
 
@@ -19,9 +18,11 @@ export default function ProLayout({
   const router = useRouter();
   const pathname = usePathname();
 
-  // A route is considered public if it's in the list OR it's a dynamic profile page.
-  // The regex now excludes known protected routes from being matched as public profiles.
-  const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || /^\/pro\/(?!dashboard|profile|buy-credits|account-settings|verify|login|register|signup|admin)[^/]+$/.test(pathname);
+  // A public pro route is either one of the auth pages, OR it's a dynamic route that is NOT a known protected route name.
+  const isPublicDynamicProfile = /^\/pro\/(?!dashboard|profile|buy-credits|account-settings|verify|login|register|signup|admin)[^/]+$/.test(pathname);
+
+  const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || isPublicDynamicProfile;
+
 
   useEffect(() => {
     // If it's not a public route and the user is not logged in after checking, redirect to login.
@@ -57,7 +58,6 @@ export default function ProLayout({
   return (
     <div className="flex flex-col min-h-screen bg-secondary/50">
       <Header />
-      <ProNav />
       <main className="flex-grow">
         {children}
       </main>
