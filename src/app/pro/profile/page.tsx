@@ -1,6 +1,7 @@
+
 'use client';
 
-import { AlertCircle, Users, Star } from 'lucide-react';
+import { AlertCircle, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -9,6 +10,7 @@ import {
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ProProfilePage() {
   return (
@@ -37,22 +39,19 @@ export default function ProProfilePage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="md:col-span-2">
                         <div className="flex gap-4">
-                            <div className="w-24 h-24 bg-gray-100 rounded-md flex items-center justify-center text-sm text-muted-foreground border">
-                                No Logo
-                            </div>
+                             <Image
+                                src="https://picsum.photos/seed/bravo-logo/96/96"
+                                alt="bravo projects logo"
+                                width={96}
+                                height={96}
+                                className="rounded-md border"
+                                data-ai-hint="company logo"
+                             />
                             <div>
-                                <h2 className="text-xl font-bold">
-                                    bravo projects <span className="text-red-500 text-sm font-medium">(Inactive)</span>
+                                <h2 className="text-xl font-normal">
+                                    bravo projects <span className="text-green-600 text-sm font-medium">(Active)</span>
                                 </h2>
                                 <p className="text-muted-foreground">Randburg</p>
-                                <div className="flex items-center gap-1 mt-1">
-                                    <Star className="w-4 h-4 text-gray-300 fill-gray-300" />
-                                    <Star className="w-4 h-4 text-gray-300 fill-gray-300" />
-                                    <Star className="w-4 h-4 text-gray-300 fill-gray-300" />
-                                    <Star className="w-4 h-4 text-gray-300 fill-gray-300" />
-                                    <Star className="w-4 h-4 text-gray-300 fill-gray-300" />
-                                    <span className="text-xs ml-1 text-muted-foreground">0 reviews</span>
-                                </div>
                                 <Link href="#" className="text-primary text-sm font-medium hover:underline mt-2 inline-block">
                                     Get Customer Reviews
                                 </Link>
