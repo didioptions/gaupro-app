@@ -9,6 +9,7 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const TellUsIcon = () => (
   <svg width="56" height="56" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,8 +131,10 @@ export default function HowItWorks() {
         </Carousel>
         
         <div className="text-center mt-12">
-            <Button variant="outline">
-                Got questions? Get answers
+            <Button asChild variant="outline">
+                <Link href="/how-it-works">
+                  Got questions? Get answers
+                </Link>
             </Button>
         </div>
 
