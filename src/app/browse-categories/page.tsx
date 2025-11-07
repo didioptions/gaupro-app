@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -43,22 +44,28 @@ export default function AllCategoriesPage() {
     }
     const lowercasedQuery = searchQuery.toLowerCase();
 
-    const newCategories = allCategories
+    return allCategories
       .map(group => {
-        const services = group.services.filter(service =>
+        const matchingServices = group.services.filter(service =>
           service.toLowerCase().includes(lowercasedQuery)
         );
-        if (group.category.toLowerCase().includes(lowercasedQuery) || services.length > 0) {
+
+        if (matchingServices.length > 0) {
+          // If services match, return the group with only the matching services
           return {
             ...group,
-            services: services.length > 0 ? services : group.services,
+            services: matchingServices,
           };
         }
+        
+        if (group.category.toLowerCase().includes(lowercasedQuery)) {
+           // If the category name matches, return the group with all its services
+           return group;
+        }
+
         return null;
       })
       .filter((g): g is NonNullable<typeof g> => g !== null);
-
-    return newCategories;
   }, [searchQuery]);
 
 

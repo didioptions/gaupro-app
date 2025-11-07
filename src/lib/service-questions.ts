@@ -60,12 +60,13 @@ export const allServices = [
     { value: 'garage-door-motors', label: 'Garage Door Motors' },
     { value: 'gardeners', label: 'Gardeners' },
     { value: 'gas-installers', label: 'Gas Installers' },
+    { value: 'gates', label: 'Gates' },
     { value: 'gate-motors', label: 'Gate Motors' },
     { value: 'generators', label: 'Generators' },
     { value: 'glass-works', label: 'Glass Works' },
     { value: 'graphic-designers', label: 'Graphic Designers' },
     { value: 'guttering', label: 'Guttering' },
-    { value: 'handyman', label: 'Handyman' },
+    { value: 'handyman', label: 'Handymen' },
     { value: 'home-improvements', label: 'Home Improvements' },
     { value: 'home-loans', label: 'Home Loans' },
     { value: 'insurance', label: 'Insurance' },
@@ -485,5 +486,24 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
+  {
+    service: 'gates',
+    questions: [
+      {
+        id: 'gate_service_type',
+        text: 'What service do you need for your gate?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'New Gate Installation' },
+          { value: 'repair', label: 'Gate Repair' },
+          { value: 'motor_installation', label: 'Gate Motor Installation' },
+          { value: 'motor_repair', label: 'Gate Motor Repair' },
+          { value: 'maintenance', label: 'General Maintenance' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
 ];
+
 
