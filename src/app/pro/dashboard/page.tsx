@@ -23,7 +23,7 @@ export default function ProDashboardPage() {
     <>
       <div className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-8">Dashboard</h1>
+          <h1 className="text-3xl md:text-4xl font-normal mb-8">Dashboard</h1>
 
           <div className="space-y-8">
             <Alert
@@ -31,7 +31,7 @@ export default function ProDashboardPage() {
               className="bg-red-100 border-red-500 text-red-800"
             >
               <AlertCircle className="h-4 w-4 !text-red-800" />
-              <AlertTitle className="font-bold">Action Required</AlertTitle>
+              <AlertTitle className="font-normal">Action Required</AlertTitle>
               <div className="flex justify-between items-center">
                 <AlertDescription className="text-red-700">
                   Your account has limited access. Before we activate your
@@ -52,7 +52,7 @@ export default function ProDashboardPage() {
                       No Logo
                     </div>
                     <div>
-                      <h2 className="text-lg font-bold">
+                      <h2 className="text-lg font-normal">
                         bravo projects{' '}
                         <span className="text-red-500 text-sm font-medium">
                           (Inactive)
@@ -93,7 +93,7 @@ export default function ProDashboardPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">
+                  <CardTitle className="text-lg font-normal">
                     Customer Requests Summary
                   </CardTitle>
                   <CardDescription>Last 30 Days</CardDescription>
@@ -120,7 +120,7 @@ export default function ProDashboardPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg text-center">
+                  <CardTitle className="text-lg text-center font-normal">
                     Credits Available
                   </CardTitle>
                 </CardHeader>
@@ -142,7 +142,7 @@ export default function ProDashboardPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-lg">
+                  <CardTitle className="flex items-center gap-2 text-lg font-normal">
                     <ImageIcon className="h-6 w-6 text-primary" />
                     Media Manager
                   </CardTitle>
