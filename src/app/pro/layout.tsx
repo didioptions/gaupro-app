@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect } from 'react';
@@ -7,6 +6,7 @@ import { useUser } from '@/firebase';
 import { Skeleton } from '@/components/ui/skeleton';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import ProNav from '@/components/pro/pro-nav';
 
 const PUBLIC_PRO_ROUTES = ['/pro/login', '/pro/register', '/pro/signup'];
 
@@ -57,6 +57,7 @@ export default function ProLayout({
   return (
     <div className="flex flex-col min-h-screen bg-secondary/50">
       <Header />
+      <ProNav />
       <main className="flex-grow">
         {children}
       </main>
