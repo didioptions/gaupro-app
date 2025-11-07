@@ -144,7 +144,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
             </p>
              <p className="font-semibold pt-2">Here’s What Happens Next:</p>
             <ol className="list-decimal list-inside space-y-2">
-                <li>Receive quotes from qualified service providers — usually within a few hours.</li>
+                <li>Receive quotes from qualified service providers — usually in less than 20 minutes.</li>
                 <li>Compare prices, view profiles, and read verified customer reviews.</li>
                 <li>Hire your favorite pro, agree on the details, and get your project done!</li>
             </ol>
