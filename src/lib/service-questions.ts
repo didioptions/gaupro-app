@@ -23,11 +23,13 @@ export const allServices = [
     { value: 'auditors', label: 'Auditors' },
     { value: 'auto-glass', label: 'Auto Glass' },
     { value: 'awnings', label: 'Awnings' },
+    { value: 'balustrades', label: 'Balustrades' },
     { value: 'bathroom-renovations', label: 'Bathroom Renovations' },
     { value: 'blinds', label: 'Blinds' },
     { value: 'borehole-drillers', label: 'Borehole Drillers' },
     { value: 'builders', label: 'Builders' },
     { value: 'building-materials', label: 'Building Materials' },
+    { value: 'burglar-bars', label: 'Burglar Bars' },
     { value: 'business-consultants', label: 'Business Consultants' },
     { value: 'car-alarms', label: 'Car Alarms' },
     { value: 'car-tracking', label: 'Car Tracking' },
@@ -43,14 +45,18 @@ export const allServices = [
     { value: 'company-registrations', label: 'Company Registrations' },
     { value: 'computer-courses', label: 'Computer Courses' },
     { value: 'computer-repairs', label: 'Computer Repairs' },
+    { value: 'concrete-slabs', label: 'Concrete Slabs' },
     { value: 'couriers', label: 'Couriers' },
+    { value: 'curtains', label: 'Curtains' },
     { value: 'debt-counsellors', label: 'Debt Counsellors' },
     { value: 'demolition', label: 'Demolition' },
     { value: 'dentists', label: 'Dentists' },
     { value: 'dieticians', label: 'Dieticians' },
     { value: 'divorce-lawyers', label: 'Divorce Lawyers' },
     { value: 'djs', label: 'Djs' },
+    { value: 'doors', label: 'Doors' },
     { value: 'driving-schools', label: 'Driving Schools' },
+    { value: 'drywalls', label: 'Drywalls' },
     { value: 'dstv-installers', label: 'Dstv Installers' },
     { value: 'electric-fencing', label: 'Electric Fencing' },
     { value: 'electrician', label: 'Electricians' },
@@ -69,6 +75,7 @@ export const allServices = [
     { value: 'graphic-designers', label: 'Graphic Designers' },
     { value: 'guttering', label: 'Guttering' },
     { value: 'handyman', label: 'Handymen' },
+    { value: 'high-pressure-cleaning', label: 'High Pressure Cleaning' },
     { value: 'home-improvements', label: 'Home Improvements' },
     { value: 'home-loans', label: 'Home Loans' },
     { value: 'insurance', label: 'Insurance' },
@@ -782,7 +789,132 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
+  {
+    service: 'doors',
+    questions: [
+      {
+        id: 'door_service_type',
+        text: 'What kind of door service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'New door installation' },
+          { value: 'repair', label: 'Door repair' },
+          { value: 'frame', label: 'Door frame installation/repair' },
+          { value: 'hanging', label: 'Hanging doors' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'drywalls',
+    questions: [
+      {
+        id: 'drywall_service_type',
+        text: 'What kind of drywall service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'New drywall installation' },
+          { value: 'repair', label: 'Drywall repair (cracks/holes)' },
+          { value: 'partition', label: 'Room partitioning' },
+          { value: 'skimming', label: 'Skimming' },
+          { value: 'soundproofing', label: 'Soundproofing' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'balustrades',
+    questions: [
+      {
+        id: 'balustrade_type',
+        text: 'What type of balustrade are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'stainless_steel', label: 'Stainless Steel' },
+          { value: 'glass', label: 'Glass' },
+          { value: 'wood', label: 'Wood' },
+          { value: 'wrought_iron', label: 'Wrought Iron' },
+          { value: 'repair', label: 'Repair existing balustrade' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'burglar-bars',
+    questions: [
+      {
+        id: 'burglar_bars_type',
+        text: 'What type of burglar bars do you need?',
+        type: 'radio',
+        options: [
+          { value: 'standard', label: 'Standard bars (interior/exterior)' },
+          { value: 'clear', label: 'Clear polycarbonate bars' },
+          { value: 'expandable', label: 'Expandable / Trellis style' },
+          { value: 'repair', label: 'Repairs to existing bars' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'concrete-slabs',
+    questions: [
+      {
+        id: 'slab_purpose',
+        text: 'What is the purpose of the concrete slab?',
+        type: 'radio',
+        options: [
+          { value: 'foundation', label: 'Foundation for a house/building' },
+          { value: 'driveway', label: 'Driveway or Paving' },
+          { value: 'patio', label: 'Patio or Entertainment area' },
+          { value: 'wendy_house', label: 'Floor for a wendy house/shed' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'curtains',
+    questions: [
+      {
+        id: 'curtain_service',
+        text: 'What do you need help with?',
+        type: 'radio',
+        options: [
+          { value: 'custom_made', label: 'Custom-made curtains' },
+          { value: 'installation', label: 'Curtain installation (hanging)' },
+          { value: 'cleaning', label: 'Curtain cleaning' },
+          { value: 'repair', label: 'Curtain repairs/alterations' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'high-pressure-cleaning',
+    questions: [
+      {
+        id: 'hpc_surface',
+        text: 'What needs to be cleaned?',
+        type: 'radio',
+        options: [
+          { value: 'paving', label: 'Paving / Driveway' },
+          { value: 'roof', label: 'Roof' },
+          { value: 'walls', label: 'Exterior walls' },
+          { value: 'decking', label: 'Decking' },
+          { value: 'gutters', label: 'Gutters' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
 ];
+
 
 
 
