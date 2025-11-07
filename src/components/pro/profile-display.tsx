@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Star, ShieldCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, AlertTriangle } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Link from 'next/link';
 
 export type Professional = {
   id: string;
@@ -74,7 +75,11 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                     <div className="mt-6 pt-6 border-t flex flex-wrap gap-2">
                         <Button><MessageSquare className="h-4 w-4 mr-2" /> Request a quote</Button>
                         <Button variant="secondary"><Mail className="h-4 w-4 mr-2" /> Send an enquiry email</Button>
-                        <Button variant="secondary"><Pencil className="h-4 w-4 mr-2" /> Write a Review</Button>
+                        <Button variant="secondary" asChild>
+                            <Link href={`/review/write?proId=${professional.id}`}>
+                                <Pencil className="h-4 w-4 mr-2" /> Write a Review
+                            </Link>
+                        </Button>
                     </div>
                 </CardContent>
             </Card>
