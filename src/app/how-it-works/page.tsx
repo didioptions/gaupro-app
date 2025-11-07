@@ -84,7 +84,7 @@ export default function HowItWorksPage() {
                 <div key={index} className="flex flex-col sm:flex-row items-start gap-8">
                   <div className="text-5xl flex-shrink-0 mx-auto sm:mx-0">{step.icon}</div>
                   <div className="flex-grow text-center sm:text-left">
-                    <h2 className="text-2xl font-bold mb-3">{step.title}</h2>
+                    <h2 className="text-2xl font-normal mb-3">{step.title}</h2>
                     <p className="text-foreground mb-4">{step.description}</p>
                     {step.example && (
                         <p className="text-foreground italic bg-secondary/50 p-3 rounded-md">
@@ -108,7 +108,7 @@ export default function HowItWorksPage() {
 
             <div className="grid md:grid-cols-2 gap-12 mt-20 border-t pt-16">
                  <div>
-                    <h2 className="text-2xl font-bold mb-6">🛡️ Gaupro Safety & Trust</h2>
+                    <h2 className="text-2xl font-normal mb-6">🛡️ Gaupro Safety & Trust</h2>
                     <p className="text-foreground mb-4">We take your safety seriously. Every pro on Gaupro goes through a verification process that checks business credentials and customer reviews.</p>
                      <p className="text-foreground mb-4">🔐 You’re protected with:</p>
                      <ul className="list-disc list-inside space-y-2 text-foreground">
@@ -119,7 +119,7 @@ export default function HowItWorksPage() {
                      </ul>
                 </div>
                  <div>
-                    <h2 className="text-2xl font-bold mb-6">💬 Why Customers Love Gaupro</h2>
+                    <h2 className="text-2xl font-normal mb-6">💬 Why Customers Love Gaupro</h2>
                      <ul className="list-disc list-inside space-y-2 text-foreground">
                         {customerBenefits.map(benefit => <li key={benefit}>{benefit}</li>)}
                     </ul>
@@ -127,7 +127,7 @@ export default function HowItWorksPage() {
             </div>
 
             <div className="text-center mt-20 border-t pt-16">
-                <h2 className="text-2xl font-bold mb-4">🏁 Ready to Get Started?</h2>
+                <h2 className="text-2xl font-normal mb-4">🏁 Ready to Get Started?</h2>
                 <p className="text-foreground max-w-xl mx-auto mb-8">
                     Find the right pro for your next project — in just a few clicks.
                 </p>
