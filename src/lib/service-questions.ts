@@ -57,6 +57,7 @@ export const allServices = [
     { value: 'event-decorations', label: 'Event Decorations' },
     { value: 'fencing', label: 'Fencing' },
     { value: 'financial-advisors', label: 'Financial Advisors' },
+    { value: 'flooring', label: 'Flooring' },
     { value: 'garage-door-motors', label: 'Garage Door Motors' },
     { value: 'gardeners', label: 'Gardeners' },
     { value: 'gas-installers', label: 'Gas Installers' },
@@ -76,6 +77,7 @@ export const allServices = [
     { value: 'laminate-flooring', label: 'Laminate Flooring' },
     { value: 'landscaping', label: 'Landscaping' },
     { value: 'laptop-repairs', label: 'Laptop Repairs' },
+    { value: 'laundry-services', label: 'Laundry Services' },
     { value: 'lawyers', label: 'Lawyers' },
     { value: 'locksmiths', label: 'Locksmiths' },
     { value: 'marriage-counsellors', label: 'Marriage Counsellors' },
@@ -93,6 +95,7 @@ export const allServices = [
     { value: 'plastic-surgeons', label: 'Plastic Surgeons' },
     { value: 'plumber', label: 'Plumbers' },
     { value: 'pool-cleaning', label: 'Pool Cleaning' },
+    { value: 'prepaid-electricity-meters', label: 'Prepaid Electricity Meters' },
     { value: 'printing', label: 'Printing' },
     { value: 'private-investigators', label: 'Private Investigators' },
     { value: 'psychologists', label: 'Psychologists' },
@@ -100,7 +103,9 @@ export const allServices = [
     { value: 'roofing', label: 'Roofing' },
     { value: 'rubble-removal', label: 'Rubble Removals' },
     { value: 'security', label: 'Security' },
+    { value: 'security-gates', label: 'Security Gates' },
     { value: 'shadeports', label: 'Shadeports' },
+    { value: 'shower-doors', label: 'Shower Doors' },
     { value: 'shuttle-services', label: 'Shuttle Services' },
     { value: 'signs', label: 'Signs' },
     { value: 'skip-hire', label: 'Skip Hire' },
@@ -109,6 +114,7 @@ export const allServices = [
     { value: 'swimming-lessons', label: 'Swimming Lessons' },
     { value: 'swimming-pool-builders', label: 'Swimming Pool Builders' },
     { value: 'tar-surfacing', label: 'Tar Surfacing' },
+    { value: 'thatched-roofing', label: 'Thatched Roofing' },
     { value: 'tent-hire', label: 'Tent Hire' },
     { value: 'tiler', label: 'Tiler' },
     { value: 'tiling', label: 'Tiling' },
@@ -123,7 +129,10 @@ export const allServices = [
     { value: 'waterproofing', label: 'Waterproofing' },
     { value: 'website-designers', label: 'Website Designers' },
     { value: 'welder', label: 'Welder' },
+    { value: 'wendy-houses', label: 'Wendy Houses' },
+    { value: 'window-cleaning', label: 'Window Cleaning' },
     { value: 'window-tinting', label: 'Window Tinting' },
+    { value: 'wooden-decking', label: 'Wooden Decking' },
 ];
 
 
@@ -504,6 +513,168 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
+  {
+    service: 'flooring',
+    questions: [
+      {
+        id: 'flooring_type',
+        text: 'What type of flooring service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'tiling', label: 'Tiling' },
+          { value: 'laminate', label: 'Laminate Flooring' },
+          { value: 'vinyl', label: 'Vinyl Flooring' },
+          { value: 'wood', label: 'Hardwood Flooring' },
+          { value: 'carpets', label: 'Carpets' },
+          { value: 'screeding', label: 'Screeding' },
+          { value: 'epoxy', label: 'Epoxy Coating' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'laundry-services',
+    questions: [
+      {
+        id: 'laundry_service_type',
+        text: 'What laundry services do you require?',
+        type: 'checkbox',
+        options: [
+          { value: 'wash_fold', label: 'Wash & Fold' },
+          { value: 'ironing', label: 'Ironing only' },
+          { value: 'dry_cleaning', label: 'Dry Cleaning' },
+          { value: 'stain_removal', label: 'Specialized Stain Removal' },
+          { value: 'collection_delivery', label: 'Collection & Delivery' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'prepaid-electricity-meters',
+    questions: [
+      {
+        id: 'meter_service',
+        text: 'What service do you need for your prepaid meter?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'New Meter Installation' },
+          { value: 'repair', label: 'Meter is faulty or not working' },
+          { value: 'query', label: 'General query or assistance' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'shower-doors',
+    questions: [
+      {
+        id: 'door_type',
+        text: 'What type of shower door are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'framed', label: 'Framed Shower Door' },
+          { value: 'frameless', label: 'Frameless Shower Door' },
+          { value: 'sliding', label: 'Sliding Door' },
+          { value: 'pivot', label: 'Pivot Door' },
+          { value: 'custom', label: 'Custom Design / Not sure' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'wendy-houses',
+    questions: [
+      {
+        id: 'wendy_house_use',
+        text: 'What will be the primary use for the Wendy house?',
+        type: 'radio',
+        options: [
+          { value: 'storage', label: 'Storage or Tool Shed' },
+          { value: 'office', label: 'Home Office or Studio' },
+          { value: 'living_space', label: 'Living space / Accommodation' },
+          { value: 'playhouse', label: 'Kids Playhouse' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'wooden-decking',
+    questions: [
+      {
+        id: 'decking_service',
+        text: 'What kind of wooden decking project is this?',
+        type: 'radio',
+        options: [
+          { value: 'new_deck', label: 'New Deck Installation' },
+          { value: 'repair', label: 'Deck Repair or Maintenance' },
+          { value: 'extension', label: 'Deck Extension' },
+          { value: 'restoration', label: 'Sanding and Sealing' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'thatched-roofing',
+    questions: [
+      {
+        id: 'thatch_service',
+        text: 'What service do you need for your thatched roof?',
+        type: 'radio',
+        options: [
+          { value: 'new_roof', label: 'New Thatched Roof' },
+          { value: 're_thatching', label: 'Complete Re-thatching' },
+          { value: 'repair', label: 'Repairs or Patching' },
+          { value: 'maintenance', label: 'General Maintenance (Brushing, Combing)' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'window-cleaning',
+    questions: [
+      {
+        id: 'property_type_cleaning',
+        text: 'What type of property needs window cleaning?',
+        type: 'radio',
+        options: [
+          { value: 'house', label: 'House (Single Story)' },
+          { value: 'house_multi', label: 'House (Multi-Story)' },
+          { value: 'apartment', label: 'Apartment / Flat' },
+          { value: 'office', label: 'Office / Shopfront' },
+          { value: 'high_rise', label: 'High-Rise Building' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
+    service: 'security-gates',
+    questions: [
+      {
+        id: 'security_gate_type',
+        text: 'What type of security gate do you need?',
+        type: 'radio',
+        options: [
+          { value: 'swing', label: 'Swing Gate (Single or Double)' },
+          { value: 'sliding', label: 'Sliding Gate' },
+          { value: 'pedestrian', label: 'Pedestrian Gate' },
+          { value: 'expandable', label: 'Expandable / Trellis Gate' },
+          { value: 'repair', label: 'Repair an existing gate' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
 ];
+
 
 
