@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -100,7 +101,7 @@ export default function EditProfilePage() {
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="mb-8">
           <p className="text-muted-foreground">Edit Business Profile for</p>
-          <h1 className="text-2xl md:text-3xl font-bold">
+          <h1 className="text-2xl md:text-3xl font-normal">
             bravo projects <span className="font-normal text-muted-foreground">Randburg Waterfront, Randburg</span>
           </h1>
         </div>
@@ -122,7 +123,7 @@ export default function EditProfilePage() {
             <Card>
               <CardContent className="p-8 space-y-8">
                 <div>
-                  <h2 className="text-xl font-semibold mb-6">Contact Details</h2>
+                  <h2 className="text-xl font-normal mb-6">Contact Details</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="first-name">First Name</Label>
@@ -154,7 +155,7 @@ export default function EditProfilePage() {
                 <Separator />
                 
                 <div>
-                  <h2 className="text-xl font-semibold mb-6">General</h2>
+                  <h2 className="text-xl font-normal mb-6">General</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="year-started">Year business started</Label>
@@ -178,7 +179,7 @@ export default function EditProfilePage() {
                 <Separator />
 
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Business Hours</h2>
+                  <h2 className="text-xl font-normal mb-4">Business Hours</h2>
                   <RadioGroup defaultValue="no_hours" className="flex flex-col md:flex-row gap-4 md:gap-8">
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="has_hours" id="has_hours" />
@@ -205,7 +206,7 @@ export default function EditProfilePage() {
             <Card>
                 <CardContent className="p-8 space-y-8">
                     <div>
-                        <h2 className="text-xl font-semibold">Keywords</h2>
+                        <h2 className="text-xl font-normal">Keywords</h2>
                         <p className="text-sm text-muted-foreground mt-1">Add keywords that relate specifically to your business. Customer requests are matched to your keywords and sent to you.</p>
                         <div className="mt-4">
                             <Autocomplete
@@ -240,12 +241,12 @@ export default function EditProfilePage() {
                     </div>
 
                     <div>
-                        <h2 className="text-xl font-semibold">Categories</h2>
+                        <h2 className="text-xl font-normal">Categories</h2>
                         <p className="text-sm text-muted-foreground mt-1">Categories are grouped by the keywords selected. Please ensure that your categories match your business services.</p>
                     </div>
 
                     <div>
-                        <h2 className="text-xl font-semibold">Tag Line</h2>
+                        <h2 className="text-xl font-normal">Tag Line</h2>
                         <p className="text-sm text-muted-foreground mt-1">Enter a short catchy phrase that best describes your business and services (maximum of 200 characters)</p>
                         <div className="mt-4">
                             <Input placeholder="" />
@@ -253,7 +254,7 @@ export default function EditProfilePage() {
                     </div>
 
                     <div>
-                        <h2 className="text-xl font-semibold">About Us</h2>
+                        <h2 className="text-xl font-normal">About Us</h2>
                         <p className="text-sm text-muted-foreground mt-1">Enter a detailed description of what your business does and its experience</p>
                         <div className="mt-4">
                             <Textarea rows={8} />
@@ -271,7 +272,7 @@ export default function EditProfilePage() {
             <Card>
               <CardContent className="p-8 space-y-8">
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Logo</h2>
+                  <h2 className="text-xl font-normal mb-4">Logo</h2>
                   <p className="text-sm text-muted-foreground mb-4">Upload a square image that represents your business (e.g., your company logo).</p>
                   <FileUpload onFilesChange={setLogoFile} />
                 </div>
@@ -279,7 +280,7 @@ export default function EditProfilePage() {
                 <Separator />
                 
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Portfolio Photos</h2>
+                  <h2 className="text-xl font-normal mb-4">Portfolio Photos</h2>
                   <p className="text-sm text-muted-foreground mb-4">Upload up to 10 high-quality photos of your work to show potential customers what you can do.</p>
                   <FileUpload multiple onFilesChange={setPhotoFiles} />
                 </div>
@@ -296,7 +297,7 @@ export default function EditProfilePage() {
             <Card>
               <CardContent className="p-8 space-y-8">
                 <div>
-                  <h2 className="text-xl font-semibold mb-6">Address</h2>
+                  <h2 className="text-xl font-normal mb-6">Address</h2>
                   <div className="space-y-2 mb-6">
                     <Label htmlFor="area">Area</Label>
                     <Autocomplete
@@ -326,7 +327,7 @@ export default function EditProfilePage() {
                 <Separator />
 
                 <div>
-                    <h2 className="text-xl font-semibold mb-4">Radius for Service Area</h2>
+                    <h2 className="text-xl font-normal mb-4">Radius for Service Area</h2>
                      <p className="text-sm text-muted-foreground mb-4">Set the radius from your City which covers your service area, we'll only send you customer requests within this coverage.</p>
                      <div className="flex items-center gap-4">
                         <Select defaultValue="50">
