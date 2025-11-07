@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -20,52 +20,108 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import Link from 'next/link';
 import { RequestReviewDialog } from '@/components/pro/request-review-dialog';
 import { FileUpload } from '@/components/ui/file-upload';
-import { useUser } from '@/firebase';
+import { useUser, useFirestore } from '@/firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function EditProfilePage() {
-  const [keyword, setKeyword] = useState('');
-  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
-  const [locationArea, setLocationArea] = useState('');
+  const { user, isUserLoading } = useUser();
+  const firestore = useFirestore();
+  const { toast } = useToast();
+
+  const [profileId, setProfileId] = useState<string | null>(null);
+  const [formData, setFormData] = useState<any>({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
   
   const [logoFile, setLogoFile] = useState<File[]>([]);
   const [photoFiles, setPhotoFiles] = useState<File[]>([]);
-  const [isUploading, setIsUploading] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
-  const { user } = useUser();
-  const { toast } = useToast();
-  const router = useRouter();
+  // Fetch profile data
+  useEffect(() => {
+    if (isUserLoading) return;
+    if (!user) {
+        setIsLoading(false);
+        return;
+    }
 
+    const fetchProfile = async () => {
+        try {
+            const q = query(collection(firestore, "professionals"), where("userId", "==", user.uid));
+            const querySnapshot = await getDocs(q);
+            if (!querySnapshot.empty) {
+                const profileDoc = querySnapshot.docs[0];
+                setProfileId(profileDoc.id);
+                setFormData(profileDoc.data());
+            } else {
+                toast({ variant: 'destructive', title: 'Error', description: 'No professional profile found for your user account.' });
+            }
+        } catch (error) {
+            console.error("Error fetching profile:", error);
+            toast({ variant: 'destructive', title: 'Error', description: 'Failed to fetch your profile data.' });
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    fetchProfile();
+  }, [user, isUserLoading, firestore, toast]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
+  };
+
+  const handleAutocompleteChange = (name: string, value: string) => {
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
+  }
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
+  }
+  
+  const handleRadioChange = (name: string, value: string) => {
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
+  }
 
   const handleKeywordSelect = (value: string) => {
     const service = allServices.find((s) => s.value === value);
-    if (service && !selectedKeywords.includes(service.label) && selectedKeywords.length < 30) {
-      setSelectedKeywords([...selectedKeywords, service.label]);
+    if (service && !(formData.tags || []).includes(service.label) && (formData.tags || []).length < 30) {
+      setFormData((prev: any) => ({ ...prev, tags: [...(prev.tags || []), service.label] }));
     }
-    setKeyword(''); // Reset input after selection
   };
 
   const removeKeyword = (keywordToRemove: string) => {
-    setSelectedKeywords(selectedKeywords.filter((k) => k !== keywordToRemove));
+    setFormData((prev: any) => ({ ...prev, tags: prev.tags.filter((k: string) => k !== keywordToRemove) }));
   };
 
-  const handleGenericSave = () => {
-    // This is a placeholder for actual save logic.
-    // In a real app, you would collect form data and send it to the backend.
-    console.log("Saving data...");
-    setShowSuccessAlert(true);
-    setTimeout(() => {
-      setShowSuccessAlert(false);
-    }, 5000); // Hide alert after 5 seconds
+  const handleSave = async () => {
+    if (!profileId) {
+        toast({ variant: 'destructive', title: 'Error', description: 'Profile not loaded. Cannot save.' });
+        return;
+    }
+    setIsSaving(true);
+    try {
+        const docRef = doc(firestore, 'professionals', profileId);
+        await updateDoc(docRef, formData);
+        setShowSuccessAlert(true);
+        setTimeout(() => setShowSuccessAlert(false), 5000);
+    } catch (error) {
+        console.error("Error saving data:", error);
+        toast({ variant: 'destructive', title: 'Save Failed', description: 'Could not update your profile. Please try again.' });
+    } finally {
+        setIsSaving(false);
+    }
   };
   
   const handleSaveMedia = async () => {
-    if (!user) {
-        toast({ variant: 'destructive', title: 'Error', description: 'You must be logged in to upload files.' });
+    if (!user || !profileId) {
+        toast({ variant: 'destructive', title: 'Error', description: 'You must be logged in and have a profile to upload files.' });
         return;
     }
     if (logoFile.length === 0 && photoFiles.length === 0) {
@@ -73,40 +129,61 @@ export default function EditProfilePage() {
         return;
     }
 
-    setIsUploading(true);
+    setIsSaving(true);
     const storage = getStorage();
+    let updatedData: any = {};
 
     try {
         if (logoFile.length > 0) {
             const file = logoFile[0];
-            const storageRef = ref(storage, `profiles/${user.uid}/logo/${file.name}`);
+            const storageRef = ref(storage, `profiles/${profileId}/logo/${file.name}`);
             await uploadBytes(storageRef, file);
             const downloadURL = await getDownloadURL(storageRef);
-            console.log('Logo uploaded:', downloadURL);
+            updatedData.avatarSeed = downloadURL; // Assuming avatarSeed stores the logo URL
+            setFormData((prev: any) => ({ ...prev, avatarSeed: downloadURL }));
         }
 
         if (photoFiles.length > 0) {
+            const photoURLs = [...(formData.photos || [])];
             for (const file of photoFiles) {
-                const storageRef = ref(storage, `profiles/${user.uid}/photos/${file.name}`);
+                const storageRef = ref(storage, `profiles/${profileId}/photos/${file.name}`);
                 await uploadBytes(storageRef, file);
                 const downloadURL = await getDownloadURL(storageRef);
-                console.log('Photo uploaded:', downloadURL);
+                photoURLs.push(downloadURL);
             }
+            updatedData.photos = photoURLs;
+            setFormData((prev: any) => ({ ...prev, photos: photoURLs }));
         }
 
-        toast({ title: 'Success!', description: 'Your media has been uploaded.' });
+        const docRef = doc(firestore, 'professionals', profileId);
+        await updateDoc(docRef, updatedData);
+
+        toast({ title: 'Success!', description: 'Your media has been uploaded and saved.' });
         setLogoFile([]);
         setPhotoFiles([]);
-        handleGenericSave(); // Show the success alert
+        setShowSuccessAlert(true);
+        setTimeout(() => setShowSuccessAlert(false), 5000);
 
     } catch (error) {
         console.error('Upload failed:', error);
         toast({ variant: 'destructive', title: 'Upload Failed', description: 'There was an error uploading your files. Please try again.' });
     } finally {
-        setIsUploading(false);
+        setIsSaving(false);
     }
   };
 
+  if (isLoading) {
+      return (
+          <div className="py-12 md:py-16">
+              <div className="container mx-auto px-4 max-w-5xl space-y-4">
+                  <Skeleton className="h-10 w-1/2" />
+                  <Skeleton className="h-10 w-1/4 mb-4" />
+                  <div className="border-b" />
+                  <Card><CardContent className="p-8"><Skeleton className="h-64 w-full" /></CardContent></Card>
+              </div>
+          </div>
+      )
+  }
 
   return (
     <div className="py-12 md:py-16">
@@ -114,7 +191,7 @@ export default function EditProfilePage() {
         <div className="mb-4">
           <p className="text-muted-foreground">Edit Business Profile for</p>
           <h1 className="text-2xl md:text-3xl font-normal">
-            bravo projects <span className="font-normal text-muted-foreground">Randburg Waterfront, Randburg</span>
+            {formData.name || 'Your Business'} <span className="font-normal text-muted-foreground">{formData.location || 'Your Location'}</span>
           </h1>
         </div>
 
@@ -139,7 +216,9 @@ export default function EditProfilePage() {
               <TabsTrigger value="reviews" className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none">Reviews</TabsTrigger>
               <TabsTrigger value="qa" className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none">Q & A</TabsTrigger>
             </TabsList>
-            <Button className="bg-red-500 hover:bg-red-600" onClick={handleGenericSave}>Save</Button>
+            <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
+                {isSaving ? 'Saving...' : 'Save'}
+            </Button>
           </div>
 
           <TabsContent value="info" className="mt-6">
@@ -149,28 +228,28 @@ export default function EditProfilePage() {
                   <h2 className="text-xl font-normal mb-6">Contact Details</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="first-name">First Name</Label>
-                      <Input id="first-name" defaultValue="jabulani" />
+                      <Label htmlFor="firstName">First Name</Label>
+                      <Input id="firstName" name="firstName" value={formData.firstName || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="last-name">Last Name</Label>
-                      <Input id="last-name" defaultValue="sya" />
+                      <Label htmlFor="lastName">Last Name</Label>
+                      <Input id="lastName" name="lastName" value={formData.lastName || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="business-phone">Business Phone Number</Label>
-                      <Input id="business-phone" />
+                      <Label htmlFor="businessPhone">Business Phone Number</Label>
+                      <Input id="businessPhone" name="businessPhone" value={formData.businessPhone || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="cellphone">Cellphone Number</Label>
-                      <Input id="cellphone" defaultValue="0784292766" />
+                      <Input id="cellphone" name="phone" value={formData.phone || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" defaultValue="didioptions@gmail.com" />
+                      <Input id="email" name="email" type="email" value={formData.email || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="website">Website</Label>
-                      <Input id="website" />
+                      <Input id="website" name="website" value={formData.website || ''} onChange={handleInputChange} />
                     </div>
                   </div>
                 </div>
@@ -181,20 +260,20 @@ export default function EditProfilePage() {
                   <h2 className="text-xl font-normal mb-6">General</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="year-started">Year business started</Label>
-                      <Input id="year-started" />
+                      <Label htmlFor="yearsInBusiness">Year business started</Label>
+                      <Input id="yearsInBusiness" name="yearsInBusiness" value={formData.yearsInBusiness || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="employees">No of Employees</Label>
-                      <Input id="employees" />
+                      <Input id="employees" name="employees" value={formData.employees || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="vat-number">VAT Number</Label>
-                      <Input id="vat-number" />
+                      <Label htmlFor="vatNumber">VAT Number</Label>
+                      <Input id="vatNumber" name="vatNumber" value={formData.vatNumber || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="reg-id">Registration or ID Number</Label>
-                      <Input id="reg-id" />
+                      <Label htmlFor="regId">Registration or ID Number</Label>
+                      <Input id="regId" name="regId" value={formData.regId || ''} onChange={handleInputChange} />
                     </div>
                   </div>
                 </div>
@@ -203,7 +282,7 @@ export default function EditProfilePage() {
 
                 <div>
                   <h2 className="text-xl font-normal mb-4">Business Hours</h2>
-                  <RadioGroup defaultValue="no_hours" className="flex flex-col md:flex-row gap-4 md:gap-8">
+                  <RadioGroup value={formData.businessHours || 'no_hours'} onValueChange={(value) => handleRadioChange('businessHours', value)} className="flex flex-col md:flex-row gap-4 md:gap-8">
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="has_hours" id="has_hours" />
                       <Label htmlFor="has_hours" className="font-normal">Has business hours</Label>
@@ -222,7 +301,9 @@ export default function EditProfilePage() {
             </Card>
             <div className="flex justify-end gap-2 mt-6">
               <Button variant="outline">Cancel</Button>
-              <Button className="bg-red-500 hover:bg-red-600" onClick={handleGenericSave}>Save</Button>
+              <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
+                {isSaving ? 'Saving...' : 'Save'}
+              </Button>
             </div>
           </TabsContent>
           <TabsContent value="services" className="mt-6">
@@ -234,18 +315,12 @@ export default function EditProfilePage() {
                         <div className="mt-4">
                             <Autocomplete
                                 options={allServices}
-                                value={keyword}
-                                onValueChange={(value) => {
-                                  if (allServices.some(s => s.value === value)) {
-                                    handleKeywordSelect(value);
-                                  } else {
-                                    setKeyword(value);
-                                  }
-                                }}
+                                value={''} // Keep it empty to allow new selections
+                                onValueChange={handleKeywordSelect}
                                 placeholder="Type in the first 3 letters of the keyword and select one that appears from the list."
                             />
                              <div className="mt-4 flex flex-wrap gap-2">
-                              {selectedKeywords.map((kw) => (
+                              {(formData.tags || []).map((kw: string) => (
                                 <Badge key={kw} variant="secondary" className="pl-3 pr-1 py-1 text-sm">
                                   {kw}
                                   <Button
@@ -259,7 +334,7 @@ export default function EditProfilePage() {
                                 </Badge>
                               ))}
                             </div>
-                            <p className="text-xs text-muted-foreground mt-2 text-right">{selectedKeywords.length} Service Keywords (Limit of 30)</p>
+                            <p className="text-xs text-muted-foreground mt-2 text-right">{(formData.tags || []).length} Service Keywords (Limit of 30)</p>
                         </div>
                     </div>
 
@@ -272,7 +347,7 @@ export default function EditProfilePage() {
                         <h2 className="text-xl font-normal">Tag Line</h2>
                         <p className="text-sm text-muted-foreground mt-1">Enter a short catchy phrase that best describes your business and services (maximum of 200 characters)</p>
                         <div className="mt-4">
-                            <Input placeholder="" />
+                            <Input name="tagline" value={formData.tagline || ''} onChange={handleInputChange} placeholder="" />
                         </div>
                     </div>
 
@@ -280,7 +355,7 @@ export default function EditProfilePage() {
                         <h2 className="text-xl font-normal">About Us</h2>
                         <p className="text-sm text-muted-foreground mt-1">Enter a detailed description of what your business does and its experience</p>
                         <div className="mt-4">
-                            <Textarea rows={8} />
+                            <Textarea name="description" value={formData.description || ''} onChange={handleInputChange} rows={8} />
                         </div>
                     </div>
 
@@ -288,7 +363,9 @@ export default function EditProfilePage() {
             </Card>
             <div className="flex justify-end gap-2 mt-6">
                 <Button variant="outline">Cancel</Button>
-                <Button className="bg-red-500 hover:bg-red-600" onClick={handleGenericSave}>Save</Button>
+                <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
+                    {isSaving ? 'Saving...' : 'Save'}
+                </Button>
             </div>
           </TabsContent>
           <TabsContent value="media" className="mt-6">
@@ -311,8 +388,8 @@ export default function EditProfilePage() {
             </Card>
             <div className="flex justify-end gap-2 mt-6">
               <Button variant="outline">Cancel</Button>
-              <Button className="bg-red-500 hover:bg-red-600" onClick={handleSaveMedia} disabled={isUploading}>
-                {isUploading ? 'Uploading...' : 'Save Media'}
+              <Button className="bg-red-500 hover:bg-red-600" onClick={handleSaveMedia} disabled={isSaving}>
+                {isSaving ? 'Saving Media...' : 'Save Media'}
               </Button>
             </div>
           </TabsContent>
@@ -325,8 +402,8 @@ export default function EditProfilePage() {
                     <Label htmlFor="area">Area</Label>
                     <Autocomplete
                         options={allLocations}
-                        value={locationArea}
-                        onValueChange={setLocationArea}
+                        value={formData.location || ''}
+                        onValueChange={(value) => handleAutocompleteChange('location', value)}
                         placeholder="Type in the first three letters of the area..."
                     />
                     <p className="text-xs text-muted-foreground">Type in the first three letters of the area your business is located and select the correct area from the list that appears.</p>
@@ -334,15 +411,15 @@ export default function EditProfilePage() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="space-y-2">
                         <Label htmlFor="building">Building</Label>
-                        <Input id="building" />
+                        <Input id="building" name="building" value={formData.building || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="street-address">Street Address</Label>
-                        <Input id="street-address" />
+                        <Label htmlFor="streetAddress">Street Address</Label>
+                        <Input id="streetAddress" name="address" value={formData.address || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="postal-code">Postal Code</Label>
-                        <Input id="postal-code" />
+                        <Label htmlFor="postalCode">Postal Code</Label>
+                        <Input id="postalCode" name="postalCode" value={formData.postalCode || ''} onChange={handleInputChange} />
                     </div>
                   </div>
                 </div>
@@ -353,7 +430,7 @@ export default function EditProfilePage() {
                     <h2 className="text-xl font-normal mb-4">Radius for Service Area</h2>
                      <p className="text-sm text-muted-foreground mb-4">Set the radius from your City which covers your service area, we'll only send you customer requests within this coverage.</p>
                      <div className="flex items-center gap-4">
-                        <Select defaultValue="50">
+                        <Select value={formData.radius || '50'} onValueChange={(value) => handleSelectChange('radius', value)}>
                             <SelectTrigger className="w-[120px]">
                                 <SelectValue />
                             </SelectTrigger>
@@ -366,7 +443,7 @@ export default function EditProfilePage() {
                                 <SelectItem value="200">200+ KM</SelectItem>
                             </SelectContent>
                         </Select>
-                        <Input defaultValue="Randburg" className="w-[200px]" />
+                        <Input value={formData.location || ''} readOnly className="w-[200px] bg-secondary" />
                      </div>
                 </div>
 
@@ -374,14 +451,16 @@ export default function EditProfilePage() {
             </Card>
             <div className="flex justify-end gap-2 mt-6">
               <Button variant="outline">Cancel</Button>
-              <Button className="bg-red-500 hover:bg-red-600" onClick={handleGenericSave}>Save</Button>
+              <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
+                {isSaving ? 'Saving...' : 'Save'}
+              </Button>
             </div>
            </TabsContent>
            <TabsContent value="reviews" className="mt-6">
             <div className="space-y-6">
                 <RequestReviewDialog
-                    businessName="bravo projects"
-                    userName="Jabulani Sya"
+                    businessName={formData.name || 'your business'}
+                    userName={formData.firstName || 'your name'}
                 >
                     <Card className="cursor-pointer hover:shadow-lg transition-shadow">
                         <CardContent className="p-8 text-center space-y-4">
@@ -397,8 +476,8 @@ export default function EditProfilePage() {
                       Your business profile does not have any reviews. Getting customer reviews make you twice as likely to be hired on Gaupro.
                       <br />
                         <RequestReviewDialog
-                            businessName="bravo projects"
-                            userName="Jabulani Sya"
+                            businessName={formData.name || 'your business'}
+                            userName={formData.firstName || 'your name'}
                         >
                             <Button variant="link" className="text-blue-800 h-auto p-0 mt-2">
                                 Get Customer Reviews
