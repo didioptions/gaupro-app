@@ -58,6 +58,7 @@ export const allServices = [
     { value: 'fencing', label: 'Fencing' },
     { value: 'financial-advisors', label: 'Financial Advisors' },
     { value: 'flooring', label: 'Flooring' },
+    { value: 'garage-doors', label: 'Garage Doors' },
     { value: 'garage-door-motors', label: 'Garage Door Motors' },
     { value: 'gardeners', label: 'Gardeners' },
     { value: 'gas-installers', label: 'Gas Installers' },
@@ -75,7 +76,6 @@ export const allServices = [
     { value: 'irrigation', label: 'Irrigation' },
     { value: 'kitchen-renovations', label: 'Kitchen Renovations' },
     { value: 'laminate-flooring', label: 'Laminate Flooring' },
-    { value: 'landscaping', label: 'Landscaping' },
     { value: 'laptop-repairs', label: 'Laptop Repairs' },
     { value: 'laundry-services', label: 'Laundry Services' },
     { value: 'lawyers', label: 'Lawyers' },
@@ -84,6 +84,7 @@ export const allServices = [
     { value: 'massage-therapists', label: 'Massage Therapists' },
     { value: 'mechanics', label: 'Mechanics' },
     { value: 'movers', label: 'Movers' },
+    { value: 'office-cleaning', label: 'Office Cleaning' },
     { value: 'palisade-fencing', label: 'Palisade Fencing' },
     { value: 'panel-beaters', label: 'Panel Beaters' },
     { value: 'painter', label: 'Painters' },
@@ -92,9 +93,11 @@ export const allServices = [
     { value: 'pest-control', label: 'Pest Control' },
     { value: 'photographers', label: 'Photographers' },
     { value: 'plant-hire', label: 'Plant Hire' },
+    { value: 'plastering', label: 'Plastering' },
     { value: 'plastic-surgeons', label: 'Plastic Surgeons' },
     { value: 'plumber', label: 'Plumbers' },
     { value: 'pool-cleaning', label: 'Pool Cleaning' },
+    { value: 'precast-fencing', label: 'Precast Fencing' },
     { value: 'prepaid-electricity-meters', label: 'Prepaid Electricity Meters' },
     { value: 'printing', label: 'Printing' },
     { value: 'private-investigators', label: 'Private Investigators' },
@@ -128,10 +131,11 @@ export const allServices = [
     { value: 'videographers', label: 'Videographers' },
     { value: 'waterproofing', label: 'Waterproofing' },
     { value: 'website-designers', label: 'Website Designers' },
-    { value: 'welder', label: 'Welder' },
+    { value: 'welders', label: 'Welders' },
     { value: 'wendy-houses', label: 'Wendy Houses' },
     { value: 'window-cleaning', label: 'Window Cleaning' },
     { value: 'window-tinting', label: 'Window Tinting' },
+    { value: 'wire-mesh-fencing', label: 'Wire Mesh Fencing' },
     { value: 'wooden-decking', label: 'Wooden Decking' },
 ];
 
@@ -674,7 +678,112 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions
     ],
   },
+  {
+    service: 'plastering',
+    questions: [
+      {
+        id: 'plastering_type',
+        text: 'What kind of plastering work do you need?',
+        type: 'radio',
+        options: [
+          { value: 'interior', label: 'Interior plastering' },
+          { value: 'exterior', label: 'Exterior plastering' },
+          { value: 'skimming', label: 'Skimming' },
+          { value: 'repair', label: 'Plaster repair (cracks/holes)' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'garage-doors',
+    questions: [
+      {
+        id: 'garage_door_service',
+        text: 'What service do you need for your garage door?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'New door installation' },
+          { value: 'repair', label: 'Repair existing door' },
+          { value: 'motor', label: 'Motor installation or repair' },
+          { value: 'maintenance', label: 'General maintenance' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'office-cleaning',
+    questions: [
+      {
+        id: 'office_size',
+        text: 'What is the approximate size of your office space?',
+        type: 'radio',
+        options: [
+          { value: 'small', label: 'Small (1-5 employees)' },
+          { value: 'medium', label: 'Medium (6-20 employees)' },
+          { value: 'large', label: 'Large (21+ employees)' },
+          { value: 'retail', label: 'Retail space' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'precast-fencing',
+    questions: [
+      {
+        id: 'precast_service',
+        text: 'What do you need done with your precast fencing?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'New installation' },
+          { value: 'repair', label: 'Repair broken panels' },
+          { value: 'raise', label: 'Raise existing fence height' },
+          { value: 'painting', label: 'Painting' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'welders',
+    questions: [
+      {
+        id: 'welding_service',
+        text: 'What type of welding service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'repairs', label: 'General metal repairs' },
+          { value: 'gate_fence', label: 'Gate or fence welding' },
+          { value: 'fabrication', label: 'Custom fabrication (e.g., burglar bars)' },
+          { value: 'structural', label: 'Structural welding' },
+          { value: 'onsite', label: 'On-site welding service' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'wire-mesh-fencing',
+    questions: [
+      {
+        id: 'wire_mesh_purpose',
+        text: 'What is the primary purpose of the wire mesh fence?',
+        type: 'radio',
+        options: [
+          { value: 'security', label: 'Security / Boundary' },
+          { value: 'animal', label: 'Animal enclosure' },
+          { value: 'garden', label: 'Garden or plot division' },
+          { value: 'temporary', label: 'Temporary fencing' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
 ];
+
 
 
 
