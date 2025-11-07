@@ -48,6 +48,7 @@ export const allServices = [
     { value: 'concrete-slabs', label: 'Concrete Slabs' },
     { value: 'couriers', label: 'Couriers' },
     { value: 'curtains', label: 'Curtains' },
+    { value: 'debt-collection', label: 'Debt Collection' },
     { value: 'debt-counsellors', label: 'Debt Counsellors' },
     { value: 'demolition', label: 'Demolition' },
     { value: 'dentists', label: 'Dentists' },
@@ -61,8 +62,10 @@ export const allServices = [
     { value: 'electric-fencing', label: 'Electric Fencing' },
     { value: 'electrician', label: 'Electricians' },
     { value: 'event-decorations', label: 'Event Decorations' },
+    { value: 'event-planners', label: 'Event Planners' },
     { value: 'fencing', label: 'Fencing' },
     { value: 'financial-advisors', label: 'Financial Advisors' },
+    { value: 'florists', label: 'Florists' },
     { value: 'flooring', label: 'Flooring' },
     { value: 'garage-doors', label: 'Garage Doors' },
     { value: 'garage-door-motors', label: 'Garage Door Motors' },
@@ -86,10 +89,13 @@ export const allServices = [
     { value: 'laptop-repairs', label: 'Laptop Repairs' },
     { value: 'laundry-services', label: 'Laundry Services' },
     { value: 'lawyers', label: 'Lawyers' },
+    { value: 'loans', label: 'Loans' },
     { value: 'locksmiths', label: 'Locksmiths' },
+    { value: 'logo-design', label: 'Logo Design' },
     { value: 'marriage-counsellors', label: 'Marriage Counsellors' },
     { value: 'massage-therapists', label: 'Massage Therapists' },
     { value: 'mechanics', label: 'Mechanics' },
+    { value: 'medical-aid', label: 'Medical Aid' },
     { value: 'movers', label: 'Movers' },
     { value: 'office-cleaning', label: 'Office Cleaning' },
     { value: 'palisade-fencing', label: 'Palisade Fencing' },
@@ -109,6 +115,7 @@ export const allServices = [
     { value: 'printing', label: 'Printing' },
     { value: 'private-investigators', label: 'Private Investigators' },
     { value: 'psychologists', label: 'Psychologists' },
+    { value: 'recruitment-agencies', label: 'Recruitment Agencies' },
     { value: 'roofer', label: 'Roofer' },
     { value: 'roofing', label: 'Roofing' },
     { value: 'rubble-removal', label: 'Rubble Removals' },
@@ -138,6 +145,7 @@ export const allServices = [
     { value: 'videographers', label: 'Videographers' },
     { value: 'waterproofing', label: 'Waterproofing' },
     { value: 'website-designers', label: 'Website Designers' },
+    { value: 'wedding-photographers', label: 'Wedding Photographers' },
     { value: 'welders', label: 'Welders' },
     { value: 'wendy-houses', label: 'Wendy Houses' },
     { value: 'window-cleaning', label: 'Window Cleaning' },
@@ -913,7 +921,145 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions
     ],
   },
+  {
+    service: 'event-planners',
+    questions: [
+      {
+        id: 'event_type',
+        text: 'What type of event are you planning?',
+        type: 'radio',
+        options: [
+          { value: 'wedding', label: 'Wedding' },
+          { value: 'corporate', label: 'Corporate Event' },
+          { value: 'private_party', label: 'Private Party (Birthday, Anniversary)' },
+          { value: 'conference', label: 'Conference or Seminar' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'florists',
+    questions: [
+      {
+        id: 'occasion',
+        text: 'What is the occasion for the flowers?',
+        type: 'radio',
+        options: [
+          { value: 'wedding', label: 'Wedding' },
+          { value: 'event', label: 'Event (Corporate, Party)' },
+          { value: 'gift', label: 'Gift or Special Occasion' },
+          { value: 'funeral', label: 'Funeral or Sympathy' },
+          { value: 'subscription', label: 'Regular Subscription (Home/Office)' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'wedding-photographers',
+    questions: [
+      {
+        id: 'wedding_budget',
+        text: 'What is your approximate wedding photography budget?',
+        type: 'radio',
+        options: [
+          { value: '5k_10k', label: 'R5,000 - R10,000' },
+          { value: '10k_20k', label: 'R10,000 - R20,000' },
+          { value: '20k_30k', label: 'R20,000 - R30,000' },
+          { value: '30k_plus', label: 'R30,000+' },
+          { value: 'not_sure', label: 'I\'m not sure yet' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'debt-collection',
+    questions: [
+      {
+        id: 'debt_type',
+        text: 'What type of debt needs to be collected?',
+        type: 'radio',
+        options: [
+          { value: 'personal', label: 'Personal/Individual Debt' },
+          { value: 'commercial', label: 'Commercial/Business Debt' },
+          { value: 'rental', label: 'Rental Arrears' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'loans',
+    questions: [
+      {
+        id: 'loan_type',
+        text: 'What type of loan are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'personal', label: 'Personal Loan' },
+          { value: 'business', label: 'Business Loan' },
+          { value: 'home_loan', label: 'Home Loan / Bond' },
+          { value: 'vehicle', label: 'Vehicle Finance' },
+          { value: 'consolidation', label: 'Debt Consolidation Loan' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'medical-aid',
+    questions: [
+      {
+        id: 'coverage_for',
+        text: 'Who needs medical aid cover?',
+        type: 'radio',
+        options: [
+          { value: 'myself', label: 'Just myself' },
+          { value: 'spouse', label: 'Myself and my spouse/partner' },
+          { value: 'family', label: 'My family (including children)' },
+          { value: 'business', label: 'My business/employees' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'recruitment-agencies',
+    questions: [
+      {
+        id: 'user_type',
+        text: 'Are you looking to hire an employee or find a job?',
+        type: 'radio',
+        options: [
+          { value: 'company', label: 'I\'m a company looking to hire' },
+          { value: 'candidate', label: 'I\'m a candidate looking for a job' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'logo-design',
+    questions: [
+      {
+        id: 'business_stage',
+        text: 'What stage is your business at?',
+        type: 'radio',
+        options: [
+          { value: 'new', label: 'New business/brand (starting from scratch)' },
+          { value: 'refresh', label: 'Existing business needing a logo refresh' },
+          { value: 'idea', label: 'Just an idea, exploring options' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
 ];
+
 
 
 
