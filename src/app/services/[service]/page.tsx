@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useMemo } from 'react';
@@ -54,7 +55,7 @@ export default function ServicePage() {
                 <main className="container mx-auto px-4 py-16">
                     <Card>
                         <CardContent className="p-6">
-                            <h2 className="text-xl font-bold text-destructive">Error Fetching Data</h2>
+                            <h2 className="text-xl font-normal text-destructive">Error Fetching Data</h2>
                             <p className="mt-2 text-muted-foreground">There was a problem loading professionals for this category.</p>
                         </CardContent>
                     </Card>
@@ -152,7 +153,7 @@ export default function ServicePage() {
                      <div className="absolute inset-0 bg-black/60" />
                      <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                         <div className="hidden md:block">
-                          <h1 className="text-4xl md:text-5xl font-bold">{pluralServiceLabel}</h1>
+                          <h1 className="text-4xl md:text-5xl font-normal">{pluralServiceLabel}</h1>
                           <p className="mt-4 text-lg text-white/90">
                               Get matched with top-rated, verified professionals in your area.
                           </p>
