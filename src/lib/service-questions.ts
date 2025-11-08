@@ -15,6 +15,8 @@ export type QuestionSet = {
 export const allServices = [
     { value: 'access-control', label: 'Access Control' },
     { value: 'accounting', label: 'Accounting' },
+    { value: 'agricultural-equipment', label: 'Agricultural Equipment' },
+    { value: 'agricultural-services', label: 'Agricultural Services' },
     { value: 'air-conditioning', label: 'Air Conditioning' },
     { value: 'alarm-systems', label: 'Alarm Systems' },
     { value: 'aluminium-doors-and-windows', label: 'Aluminium Doors And Windows' },
@@ -25,6 +27,7 @@ export const allServices = [
     { value: 'auto-electricians', label: 'Auto Electricians' },
     { value: 'auto-glass', label: 'Auto Glass' },
     { value: 'awnings', label: 'Awnings' },
+    { value: 'baby-sitters', label: 'Baby Sitters' },
     { value: 'balustrades', label: 'Balustrades' },
     { value: 'bathroom-renovations', label: 'Bathroom Renovations' },
     { value: 'batteries', label: 'Batteries' },
@@ -36,6 +39,7 @@ export const allServices = [
     { value: 'building-materials', label: 'Building Materials' },
     { value: 'burglar-bars', label: 'Burglar Bars' },
     { value: 'business-consultants', label: 'Business Consultants' },
+    { value: 'cake-shops', label: 'Cake Shops' },
     { value: 'car-aircon-regassing', label: 'Car Aircon Regassing' },
     { value: 'car-alarms', label: 'Car Alarms' },
     { value: 'car-tracking', label: 'Car Tracking' },
@@ -57,7 +61,9 @@ export const allServices = [
     { value: 'conveyancers', label: 'Conveyancers' },
     { value: 'counsellors', label: 'Counsellors' },
     { value: 'couriers', label: 'Couriers' },
+    { value: 'creches', label: 'Creches' },
     { value: 'curtains', label: 'Curtains' },
+    { value: 'day-care-centres', label: 'Day Care Centres' },
     { value: 'debt-collection', label: 'Debt Collection' },
     { value: 'debt-counsellors', label: 'Debt Counsellors' },
     { value: 'demolition', label: 'Demolition' },
@@ -67,11 +73,13 @@ export const allServices = [
     { value: 'divorce-lawyers', label: 'Divorce Lawyers' },
     { value: 'djs', label: 'Djs' },
     { value: 'doors', label: 'Doors' },
+    { value: 'dressmakers', label: 'Dressmakers' },
     { value: 'driving-schools', label: 'Driving Schools' },
     { value: 'drywalls', label: 'Drywalls' },
     { value: 'dstv-installers', label: 'Dstv Installers' },
     { value: 'electric-fencing', label: 'Electric Fencing' },
     { value: 'electrician', label: 'Electricians' },
+    { value: 'embroidery', label: 'Embroidery' },
     { value: 'engine-overhauls', label: 'Engine Overhauls' },
     { value: 'estate-agents', label: 'Estate Agents' },
     { value: 'event-decorations', label: 'Event Decorations' },
@@ -90,12 +98,14 @@ export const allServices = [
     { value: 'garage-door-motors', label: 'Garage Door Motors' },
     { value: 'gardeners', label: 'Gardeners' },
     { value: 'gas-installers', label: 'Gas Installers' },
+    { value: 'gas-suppliers', label: 'Gas Suppliers' },
     { value: 'gates', label: 'Gates' },
     { value: 'gate-motors', label: 'Gate Motors' },
     { value: 'gearboxes', label: 'Gearboxes' },
     { value: 'generators', label: 'Generators' },
     { value: 'glass-works', label: 'Glass Works' },
     { value: 'graphic-designers', label: 'Graphic Designers' },
+    { value: 'groomers', label: 'Groomers' },
     { value: 'guttering', label: 'Guttering' },
     { value: 'gynaecologists', label: 'Gynaecologists' },
     { value: 'hair-stylists', label: 'Hair Stylists' },
@@ -120,6 +130,7 @@ export const allServices = [
     { value: 'locksmiths', label: 'Locksmiths' },
     { value: 'logo-design', label: 'Logo Design' },
     { value: 'make-up-artists', label: 'Make Up Artists' },
+    { value: 'marble-and-granite-suppliers', label: 'Marble and Granite Suppliers' },
     { value: 'marriage-counsellors', label: 'Marriage Counsellors' },
     { value: 'massage-therapists', label: 'Massage Therapists' },
     { value: 'mechanics', label: 'Mechanics' },
@@ -133,8 +144,10 @@ export const allServices = [
     { value: 'painter', label: 'Painters' },
     { value: 'party-planners', label: 'Party Planners' },
     { value: 'paving', label: 'Paving' },
+    { value: 'personal-protection-equipment', label: 'Personal Protection Equipment' },
     { value: 'personal-trainers', label: 'Personal Trainers' },
     { value: 'pest-control', label: 'Pest Control' },
+    { value: 'pet-sitters', label: 'Pet Sitters' },
     { value: 'photographers', label: 'Photographers' },
     { value: 'physiotherapists', label: 'Physiotherapists' },
     { value: 'plant-hire', label: 'Plant Hire' },
@@ -143,6 +156,7 @@ export const allServices = [
     { value: 'plumber', label: 'Plumbers' },
     { value: 'pool-cleaning', label: 'Pool Cleaning' },
     { value: 'precast-fencing', label: 'Precast Fencing' },
+    { value: 'pre-schools', label: 'Pre-Schools' },
     { value: 'prepaid-electricity-meters', label: 'Prepaid Electricity Meters' },
     { value: 'printing', label: 'Printing' },
     { value: 'private-investigators', label: 'Private Investigators' },
@@ -162,8 +176,10 @@ export const allServices = [
     { value: 'skip-hire', label: 'Skip Hire' },
     { value: 'solar-geysers', label: 'Solar Geysers' },
     { value: 'solar-systems', label: 'Solar Systems' },
+    { value: 'stationery', label: 'Stationery' },
     { value: 'swimming-lessons', label: 'Swimming Lessons' },
     { value: 'swimming-pool-builders', label: 'Swimming Pool Builders' },
+    { value: 'swimming-pool-supplies', label: 'Swimming Pool Supplies' },
     { value: 'tar-surfacing', label: 'Tar Surfacing' },
     { value: 'taxis', label: 'Taxis' },
     { value: 'team-building', label: 'Team Building' },
@@ -172,10 +188,12 @@ export const allServices = [
     { value: 'tiler', label: 'Tiler' },
     { value: 'tiling', label: 'Tiling' },
     { value: 'toilet-hire', label: 'Toilet Hire' },
+    { value: 'tour-operators', label: 'Tour Operators' },
     { value: 'tow-bars', label: 'Tow Bars' },
     { value: 'towing', label: 'Towing' },
     { value: 'tracing', label: 'Tracing' },
     { value: 'transportation', label: 'Transportation' },
+    { value: 'travel-agents', label: 'Travel Agents' },
     { value: 'tree-felling', label: 'Tree Felling' },
     { value: 'tlb-hire', label: 'Tlb Hire' },
     { value: 'tv-installers', label: 'Tv Installers' },
@@ -514,7 +532,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
-   {
+  {
     service: 'building-materials',
     questions: [
       {
@@ -1878,6 +1896,339 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'adsl', label: 'ADSL/VDSL' },
           { value: 'mobile', label: 'LTE/5G Mobile internet' },
           { value: 'troubleshooting', label: 'General troubleshooting' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'gas-suppliers',
+    questions: [
+      {
+        id: 'gas_service_type',
+        text: 'What type of gas service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'new_bottle', label: 'New gas bottle/cylinder' },
+          { value: 'refill', label: 'Gas refill/exchange' },
+          { value: 'coc', label: 'Gas installation compliance certificate (COC)' },
+          { value: 'appliance_servicing', label: 'Gas appliance servicing' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'marble-and-granite-suppliers',
+    questions: [
+      {
+        id: 'marble_granite_need',
+        text: 'What are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'kitchen_countertops', label: 'Kitchen countertops' },
+          { value: 'bathroom_vanities', label: 'Bathroom vanities' },
+          { value: 'flooring', label: 'Flooring' },
+          { value: 'wall_cladding', label: 'Wall cladding' },
+          { value: 'other', label: 'Other custom work' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'personal-protection-equipment',
+    questions: [
+      {
+        id: 'job_details',
+        text: 'What type of PPE are you looking for?',
+        type: 'textarea',
+        placeholder: 'e.g., Safety boots, hard hats, high-visibility vests, gloves, masks, etc. Please specify quantities if known.',
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'stationery',
+    questions: [
+      {
+        id: 'job_details',
+        text: 'What stationery supplies do you need?',
+        type: 'textarea',
+        placeholder: 'e.g., Office paper, pens, printer cartridges, files, etc. Please specify quantities if possible.',
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'swimming-pool-supplies',
+    questions: [
+      {
+        id: 'pool_supplies_need',
+        text: 'What swimming pool supplies are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'chemicals', label: 'Chemicals (Chlorine, Acid)' },
+          { value: 'pool_cleaner', label: 'Pool cleaner/kreepy' },
+          { value: 'pump_filter', label: 'Pump/Filter' },
+          { value: 'pool_cover', label: 'Pool cover' },
+          { value: 'maintenance_equipment', label: 'General maintenance equipment' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'agricultural-equipment',
+    questions: [
+      {
+        id: 'agri_equipment_service',
+        text: 'What kind of agricultural equipment service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'purchase', label: 'Purchase new equipment' },
+          { value: 'repair', label: 'Repair existing equipment' },
+          { value: 'hire', label: 'Equipment hire' },
+          { value: 'servicing', label: 'Servicing/Maintenance' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'agricultural-services',
+    questions: [
+      {
+        id: 'agri_service',
+        text: 'What agricultural service are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'crop_spraying', label: 'Crop spraying' },
+          { value: 'soil_analysis', label: 'Soil analysis' },
+          { value: 'livestock_services', label: 'Livestock services' },
+          { value: 'farm_planning', label: 'Farm planning/consulting' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'borehole-drillers',
+    questions: [
+      {
+        id: 'borehole_reason',
+        text: 'What is the primary reason for drilling a borehole?',
+        type: 'radio',
+        options: [
+          { value: 'home_use', label: 'New borehole for home/garden use' },
+          { value: 'agri_use', label: 'New borehole for agricultural use' },
+          { value: 'yield_testing', label: 'Borehole yield testing' },
+          { value: 'maintenance', label: 'Borehole cleaning/maintenance' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'baby-sitters',
+    questions: [
+      {
+        id: 'babysitter_need',
+        text: 'When do you need a baby sitter?',
+        type: 'radio',
+        options: [
+          { value: 'once_off_day', label: 'Once-off (daytime)' },
+          { value: 'once_off_evening', label: 'Once-off (evening)' },
+          { value: 'regularly', label: 'Regularly (e.g., weekly)' },
+          { value: 'full_time', label: 'Full-time' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'creches',
+    questions: [
+      {
+        id: 'child_age',
+        text: 'What age is your child?',
+        type: 'radio',
+        options: [
+          { value: '0_1', label: '0-1 year' },
+          { value: '1_2', label: '1-2 years' },
+          { value: '3_4', label: '3-4 years' },
+          { value: '5_6', label: '5-6 years' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'day-care-centres',
+    questions: [
+      {
+        id: 'child_age',
+        text: 'What age is your child?',
+        type: 'radio',
+        options: [
+          { value: '0_1', label: '0-1 year' },
+          { value: '1_2', label: '1-2 years' },
+          { value: '3_4', label: '3-4 years' },
+          { value: '5_6', label: '5-6 years' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'pre-schools',
+    questions: [
+      {
+        id: 'child_age',
+        text: 'What age is your child?',
+        type: 'radio',
+        options: [
+          { value: '3_4', label: '3-4 years' },
+          { value: '4_5', label: '4-5 years' },
+          { value: '5_6', label: '5-6 years (Grade R)' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'dressmakers',
+    questions: [
+      {
+        id: 'dressmaker_need',
+        text: 'What do you need a dressmaker for?',
+        type: 'radio',
+        options: [
+          { value: 'custom_outfit', label: 'Custom-made outfit (e.g., wedding, matric dance)' },
+          { value: 'alterations', label: 'Alterations to existing clothing' },
+          { value: 'repairs', label: 'Repairs' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'embroidery',
+    questions: [
+      {
+        id: 'embroidery_need',
+        text: 'What do you need embroidered?',
+        type: 'radio',
+        options: [
+          { value: 'corporate_wear', label: 'Corporate wear (logos on shirts)' },
+          { value: 'personal_items', label: 'Personal items (gifting)' },
+          { value: 'team_uniforms', label: 'Team/School uniforms' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'cake-shops',
+    questions: [
+      {
+        id: 'cake_occasion',
+        text: 'What is the occasion for the cake?',
+        type: 'radio',
+        options: [
+          { value: 'birthday', label: 'Birthday' },
+          { value: 'wedding', label: 'Wedding' },
+          { value: 'corporate_event', label: 'Corporate Event' },
+          { value: 'special_treat', label: 'Special Treat' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'caterers',
+    questions: [
+      {
+        id: 'catering_event_type',
+        text: 'What type of event are you catering for?',
+        type: 'radio',
+        options: [
+          { value: 'wedding', label: 'Wedding' },
+          { value: 'corporate_function', label: 'Corporate Function' },
+          { value: 'private_party', label: 'Private Party' },
+          { value: 'funeral', label: 'Funeral' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'groomers',
+    questions: [
+      {
+        id: 'pet_type',
+        text: 'What pet do you need groomed?',
+        type: 'radio',
+        options: [
+          { value: 'dog', label: 'Dog' },
+          { value: 'cat', label: 'Cat' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'pet-sitters',
+    questions: [
+      {
+        id: 'pet_sitting_type',
+        text: 'What kind of pet sitting do you need?',
+        type: 'radio',
+        options: [
+          { value: 'at_my_home', label: "At my home (while I'm away)" },
+          { value: 'daily_visits', label: 'Daily visits' },
+          { value: 'dog_walking', label: 'Dog walking' },
+          { value: 'boarding', label: "Boarding at sitter's home" },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'tour-operators',
+    questions: [
+      {
+        id: 'tour_type',
+        text: 'What kind of tour are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'safari', label: 'Safari/Wildlife tour' },
+          { value: 'city_cultural', label: 'City/Cultural tour' },
+          { value: 'adventure', label: 'Adventure tour' },
+          { value: 'custom_private', label: 'Custom private tour' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'travel-agents',
+    questions: [
+      {
+        id: 'travel_assistance_need',
+        text: 'What type of travel assistance do you need?',
+        type: 'radio',
+        options: [
+          { value: 'international_package', label: 'International holiday package' },
+          { value: 'local_package', label: 'Local holiday package' },
+          { value: 'flights_accommodation', label: 'Flights and accommodation booking' },
+          { value: 'visa_assistance', label: 'Visa assistance' },
         ],
       },
       ...commonQuestions,
