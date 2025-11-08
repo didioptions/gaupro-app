@@ -1,5 +1,4 @@
 
-
 export type Question = {
   id: string;
   text: string;
@@ -48,12 +47,14 @@ export const allServices = [
     { value: 'caterers', label: 'Caterers' },
     { value: 'cctv', label: 'Cctv' },
     { value: 'ceiling-installers', label: 'Ceiling Installers' },
+    { value: 'cellphone-repairs', label: 'Cellphone Repairs' },
     { value: 'chiropractors', label: 'Chiropractors' },
     { value: 'cleaning-service', label: 'Cleaning Services' },
     { value: 'company-registrations', label: 'Company Registrations' },
     { value: 'computer-courses', label: 'Computer Courses' },
     { value: 'computer-repairs', label: 'Computer Repairs' },
     { value: 'concrete-slabs', label: 'Concrete Slabs' },
+    { value: 'conveyancers', label: 'Conveyancers' },
     { value: 'counsellors', label: 'Counsellors' },
     { value: 'couriers', label: 'Couriers' },
     { value: 'curtains', label: 'Curtains' },
@@ -72,6 +73,7 @@ export const allServices = [
     { value: 'electric-fencing', label: 'Electric Fencing' },
     { value: 'electrician', label: 'Electricians' },
     { value: 'engine-overhauls', label: 'Engine Overhauls' },
+    { value: 'estate-agents', label: 'Estate Agents' },
     { value: 'event-decorations', label: 'Event Decorations' },
     { value: 'event-planners', label: 'Event Planners' },
     { value: 'fencing', label: 'Fencing' },
@@ -82,6 +84,7 @@ export const allServices = [
     { value: 'florists', label: 'Florists' },
     { value: 'flooring', label: 'Flooring' },
     { value: 'forklift-training', label: 'Forklift Training' },
+    { value: 'fridge-repairs', label: 'Fridge Repairs' },
     { value: 'fuels', label: 'Fuels' },
     { value: 'garage-doors', label: 'Garage Doors' },
     { value: 'garage-door-motors', label: 'Garage Door Motors' },
@@ -103,8 +106,10 @@ export const allServices = [
     { value: 'home-loans', label: 'Home Loans' },
     { value: 'insurance', label: 'Insurance' },
     { value: 'interior-designing', label: 'Interior Designing' },
+    { value: 'internet-solutions', label: 'Internet Solutions' },
     { value: 'irrigation', label: 'Irrigation' },
     { value: 'kitchen-renovations', label: 'Kitchen Renovations' },
+    { value: 'labour-lawyers', label: 'Labour Lawyers' },
     { value: 'laminate-flooring', label: 'Laminate Flooring' },
     { value: 'laptop-repairs', label: 'Laptop Repairs' },
     { value: 'laser-clinics', label: 'Laser Clinics' },
@@ -120,7 +125,9 @@ export const allServices = [
     { value: 'mechanics', label: 'Mechanics' },
     { value: 'medical-aid', label: 'Medical Aid' },
     { value: 'movers', label: 'Movers' },
+    { value: 'networking', label: 'Networking' },
     { value: 'office-cleaning', label: 'Office Cleaning' },
+    { value: 'office-equipment', label: 'Office Equipment' },
     { value: 'palisade-fencing', label: 'Palisade Fencing' },
     { value: 'panel-beaters', label: 'Panel Beaters' },
     { value: 'painter', label: 'Painters' },
@@ -144,6 +151,7 @@ export const allServices = [
     { value: 'roofer', label: 'Roofer' },
     { value: 'roofing', label: 'Roofing' },
     { value: 'rubble-removal', label: 'Rubble Removals' },
+    { value: 'school-transport', label: 'School Transport' },
     { value: 'security', label: 'Security' },
     { value: 'security-gates', label: 'Security Gates' },
     { value: 'security-training', label: 'Security Training' },
@@ -157,6 +165,7 @@ export const allServices = [
     { value: 'swimming-lessons', label: 'Swimming Lessons' },
     { value: 'swimming-pool-builders', label: 'Swimming Pool Builders' },
     { value: 'tar-surfacing', label: 'Tar Surfacing' },
+    { value: 'taxis', label: 'Taxis' },
     { value: 'team-building', label: 'Team Building' },
     { value: 'thatched-roofing', label: 'Thatched Roofing' },
     { value: 'tent-hire', label: 'Tent Hire' },
@@ -166,8 +175,11 @@ export const allServices = [
     { value: 'tow-bars', label: 'Tow Bars' },
     { value: 'towing', label: 'Towing' },
     { value: 'tracing', label: 'Tracing' },
+    { value: 'transportation', label: 'Transportation' },
     { value: 'tree-felling', label: 'Tree Felling' },
     { value: 'tlb-hire', label: 'Tlb Hire' },
+    { value: 'tv-installers', label: 'Tv Installers' },
+    { value: 'tv-repairs', label: 'Tv Repairs' },
     { value: 'upholsterers', label: 'Upholsterers' },
     { value: 'upholstery-cleaning', label: 'Upholstery Cleaning' },
     { value: 'venues', label: 'Venues' },
@@ -1630,6 +1642,242 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'medium', label: 'Medium (51-120)' },
           { value: 'large', label: 'Large (121-200)' },
           { value: 'very_large', label: 'Very Large (201+)' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'tv-repairs',
+    questions: [
+      {
+        id: 'tv_problem',
+        text: 'What seems to be the problem with your TV?',
+        type: 'radio',
+        options: [
+          { value: 'no_power', label: 'No power' },
+          { value: 'blank_screen', label: 'Screen is blank or has lines' },
+          { value: 'sound_issue', label: 'Sound issues' },
+          { value: 'other', label: 'Other issue' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'dstv-installers',
+    questions: [
+      {
+        id: 'dstv_service',
+        text: 'What DSTV service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'new_installation', label: 'New installation' },
+          { value: 'realignment', label: 'Re-alignment or signal issue' },
+          { value: 'extra_view', label: 'Extra view setup' },
+          { value: 'upgrade', label: 'Upgrade' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'fridge-repairs',
+    questions: [
+      {
+        id: 'fridge_issue',
+        text: 'What is the issue with your fridge?',
+        type: 'radio',
+        options: [
+          { value: 'not_cooling', label: 'Not cooling' },
+          { value: 'leaking', label: 'Leaking water' },
+          { value: 'noise', label: 'Making strange noises' },
+          { value: 'freezer_issue', label: 'Freezer not working' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'tv-installers',
+    questions: [
+      {
+        id: 'tv_installation_type',
+        text: 'What kind of TV installation do you need?',
+        type: 'radio',
+        options: [
+          { value: 'wall_mount', label: 'Wall mounting' },
+          { value: 'setup_tuning', label: 'Initial setup & tuning' },
+          { value: 'home_theatre', label: 'Home theatre setup' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'conveyancers',
+    questions: [
+      {
+        id: 'conveyancing_need',
+        text: 'What type of property transaction do you need assistance with?',
+        type: 'radio',
+        options: [
+          { value: 'buying', label: 'Buying a property' },
+          { value: 'selling', label: 'Selling a property' },
+          { value: 'bond_registration', label: 'Bond registration' },
+          { value: 'property_transfer', label: 'Property transfer' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'estate-agents',
+    questions: [
+      {
+        id: 'estate_agent_need',
+        text: 'Are you looking to buy, sell, or rent a property?',
+        type: 'radio',
+        options: [
+          { value: 'sell', label: 'I want to sell my property' },
+          { value: 'buy', label: 'I\'m looking to buy a property' },
+          { value: 'rent', label: 'I\'m looking for a property to rent' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'labour-lawyers',
+    questions: [
+      {
+        id: 'labour_law_query',
+        text: 'What is the nature of your labour law query?',
+        type: 'radio',
+        options: [
+          { value: 'unfair_dismissal', label: 'Unfair dismissal' },
+          { value: 'contract_review', label: 'Employment contract review' },
+          { value: 'ccma_case', label: 'CCMA case' },
+          { value: 'general_advice', label: 'General advice' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'taxis',
+    questions: [
+      {
+        id: 'taxi_service_type',
+        text: 'What kind of taxi service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'once_off', label: 'Once-off trip' },
+          { value: 'airport_transfer', label: 'Airport transfer' },
+          { value: 'regular_commute', label: 'Regular commute' },
+          { value: 'event_transport', label: 'Event transport' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'school-transport',
+    questions: [
+      {
+        id: 'child_count',
+        text: 'For how many children do you need transport?',
+        type: 'radio',
+        options: [
+          { value: '1', label: '1 child' },
+          { value: '2', label: '2 children' },
+          { value: '3', label: '3 children' },
+          { value: '4_plus', label: '4+ children' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'transportation',
+    questions: [
+      {
+        id: 'transport_need',
+        text: 'What do you need to transport?',
+        type: 'radio',
+        options: [
+          { value: 'goods', label: 'Goods/Parcels' },
+          { value: 'furniture', label: 'Furniture' },
+          { value: 'people', label: 'People (Shuttle Service)' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'cellphone-repairs',
+    questions: [
+      {
+        id: 'cellphone_issue',
+        text: 'What is the issue with your cellphone?',
+        type: 'radio',
+        options: [
+          { value: 'screen', label: 'Cracked screen' },
+          { value: 'battery', label: 'Battery replacement' },
+          { value: 'water_damage', label: 'Water damage' },
+          { value: 'no_power', label: 'Not turning on' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'networking',
+    questions: [
+      {
+        id: 'networking_service',
+        text: 'What kind of networking service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'wifi', label: 'Home WiFi setup/troubleshooting' },
+          { value: 'office_network', label: 'Office network setup' },
+          { value: 'cabling', label: 'Cabling installation' },
+          { value: 'security', label: 'Network security' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'office-equipment',
+    questions: [
+      {
+        id: 'office_equipment_service',
+        text: 'What kind of office equipment service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'repair', label: 'Printer/Copier repair' },
+          { value: 'purchase', label: 'Equipment purchase' },
+          { value: 'rental', label: 'Equipment rental' },
+          { value: 'maintenance', label: 'General maintenance' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'internet-solutions',
+    questions: [
+      {
+        id: 'internet_solution_need',
+        text: 'What internet solution are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'fibre', label: 'Fibre installation' },
+          { value: 'adsl', label: 'ADSL/VDSL' },
+          { value: 'mobile', label: 'LTE/5G Mobile internet' },
+          { value: 'troubleshooting', label: 'General troubleshooting' },
         ],
       },
       ...commonQuestions,
