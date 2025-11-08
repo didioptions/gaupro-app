@@ -14,17 +14,20 @@ export type QuestionSet = {
 };
 
 export const allServices = [
+    { value: 'access-control', label: 'Access Control' },
     { value: 'accounting', label: 'Accounting' },
     { value: 'air-conditioning', label: 'Air Conditioning' },
     { value: 'alarm-systems', label: 'Alarm Systems' },
     { value: 'aluminium-doors-and-windows', label: 'Aluminium Doors And Windows' },
     { value: 'appliance-repairs', label: 'Appliance Repairs' },
     { value: 'architects', label: 'Architects' },
+    { value: 'armed-response', label: 'Armed Response' },
     { value: 'auditors', label: 'Auditors' },
     { value: 'auto-glass', label: 'Auto Glass' },
     { value: 'awnings', label: 'Awnings' },
     { value: 'balustrades', label: 'Balustrades' },
     { value: 'bathroom-renovations', label: 'Bathroom Renovations' },
+    { value: 'beauty-salons', label: 'Beauty Salons' },
     { value: 'blinds', label: 'Blinds' },
     { value: 'borehole-drillers', label: 'Borehole Drillers' },
     { value: 'builders', label: 'Builders' },
@@ -41,17 +44,20 @@ export const allServices = [
     { value: 'caterers', label: 'Caterers' },
     { value: 'cctv', label: 'Cctv' },
     { value: 'ceiling-installers', label: 'Ceiling Installers' },
+    { value: 'chiropractors', label: 'Chiropractors' },
     { value: 'cleaning-service', label: 'Cleaning Services' },
     { value: 'company-registrations', label: 'Company Registrations' },
     { value: 'computer-courses', label: 'Computer Courses' },
     { value: 'computer-repairs', label: 'Computer Repairs' },
     { value: 'concrete-slabs', label: 'Concrete Slabs' },
+    { value: 'counsellors', label: 'Counsellors' },
     { value: 'couriers', label: 'Couriers' },
     { value: 'curtains', label: 'Curtains' },
     { value: 'debt-collection', label: 'Debt Collection' },
     { value: 'debt-counsellors', label: 'Debt Counsellors' },
     { value: 'demolition', label: 'Demolition' },
     { value: 'dentists', label: 'Dentists' },
+    { value: 'dermatologists', label: 'Dermatologists' },
     { value: 'dieticians', label: 'Dieticians' },
     { value: 'divorce-lawyers', label: 'Divorce Lawyers' },
     { value: 'djs', label: 'Djs' },
@@ -65,6 +71,7 @@ export const allServices = [
     { value: 'event-planners', label: 'Event Planners' },
     { value: 'fencing', label: 'Fencing' },
     { value: 'financial-advisors', label: 'Financial Advisors' },
+    { value: 'fire-safety', label: 'Fire Safety' },
     { value: 'florists', label: 'Florists' },
     { value: 'flooring', label: 'Flooring' },
     { value: 'garage-doors', label: 'Garage Doors' },
@@ -77,6 +84,8 @@ export const allServices = [
     { value: 'glass-works', label: 'Glass Works' },
     { value: 'graphic-designers', label: 'Graphic Designers' },
     { value: 'guttering', label: 'Guttering' },
+    { value: 'gynaecologists', label: 'Gynaecologists' },
+    { value: 'hair-stylists', label: 'Hair Stylists' },
     { value: 'handyman', label: 'Handymen' },
     { value: 'high-pressure-cleaning', label: 'High Pressure Cleaning' },
     { value: 'home-improvements', label: 'Home Improvements' },
@@ -87,11 +96,13 @@ export const allServices = [
     { value: 'kitchen-renovations', label: 'Kitchen Renovations' },
     { value: 'laminate-flooring', label: 'Laminate Flooring' },
     { value: 'laptop-repairs', label: 'Laptop Repairs' },
+    { value: 'laser-clinics', label: 'Laser Clinics' },
     { value: 'laundry-services', label: 'Laundry Services' },
     { value: 'lawyers', label: 'Lawyers' },
     { value: 'loans', label: 'Loans' },
     { value: 'locksmiths', label: 'Locksmiths' },
     { value: 'logo-design', label: 'Logo Design' },
+    { value: 'make-up-artists', label: 'Make Up Artists' },
     { value: 'marriage-counsellors', label: 'Marriage Counsellors' },
     { value: 'massage-therapists', label: 'Massage Therapists' },
     { value: 'mechanics', label: 'Mechanics' },
@@ -103,8 +114,10 @@ export const allServices = [
     { value: 'painter', label: 'Painters' },
     { value: 'party-planners', label: 'Party Planners' },
     { value: 'paving', label: 'Paving' },
+    { value: 'personal-trainers', label: 'Personal Trainers' },
     { value: 'pest-control', label: 'Pest Control' },
     { value: 'photographers', label: 'Photographers' },
+    { value: 'physiotherapists', label: 'Physiotherapists' },
     { value: 'plant-hire', label: 'Plant Hire' },
     { value: 'plastering', label: 'Plastering' },
     { value: 'plastic-surgeons', label: 'Plastic Surgeons' },
@@ -138,6 +151,7 @@ export const allServices = [
     { value: 'toilet-hire', label: 'Toilet Hire' },
     { value: 'tow-bars', label: 'Tow Bars' },
     { value: 'towing', label: 'Towing' },
+    { value: 'tracing', label: 'Tracing' },
     { value: 'tree-felling', label: 'Tree Felling' },
     { value: 'tlb-hire', label: 'Tlb Hire' },
     { value: 'upholsterers', label: 'Upholsterers' },
@@ -1058,7 +1072,276 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
+  {
+    service: 'beauty-salons',
+    questions: [
+      {
+        id: 'treatment_type',
+        text: 'What beauty treatment are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'facial', label: 'Facial' },
+          { value: 'manicure_pedicure', label: 'Manicure/Pedicure' },
+          { value: 'waxing', label: 'Waxing' },
+          { value: 'massage', label: 'Massage' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'dermatologists',
+    questions: [
+      {
+        id: 'visit_reason',
+        text: 'What is the primary reason for your visit?',
+        type: 'radio',
+        options: [
+          { value: 'acne', label: 'Acne Treatment' },
+          { value: 'screening', label: 'Skin Cancer Screening' },
+          { value: 'eczema', label: 'Eczema/Psoriasis' },
+          { value: 'cosmetic', label: 'Cosmetic Dermatology' },
+          { value: 'consultation', label: 'General Consultation' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'laser-clinics',
+    questions: [
+      {
+        id: 'laser_treatment_type',
+        text: 'What type of laser treatment are you interested in?',
+        type: 'radio',
+        options: [
+          { value: 'hair_removal', label: 'Hair Removal' },
+          { value: 'tattoo_removal', label: 'Tattoo Removal' },
+          { value: 'skin_rejuvenation', label: 'Skin Rejuvenation' },
+          { value: 'scar_vein_treatment', label: 'Scar/Vein Treatment' },
+          { value: 'not_sure', label: 'Not Sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'personal-trainers',
+    questions: [
+      {
+        id: 'fitness_goal',
+        text: 'What is your main fitness goal?',
+        type: 'radio',
+        options: [
+          { value: 'weight_loss', label: 'Weight Loss' },
+          { value: 'muscle_gain', label: 'Muscle Gain' },
+          { value: 'general_fitness', label: 'Improve General Fitness' },
+          { value: 'sport_specific', label: 'Sport-specific Training' },
+          { value: 'rehabilitation', label: 'Post-injury Rehabilitation' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'chiropractors',
+    questions: [
+      {
+        id: 'concern_area',
+        text: 'What is the main area of concern?',
+        type: 'radio',
+        options: [
+          { value: 'back_pain', label: 'Back Pain' },
+          { value: 'neck_pain', label: 'Neck Pain' },
+          { value: 'headaches', label: 'Headaches/Migraines' },
+          { value: 'joint_pain', label: 'Joint Pain (e.g., shoulder, knee)' },
+          { value: 'wellness', label: 'General Wellness/Adjustment' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'make-up-artists',
+    questions: [
+      {
+        id: 'makeup_occasion',
+        text: 'What is the occasion for the makeup?',
+        type: 'radio',
+        options: [
+          { value: 'wedding', label: 'Wedding' },
+          { value: 'formal_event', label: 'Matric Dance/Formal Event' },
+          { value: 'photoshoot', label: 'Photoshoot/Filming' },
+          { value: 'lesson', label: 'Personal Lesson' },
+          { value: 'party', label: 'Special Occasion Party' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'physiotherapists',
+    questions: [
+      {
+        id: 'physio_reason',
+        text: 'What are you seeking physiotherapy for?',
+        type: 'radio',
+        options: [
+          { value: 'sports_injury', label: 'Sports Injury' },
+          { value: 'rehab', label: 'Post-surgery Rehabilitation' },
+          { value: 'chronic_pain', label: 'Chronic Pain Management' },
+          { value: 'assessment', label: 'General Assessment' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'counsellors',
+    questions: [
+      {
+        id: 'counselling_type',
+        text: 'What type of counselling are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'individual', label: 'Individual Counselling' },
+          { value: 'couples', label: 'Couples/Marriage Counselling' },
+          { value: 'family', label: 'Family Counselling' },
+          { value: 'trauma', label: 'Trauma/Grief Counselling' },
+          { value: 'not_sure', label: 'Not Sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'gynaecologists',
+    questions: [
+      {
+        id: 'gynae_reason',
+        text: 'What is the reason for your appointment?',
+        type: 'radio',
+        options: [
+          { value: 'checkup', label: 'Annual Check-up' },
+          { value: 'pregnancy', label: 'Pregnancy/Maternity Care' },
+          { value: 'menstrual', label: 'Menstrual Issues' },
+          { value: 'contraception', label: 'Contraception' },
+          { value: 'concern', label: 'Specific Concern' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'hair-stylists',
+    questions: [
+      {
+        id: 'hair_service',
+        text: 'What hair service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'cut_blowdry', label: 'Cut & Blow-dry' },
+          { value: 'colour', label: 'Colour/Highlights' },
+          { value: 'styling', label: 'Special Occasion Styling (Updo)' },
+          { value: 'treatment', label: 'Treatment' },
+          { value: 'consultation', label: 'Consultation' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'access-control',
+    questions: [
+      {
+        id: 'access_control_type',
+        text: 'What type of access control system do you need?',
+        type: 'radio',
+        options: [
+          { value: 'biometric', label: 'Biometric (Fingerprint/Face)' },
+          { value: 'card_tag', label: 'Card/Tag System' },
+          { value: 'keypad', label: 'Keypad System' },
+          { value: 'intercom', label: 'Intercom System' },
+          { value: 'repair', label: 'Repair/Maintenance' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'cctv',
+    questions: [
+      {
+        id: 'cctv_requirement',
+        text: 'What is your CCTV requirement?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'New Installation' },
+          { value: 'add_cameras', label: 'Add more cameras to existing system' },
+          { value: 'repair', label: 'Repair/Maintenance' },
+          { value: 'upgrade', label: 'Upgrade System' },
+          { value: 'remote_viewing', label: 'Remote Viewing Setup' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'tracing',
+    questions: [
+      {
+        id: 'tracing_type',
+        text: 'What type of tracing service do you require?',
+        type: 'radio',
+        options: [
+          { value: 'trace_person', label: 'Trace a Person' },
+          { value: 'trace_debtor', label: 'Trace a Debtor' },
+          { value: 'trace_witness', label: 'Trace a Witness' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'armed-response',
+    questions: [
+      {
+        id: 'property_type_security',
+        text: 'What type of property needs armed response?',
+        type: 'radio',
+        options: [
+          { value: 'residential', label: 'Residential Home' },
+          { value: 'business', label: 'Business/Commercial Property' },
+          { value: 'complex', label: 'Complex/Estate' },
+          { value: 'farm', label: 'Farm/Plot' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'fire-safety',
+    questions: [
+      {
+        id: 'fire_safety_service',
+        text: 'What fire safety service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'extinguisher', label: 'Fire Extinguisher Supply/Service' },
+          { value: 'alarm_system', label: 'Fire Detection/Alarm System' },
+          { value: 'certificate', label: 'Fire Safety Certificate (Compliance)' },
+          { value: 'consultation', label: 'Fire Escape Plan/Consultation' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
 ];
+
 
 
 
