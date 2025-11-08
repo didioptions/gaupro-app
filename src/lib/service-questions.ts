@@ -23,17 +23,21 @@ export const allServices = [
     { value: 'architects', label: 'Architects' },
     { value: 'armed-response', label: 'Armed Response' },
     { value: 'auditors', label: 'Auditors' },
+    { value: 'auto-electricians', label: 'Auto Electricians' },
     { value: 'auto-glass', label: 'Auto Glass' },
     { value: 'awnings', label: 'Awnings' },
     { value: 'balustrades', label: 'Balustrades' },
     { value: 'bathroom-renovations', label: 'Bathroom Renovations' },
+    { value: 'batteries', label: 'Batteries' },
     { value: 'beauty-salons', label: 'Beauty Salons' },
     { value: 'blinds', label: 'Blinds' },
     { value: 'borehole-drillers', label: 'Borehole Drillers' },
+    { value: 'brakes-and-clutches', label: 'Brakes and Clutches' },
     { value: 'builders', label: 'Builders' },
     { value: 'building-materials', label: 'Building Materials' },
     { value: 'burglar-bars', label: 'Burglar Bars' },
     { value: 'business-consultants', label: 'Business Consultants' },
+    { value: 'car-aircon-regassing', label: 'Car Aircon Regassing' },
     { value: 'car-alarms', label: 'Car Alarms' },
     { value: 'car-tracking', label: 'Car Tracking' },
     { value: 'car-window-tinting', label: 'Car Window Tinting' },
@@ -67,19 +71,25 @@ export const allServices = [
     { value: 'dstv-installers', label: 'Dstv Installers' },
     { value: 'electric-fencing', label: 'Electric Fencing' },
     { value: 'electrician', label: 'Electricians' },
+    { value: 'engine-overhauls', label: 'Engine Overhauls' },
     { value: 'event-decorations', label: 'Event Decorations' },
     { value: 'event-planners', label: 'Event Planners' },
     { value: 'fencing', label: 'Fencing' },
     { value: 'financial-advisors', label: 'Financial Advisors' },
     { value: 'fire-safety', label: 'Fire Safety' },
+    { value: 'firearm-training', label: 'Firearm Training' },
+    { value: 'first-aid', label: 'First Aid' },
     { value: 'florists', label: 'Florists' },
     { value: 'flooring', label: 'Flooring' },
+    { value: 'forklift-training', label: 'Forklift Training' },
+    { value: 'fuels', label: 'Fuels' },
     { value: 'garage-doors', label: 'Garage Doors' },
     { value: 'garage-door-motors', label: 'Garage Door Motors' },
     { value: 'gardeners', label: 'Gardeners' },
     { value: 'gas-installers', label: 'Gas Installers' },
     { value: 'gates', label: 'Gates' },
     { value: 'gate-motors', label: 'Gate Motors' },
+    { value: 'gearboxes', label: 'Gearboxes' },
     { value: 'generators', label: 'Generators' },
     { value: 'glass-works', label: 'Glass Works' },
     { value: 'graphic-designers', label: 'Graphic Designers' },
@@ -88,6 +98,7 @@ export const allServices = [
     { value: 'hair-stylists', label: 'Hair Stylists' },
     { value: 'handyman', label: 'Handymen' },
     { value: 'high-pressure-cleaning', label: 'High Pressure Cleaning' },
+    { value: 'holiday-accommodation', label: 'Holiday Accommodation' },
     { value: 'home-improvements', label: 'Home Improvements' },
     { value: 'home-loans', label: 'Home Loans' },
     { value: 'insurance', label: 'Insurance' },
@@ -99,6 +110,7 @@ export const allServices = [
     { value: 'laser-clinics', label: 'Laser Clinics' },
     { value: 'laundry-services', label: 'Laundry Services' },
     { value: 'lawyers', label: 'Lawyers' },
+    { value: 'life-coaches', label: 'Life Coaches' },
     { value: 'loans', label: 'Loans' },
     { value: 'locksmiths', label: 'Locksmiths' },
     { value: 'logo-design', label: 'Logo Design' },
@@ -134,6 +146,7 @@ export const allServices = [
     { value: 'rubble-removal', label: 'Rubble Removals' },
     { value: 'security', label: 'Security' },
     { value: 'security-gates', label: 'Security Gates' },
+    { value: 'security-training', label: 'Security Training' },
     { value: 'shadeports', label: 'Shadeports' },
     { value: 'shower-doors', label: 'Shower Doors' },
     { value: 'shuttle-services', label: 'Shuttle Services' },
@@ -144,6 +157,7 @@ export const allServices = [
     { value: 'swimming-lessons', label: 'Swimming Lessons' },
     { value: 'swimming-pool-builders', label: 'Swimming Pool Builders' },
     { value: 'tar-surfacing', label: 'Tar Surfacing' },
+    { value: 'team-building', label: 'Team Building' },
     { value: 'thatched-roofing', label: 'Thatched Roofing' },
     { value: 'tent-hire', label: 'Tent Hire' },
     { value: 'tiler', label: 'Tiler' },
@@ -156,10 +170,12 @@ export const allServices = [
     { value: 'tlb-hire', label: 'Tlb Hire' },
     { value: 'upholsterers', label: 'Upholsterers' },
     { value: 'upholstery-cleaning', label: 'Upholstery Cleaning' },
+    { value: 'venues', label: 'Venues' },
     { value: 'videographers', label: 'Videographers' },
     { value: 'waterproofing', label: 'Waterproofing' },
     { value: 'website-designers', label: 'Website Designers' },
     { value: 'wedding-photographers', label: 'Wedding Photographers' },
+    { value: 'wedding-venues', label: 'Wedding Venues' },
     { value: 'welders', label: 'Welders' },
     { value: 'wendy-houses', label: 'Wendy Houses' },
     { value: 'window-cleaning', label: 'Window Cleaning' },
@@ -1340,11 +1356,283 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
+  {
+    service: 'auto-electricians',
+    questions: [
+      {
+        id: 'auto_electric_issue',
+        text: "What issue are you experiencing with your vehicle's electronics?",
+        type: 'radio',
+        options: [
+          { value: 'battery_starting', label: 'Battery/Starting issues' },
+          { value: 'faulty_lights', label: 'Faulty lights' },
+          { value: 'wiring_problems', label: 'Wiring problems' },
+          { value: 'warning_lights', label: 'Warning lights on dashboard' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'car-aircon-regassing',
+    questions: [
+      {
+        id: 'aircon_service',
+        text: "What service do you need for your car's aircon?",
+        type: 'radio',
+        options: [
+          { value: 'regassing', label: 'Regassing' },
+          { value: 'repair', label: 'Repair (not cooling)' },
+          { value: 'leak_detection', label: 'Leak detection' },
+          { value: 'general_service', label: 'General service' },
+          { value: 'not_sure', label: 'Not sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'gearboxes',
+    questions: [
+      {
+        id: 'gearbox_service',
+        text: 'What service do you need for your gearbox?',
+        type: 'radio',
+        options: [
+          { value: 'repair', label: 'Repair' },
+          { value: 'replacement', label: 'Replacement' },
+          { value: 'service_oil_change', label: 'Service/Oil change' },
+          { value: 'diagnostics', label: 'Diagnostics' },
+          { value: 'not_sure', label: 'Not sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'batteries',
+    questions: [
+      {
+        id: 'battery_help',
+        text: 'What do you need help with regarding your battery?',
+        type: 'radio',
+        options: [
+          { value: 'new_battery', label: 'New battery purchase' },
+          { value: 'testing', label: 'Battery testing' },
+          { value: 'fitting', label: 'Battery fitting/installation' },
+          { value: 'flat', label: "Battery is flat/car won't start" },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'engine-overhauls',
+    questions: [
+      {
+        id: 'overhaul_reason',
+        text: 'What is the reason for the engine overhaul?',
+        type: 'radio',
+        options: [
+          { value: 'high_mileage', label: 'High mileage/wear' },
+          { value: 'failure', label: 'Specific failure (e.g., blown gasket)' },
+          { value: 'performance', label: 'Performance upgrade' },
+          { value: 'diagnostics', label: 'Diagnostics/Quote' },
+          { value: 'not_sure', label: 'Not sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'brakes-and-clutches',
+    questions: [
+      {
+        id: 'brake_clutch_service',
+        text: 'What service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'brake', label: 'Brake replacement/repair' },
+          { value: 'clutch', label: 'Clutch replacement/repair' },
+          { value: 'both', label: 'Both brake and clutch' },
+          { value: 'inspection', label: 'Inspection/Diagnostics' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'fuels',
+    questions: [
+      {
+        id: 'fuel_service',
+        text: 'What fuel service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'emergency_delivery', label: 'Emergency fuel delivery' },
+          { value: 'bulk_supply', label: 'Bulk fuel supply' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'forklift-training',
+    questions: [
+      {
+        id: 'forklift_training_type',
+        text: 'What type of forklift training do you need?',
+        type: 'radio',
+        options: [
+          { value: 'certification', label: 'New operator certification' },
+          { value: 'refresher', label: 'Refresher course' },
+          { value: 'group_training', label: 'On-site group training' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'team-building',
+    questions: [
+      {
+        id: 'team_size',
+        text: 'What is the approximate size of your team?',
+        type: 'radio',
+        options: [
+          { value: 'small', label: 'Small (1-10 people)' },
+          { value: 'medium', label: 'Medium (11-30 people)' },
+          { value: 'large', label: 'Large (31-100 people)' },
+          { value: 'very_large', label: 'Very Large (101+ people)' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'life-coaches',
+    questions: [
+      {
+        id: 'coaching_area',
+        text: 'What area are you seeking coaching for?',
+        type: 'radio',
+        options: [
+          { value: 'career', label: 'Career development' },
+          { value: 'personal_growth', label: 'Personal growth' },
+          { value: 'relationships', label: 'Relationships' },
+          { value: 'health_wellness', label: 'Health and wellness' },
+          { value: 'balance', label: 'General life balance' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'firearm-training',
+    questions: [
+      {
+        id: 'firearm_training_type',
+        text: 'What type of firearm training are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'competency', label: 'Competency training (for license)' },
+          { value: 'advanced', label: 'Advanced/Tactical training' },
+          { value: 'sport', label: 'Sport shooting' },
+          { value: 'self_defense', label: 'Self-defense' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'security-training',
+    questions: [
+      {
+        id: 'security_training_grade',
+        text: 'What grade of security training are you interested in?',
+        type: 'radio',
+        options: [
+          { value: 'e_to_c', label: 'Grade E to C (Basic)' },
+          { value: 'b_to_a', label: 'Grade B to A (Supervisory)' },
+          { value: 'specialized', label: 'Specialized (e.g., Armed Response, CIT)' },
+          { value: 'not_sure', label: 'Not sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'first-aid',
+    questions: [
+      {
+        id: 'first_aid_level',
+        text: 'What level of First Aid training do you need?',
+        type: 'radio',
+        options: [
+          { value: 'level_1', label: 'Level 1 (Basic)' },
+          { value: 'level_2', label: 'Level 2' },
+          { value: 'level_3', label: 'Level 3' },
+          { value: 'group', label: 'Group/Corporate training' },
+          { value: 'not_sure', label: 'Not sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'holiday-accommodation',
+    questions: [
+      {
+        id: 'accommodation_type',
+        text: 'What type of holiday accommodation are you looking for?',
+        type: 'radio',
+        options: [
+          { value: 'self_catering', label: 'Self-Catering' },
+          { value: 'b_and_b', label: 'Bed & Breakfast' },
+          { value: 'hotel', label: 'Hotel' },
+          { value: 'guest_house', label: 'Guest House' },
+          { value: 'lodge', label: 'Lodge' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'venues',
+    questions: [
+      {
+        id: 'venue_event_type',
+        text: 'What type of event are you planning?',
+        type: 'radio',
+        options: [
+          { value: 'conference', label: 'Conference/Meeting' },
+          { value: 'party', label: 'Party (Birthday, etc.)' },
+          { value: 'corporate', label: 'Corporate Function' },
+          { value: 'wedding', label: 'Wedding' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'wedding-venues',
+    questions: [
+      {
+        id: 'guest_count',
+        text: 'How many guests are you expecting?',
+        type: 'radio',
+        options: [
+          { value: 'intimate', label: 'Intimate (1-50)' },
+          { value: 'medium', label: 'Medium (51-120)' },
+          { value: 'large', label: 'Large (121-200)' },
+          { value: 'very_large', label: 'Very Large (201+)' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
 ];
-
-
-
-
-
-
-
