@@ -1,6 +1,229 @@
 
 
+
 export const allProfessionals = {
+    "generators": [
+        {
+            id: "powergen-sa",
+            name: "PowerGen SA",
+            location: "Johannesburg",
+            description: "Leading supplier of residential and commercial generators. We offer sales, installation, and maintenance services for all major brands to keep you powered during outages.",
+            rating: 4.8,
+            reviews: 120,
+            isProVerified: true,
+            reviewData: [{ author: "Thabo L.", phone: "071****567", rating: 5, comment: "Excellent service from the sales team to the installers. Our generator works perfectly." }],
+            photos: ["https://picsum.photos/seed/gen1/600/400"],
+            avatarSeed: "powergen-logo"
+        },
+        {
+            id: "backup-power-cpt",
+            name: "Backup Power CPT",
+            location: "Cape Town",
+            description: "Specialists in backup power solutions, including diesel generators and UPS systems. We provide expert advice and professional installations for homes and businesses.",
+            rating: 4.7,
+            reviews: 95,
+            isProVerified: true,
+            reviewData: [{ author: "Sarah P.", phone: "082****111", rating: 5, comment: "They helped me choose the right size generator for my home. Very knowledgeable and friendly staff." }],
+            photos: ["https://picsum.photos/seed/gen2/600/400"],
+            avatarSeed: "backup-power-logo"
+        }
+    ],
+    "gas-suppliers": [
+        {
+            id: "gas-direct-sa",
+            name: "Gas Direct SA",
+            location: "Nationwide Delivery",
+            description: "Your reliable source for LP gas refills and new cylinder sales. We offer convenient delivery services for residential and commercial customers across the country.",
+            rating: 4.9,
+            reviews: 350,
+            isProVerified: true,
+            reviewData: [{ author: "John D.", phone: "083****789", rating: 5, comment: "Super easy to order online and they deliver the next day. Great service!" }],
+            photos: ["https://picsum.photos/seed/gas1/600/400"],
+            avatarSeed: "gas-direct-logo"
+        }
+    ],
+    "marble-and-granite-suppliers": [
+        {
+            id: "stone-elegance",
+            name: "Stone Elegance",
+            location: "Johannesburg",
+            description: "Direct importers and suppliers of high-quality marble, granite, and quartz slabs. We supply to fabricators, developers, and the public for kitchens, bathrooms, and more.",
+            rating: 4.8,
+            reviews: 88,
+            isProVerified: true,
+            reviewData: [{ author: "Priya K.", phone: "072****444", rating: 5, comment: "The most beautiful selection of granite I've seen. The staff were very helpful in finding the perfect slab for my kitchen." }],
+            photos: ["https://picsum.photos/seed/stone1/600/400", "https://picsum.photos/seed/stone2/600/400"],
+            avatarSeed: "stone-elegance-logo"
+        }
+    ],
+    "personal-protection-equipment": [
+        {
+            id: "safety-first-ppe",
+            name: "Safety First PPE",
+            location: "Germiston, Gauteng",
+            description: "One-stop shop for all your Personal Protective Equipment needs. We supply hard hats, safety boots, high-visibility clothing, gloves, and respiratory protection to all industries.",
+            rating: 4.7,
+            reviews: 150,
+            isProVerified: true,
+            reviewData: [{ author: "ABC Construction", phone: "", rating: 5, comment: "They always have stock and their pricing is very competitive. Our go-to supplier for all our site safety gear." }],
+            photos: ["https://picsum.photos/seed/ppe1/600/400"],
+            avatarSeed: "safety-first-logo"
+        }
+    ],
+    "stationery": [
+        {
+            id: "office-hub-supplies",
+            name: "Office Hub Supplies",
+            location: "Online, Nationwide Delivery",
+            description: "Your online source for all office stationery and supplies. From paper and pens to printer cartridges and files, we deliver everything you need right to your office door.",
+            rating: 4.6,
+            reviews: 210,
+            isProVerified: true,
+            reviewData: [{ author: "Sarah L.", phone: "", rating: 5, comment: "Fast delivery and a huge range of products. Makes stocking up the office so much easier." }],
+            photos: ["https://picsum.photos/seed/stationery1/600/400"],
+            avatarSeed: "office-hub-logo"
+        }
+    ],
+    "swimming-pool-supplies": [
+        {
+            id: "pool-pro-warehouse",
+            name: "Pool Pro Warehouse",
+            location: "Randburg, Johannesburg",
+            description: "The largest range of swimming pool supplies under one roof. We stock chemicals, pumps, filters, automatic pool cleaners, and maintenance equipment at warehouse prices.",
+            rating: 4.8,
+            reviews: 180,
+            isProVerified: true,
+            reviewData: [{ author: "Mike V.", phone: "084****555", rating: 5, comment: "They have everything you could possibly need for your pool. Staff are knowledgeable and always happy to give advice." }],
+            photos: ["https://picsum.photos/seed/poolsupply1/600/400"],
+            avatarSeed: "pool-pro-logo"
+        }
+    ],
+    "agricultural-equipment": [
+        {
+            id: "agri-mech-sa",
+            name: "Agri-Mech SA",
+            location: "Bothaville, Free State",
+            description: "Suppliers of new and used agricultural equipment. We are official dealers for major tractor, harvester, and implement brands, offering sales, parts, and servicing.",
+            rating: 4.7,
+            reviews: 75,
+            isProVerified: true,
+            reviewData: [{ author: "Koos v.d. Merwe", phone: "", rating: 5, comment: "Excellent service and after-sales support. They always go the extra mile to keep our farm running." }],
+            photos: ["https://picsum.photos/seed/agri1/600/400", "https://picsum.photos/seed/agri2/600/400"],
+            avatarSeed: "agri-mech-logo"
+        }
+    ],
+    "agricultural-services": [
+        {
+            id: "farm-assist-za",
+            name: "Farm-Assist ZA",
+            location: "Paarl, Western Cape",
+            description: "Professional agricultural services including crop spraying, soil analysis, irrigation design, and farm management consulting. Helping you maximise your yield and efficiency.",
+            rating: 4.9,
+            reviews: 40,
+            isProVerified: true,
+            reviewData: [{ author: "Stellenbosch Farms", phone: "", rating: 5, comment: "Their soil analysis and recommendations have made a huge difference to our crop health. Invaluable service." }],
+            photos: ["https://picsum.photos/seed/agriservice1/600/400"],
+            avatarSeed: "farm-assist-logo"
+        }
+    ],
+    "irrigation": [
+        {
+            id: "water-wise-irrigation",
+            name: "Water-Wise Irrigation",
+            location: "Cape Town, Western Cape",
+            description: "Design, installation, and maintenance of water-efficient irrigation systems for gardens, sports fields, and farms. We specialize in automated sprinkler and drip systems.",
+            rating: 4.8,
+            reviews: 110,
+            isProVerified: true,
+            reviewData: [{ author: "Jane D.", phone: "082****123", rating: 5, comment: "My garden has never looked better and I'm using less water! The automated system is a game-changer." }],
+            photos: ["https://picsum.photos/seed/irrigation1/600/400"],
+            avatarSeed: "water-wise-logo"
+        }
+    ],
+    "architects": [
+        {
+            id: "urban-form-architects",
+            name: "UrbanForm Architects",
+            location: "Johannesburg",
+            description: "A contemporary architectural firm specializing in modern residential and commercial design. We create innovative, sustainable, and beautiful spaces tailored to our clients' needs.",
+            rating: 4.9,
+            reviews: 65,
+            isProVerified: true,
+            reviewData: [{ author: "The Smiths", phone: "", rating: 5, comment: "They designed our dream home. The process was creative, collaborative, and professional from start to finish." }],
+            photos: ["https://picsum.photos/seed/arch1/600/400", "https://picsum.photos/seed/arch2/600/400"],
+            avatarSeed: "urban-form-logo"
+        }
+    ],
+    "borehole-drillers": [
+        {
+            id: "deep-source-drilling",
+            name: "DeepSource Drilling",
+            location: "Gauteng",
+            description: "Professional borehole drilling services for residential, agricultural, and commercial properties. We handle everything from geological surveys to pump installation and water testing.",
+            rating: 4.7,
+            reviews: 82,
+            isProVerified: true,
+            reviewData: [{ author: "Peter J.", phone: "083****999", rating: 5, comment: "Found a strong water source on my property. The team was efficient and the whole process was surprisingly quick." }],
+            photos: ["https://picsum.photos/seed/borehole1/600/400"],
+            avatarSeed: "deepsource-logo"
+        }
+    ],
+    "town-planners": [
+        {
+            id: "city-scope-planners",
+            name: "CityScope Planners",
+            location: "Pretoria, Gauteng",
+            description: "Expert town and regional planning consultants. We assist with zoning applications, subdivisions, consent use, and development feasibility studies to navigate municipal regulations.",
+            rating: 4.8,
+            reviews: 55,
+            isProVerified: true,
+            reviewData: [{ author: "ABC Developers", phone: "", rating: 5, comment: "They are masters at navigating council bureaucracy. They've saved us time and money on multiple projects." }],
+            photos: ["https://picsum.photos/seed/townplan1/600/400"],
+            avatarSeed: "city-scope-logo"
+        }
+    ],
+    "baby-sitters": [
+        {
+            id: "nanny-on-call",
+            name: "Nanny-on-Call",
+            location: "Cape Town & Johannesburg",
+            description: "Providing trusted, vetted, and experienced babysitters and nannies for once-off, regular, or full-time placements. Your child's safety and happiness is our priority.",
+            rating: 4.9,
+            reviews: 130,
+            isProVerified: true,
+            reviewData: [{ author: "Sarah T.", phone: "084****112", rating: 5, comment: "The babysitter they sent was wonderful with my kids. A very professional and reassuring service." }],
+            photos: ["https://picsum.photos/seed/babysitter1/600/400"],
+            avatarSeed: "nanny-on-call-logo"
+        }
+    ],
+    "day-care-centres": [
+        {
+            id: "kiddie-cove-daycare",
+            name: "Kiddie Cove Daycare",
+            location: "Durbanville, Cape Town",
+            description: "A loving and safe daycare centre for children aged 6 months to 5 years. We focus on learning through play in a stimulating and nurturing environment.",
+            rating: 4.8,
+            reviews: 60,
+            isProVerified: true,
+            reviewData: [{ author: "James P.", phone: "071****567", rating: 5, comment: "A wonderful daycare with a loving atmosphere. The staff are fantastic and communicate with parents regularly." }],
+            photos: ["https://picsum.photos/seed/daycare1/600/400"],
+            avatarSeed: "kiddie-cove-logo"
+        }
+    ],
+    "pre-schools": [
+        {
+            id: "bright-beginnings-preschool",
+            name: "Bright Beginnings Preschool",
+            location: "Umhlanga, Durban",
+            description: "Preparing your child for 'big school' with a curriculum that focuses on school readiness, social skills, and creative expression. Small classes for individual attention.",
+            rating: 4.9,
+            reviews: 75,
+            isProVerified: true,
+            reviewData: [{ author: "Priya K.", phone: "084****890", rating: 5, comment: "My son has learned so much and is so confident now. A fantastic preschool with caring teachers." }],
+            photos: ["https://picsum.photos/seed/preschool1/600/400"],
+            avatarSeed: "bright-beginnings-logo"
+        }
+    ],
     "holiday-accommodation": [
         {
             id: "coastal-escapes-cpt",
