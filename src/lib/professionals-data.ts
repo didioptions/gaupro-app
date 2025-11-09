@@ -1,7 +1,130 @@
 
 
-
 export const allProfessionals = {
+    "dressmakers": [
+        {
+            id: "sew-elegant-jhb",
+            name: "Sew Elegant JHB",
+            location: "Rosebank, Johannesburg",
+            description: "Expert dressmaking and alterations for all occasions. We create custom wedding gowns, matric dance dresses, and provide professional tailoring for a perfect fit.",
+            rating: 4.9,
+            reviews: 65,
+            isProVerified: true,
+            reviewData: [{ author: "Thandi M.", phone: "082****123", rating: 5, comment: "They made my wedding dress and it was absolutely perfect. The attention to detail was amazing." }],
+            photos: ["https://picsum.photos/seed/dress1/600/400"],
+            avatarSeed: "sew-elegant-logo"
+        },
+        {
+            id: "the-alteration-studio",
+            name: "The Alteration Studio",
+            location: "Sea Point, Cape Town",
+            description: "From simple hemming to complex resizing, we provide high-quality clothing alterations for men and women. Bring your garments for a professional finish and a perfect fit.",
+            rating: 4.8,
+            reviews: 110,
+            isProVerified: true,
+            reviewData: [{ author: "John S.", phone: "071****567", rating: 5, comment: "Fast, professional, and my suit fits perfectly now. Highly recommend their services." }],
+            photos: ["https://picsum.photos/seed/dress2/600/400"],
+            avatarSeed: "alteration-studio-logo"
+        }
+    ],
+    "embroidery": [
+        {
+            id: "stitch-it-pro",
+            name: "Stitch-It Pro",
+            location: "Pretoria, Gauteng",
+            description: "Custom embroidery for corporate branding, team uniforms, and personalized gifts. We offer high-quality digitizing and stitching on a wide range of garments and fabrics.",
+            rating: 4.7,
+            reviews: 80,
+            isProVerified: true,
+            reviewData: [{ author: "ABC Corp", phone: "", rating: 5, comment: "Our company shirts look fantastic with our logo embroidered. The quality is top-notch." }],
+            photos: ["https://picsum.photos/seed/emb1/600/400"],
+            avatarSeed: "stitch-it-pro-logo"
+        }
+    ],
+    "cake-shops": [
+        {
+            id: "the-sweet-spot-bakery",
+            name: "The Sweet Spot Bakery",
+            location: "Durbanville, Cape Town",
+            description: "Artisanal bakery specializing in custom cakes for weddings, birthdays, and special occasions. We also offer a delicious range of cupcakes, pastries, and daily treats.",
+            rating: 4.9,
+            reviews: 120,
+            isProVerified: true,
+            reviewData: [{ author: "Sarah P.", phone: "082****111", rating: 5, comment: "The most beautiful and delicious wedding cake! Our guests couldn't stop talking about it." }],
+            photos: ["https://picsum.photos/seed/cake1/600/400", "https://picsum.photos/seed/cake2/600/400"],
+            avatarSeed: "sweet-spot-bakery-logo"
+        }
+    ],
+    "caterers": [
+        {
+            id: "gourmet-gatherings-cpt",
+            name: "Gourmet Gatherings CPT",
+            location: "Cape Town",
+            description: "Boutique catering for corporate events, weddings, and private parties. We create bespoke menus using fresh, local ingredients to make your event unforgettable.",
+            rating: 4.8,
+            reviews: 95,
+            isProVerified: true,
+            reviewData: [{ author: "XYZ Events", phone: "", rating: 5, comment: "Their food is always a highlight at our corporate functions. Professional, creative, and delicious." }],
+            photos: ["https://picsum.photos/seed/cater1/600/400"],
+            avatarSeed: "gourmet-gatherings-logo"
+        }
+    ],
+    "groomers": [
+        {
+            id: "the-dapper-dog-jhb",
+            name: "The Dapper Dog JHB",
+            location: "Sandton, Johannesburg",
+            description: "Professional and gentle pet grooming for dogs of all sizes. Our services include washing, clipping, nail trimming, and de-shedding in a calm and clean environment.",
+            rating: 4.9,
+            reviews: 150,
+            isProVerified: true,
+            reviewData: [{ author: "Lindiwe T.", phone: "084****444", rating: 5, comment: "My fluffy dog always comes back looking and smelling amazing. The staff are so patient and caring." }],
+            photos: ["https://picsum.photos/seed/groom1/600/400"],
+            avatarSeed: "dapper-dog-logo"
+        }
+    ],
+    "pet-sitters": [
+        {
+            id: "happy-paws-pet-sitting",
+            name: "Happy Paws Pet Sitting",
+            location: "Johannesburg North",
+            description: "Reliable and loving pet sitting services in the comfort of your own home. We also offer daily dog walking and check-in visits to keep your pets happy while you're away.",
+            rating: 5.0,
+            reviews: 80,
+            isProVerified: true,
+            reviewData: [{ author: "Mike V.", phone: "083****999", rating: 5, comment: "I can travel without worrying about my cats. They send me daily updates and the cats are always happy and relaxed when I get back." }],
+            photos: ["https://picsum.photos/seed/petsit1/600/400"],
+            avatarSeed: "happy-paws-logo"
+        }
+    ],
+    "tour-operators": [
+        {
+            id: "safari-scapes-sa",
+            name: "Safari-Scapes SA",
+            location: "Johannesburg &amp; Kruger Park",
+            description: "Specialists in tailor-made Kruger National Park safaris and tours. We offer guided game drives, luxury lodge accommodation, and unforgettable wildlife experiences.",
+            rating: 4.9,
+            reviews: 210,
+            isProVerified: true,
+            reviewData: [{ author: "Anna S.", phone: "082****123", rating: 5, comment: "The best safari of my life! Our guide was incredibly knowledgeable and we saw the Big 5. Highly recommend." }],
+            photos: ["https://picsum.photos/seed/tour1/600/400", "https://picsum.photos/seed/tour2/600/400"],
+            avatarSeed: "safari-scapes-logo"
+        }
+    ],
+    "travel-agents": [
+        {
+            id: "global-journeys-travel",
+            name: "Global Journeys Travel",
+            location: "Online / Nationwide",
+            description: "Your personal travel experts for local and international holidays. We find the best deals on flights, accommodation, and tour packages to create your dream vacation.",
+            rating: 4.8,
+            reviews: 180,
+            isProVerified: true,
+            reviewData: [{ author: "David C.", phone: "072****444", rating: 5, comment: "They planned our family trip to Thailand perfectly. Everything was seamless and they saved us a lot of money." }],
+            photos: ["https://picsum.photos/seed/travel1/600/400"],
+            avatarSeed: "global-journeys-logo"
+        }
+    ],
     "generators": [
         {
             id: "powergen-sa",
@@ -186,7 +309,7 @@ export const allProfessionals = {
         {
             id: "nanny-on-call",
             name: "Nanny-on-Call",
-            location: "Cape Town & Johannesburg",
+            location: "Cape Town &amp; Johannesburg",
             description: "Providing trusted, vetted, and experienced babysitters and nannies for once-off, regular, or full-time placements. Your child's safety and happiness is our priority.",
             rating: 4.9,
             reviews: 130,
@@ -424,7 +547,7 @@ export const allProfessionals = {
         {
             id: "city-link-shuttles",
             name: "City-Link Shuttles",
-            location: "O.R. Tambo & Cape Town Int'l",
+            location: "O.R. Tambo &amp; Cape Town Int'l",
             description: "Reliable and affordable airport transfers and point-to-point shuttle services. Clean vehicles, professional drivers, and always on time. Book your ride with us.",
             rating: 4.9,
             reviews: 280,
@@ -536,7 +659,7 @@ export const allProfessionals = {
         {
             id: "connect-it-networks",
             name: "Connect-IT Networks",
-            location: "Johannesburg & Pretoria",
+            location: "Johannesburg &amp; Pretoria",
             description: "Professional {service} for home and office. We design and install structured cabling, set up secure Wi-Fi networks, and configure servers and switches for optimal performance.",
             rating: 4.9,
             reviews: 85,
@@ -717,7 +840,7 @@ export const allProfessionals = {
         },
         {
             id: "cape-floor-wall-tilers",
-            name: "Cape Floor & Wall Tilers",
+            name: "Cape Floor &amp; Wall Tilers",
             location: "Cape Town City Bowl",
             description: "Specialists in residential and commercial tiling services in the Western Cape. We provide waterproofing, screeding, and expert installation of all tile types, ensuring a perfect finish every time.",
             rating: 4.7,
@@ -942,7 +1065,7 @@ export const allProfessionals = {
         },
         {
             id: "oceanic-pools-solutions",
-            name: "Oceanic Pools & Spa Solutions",
+            name: "Oceanic Pools &amp; Spa Solutions",
             location: "Bedfordview, Johannesburg",
             description: "We design and maintain pools that bring resort-style comfort to your home. From new builds to spa integration and heating, we’ve got you covered.",
             rating: 5.0,
@@ -980,7 +1103,7 @@ export const allProfessionals = {
     "plant-hire": [
         {
             id: "wasteden-demolitions",
-            name: "Wasteden Demolitions & Waste Removals",
+            name: "Wasteden Demolitions &amp; Waste Removals",
             location: "Johannesburg",
             description: "We handle all types of demolition and rubble removals — both interior and exterior — as well as bulk earthworks and site cleaning.",
             tags: ["Demolition", "rubble removal", "bulk earthworks", "site cleaning", "interior demolition"],
@@ -1008,7 +1131,7 @@ export const allProfessionals = {
             id: "sid-plant-hire",
             name: "Sid Plant",
             location: "Parktown, Johannesburg",
-            description: "TLB & tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
+            description: "TLB &amp; tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
             tags: ["TLB hire", "tipper truck hire", "site clearing", "demolitions", "trenching"],
             rating: 5.0,
             reviews: 1,
@@ -1058,7 +1181,7 @@ export const allProfessionals = {
         },
         {
             id: "thabos-plant-hire",
-            name: "Thabo’s Plant & Equipment Hire",
+            name: "Thabo’s Plant &amp; Equipment Hire",
             location: "Soweto, Johannesburg",
             description: "TLB hire, grader hire, and rubble removal for small to large projects. Ideal for both private residential jobs and municipal work.",
             tags: ["TLB hire", "grader hire", "rubble removal"],
@@ -1128,9 +1251,9 @@ export const allProfessionals = {
         },
         {
             id: "revision-contracting",
-            name: "Revision Contracting & Projects (Pty) Ltd",
+            name: "Revision Contracting &amp; Projects (Pty) Ltd",
             location: "Norkem Park, Kempton Park",
-            description: "Revision Contracting & Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
+            description: "Revision Contracting &amp; Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
             rating: 5.0,
             reviews: 1,
             address: "Norkem Park, Kempton Park",
@@ -1176,7 +1299,7 @@ export const allProfessionals = {
         },
         {
             id: "freshtone-painters",
-            name: "FreshTone Painters & Decor",
+            name: "FreshTone Painters &amp; Decor",
             location: "Aston Manor, Kempton Park",
             description: "FreshTone Painters brings over 12 years of experience in wall coatings, ceiling painting, and interior décor finishes. Using premium paints, they deliver vibrant, long-lasting color for every surface.",
             rating: 4.9,
@@ -1226,9 +1349,9 @@ export const allProfessionals = {
         },
         {
             id: "mavuso-construction",
-            name: "Mavuso Construction & Maintenance",
+            name: "Mavuso Construction &amp; Maintenance",
             location: "Steeledale, Johannesburg South",
-            description: "Mavuso Construction & Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
+            description: "Mavuso Construction &amp; Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
             rating: 4.7,
             reviews: 8,
             address: "Steeledale, Johannesburg South",
@@ -1306,7 +1429,7 @@ export const allProfessionals = {
         },
         {
             id: "ndlovu-builders",
-            name: "Ndlovu Builders & Renovations",
+            name: "Ndlovu Builders &amp; Renovations",
             location: "Johannesburg South",
             description: "Ndlovu Builders offers affordable home and business renovations, including plastering, painting, roofing, and flooring. With over 10 years in the trade, they’re known for honest quotes and consistent results.",
             rating: 4.9,
@@ -1434,7 +1557,7 @@ export const allProfessionals = {
         },
         {
             id: "crestwave-construction",
-            name: "Crestwave Construction & Maintenance",
+            name: "Crestwave Construction &amp; Maintenance",
             location: "Bryanston, Johannesburg North",
             description: "Crestwave Construction offers comprehensive building, plumbing, roofing, and electrical installation services. Their qualified team delivers consistent results and quality assurance across residential and commercial projects.",
             rating: 4.9,
@@ -1452,7 +1575,7 @@ export const allProfessionals = {
     "rubble-removal": [
         {
             id: "east-rand-waste",
-            name: "East Rand Waste & Pool Service Pty Ltd",
+            name: "East Rand Waste &amp; Pool Service Pty Ltd",
             location: "Alberton",
             description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
