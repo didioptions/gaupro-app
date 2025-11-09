@@ -1,6 +1,56 @@
 
 
 export const allProfessionals = {
+    "creches": [
+        {
+            id: "little-sprouts-academy",
+            name: "Little Sprouts Academy",
+            location: "Sandton, Johannesburg",
+            description: "A nurturing and stimulating environment where your little ones can grow, learn, and play. We focus on early childhood development with a curriculum designed to foster creativity and curiosity.",
+            rating: 4.9,
+            reviews: 45,
+            isProVerified: true,
+            reviewData: [{ author: "Thandi M.", phone: "082****123", rating: 5, comment: "My daughter loves it here! The teachers are so caring and attentive. I've seen her confidence grow so much since she started." }],
+            photos: ["https://picsum.photos/seed/creche1/600/400", "https://picsum.photos/seed/creche2/600/400"],
+            avatarSeed: "little-sprouts-logo"
+        },
+        {
+            id: "happy-hearts-daycare",
+            name: "Happy Hearts Daycare",
+            location: "Durbanville, Cape Town",
+            description: "Providing a safe, fun, and educational space for children from 3 months to 5 years. Our facilities include a large outdoor play area and age-appropriate learning stations.",
+            rating: 4.8,
+            reviews: 32,
+            isProVerified: true,
+            reviewData: [{ author: "James P.", phone: "071****567", rating: 5, comment: "A wonderful daycare with a loving atmosphere. The staff are fantastic and communicate with parents regularly. Highly recommended." }],
+            photos: ["https://picsum.photos/seed/creche3/600/400"],
+            avatarSeed: "happy-hearts-logo"
+        },
+        {
+            id: "sunshine-kids-preschool",
+            name: "Sunshine Kids Preschool",
+            location: "Umhlanga, Durban",
+            description: "At Sunshine Kids, we prepare your child for primary school with a focus on literacy, numeracy, and social skills, all through the power of play. Small class sizes ensure individual attention.",
+            rating: 4.7,
+            reviews: 28,
+            isProVerified: true,
+            reviewData: [{ author: "Priya K.", phone: "084****890", rating: 4, comment: "A great preschool with a structured curriculum. My son has learned so much and is well-prepared for Grade R." }],
+            photos: ["https://picsum.photos/seed/creche4/600/400", "https://picsum.photos/seed/creche5/600/400"],
+            avatarSeed: "sunshine-kids-logo"
+        },
+        {
+            id: "tiny-tots-corner",
+            name: "Tiny Tots Corner",
+            location: "Centurion, Pretoria",
+            description: "A cozy, home-away-from-home environment for toddlers and babies. We provide excellent care, nutritious meals, and a safe space for your most precious ones to explore.",
+            rating: 4.9,
+            reviews: 40,
+            isProVerified: true,
+            reviewData: [{ author: "Frikkie V.", phone: "076****333", rating: 5, comment: "We trust them completely with our 1-year-old. The staff are amazing and genuinely care for the children." }],
+            photos: ["https://picsum.photos/seed/creche6/600/400"],
+            avatarSeed: "tiny-tots-logo"
+        }
+    ],
     "handyman": [
         {
             id: "mmsl-corporate",
@@ -1182,6 +1232,7 @@ export const getProfessionalById = (id: string) => {
     }
     return null;
 };
+
 
 
 
