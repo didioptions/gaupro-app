@@ -1550,7 +1550,6 @@ export const allProfessionals = {
             yearsInBusiness: 8,
             employees: 12,
             isProVerified: true,
-            serviceLocations: ["melville", "auckland-park", "westdene", "johannesburg"],
             reviewData: [{ author: "Belinda", phone: "084**910*", rating: 5, comment: "Great experience; they transformed our living space beautifully." }],
             photos: ["https://picsum.photos/seed/stonepeak1/600/400", "https://picsum.photos/seed/stonepeak2/600/400"],
             avatarSeed: "stonepeak-logo"
