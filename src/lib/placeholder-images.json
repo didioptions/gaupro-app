@@ -123,25 +123,25 @@
     {
       "id": "little-sprouts-logo",
       "description": "A playful logo for a creche with a sprouting plant icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1673305414273-307a1fe7e959?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwbGF5ZnVsJTIwbG9nb3xlbnwwfHx8fDE3NjI2MDI2MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551817958-c5b51e7b4a33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwbGF5ZnVsJTIwbG9nb3xlbnwwfHx8fDE3NjI2MDI2MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "playful logo"
     },
     {
       "id": "happy-hearts-logo",
       "description": "A friendly and colorful logo for a daycare with heart shapes.",
-      "imageUrl": "https://images.unsplash.com/photo-1560285370-be9932b21f16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2xvcmZ1bCUyMGxvZ298ZW58MHx8fHwxNzYyNjAyNTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1753325482859-29522a68eff7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29sb3JmdWwlMjBsb2dvfGVufDB8fHx8MTc2MjYwMjUwMXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "colorful logo"
     },
     {
       "id": "sunshine-kids-logo",
       "description": "A bright and cheerful logo for a preschool with a sun icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1642867501868-a493788835cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaGVlcmZ1bCUyMGxvZ298ZW58MHx8fHwxNzYyNjk2NTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1755435140567-3c9df5ceffa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaGVlcmZ1bCUyMGxvZ298ZW58MHx8fHwxNzYyNjk2NTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cheerful logo"
     },
     {
       "id": "tiny-tots-logo",
       "description": "A cute and simple logo for a daycare for small children.",
-      "imageUrl": "https://images.unsplash.com/photo-1737010018240-ae160b2dded9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjdXRlJTIwbG9nb3xlbnwwfHx8fDE3NjI2OTY1MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1669642216184-63c2bc6bfab3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjdXRlJTIwbG9nb3xlbnwwfHx8fDE3NjI2OTY1MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cute logo"
     },
     {
@@ -167,6 +167,42 @@
       "description": "Logo for East Rand Waste &amp; Pool Service Pty Ltd.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_East%20Rand%20Waste%20%26%20Pool%20Service%20Pty%20Ltd.PNG?alt=media&token=20a5d370-6f8a-42b3-95b8-f1eedc22704a",
       "imageHint": "company logo"
+    },
+    {
+      "id": "gadget-gurus-logo",
+      "description": "A modern logo for a tech repair shop with a gear and a smartphone icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1663124178703-d2d6a333e6c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNoJTIwbG9nb3xlbnwwfHx8fDE3NjI2NjYxNjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech logo"
+    },
+    {
+      "id": "tech-savvy-logo",
+      "description": "A logo for a computer repair service featuring a circuit board pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1697952431907-8542919a16b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaXJjdWl0JTIwYm9hcmR8ZW58MHx8fHwxNzYyNjQ0NzMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "circuit board"
+    },
+    {
+      "id": "fibre-fast-logo",
+      "description": "A logo for an internet provider with a speeding fibre optic cable graphic.",
+      "imageUrl": "https://images.unsplash.com/photo-1606814540563-5c02d62fd409?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmaWJyZSUyMG9wdGljfGVufDB8fHx8MTc2MjY5Nzc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fibre optic"
+    },
+    {
+      "id": "laptop-fixers-logo",
+      "description": "A simple logo showing a laptop with a wrench icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1721332154191-ba5f1534266e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsYXB0b3AlMjByZXBhaXJ8ZW58MHx8fHwxNzYyNjk3NzY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop repair"
+    },
+    {
+      "id": "connect-it-logo",
+      "description": "A logo for a networking company with interconnected nodes.",
+      "imageUrl": "https://images.unsplash.com/photo-1737505599162-d9932323a889?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuZXR3b3JrJTIwbm9kZXN8ZW58MHx8fHwxNzYyNjI5NTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "network nodes"
+    },
+    {
+      "id": "office-solutions-logo",
+      "description": "A professional logo for an office equipment supplier.",
+      "imageUrl": "https://images.unsplash.com/photo-1576669801838-1b1c52121e6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvZmZpY2UlMjBlcXVpcG1lbnR8ZW58MHx8fHwxNzYyNjk3NzY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office equipment"
     }
   ]
 }

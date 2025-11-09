@@ -1,6 +1,102 @@
 
 
 export const allProfessionals = {
+    "cellphone-repairs": [
+        {
+            id: "gadget-gurus-jhb",
+            name: "Gadget Gurus JHB",
+            location: "Sandton, Johannesburg",
+            description: "Fast and reliable repairs for all major smartphone brands. We specialize in screen replacements, battery issues, and water damage for {service}. All repairs come with a warranty.",
+            rating: 4.8,
+            reviews: 150,
+            isProVerified: true,
+            reviewData: [{ author: "Thabo M.", phone: "082****123", rating: 5, comment: "Replaced my cracked iPhone screen in under an hour. Looks brand new. Excellent service!" }],
+            photos: ["https://picsum.photos/seed/gadget1/600/400"],
+            avatarSeed: "gadget-gurus-logo"
+        },
+        {
+            id: "the-phone-clinic-cpt",
+            name: "The Phone Clinic CPT",
+            location: "Cape Town CBD",
+            description: "From screens to batteries, we fix it all. Your go-to spot for professional {service} in Cape Town. We handle all brands including Apple, Samsung, and Huawei.",
+            rating: 4.7,
+            reviews: 95,
+            isProVerified: true,
+            reviewData: [{ author: "Sarah J.", phone: "071****567", rating: 5, comment: "So quick and affordable! They fixed my water-damaged phone when I thought it was a lost cause." }],
+            photos: ["https://picsum.photos/seed/gadget2/600/400"],
+            avatarSeed: "the-phone-clinic-logo"
+        }
+    ],
+    "computer-repairs": [
+        {
+            id: "tech-savvy-solutions",
+            name: "Tech-Savvy Solutions",
+            location: "Pretoria East",
+            description: "Your one-stop shop for all {service}. We handle hardware upgrades, software issues, virus removal, and data recovery for desktops and PCs. No job is too big or small.",
+            rating: 4.9,
+            reviews: 210,
+            isProVerified: true,
+            reviewData: [{ author: "Pieter V.", phone: "083****789", rating: 5, comment: "They recovered all my lost data after my hard drive failed. Lifesavers! Very professional and kept me updated throughout." }],
+            photos: ["https://picsum.photos/seed/tech1/600/400"],
+            avatarSeed: "tech-savvy-logo"
+        }
+    ],
+    "internet-solutions": [
+        {
+            id: "fibre-fast-isp",
+            name: "Fibre-Fast ISP",
+            location: "Nationwide",
+            description: "Get connected with high-speed fibre internet. We offer a range of packages for home and business, providing reliable {service} with excellent local support.",
+            rating: 4.5,
+            reviews: 320,
+            isProVerified: true,
+            reviewData: [{ author: "Naledi R.", phone: "076****321", rating: 5, comment: "The installation was quick and painless, and my internet speed has been fantastic ever since. Much better than my old provider." }],
+            photos: ["https://picsum.photos/seed/fibre1/600/400"],
+            avatarSeed: "fibre-fast-logo"
+        }
+    ],
+    "laptop-repairs": [
+        {
+            id: "laptop-fixers-sa",
+            name: "Laptop Fixers SA",
+            location: "Durban, Morningside",
+            description: "Specializing in {service} for all makes and models. We fix broken screens, failing keyboards, charging problems, and performance issues. Quick turnaround times and fair pricing.",
+            rating: 4.6,
+            reviews: 180,
+            isProVerified: true,
+            reviewData: [{ author: "Michael B.", phone: "084****888", rating: 4, comment: "Replaced my laptop screen and it works perfectly now. The price was reasonable. Took a day longer than quoted but overall happy." }],
+            photos: ["https://picsum.photos/seed/laptop1/600/400"],
+            avatarSeed: "laptop-fixers-logo"
+        }
+    ],
+    "networking": [
+        {
+            id: "connect-it-networks",
+            name: "Connect-IT Networks",
+            location: "Johannesburg & Pretoria",
+            description: "Professional {service} for home and office. We design and install structured cabling, set up secure Wi-Fi networks, and configure servers and switches for optimal performance.",
+            rating: 4.9,
+            reviews: 85,
+            isProVerified: true,
+            reviewData: [{ author: "David C.", phone: "072****444", rating: 5, comment: "Finally have stable Wi-Fi throughout my entire house, including the garden. The team was professional and knew their stuff." }],
+            photos: ["https://picsum.photos/seed/network1/600/400"],
+            avatarSeed: "connect-it-logo"
+        }
+    ],
+    "office-equipment": [
+        {
+            id: "sa-office-solutions",
+            name: "SA Office Solutions",
+            location: "Cape Town, Johannesburg, Durban",
+            description: "Suppliers of new and refurbished {service}. We offer printers, copiers, and PABX systems for sale or rent, with full service and maintenance contracts available.",
+            rating: 4.7,
+            reviews: 112,
+            isProVerified: true,
+            reviewData: [{ author: "Admin @ ABC Corp", phone: "011****100", rating: 5, comment: "Their rental option for our office copier has been a game-changer. Service is always prompt when we need a technician." }],
+            photos: ["https://picsum.photos/seed/office1/600/400"],
+            avatarSeed: "office-solutions-logo"
+        }
+    ],
     "creches": [
         {
             id: "little-sprouts-academy",
@@ -1232,6 +1328,7 @@ export const getProfessionalById = (id: string) => {
     }
     return null;
 };
+
 
 
 
