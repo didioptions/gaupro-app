@@ -1,7 +1,7 @@
 
 
 export const allProfessionals = {
-    "dressmakers": [
+    dressmakers: [
         {
             id: "sew-elegant-jhb",
             name: "Sew Elegant JHB",
@@ -27,7 +27,7 @@ export const allProfessionals = {
             avatarSeed: "alteration-studio-logo"
         }
     ],
-    "embroidery": [
+    embroidery: [
         {
             id: "stitch-it-pro",
             name: "Stitch-It Pro",
@@ -55,7 +55,7 @@ export const allProfessionals = {
             avatarSeed: "sweet-spot-bakery-logo"
         }
     ],
-    "caterers": [
+    caterers: [
         {
             id: "gourmet-gatherings-cpt",
             name: "Gourmet Gatherings CPT",
@@ -69,7 +69,7 @@ export const allProfessionals = {
             avatarSeed: "gourmet-gatherings-logo"
         }
     ],
-    "groomers": [
+    groomers: [
         {
             id: "the-dapper-dog-jhb",
             name: "The Dapper Dog JHB",
@@ -125,7 +125,7 @@ export const allProfessionals = {
             avatarSeed: "global-journeys-logo"
         }
     ],
-    "generators": [
+    generators: [
         {
             id: "powergen-sa",
             name: "PowerGen SA",
@@ -193,7 +193,7 @@ export const allProfessionals = {
             avatarSeed: "safety-first-logo"
         }
     ],
-    "stationery": [
+    stationery: [
         {
             id: "office-hub-supplies",
             name: "Office Hub Supplies",
@@ -249,7 +249,7 @@ export const allProfessionals = {
             avatarSeed: "farm-assist-logo"
         }
     ],
-    "irrigation": [
+    irrigation: [
         {
             id: "water-wise-irrigation",
             name: "Water-Wise Irrigation",
@@ -263,7 +263,7 @@ export const allProfessionals = {
             avatarSeed: "water-wise-logo"
         }
     ],
-    "architects": [
+    architects: [
         {
             id: "urban-form-architects",
             name: "UrbanForm Architects",
@@ -361,7 +361,7 @@ export const allProfessionals = {
             avatarSeed: "coastal-escapes-logo"
         }
     ],
-    "venues": [
+    venues: [
         {
             id: "venue-vista-jhb",
             name: "Venue Vista JHB",
@@ -459,7 +459,7 @@ export const allProfessionals = {
             avatarSeed: "wall-mount-wizards-logo"
         }
     ],
-    "conveyancers": [
+    conveyancers: [
         {
             id: "property-path-legal",
             name: "Property Path Legal",
@@ -515,7 +515,7 @@ export const allProfessionals = {
             avatarSeed: "workforce-legal-logo"
         }
     ],
-    "lawyers": [
+    lawyers: [
         {
             id: "summit-attorneys-inc",
             name: "Summit Attorneys Inc.",
@@ -529,7 +529,7 @@ export const allProfessionals = {
             avatarSeed: "summit-attorneys-logo"
         }
     ],
-    "couriers": [
+    couriers: [
         {
             id: "swift-parcel-express",
             name: "Swift Parcel Express",
@@ -571,7 +571,7 @@ export const allProfessionals = {
             avatarSeed: "kidz-karrier-logo"
         }
     ],
-    "taxis": [
+    taxis: [
         {
             id: "quick-cab-jhb",
             name: "Quick Cab JHB",
@@ -585,7 +585,7 @@ export const allProfessionals = {
             avatarSeed: "quick-cab-logo"
         }
     ],
-    "transportation": [
+    transportation: [
         {
             id: "logi-link-sa",
             name: "Logi-Link SA",
@@ -655,7 +655,7 @@ export const allProfessionals = {
             avatarSeed: "laptop-fixers-logo"
         }
     ],
-    "networking": [
+    networking: [
         {
             id: "connect-it-networks",
             name: "Connect-IT Networks",
@@ -683,7 +683,7 @@ export const allProfessionals = {
             avatarSeed: "office-solutions-logo"
         }
     ],
-    "creches": [
+    creches: [
         {
             id: "little-sprouts-academy",
             name: "Little Sprouts Academy",
@@ -733,7 +733,7 @@ export const allProfessionals = {
             avatarSeed: "tiny-tots-logo"
         }
     ],
-    "handyman": [
+    handyman: [
         {
             id: "mmsl-corporate",
             name: "MMSL Corporate",
@@ -803,7 +803,7 @@ export const allProfessionals = {
             avatarSeed: "fix-it-fellows-logo"
         }
     ],
-    "tiling": [
+    tiling: [
         {
             id: "precision-tiling-co",
             name: "Precision Tiling Co",
@@ -1232,7 +1232,7 @@ export const allProfessionals = {
             avatarSeed: "ndlovu-logo"
         }
     ],
-    "painter": [
+    painter: [
         {
             id: "madiway-projects",
             name: "Madiway Projects (Pty) Ltd",
@@ -1330,7 +1330,7 @@ export const allProfessionals = {
             avatarSeed: "proedge-logo"
         }
     ],
-    "builders": [
+    builders: [
         {
             id: "urbanbuild-projects",
             name: "UrbanBuild Projects",
@@ -1476,7 +1476,7 @@ export const allProfessionals = {
             avatarSeed: "goldenhammer-logo"
         },
         {
-            id": "ecoshield-waterproofing",
+            id: "ecoshield-waterproofing",
             name: "EcoShield Waterproofing",
             location: "Roodepoort, Johannesburg West",
             description: "EcoShield Waterproofing offers damp proofing, roof sealing, and moisture protection solutions for residential and industrial buildings. They use environmentally safe materials designed for long-term protection and energy efficiency.",
@@ -1492,7 +1492,7 @@ export const allProfessionals = {
             avatarSeed: "ecoshield-logo"
         },
         {
-            id": "primeworks-construction",
+            id: "primeworks-construction",
             name: "PrimeWorks Construction",
             location: "Midrand, Johannesburg",
             description: "PrimeWorks Construction delivers general building, ceiling installation, tiling, and renovation services. Their expert builders focus on detail, safety, and modern design to bring every project to life.",
@@ -1508,7 +1508,7 @@ export const allProfessionals = {
             avatarSeed: "primeworks-logo"
         },
         {
-            id": "buhlebrick-developments",
+            id: "buhlebrick-developments",
             name: "BuhleBrick Developments",
             location: "Fourways, Johannesburg North",
             description: "BuhleBrick Developments are bricklaying and structural specialists focused on solid foundations and elegant finishes. They’re known for excellent craftsmanship and client-focused service for both small and large projects.",
@@ -1540,7 +1540,7 @@ export const allProfessionals = {
             avatarSeed: "metroroof-logo"
         },
         {
-            id": "stonepeak-projects",
+            id: "stonepeak-projects",
             name: "StonePeak Projects",
             location: "Melville, Johannesburg",
             description: "StonePeak Projects specializes in home extensions, kitchen and bathroom renovations, and interior upgrades. Their creative design team works closely with clients to ensure functional, beautiful, and lasting transformations.",
@@ -1555,7 +1555,7 @@ export const allProfessionals = {
             avatarSeed: "stonepeak-logo"
         },
         {
-            id": "crestwave-construction",
+            id: "crestwave-construction",
             name: "Crestwave Construction &amp; Maintenance",
             location: "Bryanston, Johannesburg North",
             description: "Crestwave Construction offers comprehensive building, plumbing, roofing, and electrical installation services. Their qualified team delivers consistent results and quality assurance across residential and commercial projects.",
@@ -1746,7 +1746,7 @@ export const allProfessionals = {
             avatarSeed: "3-rivers-logo"
         },
         {
-            id": "mzanzi-clean-sites",
+            id: "mzanzi-clean-sites",
             name: "Mzanzi Clean Sites",
             location: "Vereeniging",
             description: "Proudly South African {service}. We offer residential and commercial site clearing services across Vereeniging, ensuring a clean and safe environment for your next project.",
@@ -1767,7 +1767,7 @@ export const allProfessionals = {
             avatarSeed: "mzanzi-clean-logo"
         },
         {
-            id": "speedy-site-clearers",
+            id: "speedy-site-clearers",
             name: "Speedy Site Clearers",
             location: "Vereeniging",
             description: "Need it gone now? We offer the fastest {service} in Vereeniging. Perfect for urgent clear-outs and post-renovation cleanups. Call us for a quick quote!",
@@ -1788,7 +1788,7 @@ export const allProfessionals = {
             avatarSeed: "speedy-clear-logo"
         }
     ],
-    "movers": [
+    movers: [
         {
             id: "swift-moves-sa",
             name: "Swift Moves SA",
@@ -1839,7 +1839,7 @@ export const allProfessionals = {
             avatarSeed: "joburg-movers"
         }
     ],
-    "default": [
+    default: [
         {
             id: "pro-services-inc",
             name: "Pro Services Inc.",
@@ -1862,7 +1862,7 @@ export const allProfessionals = {
             avatarSeed: "pro-services-inc"
         },
         {
-            id": "general-solutions-pty",
+            id: "general-solutions-pty",
             name: "General Solutions Pty",
             location: "Germiston",
             description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from start to finish.",
@@ -1878,8 +1878,8 @@ export const allProfessionals = {
             avatarSeed: "general-solutions"
         },
         {
-            id": "expert-crew-sa",
-            name": "Expert Crew SA",
+            id: "expert-crew-sa",
+            name: "Expert Crew SA",
             location: "Soweto",
             description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
             rating: 4.9,
