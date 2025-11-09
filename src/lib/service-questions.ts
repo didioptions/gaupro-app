@@ -2629,693 +2629,6 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
   {
-    service: 'couriers',
-    questions: [
-        {
-            id: 'delivery_type',
-            text: 'What type of delivery service do you need?',
-            type: 'radio',
-            options: [
-                { value: 'local_sameday', label: 'Local Same-Day' },
-                { value: 'overnight', label: 'Overnight to another city' },
-                { value: 'international', label: 'International' },
-                { value: 'bulk', label: 'Bulk/Freight' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'shuttle-services',
-    questions: [
-        {
-            id: 'shuttle_service_type',
-            text: 'What type of shuttle service do you need?',
-            type: 'radio',
-            options: [
-                { value: 'airport', label: 'Airport Transfer' },
-                { value: 'point_to_point', label: 'Point-to-Point Transfer' },
-                { value: 'event', label: 'Event/Group Transport' },
-                { value: 'tour', label: 'Tour/Sightseeing' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'air-conditioning',
-    questions: [
-      {
-        id: 'ac_service',
-        text: 'What air conditioning service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New installation' },
-          { value: 'repair', label: 'Repair (not cooling/working)' },
-          { value: 'service', label: 'Service / Maintenance' },
-          { value: 'regas', label: 'Regassing' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'aluminium-doors-and-windows',
-    questions: [
-      {
-        id: 'aluminium_service',
-        text: 'What do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New Installation' },
-          { value: 'replacement', label: 'Replacement of existing' },
-          { value: 'repair', label: 'Repairs' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'awnings',
-    questions: [
-      {
-        id: 'awning_type',
-        text: 'What type of awning are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'retractable', label: 'Retractable Awning' },
-          { value: 'fixed', label: 'Fixed Awning' },
-          { value: 'repair', label: 'Repair existing awning' },
-          { value: 'not_sure', label: 'Not sure / Need advice' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'blinds',
-    questions: [
-      {
-        id: 'blinds_type',
-        text: 'What type of blinds are you interested in?',
-        type: 'radio',
-        options: [
-          { value: 'venetian', label: 'Venetian Blinds' },
-          { value: 'roller', label: 'Roller Blinds' },
-          { value: 'vertical', label: 'Vertical Blinds' },
-          { value: 'roman', label: 'Roman Blinds' },
-          { value: 'outdoor', label: 'Outdoor Blinds' },
-          { value: 'repair', label: 'Repair existing blinds' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'carpeting',
-    questions: [
-      {
-        id: 'carpeting_service',
-        text: 'What carpeting service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New carpet installation' },
-          { value: 'replacement', label: 'Replace old carpets' },
-          { value: 'repair', label: 'Carpet repair' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'carpet-cleaning',
-    questions: [
-      {
-        id: 'cleaning_area',
-        text: 'What needs to be cleaned?',
-        type: 'checkbox',
-        options: [
-          { value: 'carpets', label: 'Carpets' },
-          { value: 'rugs', label: 'Rugs' },
-          { value: 'upholstery', label: 'Upholstery (Couches, Chairs)' },
-          { value: 'mattress', label: 'Mattress' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'carports',
-    questions: [
-      {
-        id: 'carport_type',
-        text: 'What type of carport are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'single', label: 'Single Carport' },
-          { value: 'double', label: 'Double Carport' },
-          { value: 'custom', label: 'Custom Size' },
-          { value: 'repair', label: 'Repair existing carport' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'ceiling-installers',
-    questions: [
-      {
-        id: 'ceiling_service',
-        text: 'What ceiling service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New ceiling installation' },
-          { value: 'repair', label: 'Ceiling repair (e.g., water damage)' },
-          { value: 'cornice', label: 'Cornice installation/repair' },
-          { value: 'skimming', label: 'Skimming' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'electric-fencing',
-    questions: [
-      {
-        id: 'efence_service',
-        text: 'What service do you need for your electric fence?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New installation' },
-          { value: 'repair', label: 'Repair / Fault finding' },
-          { value: 'upgrade', label: 'Upgrade or add zones' },
-          { value: 'coc', label: 'Certificate of Compliance (CoC)' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'fencing',
-    questions: [
-      {
-        id: 'fence_type',
-        text: 'What type of fencing are you interested in?',
-        type: 'radio',
-        options: [
-          { value: 'precast', label: 'Precast / Concrete Wall' },
-          { value: 'palisade', label: 'Palisade Fencing' },
-          { value: 'wire_mesh', label: 'Wire Mesh / Diamond Mesh' },
-          { value: 'clearvu', label: 'ClearVu / Anti-Climb' },
-          { value: 'wood', label: 'Wooden Fence' },
-          { value: 'repair', label: 'Repair existing fence' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'garage-door-motors',
-    questions: [
-      {
-        id: 'gdm_service',
-        text: 'What do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New motor installation' },
-          { value: 'repair', label: 'Repair existing motor' },
-          { value: 'not_sure', label: 'Not sure / Diagnostics' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'gardeners',
-    questions: [
-      {
-        id: 'gardening_service',
-        text: 'What gardening service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'once_off', label: 'Once-off garden cleanup' },
-          { value: 'regular', label: 'Regular maintenance (e.g., weekly)' },
-          { value: 'landscaping', label: 'Landscaping design/installation' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'gas-installers',
-    questions: [
-      {
-        id: 'gas_install_type',
-        text: 'What do you need installed?',
-        type: 'radio',
-        options: [
-          { value: 'hob_stove', label: 'Gas Hob/Stove' },
-          { value: 'geyser', label: 'Gas Geyser' },
-          { value: 'fireplace', label: 'Gas Fireplace' },
-          { value: 'full_system', label: 'Full gas line installation' },
-          { value: 'coc', label: 'Certificate of Compliance (COC)' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'gate-motors',
-    questions: [
-      {
-        id: 'gate_motor_service',
-        text: 'What service do you need for your gate motor?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New motor installation' },
-          { value: 'repair', label: 'Repair existing motor' },
-          { value: 'not_sure', label: 'Not sure / Diagnostics' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'glass-works',
-    questions: [
-      {
-        id: 'glass_service',
-        text: 'What glass service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'window_replacement', label: 'Window glass replacement' },
-          { value: 'door_replacement', label: 'Door glass replacement' },
-          { value: 'custom', label: 'Custom cut glass (e.g., tabletop)' },
-          { value: 'shower', label: 'Shower door/enclosure' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'guttering',
-    questions: [
-      {
-        id: 'gutter_service',
-        text: 'What guttering service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New gutter installation' },
-          { value: 'repair', label: 'Repair leaks or damaged gutters' },
-          { value: 'cleaning', label: 'Gutter cleaning' },
-          { value: 'replacement', label: 'Complete replacement' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'home-improvements',
-    questions: [
-      {
-        id: 'improvement_type',
-        text: 'What area are you looking to improve?',
-        type: 'radio',
-        options: [
-          { value: 'kitchen', label: 'Kitchen' },
-          { value: 'bathroom', label: 'Bathroom' },
-          { value: 'outdoor', label: 'Outdoor/Entertainment Area' },
-          { value: 'general', label: 'General interior/exterior changes' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'interior-designing',
-    questions: [
-      {
-        id: 'design_scope',
-        text: 'What is the scope of your project?',
-        type: 'radio',
-        options: [
-          { value: 'single_room', label: 'Single Room Design' },
-          { value: 'full_home', label: 'Full Home Design/Renovation' },
-          { value: 'consultation', label: 'Design Consultation' },
-          { value: 'office', label: 'Office/Commercial Space' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'kitchen-renovations',
-    questions: [
-      {
-        id: 'kitchen_scope',
-        text: 'What part of your kitchen are you renovating?',
-        type: 'checkbox',
-        options: [
-          { value: 'cupboards', label: 'Cupboards' },
-          { value: 'countertops', label: 'Countertops' },
-          { value: 'tiling', label: 'Tiling (Floor/Walls)' },
-          { value: 'plumbing_electrical', label: 'Plumbing & Electrical' },
-          { value: 'full_remodel', label: 'Complete Remodel' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'laminate-flooring',
-    questions: [
-      {
-        id: 'laminate_service',
-        text: 'What service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New installation' },
-          { value: 'repair', label: 'Repair damaged boards' },
-          { value: 'removal', label: 'Removal of old flooring' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'landscaping',
-    questions: [
-      {
-        id: 'landscaping_scope',
-        text: 'What are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'design_install', label: 'New Garden Design & Installation' },
-          { value: 'makeover', label: 'Garden Makeover / Clean-up' },
-          { value: 'irrigation', label: 'Irrigation System Installation/Repair' },
-          { value: 'maintenance', label: 'Ongoing Maintenance Plan' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'locksmiths',
-    questions: [
-      {
-        id: 'locksmith_service',
-        text: 'What do you need a locksmith for?',
-        type: 'radio',
-        options: [
-          { value: 'locked_out', label: 'Locked out (Home/Car)' },
-          { value: 'lock_change', label: 'Change/Install locks' },
-          { value: 'key_cut', label: 'Key cutting / duplication' },
-          { value: 'lock_repair', label: 'Lock repair' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'palisade-fencing',
-    questions: [
-      {
-        id: 'palisade_service',
-        text: 'What do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New installation' },
-          { value: 'repair', label: 'Repair existing fence' },
-          { value: 'painting', label: 'Painting' },
-          { value: 'extension', label: 'Add a gate' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'paving',
-    questions: [
-      {
-        id: 'paving_area',
-        text: 'What area needs paving?',
-        type: 'radio',
-        options: [
-          { value: 'driveway', label: 'Driveway' },
-          { value: 'patio', label: 'Patio / Entertainment Area' },
-          { value: 'walkway', label: 'Walkway / Pathway' },
-          { value: 'pool', label: 'Pool Surround' },
-          { value: 'repair', label: 'Repair existing paving' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'pest-control',
-    questions: [
-      {
-        id: 'pest_type',
-        text: 'What pest are you dealing with?',
-        type: 'radio',
-        options: [
-          { value: 'rodents', label: 'Rats / Mice' },
-          { value: 'insects', label: 'Crawling Insects (Ants, Cockroaches)' },
-          { value: 'termites', label: 'Termites' },
-          { value: 'birds', label: 'Birds' },
-          { value: 'other', label: 'Other / Not sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'pool-cleaning',
-    questions: [
-      {
-        id: 'pool_cleaning_service',
-        text: 'What pool cleaning service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'once_off', label: 'Once-off clean (e.g., green pool)' },
-          { value: 'regular', label: 'Regular weekly/monthly maintenance' },
-          { value: 'equipment_check', label: 'Equipment check/service' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'roofing',
-    questions: [
-      {
-        id: 'roofing_service',
-        text: 'What roofing service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'repair', label: 'Leak repair' },
-          { value: 'replacement', label: 'Full roof replacement' },
-          { value: 'waterproofing', label: 'Waterproofing' },
-          { value: 'painting', label: 'Roof painting' },
-          { value: 'inspection', label: 'Inspection / Report' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'shadeports',
-    questions: [
-      {
-        id: 'shadeport_service',
-        text: 'What do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New shadeport installation' },
-          { value: 'repair_net', label: 'Repair or replace net' },
-          { value: 'repair_structure', label: 'Repair structure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'solar-geysers',
-    questions: [
-      {
-        id: 'solar_geyser_service',
-        text: 'What service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New installation' },
-          { value: 'repair', label: 'Repair existing system' },
-          { value: 'service', label: 'General service/maintenance' },
-          { value: 'quote', label: 'Just getting a quote' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'solar-systems',
-    questions: [
-      {
-        id: 'solar_system_type',
-        text: 'What type of solar system are you interested in?',
-        type: 'radio',
-        options: [
-          { value: 'grid_tied', label: 'Grid-Tied System' },
-          { value: 'hybrid', label: 'Hybrid System (with batteries)' },
-          { value: 'off_grid', label: 'Off-Grid System' },
-          { value: 'repair_service', label: 'Repair or Service existing system' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'tar-surfacing',
-    questions: [
-      {
-        id: 'tar_area',
-        text: 'What area needs tar surfacing?',
-        type: 'radio',
-        options: [
-          { value: 'driveway', label: 'Driveway' },
-          { value: 'parking_lot', label: 'Parking Lot' },
-          { value: 'road', label: 'Road' },
-          { value: 'repair', label: 'Repair potholes/cracks' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'tiling',
-    questions: [
-      {
-        id: 'tiling_area',
-        text: 'What area needs tiling?',
-        type: 'checkbox',
-        options: [
-          { value: 'bathroom', label: 'Bathroom' },
-          { value: 'kitchen', label: 'Kitchen' },
-          { value: 'floor', label: 'Indoor Floor' },
-          { value: 'outdoor', label: 'Outdoor/Patio' },
-          { value: 'wall', label: 'Wall Tiling' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'upholsterers',
-    questions: [
-      {
-        id: 'upholstery_item',
-        text: 'What item needs upholstery work?',
-        type: 'radio',
-        options: [
-          { value: 'couch', label: 'Couch/Sofa' },
-          { value: 'chair', label: 'Dining/Arm Chair' },
-          { value: 'headboard', label: 'Headboard' },
-          { value: 'vehicle', label: 'Vehicle Seats' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'upholstery-cleaning',
-    questions: [
-      {
-        id: 'upholstery_cleaning_item',
-        text: 'What needs to be cleaned?',
-        type: 'checkbox',
-        options: [
-          { value: 'couch', label: 'Couch/Sofa' },
-          { value: 'chairs', label: 'Chairs' },
-          { value: 'mattress', label: 'Mattress' },
-          { value: 'car_seats', label: 'Car Seats' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'waterproofing',
-    questions: [
-      {
-        id: 'waterproofing_area',
-        text: 'What area needs waterproofing?',
-        type: 'radio',
-        options: [
-          { value: 'roof', label: 'Roof (Flat/Pitched)' },
-          { value: 'balcony', label: 'Balcony' },
-          { value: 'basement', label: 'Basement/Foundation' },
-          { value: 'bathroom', label: 'Bathroom/Shower' },
-          { value: 'walls', label: 'Interior/Exterior Walls' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'window-tinting',
-    questions: [
-      {
-        id: 'tinting_location',
-        text: 'Where do you need window tinting?',
-        type: 'radio',
-        options: [
-          { value: 'vehicle', label: 'Vehicle' },
-          { value: 'home', label: 'Home' },
-          { value: 'office', label: 'Office' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'carpenter',
-    questions: [
-      {
-        id: 'carpentry_service',
-        text: 'What carpentry service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'custom_furniture', label: 'Custom Furniture' },
-          { value: 'built_in_cupboards', label: 'Built-in Cupboards' },
-          { value: 'doors_windows', label: 'Door/Window Installation or Repair' },
-          { value: 'decking', label: 'Decking' },
-          { value: 'general_repairs', label: 'General Repairs' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'painter',
-    questions: [
-      {
-        id: 'painting_scope',
-        text: 'What do you need painted?',
-        type: 'radio',
-        options: [
-          { value: 'interior', label: 'Interior Walls' },
-          { value: 'exterior', label: 'Exterior Walls' },
-          { value: 'roof', label: 'Roof' },
-          { value: 'single_room', label: 'A single room' },
-          { value: 'touch_ups', label: 'Touch-ups' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
     service: 'divorce-lawyers',
     questions: [
       {
@@ -3326,6 +2639,40 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'uncontested', label: 'Uncontested Divorce (Both parties agree)' },
           { value: 'contested', label: 'Contested Divorce' },
           { value: 'consultation', label: 'Just need legal advice/consultation' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'couriers',
+    questions: [
+      {
+        id: 'delivery_type',
+        text: 'What type of delivery service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'local_sameday', label: 'Local Same-Day' },
+          { value: 'overnight', label: 'Overnight to another city' },
+          { value: 'international', label: 'International' },
+          { value: 'bulk', label: 'Bulk/Freight' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'shuttle-services',
+    questions: [
+      {
+        id: 'shuttle_service_type',
+        text: 'What type of shuttle service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'airport', label: 'Airport Transfer' },
+          { value: 'point_to_point', label: 'Point-to-Point Transfer' },
+          { value: 'event', label: 'Event/Group Transport' },
+          { value: 'tour', label: 'Tour/Sightseeing' },
         ],
       },
       ...commonQuestions,
@@ -3346,6 +2693,76 @@ export const serviceQuestionSets: QuestionSet[] = [
         ],
       },
       ...commonQuestions,
+    ],
+  },
+  {
+    service: 'auditors',
+    questions: [
+        {
+            id: 'audit_type',
+            text: 'What type of audit service do you need?',
+            type: 'radio',
+            options: [
+                { value: 'internal', label: 'Internal Audit' },
+                { value: 'external', label: 'External/Statutory Audit' },
+                { value: 'forensic', label: 'Forensic Audit' },
+                { value: 'compliance', label: 'Compliance Audit' },
+            ],
+        },
+        ...commonQuestions,
+    ],
+  },
+  {
+    service: 'printing',
+    questions: [
+        {
+            id: 'printing_need',
+            text: 'What do you need printed?',
+            type: 'radio',
+            options: [
+                { value: 'business_cards', label: 'Business Cards' },
+                { value: 'flyers', label: 'Flyers/Brochures' },
+                { value: 'banners', label: 'Banners/Posters' },
+                { value: 'documents', label: 'Documents' },
+                { value: 'other', label: 'Other' },
+            ],
+        },
+        ...commonQuestions,
+    ],
+  },
+  {
+    service: 'signs',
+    questions: [
+        {
+            id: 'sign_type',
+            text: 'What type of sign do you need?',
+            type: 'radio',
+            options: [
+                { value: 'shop_front', label: 'Shop Front Signage' },
+                { value: 'vehicle', label: 'Vehicle Branding/Signage' },
+                { value: 'event', label: 'Event Banners/Signs' },
+                { value: 'safety', label: 'Safety Signs' },
+                { value: 'other', label: 'Other' },
+            ],
+        },
+        ...commonQuestions,
+    ],
+  },
+  {
+    service: 'car-window-tinting',
+    questions: [
+        {
+            id: 'tinting_type',
+            text: 'What type of tint are you looking for?',
+            type: 'radio',
+            options: [
+                { value: 'smash_grab', label: 'Smash and Grab' },
+                { value: 'standard', label: 'Standard Tint' },
+                { value: 'removal', label: 'Removal of old tint' },
+                { value: 'not_sure', label: 'Not Sure / Need advice' },
+            ],
+        },
+        ...commonQuestions,
     ],
   },
 ];
