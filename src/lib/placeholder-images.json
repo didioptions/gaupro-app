@@ -51,7 +51,7 @@
     {
       "id": "instant-quotes-card",
       "description": "A smartphone screen showing an instant notification or message for a quote.",
-      "imageUrl": "https://images.unsplash.com/photo-1605364850023-a917c39f8fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbnN0YW50JTIwbm90aWZpY2F0aW9ufGVufDB8fHx8MTc2MTI1ODY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605364850023-a917c39f8fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxpbnN0YW50JTIwbm90aWZpY2F0aW9ufGVufDB8fHx8MTc2MTI1ODY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "instant notification"
     },
     {
@@ -203,6 +203,114 @@
       "description": "A professional logo for an office equipment supplier.",
       "imageUrl": "https://images.unsplash.com/photo-1576669801838-1b1c52121e6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvZmZpY2UlMjBlcXVpcG1lbnR8ZW58MHx8fHwxNzYyNjk3NzY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office equipment"
+    },
+    {
+      "id": "venue-vista-logo",
+      "description": "An elegant logo for an event venue, featuring a stylized building and script font.",
+      "imageUrl": "https://images.unsplash.com/photo-1761526135359-c5d3c26e726e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxlZ2FudCUyMGJ1aWxkaW5nfGVufDB8fHx8MTc2MjcwNzAxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "elegant building"
+    },
+    {
+      "id": "coastal-escapes-logo",
+      "description": "A logo for holiday accommodation featuring a palm tree and a setting sun.",
+      "imageUrl": "https://images.unsplash.com/photo-1523595857-fe9ee689f76f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwYWxtJTIwdHJlZSUyMHN1bnNldHxlbnwwfHx8fDE3NjI3MDcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "palm tree sunset"
+    },
+    {
+      "id": "dream-day-venues-logo",
+      "description": "A romantic logo for a wedding venue with intertwined rings.",
+      "imageUrl": "https://images.unsplash.com/photo-1605089315599-ca966e96b56a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2VkZGluZyUyMHJpbmdzfGVufDB8fHx8MTc2MjY5NTY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding rings"
+    },
+    {
+      "id": "appliance-pro-logo",
+      "description": "A logo for an appliance repair service with a wrench and a spark icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1629093966234-c809247aa981?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3cmVuY2glMjBzcGFya3xlbnwwfHx8fDE3NjI3MDcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wrench spark"
+    },
+    {
+      "id": "tv-techs-logo",
+      "description": "A logo for a TV repair service featuring a television screen and a circuit pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1747979029543-be26879b5007?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0diUyMGNpcmN1aXR8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tv circuit"
+    },
+    {
+      "id": "sat-pros-logo",
+      "description": "A logo with a satellite dish icon for a DSTV installation company.",
+      "imageUrl": "https://images.unsplash.com/photo-1470311500468-0179201f7499?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzYXRlbGxpdGUlMjBkaXNofGVufDB8fHx8MTc2MjY4MjA1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "satellite dish"
+    },
+    {
+      "id": "cool-care-logo",
+      "description": "A logo for a fridge repair company with a snowflake icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1701383281199-d36c55882a3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzbm93Zmxha2UlMjBpY29ufGVufDB8fHx8MTc2MjcwNzAxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "snowflake icon"
+    },
+    {
+      "id": "wall-mount-wizards-logo",
+      "description": "A logo for a TV installation service showing a TV mounted on a wall.",
+      "imageUrl": "https://images.unsplash.com/photo-1584280795027-321f4d68e77b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHYlMjB3YWxsfGVufDB8fHx8MTc2MjcwNzAxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tv wall"
+    },
+    {
+      "id": "property-path-logo",
+      "description": "A logo for a conveyancing firm featuring a path leading to a house.",
+      "imageUrl": "https://images.unsplash.com/photo-1664177585851-e783e2bbd81d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxob3VzZSUyMHBhdGh8ZW58MHx8fHwxNzYyNzA3MDE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "house path"
+    },
+    {
+      "id": "amicus-legal-logo",
+      "description": "A professional logo for a divorce law firm with scales of justice.",
+      "imageUrl": "https://images.unsplash.com/photo-1760089449852-e8cade7feb53?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzY2FsZXMlMjBqdXN0aWNlfGVufDB8fHx8MTc2MjYzNTUxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scales justice"
+    },
+    {
+      "id": "prime-properties-logo",
+      "description": "An upscale logo for a real estate agency with a golden key.",
+      "imageUrl": "https://images.unsplash.com/photo-1619554491317-e49e7c18ba32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnb2xkZW4lMjBrZXl8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "golden key"
+    },
+    {
+      "id": "workforce-legal-logo",
+      "description": "A logo for a labour law firm featuring a handshake and a gavel.",
+      "imageUrl": "https://images.unsplash.com/photo-1727653662044-48a024b28d27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxoYW5kc2hha2UlMjBnYXZlbHxlbnwwfHx8fDE3NjI3MDcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "handshake gavel"
+    },
+    {
+      "id": "summit-attorneys-logo",
+      "description": "A classic logo for a general law firm with a pillar icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1625670413987-0ae649494c61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwaWxsYXIlMjBpY29ufGVufDB8fHx8MTc2MjcwNzAxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pillar icon"
+    },
+    {
+      "id": "swift-parcel-logo",
+      "description": "A logo for a courier service with a speeding package icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1686881536406-f6c539eb56fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzcGVlZGluZyUyMHBhY2thZ2V8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "speeding package"
+    },
+    {
+      "id": "city-link-shuttles-logo",
+      "description": "A logo for a shuttle service featuring a stylized van and a map pin.",
+      "imageUrl": "https://images.unsplash.com/photo-1614314442865-ce2fb2ade429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2YW4lMjBtYXB8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "van map"
+    },
+    {
+      "id": "kidz-karrier-logo",
+      "description": "A friendly and colorful logo for a school transport service.",
+      "imageUrl": "https://images.unsplash.com/photo-1527548052773-0cb9eeec5176?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzY2hvb2wlMjBidXN8ZW58MHx8fHwxNzYyNjMwNDg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "school bus"
+    },
+    {
+      "id": "quick-cab-logo",
+      "description": "A logo for a taxi service with a classic yellow cab icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1569433295058-aaa6338e25c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx5ZWxsb3clMjBjYWJ8ZW58MHx8fHwxNzYyNjIzNjc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yellow cab"
+    },
+    {
+      "id": "logi-link-logo",
+      "description": "A professional logo for a transportation and logistics company with interlocking arrows.",
+      "imageUrl": "https://images.unsplash.com/photo-1567519207249-b1e00d78cd6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxpbnRlcmxvY2tpbmclMjBhcnJvd3N8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "interlocking arrows"
     }
   ]
 }
