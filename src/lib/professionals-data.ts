@@ -201,7 +201,7 @@ export const allProfessionals = {
         {
             id: "city-link-shuttles",
             name: "City-Link Shuttles",
-            location: "O.R. Tambo &amp; Cape Town Int'l",
+            location: "O.R. Tambo & Cape Town Int'l",
             description: "Reliable and affordable airport transfers and point-to-point shuttle services. Clean vehicles, professional drivers, and always on time. Book your ride with us.",
             rating: 4.9,
             reviews: 280,
@@ -313,7 +313,7 @@ export const allProfessionals = {
         {
             id: "connect-it-networks",
             name: "Connect-IT Networks",
-            location: "Johannesburg &amp; Pretoria",
+            location: "Johannesburg & Pretoria",
             description: "Professional {service} for home and office. We design and install structured cabling, set up secure Wi-Fi networks, and configure servers and switches for optimal performance.",
             rating: 4.9,
             reviews: 85,
@@ -494,7 +494,7 @@ export const allProfessionals = {
         },
         {
             id: "cape-floor-wall-tilers",
-            name: "Cape Floor &amp; Wall Tilers",
+            name: "Cape Floor & Wall Tilers",
             location: "Cape Town City Bowl",
             description: "Specialists in residential and commercial tiling services in the Western Cape. We provide waterproofing, screeding, and expert installation of all tile types, ensuring a perfect finish every time.",
             rating: 4.7,
@@ -719,7 +719,7 @@ export const allProfessionals = {
         },
         {
             id: "oceanic-pools-solutions",
-            name: "Oceanic Pools &amp; Spa Solutions",
+            name: "Oceanic Pools & Spa Solutions",
             location: "Bedfordview, Johannesburg",
             description: "We design and maintain pools that bring resort-style comfort to your home. From new builds to spa integration and heating, we’ve got you covered.",
             rating: 5.0,
@@ -757,7 +757,7 @@ export const allProfessionals = {
     "plant-hire": [
         {
             id: "wasteden-demolitions",
-            name: "Wasteden Demolitions &amp; Waste Removals",
+            name: "Wasteden Demolitions & Waste Removals",
             location: "Johannesburg",
             description: "We handle all types of demolition and rubble removals — both interior and exterior — as well as bulk earthworks and site cleaning.",
             tags: ["Demolition", "rubble removal", "bulk earthworks", "site cleaning", "interior demolition"],
@@ -785,7 +785,7 @@ export const allProfessionals = {
             id: "sid-plant-hire",
             name: "Sid Plant",
             location: "Parktown, Johannesburg",
-            description: "TLB &amp; tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
+            description: "TLB & tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
             tags: ["TLB hire", "tipper truck hire", "site clearing", "demolitions", "trenching"],
             rating: 5.0,
             reviews: 1,
@@ -835,7 +835,7 @@ export const allProfessionals = {
         },
         {
             id: "thabos-plant-hire",
-            name: "Thabo’s Plant &amp; Equipment Hire",
+            name: "Thabo’s Plant & Equipment Hire",
             location: "Soweto, Johannesburg",
             description: "TLB hire, grader hire, and rubble removal for small to large projects. Ideal for both private residential jobs and municipal work.",
             tags: ["TLB hire", "grader hire", "rubble removal"],
@@ -905,9 +905,9 @@ export const allProfessionals = {
         },
         {
             id: "revision-contracting",
-            name: "Revision Contracting &amp; Projects (Pty) Ltd",
+            name: "Revision Contracting & Projects (Pty) Ltd",
             location: "Norkem Park, Kempton Park",
-            description: "Revision Contracting &amp; Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
+            description: "Revision Contracting & Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
             rating: 5.0,
             reviews: 1,
             address: "Norkem Park, Kempton Park",
@@ -953,7 +953,7 @@ export const allProfessionals = {
         },
         {
             id: "freshtone-painters",
-            name: "FreshTone Painters &amp; Decor",
+            name: "FreshTone Painters & Decor",
             location: "Aston Manor, Kempton Park",
             description: "FreshTone Painters brings over 12 years of experience in wall coatings, ceiling painting, and interior décor finishes. Using premium paints, they deliver vibrant, long-lasting color for every surface.",
             rating: 4.9,
@@ -1003,9 +1003,9 @@ export const allProfessionals = {
         },
         {
             id: "mavuso-construction",
-            name: "Mavuso Construction &amp; Maintenance",
+            name: "Mavuso Construction & Maintenance",
             location: "Steeledale, Johannesburg South",
-            description: "Mavuso Construction &amp; Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
+            description: "Mavuso Construction & Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
             rating: 4.7,
             reviews: 8,
             address: "Steeledale, Johannesburg South",
@@ -1083,7 +1083,7 @@ export const allProfessionals = {
         },
         {
             id: "ndlovu-builders",
-            name: "Ndlovu Builders &amp; Renovations",
+            name: "Ndlovu Builders & Renovations",
             location: "Johannesburg South",
             description: "Ndlovu Builders offers affordable home and business renovations, including plastering, painting, roofing, and flooring. With over 10 years in the trade, they’re known for honest quotes and consistent results.",
             rating: 4.9,
@@ -1194,9 +1194,9 @@ export const allProfessionals = {
             avatarSeed: "metroroof-logo"
         },
         {
-            id": "stonepeak-projects",
-            name": "StonePeak Projects",
-            location": "Melville, Johannesburg",
+            id: "stonepeak-projects",
+            name: "StonePeak Projects",
+            location: "Melville, Johannesburg",
             description: "StonePeak Projects specializes in home extensions, kitchen and bathroom renovations, and interior upgrades. Their creative design team works closely with clients to ensure functional, beautiful, and lasting transformations.",
             rating: 4.7,
             reviews: 8,
@@ -1210,11 +1210,11 @@ export const allProfessionals = {
             avatarSeed: "stonepeak-logo"
         },
         {
-            id": "crestwave-construction",
-            name": "Crestwave Construction &amp; Maintenance",
-            location": "Bryanston, Johannesburg North",
+            id: "crestwave-construction",
+            name: "Crestwave Construction & Maintenance",
+            location: "Bryanston, Johannesburg North",
             description: "Crestwave Construction offers comprehensive building, plumbing, roofing, and electrical installation services. Their qualified team delivers consistent results and quality assurance across residential and commercial projects.",
-            rating": 4.9,
+            rating: 4.9,
             reviews: 9,
             address: "Bryanston, Johannesburg North",
             yearsInBusiness: 11,
@@ -1228,10 +1228,10 @@ export const allProfessionals = {
     ],
     "rubble-removal": [
         {
-            id": "east-rand-waste",
-            name": "East Rand Waste &amp; Pool Service Pty Ltd",
+            id: "east-rand-waste",
+            name: "East Rand Waste & Pool Service Pty Ltd",
             location: "Alberton",
-            description": "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
+            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
             reviews: 42,
             address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
@@ -1252,306 +1252,306 @@ export const allProfessionals = {
             avatarSeed: "pro-services-inc"
         },
         {
-            id": "skip-boys",
-            name": "Skip Boys",
-            location": "Boksburg",
-            description": "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
-            rating": 4.2,
-            reviews": 18,
-            address": "101 Skip Avenue, Boksburg",
+            id: "skip-boys",
+            name: "Skip Boys",
+            location: "Boksburg",
+            description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
+            rating: 4.2,
+            reviews: 18,
+            address: "101 Skip Avenue, Boksburg",
             yearsInBusiness: 3,
             employees: 5,
             isProVerified: true,
             serviceLocations: ["boksburg", "benoni", "kempton-park", "springs", "midrand", "germiston", "johannesburg", "sandton", "pretoria", "tembisa"],
             reviewData: [{
-                author": "Anonymous",
-                phone": "",
-                rating": 4,
-                comment": "Good service and fair pricing. The skip was delivered on time. Would use them again."
+                author: "Anonymous",
+                phone: "",
+                rating: 4,
+                comment: "Good service and fair pricing. The skip was delivered on time. Would use them again."
             }],
-            photos": [
+            photos: [
                 "https://picsum.photos/seed/skip1/600/400",
                 "https://picsum.photos/seed/skip2/600/400",
             ],
-            avatarSeed": "skip-boys-logo"
+            avatarSeed: "skip-boys-logo"
         },
         {
-            id": "themba-rubble-removers",
-            name": "Themba Rubble Removers",
-            location": "Soweto",
-            description": "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
-            rating": 4.9,
-            reviews": 76,
-            address": "24 Worker's Way, Soweto",
+            id: "themba-rubble-removers",
+            name: "Themba Rubble Removers",
+            location: "Soweto",
+            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
+            rating: 4.9,
+            reviews: 76,
+            address: "24 Worker's Way, Soweto",
             yearsInBusiness: 12,
             employees: 8,
             isProVerified: true,
             serviceLocations: ["soweto", "johannesburg", "midrand", "sandton", "roodepoort", "pretoria", "tembisa", "benoni", "boksburg"],
             reviewData: [{
-                author": "Sarah P.",
-                phone": "072****123",
-                rating": 5,
-                comment": "Extremely professional and efficient. They cleared my site in half the expected time. Highly recommended!"
+                author: "Sarah P.",
+                phone: "072****123",
+                rating: 5,
+                comment: "Extremely professional and efficient. They cleared my site in half the expected time. Highly recommended!"
             }],
-            photos": [
+            photos: [
                 "https://picsum.photos/seed/rubble1/600/400",
                 "https://picsum.photos/seed/rubble2/600/400",
                 "https://picsum.photos/seed/rubble3/600/400",
             ],
-            avatarSeed": "themba-rubble-removers-logo"
+            avatarSeed: "themba-rubble-removers-logo"
         },
         {
-            id": "general-solutions-pty",
-            name": "General Solutions Pty",
-            location": "Germiston",
-            description": "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
-            rating": 0.0,
-            reviews": 0,
-            address": "789 Industrial Rd, Germiston",
-            yearsInBusiness": 1,
+            id: "general-solutions-pty",
+            name: "General Solutions Pty",
+            location: "Germiston",
+            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
+            rating: 0.0,
+            reviews: 0,
+            address: "789 Industrial Rd, Germiston",
+            yearsInBusiness: 1,
             employees: 2,
             isProVerified: false,
             serviceLocations: ["germiston", "bedfordview", "edenvale", "midrand", "johannesburg", "pretoria", "tembisa", "benoni", "boksburg", "kempton-park"],
             reviewData: [],
-            photos": [],
-            avatarSeed": "general-solutions"
+            photos: [],
+            avatarSeed: "general-solutions"
         },
         {
-            id": "elite-services-group",
-            name": "Elite Services Group",
-            location": "Sandton",
-            description": "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
-            rating": 4.5,
-            reviews": 31,
-            address": "55 Elite Crescent, Sandton",
+            id: "elite-services-group",
+            name: "Elite Services Group",
+            location: "Sandton",
+            description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
+            rating: 4.5,
+            reviews: 31,
+            address: "55 Elite Crescent, Sandton",
             yearsInBusiness: 7,
             employees: 15,
             isProVerified: true,
             serviceLocations: ["sandton", "rosebank", "bryanston", "midrand", "johannesburg", "pretoria"],
             reviewData: [{
-                author": "Mike",
-                phone": "083****789",
-                rating": 5,
-                comment": "Very happy with the service. They were professional from start to finish."
+                author: "Mike",
+                phone: "083****789",
+                rating: 5,
+                comment: "Very happy with the service. They were professional from start to finish."
             }],
-            photos": [],
-            avatarSeed": "elite-services"
+            photos: [],
+            avatarSeed: "elite-services"
         },
         {
-            id": "vaal-rubble-pros",
-            name": "Vaal Rubble Pros",
-            location": "Vereeniging",
-            description": "Leading rubble removal services in the Vaal Triangle. We specialize in fast and clean site clearing for residential and commercial projects. Your local choice for reliable {service}.",
-            rating": 4.8,
-            reviews": 55,
-            address": "10 Steel Rd, Vereeniging",
-            yearsInBusiness": 8,
+            id: "vaal-rubble-pros",
+            name: "Vaal Rubble Pros",
+            location: "Vereeniging",
+            description: "Leading rubble removal services in the Vaal Triangle. We specialize in fast and clean site clearing for residential and commercial projects. Your local choice for reliable {service}.",
+            rating: 4.8,
+            reviews: 55,
+            address: "10 Steel Rd, Vereeniging",
+            yearsInBusiness: 8,
             employees: 6,
             isProVerified: true,
             serviceLocations: ["vereeniging"],
             reviewData: [{
-                author": "Busi",
-                phone": "081****999",
-                rating": 5,
-                comment": "Quick and efficient! The team cleared my entire backyard in just a few hours. Very impressed."
+                author: "Busi",
+                phone: "081****999",
+                rating: 5,
+                comment: "Quick and efficient! The team cleared my entire backyard in just a few hours. Very impressed."
             }],
-            photos": ["https://picsum.photos/seed/vaal1/600/400"],
-            avatarSeed": "vaal-pros-logo"
+            photos: ["https://picsum.photos/seed/vaal1/600/400"],
+            avatarSeed: "vaal-pros-logo"
         },
         {
-            id": "vereeniging-waste-solutions",
-            name": "Vereeniging Waste Solutions",
-            location": "Vereeniging",
-            description": "Comprehensive waste management and {service} in Vereeniging. From garden refuse to construction debris, we handle it all with professionalism and care.",
-            rating": 4.5,
-            reviews": 30,
-            address": "22 Union St, Vereeniging",
+            id: "vereeniging-waste-solutions",
+            name: "Vereeniging Waste Solutions",
+            location: "Vereeniging",
+            description: "Comprehensive waste management and {service} in Vereeniging. From garden refuse to construction debris, we handle it all with professionalism and care.",
+            rating: 4.5,
+            reviews: 30,
+            address: "22 Union St, Vereeniging",
             yearsInBusiness: 5,
             employees: 4,
             isProVerified: true,
             serviceLocations: ["vereeniging"],
             reviewData: [{
-                author": "John D.",
-                phone": "073****123",
-                rating": 5,
-                comment": "Reliable service. They dropped off the skip on time and collected it as soon as I called. Will use them again."
+                author: "John D.",
+                phone: "073****123",
+                rating: 5,
+                comment: "Reliable service. They dropped off the skip on time and collected it as soon as I called. Will use them again."
             }],
-            photos": ["https://picsum.photos/seed/vaal2/600/400"],
-            avatarSeed": "vereeniging-waste-logo"
+            photos: ["https://picsum.photos/seed/vaal2/600/400"],
+            avatarSeed: "vereeniging-waste-logo"
         },
         {
-            id": "3-rivers-disposal",
-            name": "Three Rivers Disposal",
-            location": "Vereeniging",
-            description": "Your go-to for affordable and quick {service}. Based in Three Rivers, we proudly serve the entire Vereeniging area for all site clearing and waste disposal needs.",
-            rating": 4.6,
-            reviews": 41,
-            address": "88 River Rd, Three Rivers, Vereeniging",
+            id: "3-rivers-disposal",
+            name: "Three Rivers Disposal",
+            location: "Vereeniging",
+            description: "Your go-to for affordable and quick {service}. Based in Three Rivers, we proudly serve the entire Vereeniging area for all site clearing and waste disposal needs.",
+            rating: 4.6,
+            reviews: 41,
+            address: "88 River Rd, Three Rivers, Vereeniging",
             yearsInBusiness: 6,
             employees: 5,
             isProVerified: true,
             serviceLocations: ["vereeniging"],
             reviewData: [{
-                author": "Anonymous",
-                phone": "",
-                rating": 4,
-                comment": "Good price and they got the job done. Communication could be a bit better, but overall happy with the result."
+                author: "Anonymous",
+                phone: "",
+                rating: 4,
+                comment: "Good price and they got the job done. Communication could be a bit better, but overall happy with the result."
             }],
-            photos": [],
-            avatarSeed": "3-rivers-logo"
+            photos: [],
+            avatarSeed: "3-rivers-logo"
         },
         {
-            id": "mzanzi-clean-sites",
-            name": "Mzanzi Clean Sites",
-            location": "Vereeniging",
-            description": "Proudly South African {service}. We offer residential and commercial site clearing services across Vereeniging, ensuring a clean and safe environment for your next project.",
-            rating": 4.9,
-            reviews": 68,
-            address": "100 Main Reef Rd, Vereeniging",
+            id: "mzanzi-clean-sites",
+            name: "Mzanzi Clean Sites",
+            location: "Vereeniging",
+            description: "Proudly South African {service}. We offer residential and commercial site clearing services across Vereeniging, ensuring a clean and safe environment for your next project.",
+            rating: 4.9,
+            reviews: 68,
+            address: "100 Main Reef Rd, Vereeniging",
             yearsInBusiness: 10,
             employees: 10,
             isProVerified: true,
             serviceLocations: ["vereeniging"],
             reviewData: [{
-                author": "Lerato M.",
-                phone": "062****555",
-                rating": 5,
-                comment": "Absolutely fantastic service. Professional, friendly, and left my property spotless. Highly recommend Mzanzi Clean Sites!"
+                author: "Lerato M.",
+                phone: "062****555",
+                rating: 5,
+                comment: "Absolutely fantastic service. Professional, friendly, and left my property spotless. Highly recommend Mzanzi Clean Sites!"
             }],
-            photos": ["https://picsum.photos/seed/vaal3/600/400", "https://picsum.photos/seed/vaal4/600/400"],
-            avatarSeed": "mzanzi-clean-logo"
+            photos: ["https://picsum.photos/seed/vaal3/600/400", "https://picsum.photos/seed/vaal4/600/400"],
+            avatarSeed: "mzanzi-clean-logo"
         },
         {
-            id": "speedy-site-clearers",
-            name": "Speedy Site Clearers",
-            location": "Vereeniging",
-            description": "Need it gone now? We offer the fastest {service} in Vereeniging. Perfect for urgent clear-outs and post-renovation cleanups. Call us for a quick quote!",
-            rating": 4.3,
-            reviews": 25,
-            address": "45 Industrial Ave, Vereeniging",
-            yearsInBusiness": 2,
+            id: "speedy-site-clearers",
+            name: "Speedy Site Clearers",
+            location: "Vereeniging",
+            description: "Need it gone now? We offer the fastest {service} in Vereeniging. Perfect for urgent clear-outs and post-renovation cleanups. Call us for a quick quote!",
+            rating: 4.3,
+            reviews: 25,
+            address: "45 Industrial Ave, Vereeniging",
+            yearsInBusiness: 2,
             employees: 3,
             isProVerified: false,
             serviceLocations: ["vereeniging"],
             reviewData: [{
-                author": "Chris V.",
-                phone": "079****888",
-                rating": 4,
-                comment": "They were very fast as their name suggests. A bit pricey but worth it for the speed."
+                author: "Chris V.",
+                phone: "079****888",
+                rating: 4,
+                comment: "They were very fast as their name suggests. A bit pricey but worth it for the speed."
             }],
-            photos": [],
-            avatarSeed": "speedy-clear-logo"
+            photos: [],
+            avatarSeed: "speedy-clear-logo"
         }
     ],
     "movers": [
         {
-            id": "swift-moves-sa",
-            name": "Swift Moves SA",
-            location": "Rosebank, Johannesburg",
-            address": "123 Oxford Road, Rosebank, Johannesburg",
-            website": "www.swiftmoves.co.za",
-            description": "Your reliable moving partner for local and long-distance relocations. We offer packing, transport, and storage services to make your move stress-free. Our team is trained, professional, and ready to assist.",
-            rating": 4.8,
-            reviews": 125,
-            yearsInBusiness": 5,
-            employees": 12,
+            id: "swift-moves-sa",
+            name: "Swift Moves SA",
+            location: "Rosebank, Johannesburg",
+            address: "123 Oxford Road, Rosebank, Johannesburg",
+            website: "www.swiftmoves.co.za",
+            description: "Your reliable moving partner for local and long-distance relocations. We offer packing, transport, and storage services to make your move stress-free. Our team is trained, professional, and ready to assist.",
+            rating: 4.8,
+            reviews: 125,
+            yearsInBusiness: 5,
+            employees: 12,
             isProVerified: true,
             reviewData: [{
-                author": "Richard",
-                phone": "061****434",
-                rating": 5,
-                comment": "They came through prepared to work. They did an excellent job. I am happy with their services I even gave a tip. Hard workers too. Arrived in Kimberley on time."
+                author: "Richard",
+                phone: "061****434",
+                rating: 5,
+                comment: "They came through prepared to work. They did an excellent job. I am happy with their services I even gave a tip. Hard workers too. Arrived in Kimberley on time."
             }],
-            photos": [
+            photos: [
                 "https://picsum.photos/seed/mover1/600/400",
                 "https://picsum.photos/seed/mover2/600/400",
                 "https://picsum.photos/seed/mover3/600/400",
             ],
-            avatarSeed": "swift-moves"
+            avatarSeed: "swift-moves"
         },
         {
-            id": "joburg-movers-co",
-            name": "Joburg Movers Co.",
-            location": "Sandton, Johannesburg",
-            address": "456 Rivonia Road, Sandton, Johannesburg",
-            website": "www.joburgmovers.co.za",
-            description": "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
-            rating": 4.7,
-            reviews": 88,
-            yearsInBusiness": 8,
-            employees": 20,
+            id: "joburg-movers-co",
+            name: "Joburg Movers Co.",
+            location: "Sandton, Johannesburg",
+            address: "456 Rivonia Road, Sandton, Johannesburg",
+            website: "www.joburgmovers.co.za",
+            description: "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
+            rating: 4.7,
+            reviews: 88,
+            yearsInBusiness: 8,
+            employees: 20,
             isProVerified: true,
             reviewData: [{
-                author": "Jane D.",
-                phone": "082****567",
-                rating": 4,
-                comment": "Good service, but they were a bit late. Otherwise, the move went smoothly and nothing was damaged."
+                author: "Jane D.",
+                phone: "082****567",
+                rating: 4,
+                comment: "Good service, but they were a bit late. Otherwise, the move went smoothly and nothing was damaged."
             }],
-             photos": [
+             photos: [
                 "https://picsum.photos/seed/mover4/600/400",
                 "https://picsum.photos/seed/mover5/600/400",
             ],
-            avatarSeed": "joburg-movers"
+            avatarSeed: "joburg-movers"
         }
     ],
     "default": [
         {
-            id": "pro-services-inc",
-            name": "Pro Services Inc.",
-            location": "Alberton",
-            description": "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, and pride ourselves on quick response times and high-quality workmanship.",
-            rating": 4.6,
-            reviews": 42,
-            address": "16 Porth Pean Street, New Redruth, Alberton - 1449",
-            yearsInBusiness": 9,
-            employees": 4,
+            id: "pro-services-inc",
+            name: "Pro Services Inc.",
+            location: "Alberton",
+            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, and pride ourselves on quick response times and high-quality workmanship.",
+            rating: 4.6,
+            reviews: 42,
+            address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
+            yearsInBusiness: 9,
+            employees: 4,
             isProVerified: true,
             serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton", "midrand", "sandton", "johannesburg", "pretoria", "tembisa"],
             reviewData: [
-                { author": "Katleho", phone: "061****434", rating": 5, comment: "Excellent service. They were quick to respond, finished the job quickly, and left the site spotless. Very professional and hard-working team." }
+                { author: "Katleho", phone: "061****434", rating: 5, comment: "Excellent service. They were quick to respond, finished the job quickly, and left the site spotless. Very professional and hard-working team." }
             ],
-             photos": [
+             photos: [
                 "https://picsum.photos/seed/pro1/600/400",
                 "https://picsum.photos/seed/pro2/600/400",
             ],
-            avatarSeed": "pro-services-inc"
+            avatarSeed: "pro-services-inc"
         },
         {
-            id": "general-solutions-pty",
-            name": "General Solutions Pty",
-            location": "Germiston",
-            description": "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from start to finish.",
-            rating": 0.0,
-            reviews": 0,
-            address": "789 Industrial Rd, Germiston",
-            yearsInBusiness": 1,
-            employees": 2,
+            id: "general-solutions-pty",
+            name: "General Solutions Pty",
+            location: "Germiston",
+            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from start to finish.",
+            rating: 0.0,
+            reviews: 0,
+            address: "789 Industrial Rd, Germiston",
+            yearsInBusiness: 1,
+            employees: 2,
             isProVerified: false,
             serviceLocations: ["germiston", "bedfordview", "edenvale", "midrand", "johannesburg", "pretoria", "tembisa", "benoni", "boksburg", "kempton-park"],
             reviewData: [],
-            photos": [],
-            avatarSeed": "general-solutions"
+            photos: [],
+            avatarSeed: "general-solutions"
         },
         {
-            id": "expert-crew-sa",
-            name": "Expert Crew SA",
-            location": "Soweto",
-            description": "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
-            rating": 4.9,
-            reviews": 76,
-            address": "24 Worker's Way, Soweto",
-            yearsInBusiness": 12,
-            employees": 8,
+            id: "expert-crew-sa",
+            name: "Expert Crew SA",
+            location: "Soweto",
+            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
+            rating: 4.9,
+            reviews: 76,
+            address: "24 Worker's Way, Soweto",
+            yearsInBusiness: 12,
+            employees: 8,
             isProVerified: true,
             serviceLocations: ["soweto", "johannesburg", "midrand", "sandton", "roodepoort", "pretoria", "tembisa", "benoni", "boksburg"],
             reviewData: [{
-                author": "Sarah P.",
-                phone": "072****123",
-                rating": 5,
-                comment": "Extremely professional and efficient. They finished the job in half the expected time. Highly recommended!"
+                author: "Sarah P.",
+                phone: "072****123",
+                rating: 5,
+                comment: "Extremely professional and efficient. They finished the job in half the expected time. Highly recommended!"
             }],
-            photos": [ "https://picsum.photos/seed/expert1/600/400",],
-            avatarSeed": "expert-crew-logo"
+            photos: [ "https://picsum.photos/seed/expert1/600/400",],
+            avatarSeed: "expert-crew-logo"
         }
     ]
 };
@@ -1575,3 +1575,6 @@ export const getProfessionalById = (id: string) => {
 
 
 
+
+
+    
