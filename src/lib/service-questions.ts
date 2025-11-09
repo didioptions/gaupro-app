@@ -1955,10 +1955,23 @@ export const serviceQuestionSets: QuestionSet[] = [
     service: 'stationery',
     questions: [
       {
+        id: 'stationery_type',
+        text: 'What type of stationery do you need? (Select all that apply)',
+        type: 'checkbox',
+        options: [
+          { value: 'office_basics', label: 'Office Basics (Pens, Paper, Staples)' },
+          { value: 'printing', label: 'Printing Supplies (Ink, Toner, Paper)' },
+          { value: 'filing', label: 'Filing & Storage (Files, Folders, Labels)' },
+          { value: 'scholastic', label: 'Scholastic/School Supplies' },
+          { value: 'art_craft', label: 'Art & Craft Supplies' },
+          { value: 'bulk_order', label: 'Bulk Office Order' },
+        ],
+      },
+      {
         id: 'job_details',
-        text: 'What stationery supplies do you need?',
+        text: 'Please provide more details about the items and quantities you need.',
         type: 'textarea',
-        placeholder: 'e.g., Office paper, pens, printer cartridges, files, etc. Please specify quantities if possible.',
+        placeholder: 'e.g., 10 boxes of A4 paper, 5 black ink cartridges for HP Deskjet, 50 blue pens...',
       },
       locationQuestion,
       urgencyQuestion,
@@ -2766,3 +2779,4 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
 ];
+
