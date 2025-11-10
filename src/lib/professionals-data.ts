@@ -1476,70 +1476,6 @@ export const allProfessionals = {
             avatarSeed: "goldenhammer-logo"
         },
         {
-            id: "ecoshield-waterproofing",
-            name: "EcoShield Waterproofing",
-            location: "Roodepoort, Johannesburg West",
-            description: "EcoShield Waterproofing offers damp proofing, roof sealing, and moisture protection solutions for residential and industrial buildings. They use environmentally safe materials designed for long-term protection and energy efficiency.",
-            rating: 4.9,
-            reviews: 10,
-            address: "Roodepoort, Johannesburg West",
-            yearsInBusiness: 8,
-            employees: 6,
-            isProVerified: true,
-            serviceLocations: ["roodepoort", "randburg", "johannesburg"],
-            reviewData: [{ author: "Anita", phone: "074**226*", rating: 5, comment: "Excellent workmanship; my roof no longer leaks. Highly recommend them." }],
-            photos: ["https://picsum.photos/seed/ecoshield1/600/400"],
-            avatarSeed: "ecoshield-logo"
-        },
-        {
-            id: "primeworks-construction",
-            name: "PrimeWorks Construction",
-            location: "Midrand, Johannesburg",
-            description: "PrimeWorks Construction delivers general building, ceiling installation, tiling, and renovation services. Their expert builders focus on detail, safety, and modern design to bring every project to life.",
-            rating: 4.8,
-            reviews: 8,
-            address: "Midrand, Johannesburg",
-            yearsInBusiness: 7,
-            employees: 20,
-            isProVerified: true,
-            serviceLocations: ["midrand", "centurion", "sandton", "johannesburg"],
-            reviewData: [{ author: "Kabelo", phone: "082**220*", rating: 5, comment: "Reliable team that delivers clean, professional, and on-time work." }],
-            photos: ["https://picsum.photos/seed/primeworks1/600/400"],
-            avatarSeed: "primeworks-logo"
-        },
-        {
-            id: "buhlebrick-developments",
-            name: "BuhleBrick Developments",
-            location: "Fourways, Johannesburg North",
-            description: "BuhleBrick Developments are bricklaying and structural specialists focused on solid foundations and elegant finishes. They’re known for excellent craftsmanship and client-focused service for both small and large projects.",
-            rating: 4.6,
-            reviews: 6,
-            address: "Fourways, Johannesburg North",
-            yearsInBusiness: 6,
-            employees: 10,
-            isProVerified: true,
-            serviceLocations: ["fourways", "sandton", "bryanston", "randburg", "johannesburg"],
-            reviewData: [{ author: "Nandi", phone: "061**540*", rating: 5, comment: "Their work exceeded my expectations in every respect. Great quality." }],
-            photos: [],
-            avatarSeed: "buhlebrick-logo"
-        },
-        {
-            id: "metroroof-solutions",
-            name: "MetroRoof Solutions",
-            location: "Edenvale, Johannesburg East",
-            description: "MetroRoof Solutions provides professional leak repairs, waterproof coatings, and roof inspections. Their certified team ensures reliable, long-term protection against harsh weather and roof damage.",
-            rating: 4.8,
-            reviews: 7,
-            address: "Edenvale, Johannesburg East",
-            yearsInBusiness: 9,
-            employees: 8,
-            isProVerified: true,
-            serviceLocations: ["edenvale", "bedfordview", "kempton-park", "johannesburg"],
-            reviewData: [{ author: "Riaan", phone: "079**348*", rating: 5, comment: "Professional and courteous service from start to finish. My roof looks great now." }],
-            photos: ["https://picsum.photos/seed/metroroof1/600/400"],
-            avatarSeed: "metroroof-logo"
-        },
-        {
             id: "stonepeak-projects",
             name: "StonePeak Projects",
             location: "Melville, Johannesburg",
@@ -1837,6 +1773,44 @@ export const allProfessionals = {
                 "https://picsum.photos/seed/mover5/600/400",
             ],
             avatarSeed: "joburg-movers"
+        }
+    ],
+    dentists: [
+        {
+            id: "bright-smile-dental-jhb",
+            name: "Bright Smile Dental JHB",
+            location: "Sandton, Johannesburg",
+            description: "A modern dental practice offering a full range of {service}, from general check-ups and cleanings to cosmetic dentistry and teeth whitening. We create beautiful, healthy smiles.",
+            rating: 4.9,
+            reviews: 150,
+            isProVerified: true,
+            reviewData: [{ author: "Thandi M.", phone: "082****123", rating: 5, comment: "Dr. Smith is the best dentist I've ever had. So gentle and professional. The whole practice is clean and modern." }],
+            photos: ["https://picsum.photos/seed/dental1/600/400"],
+            avatarSeed: "smile-bright-logo"
+        },
+        {
+            id: "cape-town-family-dentistry",
+            name: "Cape Town Family Dentistry",
+            location: "Gardens, Cape Town",
+            description: "Your friendly family dentist in the heart of Cape Town. We provide comprehensive dental care for all ages, including check-ups, fillings, and orthodontics.",
+            rating: 4.8,
+            reviews: 120,
+            isProVerified: true,
+            reviewData: [{ author: "James P.", phone: "071****567", rating: 5, comment: "Great with kids! My son wasn't scared at all. The team is so patient and friendly." }],
+            photos: ["https://picsum.photos/seed/dental2/600/400"],
+            avatarSeed: "family-dental-logo"
+        },
+        {
+            id: "durban-cosmetic-dentist",
+            name: "Durban Cosmetic Dentist",
+            location: "Umhlanga, Durban",
+            description: "Specializing in smile makeovers. We offer veneers, professional teeth whitening, and Invisalign to give you the confident smile you've always wanted.",
+            rating: 5.0,
+            reviews: 95,
+            isProVerified: true,
+            reviewData: [{ author: "Priya K.", phone: "084****890", rating: 5, comment: "I am so happy with my new veneers. The results are amazing and have completely transformed my smile." }],
+            photos: ["https://picsum.photos/seed/dental3/600/400", "https://picsum.photos/seed/dental4/600/400"],
+            avatarSeed: "cosmetic-dental-logo"
         }
     ],
     default: [

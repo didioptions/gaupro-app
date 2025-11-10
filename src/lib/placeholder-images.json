@@ -599,6 +599,18 @@
       "description": "A logo for a tracing agency.",
       "imageUrl": "https://images.unsplash.com/photo-1762340280319-7602c7175830?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzZWFyY2glMjBpY29uJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "search icon logo"
+    },
+    {
+      "id": "family-dental-logo",
+      "description": "A friendly logo for a family dental practice.",
+      "imageUrl": "https://images.unsplash.com/photo-1543839604-76538f2e3202?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmYW1pbHklMjBsb2dvfGVufDB8fHx8MTc2Mjc5ODgxMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "family logo"
+    },
+    {
+      "id": "cosmetic-dental-logo",
+      "description": "An elegant logo for a cosmetic dentistry clinic.",
+      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb3NtZXRpYyUyMGxvZ298ZW58MHx8fHwxNzYyNzk4ODEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cosmetic logo"
     }
   ]
 }
