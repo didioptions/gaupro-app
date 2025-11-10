@@ -611,6 +611,54 @@
       "description": "An elegant logo for a cosmetic dentistry clinic.",
       "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb3NtZXRpYyUyMGxvZ298ZW58MHx8fHwxNzYyNzk4ODEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cosmetic logo"
+    },
+    {
+      "id": "pixel-perfect-logo",
+      "description": "A modern logo for a graphic design studio with a pixelated icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1760597371617-5c0652f58178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwaXhlbCUyMGxvZ298ZW58MHx8fHwxNzYyNzc1NTEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pixel logo"
+    },
+    {
+      "id": "creative-web-logo",
+      "description": "A logo for a web design agency featuring code brackets.",
+      "imageUrl": "https://images.unsplash.com/photo-1672676618638-92f41d5e4d26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb2RlJTIwbG9nb3xlbnwwfHx8fDE3NjI4MDg2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code logo"
+    },
+    {
+      "id": "logo-foundry-logo",
+      "description": "A strong, industrial-style logo for a logo design service.",
+      "imageUrl": "https://images.unsplash.com/photo-1659509342258-36b5d7797237?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Zm91bmRyeSUyMGxvZ298ZW58MHx8fHwxNzYyODA4NjA3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "foundry logo"
+    },
+    {
+      "id": "print-hub-logo",
+      "description": "A colorful logo for a print shop, resembling CMYK colors.",
+      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjbXlrJTIwbG9nb3xlbnwwfHx8fDE3NjI4MDg2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cmyk logo"
+    },
+    {
+      "id": "sign-craft-logo",
+      "description": "A bold logo for a signage company, with strong typography.",
+      "imageUrl": "https://images.unsplash.com/photo-1759692744182-ab163428fa81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib2xkJTIwdHlwb2dyYXBoeXxlbnwwfHx8fDE3NjI3MzQyNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold typography"
+    },
+    {
+      "id": "auto-electricians",
+      "description": "A logo for an auto-electrician with a car and a spark icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1517405730281-c8ae39bf9adc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYXIlMjBzcGFya3xlbnwwfHx8fDE3NjI4MDg2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "car spark"
+    },
+    {
+      "id": "car-aircon",
+      "description": "A logo for a car aircon service with a snowflake icon inside a car outline.",
+      "imageUrl": "https://images.unsplash.com/photo-1650796802088-a093dde729ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjYXIlMjBzbm93Zmxha2V8ZW58MHx8fHwxNzYyODA4NjA3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "car snowflake"
+    },
+    {
+      "id": "brakes-clutches",
+      "description": "A logo for a brake and clutch specialist with a brake disc icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1637087867437-5a1898610adf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxicmFrZSUyMGRpc2N8ZW58MHx8fHwxNzYyODA4NjA3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brake disc"
     }
   ]
 }
