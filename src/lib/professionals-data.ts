@@ -840,7 +840,7 @@ export const allProfessionals = {
         },
         {
             id: "cape-floor-wall-tilers",
-            name: "Cape Floor &amp; Wall Tilers",
+            name: "Cape Floor & Wall Tilers",
             location: "Cape Town City Bowl",
             description: "Specialists in residential and commercial tiling services in the Western Cape. We provide waterproofing, screeding, and expert installation of all tile types, ensuring a perfect finish every time.",
             rating: 4.7,
@@ -1065,7 +1065,7 @@ export const allProfessionals = {
         },
         {
             id: "oceanic-pools-solutions",
-            name: "Oceanic Pools &amp; Spa Solutions",
+            name: "Oceanic Pools & Spa Solutions",
             location: "Bedfordview, Johannesburg",
             description: "We design and maintain pools that bring resort-style comfort to your home. From new builds to spa integration and heating, we’ve got you covered.",
             rating: 5.0,
@@ -1103,7 +1103,7 @@ export const allProfessionals = {
     "plant-hire": [
         {
             id: "wasteden-demolitions",
-            name: "Wasteden Demolitions &amp; Waste Removals",
+            name: "Wasteden Demolitions & Waste Removals",
             location: "Johannesburg",
             description: "We handle all types of demolition and rubble removals — both interior and exterior — as well as bulk earthworks and site cleaning.",
             tags: ["Demolition", "rubble removal", "bulk earthworks", "site cleaning", "interior demolition"],
@@ -1131,7 +1131,7 @@ export const allProfessionals = {
             id: "sid-plant-hire",
             name: "Sid Plant",
             location: "Parktown, Johannesburg",
-            description: "TLB &amp; tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
+            description: "TLB & tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
             tags: ["TLB hire", "tipper truck hire", "site clearing", "demolitions", "trenching"],
             rating: 5.0,
             reviews: 1,
@@ -1181,7 +1181,7 @@ export const allProfessionals = {
         },
         {
             id: "thabos-plant-hire",
-            name: "Thabo’s Plant &amp; Equipment Hire",
+            name: "Thabo’s Plant & Equipment Hire",
             location: "Soweto, Johannesburg",
             description: "TLB hire, grader hire, and rubble removal for small to large projects. Ideal for both private residential jobs and municipal work.",
             tags: ["TLB hire", "grader hire", "rubble removal"],
@@ -1251,9 +1251,9 @@ export const allProfessionals = {
         },
         {
             id: "revision-contracting",
-            name: "Revision Contracting &amp; Projects (Pty) Ltd",
+            name: "Revision Contracting & Projects (Pty) Ltd",
             location: "Norkem Park, Kempton Park",
-            description: "Revision Contracting &amp; Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
+            description: "Revision Contracting & Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
             rating: 5.0,
             reviews: 1,
             address: "Norkem Park, Kempton Park",
@@ -1299,7 +1299,7 @@ export const allProfessionals = {
         },
         {
             id: "freshtone-painters",
-            name: "FreshTone Painters &amp; Decor",
+            name: "FreshTone Painters & Decor",
             location: "Aston Manor, Kempton Park",
             description: "FreshTone Painters brings over 12 years of experience in wall coatings, ceiling painting, and interior décor finishes. Using premium paints, they deliver vibrant, long-lasting color for every surface.",
             rating: 4.9,
@@ -1349,9 +1349,9 @@ export const allProfessionals = {
         },
         {
             id: "mavuso-construction",
-            name: "Mavuso Construction &amp; Maintenance",
+            name: "Mavuso Construction & Maintenance",
             location: "Steeledale, Johannesburg South",
-            description: "Mavuso Construction &amp; Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
+            description: "Mavuso Construction & Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
             rating: 4.7,
             reviews: 8,
             address: "Steeledale, Johannesburg South",
@@ -1429,7 +1429,7 @@ export const allProfessionals = {
         },
         {
             id: "ndlovu-builders",
-            name: "Ndlovu Builders &amp; Renovations",
+            name: "Ndlovu Builders & Renovations",
             location: "Johannesburg South",
             description: "Ndlovu Builders offers affordable home and business renovations, including plastering, painting, roofing, and flooring. With over 10 years in the trade, they’re known for honest quotes and consistent results.",
             rating: 4.9,
@@ -1492,7 +1492,7 @@ export const allProfessionals = {
         },
         {
             id: "crestwave-construction",
-            name: "Crestwave Construction &amp; Maintenance",
+            name: "Crestwave Construction & Maintenance",
             location: "Bryanston, Johannesburg North",
             description: "Crestwave Construction offers comprehensive building, plumbing, roofing, and electrical installation services. Their qualified team delivers consistent results and quality assurance across residential and commercial projects.",
             rating: 4.9,
@@ -1505,12 +1505,44 @@ export const allProfessionals = {
             reviewData: [{ author: "Siphesihle", phone: "078**655*", rating: 5, comment: "Extremely professional and efficient. Highly recommended for any building work." }],
             photos: [],
             avatarSeed: "crestwave-logo"
+        },
+        {
+            id: "eco-build-waterproofing",
+            name: "EcoBuild Waterproofing",
+            location: "Fourways, Johannesburg North",
+            description: "EcoBuild Waterproofing provides durable waterproofing, damp proofing, and roof sealing for homes and businesses. They focus on eco-friendly materials and offer a 10-year guarantee on their work.",
+            rating: 4.8,
+            reviews: 14,
+            address: "Fourways, Johannesburg North",
+            yearsInBusiness: 7,
+            employees: 9,
+            isProVerified: true,
+            serviceLocations: ["fourways", "sandton", "randburg", "bryanston"],
+            reviewData: [{ author: "Jason", phone: "076**721*", rating: 5, comment: "They fixed our persistent damp problem once and for all. Very clean and professional work." }],
+            photos: ["https://picsum.photos/seed/ecobuild1/600/400", "https://picsum.photos/seed/ecobuild2/600/400"],
+            avatarSeed: "ecobuild-logo"
+        },
+        {
+            id: "ecoshield-waterproofing",
+            name: "EcoShield Waterproofing",
+            location: "Roodepoort, Johannesburg West",
+            description: "EcoShield Waterproofing offers damp proofing, roof sealing, and moisture protection solutions for residential and industrial buildings. They use environmentally safe materials designed for long-term protection and energy efficiency.",
+            rating: 4.7,
+            reviews: 11,
+            address: "Roodepoort, Johannesburg West",
+            yearsInBusiness: 6,
+            employees: 8,
+            isProVerified: true,
+            serviceLocations: ["roodepoort", "krugersdorp", "randburg"],
+            reviewData: [{ author: "Fatima", phone: "082**198*", rating: 5, comment: "Excellent service and lasting results. Our warehouse roof is now leak-free, and we noticed our energy bills dropped slightly." }],
+            photos: ["https://picsum.photos/seed/ecoshield1/600/400"],
+            avatarSeed: "ecoshield-logo"
         }
     ],
     "rubble-removal": [
         {
             id: "east-rand-waste",
-            name: "East Rand Waste &amp; Pool Service Pty Ltd",
+            name: "East Rand Waste & Pool Service Pty Ltd",
             location: "Alberton",
             description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
