@@ -1,6 +1,24 @@
 {
   "placeholderImages": [
     {
+      "id": "fire-safe-solutions-logo",
+      "description": "A logo for a fire safety company with a shield and a flame icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1596394723541-3555aa6b843a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjI4OTE1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fire shield logo"
+    },
+    {
+      "id": "national-fire-logo",
+      "description": "A professional logo for a national fire protection service.",
+      "imageUrl": "https://images.unsplash.com/photo-1590215986213-3cb25d4f8621?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaXJlJTIwcHJvdGVjdGlvbiUyMGxvZ298ZW58MHx8fHwxNzYyODkxNTk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fire protection logo"
+    },
+    {
+      "id": "cape-fire-logo",
+      "description": "A logo for a fire safety compliance company in Cape Town.",
+      "imageUrl": "https://images.unsplash.com/photo-1587567818566-3272be7d64c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb21wbGlhbmNlJTIwbG9nb3xlbnwwfHx8fDE3NjI4OTE1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "compliance logo"
+    },
+    {
       "id": "pro-cta-image",
       "description": "A professional tradesperson with tools, looking confident.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/CompressJPEG.Online_img(550x450).jpg?alt=media&token=3a696aa3-97b5-4a94-9f52-50860d6c5726",

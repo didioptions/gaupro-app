@@ -1,6 +1,44 @@
 
 
 export const allProfessionals = {
+    "fire-safety": [
+        {
+            id: "fire-safe-solutions-jhb",
+            name: "Fire-Safe Solutions JHB",
+            location: "Johannesburg",
+            description: "Suppliers and service agents for all fire safety equipment. We provide fire extinguisher servicing, fire detection system installation, and fire safety compliance certificates for businesses.",
+            rating: 4.8,
+            reviews: 130,
+            isProVerified: true,
+            reviewData: [{ author: "Office Parks Inc.", phone: "", rating: 5, comment: "They handle the annual fire safety compliance for all our buildings. Very professional and reliable service." }],
+            photos: ["https://picsum.photos/seed/firesafety1/600/400"],
+            avatarSeed: "fire-safe-solutions-logo"
+        },
+        {
+            id: "national-fire-protection",
+            name: "National Fire Protection",
+            location: "Nationwide",
+            description: "A leading provider of fire protection services, including the installation and maintenance of sprinkler systems, fire alarms, and emergency evacuation planning for large commercial and industrial sites.",
+            rating: 4.7,
+            reviews: 210,
+            isProVerified: true,
+            reviewData: [{ author: "Mega Malls Pty", phone: "", rating: 5, comment: "Their expertise in large-scale fire suppression systems is unmatched. A crucial partner for our facilities." }],
+            photos: ["https://picsum.photos/seed/firesafety2/600/400", "https://picsum.photos/seed/firesafety3/600/400"],
+            avatarSeed: "national-fire-logo"
+        },
+        {
+            id: "cape-fire-compliance",
+            name: "Cape Fire & Compliance",
+            location: "Cape Town, Western Cape",
+            description: "Helping businesses in the Western Cape stay compliant with fire safety regulations. We offer fire risk assessments, fire extinguisher servicing, and staff training.",
+            rating: 4.9,
+            reviews: 95,
+            isProVerified: true,
+            reviewData: [{ author: "The Eatery Group", phone: "", rating: 5, comment: "Made the process of getting our restaurant compliant very easy. The inspector was knowledgeable and helpful." }],
+            photos: ["https://picsum.photos/seed/firesafety4/600/400"],
+            avatarSeed: "cape-fire-logo"
+        }
+    ],
     dressmakers: [
         {
             id: "sew-elegant-jhb",
@@ -1507,7 +1545,7 @@ export const allProfessionals = {
             avatarSeed: "crestwave-logo"
         },
         {
-            id: "eco-build-waterproofing",
+            id: "ecobuild-waterproofing",
             name: "EcoBuild Waterproofing",
             location: "Fourways, Johannesburg North",
             description: "EcoBuild Waterproofing provides durable waterproofing, damp proofing, and roof sealing for homes and businesses. They focus on eco-friendly materials and offer a 10-year guarantee on their work.",
