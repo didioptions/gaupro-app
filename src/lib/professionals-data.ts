@@ -1462,6 +1462,206 @@ export const allProfessionals = {
             avatarSeed: "joburg-movers"
         }
     ],
+    dentists: [
+        {
+            id: "smile-bright-dental",
+            name: "Smile Bright Dental Studio",
+            location: "Sandton, Johannesburg",
+            description: "Modern family and cosmetic {service}. From regular check-ups and cleanings to teeth whitening and veneers, our friendly team is here to help you achieve your best smile.",
+            rating: 4.9,
+            reviews: 120,
+            isProVerified: true,
+            reviewData: [
+                { author: "Thandi P.", phone: "083****111", rating: 5, comment: "Dr. Smith is fantastic! The practice is modern and clean, and the staff are all so friendly. I no longer dread going to the dentist." },
+                { author: "Mike R.", phone: "072****222", rating: 5, comment: "Had my teeth whitened here before my wedding. The results were amazing. Very professional service." }
+            ],
+            photos: ["https://picsum.photos/seed/dental-office/600/400"],
+            avatarSeed: "smile-bright-logo"
+        },
+        {
+            id: "rosebank-family-dental",
+            name: "Rosebank Family Dental",
+            location: "Rosebank, Johannesburg",
+            description: "A family-focused dental practice providing gentle and comprehensive care for all ages. We offer general check-ups, paediatric {service}, and orthodontic consultations.",
+            rating: 4.8,
+            reviews: 95,
+            isProVerified: true,
+            reviewData: [
+                { author: "The Naidoo Family", phone: "", rating: 5, comment: "Great with kids! My son actually enjoys his dental check-ups now. The whole family comes here." },
+                { author: "John V.", phone: "081****333", rating: 5, comment: "Professional, clean, and always on time. A great family dentist." }
+            ],
+            photos: ["https://picsum.photos/seed/dental-family/600/400"],
+            avatarSeed: "family-dental-logo"
+        },
+        {
+            id: "cpt-cosmetic-dental",
+            name: "Cape Town Cosmetic Dentistry",
+            location: "V&A Waterfront, Cape Town",
+            description: "Specialists in smile makeovers. We offer high-end cosmetic {service}, including veneers, dental implants, and full-mouth rehabilitation, using state-of-the-art technology.",
+            rating: 5.0,
+            reviews: 75,
+            isProVerified: true,
+            reviewData: [
+                { author: "Jenna L.", phone: "079****444", rating: 5, comment: "My new veneers look completely natural and have given me so much confidence. Dr. Lee is an artist." },
+                { author: "David S.", phone: "084****555", rating: 5, comment: "I had a dental implant done here and the process was seamless and pain-free. Worth every cent." }
+            ],
+            photos: ["https://picsum.photos/seed/dental-cosmetic/600/400"],
+            avatarSeed: "cosmetic-dental-logo"
+        }
+    ],
+    djs: [
+        {
+            id: "dj-pulse-jhb",
+            name: "DJ Pulse JHB",
+            location: "Johannesburg",
+            description: "High-energy DJ for weddings, corporate events, and parties. With a massive library of music from all genres, I guarantee a packed dance floor and an unforgettable night.",
+            rating: 4.9,
+            reviews: 110,
+            isProVerified: true,
+            reviewData: [
+                { author: "Sarah & Tom", rating: 5, comment: "He was the DJ for our wedding and was absolutely brilliant! He read the crowd perfectly and played the best music. Highly recommend!" },
+                { author: "Corporate Events Inc.", rating: 5, comment: "Always our first choice for corporate functions. Professional, reliable, and knows how to create a great atmosphere." }
+            ],
+            photos: ["https://picsum.photos/seed/dj1/600/400"],
+            avatarSeed: "djs-image"
+        }
+    ],
+    'event-decorations': [
+        {
+            id: "elegance-decor-cpt",
+            name: "Elegance Decor CPT",
+            location: "Cape Town",
+            description: "Bespoke event decor and styling for weddings, parties, and corporate functions. We transform venues with beautiful floral arrangements, lighting, and unique design elements.",
+            rating: 4.8,
+            reviews: 85,
+            isProVerified: true,
+            reviewData: [
+                { author: "The Wedding Planner", rating: 5, comment: "Their attention to detail is second to none. They made our client's wedding look like a fairytale." },
+                { author: "Thandi M.", rating: 5, comment: "The decor for my 40th birthday was breathtaking. It was more beautiful than I could have imagined." }
+            ],
+            photos: ["https://picsum.photos/seed/decor1/600/400", "https://picsum.photos/seed/decor2/600/400"],
+            avatarSeed: "event-decorations-image"
+        }
+    ],
+    'event-planners': [
+        {
+            id: "seamless-events-sa",
+            name: "Seamless Events SA",
+            location: "Nationwide",
+            description: "Full-service event planning for corporate conferences, product launches, and large-scale events. We handle everything from venue sourcing and logistics to execution, ensuring a flawless event.",
+            rating: 4.9,
+            reviews: 130,
+            isProVerified: true,
+            reviewData: [
+                { author: "TechCorp", rating: 5, comment: "They have planned our annual conference for the last 3 years. Each year is better than the last. Incredibly organized and professional." },
+                { author: "Marketing Manager", rating: 5, comment: "Seamless Events made our product launch a massive success. They are experts in their field." }
+            ],
+            photos: ["https://picsum.photos/seed/planner1/600/400"],
+            avatarSeed: "event-planners-image"
+        }
+    ],
+    florists: [
+        {
+            id: "the-bloom-room-jhb",
+            name: "The Bloom Room JHB",
+            location: "Parkhurst, Johannesburg",
+            description: "Artisanal florist creating stunning bouquets and arrangements for delivery, weddings, and events. We use fresh, seasonal flowers to create unique and beautiful designs.",
+            rating: 4.9,
+            reviews: 95,
+            isProVerified: true,
+            reviewData: [
+                { author: "David P.", rating: 5, comment: "Ordered flowers for my wife's birthday and they were absolutely stunning. The best florist in Joburg." },
+                { author: "Jenna S.", rating: 5, comment: "The flowers for our wedding were perfect. They understood my vision completely." }
+            ],
+            photos: ["https://picsum.photos/seed/florist1/600/400"],
+            avatarSeed: "florists-image"
+        }
+    ],
+    photographers: [
+        {
+            id: "lens-and-light-studio",
+            name: "Lens & Light Studio",
+            location: "Cape Town",
+            description: "Professional photography for weddings, portraits, and commercial projects. With a natural and timeless style, we capture moments that tell your unique story.",
+            rating: 5.0,
+            reviews: 150,
+            isProVerified: true,
+            reviewData: [
+                { author: "The Naidoo Family", rating: 5, comment: "Our family photoshoot was so much fun and the photos are incredible. They captured our family's personality perfectly." },
+                { author: "Emily & Mark", rating: 5, comment: "We are so in love with our wedding photos! They are more beautiful than we could have ever hoped for. True professionals." }
+            ],
+            photos: ["https://picsum.photos/seed/photo1/600/400", "https://picsum.photos/seed/photo2/600/400"],
+            avatarSeed: "photographers-image"
+        }
+    ],
+    'party-planners': [
+        {
+            id: "celebrate-well-events",
+            name: "Celebrate Well Events",
+            location: "Durban",
+            description: "Creative and fun party planning for all occasions. From kids' birthdays to milestone anniversaries, we handle all the details so you can enjoy the celebration.",
+            rating: 4.8,
+            reviews: 70,
+            isProVerified: true,
+            reviewData: [
+                { author: "Mom of Two", rating: 5, comment: "They planned my son's superhero party and it was a huge hit! They thought of every little detail." },
+                { author: "Sipho M.", rating: 5, comment: "Hired them for my wife's surprise 50th. The party was elegant and perfectly executed. She was thrilled." }
+            ],
+            photos: ["https://picsum.photos/seed/party1/600/400"],
+            avatarSeed: "party-planners-image"
+        }
+    ],
+    'tent-hire': [
+        {
+            id: "apex-tent-hire",
+            name: "Apex Tent Hire",
+            location: "Gauteng",
+            description: "A wide range of tents for hire for any event, including stretch tents, frame tents, and peg and pole marquees. We also provide flooring, lighting, and furniture.",
+            rating: 4.7,
+            reviews: 120,
+            isProVerified: true,
+            reviewData: [
+                { author: "Wedding Coordinator", rating: 5, comment: "Apex is always reliable. Their tents are clean and their setup crew is professional and efficient." },
+                { author: "Event Organizer", rating: 4, comment: "Good service and quality tents. Delivery was a little later than scheduled but they made up for it." }
+            ],
+            photos: ["https://picsum.photos/seed/tent1/600/400"],
+            avatarSeed: "tent-hire-image"
+        }
+    ],
+    'toilet-hire': [
+        {
+            id: "super-loos-sa",
+            name: "Super Loos SA",
+            location: "Major Cities",
+            description: "Clean and reliable portable toilet hire for events, construction sites, and film sets. We offer standard units, luxury VIP trailers, and disabled access toilets.",
+            rating: 4.6,
+            reviews: 90,
+            isProVerified: true,
+            reviewData: [
+                { author: "Construction Foreman", rating: 5, comment: "Always on time with delivery and servicing. The best portable toilet provider we've used." },
+                { author: "Festival Organizer", rating: 4, comment: "The toilets were clean and well-stocked. Would have liked more frequent cleaning during the peak of the event." }
+            ],
+            photos: ["https://picsum.photos/seed/toilet1/600/400"],
+            avatarSeed: "toilet-hire-image"
+        }
+    ],
+    videographers: [
+        {
+            id: "cinematic-stories-za",
+            name: "Cinematic Stories ZA",
+            location: "Johannesburg",
+            description: "Story-driven videography for weddings and corporate events. We create beautiful, cinematic films that capture the emotion and energy of your special day.",
+            rating: 4.9,
+            reviews: 80,
+            isProVerified: true,
+            reviewData: [
+                { author: "Mr & Mrs Smith", rating: 5, comment: "Our wedding video is like a movie! We can't stop watching it. They captured every important moment so beautifully." },
+                { author: "Brand Manager", rating: 5, comment: "The corporate video they produced for us was exceptional. High quality and perfectly on-brand." }
+            ],
+            photos: ["https://picsum.photos/seed/video1/600/400"],
+            avatarSeed: "videographers-image"
+        }
+    ],
     default: [
         {
             id: "pro-services-inc",
@@ -1536,4 +1736,5 @@ export const getProfessionalById = (id: string) => {
     return null;
 };
     
+
 
