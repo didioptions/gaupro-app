@@ -423,7 +423,7 @@
     {
       "id": "bright-beginnings-logo",
       "description": "Logo for Bright Beginnings Preschool",
-      "imageUrl": "https://images.unsplash.com/photo-1535340582796-799448c62e08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW4lMjBjcmF5b25zfGVufDB8fHx8MTc2MjcxMjc3OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1535340582796-799448c62e08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZW4lMjBjcmF5b25zfGVufDB8fHx8MTc2MjcxMjc3OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sun crayons"
     },
     {
@@ -677,6 +677,30 @@
       "description": "A logo for a brake and clutch specialist with a brake disc icon.",
       "imageUrl": "https://images.unsplash.com/photo-1637087867437-5a1898610adf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxicmFrZSUyMGRpc2N8ZW58MHx8fHwxNzYyODA4NjA3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "brake disc"
+    },
+    {
+      "id": "debt-collection",
+      "description": "A logo representing debt collection with a hand receiving money.",
+      "imageUrl": "https://images.unsplash.com/photo-1647334359879-f481a5b3c80d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb25leSUyMGhhbmR8ZW58MHx8fHwxNzYyOTY5MjA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "money hand"
+    },
+    {
+      "id": "loans",
+      "description": "A logo for a loan provider with a money bag icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1597824708814-dbacf250688c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9uZXklMjBiYWd8ZW58MHx8fHwxNzYyOTY5MjA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "money bag"
+    },
+    {
+      "id": "medical-aid",
+      "description": "A logo for a medical aid company with a plus sign in a shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1722235623200-59966a71af50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoZWFsdGglMjBzaGllbGR8ZW58MHx8fHwxNzYyOTY5MjA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "health shield"
+    },
+    {
+      "id": "recruitment-agencies",
+      "description": "A logo for a recruitment agency with a handshake icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1758518730384-be3d205838e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYW5kc2hha2UlMjBkZWFsfGVufDB8fHx8MTc2Mjg5OTc2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "handshake deal"
     }
   ]
 }

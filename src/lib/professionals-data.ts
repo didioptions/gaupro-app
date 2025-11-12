@@ -1,6 +1,5 @@
 
 
-
 export const allProfessionals = {
     "fire-safety": [
         {
@@ -164,1266 +163,238 @@ export const allProfessionals = {
             avatarSeed: "global-journeys-logo"
         }
     ],
-    generators: [
+    accounting: [
         {
-            id: "powergen-sa",
-            name: "PowerGen SA",
-            location: "Johannesburg",
-            description: "Leading supplier of residential and commercial generators. We offer sales, installation, and maintenance services for all major brands to keep you powered during outages.",
-            rating: 4.8,
-            reviews: 120,
-            isProVerified: true,
-            reviewData: [{ author: "Thabo L.", phone: "071****567", rating: 5, comment: "Excellent service from the sales team to the installers. Our generator works perfectly." }],
-            photos: ["https://picsum.photos/seed/gen1/600/400"],
-            avatarSeed: "powergen-logo"
-        },
-        {
-            id: "backup-power-cpt",
-            name: "Backup Power CPT",
-            location: "Cape Town",
-            description: "Specialists in backup power solutions, including diesel generators and UPS systems. We provide expert advice and professional installations for homes and businesses.",
-            rating: 4.7,
+            id: "precision-accountants",
+            name: "Precision Accountants",
+            location: "Sandton, Johannesburg",
+            description: "Chartered accountants providing a full range of services including bookkeeping, payroll, tax returns, and financial statements for small to medium businesses.",
+            rating: 4.9,
             reviews: 95,
             isProVerified: true,
-            reviewData: [{ author: "Sarah P.", phone: "082****111", rating: 5, comment: "They helped me choose the right size generator for my home. Very knowledgeable and friendly staff." }],
-            photos: ["https://picsum.photos/seed/gen2/600/400"],
-            avatarSeed: "backup-power-logo"
-        }
-    ],
-    "gas-suppliers": [
-        {
-            id: "gas-direct-sa",
-            name: "Gas Direct SA",
-            location: "Nationwide Delivery",
-            description: "Your reliable source for LP gas refills and new cylinder sales. We offer convenient delivery services for residential and commercial customers across the country.",
-            rating: 4.9,
-            reviews: 350,
-            isProVerified: true,
-            reviewData: [{ author: "John D.", phone: "083****789", rating: 5, comment: "Super easy to order online and they deliver the next day. Great service!" }],
-            photos: ["https://picsum.photos/seed/gas1/600/400"],
-            avatarSeed: "gas-direct-logo"
-        }
-    ],
-    "marble-and-granite-suppliers": [
-        {
-            id: "stone-elegance",
-            name: "Stone Elegance",
-            location: "Johannesburg",
-            description: "Direct importers and suppliers of high-quality marble, granite, and quartz slabs. We supply to fabricators, developers, and the public for kitchens, bathrooms, and more.",
-            rating: 4.8,
-            reviews: 88,
-            isProVerified: true,
-            reviewData: [{ author: "Priya K.", phone: "072****444", rating: 5, comment: "The most beautiful selection of granite I've seen. The staff were very helpful in finding the perfect slab for my kitchen." }],
-            photos: ["https://picsum.photos/seed/stone1/600/400", "https://picsum.photos/seed/stone2/600/400"],
-            avatarSeed: "stone-elegance-logo"
-        }
-    ],
-    "personal-protection-equipment": [
-        {
-            id: "safety-first-ppe",
-            name: "Safety First PPE",
-            location: "Germiston, Gauteng",
-            description: "One-stop shop for all your Personal Protective Equipment needs. We supply hard hats, safety boots, high-visibility clothing, gloves, and respiratory protection to all industries.",
-            rating: 4.7,
-            reviews: 150,
-            isProVerified: true,
-            reviewData: [{ author: "ABC Construction", phone: "", rating: 5, comment: "They always have stock and their pricing is very competitive. Our go-to supplier for all our site safety gear." }],
-            photos: ["https://picsum.photos/seed/ppe1/600/400"],
-            avatarSeed: "safety-first-logo"
-        }
-    ],
-    stationery: [
-        {
-            id: "office-hub-supplies",
-            name: "Office Hub Supplies",
-            location: "Online, Nationwide Delivery",
-            description: "Your online source for all office stationery and supplies. From paper and pens to printer cartridges and files, we deliver everything you need right to your office door.",
-            rating: 4.6,
-            reviews: 210,
-            isProVerified: true,
-            reviewData: [{ author: "Sarah L.", phone: "", rating: 5, comment: "Fast delivery and a huge range of products. Makes stocking up the office so much easier." }],
-            photos: ["https://picsum.photos/seed/stationery1/600/400"],
-            avatarSeed: "office-hub-logo"
-        }
-    ],
-    "swimming-pool-supplies": [
-        {
-            id: "pool-pro-warehouse",
-            name: "Pool Pro Warehouse",
-            location: "Randburg, Johannesburg",
-            description: "The largest range of swimming pool supplies under one roof. We stock chemicals, pumps, filters, automatic pool cleaners, and maintenance equipment at warehouse prices.",
-            rating: 4.8,
-            reviews: 180,
-            isProVerified: true,
-            reviewData: [{ author: "Mike V.", phone: "084****555", rating: 5, comment: "They have everything you could possibly need for your pool. Staff are knowledgeable and always happy to give advice." }],
-            photos: ["https://picsum.photos/seed/poolsupply1/600/400"],
-            avatarSeed: "pool-pro-logo"
-        }
-    ],
-    "agricultural-equipment": [
-        {
-            id: "agri-mech-sa",
-            name: "Agri-Mech SA",
-            location: "Bothaville, Free State",
-            description: "Suppliers of new and used agricultural equipment. We are official dealers for major tractor, harvester, and implement brands, offering sales, parts, and servicing.",
-            rating: 4.7,
-            reviews: 75,
-            isProVerified: true,
-            reviewData: [{ author: "Koos v.d. Merwe", phone: "", rating: 5, comment: "Excellent service and after-sales support. They always go the extra mile to keep our farm running." }],
-            photos: ["https://picsum.photos/seed/agri1/600/400", "https://picsum.photos/seed/agri2/600/400"],
-            avatarSeed: "agri-mech-logo"
-        }
-    ],
-    "agricultural-services": [
-        {
-            id: "farm-assist-za",
-            name: "Farm-Assist ZA",
-            location: "Paarl, Western Cape",
-            description: "Professional agricultural services including crop spraying, soil analysis, irrigation design, and farm management consulting. Helping you maximise your yield and efficiency.",
-            rating: 4.9,
-            reviews: 40,
-            isProVerified: true,
-            reviewData: [{ author: "Stellenbosch Farms", phone: "", rating: 5, comment: "Their soil analysis and recommendations have made a huge difference to our crop health. Invaluable service." }],
-            photos: ["https://picsum.photos/seed/agriservice1/600/400"],
-            avatarSeed: "farm-assist-logo"
-        }
-    ],
-    irrigation: [
-        {
-            id: "water-wise-irrigation",
-            name: "Water-Wise Irrigation",
-            location: "Cape Town, Western Cape",
-            description: "Design, installation, and maintenance of water-efficient irrigation systems for gardens, sports fields, and farms. We specialize in automated sprinkler and drip systems.",
-            rating: 4.8,
-            reviews: 110,
-            isProVerified: true,
-            reviewData: [{ author: "Jane D.", phone: "082****123", rating: 5, comment: "My garden has never looked better and I'm using less water! The automated system is a game-changer." }],
-            photos: ["https://picsum.photos/seed/irrigation1/600/400"],
-            avatarSeed: "water-wise-logo"
-        }
-    ],
-    architects: [
-        {
-            id: "urban-form-architects",
-            name: "UrbanForm Architects",
-            location: "Johannesburg",
-            description: "A contemporary architectural firm specializing in modern residential and commercial design. We create innovative, sustainable, and beautiful spaces tailored to our clients' needs.",
-            rating: 4.9,
-            reviews: 65,
-            isProVerified: true,
-            reviewData: [{ author: "The Smiths", phone: "", rating: 5, comment: "They designed our dream home. The process was creative, collaborative, and professional from start to finish." }],
-            photos: ["https://picsum.photos/seed/arch1/600/400", "https://picsum.photos/seed/arch2/600/400"],
-            avatarSeed: "urban-form-logo"
-        }
-    ],
-    "borehole-drillers": [
-        {
-            id: "deep-source-drilling",
-            name: "DeepSource Drilling",
-            location: "Gauteng",
-            description: "Professional borehole drilling services for residential, agricultural, and commercial properties. We handle everything from geological surveys to pump installation and water testing.",
-            rating: 4.7,
-            reviews: 82,
-            isProVerified: true,
-            reviewData: [{ author: "Peter J.", phone: "083****999", rating: 5, comment: "Found a strong water source on my property. The team was efficient and the whole process was surprisingly quick." }],
-            photos: ["https://picsum.photos/seed/borehole1/600/400"],
-            avatarSeed: "deepsource-logo"
-        }
-    ],
-    "town-planners": [
-        {
-            id: "city-scope-planners",
-            name: "CityScope Planners",
-            location: "Pretoria, Gauteng",
-            description: "Expert town and regional planning consultants. We assist with zoning applications, subdivisions, consent use, and development feasibility studies to navigate municipal regulations.",
-            rating: 4.8,
-            reviews: 55,
-            isProVerified: true,
-            reviewData: [{ author: "ABC Developers", phone: "", rating: 5, comment: "They are masters at navigating council bureaucracy. They've saved us time and money on multiple projects." }],
-            photos: ["https://picsum.photos/seed/townplan1/600/400"],
-            avatarSeed: "city-scope-logo"
-        }
-    ],
-    "baby-sitters": [
-        {
-            id: "nanny-on-call",
-            name: "Nanny-on-Call",
-            location: "Cape Town & Johannesburg",
-            description: "Providing trusted, vetted, and experienced babysitters and nannies for once-off, regular, or full-time placements. Your child's safety and happiness is our priority.",
-            rating: 4.9,
-            reviews: 130,
-            isProVerified: true,
-            reviewData: [{ author: "Sarah T.", phone: "084****112", rating: 5, comment: "The babysitter they sent was wonderful with my kids. A very professional and reassuring service." }],
-            photos: ["https://picsum.photos/seed/babysitter1/600/400"],
-            avatarSeed: "nanny-on-call-logo"
-        }
-    ],
-    "day-care-centres": [
-        {
-            id: "kiddie-cove-daycare",
-            name: "Kiddie Cove Daycare",
-            location: "Durbanville, Cape Town",
-            description: "A loving and safe daycare centre for children aged 6 months to 5 years. We focus on learning through play in a stimulating and nurturing environment.",
-            rating: 4.8,
-            reviews: 60,
-            isProVerified: true,
-            reviewData: [{ author: "James P.", phone: "071****567", rating: 5, comment: "A wonderful daycare with a loving atmosphere. The staff are fantastic and communicate with parents regularly." }],
-            photos: ["https://picsum.photos/seed/daycare1/600/400"],
-            avatarSeed: "kiddie-cove-logo"
-        }
-    ],
-    "pre-schools": [
-        {
-            id: "bright-beginnings-preschool",
-            name: "Bright Beginnings Preschool",
-            location: "Umhlanga, Durban",
-            description: "Preparing your child for 'big school' with a curriculum that focuses on school readiness, social skills, and creative expression. Small classes for individual attention.",
-            rating: 4.9,
-            reviews: 75,
-            isProVerified: true,
-            reviewData: [{ author: "Priya K.", phone: "084****890", rating: 5, comment: "My son has learned so much and is so confident now. A fantastic preschool with caring teachers." }],
-            photos: ["https://picsum.photos/seed/preschool1/600/400"],
-            avatarSeed: "bright-beginnings-logo"
-        }
-    ],
-    creches: [
-        {
-            id: "little-sprouts-academy",
-            name: "Little Sprouts Academy",
-            location: "Sandton, Johannesburg",
-            description: "A nurturing and stimulating environment where your little ones can grow, learn, and play. We focus on early childhood development with a curriculum designed to foster creativity and curiosity.",
-            rating: 4.9,
-            reviews: 45,
-            isProVerified: true,
-            reviewData: [{ author: "Thandi M.", phone: "082****123", rating: 5, comment: "My daughter loves it here! The teachers are so caring and attentive. I've seen her confidence grow so much since she started." }],
-            photos: ["https://picsum.photos/seed/creche1/600/400", "https://picsum.photos/seed/creche2/600/400"],
-            avatarSeed: "little-sprouts-logo"
+            reviewData: [
+                { author: "SmallBiz Owner", phone: "082****111", rating: 5, comment: "They handle all my bookkeeping and tax. It's freed up so much of my time to focus on my business. Very professional." },
+                { author: "J. Peters", phone: "071****555", rating: 5, comment: "Excellent service and advice. They helped me structure my new company correctly from day one." }
+            ],
+            photos: ["https://picsum.photos/seed/accounting1/600/400"],
+            avatarSeed: "accounting-image"
         },
         {
-            id: "happy-hearts-daycare",
-            name: "Happy Hearts Daycare",
-            location: "Durbanville, Cape Town",
-            description: "Providing a safe, fun, and educational space for children from 3 months to 5 years. Our facilities include a large outdoor play area and age-appropriate learning stations.",
-            rating: 4.8,
-            reviews: 32,
-            isProVerified: true,
-            reviewData: [{ author: "James P.", phone: "071****567", rating: 5, comment: "A wonderful daycare with a loving atmosphere. The staff are fantastic and communicate with parents regularly. Highly recommended." }],
-            photos: ["https://picsum.photos/seed/creche3/600/400"],
-            avatarSeed: "happy-hearts-logo"
-        },
-        {
-            id: "sunshine-kids-preschool",
-            name: "Sunshine Kids Preschool",
-            location: "Umhlanga, Durban",
-            description: "At Sunshine Kids, we prepare your child for primary school with a focus on literacy, numeracy, and social skills, all through the power of play. Small class sizes ensure individual attention.",
-            rating: 4.7,
-            reviews: 28,
-            isProVerified: true,
-            reviewData: [{ author: "Priya K.", phone: "084****890", rating: 4, comment: "A great preschool with a structured curriculum. My son has learned so much and is well-prepared for Grade R." }],
-            photos: ["https://picsum.photos/seed/creche4/600/400", "https://picsum.photos/seed/creche5/600/400"],
-            avatarSeed: "sunshine-kids-logo"
-        },
-        {
-            id: "tiny-tots-corner",
-            name: "Tiny Tots Corner",
-            location: "Centurion, Pretoria",
-            description: "A cozy, home-away-from-home environment for toddlers and babies. We provide excellent care, nutritious meals, and a safe space for your most precious ones to explore.",
-            rating: 4.9,
-            reviews: 40,
-            isProVerified: true,
-            reviewData: [{ author: "Frikkie V.", phone: "076****333", rating: 5, comment: "We trust them completely with our 1-year-old. The staff are amazing and genuinely care for the children." }],
-            photos: ["https://picsum.photos/seed/creche6/600/400"],
-            avatarSeed: "tiny-tots-logo"
-        }
-    ],
-    "holiday-accommodation": [
-        {
-            id: "coastal-escapes-cpt",
-            name: "Coastal Escapes CPT",
-            location: "Camps Bay, Cape Town",
-            description: "Luxury self-catering apartments and villas with breathtaking ocean views. Perfect for your next getaway, we offer premium {service} with all the comforts of home.",
-            rating: 4.9,
-            reviews: 75,
-            isProVerified: true,
-            reviewData: [{ author: "Anna S.", phone: "082****123", rating: 5, comment: "The apartment was stunning and the view was even better. Will definitely be back!" }],
-            photos: ["https://picsum.photos/seed/holiday1/600/400"],
-            avatarSeed: "coastal-escapes-logo"
-        }
-    ],
-    venues: [
-        {
-            id: "venue-vista-jhb",
-            name: "Venue Vista JHB",
-            location: "Sandton, Johannesburg",
-            description: "Modern and versatile {service} perfect for corporate functions, birthday parties, and conferences. State-of-the-art facilities and flexible packages available.",
-            rating: 4.8,
-            reviews: 110,
-            isProVerified: true,
-            reviewData: [{ author: "Thabo L.", phone: "071****567", rating: 5, comment: "Hosted our company year-end function here. The staff were professional and the venue was perfect." }],
-            photos: ["https://picsum.photos/seed/venue1/600/400"],
-            avatarSeed: "venue-vista-logo"
-        }
-    ],
-    "wedding-venues": [
-        {
-            id: "dream-day-venues",
-            name: "Dream Day Venues",
-            location: "Stellenbosch, Western Cape",
-            description: "Elegant and romantic {service} in the heart of the Cape Winelands. Our picturesque location and all-inclusive packages make for a truly unforgettable wedding day.",
-            rating: 5.0,
-            reviews: 95,
-            isProVerified: true,
-            reviewData: [{ author: "Emily R.", phone: "083****789", rating: 5, comment: "The most perfect wedding venue! Everything was flawless from the food to the service. A dream come true." }],
-            photos: ["https://picsum.photos/seed/weddingvenue1/600/400"],
-            avatarSeed: "dream-day-venues-logo"
-        }
-    ],
-    "appliance-repairs": [
-        {
-            id: "appliance-pro-jhb",
-            name: "Appliance Pro JHB",
-            location: "Randburg, Johannesburg",
-            description: "Expert repairs for all major home appliances. We fix fridges, washing machines, ovens, and more. Fast, reliable, and affordable {service}.",
-            rating: 4.7,
-            reviews: 215,
-            isProVerified: true,
-            reviewData: [{ author: "Sarah P.", phone: "072****123", rating: 5, comment: "My washing machine was fixed the same day I called. Very impressed with the quick and professional service." }],
-            photos: ["https://picsum.photos/seed/appliance1/600/400"],
-            avatarSeed: "appliance-pro-logo"
-        }
-    ],
-    "tv-repairs": [
-        {
-            id: "tv-techs-pta",
-            name: "TV Techs PTA",
-            location: "Centurion, Pretoria",
-            description: "Specialists in LED, LCD, and Plasma TV repairs. We fix all major brands and problems, from screen issues to power failures. Your trusted choice for {service}.",
-            rating: 4.6,
-            reviews: 150,
-            isProVerified: true,
-            reviewData: [{ author: "John D.", phone: "084****890", rating: 4, comment: "They fixed the backlight on my TV. Good service, but took a bit longer than expected." }],
-            photos: ["https://picsum.photos/seed/tvrepair1/600/400"],
-            avatarSeed: "tv-techs-logo"
-        }
-    ],
-    "dstv-installers": [
-        {
-            id: "sat-pros-jhb",
-            name: "Satellite Pros JHB",
-            location: "Randburg, Johannesburg",
-            description: "Accredited MultiChoice installers for all your DSTV needs. We handle new installations, signal problems, upgrades, and extra view setups. Fast, reliable service guaranteed for all {service}.",
-            rating: 4.9,
-            reviews: 250,
-            isProVerified: true,
-            reviewData: [{ author: "Busi M.", phone: "082****999", rating: 5, comment: "Technician was on time, very knowledgeable, and fixed my signal issue in 20 minutes. Great service!" }],
-            photos: ["https://picsum.photos/seed/dstv1/600/400"],
-            avatarSeed: "sat-pros-logo"
-        }
-    ],
-    "fridge-repairs": [
-        {
-            id: "cool-care-repairs",
-            name: "Cool Care Repairs",
-            location: "Durban North, Durban",
-            description: "Don't let a broken fridge spoil your food. We offer same-day {service} for all major brands. Specializing in compressor issues, gas refilling, and thermostat problems.",
-            rating: 4.8,
-            reviews: 180,
-            isProVerified: true,
-            reviewData: [{ author: "Mike G.", phone: "060****112", rating: 5, comment: "My fridge wasn't cooling. They came out within hours and fixed it on the spot. Lifesavers!" }],
-            photos: ["https://picsum.photos/seed/fridge1/600/400"],
-            avatarSeed: "cool-care-logo"
-        }
-    ],
-    "tv-installers": [
-        {
-            id: "wall-mount-wizards",
-            name: "Wall Mount Wizards",
-            location: "Cape Town, Southern Suburbs",
-            description: "Professional TV wall mounting and home theatre setup. We provide secure, neat, and expert {service} with hidden cabling for a clean look.",
-            rating: 5.0,
-            reviews: 130,
-            isProVerified: true,
-            reviewData: [{ author: "Lindiwe S.", phone: "084****444", rating: 5, comment: "Perfect installation! The TV is perfectly level and all the cables are hidden. It looks amazing." }],
-            photos: ["https://picsum.photos/seed/tvinstall1/600/400"],
-            avatarSeed: "wall-mount-wizards-logo"
-        }
-    ],
-    conveyancers: [
-        {
-            id: "property-path-legal",
-            name: "Property Path Legal",
-            location: "Sandton, Johannesburg",
-            description: "Expert conveyancing attorneys guiding you through every step of your property transaction. We handle transfers, bond registrations, and legal advice for all {service}.",
-            rating: 4.9,
-            reviews: 85,
-            isProVerified: true,
-            reviewData: [{ author: "David C.", phone: "072****444", rating: 5, comment: "Made the process of buying my first home so smooth and understandable. Excellent communication." }],
-            photos: ["https://picsum.photos/seed/convey1/600/400"],
-            avatarSeed: "property-path-logo"
-        }
-    ],
-    "divorce-lawyers": [
-        {
-            id: "amicus-legal",
-            name: "Amicus Legal",
+            id: "clear-books-cpt",
+            name: "Clear Books CPT",
             location: "Cape Town CBD",
-            description: "Compassionate and professional family law attorneys specializing in divorce, custody, and mediation. We provide expert legal guidance during difficult times.",
+            description: "Cloud-based accounting services for modern businesses. We are Xero certified advisors, helping you streamline your finances with the latest technology.",
             rating: 4.8,
-            reviews: 60,
-            isProVerified: true,
-            reviewData: [{ author: "Anonymous", phone: "", rating: 5, comment: "They handled my sensitive case with professionalism and empathy. I felt supported throughout the process." }],
-            photos: ["https://picsum.photos/seed/divorce1/600/400"],
-            avatarSeed: "amicus-legal-logo"
-        }
-    ],
-    "estate-agents": [
-        {
-            id: "prime-properties-sa",
-            name: "Prime Properties SA",
-            location: "Umhlanga, Durban",
-            description: "Your premier real estate partner for buying, selling, or renting property in KZN. Our experienced agents provide unparalleled market knowledge and dedicated service.",
-            rating: 4.7,
-            reviews: 150,
-            isProVerified: true,
-            reviewData: [{ author: "Ben K.", phone: "083****321", rating: 5, comment: "Sold my apartment in under a month for a great price. The agent was fantastic and made the whole process easy." }],
-            photos: ["https://picsum.photos/seed/estate1/600/400"],
-            avatarSeed: "prime-properties-logo"
-        }
-    ],
-    "labour-lawyers": [
-        {
-            id: "workforce-legal",
-            name: "Workforce Legal",
-            location: "Pretoria CBD",
-            description: "Specialist labour law attorneys representing both employees and employers. We handle cases of unfair dismissal, retrenchment, CCMA disputes, and employment contracts.",
-            rating: 4.9,
-            reviews: 95,
-            isProVerified: true,
-            reviewData: [{ author: "Fikile N.", phone: "072****789", rating: 5, comment: "Provided excellent advice and representation for my CCMA case. Highly knowledgeable and professional." }],
-            photos: ["https://picsum.photos/seed/labour1/600/400"],
-            avatarSeed: "workforce-legal-logo"
-        }
-    ],
-    lawyers: [
-        {
-            id: "summit-attorneys-inc",
-            name: "Summit Attorneys Inc.",
-            location: "Johannesburg North",
-            description: "A full-service law firm providing expert legal solutions in commercial law, family law, property law, and litigation. Your trusted legal partners for all matters.",
-            rating: 4.8,
-            reviews: 120,
-            isProVerified: true,
-            reviewData: [{ author: "Michael B.", phone: "084****888", rating: 5, comment: "Professional, efficient, and great legal advice. They helped me with a commercial contract and I was very impressed." }],
-            photos: ["https://picsum.photos/seed/lawyer1/600/400"],
-            avatarSeed: "summit-attorneys-logo"
-        }
-    ],
-    couriers: [
-        {
-            id: "swift-parcel-express",
-            name: "Swift Parcel Express",
-            location: "Nationwide",
-            description: "Fast and reliable nationwide courier services. We offer same-day local delivery, overnight express to major cities, and secure document and parcel transport.",
-            rating: 4.6,
-            reviews: 350,
-            isProVerified: true,
-            reviewData: [{ author: "ABC Corp", phone: "", rating: 5, comment: "Our go-to courier for all our business needs. Deliveries are always on time and their tracking is excellent." }],
-            photos: ["https://picsum.photos/seed/courier1/600/400"],
-            avatarSeed: "swift-parcel-logo"
-        }
-    ],
-    "shuttle-services": [
-        {
-            id: "city-link-shuttles",
-            name: "City-Link Shuttles",
-            location: "O.R. Tambo & Cape Town Int'l",
-            description: "Reliable and affordable airport transfers and point-to-point shuttle services. Clean vehicles, professional drivers, and always on time. Book your ride with us.",
-            rating: 4.9,
-            reviews: 280,
-            isProVerified: true,
-            reviewData: [{ author: "Anna V.", phone: "082****111", rating: 5, comment: "The driver was waiting for me at the airport as promised. Clean car and a very smooth ride to my hotel. Perfect service." }],
-            photos: ["https://picsum.photos/seed/shuttle1/600/400"],
-            avatarSeed: "city-link-shuttles-logo"
-        }
-    ],
-    "school-transport": [
-        {
-            id: "kidz-karrier",
-            name: "Kidz Karrier",
-            location: "Johannesburg Northern Suburbs",
-            description: "Safe and reliable school transport for your children. All our drivers are vetted, and our vehicles are tracked for peace of mind. We service multiple schools in the area.",
-            rating: 4.8,
-            reviews: 90,
-            isProVerified: true,
-            reviewData: [{ author: "Thandiwe M.", phone: "073****555", rating: 5, comment: "I've been using them for two years for my kids. They are always on time and I trust them completely. Highly recommended." }],
-            photos: ["https://picsum.photos/seed/schoolbus1/600/400"],
-            avatarSeed: "kidz-karrier-logo"
-        }
-    ],
-    taxis: [
-        {
-            id: "quick-cab-jhb",
-            name: "Quick Cab JHB",
-            location: "Johannesburg",
-            description: "Your local 24/7 taxi service. Fast, safe, and affordable point-to-point transport across Johannesburg. Call us for airport transfers, city trips, or nights out.",
-            rating: 4.5,
-            reviews: 180,
-            isProVerified: false,
-            reviewData: [{ author: "Tom R.", phone: "061****434", rating: 4, comment: "Driver was friendly and knew a good shortcut. Car could have been a bit cleaner, but overall a good trip." }],
-            photos: ["https://picsum.photos/seed/taxi1/600/400"],
-            avatarSeed: "quick-cab-logo"
-        }
-    ],
-    transportation: [
-        {
-            id: "logi-link-sa",
-            name: "Logi-Link SA",
-            location: "National",
-            description: "Comprehensive transportation and logistics solutions for businesses. We handle everything from small parcels to full truckloads, with a focus on efficiency and reliability.",
-            rating: 4.7,
-            reviews: 110,
-            isProVerified: true,
-            reviewData: [{ author: "SA Manufacturing", phone: "", rating: 5, comment: "They handle all our national distribution. Never had an issue, and their team is always professional and helpful." }],
-            photos: ["https://picsum.photos/seed/transport1/600/400"],
-            avatarSeed: "logi-link-logo"
-        }
-    ],
-    "cellphone-repairs": [
-        {
-            id: "gadget-gurus-jhb",
-            name: "Gadget Gurus JHB",
-            location: "Sandton, Johannesburg",
-            description: "Fast and reliable repairs for all major smartphone brands. We specialize in screen replacements, battery issues, and water damage for {service}. All repairs come with a warranty.",
-            rating: 4.8,
-            reviews: 150,
-            isProVerified: true,
-            reviewData: [{ author: "Thabo M.", phone: "082****123", rating: 5, comment: "Replaced my cracked iPhone screen in under an hour. Looks brand new. Excellent service!" }],
-            photos: ["https://picsum.photos/seed/gadget1/600/400"],
-            avatarSeed: "gadget-gurus-logo"
-        }
-    ],
-    "computer-repairs": [
-        {
-            id: "tech-savvy-solutions",
-            name: "Tech-Savvy Solutions",
-            location: "Pretoria East",
-            description: "Your one-stop shop for all {service}. We handle hardware upgrades, software issues, virus removal, and data recovery for desktops and PCs. No job is too big or small.",
-            rating: 4.9,
-            reviews: 210,
-            isProVerified: true,
-            reviewData: [{ author: "Pieter V.", phone: "083****789", rating: 5, comment: "They recovered all my lost data after my hard drive failed. Lifesavers! Very professional and kept me updated throughout." }],
-            photos: ["https://picsum.photos/seed/tech1/600/400"],
-            avatarSeed: "tech-savvy-logo"
-        }
-    ],
-    "internet-solutions": [
-        {
-            id: "fibre-fast-isp",
-            name: "Fibre-Fast ISP",
-            location: "Nationwide",
-            description: "Get connected with high-speed fibre internet. We offer a range of packages for home and business, providing reliable {service} with excellent local support.",
-            rating: 4.5,
-            reviews: 320,
-            isProVerified: true,
-            reviewData: [{ author: "Naledi R.", phone: "076****321", rating: 5, comment: "The installation was quick and painless, and my internet speed has been fantastic ever since. Much better than my old provider." }],
-            photos: ["https://picsum.photos/seed/fibre1/600/400"],
-            avatarSeed: "fibre-fast-logo"
-        }
-    ],
-    "laptop-repairs": [
-        {
-            id: "laptop-fixers-sa",
-            name: "Laptop Fixers SA",
-            location: "Durban, Morningside",
-            description: "Specializing in {service} for all makes and models. We fix broken screens, failing keyboards, charging problems, and performance issues. Quick turnaround times and fair pricing.",
-            rating: 4.6,
-            reviews: 180,
-            isProVerified: true,
-            reviewData: [{ author: "Michael B.", phone: "084****888", rating: 4, comment: "Replaced my laptop screen and it works perfectly now. The price was reasonable. Took a day longer than quoted but overall happy." }],
-            photos: ["https://picsum.photos/seed/laptop1/600/400"],
-            avatarSeed: "laptop-fixers-logo"
-        }
-    ],
-    networking: [
-        {
-            id: "connect-it-networks",
-            name: "Connect-IT Networks",
-            location: "Johannesburg & Pretoria",
-            description: "Professional {service} for home and office. We design and install structured cabling, set up secure Wi-Fi networks, and configure servers and switches for optimal performance.",
-            rating: 4.9,
-            reviews: 85,
-            isProVerified: true,
-            reviewData: [{ author: "David C.", phone: "072****444", rating: 5, comment: "Finally have stable Wi-Fi throughout my entire house, including the garden. The team was professional and knew their stuff." }],
-            photos: ["https://picsum.photos/seed/network1/600/400"],
-            avatarSeed: "connect-it-logo"
-        }
-    ],
-    "office-equipment": [
-        {
-            id: "sa-office-solutions",
-            name: "SA Office Solutions",
-            location: "Cape Town, Johannesburg, Durban",
-            description: "Suppliers of new and refurbished {service}. We offer printers, copiers, and PABX systems for sale or rent, with full service and maintenance contracts available.",
-            rating: 4.7,
-            reviews: 112,
-            isProVerified: true,
-            reviewData: [{ author: "Admin @ ABC Corp", phone: "011****100", rating: 5, comment: "Their rental option for our office copier has been a game-changer. Service is always prompt when we need a technician." }],
-            photos: ["https://picsum.photos/seed/office1/600/400"],
-            avatarSeed: "office-solutions-logo"
-        }
-    ],
-    dentists: [
-        {
-            id: "bright-smile-dental-jhb",
-            name: "Bright Smile Dental JHB",
-            location: "Sandton, Johannesburg",
-            description: "A modern dental practice offering a full range of {service}, from general check-ups and cleanings to cosmetic dentistry and teeth whitening. We create beautiful, healthy smiles.",
-            rating: 4.9,
-            reviews: 150,
-            isProVerified: true,
-            reviewData: [{ author: "Thandi M.", phone: "082****123", rating: 5, comment: "Dr. Smith is the best dentist I've ever had. So gentle and professional. The whole practice is clean and modern." }],
-            photos: ["https://picsum.photos/seed/dental1/600/400"],
-            avatarSeed: "smile-bright-logo"
-        },
-        {
-            id: "cape-town-family-dentistry",
-            name: "Cape Town Family Dentistry",
-            location: "Gardens, Cape Town",
-            description: "Your friendly family dentist in the heart of Cape Town. We provide comprehensive dental care for all ages, including check-ups, fillings, and orthodontics.",
-            rating: 4.8,
-            reviews: 120,
-            isProVerified: true,
-            reviewData: [{ author: "James P.", phone: "071****567", rating: 5, comment: "Great with kids! My son wasn't scared at all. The team is so patient and friendly." }],
-            photos: ["https://picsum.photos/seed/dental2/600/400"],
-            avatarSeed: "family-dental-logo"
-        },
-        {
-            id: "durban-cosmetic-dentist",
-            name: "Durban Cosmetic Dentist",
-            location: "Umhlanga, Durban",
-            description: "Specializing in smile makeovers. We offer veneers, professional teeth whitening, and Invisalign to give you the confident smile you've always wanted.",
-            rating: 5.0,
-            reviews: 95,
-            isProVerified: true,
-            reviewData: [{ author: "Priya K.", phone: "084****890", rating: 5, comment: "I am so happy with my new veneers. The results are amazing and have completely transformed my smile." }],
-            photos: ["https://picsum.photos/seed/dental3/600/400", "https://picsum.photos/seed/dental4/600/400"],
-            avatarSeed: "cosmetic-dental-logo"
-        }
-    ],
-    "graphic-designers": [
-        {
-            id: "pixel-perfect-design",
-            name: "Pixel Perfect Design",
-            location: "Cape Town, Western Cape",
-            description: "Creative graphic design for branding, marketing materials, and digital media. We bring your vision to life with stunning visuals.",
-            rating: 4.9,
-            reviews: 80,
-            isProVerified: true,
-            reviewData: [{ author: "Sarah P.", rating: 5, comment: "They designed our new logo and branding. Absolutely thrilled with the results!" }],
-            photos: ["https://picsum.photos/seed/graphic1/600/400"],
-            avatarSeed: "pixel-perfect-logo"
-        }
-    ],
-    "website-designers": [
-        {
-            id: "creative-web-solutions",
-            name: "Creative Web Solutions",
-            location: "Johannesburg, Gauteng",
-            description: "Professional website design and development. We build responsive, fast, and SEO-friendly websites for businesses of all sizes.",
-            rating: 4.8,
-            reviews: 110,
-            isProVerified: true,
-            reviewData: [{ author: "Mike B.", rating: 5, comment: "Our new website is fantastic. They were professional, on time, and on budget." }],
-            photos: ["https://picsum.photos/seed/web1/600/400"],
-            avatarSeed: "creative-web-logo"
-        }
-    ],
-    "logo-design": [
-        {
-            id: "logo-foundry-sa",
-            name: "Logo Foundry SA",
-            location: "Online / Nationwide",
-            description: "Specializing in affordable and high-quality logo design for startups and small businesses. Let us help you create a memorable brand identity.",
-            rating: 4.9,
-            reviews: 250,
-            isProVerified: true,
-            reviewData: [{ author: "Jabu N.", rating: 5, comment: "I got three amazing logo concepts to choose from. The whole process was so easy." }],
-            photos: ["https://picsum.photos/seed/logo1/600/400"],
-            avatarSeed: "logo-foundry-logo"
-        }
-    ],
-    printing: [
-        {
-            id: "jhb-print-hub",
-            name: "JHB Print Hub",
-            location: "Johannesburg",
-            description: "Your one-stop shop for all printing needs. We do business cards, flyers, banners, and large format printing with fast turnaround times.",
-            rating: 4.7,
-            reviews: 180,
-            isProVerified: true,
-            reviewData: [{ author: "Events Inc.", rating: 5, comment: "They always deliver our event banners on time and the quality is excellent." }],
-            photos: ["https://picsum.photos/seed/print1/600/400"],
-            avatarSeed: "print-hub-logo"
-        }
-    ],
-    signs: [
-        {
-            id: "sign-craft-sa",
-            name: "Sign-Craft SA",
-            location: "Pretoria, Gauteng",
-            description: "Experts in custom signage. We design, manufacture, and install all types of signs including shop fronts, vehicle branding, and safety signs.",
-            rating: 4.8,
-            reviews: 95,
-            isProVerified: true,
-            reviewData: [{ author: "Retail Kings", rating: 5, comment: "Our new shop front sign looks amazing and has definitely attracted more customers." }],
-            photos: ["https://picsum.photos/seed/sign1/600/400"],
-            avatarSeed: "sign-craft-logo"
-        }
-    ],
-    "beauty-salons": [
-        {
-            id: "glow-up-studio",
-            name: "Glow Up Studio",
-            location: "Sandton, Johannesburg",
-            description: "A premier beauty salon offering facials, manicures, pedicures, waxing, and specialized skin care treatments. Let our expert therapists help you relax and rejuvenate.",
-            rating: 4.9,
-            reviews: 180,
-            isProVerified: true,
-            reviewData: [{ author: "Jessica M.", rating: 5, comment: "The best facial I have ever had! My skin is glowing. Such a beautiful and relaxing salon." }],
-            photos: ["https://picsum.photos/seed/beautysalon1/600/400"],
-            avatarSeed: "glow-up-logo"
-        }
-    ],
-    "hair-stylists": [
-        {
-            id: "style-lab-jhb",
-            name: "Style Lab JHB",
-            location: "Rosebank, Johannesburg",
-            description: "A trendy, modern hair salon specializing in cutting, coloring, and styling. Our experienced stylists are passionate about creating the perfect look for you.",
-            rating: 4.8,
-            reviews: 210,
-            isProVerified: true,
-            reviewData: [{ author: "Thandi P.", rating: 5, comment: "Love my new haircut and color! The stylist really listened to what I wanted. I'll be back!" }],
-            photos: ["https://picsum.photos/seed/hair1/600/400"],
-            avatarSeed: "style-lab-logo"
-        }
-    ],
-    "massage-therapists": [
-        {
-            id: "serene-hands-therapy",
-            name: "Serene Hands Therapy",
-            location: "Constantia, Cape Town",
-            description: "Qualified massage therapists offering a range of treatments from relaxing Swedish massages to deep tissue and sports therapy. Mobile services available.",
-            rating: 5.0,
-            reviews: 150,
-            isProVerified: true,
-            reviewData: [{ author: "David R.", rating: 5, comment: "The best deep tissue massage I've had in years. The therapist was professional and very skilled." }],
-            photos: ["https://picsum.photos/seed/massage1/600/400"],
-            avatarSeed: "serene-hands-logo"
-        }
-    ],
-    "psychologists": [
-        {
-            id: "mind-matters-practice",
-            name: "Mind Matters Psychology Practice",
-            location: "Claremont, Cape Town",
-            description: "A professional psychology practice offering counselling and therapy for adults, adolescents, and couples. We provide a safe and supportive space for growth and healing.",
-            rating: 4.9,
-            reviews: 75,
-            isProVerified: true,
-            reviewData: [{ author: "Anonymous", rating: 5, comment: "Provided me with invaluable tools to manage my anxiety. Compassionate and effective therapy." }],
-            photos: ["https://picsum.photos/seed/psych1/600/400"],
-            avatarSeed: "mind-matters-logo"
-        }
-    ],
-    dermatologists: [
-        {
-            id: "the-skin-health-institute",
-            name: "The Skin Health Institute",
-            location: "Umhlanga, Durban",
-            description: "Specialist dermatologists providing expert care for all skin conditions, from acne and eczema to skin cancer screenings and cosmetic dermatology.",
-            rating: 4.9,
-            reviews: 90,
-            isProVerified: true,
-            reviewData: [{ author: "Priya N.", rating: 5, comment: "Dr. Naidoo was brilliant. She diagnosed my issue quickly and the treatment has worked wonders." }],
-            photos: ["https://picsum.photos/seed/derma1/600/400"],
-            avatarSeed: "derma-care-logo"
-        }
-    ],
-    "laser-clinics": [
-        {
-            id: "smooth-touch-laser",
-            name: "Smooth Touch Laser Clinic",
-            location: "Sandton, Johannesburg",
-            description: "State-of-the-art laser clinic specializing in pain-free hair removal, skin rejuvenation, and tattoo removal. We use the latest technology for safe and effective results.",
-            rating: 4.8,
-            reviews: 130,
-            isProVerified: true,
-            reviewData: [{ author: "Chloe S.", rating: 5, comment: "So happy with my laser hair removal results. The staff are professional and make you feel so comfortable." }],
-            photos: ["https://picsum.photos/seed/laser1/600/400"],
-            avatarSeed: "smooth-touch-logo"
-        }
-    ],
-    "personal-trainers": [
-        {
-            id: "fitlife-coaching",
-            name: "FitLife Coaching",
-            location: "Mobile / Johannesburg North",
-            description: "Certified personal trainer offering one-on-one and group sessions. I specialize in weight loss, strength training, and creating sustainable healthy habits.",
-            rating: 5.0,
-            reviews: 65,
-            isProVerified: true,
-            reviewData: [{ author: "Mike T.", rating: 5, comment: "I've lost 10kgs in 3 months! John is an amazing trainer who keeps me motivated." }],
-            photos: ["https://picsum.photos/seed/trainer1/600/400"],
-            avatarSeed: "pro-trainer-grid"
-        }
-    ],
-    chiropractors: [
-        {
-            id: "spine-align-chiro",
-            name: "Spine-Align Chiropractic",
-            location: "Fourways, Johannesburg",
-            description: "A family-focused chiropractic clinic helping patients with back pain, neck pain, headaches, and sports injuries. We focus on restoring proper function and movement.",
-            rating: 4.9,
-            reviews: 115,
-            isProVerified: true,
-            reviewData: [{ author: "Anna L.", rating: 5, comment: "My chronic back pain is finally gone. Dr. Van der Merwe is a miracle worker!" }],
-            photos: ["https://picsum.photos/seed/chiro1/600/400"],
-            avatarSeed: "spine-align-logo"
-        }
-    ],
-    dieticians: [
-        {
-            id: "nutri-plan-sa",
-            name: "Nutri-Plan SA",
-            location: "Online / Nationwide",
-            description: "Registered dietician providing personalized eating plans for weight management, sports nutrition, and medical conditions like diabetes and high cholesterol.",
-            rating: 4.8,
-            reviews: 88,
-            isProVerified: true,
-            reviewData: [{ author: "David F.", rating: 5, comment: "The eating plan was easy to follow and tailored to my lifestyle. I've never felt better." }],
-            photos: ["https://picsum.photos/seed/diet1/600/400"],
-            avatarSeed: "nutri-plan-logo"
-        }
-    ],
-    "make-up-artists": [
-        {
-            id: "canvas-beauty-by-jane",
-            name: "Canvas Beauty by Jane",
-            location: "Mobile / Cape Town",
-            description: "Professional makeup artist for weddings, matric dances, photoshoots, and special occasions. I create flawless, long-lasting looks to make you feel beautiful.",
-            rating: 5.0,
-            reviews: 95,
-            isProVerified: true,
-            reviewData: [{ author: "Emily R.", rating: 5, comment: "Jane did my wedding makeup and it was perfect! It lasted all day and looked amazing in photos." }],
-            photos: ["https://picsum.photos/seed/makeup1/600/400"],
-            avatarSeed: "canvas-beauty-logo"
-        }
-    ],
-    physiotherapists: [
-        {
-            id: "re-align-physio",
-            name: "Re-Align Physiotherapy",
-            location: "Durbanville, Cape Town",
-            description: "A hands-on physiotherapy practice focused on treating sports injuries, post-op rehabilitation, and chronic pain. Our goal is to get you moving again, pain-free.",
-            rating: 4.9,
-            reviews: 105,
-            isProVerified: true,
-            reviewData: [{ author: "Mark W.", rating: 5, comment: "After my knee surgery, they helped me get back on the rugby field faster than I thought possible. Excellent rehab program." }],
-            photos: ["https://picsum.photos/seed/physio1/600/400"],
-            avatarSeed: "re-align-logo"
-        }
-    ],
-    counsellors: [
-        {
-            id: "safe-space-counselling",
-            name: "Safe Space Counselling",
-            location: "Pretoria, Gauteng",
-            description: "Providing a confidential and empathetic space for individual and couples counselling. We specialize in dealing with anxiety, depression, grief, and relationship challenges.",
-            rating: 4.9,
-            reviews: 60,
-            isProVerified: true,
-            reviewData: [{ author: "Anonymous", rating: 5, comment: "A truly safe space to work through my issues. The counsellor was understanding and gave me practical tools to cope." }],
-            photos: ["https://picsum.photos/seed/counsel1/600/400"],
-            avatarSeed: "safe-space-logo"
-        }
-    ],
-    gynaecologists: [
-        {
-            id: "womens-wellness-clinic",
-            name: "Women's Wellness Clinic",
-            location: "Claremont, Cape Town",
-            description: "A dedicated gynaecology and obstetrics practice offering comprehensive care for women at all life stages, from annual check-ups to maternity care.",
-            rating: 4.8,
-            reviews: 98,
-            isProVerified: true,
-            reviewData: [{ author: "Nandi T.", rating: 5, comment: "Dr. Khumalo is incredible. She is thorough, kind, and makes you feel completely at ease." }],
-            photos: ["https://picsum.photos/seed/gynae1/600/400"],
-            avatarSeed: "womens-wellness-logo"
-        }
-    ],
-    "marriage-counsellors": [
-        {
-            id: "pathway-partners-counselling",
-            name: "Pathway Partners Counselling",
-            location: "Johannesburg",
-            description: "Specializing in marriage and relationship counselling. We help couples improve communication, resolve conflict, and rebuild connection in a supportive environment.",
-            rating: 4.9,
             reviews: 70,
             isProVerified: true,
-            reviewData: [{ author: "Mr & Mrs S.", rating: 5, comment: "Counselling helped us understand each other better and gave us the tools to save our marriage. We are very grateful." }],
-            photos: ["https://picsum.photos/seed/marriage1/600/400"],
-            avatarSeed: "pathway-partners-logo"
+            reviewData: [
+                { author: "Tech Startup", phone: "", rating: 5, comment: "Migrated us to Xero seamlessly. Their team is knowledgeable and always responsive." },
+                { author: "Freelancer", phone: "", rating: 5, comment: "Finally, my tax returns are stress-free! They make it so easy." }
+            ],
+            photos: ["https://picsum.photos/seed/accounting2/600/400"],
+            avatarSeed: "accounting-image"
         }
     ],
-    "plastic-surgeons": [
+    auditors: [
         {
-            id: "aeterna-aesthetics",
-            name: "Aeterna Aesthetics",
-            location: "Sandton, Johannesburg",
-            description: "A leading plastic and reconstructive surgery practice offering a range of procedures including breast augmentation, rhinoplasty, facelifts, and body contouring.",
-            rating: 4.9,
-            reviews: 55,
-            isProVerified: true,
-            reviewData: [{ author: "Anonymous", rating: 5, comment: "The results of my procedure exceeded all my expectations. The doctor and staff were professional and caring from start to finish." }],
-            photos: ["https://picsum.photos/seed/plastics1/600/400"],
-            avatarSeed: "aeterna-aesthetics-logo"
-        }
-    ],
-    "access-control": [
-        {
-            id: "secure-link-systems",
-            name: "Secure-Link Systems",
-            location: "Midrand, Johannesburg",
-            description: "Installation and maintenance of advanced access control systems for residential estates and commercial properties, including biometric, card, and intercom systems.",
-            rating: 4.8,
-            reviews: 90,
-            isProVerified: true,
-            reviewData: [{ author: "Complex Manager", rating: 5, comment: "They installed a new biometric system for our estate. It's reliable and the installation was seamless." }],
-            photos: ["https://picsum.photos/seed/access1/600/400"],
-            avatarSeed: "secure-link-logo"
-        }
-    ],
-    "alarm-systems": [
-        {
-            id: "fortress-security-sa",
-            name: "Fortress Security SA",
-            location: "Cape Town, Western Cape",
-            description: "Protect your home and business with our advanced alarm systems. We offer installation, monitoring, and maintenance of Paradox and DSC systems.",
+            id: "veritas-auditing",
+            name: "Veritas Auditing Inc.",
+            location: "Johannesburg",
+            description: "Registered auditors providing independent assurance services. We conduct statutory audits, internal audits, and due diligence reviews for a wide range of industries.",
             rating: 4.7,
-            reviews: 140,
-            isProVerified: true,
-            reviewData: [{ author: "Jane D.", rating: 5, comment: "Fast installation and the system is easy to use. I feel much safer now." }],
-            photos: ["https://picsum.photos/seed/alarm1/600/400"],
-            avatarSeed: "fortress-systems-logo"
-        }
-    ],
-    "armed-response": [
-        {
-            id: "titan-tactical-response",
-            name: "Titan Tactical Response",
-            location: "Pretoria, Gauteng",
-            description: "24/7 armed response services with fast response times. Our highly trained officers and strategic vehicle placement ensure your safety is our top priority.",
-            rating: 4.6,
-            reviews: 220,
-            isProVerified: true,
-            reviewData: [{ author: "Ben K.", rating: 5, comment: "Their response time is impressive. Had an incident and they were there in minutes. Excellent service." }],
-            photos: ["https://picsum.photos/seed/armed1/600/400"],
-            avatarSeed: "titan-response-logo"
-        }
-    ],
-    "car-alarms": [
-        {
-            id: "auto-guard-fitment",
-            name: "Auto-Guard Fitment Centre",
-            location: "Durban, KZN",
-            description: "Professional installation of car alarms, immobilisers, and anti-hijack systems for all vehicle makes and models. Protect your vehicle with the best.",
-            rating: 4.7,
-            reviews: 110,
-            isProVerified: true,
-            reviewData: [{ author: "Mike S.", rating: 5, comment: "Quick and neat installation of my new car alarm. The technician explained everything clearly." }],
-            photos: ["https://picsum.photos/seed/caralarm1/600/400"],
-            avatarSeed: "auto-guard-logo"
-        }
-    ],
-    "car-tracking": [
-        {
-            id: "hawk-eye-vehicle-tracking",
-            name: "Hawk-Eye Vehicle Tracking",
-            location: "Nationwide",
-            description: "Advanced GPS tracking and stolen vehicle recovery services. Monitor your vehicle from your phone and get peace of mind with our 24/7 recovery teams.",
-            rating: 4.8,
-            reviews: 350,
-            isProVerified: true,
-            reviewData: [{ author: "Sarah P.", rating: 5, comment: "The app is easy to use and gives me peace of mind knowing where my car is. A must-have." }],
-            photos: ["https://picsum.photos/seed/cartrack1/600/400"],
-            avatarSeed: "hawk-eye-tracking-logo"
-        }
-    ],
-    "private-investigators": [
-        {
-            id: "eagle-eye-investigations",
-            name: "Eagle-Eye Investigations",
-            location: "Johannesburg, Gauteng",
-            description: "Discreet and professional private investigation services. We handle matrimonial cases, corporate fraud, background checks, and tracing services with complete confidentiality.",
-            rating: 4.9,
             reviews: 60,
             isProVerified: true,
-            reviewData: [{ author: "Anonymous", rating: 5, comment: "They were professional, discreet, and provided the information I needed. I highly recommend their services." }],
-            photos: ["https://picsum.photos/seed/pi1/600/400"],
-            avatarSeed: "eagle-eye-logo"
+            reviewData: [
+                { author: "Investment Co.", phone: "", rating: 5, comment: "Thorough and professional. Their audit report was clear and provided valuable insights." },
+                { author: "NPO Director", phone: "", rating: 5, comment: "They handle our annual audit with great care and attention to detail." }
+            ],
+            photos: ["https://picsum.photos/seed/auditors1/600/400"],
+            avatarSeed: "auditors-image"
         }
     ],
-    security: [
+    "business-consultants": [
         {
-            id: "sentinel-security-services",
-            name: "Sentinel Security Services",
+            id: "momentum-strategy",
+            name: "Momentum Strategy",
             location: "Nationwide",
-            description: "Providing comprehensive security solutions including guarding services, event security, and risk assessments for commercial and industrial clients.",
-            rating: 4.6,
-            reviews: 190,
-            isProVerified: true,
-            reviewData: [{ author: "ABC Retail", rating: 5, comment: "Their guards are professional and well-trained. We've seen a significant reduction in incidents since we started using them." }],
-            photos: ["https://picsum.photos/seed/security1/600/400"],
-            avatarSeed: "sentinel-security-logo"
-        }
-    ],
-    tracing: [
-        {
-            id: "find-fast-tracing",
-            name: "Find-Fast Tracing Agency",
-            location: "Nationwide",
-            description: "No-find, no-fee tracing services for legal firms, financial institutions, and private individuals. We specialize in locating debtors, witnesses, and missing persons.",
-            rating: 4.7,
-            reviews: 120,
-            isProVerified: true,
-            reviewData: [{ author: "Legal Eagles Inc.", rating: 5, comment: "They have a very high success rate. An invaluable service for our legal practice." }],
-            photos: ["https://picsum.photos/seed/tracing1/600/400"],
-            avatarSeed: "find-fast-logo"
-        }
-    ],
-    "auto-electricians": [
-        {
-            id: "sparky-auto-elec",
-            name: "Sparky's Auto-Elec",
-            location: "Boksburg, Gauteng",
-            description: "Specialist auto-electricians handling everything from starter motor problems and alternator repairs to complex wiring and diagnostic issues.",
-            rating: 4.8,
-            reviews: 95,
-            isProVerified: true,
-            reviewData: [{ author: "Tom R.", rating: 5, comment: "Found the electrical fault that two other mechanics couldn't. Very knowledgeable and fair pricing." }],
-            photos: ["https://picsum.photos/seed/autoelec1/600/400"],
-            avatarSeed: "auto-electricians"
-        }
-    ],
-    "car-aircon-regassing": [
-        {
-            id: "cool-wheels-aircon",
-            name: "Cool Wheels Aircon",
-            location: "Cape Town, Western Cape",
-            description: "Mobile car aircon regassing and repair service. We come to you at home or work to get your car's air conditioning blowing cold again.",
+            description: "Business consultants helping SMEs develop growth strategies, improve operational efficiency, and navigate market challenges. Let's build momentum for your business.",
             rating: 4.9,
-            reviews: 130,
-            isProVerified: true,
-            reviewData: [{ author: "Jane S.", rating: 5, comment: "So convenient! They came to my office and re-gassed my aircon in my lunch break. Excellent service." }],
-            photos: ["https://picsum.photos/seed/caraircon1/600/400"],
-            avatarSeed: "car-aircon"
-        }
-    ],
-    "car-window-tinting": [
-        {
-            id: "pro-tint-sa",
-            name: "Pro-Tint SA",
-            location: "Durban, KZN",
-            description: "Professional smash-and-grab and window tinting services. We use high-quality, long-lasting film to enhance your vehicle's safety and appearance.",
-            rating: 4.7,
-            reviews: 110,
-            isProVerified: true,
-            reviewData: [{ author: "Mike L.", rating: 5, comment: "The tint looks amazing. No bubbles or imperfections. Very professional job." }],
-            photos: ["https://picsum.photos/seed/cartint1/600/400"],
-            avatarSeed: "window-tinting"
-        }
-    ],
-    "engine-overhauls": [
-        {
-            id: "engine-masters-jhb",
-            name: "Engine Masters JHB",
-            location: "Johannesburg",
-            description: "Specialist engine rebuilding and overhaul services for all vehicle makes. We restore engines to factory specifications with precision and quality parts.",
-            rating: 4.8,
-            reviews: 75,
-            isProVerified: true,
-            reviewData: [{ author: "Pieter K.", rating: 5, comment: "My old bakkie's engine feels brand new. They did an incredible job." }],
-            photos: ["https://picsum.photos/seed/engine1/600/400"],
-            avatarSeed: "engine-overhauls"
-        }
-    ],
-    "brakes-and-clutches": [
-        {
-            id: "stop-go-mechanics",
-            name: "Stop & Go Mechanics",
-            location: "Pretoria, Gauteng",
-            description: "Specialists in brake and clutch repairs and replacements. We use quality parts to ensure your vehicle's safety and performance.",
-            rating: 4.6,
-            reviews: 150,
-            isProVerified: true,
-            reviewData: [{ author: "Brenda M.", rating: 5, comment: "My brakes were making a terrible noise. They sorted it out quickly and the price was fair." }],
-            photos: ["https://picsum.photos/seed/brakes1/600/400"],
-            avatarSeed: "brakes-clutches"
-        }
-    ],
-    gearboxes: [
-        {
-            id: "gearbox-gurus-cpt",
-            name: "Gearbox Gurus CPT",
-            location: "Cape Town, Western Cape",
-            description: "Expert diagnosis and repair of manual and automatic gearboxes. From servicing to complete rebuilds, we are the trusted name in gearbox repairs.",
-            rating: 4.7,
             reviews: 80,
             isProVerified: true,
-            reviewData: [{ author: "Fikile N.", rating: 5, comment: "They fixed my automatic gearbox when I thought I'd need a replacement. Saved me a lot of money." }],
-            photos: ["https://picsum.photos/seed/gearbox1/600/400"],
-            avatarSeed: "gearboxes"
+            reviewData: [
+                { author: "Manufacturing CEO", phone: "", rating: 5, comment: "Their insights into our production process were game-changing. We've increased efficiency by 20%." },
+                { author: "Retail Owner", phone: "", rating: 5, comment: "Helped us develop a clear roadmap for growth. Invaluable advice." }
+            ],
+            photos: ["https://picsum.photos/seed/consultants1/600/400"],
+            avatarSeed: "business-consultants-image"
         }
     ],
-    fuels: [
+    "company-registrations": [
         {
-            id: "fuel-2-u-delivery",
-            name: "Fuel-2-U Delivery",
-            location: "Gauteng",
-            description: "Convenient mobile fuel delivery service for businesses and individuals. We deliver diesel and petrol directly to your vehicle, generator, or equipment.",
-            rating: 4.9,
-            reviews: 60,
-            isProVerified: true,
-            reviewData: [{ author: "ABC Logistics", rating: 5, comment: "They refuel our entire fleet of trucks on-site every night. A huge time and money saver for our business." }],
-            photos: ["https://picsum.photos/seed/fuel1/600/400"],
-            avatarSeed: "fuels"
-        }
-    ],
-    "computer-courses": [
-        {
-            id: "learn-it-academy",
-            name: "Learn-IT Academy",
-            location: "Sandton, Johannesburg",
-            description: "Providing certified training courses in Microsoft Office, programming, graphic design, and more. Upskill yourself for the modern workplace.",
+            id: "swift-reg-sa",
+            name: "SwiftReg SA",
+            location: "Online",
+            description: "Fast and easy online company registration. We handle all the CIPC paperwork so you can get your new (Pty) Ltd registered in as little as 24 hours.",
             rating: 4.8,
-            reviews: 120,
-            isProVerified: true,
-            reviewData: [{ author: "Thabo M.", rating: 5, comment: "I did their Python course and it was excellent. The instructor was very knowledgeable." }],
-            photos: ["https://picsum.photos/seed/computer-course1/600/400"],
-            avatarSeed: "computer-courses"
-        }
-    ],
-    "driving-schools": [
-        {
-            id: "pass-first-driving",
-            name: "Pass First Driving School",
-            location: "Cape Town",
-            description: "Patient and professional driving instructors to help you pass your learner's and driver's license test first time. K53 compliant lessons.",
-            rating: 4.9,
             reviews: 250,
             isProVerified: true,
-            reviewData: [{ author: "Jessica P.", rating: 5, comment: "My instructor was so patient and helped me overcome my nerves. I passed my test on the first try!" }],
-            photos: ["https://picsum.photos/seed/driving1/600/400"],
-            avatarSeed: "driving-schools"
+            reviewData: [
+                { author: "New Entrepreneur", phone: "", rating: 5, comment: "The whole process was so simple. My company was registered in a day. Amazing service!" },
+                { author: "S. Naidoo", phone: "", rating: 5, comment: "Used them for my second company registration. Consistently fast and efficient." }
+            ],
+            photos: ["https://picsum.photos/seed/registrations1/600/400"],
+            avatarSeed: "company-registrations-image"
         }
     ],
-    "firearm-training": [
+    "debt-collection": [
         {
-            id: "tactical-training-sa",
-            name: "Tactical Training SA",
-            location: "Pretoria, Gauteng",
-            description: "SAPS accredited firearm competency training for handguns, shotguns, and rifles. We also offer advanced tactical and self-defense courses.",
-            rating: 4.9,
+            id: "apex-collections",
+            name: "Apex Collections",
+            location: "Gauteng",
+            description: "Professional and ethical debt collection services. We help businesses recover outstanding debts while maintaining customer relationships where possible.",
+            rating: 4.5,
             reviews: 110,
             isProVerified: true,
-            reviewData: [{ author: "Ben K.", rating: 5, comment: "Very professional and safety-conscious training centre. I learned so much more than just the basics." }],
-            photos: ["https://picsum.photos/seed/firearm1/600/400"],
-            avatarSeed: "firearm-training"
+            reviewData: [
+                { author: "Wholesale Supplier", phone: "", rating: 5, comment: "They have a much better success rate than our previous collectors. Very professional approach." },
+                { author: "Services Co.", phone: "", rating: 4, comment: "Good results, though communication could be a bit more proactive." }
+            ],
+            photos: ["https://picsum.photos/seed/debt-collection1/600/400"],
+            avatarSeed: "debt-collection"
         }
     ],
-    "first-aid": [
+    "debt-counsellors": [
         {
-            id: "first-response-training",
-            name: "First Response Training",
-            location: "Johannesburg & Cape Town",
-            description: "Department of Labour accredited First Aid Level 1, 2, and 3 training for individuals and corporate groups. Learn to save a life.",
+            id: "fresh-start-debt",
+            name: "Fresh Start Debt Counsellors",
+            location: "Durban",
+            description: "NCR registered debt counsellors providing confidential advice and debt review services. We help you renegotiate with creditors and find a manageable path out of debt.",
+            rating: 4.9,
+            reviews: 180,
+            isProVerified: true,
+            reviewData: [
+                { author: "J. Smith", phone: "", rating: 5, comment: "They took so much stress off my shoulders. I can finally see a light at the end of the tunnel. Thank you." },
+                { author: "Anonymous", phone: "", rating: 5, comment: "Professional, non-judgmental, and so helpful. I wish I had contacted them sooner." }
+            ],
+            photos: ["https://picsum.photos/seed/debt-counsellors1/600/400"],
+            avatarSeed: "debt-counsellors-image"
+        }
+    ],
+    "financial-advisors": [
+        {
+            id: "quantum-financial",
+            name: "Quantum Financial Advisors",
+            location: "Cape Town",
+            description: "Independent financial advisors helping individuals and families with investment planning, retirement planning, and estate planning. Your future, secured.",
+            rating: 4.8,
+            reviews: 90,
+            isProVerified: true,
+            reviewData: [
+                { author: "The Martins", phone: "", rating: 5, comment: "Provided us with a clear and comprehensive financial plan for our retirement. We feel much more confident about the future." },
+                { author: "Young Professional", phone: "", rating: 5, comment: "Helped me start my investment journey. Great advice tailored to my goals." }
+            ],
+            photos: ["https://picsum.photos/seed/financial-advisors1/600/400"],
+            avatarSeed: "financial-advisors-image"
+        }
+    ],
+    insurance: [
+        {
+            id: "shieldsure-brokers",
+            name: "ShieldSure Insurance Brokers",
+            location: "Johannesburg",
+            description: "Independent insurance brokers providing personalized advice on car, home, and business insurance. We compare quotes from top insurers to find you the best cover at the right price.",
             rating: 4.8,
             reviews: 150,
             isProVerified: true,
-            reviewData: [{ author: "HR @ ABC Corp", rating: 5, comment: "They conducted the training on-site for our staff. The facilitator was excellent and made it very practical." }],
-            photos: ["https://picsum.photos/seed/first-aid1/600/400"],
-            avatarSeed: "first-aid"
-        }
-    ],
-    "forklift-training": [
+            reviewData: [
+                { author: "Thabo M.", phone: "082****123", rating: 5, comment: "They saved me hundreds on my car insurance! The process was quick and easy. Highly recommend." },
+                { author: "Jane D.", phone: "071****567", rating: 5, comment: "Very professional and knowledgeable. They explained my policy in a way I could actually understand." }
+            ],
+            photos: ["https://picsum.photos/seed/insurance1/600/400"],
+            avatarSeed: "insurance-image"
+        },
         {
-            id: "lift-safe-training",
-            name: "Lift-Safe Training",
-            location: "Durban, KZN",
-            description: "Accredited forklift operator training and certification. We offer courses for novice and experienced drivers to ensure workplace safety and compliance.",
-            rating: 4.7,
-            reviews: 90,
-            isProVerified: true,
-            reviewData: [{ author: "Warehouse Pro", rating: 5, comment: "Got my forklift license here. The training was thorough and the instructors were great." }],
-            photos: ["https://picsum.photos/seed/forklift1/600/400"],
-            avatarSeed: "forklift-training"
-        }
-    ],
-    "life-coaches": [
-        {
-            id: "your-path-forward-coaching",
-            name: "Your Path Forward Coaching",
-            location: "Online / Nationwide",
-            description: "Certified life coach helping you achieve your personal and professional goals. Specializing in career transitions, confidence building, and work-life balance.",
-            rating: 5.0,
-            reviews: 75,
-            isProVerified: true,
-            reviewData: [{ author: "Sarah P.", rating: 5, comment: "Coaching with Anna helped me find clarity and take the leap to start my own business. Life-changing!" }],
-            photos: ["https://picsum.photos/seed/life-coach1/600/400"],
-            avatarSeed: "life-coaches"
-        }
-    ],
-    "security-training": [
-        {
-            id: "guardian-training-academy",
-            name: "Guardian Training Academy",
-            location: "Johannesburg, Gauteng",
-            description: "PSIRA accredited security officer training from Grade E to A. We provide the skills and qualifications needed for a successful career in the security industry.",
+            id: "coverall-sa",
+            name: "CoverAll SA",
+            location: "Nationwide",
+            description: "Your one-stop-shop for all insurance needs, from life and disability cover to commercial liability. We provide comprehensive solutions for individuals and businesses.",
             rating: 4.6,
-            reviews: 180,
+            reviews: 210,
             isProVerified: true,
-            reviewData: [{ author: "Thabo S.", rating: 5, comment: "I completed my grades here and found a job shortly after. The training is very good." }],
-            photos: ["https://picsum.photos/seed/security-training1/600/400"],
-            avatarSeed: "security-training"
+            reviewData: [
+                { author: "Business Owner", phone: "", rating: 5, comment: "They consolidated all our business insurance policies and saved us money while improving our cover." },
+                { author: "New Homeowner", phone: "", rating: 4, comment: "Good service for my home insurance, took a while to get the final documents though." }
+            ],
+            photos: ["https://picsum.photos/seed/insurance2/600/400"],
+            avatarSeed: "insurance-image"
         }
     ],
-    "swimming-lessons": [
+    "home-loans": [
         {
-            id: "splash-swim-school",
-            name: "Splash! Swim School",
-            location: "Randburg, Johannesburg",
-            description: "Learn-to-swim programs for all ages, from babies to adults. Our qualified instructors teach water safety and stroke correction in a heated, indoor pool.",
+            id: "bond-wise-homeloans",
+            name: "BondWise Home Loans",
+            location: "Gauteng",
+            description: "Expert bond originators who apply to all major banks on your behalf, ensuring you get the best possible interest rate on your home loan. Our service is free to you.",
             rating: 4.9,
-            reviews: 140,
+            reviews: 300,
             isProVerified: true,
-            reviewData: [{ author: "Lindiwe M.", rating: 5, comment: "My two kids learned to swim here. The teachers are amazing with children and make the lessons fun." }],
-            photos: ["https://picsum.photos/seed/swim1/600/400"],
-            avatarSeed: "swimming-lessons"
+            reviewData: [
+                { author: "First-time Buyer", phone: "", rating: 5, comment: "Made the bond application process so simple and stress-free. They got me a rate I never would have gotten on my own." },
+                { author: "The Ndlovus", phone: "", rating: 5, comment: "Excellent service from start to finish. We are now proud homeowners thanks to their help!" }
+            ],
+            photos: ["https://picsum.photos/seed/home-loans1/600/400"],
+            avatarSeed: "home-loans-image"
         }
     ],
-    "team-building": [
+    loans: [
         {
-            id: "summit-team-events",
-            name: "Summit Team Events",
-            location: "Gauteng & Cape Town",
-            description: "Creating memorable and effective team building experiences. From amazing races and cooking challenges to strategic workshops, we build stronger teams.",
-            rating: 4.8,
-            reviews: 95,
+            id: "quick-cash-loans",
+            name: "Quick Cash Loans",
+            location: "Online",
+            description: "Responsible provider of short-term personal loans. Simple online application and fast approval process for when you need cash in a hurry. NCR registered.",
+            rating: 4.3,
+            reviews: 450,
             isProVerified: true,
-            reviewData: [{ author: "HR Manager", rating: 5, comment: "They organized our annual team building day and it was a huge success. Our team is still talking about it." }],
-            photos: ["https://picsum.photos/seed/team-build1/600/400"],
-            avatarSeed: "team-building"
+            reviewData: [
+                { author: "Anonymous", phone: "", rating: 4, comment: "Application was easy and the money was in my account the same day. Interest is high but it helped in an emergency." },
+                { author: "Sipho M.", phone: "", rating: 5, comment: "Clear terms and a very simple process. Much better than other lenders I've tried." }
+            ],
+            photos: ["https://picsum.photos/seed/loans1/600/400"],
+            avatarSeed: "loans"
+        }
+    ],
+    "medical-aid": [
+        {
+            id: "health-cover-advisors",
+            name: "HealthCover Advisors",
+            location: "Nationwide",
+            description: "Independent medical aid brokers who help you compare plans from all leading providers like Discovery, Momentum, and Bonitas to find the best fit for your needs and budget.",
+            rating: 4.8,
+            reviews: 220,
+            isProVerified: true,
+            reviewData: [
+                { author: "The Fourie Family", phone: "", rating: 5, comment: "They explained the different options so clearly and helped us choose the perfect family plan." },
+                { author: "Young Professional", phone: "", rating: 5, comment: "Found a great hospital plan for me that was much cheaper than what I was quoted elsewhere." }
+            ],
+            photos: ["https://picsum.photos/seed/medical-aid1/600/400"],
+            avatarSeed: "medical-aid"
+        }
+    ],
+    "recruitment-agencies": [
+        {
+            id: "talent-source-africa",
+            name: "Talent Source Africa",
+            location: "Johannesburg",
+            description: "A leading recruitment agency specializing in placing top talent in the finance, IT, and engineering sectors. We connect great companies with great people.",
+            rating: 4.7,
+            reviews: 130,
+            isProVerified: true,
+            reviewData: [
+                { author: "HR Manager", phone: "", rating: 5, comment: "They always provide us with high-quality, well-vetted candidates. A valuable recruitment partner." },
+                { author: "Job Seeker", phone: "", rating: 5, comment: "They helped me find my dream job! The consultant was so supportive throughout the process." }
+            ],
+            photos: ["https://picsum.photos/seed/recruitment1/600/400"],
+            avatarSeed: "recruitment-agencies"
         }
     ],
     handyman: [
@@ -2564,13 +1535,5 @@ export const getProfessionalById = (id: string) => {
     }
     return null;
 };
-
-
-
-
-
-
-
-
-
     
+
