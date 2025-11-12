@@ -729,7 +729,7 @@ export const allProfessionals = {
         },
         {
             id: "oceanic-pools-solutions",
-            name: "Oceanic Pools & Spa Solutions",
+            name: "Oceanic Pools &amp; Spa Solutions",
             location: "Bedfordview, Johannesburg",
             description: "We design and maintain pools that bring resort-style comfort to your home. From new builds to spa integration and heating, we’ve got you covered.",
             rating: 5.0,
@@ -767,7 +767,7 @@ export const allProfessionals = {
     "plant-hire": [
         {
             id: "wasteden-demolitions",
-            name: "Wasteden Demolitions & Waste Removals",
+            name: "Wasteden Demolitions &amp; Waste Removals",
             location: "Johannesburg",
             description: "We handle all types of demolition and rubble removals — both interior and exterior — as well as bulk earthworks and site cleaning.",
             tags: ["Demolition", "rubble removal", "bulk earthworks", "site cleaning", "interior demolition"],
@@ -795,7 +795,7 @@ export const allProfessionals = {
             id: "sid-plant-hire",
             name: "Sid Plant",
             location: "Parktown, Johannesburg",
-            description: "TLB & tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
+            description: "TLB &amp; tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
             tags: ["TLB hire", "tipper truck hire", "site clearing", "demolitions", "trenching"],
             rating: 5.0,
             reviews: 1,
@@ -845,7 +845,7 @@ export const allProfessionals = {
         },
         {
             id: "thabos-plant-hire",
-            name: "Thabo’s Plant & Equipment Hire",
+            name: "Thabo’s Plant &amp; Equipment Hire",
             location: "Soweto, Johannesburg",
             description: "TLB hire, grader hire, and rubble removal for small to large projects. Ideal for both private residential jobs and municipal work.",
             tags: ["TLB hire", "grader hire", "rubble removal"],
@@ -915,9 +915,9 @@ export const allProfessionals = {
         },
         {
             id: "revision-contracting",
-            name: "Revision Contracting & Projects (Pty) Ltd",
+            name: "Revision Contracting &amp; Projects (Pty) Ltd",
             location: "Norkem Park, Kempton Park",
-            description: "Revision Contracting & Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
+            description: "Revision Contracting &amp; Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
             rating: 5.0,
             reviews: 1,
             address: "Norkem Park, Kempton Park",
@@ -963,7 +963,7 @@ export const allProfessionals = {
         },
         {
             id: "freshtone-painters",
-            name: "FreshTone Painters & Decor",
+            name: "FreshTone Painters &amp; Decor",
             location: "Aston Manor, Kempton Park",
             description: "FreshTone Painters brings over 12 years of experience in wall coatings, ceiling painting, and interior décor finishes. Using premium paints, they deliver vibrant, long-lasting color for every surface.",
             rating: 4.9,
@@ -1013,9 +1013,9 @@ export const allProfessionals = {
         },
         {
             id: "mavuso-construction",
-            name: "Mavuso Construction & Maintenance",
+            name: "Mavuso Construction &amp; Maintenance",
             location: "Steeledale, Johannesburg South",
-            description: "Mavuso Construction & Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
+            description: "Mavuso Construction &amp; Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
             rating: 4.7,
             reviews: 8,
             address: "Steeledale, Johannesburg South",
@@ -1093,7 +1093,7 @@ export const allProfessionals = {
         },
         {
             id: "ndlovu-builders",
-            name: "Ndlovu Builders & Renovations",
+            name: "Ndlovu Builders &amp; Renovations",
             location: "Johannesburg South",
             description: "Ndlovu Builders offers affordable home and business renovations, including plastering, painting, roofing, and flooring. With over 10 years in the trade, they’re known for honest quotes and consistent results.",
             rating: 4.9,
@@ -1157,7 +1157,7 @@ export const allProfessionals = {
         },
         {
             id: "crestwave-construction",
-            name: "Crestwave Construction & Maintenance",
+            name: "Crestwave Construction &amp; Maintenance",
             location: "Bryanston, Johannesburg North",
             description: "Crestwave Construction offers comprehensive building, plumbing, roofing, and electrical installation services. Their qualified team delivers consistent results and quality assurance across residential and commercial projects.",
             rating: 4.9,
@@ -1207,7 +1207,7 @@ export const allProfessionals = {
     "rubble-removal": [
         {
             id: "east-rand-waste",
-            name: "East Rand Waste & Pool Service Pty Ltd",
+            name: "East Rand Waste &amp; Pool Service Pty Ltd",
             location: "Alberton",
             description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
@@ -1496,14 +1496,14 @@ export const allProfessionals = {
         {
             id: "cpt-cosmetic-dental",
             name: "Cape Town Cosmetic Dentistry",
-            location: "V&A Waterfront, Cape Town",
+            location: "V&amp;A Waterfront, Cape Town",
             description: "Specialists in smile makeovers. We offer high-end cosmetic {service}, including veneers, dental implants, and full-mouth rehabilitation, using state-of-the-art technology.",
             rating: 5.0,
             reviews: 75,
             isProVerified: true,
             reviewData: [
-                { author: "Jenna L.", phone: "079****444", rating: 5, comment: "My new veneers look completely natural and have given me so much confidence. Dr. Lee is an artist." },
-                { author: "David S.", phone: "084****555", rating: 5, comment: "I had a dental implant done here and the process was seamless and pain-free. Worth every cent." }
+                { author: "Jenna L.", phone: "079****444", comment: "My new veneers look completely natural and have given me so much confidence. Dr. Lee is an artist.", rating: 5 },
+                { author: "David S.", phone: "084****555", comment: "I had a dental implant done here and the process was seamless and pain-free. Worth every cent.", rating: 5 }
             ],
             photos: ["https://picsum.photos/seed/dental-cosmetic/600/400"],
             avatarSeed: "cosmetic-dental-logo"
@@ -1519,7 +1519,7 @@ export const allProfessionals = {
             reviews: 110,
             isProVerified: true,
             reviewData: [
-                { author: "Sarah & Tom", rating: 5, comment: "He was the DJ for our wedding and was absolutely brilliant! He read the crowd perfectly and played the best music. Highly recommend!" },
+                { author: "Sarah &amp; Tom", rating: 5, comment: "He was the DJ for our wedding and was absolutely brilliant! He read the crowd perfectly and played the best music. Highly recommend!" },
                 { author: "Corporate Events Inc.", rating: 5, comment: "Always our first choice for corporate functions. Professional, reliable, and knows how to create a great atmosphere." }
             ],
             photos: ["https://picsum.photos/seed/dj1/600/400"],
@@ -1580,7 +1580,7 @@ export const allProfessionals = {
     photographers: [
         {
             id: "lens-and-light-studio",
-            name: "Lens & Light Studio",
+            name: "Lens &amp; Light Studio",
             location: "Cape Town",
             description: "Professional photography for weddings, portraits, and commercial projects. With a natural and timeless style, we capture moments that tell your unique story.",
             rating: 5.0,
@@ -1588,7 +1588,7 @@ export const allProfessionals = {
             isProVerified: true,
             reviewData: [
                 { author: "The Naidoo Family", rating: 5, comment: "Our family photoshoot was so much fun and the photos are incredible. They captured our family's personality perfectly." },
-                { author: "Emily & Mark", rating: 5, comment: "We are so in love with our wedding photos! They are more beautiful than we could have ever hoped for. True professionals." }
+                { author: "Emily &amp; Mark", rating: 5, comment: "We are so in love with our wedding photos! They are more beautiful than we could have ever hoped for. True professionals." }
             ],
             photos: ["https://picsum.photos/seed/photo1/600/400", "https://picsum.photos/seed/photo2/600/400"],
             avatarSeed: "photographers-image"
@@ -1655,7 +1655,7 @@ export const allProfessionals = {
             reviews: 80,
             isProVerified: true,
             reviewData: [
-                { author: "Mr & Mrs Smith", rating: 5, comment: "Our wedding video is like a movie! We can't stop watching it. They captured every important moment so beautifully." },
+                { author: "Mr &amp; Mrs Smith", rating: 5, comment: "Our wedding video is like a movie! We can't stop watching it. They captured every important moment so beautifully." },
                 { author: "Brand Manager", rating: 5, comment: "The corporate video they produced for us was exceptional. High quality and perfectly on-brand." }
             ],
             photos: ["https://picsum.photos/seed/video1/600/400"],
@@ -1736,5 +1736,6 @@ export const getProfessionalById = (id: string) => {
     return null;
 };
     
+
 
 

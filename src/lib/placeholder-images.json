@@ -111,7 +111,7 @@
     {
       "id": "pro-dj-grid",
       "description": "A DJ mixing music at an event.",
-      "imageUrl": "https://images.unsplash.com/photo-1719847394950-65bfc73dae36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxESiUyMGV2ZW50fGVufDB8fHx8MTc2MTMzMjAzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1719847394950-65bfc73dae36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxESiUyMGV2ZW50fGVufDB8fHx8MTc2MTMzMjAzNnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "DJ event"
     },
     {
@@ -153,7 +153,7 @@
     {
       "id": "sunshine-kids-logo",
       "description": "A bright and cheerful logo for a preschool with a sun icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1613060800375-a02e17b3915b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHjaGVlcmZ1bCUyMGxvZ298ZW58MHx8fHwxNzYyNjk2NTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1613060800375-a02e17b3915b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHjaGVlcmZ1bCUyMGxvZ298ZW58MHx8fHwxNzYxMDg5Mjk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cheerful logo"
     },
     {
@@ -189,37 +189,37 @@
     {
       "id": "gadget-gurus-logo",
       "description": "A modern logo for a tech repair shop with a gear and a smartphone icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1662052955098-042b46e60c2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWNoJTIwbG9nb3xlbnwwfHx8fDE3NjI2NjYxNjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1662052955098-042b46e60c2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0ZWNoJTIwbG9nb3xlbnwwfHx8fDE3NjI2NjYxNjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tech logo"
     },
     {
       "id": "tech-savvy-logo",
       "description": "A logo for a computer repair service featuring a circuit board pattern.",
-      "imageUrl": "https://images.unsplash.com/photo-1631375937044-6dd5beac01d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2lyY3VpdCUyMGJvYXJkfGVufDB8fHx8MTc2MjY0NDczMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1631375937044-6dd5beac01d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxj aXJjdWl0JTIwYm9hcmR8ZW58MHx8fHwxNzYyNjQ0NzMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "circuit board"
     },
     {
       "id": "fibre-fast-logo",
       "description": "A logo for an internet provider with a speeding fibre optic cable graphic.",
-      "imageUrl": "https://images.unsplash.com/photo-1693304396377-a482127f535a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmaWJyZSUyMG9wdGljfGVufDB8fHx8MTc2MjY5Nzc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1693304396377-a482127f535a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxmaWJyZSUyMG9wdGljfGVufDB8fHx8MTc2MjY5Nzc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fibre optic"
     },
     {
       "id": "laptop-fixers-logo",
       "description": "A simple logo showing a laptop with a wrench icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1721333089073-215a56fd710c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsYXB0b3AlMjByZXBhaXJ8ZW58MHx8fHwxNzYyNjk3NzY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1721333089073-215a56fd710c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxsYXB0b3AlMjByZXBhaXJ8ZW58MHx8fHwxNzYyNjk3NzY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "laptop repair"
     },
     {
       "id": "connect-it-logo",
       "description": "A logo for a networking company with interconnected nodes.",
-      "imageUrl": "https://images.unsplash.com/photo-1752155530542-2f6649205093?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxuZXR3b3JrJTIwbm9kZXN8ZW58MHx8fHwxNzYyNjI5NTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1752155530542-2f6649205093?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxuZXR3b3JrJTIwbm9kZXN8ZW58MHx8fHwxNzYyNjI5NTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "network nodes"
     },
     {
       "id": "office-solutions-logo",
       "description": "A professional logo for an office equipment supplier.",
-      "imageUrl": "https://images.unsplash.com/photo-1658490268010-8338dc97a721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvZmZpY2UlMjBlcXVpcG1lbnR8ZW58MHx8fHwxNzYyNjk3NzY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1658490268010-8338dc97a721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxvZmZpY2UlMjBlcXVpcG1lbnR8ZW58MHx8fHwxNzYyNjk3NzY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office equipment"
     },
     {
@@ -231,31 +231,31 @@
     {
       "id": "coastal-escapes-logo",
       "description": "A logo for holiday accommodation featuring a palm tree and a setting sun.",
-      "imageUrl": "https://images.unsplash.com/photo-1523595857-fe9ee689f76f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwYWxtJTIwdHJlZSUyMHN1bnNldHxlbnwwfHx8fDE3NjI3MDcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1523595857-fe9ee689f76f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwYWxtJTIwdHJlZSUyMHN1bnNldHxlbnwwfHx8fDE3NjI3MDcwMTZfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "palm tree sunset"
     },
     {
       "id": "dream-day-venues-logo",
       "description": "A romantic logo for a wedding venue with intertwined rings.",
-      "imageUrl": "https://images.unsplash.com/photo-1492714485642-dd6df6baafa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3ZWRkaW5nJTIwcmluZ3N8ZW58MHx8fHwxNzYyNjk1NjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1492714485642-dd6df6baafa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxwZWRkaW5nJTIwcmluZ3N8ZW58MHx8fHwxNzYyNjk1NjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wedding rings"
     },
     {
       "id": "appliance-pro-logo",
       "description": "A logo for an appliance repair service with a wrench and a spark icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1629093966234-c809247aa981?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3cmVuY2glMjBzcGFya3xlbnwwfHx8fDE3NjI3MDcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1629093966234-c809247aa981?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxwcmVuY2glMjBzcGFya3xlbnwwfHx8fDE3NjI3MDcwMTZfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wrench spark"
     },
     {
       "id": "tv-techs-logo",
       "description": "A logo for a TV repair service featuring a television screen and a circuit pattern.",
-      "imageUrl": "https://images.unsplash.com/photo-1762329857397-514ce425b656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0diUyMGNpcmN1aXR8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762329857397-514ce425b656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0diUyMGNpcmN1aXR8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tv circuit"
     },
     {
       "id": "sat-pros-logo",
       "description": "A logo with a satellite dish icon for a DSTV installation company.",
-      "imageUrl": "https://images.unsplash.com/photo-1512699126689-b59fb4e97c92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2F0ZWxsaXRlJTIwZGlzaHxlbnwwfHx8fDE3NjI2ODIwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1512699126689-b59fb4e97c92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2F0ZWxsaXRlJTIwZGlzaHxlbnwwfHx8fDE3NjI2ODIwNTJfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "satellite dish"
     },
     {
@@ -267,55 +267,55 @@
     {
       "id": "wall-mount-wizards-logo",
       "description": "A logo for a TV installation service showing a TV mounted on a wall.",
-      "imageUrl": "https://images.unsplash.com/photo-1633604712918-6ab1173d0ecd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0diUyMHdhbGx8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1633604712918-6ab1173d0ecd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0diUyMHdhbGx8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tv wall"
     },
     {
       "id": "property-path-logo",
       "description": "A logo for a conveyancing firm featuring a path leading to a house.",
-      "imageUrl": "https://images.unsplash.com/photo-1651673334651-8f65355bd2e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aG91c2UlMjBwYXRofGVufDB8fHx8MTc2MjcwNzAxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1651673334651-8f65355bd2e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGhvdXNlJTIwcGF0aHxlbnwwfHx8fDE3NjI3MDcwMTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "house path"
     },
     {
       "id": "amicus-legal-logo",
       "description": "A professional logo for a divorce law firm with scales of justice.",
-      "imageUrl": "https://images.unsplash.com/photo-1687289133469-b2a07a13b78b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzY2FsZXMlMjBqdXN0aWNlfGVufDB8fHx8MTc2MjYzNTUxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1687289133469-b2a07a13b78b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxzY2FsZXMlMjBqdXN0aWNlfGVufDB8fHx8MTc2MjYzNTUxOXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "scales justice"
     },
     {
       "id": "prime-properties-logo",
       "description": "An upscale logo for a real estate agency with a golden key.",
-      "imageUrl": "https://images.unsplash.com/photo-1747589736268-97d5665cf8f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnb2xkZW4lMjBrZXl8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1747589736268-97d5665cf8f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGdvbGRlbiUyMGtleXxlbnwwfHx8fDE3NjI3MDcwMTZfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "golden key"
     },
     {
       "id": "workforce-legal-logo",
       "description": "A logo for a labour law firm featuring a handshake and a gavel.",
-      "imageUrl": "https://images.unsplash.com/photo-1461532257246-777de18cd58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoYW5kc2hha2UlMjBnYXZlbHxlbnwwfHx8fDE3NjI3MDcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1461532257246-777de18cd58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxoYW5kc2hha2UlMjBnYXZlbHxlbnwwfHx8fDE3NjI3MDcwMTZfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "handshake gavel"
     },
     {
       "id": "summit-attorneys-logo",
       "description": "A classic logo for a general law firm with a pillar icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1760795301432-6faa33ca88a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwaWxsYXIlMjBpY29ufGVufDB8fHx8MTc2MjcwNzAxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1760795301432-6faa33ca88a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHBpbGxhciUyMGljb258ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "pillar icon"
     },
     {
       "id": "swift-parcel-logo",
       "description": "A logo for a courier service with a speeding package icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1559829995-67a98f5c3864?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGVlZGluZyUyMHBhY2thZ2V8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1559829995-67a98f5c3864?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxzcGVlZGluZyUyMHBhY2thZ2V8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "speeding package"
     },
     {
       "id": "city-link-shuttles-logo",
       "description": "A logo for a shuttle service featuring a stylized van and a map pin.",
-      "imageUrl": "https://images.unsplash.com/photo-1614314442865-ce2fb2ade429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2YW4lMjBtYXB8ZW58MHx8fHwxNzYyNzA3MDE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1614314442865-ce2fb2ade429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxyZWxsb3clMjBjYWJ8ZW58MHx8fHwxNzYyNjc1Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "van map"
     },
     {
       "id": "kidz-karrier-logo",
       "description": "A friendly and colorful logo for a school transport service.",
-      "imageUrl": "https://images.unsplash.com/photo-1583508805133-8fd03a9916d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzY2hvb2wlMjBidXN8ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1583508805133-8fd03a9916d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxzY2hvb2wlMjBidXN8ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "school bus"
     },
     {
@@ -327,13 +327,13 @@
     {
       "id": "logi-link-logo",
       "description": "A professional logo for a transportation and logistics company with interlocking arrows.",
-      "imageUrl": "https://images.unsplash.com/photo-1662123267339-598f55f7aafc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGludGVybG9ja2luZyUyMGFycm93c3xlbnwwfHx8fDE3NjI3MDcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1662123267339-598f55f7aafc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGludGVybG9ja2luZyUyMGFycm93c3xlbnwwfHx8fDE3NjI3MDcwMTZfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "interlocking arrows"
     },
     {
       "id": "powergen-logo",
       "description": "Logo for PowerGen SA",
-      "imageUrl": "https://images.unsplash.com/photo-1658260867231-535a1f7c98b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwb3dlciUyMGdlbmVyYXRvcnxlbnwwfHx8fDE3NjI2MTQxOTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1658260867231-535a1f7c98b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwb3dlciUyMGdlbmVyYXRvcnxlbnwwfHx8fDE3NjI2MTQxOTVfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "power generator"
     },
     {
@@ -351,7 +351,7 @@
     {
       "id": "stone-elegance-logo",
       "description": "Logo for Stone Elegance",
-      "imageUrl": "https://images.unsplash.com/photo-1597336465111-a392afd218bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYXJibGUlMjBzdG9uZXxlbnwwfHx8fDE3NjI3MTI3Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1597336465111-a392afd218bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtYXJibGUlMjBzdG9uZXxlbnwwfHx8fDE3NjI3MTI3Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "marble stone"
     },
     {
@@ -363,7 +363,7 @@
     {
       "id": "office-hub-logo",
       "description": "Logo for Office Hub Supplies",
-      "imageUrl": "https://images.unsplash.com/photo-1454587399083-b11b22f48fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b2ZmaWNlJTIwc3VwcGxpZXN8ZW58MHx8fHwxNzYyNjUyMjAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1454587399083-b11b22f48fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfG9mZmljZSUyMHN1cHBsaWVzfGVufDB8fHx8MTc2MjY1MjIwMl8w&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office supplies"
     },
     {
@@ -375,85 +375,85 @@
     {
       "id": "agri-mech-logo",
       "description": "Logo for Agri-Mech SA",
-      "imageUrl": "https://images.unsplash.com/photo-1684566982052-94d4c47d259e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmFjdG9yJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzYyNzEyNzc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1684566982052-94d4c47d259e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0cmFjdG9yJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzYyNzEyNzc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tractor agriculture"
     },
     {
       "id": "farm-assist-logo",
       "description": "Logo for Farm-Assist ZA",
-      "imageUrl": "https://images.unsplash.com/photo-1624806993335-5c8a05d85929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmYXJtJTIwcGxhbnR8ZW58MHx8fHwxNzYyNzEyNzc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1624806993335-5c8a05d85929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxmYXJtJTIwcGxhbnR8ZW58MHx8fHwxNzYyNzEyNzc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "farm plant"
     },
     {
       "id": "water-wise-logo",
       "description": "Logo for Water-Wise Irrigation",
-      "imageUrl": "https://images.unsplash.com/photo-1534324742612-c75b8c02ba2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3YXRlciUyMHNwcmlua2xlcnxlbnwwfHx8fDE3NjI3MTI3Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1534324742612-c75b8c02ba2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHh3YXRlciUyMHNwcmlua2xlcnxlbnwwfHx8fDE3NjI3MTI3Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "water sprinkler"
     },
     {
       "id": "urban-form-logo",
       "description": "Logo for UrbanForm Architects",
-      "imageUrl": "https://images.unsplash.com/photo-1555238920-7a6bea18473b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb2Rlcm4lMjBidWlsZGluZ3xlbnwwfHx8fDE3NjI2MzIwNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1555238920-7a6bea18473b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2Rlcm4lMjBidWlsZGluZ3xlbnwwfHx8fDE3NjI2MzIwNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern building"
     },
     {
       "id": "deepsource-logo",
       "description": "Logo for DeepSource Drilling",
-      "imageUrl": "https://images.unsplash.com/photo-1556010656-e60700d4c0d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXRlciUyMGRyb3B8ZW58MHx8fHwxNzYyNjI0NDczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1556010656-e60700d4c0d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHh3YXRlciUyMGRyb3B8ZW58MHx8fHwxNzYyNjI0NDczfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "water drop"
     },
     {
       "id": "city-scope-logo",
       "description": "Logo for CityScope Planners",
-      "imageUrl": "https://images.unsplash.com/photo-1476385822777-70eabacbd41f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaXR5JTIwbWFwfGVufDB8fHx8MTc2MjcxNDkzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1476385822777-70eabacbd41f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGNpdHklMjBtYXB8ZW58MHx8fHwxNzYyNzE0OTMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "city map"
     },
     {
       "id": "nanny-on-call-logo",
       "description": "Logo for Nanny-on-Call",
-      "imageUrl": "https://images.unsplash.com/photo-1574466853640-8557d3e4ab2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGVkZHklMjBiZWFyfGVufDB8fHx8MTc2MjYzODI3OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1574466853640-8557d3e4ab2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHRlZGR5JTIwYmVhcnxlbnwwfHx8fDE3NjI2MzgyNzhfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "teddy bear"
     },
     {
       "id": "kiddie-cove-logo",
       "description": "Logo for Kiddie Cove Daycare",
-      "imageUrl": "https://images.unsplash.com/photo-1759149318776-66e93a68695c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dG95JTIwYmxvY2tzfGVufDB8fHx8MTc2MjY0NzQ2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1759149318776-66e93a68695c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHRveSUyMGJsb2Nrc3xlbnwwfHx8fDE3NjI2NDc0NjJfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "toy blocks"
     },
     {
       "id": "bright-beginnings-logo",
       "description": "Logo for Bright Beginnings Preschool",
-      "imageUrl": "https://images.unsplash.com/photo-1535340582796-799448c62e08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZW4lMjBjcmF5b25zfGVufDB8fHx8MTc2MjcxMjc3OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1535340582796-799448c62e08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlbiUyMGNyYXlvbnN8ZW58MHx8fHwxNzYyNzEyNzc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sun crayons"
     },
     {
       "id": "sew-elegant-logo",
       "description": "An elegant logo for a dressmaker with a needle and thread icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1589190636383-27170c491d41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZXdpbmclMjBsb2dvfGVufDB8fHx8MTc2MjcyMTU3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1589190636383-27170c491d41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNld2luZyUyMGxvZ298ZW58MHx8fHwxNzYyNzIxNTcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sewing logo"
     },
     {
       "id": "alteration-studio-logo",
       "description": "A simple and modern logo for a clothing alteration service.",
-      "imageUrl": "https://images.unsplash.com/photo-1761223956832-a1e341babb92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjBsb2dvfGVufDB8fHx8MTc2MjcyMTU3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761223956832-a1e341babb92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb2Rlcm4lMjBsb2dvfGVufDB8fHx8MTc2MjcyMTU3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern logo"
     },
     {
       "id": "stitch-it-pro-logo",
       "description": "A professional logo for an embroidery service.",
-      "imageUrl": "https://images.unsplash.com/photo-1716230721765-e90d6989151c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlbWJyb2lkZXJ5JTIwbG9nb3xlbnwwfHx8fDE3NjI3MjE1NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1716230721765-e90d6989151c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxlbWJyb2lkZXJ5JTIwbG9nb3xlbnwwfHx8fDE3NjI3MjE1NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "embroidery logo"
     },
     {
       "id": "sweet-spot-bakery-logo",
       "description": "A sweet and charming logo for a bakery and cake shop.",
-      "imageUrl": "https://images.unsplash.com/photo-1589099702977-97aeb7ca0138?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiYWtlcnklMjBsb2dvfGVufDB8fHx8MTc2MjcyMTU3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1589099702977-97aeb7ca0138?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxiYWtlcnklMjBsb2dvfGVufDB8fHx8MTc2MjcyMTU3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "bakery logo"
     },
     {
       "id": "gourmet-gatherings-logo",
       "description": "An elegant logo for a high-end catering service.",
-      "imageUrl": "https://images.unsplash.com/photo-1677890465835-ab8c5c621771?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlbGVnYW50JTIwbG9nb3xlbnwwfHx8fDE3NjI3MDM4OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1677890465835-ab8c5c621771?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxlbGVnYW50JTIwbG9nb3xlbnwwfHx8fDE3NjI3MDM4OTFfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "elegant logo"
     },
     {
@@ -495,43 +495,43 @@
     {
       "id": "safe-space-logo",
       "description": "A calming logo for a counseling service.",
-      "imageUrl": "https://images.unsplash.com/photo-1761891954808-b322321040e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYWxtJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761891954808-b322321040e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGNhbG0lMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMFww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "calm logo"
     },
     {
       "id": "smile-bright-logo",
       "description": "A logo for a dentist featuring a smiling tooth.",
-      "imageUrl": "https://images.unsplash.com/photo-1677948855509-c12a2b67d304?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dG9vdGglMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1677948855509-c12a2b67d304?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHRvb3RoJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTBfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tooth logo"
     },
     {
       "id": "derma-care-logo",
       "description": "A clinical and clean logo for a dermatology clinic.",
-      "imageUrl": "https://images.unsplash.com/photo-1736452221336-b43b0362a691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzazluJTIwY2FyZSUyMGxvZ298ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1736452221336-b43b0362a691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNrb24lMjBjYXJlJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTBfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "skin care logo"
     },
     {
       "id": "nutri-plan-logo",
       "description": "A fresh logo for a dietician with fruit and vegetable icons.",
-      "imageUrl": "https://images.unsplash.com/photo-1562178101-02e243762ffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoZWFsdGh5JTIwZm9vZCUyMGxvZ298ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1562178101-02e243762ffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxoZWFsdGh5JTIwZm9vZCUyMGxvZ298ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "healthy food logo"
     },
     {
       "id": "womens-wellness-logo",
       "description": "An elegant logo for a gynaecologist.",
-      "imageUrl": "https://images.unsplash.com/photo-1613060800375-a02e17b3915b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmZW1hbGUlMjBoZWFsdGglMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1613060800375-a02e17b3915b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGZlbWFsZSUyMGhlYWx0aCUyMGxvZ298ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "female health logo"
     },
     {
       "id": "style-lab-logo",
       "description": "A trendy logo for a modern hair salon.",
-      "imageUrl": "https://images.unsplash.com/photo-1624597993888-0a395fb5c8dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoYWlyJTIwc2Fsb24lMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1624597993888-0a395fb5c8dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHhoYWlyJTIwc2Fsb24lMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "hair salon logo"
     },
     {
       "id": "smooth-touch-logo",
       "description": "A logo for a laser clinic focused on hair removal.",
-      "imageUrl": "https://images.unsplash.com/photo-1712226739209-8e8ac3643cec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c21vb3RoJTIwc2tpbiUyMGxvZ298ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1712226739209-8e8ac3643cec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxzbW9vdGglMjBza2luJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTBfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "smooth skin logo"
     },
     {
@@ -543,19 +543,19 @@
     {
       "id": "re-align-logo",
       "description": "A logo for a physiotherapist showing movement and recovery.",
-      "imageUrl": "https://images.unsplash.com/photo-1759732009435-44de93a9cfbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb3ZlbWVudCUyMGxvZ298ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1759732009435-44de93a9cfbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtb3ZlbWVudCUyMGxvZ298ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "movement logo"
     },
     {
       "id": "serene-hands-logo",
       "description": "A logo for a massage therapist with calming hands imagery.",
-      "imageUrl": "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYXNzYWdlJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtYXNzYWdlJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTBfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "massage logo"
     },
     {
       "id": "mind-matters-logo",
       "description": "A logo for a psychologist's practice.",
-      "imageUrl": "https://images.unsplash.com/photo-1633977264416-8c66c1300e63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGJyYWluJTIwbG9nb3xlbnwwfHx8fDE3NjI2NzMxMTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1633977264416-8c66c1300e63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGJyYWluJTIwbG9nb3xlbnwwfHx8fDE3NjI2NzMxMTFfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "brain logo"
     },
     {
@@ -591,13 +591,13 @@
     {
       "id": "auto-guard-logo",
       "description": "A logo for a car alarm installer.",
-      "imageUrl": "https://images.unsplash.com/photo-1514516185439-107172e42c44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXIlMjBzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1514516185439-107172e42c44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjYXIlMjBzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "car shield logo"
     },
     {
       "id": "hawk-eye-tracking-logo",
       "description": "A logo for a car tracking company.",
-      "imageUrl": "https://images.unsplash.com/photo-1715002383611-63488b956401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWFnbGUlMjBleWUlMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1715002383611-63488b956401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxlYWdsZSUyMGV5ZSUyMGxvZ298ZW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "eagle eye logo"
     },
     {
@@ -609,61 +609,61 @@
     {
       "id": "sentinel-security-logo",
       "description": "A logo for a security services company.",
-      "imageUrl": "https://images.unsplash.com/photo-1714668083990-837cc1834d64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxrbmlnaHQlMjBoZWxtZXQlMjBsb2dvfGVufDB8fHx8MTc2MjcyMzYxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1714668083990-837cc1834d64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGtuaWdodCUyMGhlbG1ldCUyMGxvZ29fEW58MHx8fHwxNzYyNzIzNjEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "knight helmet logo"
     },
     {
       "id": "find-fast-logo",
       "description": "A logo for a tracing agency.",
-      "imageUrl": "https://images.unsplash.com/photo-1762340280319-7602c7175830?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzZWFyY2glMjBpY29uJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762340280319-7602c7175830?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxzZWFyY2glMjBpY29uJTIwbG9nb3xlbnwwfHx8fDE3NjI3MjM2MTBfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "search icon logo"
     },
     {
       "id": "family-dental-logo",
       "description": "A friendly logo for a family dental practice.",
-      "imageUrl": "https://images.unsplash.com/photo-1543839604-76538f2e3202?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmYW1pbHklMjBsb2dvfGVufDB8fHx8MTc2Mjc5ODgxMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1543839604-76538f2e3202?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGZhbWlseSUyMGxvZ298ZW58MHx8fHwxNzYyNzk4ODExfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "family logo"
     },
     {
       "id": "cosmetic-dental-logo",
       "description": "An elegant logo for a cosmetic dentistry clinic.",
-      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb3NtZXRpYyUyMGxvZ298ZW58MHx8fHwxNzYyNzk4ODEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGNvc21ldGljJTIwbG9nb3xlbnwwfHx8fDE3NjI3OTg4MTJfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cosmetic logo"
     },
     {
       "id": "pixel-perfect-logo",
       "description": "A modern logo for a graphic design studio with a pixelated icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1760597371617-5c0652f58178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHBpeGVsJTIwbG9nb3xlbnwwfHx8fDE3NjI3NzU1MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1760597371617-5c0652f58178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHBpeGVsJTIwbG9nb3xlbnwwfHx8fDE3NjI3NzU1MTBfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "pixel logo"
     },
     {
       "id": "creative-web-logo",
       "description": "A logo for a web design agency featuring code brackets.",
-      "imageUrl": "https://images.unsplash.com/photo-1672676618638-92f41d5e4d26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGNvZGUlMjBsb2dvfGVufDB8fHx8MTc2MjgwODYwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1672676618638-92f41d5e4d26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGNvZGUlMjBsb2dvfGVufDB8fHx8MTc2MjgwODYwN18w&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "code logo"
     },
     {
       "id": "logo-foundry-logo",
       "description": "A strong, industrial-style logo for a logo design service.",
-      "imageUrl": "https://images.unsplash.com/photo-1659509342258-36b5d7797237?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGZvdW5kcnklMjBsb2dvfGVufDB8fHx8MTc2MjgwODYwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1659509342258-36b5d7797237?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGZvdW5kcnklMjBsb2dvfGVufDB8fHx8MTc2MjgwODYwN18w&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "foundry logo"
     },
     {
       "id": "print-hub-logo",
       "description": "A colorful logo for a print shop, resembling CMYK colors.",
-      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGNteWslMjBsb2dvfGVufDB8fHx8MTc2MjgwODYwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGNteWslMjBsb2dvfGVufDB8fHx8MTc2MjgwODYwN18w&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cmyk logo"
     },
     {
       "id": "sign-craft-logo",
       "description": "A bold logo for a signage company, with strong typography.",
-      "imageUrl": "https://images.unsplash.com/photo-1759692744182-ab163428fa81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGJvbGQlMjB0eXBvZ3JhcGh5fGVufDB8fHx8MTc2MjczNDI3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1759692744182-ab163428fa81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfGJvbGQlMjB0eXBvZ3JhcGh5fGVufDB8fHx8MTc2MjczNDI3MV8w&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "bold typography"
     },
     {
       "id": "auto-electricians",
       "description": "A logo for an auto-electrician with a car and a spark icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1517405730281-c8ae39bf9adc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYXIlMjBzcGFya3xlbnwwfHx8fDE3NjI4MDg2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1517405730281-c8ae39bf9adc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYXIlMjBzcGFya3xlbnwwfHx8fDE3NjI4MDg2MDdfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "car spark"
     },
     {
