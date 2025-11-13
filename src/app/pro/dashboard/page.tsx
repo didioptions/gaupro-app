@@ -49,7 +49,7 @@ export default function ProDashboardPage() {
     };
 
     fetchProfile();
-  }, [user, isUserLoading, firestore]);
+  }, [user, isUserLoading]);
 
   if (isLoading) {
     return (
