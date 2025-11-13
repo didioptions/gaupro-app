@@ -44,7 +44,7 @@ export const allProfessionals = {
             id: "sew-elegant-jhb",
             name: "Sew Elegant JHB",
             location: "Rosebank, Johannesburg",
-            description: "Expert dressmaking and alterations for all occasions. We create custom wedding gowns, matric dance dresses, and provide professional tailoring for a perfect fit.",
+            description": "Expert dressmaking and alterations for all occasions. We create custom wedding gowns, matric dance dresses, and provide professional tailoring for a perfect fit.",
             rating: 4.9,
             reviews: 65,
             isProVerified: true,
@@ -84,7 +84,7 @@ export const allProfessionals = {
             id: "the-sweet-spot-bakery",
             name: "The Sweet Spot Bakery",
             location: "Durbanville, Cape Town",
-            description: "Artisanal bakery specializing in custom cakes for weddings, birthdays, and special occasions. We also offer a delicious range of cupcakes, pastries, and daily treats.",
+            description": "Artisanal bakery specializing in custom cakes for weddings, birthdays, and special occasions. We also offer a delicious range of cupcakes, pastries, and daily treats.",
             rating: 4.9,
             reviews: 120,
             isProVerified: true,
@@ -98,7 +98,7 @@ export const allProfessionals = {
             id: "gourmet-gatherings-cpt",
             name: "Gourmet Gatherings CPT",
             location: "Cape Town",
-            description: "Boutique catering for corporate events, weddings, and private parties. We create bespoke menus using fresh, local ingredients to make your event unforgettable.",
+            description": "Boutique catering for corporate events, weddings, and private parties. We create bespoke menus using fresh, local ingredients to make your event unforgettable.",
             rating: 4.8,
             reviews: 95,
             isProVerified: true,
@@ -112,7 +112,7 @@ export const allProfessionals = {
             id: "the-dapper-dog-jhb",
             name: "The Dapper Dog JHB",
             location: "Sandton, Johannesburg",
-            description: "Professional and gentle pet grooming for dogs of all sizes. Our services include washing, clipping, nail trimming, and de-shedding in a calm and clean environment.",
+            description": "Professional and gentle pet grooming for dogs of all sizes. Our services include washing, clipping, nail trimming, and de-shedding in a calm and clean environment.",
             rating: 4.9,
             reviews: 150,
             isProVerified: true,
@@ -126,7 +126,7 @@ export const allProfessionals = {
             id: "happy-paws-pet-sitting",
             name: "Happy Paws Pet Sitting",
             location: "Johannesburg North",
-            description: "Reliable and loving pet sitting services in the comfort of your own home. We also offer daily dog walking and check-in visits to keep your pets happy while you're away.",
+            description": "Reliable and loving pet sitting services in the comfort of your own home. We also offer daily dog walking and check-in visits to keep your pets happy while you're away.",
             rating: 5.0,
             reviews: 80,
             isProVerified: true,
@@ -168,7 +168,7 @@ export const allProfessionals = {
             id: "precision-accountants",
             name: "Precision Accountants",
             location: "Sandton, Johannesburg",
-            description: "Chartered accountants providing a full range of services including bookkeeping, payroll, tax returns, and financial statements for small to medium businesses.",
+            description": "Chartered accountants providing a full range of services including bookkeeping, payroll, tax returns, and financial statements for small to medium businesses.",
             rating: 4.9,
             reviews: 95,
             isProVerified: true,
@@ -177,7 +177,7 @@ export const allProfessionals = {
                 { author: "J. Peters", phone: "071****555", rating: 5, comment: "Excellent service and advice. They helped me structure my new company correctly from day one." }
             ],
             photos: ["https://picsum.photos/seed/accounting1/600/400"],
-            avatarSeed: "accounting-image"
+            avatarSeed: "precision-acct-logo"
         },
         {
             id: "clear-books-cpt",
@@ -192,7 +192,7 @@ export const allProfessionals = {
                 { author: "Freelancer", phone: "", rating: 5, comment: "Finally, my tax returns are stress-free! They make it so easy." }
             ],
             photos: ["https://picsum.photos/seed/accounting2/600/400"],
-            avatarSeed: "accounting-image"
+            avatarSeed: "precision-acct-logo"
         }
     ],
     auditors: [
@@ -209,7 +209,7 @@ export const allProfessionals = {
                 { author: "NPO Director", phone: "", rating: 5, comment: "They handle our annual audit with great care and attention to detail." }
             ],
             photos: ["https://picsum.photos/seed/auditors1/600/400"],
-            avatarSeed: "auditors-image"
+            avatarSeed: "veritas-audit-logo"
         }
     ],
     "business-consultants": [
@@ -226,7 +226,7 @@ export const allProfessionals = {
                 { author: "Retail Owner", phone: "", rating: 5, comment: "Helped us develop a clear roadmap for growth. Invaluable advice." }
             ],
             photos: ["https://picsum.photos/seed/consultants1/600/400"],
-            avatarSeed: "business-consultants-image"
+            avatarSeed: "growth-partners-logo"
         }
     ],
     "company-registrations": [
@@ -234,7 +234,7 @@ export const allProfessionals = {
             id: "swift-reg-sa",
             name: "SwiftReg SA",
             location: "Online",
-            description: "Fast and easy online company registration. We handle all the CIPC paperwork so you can get your new (Pty) Ltd registered in as little as 24 hours.",
+            description": "Fast and easy online company registration. We handle all the CIPC paperwork so you can get your new (Pty) Ltd registered in as little as 24 hours.",
             rating: 4.8,
             reviews: 250,
             isProVerified: true,
@@ -243,7 +243,7 @@ export const allProfessionals = {
                 { author: "S. Naidoo", phone: "", rating: 5, comment: "Used them for my second company registration. Consistently fast and efficient." }
             ],
             photos: ["https://picsum.photos/seed/registrations1/600/400"],
-            avatarSeed: "company-registrations-image"
+            avatarSeed: "swift-reg-logo"
         }
     ],
     "debt-collection": [
@@ -260,7 +260,7 @@ export const allProfessionals = {
                 { author: "Services Co.", phone: "", rating: 4, comment: "Good results, though communication could be a bit more proactive." }
             ],
             photos: ["https://picsum.photos/seed/debt-collection1/600/400"],
-            avatarSeed: "debt-collection"
+            avatarSeed: "apex-collect-logo"
         }
     ],
     "debt-counsellors": [
@@ -277,7 +277,7 @@ export const allProfessionals = {
                 { author: "Anonymous", phone: "", rating: 5, comment: "Professional, non-judgmental, and so helpful. I wish I had contacted them sooner." }
             ],
             photos: ["https://picsum.photos/seed/debt-counsellors1/600/400"],
-            avatarSeed: "debt-counsellors-image"
+            avatarSeed: "fresh-start-debt-logo"
         }
     ],
     "financial-advisors": [
@@ -294,7 +294,7 @@ export const allProfessionals = {
                 { author: "Young Professional", phone: "", rating: 5, comment: "Helped me start my investment journey. Great advice tailored to my goals." }
             ],
             photos: ["https://picsum.photos/seed/financial-advisors1/600/400"],
-            avatarSeed: "financial-advisors-image"
+            avatarSeed: "quantum-finance-logo"
         }
     ],
     insurance: [
@@ -311,13 +311,13 @@ export const allProfessionals = {
                 { author: "Jane D.", phone: "071****567", rating: 5, comment: "Very professional and knowledgeable. They explained my policy in a way I could actually understand." }
             ],
             photos: ["https://picsum.photos/seed/insurance1/600/400"],
-            avatarSeed: "insurance-image"
+            avatarSeed: "coverwise-logo"
         },
         {
             id: "coverall-sa",
             name: "CoverAll SA",
             location: "Nationwide",
-            description: "Your one-stop-shop for all insurance needs, from life and disability cover to commercial liability. We provide comprehensive solutions for individuals and businesses.",
+            description": "Your one-stop-shop for all insurance needs, from life and disability cover to commercial liability. We provide comprehensive solutions for individuals and businesses.",
             rating: 4.6,
             reviews: 210,
             isProVerified: true,
@@ -326,24 +326,7 @@ export const allProfessionals = {
                 { author: "New Homeowner", phone: "", rating: 4, comment: "Good service for my home insurance, took a while to get the final documents though." }
             ],
             photos: ["https://picsum.photos/seed/insurance2/600/400"],
-            avatarSeed: "insurance-image"
-        }
-    ],
-    "home-loans": [
-        {
-            id: "bond-wise-homeloans",
-            name: "BondWise Home Loans",
-            location: "Gauteng",
-            description: "Expert bond originators who apply to all major banks on your behalf, ensuring you get the best possible interest rate on your home loan. Our service is free to you.",
-            rating: 4.9,
-            reviews: 300,
-            isProVerified: true,
-            reviewData: [
-                { author: "First-time Buyer", phone: "", rating: 5, comment: "Made the bond application process so simple and stress-free. They got me a rate I never would have gotten on my own." },
-                { author: "The Ndlovus", phone: "", rating: 5, comment: "Excellent service from start to finish. We are now proud homeowners thanks to their help!" }
-            ],
-            photos: ["https://picsum.photos/seed/home-loans1/600/400"],
-            avatarSeed: "home-loans-image"
+            avatarSeed: "coverwise-logo"
         }
     ],
     loans: [
@@ -351,7 +334,7 @@ export const allProfessionals = {
             id: "quick-cash-loans",
             name: "Quick Cash Loans",
             location: "Online",
-            description: "Responsible provider of short-term personal loans. Simple online application and fast approval process for when you need cash in a hurry. NCR registered.",
+            description": "Responsible provider of short-term personal loans. Simple online application and fast approval process for when you need cash in a hurry. NCR registered.",
             rating: 4.3,
             reviews: 450,
             isProVerified: true,
@@ -360,7 +343,7 @@ export const allProfessionals = {
                 { author: "Sipho M.", phone: "", rating: 5, comment: "Clear terms and a very simple process. Much better than other lenders I've tried." }
             ],
             photos: ["https://picsum.photos/seed/loans1/600/400"],
-            avatarSeed: "loans"
+            avatarSeed: "quick-loan-logo"
         }
     ],
     "medical-aid": [
@@ -368,7 +351,7 @@ export const allProfessionals = {
             id: "health-cover-advisors",
             name: "HealthCover Advisors",
             location: "Nationwide",
-            description: "Independent medical aid brokers who help you compare plans from all leading providers like Discovery, Momentum, and Bonitas to find the best fit for your needs and budget.",
+            description": "Independent medical aid brokers who help you compare plans from all leading providers like Discovery, Momentum, and Bonitas to find the best fit for your needs and budget.",
             rating: 4.8,
             reviews: 220,
             isProVerified: true,
@@ -377,7 +360,7 @@ export const allProfessionals = {
                 { author: "Young Professional", phone: "", rating: 5, comment: "Found a great hospital plan for me that was much cheaper than what I was quoted elsewhere." }
             ],
             photos: ["https://picsum.photos/seed/medical-aid1/600/400"],
-            avatarSeed: "medical-aid"
+            avatarSeed: "health-cover-logo"
         }
     ],
     "recruitment-agencies": [
@@ -394,7 +377,7 @@ export const allProfessionals = {
                 { author: "Job Seeker", phone: "", rating: 5, comment: "They helped me find my dream job! The consultant was so supportive throughout the process." }
             ],
             photos: ["https://picsum.photos/seed/recruitment1/600/400"],
-            avatarSeed: "recruitment-agencies"
+            avatarSeed: "talent-source-logo"
         }
     ],
     handyman: [
@@ -489,7 +472,7 @@ export const allProfessionals = {
             id: "the-tile-guru-jhb",
             name: "The Tile Guru JHB",
             location: "Randburg, Johannesburg",
-            description: "From mosaic backsplashes to large format floor tiles, we handle it all. With over 10 years of experience, The Tile Guru provides clean, fast, and durable tiling solutions for any room in your house.",
+            description": "From mosaic backsplashes to large format floor tiles, we handle it all. With over 10 years of experience, The Tile Guru provides clean, fast, and durable tiling solutions for any room in your house.",
             rating: 4.8,
             reviews: 42,
             isProVerified: true,
@@ -506,7 +489,7 @@ export const allProfessionals = {
             id: "cape-floor-wall-tilers",
             name: "Cape Floor & Wall Tilers",
             location: "Cape Town City Bowl",
-            description: "Specialists in residential and commercial tiling services in the Western Cape. We provide waterproofing, screeding, and expert installation of all tile types, ensuring a perfect finish every time.",
+            description": "Specialists in residential and commercial tiling services in the Western Cape. We provide waterproofing, screeding, and expert installation of all tile types, ensuring a perfect finish every time.",
             rating: 4.7,
             reviews: 28,
             isProVerified: true,
@@ -523,7 +506,7 @@ export const allProfessionals = {
             id: "durban-tile-wizards",
             name: "Durban Tile Wizards",
             location: "Umhlanga, Durban",
-            description: "We bring magic to your floors and walls! Our services include bathroom tiling, kitchen splashbacks, outdoor patios, and tile repairs. No job is too big or too small for the Tile Wizards.",
+            description": "We bring magic to your floors and walls! Our services include bathroom tiling, kitchen splashbacks, outdoor patios, and tile repairs. No job is too big or too small for the Tile Wizards.",
             rating: 4.6,
             reviews: 19,
             isProVerified: true,
@@ -540,7 +523,7 @@ export const allProfessionals = {
             id: "pta-tiling-solutions",
             name: "PTA Tiling Solutions",
             location: "Centurion, Pretoria",
-            description: "Affordable and reliable tiling services for Pretoria and surrounding areas. We focus on providing high-quality workmanship for residential renovations, new builds, and tile repair jobs.",
+            description": "Affordable and reliable tiling services for Pretoria and surrounding areas. We focus on providing high-quality workmanship for residential renovations, new builds, and tile repair jobs.",
             rating: 4.5,
             reviews: 22,
             isProVerified: false,
@@ -559,7 +542,7 @@ export const allProfessionals = {
             id: "joburg-tree-experts",
             name: "Joburg Tree Experts",
             location: "Sandton, Johannesburg",
-            description: "Safe and professional {service}. We handle large and dangerous tree removals, stump grinding, and site clearing with modern equipment and a focus on safety.",
+            description": "Safe and professional {service}. We handle large and dangerous tree removals, stump grinding, and site clearing with modern equipment and a focus on safety.",
             rating: 4.9,
             reviews: 52,
             isProVerified: true,
@@ -576,7 +559,7 @@ export const allProfessionals = {
             id: "cape-arborists",
             name: "Cape Arborists",
             location: "Stellenbosch, Western Cape",
-            description: "Certified arborists providing expert {service}, pruning, and tree health assessments. We serve the entire Cape Winelands area with a commitment to preserving tree health and safety.",
+            description": "Certified arborists providing expert {service}, pruning, and tree health assessments. We serve the entire Cape Winelands area with a commitment to preserving tree health and safety.",
             rating: 5.0,
             reviews: 38,
             isProVerified: true,
@@ -593,7 +576,7 @@ export const allProfessionals = {
             id: "durban-tree-fellers",
             name: "Durban Tree Fellers",
             location: "Berea, Durban",
-            description: "Fast, reliable, and affordable {service} in the greater Durban area. We offer 24/7 emergency services for storm-damaged trees, as well as palm tree trimming and stump removal.",
+            description": "Fast, reliable, and affordable {service} in the greater Durban area. We offer 24/7 emergency services for storm-damaged trees, as well as palm tree trimming and stump removal.",
             rating: 4.7,
             reviews: 61,
             isProVerified: true,
@@ -610,7 +593,7 @@ export const allProfessionals = {
             id: "the-stump-grinders",
             name: "The Stump Grinders",
             location: "Centurion, Pretoria",
-            description: "Specialists in stump grinding and removal. We turn unsightly stumps into mulch, leaving your yard clean and ready for new planting. We also offer general {service}.",
+            description": "Specialists in stump grinding and removal. We turn unsightly stumps into mulch, leaving your yard clean and ready for new planting. We also offer general {service}.",
             rating: 4.8,
             reviews: 45,
             isProVerified: true,
@@ -626,9 +609,9 @@ export const allProfessionals = {
         {
             id: "eco-tree-care",
             name: "Eco Tree Care",
-            location: "Randburg, Johannesburg",
-            description: "Environmentally conscious {service} and garden services. We focus on preserving as much as possible while ensuring safety. We recycle all our green waste.",
-            rating: 4.6,
+            location": "Randburg, Johannesburg",
+            description": "Environmentally conscious {service} and garden services. We focus on preserving as much as possible while ensuring safety. We recycle all our green waste.",
+            rating": 4.6,
             reviews: 33,
             isProVerified: false,
             reviewData: [{
@@ -646,7 +629,7 @@ export const allProfessionals = {
             id: "aquadream-pools",
             name: "AquaDream Pools",
             location: "Randburg, Johannesburg",
-            description: "At AquaDream Pools, we bring your backyard to life with over 15 years of experience in custom pool design and renovation. We specialize in fibreglass conversions, leak repairs, and heating installations for year-round enjoyment.",
+            description": "At AquaDream Pools, we bring your backyard to life with over 15 years of experience in custom pool design and renovation. We specialize in fibreglass conversions, leak repairs, and heating installations for year-round enjoyment.",
             rating: 5.0,
             reviews: 6,
             isProVerified: true,
@@ -707,7 +690,7 @@ export const allProfessionals = {
             id: "pureflow-pool-builders",
             name: "PureFlow Pool Builders",
             location: "Sandton, Johannesburg",
-            description: "PureFlow offers premium pool construction with energy-efficient pumps and modern heating solutions. Whether it’s a new build or a refurbishment, we handle it all.",
+            description": "PureFlow offers premium pool construction with energy-efficient pumps and modern heating solutions. Whether it’s a new build or a refurbishment, we handle it all.",
             rating: 5.0,
             reviews: 4,
             isProVerified: true,
@@ -719,7 +702,7 @@ export const allProfessionals = {
             id: "aquapro-pool-works",
             name: "AquaPro Pool Works",
             location: "Kensington, Johannesburg",
-            description: "Reliable and affordable pool services. AquaPro specializes in waterline tile replacement, pool waterproofing, and pump installations for both residential and commercial clients.",
+            description": "Reliable and affordable pool services. AquaPro specializes in waterline tile replacement, pool waterproofing, and pump installations for both residential and commercial clients.",
             rating: 4.3,
             reviews: 6,
             isProVerified: true,
@@ -731,7 +714,7 @@ export const allProfessionals = {
             id: "oceanic-pools-solutions",
             name: "Oceanic Pools &amp; Spa Solutions",
             location: "Bedfordview, Johannesburg",
-            description: "We design and maintain pools that bring resort-style comfort to your home. From new builds to spa integration and heating, we’ve got you covered.",
+            description": "We design and maintain pools that bring resort-style comfort to your home. From new builds to spa integration and heating, we’ve got you covered.",
             rating: 5.0,
             reviews: 5,
             isProVerified: true,
@@ -769,8 +752,8 @@ export const allProfessionals = {
             id: "wasteden-demolitions",
             name: "Wasteden Demolitions &amp; Waste Removals",
             location: "Johannesburg",
-            description: "We handle all types of demolition and rubble removals — both interior and exterior — as well as bulk earthworks and site cleaning.",
-            tags: ["Demolition", "rubble removal", "bulk earthworks", "site cleaning", "interior demolition"],
+            description": "We handle all types of demolition and rubble removals — both interior and exterior — as well as bulk earthworks and site cleaning.",
+            tags": ["Demolition", "rubble removal", "bulk earthworks", "site cleaning", "interior demolition"],
             rating: 5.0,
             reviews: 1,
             isProVerified: true,
@@ -782,8 +765,8 @@ export const allProfessionals = {
             id: "kotata-holdings",
             name: "Kotata Holdings Pty Ltd",
             location: "Kensington, Johannesburg",
-            description: "Founded in 2015 by a construction expert. We specialize in security walls (clear view, palisade, brickwork), general construction, and maintenance. Reliable, skilled, and passionate about building quality structures.",
-            tags: ["Security walls", "clear view fencing", "palisade", "brickwork", "general construction"],
+            description": "Founded in 2015 by a construction expert. We specialize in security walls (clear view, palisade, brickwork), general construction, and maintenance. Reliable, skilled, and passionate about building quality structures.",
+            tags": ["Security walls", "clear view fencing", "palisade", "brickwork", "general construction"],
             rating: 4.8,
             reviews: 15,
             isProVerified: true,
@@ -795,8 +778,8 @@ export const allProfessionals = {
             id: "sid-plant-hire",
             name: "Sid Plant",
             location: "Parktown, Johannesburg",
-            description: "TLB &amp; tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
-            tags: ["TLB hire", "tipper truck hire", "site clearing", "demolitions", "trenching"],
+            description": "TLB &amp; tipper truck hire for site clearing, demolitions, rubble removal, trenching, and digging. Perfect for both residential and commercial projects.",
+            tags": ["TLB hire", "tipper truck hire", "site clearing", "demolitions", "trenching"],
             rating: 5.0,
             reviews: 1,
             isProVerified: true,
@@ -808,8 +791,8 @@ export const allProfessionals = {
             id: "rubble-removal-jhb",
             name: "Rubble Removal Johannesburg",
             location: "Johannesburg",
-            description: "Nationwide rubble removal, waste clearance, and site clean-ups. We specialize in removing unwanted clutter, junk, wreckage, and debris quickly and safely.",
-            tags: ["Rubble removal", "waste clearance", "site clean-up", "junk removal"],
+            description": "Nationwide rubble removal, waste clearance, and site clean-ups. We specialize in removing unwanted clutter, junk, wreckage, and debris quickly and safely.",
+            tags": ["Rubble removal", "waste clearance", "site clean-up", "junk removal"],
             rating: 4.5,
             reviews: 32,
             isProVerified: true,
@@ -821,8 +804,8 @@ export const allProfessionals = {
             id: "jb-plant-hire",
             name: "JB Plant Hire",
             location: "Midrand, Johannesburg",
-            description: "Your source for TLB hire, tipper trucks, compaction rollers, and site clearing. We are known for fast delivery, affordable rates, and skilled operators.",
-            tags: ["TLB hire", "tipper trucks", "compaction rollers", "site clearing"],
+            description": "Your source for TLB hire, tipper trucks, compaction rollers, and site clearing. We are known for fast delivery, affordable rates, and skilled operators.",
+            tags": ["TLB hire", "tipper trucks", "compaction rollers", "site clearing"],
             rating: 4.7,
             reviews: 21,
             isProVerified: true,
@@ -831,12 +814,12 @@ export const allProfessionals = {
             avatarSeed: "jb-plant-logo"
         },
         {
-            id: "makhado-earthworks",
+            id": "makhado-earthworks",
             name: "Makhado Earthworks",
             location: "Johannesburg South",
-            description: "Trusted by contractors for reliable machines and professional service. We provide bulk earthworks, site levelling, trenching, and equipment hire including TLBs and excavators.",
-            tags: ["Bulk earthworks", "site levelling", "trenching", "equipment hire", "excavators"],
-            rating: 4.9,
+            description": "Trusted by contractors for reliable machines and professional service. We provide bulk earthworks, site levelling, trenching, and equipment hire including TLBs and excavators.",
+            tags": ["Bulk earthworks", "site levelling", "trenching", "equipment hire", "excavators"],
+            rating": 4.9,
             reviews: 18,
             isProVerified: true,
             reviewData: [{ author: "Chris", phone: "084**101", rating: 5, comment: "Makhado Earthworks is my go-to for all big projects. Their machines are well-maintained and their team is professional." }],
@@ -847,8 +830,8 @@ export const allProfessionals = {
             id: "thabos-plant-hire",
             name: "Thabo’s Plant &amp; Equipment Hire",
             location: "Soweto, Johannesburg",
-            description: "TLB hire, grader hire, and rubble removal for small to large projects. Ideal for both private residential jobs and municipal work.",
-            tags: ["TLB hire", "grader hire", "rubble removal"],
+            description": "TLB hire, grader hire, and rubble removal for small to large projects. Ideal for both private residential jobs and municipal work.",
+            tags": ["TLB hire", "grader hire", "rubble removal"],
             rating: 4.6,
             reviews: 14,
             isProVerified: false,
@@ -860,8 +843,8 @@ export const allProfessionals = {
             id: "urbansite-tlb-hire",
             name: "UrbanSite TLB Hire",
             location: "Sandton, Johannesburg",
-            description: "Modern machinery and licensed operators for TLB and tipper hire, demolition, and earthmoving. We focus on safety and efficiency for high-end residential and commercial sites.",
-            tags: ["TLB hire", "tipper hire", "demolition", "earthmoving", "modern machinery"],
+            description": "Modern machinery and licensed operators for TLB and tipper hire, demolition, and earthmoving. We focus on safety and efficiency for high-end residential and commercial sites.",
+            tags": ["TLB hire", "tipper hire", "demolition", "earthmoving", "modern machinery"],
             rating: 4.8,
             reviews: 25,
             isProVerified: true,
@@ -873,8 +856,8 @@ export const allProfessionals = {
             id: "eagle-earthmovers",
             name: "Eagle Earthmovers",
             location: "Johannesburg CBD",
-            description: "Heavy machinery hire including TLBs, excavators, and tipper trucks. Specializing in site clearing and trenching with a promise of quick response and 24/7 service availability.",
-            tags: ["Heavy machinery hire", "24/7 service", "excavator hire", "trenching"],
+            description": "Heavy machinery hire including TLBs, excavators, and tipper trucks. Specializing in site clearing and trenching with a promise of quick response and 24/7 service availability.",
+            tags": ["Heavy machinery hire", "24/7 service", "excavator hire", "trenching"],
             rating: 4.4,
             reviews: 19,
             isProVerified: true,
@@ -886,8 +869,8 @@ export const allProfessionals = {
             id: "ndlovu-site-services",
             name: "Ndlovu Site Services",
             location: "Roodepoort, Johannesburg",
-            description: "Dependable equipment and excellent turnaround times for demolitions, rubble removal, and TLB hire for construction and landscaping projects.",
-            tags: ["Demolitions", "rubble removal", "TLB hire", "landscaping"],
+            description": "Dependable equipment and excellent turnaround times for demolitions, rubble removal, and TLB hire for construction and landscaping projects.",
+            tags": ["Demolitions", "rubble removal", "TLB hire", "landscaping"],
             rating: 4.9,
             reviews: 28,
             isProVerified: true,
@@ -901,7 +884,7 @@ export const allProfessionals = {
             id: "madiway-projects",
             name: "Madiway Projects (Pty) Ltd",
             location: "Birch Acres, Kempton Park",
-            description: "Madiway Projects is a Proudly South African painting and renovation company known for excellent service, reliable workmanship, and attention to detail. Whether it’s a single room, an office block, or a full exterior repaint, our team transforms spaces with precision.",
+            description": "Madiway Projects is a Proudly South African painting and renovation company known for excellent service, reliable workmanship, and attention to detail. Whether it’s a single room, an office block, or a full exterior repaint, our team transforms spaces with precision.",
             rating: 4.4,
             reviews: 7,
             address: "Birch Acres, Kempton Park",
@@ -917,7 +900,7 @@ export const allProfessionals = {
             id: "revision-contracting",
             name: "Revision Contracting &amp; Projects (Pty) Ltd",
             location: "Norkem Park, Kempton Park",
-            description: "Revision Contracting &amp; Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
+            description": "Revision Contracting &amp; Projects provides residential, office, and commercial painting services throughout Johannesburg and Pretoria. From wall preparation to the final coat, they guarantee a neat, professional finish every time.",
             rating: 5.0,
             reviews: 1,
             address: "Norkem Park, Kempton Park",
@@ -933,7 +916,7 @@ export const allProfessionals = {
             id: "paintmasters-renovations",
             name: "PaintMasters Renovations",
             location: "Isando, Kempton Park",
-            description: "PaintMasters Renovations are experienced interior and exterior painters offering high-quality results for homes, offices, and complexes. They specialize in color matching, roof painting, and surface waterproofing.",
+            description": "PaintMasters Renovations are experienced interior and exterior painters offering high-quality results for homes, offices, and complexes. They specialize in color matching, roof painting, and surface waterproofing.",
             rating: 4.8,
             reviews: 9,
             address: "Isando, Kempton Park",
@@ -949,7 +932,7 @@ export const allProfessionals = {
             id: "brightcoat-projects",
             name: "BrightCoat Projects",
             location: "Edleen, Kempton Park",
-            description: "BrightCoat Projects focuses on painting, renovations, and maintenance for residential and commercial clients. Their painters are known for reliability, quick turnaround, and smooth, streak-free finishes.",
+            description": "BrightCoat Projects focuses on painting, renovations, and maintenance for residential and commercial clients. Their painters are known for reliability, quick turnaround, and smooth, streak-free finishes.",
             rating: 4.7,
             reviews: 6,
             address: "Edleen, Kempton Park",
@@ -965,7 +948,7 @@ export const allProfessionals = {
             id: "freshtone-painters",
             name: "FreshTone Painters &amp; Decor",
             location: "Aston Manor, Kempton Park",
-            description: "FreshTone Painters brings over 12 years of experience in wall coatings, ceiling painting, and interior décor finishes. Using premium paints, they deliver vibrant, long-lasting color for every surface.",
+            description": "FreshTone Painters brings over 12 years of experience in wall coatings, ceiling painting, and interior décor finishes. Using premium paints, they deliver vibrant, long-lasting color for every surface.",
             rating: 4.9,
             reviews: 8,
             address: "Aston Manor, Kempton Park",
@@ -981,7 +964,7 @@ export const allProfessionals = {
             id: "proedge-coatings",
             name: "ProEdge Coatings",
             location: "Spartan, Kempton Park",
-            description: "ProEdge Coatings provides industrial, commercial, and residential painting solutions with a focus on durability and precision. They handle factories, retail spaces, and modern homes with equal skill.",
+            description": "ProEdge Coatings provides industrial, commercial, and residential painting solutions with a focus on durability and precision. They handle factories, retail spaces, and modern homes with equal skill.",
             rating: 4.8,
             reviews: 10,
             address: "Spartan, Kempton Park",
@@ -999,7 +982,7 @@ export const allProfessionals = {
             id: "urbanbuild-projects",
             name: "UrbanBuild Projects",
             location: "Johannesburg Central",
-            description: "UrbanBuild Projects is a trusted construction and roofing company offering roof repairs, waterproofing, ceiling restoration, and roof painting across Pretoria North, West, and East. With over a decade of experience in residential and commercial roofing, our skilled team delivers durable, weather-resistant results.",
+            description": "UrbanBuild Projects is a trusted construction and roofing company offering roof repairs, waterproofing, ceiling restoration, and roof painting across Pretoria North, West, and East. With over a decade of experience in residential and commercial roofing, our skilled team delivers durable, weather-resistant results.",
             rating: 4.8,
             reviews: 6,
             address: "Johannesburg Central",
@@ -1015,7 +998,7 @@ export const allProfessionals = {
             id: "mavuso-construction",
             name: "Mavuso Construction &amp; Maintenance",
             location: "Steeledale, Johannesburg South",
-            description: "Mavuso Construction &amp; Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
+            description": "Mavuso Construction &amp; Maintenance provides complete home improvement and building solutions, including painting, tiling, plumbing, ceilings, and electrical work. Known for reliability and excellent craftsmanship, the team handles everything from small home repairs to full renovations.",
             rating: 4.7,
             reviews: 8,
             address: "Steeledale, Johannesburg South",
@@ -1031,7 +1014,7 @@ export const allProfessionals = {
             id: "thabani-projects",
             name: "Thabani Projects",
             location: "Bellevue, Johannesburg East",
-            description: "Thabani Projects specializes in home renovations, waterproofing, roofing, and general maintenance. With 10+ years of hands-on experience, the company ensures professional, long-lasting results and friendly service.",
+            description": "Thabani Projects specializes in home renovations, waterproofing, roofing, and general maintenance. With 10+ years of hands-on experience, the company ensures professional, long-lasting results and friendly service.",
             rating: 4.6,
             reviews: 5,
             address: "Bellevue, Johannesburg East",
@@ -1047,7 +1030,7 @@ export const allProfessionals = {
             id: "proline-groundworks",
             name: "ProLine Groundworks",
             location: "Mondeor, Johannesburg South",
-            description: "ProLine Groundworks offers bricklaying, extensions, foundations, and large-scale renovations. With 20 years of experience in South Africa and the UK, they combine precision building with modern techniques for outstanding results.",
+            description": "ProLine Groundworks offers bricklaying, extensions, foundations, and large-scale renovations. With 20 years of experience in South Africa and the UK, they combine precision building with modern techniques for outstanding results.",
             rating: 4.9,
             reviews: 7,
             address: "Mondeor, Johannesburg South",
@@ -1063,7 +1046,7 @@ export const allProfessionals = {
             id: "khumalo-homeworx",
             name: "Khumalo Homeworx",
             location: "Johannesburg South",
-            description: "Khumalo Homeworx has provided plumbing, carpentry, and general property maintenance since 2007. Their mission is to keep every client satisfied through reliable workmanship, friendly service, and affordable pricing.",
+            description": "Khumalo Homeworx has provided plumbing, carpentry, and general property maintenance since 2007. Their mission is to keep every client satisfied through reliable workmanship, friendly service, and affordable pricing.",
             rating: 4.9,
             reviews: 10,
             address: "Johannesburg South",
@@ -1079,7 +1062,7 @@ export const allProfessionals = {
             id: "skyline-contractors",
             name: "Skyline Contractors (Pty) Ltd",
             location: "Springfield, Johannesburg",
-            description: "Skyline Contractors delivers roof replacements, waterproofing, and complete home renovations. Known for professionalism and attention to detail, the company guarantees quality materials and on-site supervision for every project.",
+            description": "Skyline Contractors delivers roof replacements, waterproofing, and complete home renovations. Known for professionalism and attention to detail, the company guarantees quality materials and on-site supervision for every project.",
             rating: 4.7,
             reviews: 9,
             address: "Springfield, Johannesburg",
@@ -1095,7 +1078,7 @@ export const allProfessionals = {
             id: "ndlovu-builders",
             name: "Ndlovu Builders &amp; Renovations",
             location: "Johannesburg South",
-            description: "Ndlovu Builders offers affordable home and business renovations, including plastering, painting, roofing, and flooring. With over 10 years in the trade, they’re known for honest quotes and consistent results.",
+            description": "Ndlovu Builders offers affordable home and business renovations, including plastering, painting, roofing, and flooring. With over 10 years in the trade, they’re known for honest quotes and consistent results.",
             rating: 4.9,
             reviews: 7,
             address: "Johannesburg South",
@@ -1111,7 +1094,7 @@ export const allProfessionals = {
             id: "delta-construction-group",
             name: "Delta Construction Group",
             location: "Sandton, Johannesburg North",
-            description: "Delta Construction Group provides premium building, remodeling, and project management services for luxury homes and offices. With 15+ years of experience, they’re trusted for precision work, client transparency, and high-end finishes.",
+            description": "Delta Construction Group provides premium building, remodeling, and project management services for luxury homes and offices. With 15+ years of experience, they’re trusted for precision work, client transparency, and high-end finishes.",
             rating: 4.8,
             reviews: 12,
             address: "Sandton, Johannesburg North",
@@ -1127,7 +1110,7 @@ export const allProfessionals = {
             id: "goldenhammer-projects",
             name: "GoldenHammer Projects",
             location: "Randburg, Johannesburg",
-            description: "GoldenHammer Projects handles roofing, tiling, plastering, and maintenance services for both new and existing properties. Their team focuses on long-lasting quality, customer satisfaction, and competitive rates.",
+            description": "GoldenHammer Projects handles roofing, tiling, plastering, and maintenance services for both new and existing properties. Their team focuses on long-lasting quality, customer satisfaction, and competitive rates.",
             rating: 4.7,
             reviews: 9,
             address: "Randburg, Johannesburg",
@@ -1143,7 +1126,7 @@ export const allProfessionals = {
             id: "stonepeak-projects",
             name: "StonePeak Projects",
             location: "Melville, Johannesburg",
-            description: "StonePeak Projects specializes in home extensions, kitchen and bathroom renovations, and interior upgrades. Their creative design team works closely with clients to ensure functional, beautiful, and lasting transformations.",
+            description": "StonePeak Projects specializes in home extensions, kitchen and bathroom renovations, and interior upgrades. Their creative design team works closely with clients to ensure functional, beautiful, and lasting transformations.",
             rating: 4.7,
             reviews: 8,
             address: "Melville, Johannesburg",
@@ -1159,7 +1142,7 @@ export const allProfessionals = {
             id: "crestwave-construction",
             name: "Crestwave Construction &amp; Maintenance",
             location: "Bryanston, Johannesburg North",
-            description: "Crestwave Construction offers comprehensive building, plumbing, roofing, and electrical installation services. Their qualified team delivers consistent results and quality assurance across residential and commercial projects.",
+            description": "Crestwave Construction offers comprehensive building, plumbing, roofing, and electrical installation services. Their qualified team delivers consistent results and quality assurance across residential and commercial projects.",
             rating: 4.9,
             reviews: 9,
             address: "Bryanston, Johannesburg North",
@@ -1175,7 +1158,7 @@ export const allProfessionals = {
             id: "ecobuild-waterproofing",
             name: "EcoBuild Waterproofing",
             location: "Fourways, Johannesburg North",
-            description: "EcoBuild Waterproofing provides durable waterproofing, damp proofing, and roof sealing for homes and businesses. They focus on eco-friendly materials and offer a 10-year guarantee on their work.",
+            description": "EcoBuild Waterproofing provides durable waterproofing, damp proofing, and roof sealing for homes and businesses. They focus on eco-friendly materials and offer a 10-year guarantee on their work.",
             rating: 4.8,
             reviews: 14,
             address: "Fourways, Johannesburg North",
@@ -1191,7 +1174,7 @@ export const allProfessionals = {
             id: "ecoshield-waterproofing",
             name: "EcoShield Waterproofing",
             location: "Roodepoort, Johannesburg West",
-            description: "EcoShield Waterproofing offers damp proofing, roof sealing, and moisture protection solutions for residential and industrial buildings. They use environmentally safe materials designed for long-term protection and energy efficiency.",
+            description": "EcoShield Waterproofing offers damp proofing, roof sealing, and moisture protection solutions for residential and industrial buildings. They use environmentally safe materials designed for long-term protection and energy efficiency.",
             rating: 4.7,
             reviews: 11,
             address: "Roodepoort, Johannesburg West",
@@ -1209,7 +1192,7 @@ export const allProfessionals = {
             id: "east-rand-waste",
             name: "East Rand Waste &amp; Pool Service Pty Ltd",
             location: "Alberton",
-            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
+            description": "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, including waste removal, site clearing, demolitions, and general maintenance. We pride ourselves on quick response times and high-quality workmanship.",
             rating: 4.6,
             reviews: 42,
             address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
@@ -1233,7 +1216,7 @@ export const allProfessionals = {
             id: "skip-boys",
             name: "Skip Boys",
             location: "Boksburg",
-            description: "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
+            description": "Reliable and efficient {service} for all your needs. We pride ourselves on quick response times and high-quality workmanship in everything from waste disposal to general maintenance and small-scale demolitions.",
             rating: 4.2,
             reviews: 18,
             address: "101 Skip Avenue, Boksburg",
@@ -1256,7 +1239,7 @@ export const allProfessionals = {
             id: "themba-rubble-removers",
             name: "Themba Rubble Removers",
             location: "Soweto",
-            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
+            description": "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks like demolitions, large-scale waste and rubble removals, and site preparation.",
             rating: 4.9,
             reviews: 76,
             address: "24 Worker's Way, Soweto",
@@ -1280,7 +1263,7 @@ export const allProfessionals = {
             id: "general-solutions-pty",
             name: "General Solutions Pty",
             location: "Germiston",
-            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
+            description": "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from rubble removal to site clearing and everything in between.",
             rating: 0.0,
             reviews: 0,
             address: "789 Industrial Rd, Germiston",
@@ -1296,7 +1279,7 @@ export const allProfessionals = {
             id: "elite-services-group",
             name: "Elite Services Group",
             location: "Sandton",
-            description: "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
+            description": "Providing premium {service} with a focus on customer satisfaction. For projects that require a touch of excellence, including complex waste and rubble removal, we are the team to call. We ensure a clean site and responsible disposal.",
             rating: 4.5,
             reviews: 31,
             address: "55 Elite Crescent, Sandton",
@@ -1316,7 +1299,7 @@ export const allProfessionals = {
             id: "vaal-rubble-pros",
             name: "Vaal Rubble Pros",
             location: "Vereeniging",
-            description: "Leading rubble removal services in the Vaal Triangle. We specialize in fast and clean site clearing for residential and commercial projects. Your local choice for reliable {service}.",
+            description": "Leading rubble removal services in the Vaal Triangle. We specialize in fast and clean site clearing for residential and commercial projects. Your local choice for reliable {service}.",
             rating: 4.8,
             reviews: 55,
             address: "10 Steel Rd, Vereeniging",
@@ -1336,7 +1319,7 @@ export const allProfessionals = {
             id: "vereeniging-waste-solutions",
             name: "Vereeniging Waste Solutions",
             location: "Vereeniging",
-            description: "Comprehensive waste management and {service} in Vereeniging. From garden refuse to construction debris, we handle it all with professionalism and care.",
+            description": "Comprehensive waste management and {service} in Vereeniging. From garden refuse to construction debris, we handle it all with professionalism and care.",
             rating: 4.5,
             reviews: 30,
             address: "22 Union St, Vereeniging",
@@ -1356,7 +1339,7 @@ export const allProfessionals = {
             id: "3-rivers-disposal",
             name: "Three Rivers Disposal",
             location: "Vereeniging",
-            description: "Your go-to for affordable and quick {service}. Based in Three Rivers, we proudly serve the entire Vereeniging area for all site clearing and waste disposal needs.",
+            description": "Your go-to for affordable and quick {service}. Based in Three Rivers, we proudly serve the entire Vereeniging area for all site clearing and waste disposal needs.",
             rating: 4.6,
             reviews: 41,
             address: "88 River Rd, Three Rivers, Vereeniging",
@@ -1376,7 +1359,7 @@ export const allProfessionals = {
             id: "mzanzi-clean-sites",
             name: "Mzanzi Clean Sites",
             location: "Vereeniging",
-            description: "Proudly South African {service}. We offer residential and commercial site clearing services across Vereeniging, ensuring a clean and safe environment for your next project.",
+            description": "Proudly South African {service}. We offer residential and commercial site clearing services across Vereeniging, ensuring a clean and safe environment for your next project.",
             rating: 4.9,
             reviews: 68,
             address: "100 Main Reef Rd, Vereeniging",
@@ -1396,7 +1379,7 @@ export const allProfessionals = {
             id: "speedy-site-clearers",
             name: "Speedy Site Clearers",
             location: "Vereeniging",
-            description: "Need it gone now? We offer the fastest {service} in Vereeniging. Perfect for urgent clear-outs and post-renovation cleanups. Call us for a quick quote!",
+            description": "Need it gone now? We offer the fastest {service} in Vereeniging. Perfect for urgent clear-outs and post-renovation cleanups. Call us for a quick quote!",
             rating: 4.3,
             reviews: 25,
             address: "45 Industrial Ave, Vereeniging",
@@ -1420,7 +1403,7 @@ export const allProfessionals = {
             location: "Rosebank, Johannesburg",
             address: "123 Oxford Road, Rosebank, Johannesburg",
             website: "www.swiftmoves.co.za",
-            description: "Your reliable moving partner for local and long-distance relocations. We offer packing, transport, and storage services to make your move stress-free. Our team is trained, professional, and ready to assist.",
+            description": "Your reliable moving partner for local and long-distance relocations. We offer packing, transport, and storage services to make your move stress-free. Our team is trained, professional, and ready to assist.",
             rating: 4.8,
             reviews: 125,
             yearsInBusiness: 5,
@@ -1444,7 +1427,7 @@ export const allProfessionals = {
             location: "Sandton, Johannesburg",
             address: "456 Rivonia Road, Sandton, Johannesburg",
             website: "www.joburgmovers.co.za",
-            description: "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
+            description": "Specializing in residential and office moves within Gauteng. We handle your belongings with care and ensure a smooth, efficient moving day. Free, no-obligation quotes available.",
             rating: 4.7,
             reviews: 88,
             yearsInBusiness: 8,
@@ -1467,7 +1450,7 @@ export const allProfessionals = {
             id: "smile-bright-dental",
             name: "Smile Bright Dental Studio",
             location: "Sandton, Johannesburg",
-            description: "Modern family and cosmetic {service}. From regular check-ups and cleanings to teeth whitening and veneers, our friendly team is here to help you achieve your best smile.",
+            description": "Modern family and cosmetic {service}. From regular check-ups and cleanings to teeth whitening and veneers, our friendly team is here to help you achieve your best smile.",
             rating: 4.9,
             reviews: 120,
             isProVerified: true,
@@ -1482,7 +1465,7 @@ export const allProfessionals = {
             id: "rosebank-family-dental",
             name: "Rosebank Family Dental",
             location: "Rosebank, Johannesburg",
-            description: "A family-focused dental practice providing gentle and comprehensive care for all ages. We offer general check-ups, paediatric {service}, and orthodontic consultations.",
+            description": "A family-focused dental practice providing gentle and comprehensive care for all ages. We offer general check-ups, paediatric {service}, and orthodontic consultations.",
             rating: 4.8,
             reviews: 95,
             isProVerified: true,
@@ -1497,7 +1480,7 @@ export const allProfessionals = {
             id: "cpt-cosmetic-dental",
             name: "Cape Town Cosmetic Dentistry",
             location: "V&amp;A Waterfront, Cape Town",
-            description: "Specialists in smile makeovers. We offer high-end cosmetic {service}, including veneers, dental implants, and full-mouth rehabilitation, using state-of-the-art technology.",
+            description": "Specialists in smile makeovers. We offer high-end cosmetic {service}, including veneers, dental implants, and full-mouth rehabilitation, using state-of-the-art technology.",
             rating: 5.0,
             reviews: 75,
             isProVerified: true,
@@ -1514,16 +1497,16 @@ export const allProfessionals = {
             id: "dj-pulse-jhb",
             name: "DJ Pulse JHB",
             location: "Johannesburg",
-            description: "High-energy DJ for weddings, corporate events, and parties. With a massive library of music from all genres, I guarantee a packed dance floor and an unforgettable night.",
+            description": "High-energy DJ for weddings, corporate events, and parties. With a massive library of music from all genres, I guarantee a packed dance floor and an unforgettable night.",
             rating: 4.9,
             reviews: 110,
             isProVerified: true,
             reviewData: [
-                { author: "Sarah &amp; Tom", rating: 5, comment: "He was the DJ for our wedding and was absolutely brilliant! He read the crowd perfectly and played the best music. Highly recommend!" },
+                { author: "Sarah & Tom", rating: 5, comment: "He was the DJ for our wedding and was absolutely brilliant! He read the crowd perfectly and played the best music. Highly recommend!" },
                 { author: "Corporate Events Inc.", rating: 5, comment: "Always our first choice for corporate functions. Professional, reliable, and knows how to create a great atmosphere." }
             ],
             photos: ["https://picsum.photos/seed/dj1/600/400"],
-            avatarSeed: "djs-image"
+            avatarSeed: "dj-pulse-logo"
         }
     ],
     'event-decorations': [
@@ -1531,7 +1514,7 @@ export const allProfessionals = {
             id: "elegance-decor-cpt",
             name: "Elegance Decor CPT",
             location: "Cape Town",
-            description: "Bespoke event decor and styling for weddings, parties, and corporate functions. We transform venues with beautiful floral arrangements, lighting, and unique design elements.",
+            description": "Bespoke event decor and styling for weddings, parties, and corporate functions. We transform venues with beautiful floral arrangements, lighting, and unique design elements.",
             rating: 4.8,
             reviews: 85,
             isProVerified: true,
@@ -1540,7 +1523,7 @@ export const allProfessionals = {
                 { author: "Thandi M.", rating: 5, comment: "The decor for my 40th birthday was breathtaking. It was more beautiful than I could have imagined." }
             ],
             photos: ["https://picsum.photos/seed/decor1/600/400", "https://picsum.photos/seed/decor2/600/400"],
-            avatarSeed: "event-decorations-image"
+            avatarSeed: "elegance-decor-logo"
         }
     ],
     'event-planners': [
@@ -1548,7 +1531,7 @@ export const allProfessionals = {
             id: "seamless-events-sa",
             name: "Seamless Events SA",
             location: "Nationwide",
-            description: "Full-service event planning for corporate conferences, product launches, and large-scale events. We handle everything from venue sourcing and logistics to execution, ensuring a flawless event.",
+            description": "Full-service event planning for corporate conferences, product launches, and large-scale events. We handle everything from venue sourcing and logistics to execution, ensuring a flawless event.",
             rating: 4.9,
             reviews: 130,
             isProVerified: true,
@@ -1557,7 +1540,7 @@ export const allProfessionals = {
                 { author: "Marketing Manager", rating: 5, comment: "Seamless Events made our product launch a massive success. They are experts in their field." }
             ],
             photos: ["https://picsum.photos/seed/planner1/600/400"],
-            avatarSeed: "event-planners-image"
+            avatarSeed: "seamless-events-logo"
         }
     ],
     florists: [
@@ -1565,7 +1548,7 @@ export const allProfessionals = {
             id: "the-bloom-room-jhb",
             name: "The Bloom Room JHB",
             location: "Parkhurst, Johannesburg",
-            description: "Artisanal florist creating stunning bouquets and arrangements for delivery, weddings, and events. We use fresh, seasonal flowers to create unique and beautiful designs.",
+            description": "Artisanal florist creating stunning bouquets and arrangements for delivery, weddings, and events. We use fresh, seasonal flowers to create unique and beautiful designs.",
             rating: 4.9,
             reviews: 95,
             isProVerified: true,
@@ -1574,33 +1557,33 @@ export const allProfessionals = {
                 { author: "Jenna S.", rating: 5, comment: "The flowers for our wedding were perfect. They understood my vision completely." }
             ],
             photos: ["https://picsum.photos/seed/florist1/600/400"],
-            avatarSeed: "florists-image"
+            avatarSeed: "bloom-room-logo"
         }
     ],
     photographers: [
         {
             id: "lens-and-light-studio",
-            name: "Lens &amp; Light Studio",
+            name: "Lens & Light Studio",
             location: "Cape Town",
-            description: "Professional photography for weddings, portraits, and commercial projects. With a natural and timeless style, we capture moments that tell your unique story.",
+            description": "Professional photography for weddings, portraits, and commercial projects. With a natural and timeless style, we capture moments that tell your unique story.",
             rating: 5.0,
             reviews: 150,
             isProVerified: true,
             reviewData: [
                 { author: "The Naidoo Family", rating: 5, comment: "Our family photoshoot was so much fun and the photos are incredible. They captured our family's personality perfectly." },
-                { author: "Emily &amp; Mark", rating: 5, comment: "We are so in love with our wedding photos! They are more beautiful than we could have ever hoped for. True professionals." }
+                { author: "Emily & Mark", rating: 5, comment: "We are so in love with our wedding photos! They are more beautiful than we could have ever hoped for. True professionals." }
             ],
             photos: ["https://picsum.photos/seed/photo1/600/400", "https://picsum.photos/seed/photo2/600/400"],
-            avatarSeed: "photographers-image"
+            avatarSeed: "lens-light-logo"
         }
     ],
     'party-planners': [
         {
-            id: "celebrate-well-events",
-            name: "Celebrate Well Events",
-            location: "Durban",
-            description: "Creative and fun party planning for all occasions. From kids' birthdays to milestone anniversaries, we handle all the details so you can enjoy the celebration.",
-            rating: 4.8,
+            id": "celebrate-well-events",
+            name": "Celebrate Well Events",
+            location": "Durban",
+            description": "Creative and fun party planning for all occasions. From kids' birthdays to milestone anniversaries, we handle all the details so you can enjoy the celebration.",
+            rating": 4.8,
             reviews: 70,
             isProVerified: true,
             reviewData: [
@@ -1608,16 +1591,16 @@ export const allProfessionals = {
                 { author: "Sipho M.", rating: 5, comment: "Hired them for my wife's surprise 50th. The party was elegant and perfectly executed. She was thrilled." }
             ],
             photos: ["https://picsum.photos/seed/party1/600/400"],
-            avatarSeed: "party-planners-image"
+            avatarSeed: "celebrate-well-logo"
         }
     ],
     'tent-hire': [
         {
             id: "apex-tent-hire",
-            name: "Apex Tent Hire",
-            location: "Gauteng",
-            description: "A wide range of tents for hire for any event, including stretch tents, frame tents, and peg and pole marquees. We also provide flooring, lighting, and furniture.",
-            rating: 4.7,
+            name": "Apex Tent Hire",
+            location": "Gauteng",
+            description": "A wide range of tents for hire for any event, including stretch tents, frame tents, and peg and pole marquees. We also provide flooring, lighting, and furniture.",
+            rating": 4.7,
             reviews: 120,
             isProVerified: true,
             reviewData: [
@@ -1625,16 +1608,16 @@ export const allProfessionals = {
                 { author: "Event Organizer", rating: 4, comment: "Good service and quality tents. Delivery was a little later than scheduled but they made up for it." }
             ],
             photos: ["https://picsum.photos/seed/tent1/600/400"],
-            avatarSeed: "tent-hire-image"
+            avatarSeed: "apex-tent-logo"
         }
     ],
     'toilet-hire': [
         {
             id: "super-loos-sa",
-            name: "Super Loos SA",
-            location: "Major Cities",
-            description: "Clean and reliable portable toilet hire for events, construction sites, and film sets. We offer standard units, luxury VIP trailers, and disabled access toilets.",
-            rating: 4.6,
+            name": "Super Loos SA",
+            location": "Major Cities",
+            description": "Clean and reliable portable toilet hire for events, construction sites, and film sets. We offer standard units, luxury VIP trailers, and disabled access toilets.",
+            rating": 4.6,
             reviews: 90,
             isProVerified: true,
             reviewData: [
@@ -1642,16 +1625,16 @@ export const allProfessionals = {
                 { author: "Festival Organizer", rating: 4, comment: "The toilets were clean and well-stocked. Would have liked more frequent cleaning during the peak of the event." }
             ],
             photos: ["https://picsum.photos/seed/toilet1/600/400"],
-            avatarSeed: "toilet-hire-image"
+            avatarSeed: "super-loos-logo"
         }
     ],
     videographers: [
         {
             id: "cinematic-stories-za",
-            name: "Cinematic Stories ZA",
-            location: "Johannesburg",
-            description: "Story-driven videography for weddings and corporate events. We create beautiful, cinematic films that capture the emotion and energy of your special day.",
-            rating: 4.9,
+            name": "Cinematic Stories ZA",
+            location": "Johannesburg",
+            description": "Story-driven videography for weddings and corporate events. We create beautiful, cinematic films that capture the emotion and energy of your special day.",
+            rating": 4.9,
             reviews: 80,
             isProVerified: true,
             reviewData: [
@@ -1659,18 +1642,18 @@ export const allProfessionals = {
                 { author: "Brand Manager", rating: 5, comment: "The corporate video they produced for us was exceptional. High quality and perfectly on-brand." }
             ],
             photos: ["https://picsum.photos/seed/video1/600/400"],
-            avatarSeed: "videographers-image"
+            avatarSeed: "cinematic-stories-logo"
         }
     ],
     default: [
         {
             id: "pro-services-inc",
             name: "Pro Services Inc.",
-            location: "Alberton",
-            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, and pride ourselves on quick response times and high-quality workmanship.",
-            rating: 4.6,
+            location": "Alberton",
+            description": "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, and pride ourselves on quick response times and high-quality workmanship.",
+            rating": 4.6,
             reviews: 42,
-            address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
+            address": "16 Porth Pean Street, New Redruth, Alberton - 1449",
             yearsInBusiness: 9,
             employees: 4,
             isProVerified: true,
@@ -1687,9 +1670,9 @@ export const allProfessionals = {
         {
             id: "general-solutions-pty",
             name: "General Solutions Pty",
-            location: "Germiston",
-            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from start to finish.",
-            rating: 0.0,
+            location": "Germiston",
+            description": "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from start to finish.",
+            rating": 0.0,
             reviews: 0,
             address: "789 Industrial Rd, Germiston",
             yearsInBusiness: 1,
@@ -1702,10 +1685,10 @@ export const allProfessionals = {
         },
         {
             id: "expert-crew-sa",
-            name: "Expert Crew SA",
-            location: "Soweto",
-            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
-            rating: 4.9,
+            name": "Expert Crew SA",
+            location": "Soweto",
+            description": "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
+            rating": 4.9,
             reviews: 76,
             address: "24 Worker's Way, Soweto",
             yearsInBusiness: 12,
@@ -1720,6 +1703,249 @@ export const allProfessionals = {
             photos: [ "https://picsum.photos/seed/expert1/600/400",],
             avatarSeed: "expert-crew-logo"
         }
+    ],
+    "air-conditioning": [
+      {
+        id: "ac-comfort-zone",
+        name": "AC Comfort Zone",
+        location": "Sandton, Johannesburg",
+        description": "Specialists in residential and commercial air conditioning installation, servicing, and repairs. We work with all major brands to keep you cool in summer and warm in winter.",
+        rating": 4.8,
+        reviews: 85,
+        isProVerified: true,
+        reviewData: [
+          { author: "J. Naidoo", rating: 5, comment: "Fast installation and very neat work. The new unit works perfectly. Very happy with their service." },
+          { author: "Office Manager", rating: 5, comment: "They service all the aircon units in our building. Always reliable and professional." }
+        ],
+        photos: ["https://picsum.photos/seed/ac1/600/400"],
+        avatarSeed: "ac-comfort-logo"
+      },
+      {
+        id: "cool-breeze-air",
+        name": "Cool Breeze Air Conditioning",
+        location": "Durban, KZN",
+        description": "Your local experts for aircon regassing, repairs, and new installations. We offer competitive pricing and fast, friendly service to the greater Durban area.",
+        rating": 4.7,
+        reviews: 62,
+        isProVerified: true,
+        reviewData: [
+          { author: "Mike L.", rating: 5, comment: "My aircon wasn't cooling. They came out the same day, found the leak, and regassed it. Excellent service." }
+        ],
+        photos: ["https://picsum.photos/seed/ac2/600/400"],
+        avatarSeed: "ac-comfort-logo"
+      }
+    ],
+    "aluminium-doors-and-windows": [
+      {
+        id": "alum-designs-pta",
+        name": "Alu-Designs PTA",
+        location": "Pretoria, Gauteng",
+        description": "Custom manufacturers and installers of high-quality aluminium windows, sliding doors, folding doors, and enclosures. Modernize your home with our durable and stylish solutions.",
+        rating": 4.9,
+        reviews: 112,
+        isProVerified: true,
+        reviewData: [
+          { author: "Mrs. Van der Merwe", rating: 5, comment: "The new folding doors have completely transformed our living area. The quality and installation were top-notch." },
+          { author: "The Architect", rating: 5, comment: "I use Alu-Designs for many of my projects. They are reliable and their products are excellent quality." }
+        ],
+        photos: ["https://picsum.photos/seed/alum1/600/400", "https://picsum.photos/seed/alum2/600/400"],
+        avatarSeed: "alum-designs-logo"
+      }
+    ],
+    awnings: [
+      {
+        id": "shade-masters-sa",
+        name": "Shade Masters SA",
+        location": "Johannesburg",
+        description": "We supply and install a wide range of awnings, including retractable awnings, fixed awnings, and shade sails for patios, businesses, and pools.",
+        rating": 4.7,
+        reviews: 78,
+        isProVerified: true,
+        reviewData: [
+          { author: "Cafe Owner", rating: 5, comment: "The new retractable awning for our patio is perfect. Great quality and the installation team was very professional." }
+        ],
+        photos: ["https://picsum.photos/seed/awning1/600/400"],
+        avatarSeed: "shade-masters-logo"
+      }
+    ],
+    balustrades: [
+      {
+        id: "modern-rails-cpt",
+        name": "Modern Rails CPT",
+        location": "Cape Town",
+        description": "Specialists in the design and installation of modern balustrades. We offer frameless glass, stainless steel, and custom-designed solutions for staircases, balconies, and pools.",
+        rating": 4.9,
+        reviews: 92,
+        isProVerified: true,
+        reviewData: [
+          { author: "New Homeowner", rating: 5, comment: "The frameless glass balustrade on our balcony is stunning. It completely opened up the view. Excellent workmanship." }
+        ],
+        photos: ["https://picsum.photos/seed/rail1/600/400"],
+        avatarSeed: "modern-rails-logo"
+      }
+    ],
+    "bathroom-renovations": [
+      {
+        id": "dream-bath-reno",
+        name": "Dream Bath Renovations",
+        location": "Johannesburg North",
+        description": "Complete bathroom renovation specialists. From design and tiling to plumbing and installation, we handle your entire project from start to finish.",
+        rating": 4.8,
+        reviews: 55,
+        isProVerified: true,
+        reviewData: [
+          { author: "The Smiths", rating: 5, comment: "They transformed our old, dated bathroom into a modern masterpiece. We are so happy with the result." },
+          { author: "Priya", rating: 5, comment: "Professional, on time, and the quality of their work is excellent. I highly recommend them." }
+        ],
+        photos: ["https://picsum.photos/seed/bath1/600/400", "https://picsum.photos/seed/bath2/600/400"],
+        avatarSeed: "dream-bath-logo"
+      }
+    ],
+    blinds: [
+      {
+        id: "blind-ambition-za",
+        name": "Blind Ambition",
+        location": "Nationwide",
+        description": "Your one-stop shop for all types of blinds, including Venetian, roller, Roman, and vertical blinds. We offer free measurements and quotes.",
+        rating": 4.7,
+        reviews: 130,
+        isProVerified: true,
+        reviewData: [
+          { author: "Linda G.", rating: 5, comment: "Great selection and the installation was quick and professional. The new blinds look fantastic." }
+        ],
+        photos: ["https://picsum.photos/seed/blinds1/600/400"],
+        avatarSeed: "blind-ambition-logo"
+      }
+    ],
+    "burglar-bars": [
+      {
+        id: "secureguard-bars",
+        name": "SecureGuard Burglar Bars",
+        location": "Gauteng",
+        description": "Manufacturers and installers of high-strength burglar bars and security gates. We offer a range of designs including transparent bars for an unobtrusive look.",
+        rating": 4.8,
+        reviews: 150,
+        isProVerified: true,
+        reviewData: [
+          { author: "Mr. Jones", rating: 5, comment: "The clear burglar bars are amazing. I feel secure without feeling like I'm in a cage. Excellent product." }
+        ],
+        photos: ["https://picsum.photos/seed/burglar1/600/400"],
+        avatarSeed: "secure-guard-logo"
+      }
+    ],
+    carpenter: [
+      {
+        id: "wood-creations-jhb",
+        name": "Wood Creations JHB",
+        location": "Johannesburg",
+        description": "Custom carpentry and joinery services. We build and install custom kitchen cabinets, built-in cupboards, wooden decks, and bespoke furniture.",
+        rating": 4.9,
+        reviews: 98,
+        isProVerified: true,
+        reviewData: [
+          { author: "The Naidoos", rating: 5, comment: "The built-in cupboards they made for our bedroom are of the highest quality. True craftsmanship." },
+          { author: "Sarah P.", rating: 5, comment: "Designed and built the most beautiful kitchen for us. A pleasure to work with." }
+        ],
+        photos: ["https://picsum.photos/seed/carpentry1/600/400", "https://picsum.photos/seed/carpentry2/600/400"],
+        avatarSeed: "wood-creations-logo"
+      }
+    ],
+    carpeting: [
+      {
+        id: "plush-floors",
+        name": "Plush Floors Carpeting",
+        location": "Cape Town",
+        description": "Suppliers and professional installers of a wide range of carpets for homes and offices. We offer expert advice and a perfect fit every time.",
+        rating": 4.7,
+        reviews: 115,
+        isProVerified: true,
+        reviewData: [
+          { author: "Office Manager", rating: 5, comment: "They re-carpeted our entire office over a weekend. The quality is great and there was minimal disruption." }
+        ],
+        photos: ["https://picsum.photos/seed/carpet1/600/400"],
+        avatarSeed: "plush-floors-logo"
+      }
+    ],
+    "carpet-cleaning": [
+      {
+        id: "sparkle-clean-carpets",
+        name": "SparkleClean Carpet Cleaners",
+        location": "Johannesburg",
+        description": "Professional deep cleaning for carpets, rugs, and upholstery. We use eco-friendly products to remove stains and odours, leaving your carpets looking and smelling fresh.",
+        rating": 4.8,
+        reviews: 210,
+        isProVerified: true,
+        reviewData: [
+          { author: "Lindiwe", rating: 5, comment: "My carpets look brand new! They managed to get out a coffee stain I thought was permanent. Amazing service." },
+          { author: "Pet Owner", rating: 5, comment: "Best carpet cleaners for pet owners. They completely eliminated the pet odours." }
+        ],
+        photos: ["https://picsum.photos/seed/carpetclean1/600/400"],
+        avatarSeed: "sparkle-clean-logo"
+      }
+    ],
+    carports: [
+      {
+        id: "coverpro-carports",
+        name": "CoverPro Carports",
+        location": "Gauteng",
+        description": "Design, supply, and installation of high-quality steel and shade-net carports for residential and commercial properties. Protect your vehicles from the harsh SA sun.",
+        rating: 4.7,
+        reviews: 95,
+        isProVerified: true,
+        reviewData: [
+          { author: "Mr. Dlamini", rating: 5, comment: "The new carport looks great and is very sturdy. The installation team was professional and efficient." },
+          { author: "Body Corporate", rating: 5, comment: "CoverPro installed carports for our entire complex. Good quality and they finished the project on time." }
+        ],
+        photos: ["https://picsum.photos/seed/carport1/600/400", "https://picsum.photos/seed/carport2/600/400"],
+        avatarSeed: "cover-pro-logo"
+      },
+      {
+        id: "budget-carports-jhb",
+        name": "Budget Carports JHB",
+        location": "Johannesburg South",
+        description": "Affordable carport solutions without compromising on quality. We offer standard-sized carports that are perfect for any home. Quick installation and great value.",
+        rating": 4.5,
+        reviews: 60,
+        isProVerified: true,
+        reviewData: [
+          { author: "Sipho", rating: 5, comment: "Very happy with the price and the installation. It was done in one day and looks good." }
+        ],
+        photos: ["https://picsum.photos/seed/carport3/600/400"],
+        avatarSeed: "cover-pro-logo"
+      }
+    ],
+    "ceiling-installers": [
+      {
+        id: "ceiling-masters-za",
+        name": "Ceiling Masters",
+        location": "Johannesburg",
+        description": "Professional installation and repair of all types of ceilings, including suspended ceilings, drywall ceilings, and decorative cornices.",
+        rating": 4.8,
+        reviews: 88,
+        isProVerified: true,
+        reviewData: [
+          { author: "Home Renovator", rating: 5, comment: "They did an amazing job on the ceilings for our renovation project. Perfectly smooth and finished on time." }
+        ],
+        photos: ["https://picsum.photos/seed/ceiling1/600/400"],
+        avatarSeed: "ceiling-masters-logo"
+      }
+    ],
+    "cleaning-service": [
+      {
+        id: "spotless-cleaning-co",
+        name": "Spotless Cleaning Co.",
+        location": "Cape Town",
+        description": "Reliable and thorough residential and commercial cleaning services. We offer once-off deep cleans, regular maintenance cleaning, and end-of-tenancy cleaning.",
+        rating": 4.9,
+        reviews: 250,
+        isProVerified: true,
+        reviewData: [
+          { author: "Busy Mom", rating: 5, comment: "They are a lifesaver! My house is always spotless after they've been. Trustworthy and professional." },
+          { author: "Landlord", rating: 5, comment: "I use them for all my end-of-tenancy cleans and they always do a fantastic job. I always get my full deposit back for tenants." }
+        ],
+        photos: ["https://picsum.photos/seed/cleaning1/600/400"],
+        avatarSeed: "spotless-logo"
+      }
     ]
 };
 
@@ -1736,6 +1962,7 @@ export const getProfessionalById = (id: string) => {
     return null;
 };
     
+
 
 
 
