@@ -322,6 +322,45 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
   {
+    service: 'guttering',
+    questions: [
+      {
+        id: 'guttering_service',
+        text: 'What service do you need for your gutters?',
+        type: 'radio',
+        options: [
+          { value: 'installation', label: 'New gutter installation' },
+          { value: 'repair', label: 'Gutter repairs' },
+          { value: 'cleaning', label: 'Gutter cleaning' },
+          { value: 'replacement', label: 'Complete gutter replacement' },
+        ],
+      },
+      {
+        id: 'property_type',
+        text: 'What type of property is it?',
+        type: 'radio',
+        options: [
+          { value: 'single_story', label: 'Single-story house' },
+          { value: 'double_story', label: 'Double-story or multi-level house' },
+          { value: 'complex', label: 'Townhouse or complex' },
+          { value: 'commercial', label: 'Commercial building' },
+        ],
+      },
+      {
+        id: 'gutter_material',
+        text: 'What is the gutter material (if known)?',
+        type: 'radio',
+        options: [
+          { value: 'aluminium', label: 'Aluminium' },
+          { value: 'pvc', label: 'PVC/Plastic' },
+          { value: 'steel', label: 'Steel' },
+          { value: 'not_sure', label: 'I\'m not sure' },
+        ],
+      },
+      ...commonQuestions
+    ],
+  },
+  {
     service: 'plumber',
     questions: [
       {
@@ -2779,4 +2818,5 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
 ];
+
 
