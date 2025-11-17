@@ -2382,19 +2382,19 @@ export const serviceQuestionSets: QuestionSet[] = [
   {
     service: 'party-planners',
     questions: [
-        {
-            id: 'party_type',
-            text: 'What type of party are you planning?',
-            type: 'radio',
-            options: [
-                { value: 'birthday', label: 'Birthday Party' },
-                { value: 'anniversary', label: 'Anniversary' },
-                { value: 'baby_shower', label: 'Baby Shower' },
-                { value: 'themed_party', label: 'Themed Party' },
-                { value: 'other', label: 'Other' },
-            ],
-        },
-        ...commonQuestions,
+      {
+        id: 'party_type',
+        text: 'What type of party are you planning?',
+        type: 'radio',
+        options: [
+          { value: 'birthday', label: 'Birthday Party' },
+          { value: 'anniversary', label: 'Anniversary' },
+          { value: 'baby_shower', label: 'Baby Shower' },
+          { value: 'themed_party', label: 'Themed Party' },
+          { value: 'other', label: 'Other' },
+        ],
+      },
+      ...commonQuestions,
     ],
   },
   {
@@ -2817,6 +2817,266 @@ export const serviceQuestionSets: QuestionSet[] = [
         ...commonQuestions,
     ],
   },
+  {
+    service: 'upholstery-cleaning',
+    questions: [
+      {
+        id: 'upholstery_item',
+        text: 'What needs to be cleaned?',
+        type: 'checkbox',
+        options: [
+          { value: 'couch', label: 'Couch/Sofa' },
+          { value: 'chair', label: 'Armchair/Dining Chair' },
+          { value: 'mattress', label: 'Mattress' },
+          { value: 'rug', label: 'Rug' },
+          { value: 'car_seats', label: 'Car Seats' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'window-tinting',
+    questions: [
+      {
+        id: 'tint_location',
+        text: 'Where do you need the tinting?',
+        type: 'radio',
+        options: [
+          { value: 'vehicle', label: 'Vehicle Windows' },
+          { value: 'home', label: 'Home Windows' },
+          { value: 'office', label: 'Office/Commercial Windows' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'shadeports',
+    questions: [
+      {
+        id: 'shadeport_service',
+        text: 'What service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'new_install', label: 'New Installation' },
+          { value: 'repair', label: 'Repair Existing Shadeport' },
+          { value: 'replace_net', label: 'Replace Shade Net' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'pest-control',
+    questions: [
+      {
+        id: 'pest_type',
+        text: 'What type of pest are you dealing with?',
+        type: 'radio',
+        options: [
+          { value: 'insects', label: 'Crawling Insects (Ants, Cockroaches)' },
+          { value: 'rodents', label: 'Rodents (Rats, Mice)' },
+          { value: 'termites', label: 'Termites' },
+          { value: 'birds', label: 'Birds' },
+          { value: 'not_sure', label: 'Not Sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'laminate-flooring',
+    questions: [
+      {
+        id: 'area_size',
+        text: 'What is the approximate size of the area (in square meters)?',
+        type: 'radio',
+        options: [
+          { value: 'small', label: 'Small (Under 20sqm)' },
+          { value: 'medium', label: 'Medium (20-50sqm)' },
+          { value: 'large', label: 'Large (50-100sqm)' },
+          { value: 'extra_large', label: 'Extra Large (100sqm+)' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'gate-motors',
+    questions: [
+      {
+        id: 'gate_motor_service',
+        text: 'What service do you need for your gate motor?',
+        type: 'radio',
+        options: [
+          { value: 'new_install', label: 'New Motor Installation' },
+          { value: 'repair', label: 'Repair Existing Motor' },
+          { value: 'maintenance', label: 'General Maintenance' },
+          { value: 'not_sure', label: 'I\'m not sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'garage-door-motors',
+    questions: [
+      {
+        id: 'garage_motor_service',
+        text: 'What service do you need for your garage door motor?',
+        type: 'radio',
+        options: [
+          { value: 'new_install', label: 'New Motor Installation' },
+          { value: 'repair', label: 'Repair Existing Motor' },
+          { value: 'maintenance', label: 'General Maintenance' },
+          { value: 'not_sure', label: 'I\'m not sure' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'electric-fencing',
+    questions: [
+      {
+        id: 'efence_service',
+        text: 'What electric fencing service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'new_install', label: 'New Installation' },
+          { value: 'repair', label: 'Repairs / Fault Finding' },
+          { value: 'coc', label: 'Certificate of Compliance (CoC)' },
+          { value: 'upgrade', label: 'Upgrade Existing Fence' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'kitchen-renovations',
+    questions: [
+      {
+        id: 'kitchen_scope',
+        text: 'What is the scope of your kitchen renovation?',
+        type: 'radio',
+        options: [
+          { value: 'full', label: 'Full Renovation (Cabinets, Counters, etc.)' },
+          { value: 'countertops', label: 'Countertops Only' },
+          { value: 'cabinets', label: 'Cabinets Only (New or Refacing)' },
+          { value: 'layout_change', label: 'Layout Change / Remodeling' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'locksmiths',
+    questions: [
+      {
+        id: 'locksmith_service',
+        text: 'What locksmith service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'lockout_home', label: 'Locked out of my home' },
+          { value: 'lockout_car', label: 'Locked out of my car' },
+          { value: 'change_locks', label: 'Change/Replace locks' },
+          { value: 'key_cutting', label: 'Key cutting' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'paving',
+    questions: [
+      {
+        id: 'paving_area',
+        text: 'What area needs paving?',
+        type: 'radio',
+        options: [
+          { value: 'driveway', label: 'Driveway' },
+          { value: 'patio', label: 'Patio/Entertainment Area' },
+          { value: 'walkway', label: 'Walkway/Pathway' },
+          { value: 'pool_surround', label: 'Pool Surround' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'pool-cleaning',
+    questions: [
+      {
+        id: 'pool_cleaning_service',
+        text: 'What kind of pool service do you need?',
+        type: 'radio',
+        options: [
+          { value: 'regular', label: 'Regular Weekly Service' },
+          { value: 'once_off', label: 'Once-off Clean (e.g., green pool)' },
+          { value: 'equipment_repair', label: 'Equipment Repair (Pump, Filter)' },
+          { value: 'acid_wash', label: 'Acid Wash' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'solar-systems',
+    questions: [
+      {
+        id: 'solar_system_type',
+        text: 'What type of solar system are you interested in?',
+        type: 'radio',
+        options: [
+          { value: 'grid_tied', label: 'Grid-Tied System' },
+          { value: 'hybrid', label: 'Hybrid System (with batteries)' },
+          { value: 'off_grid', label: 'Off-Grid System' },
+          { value: 'geyser', label: 'Solar Geyser only' },
+          { value: 'not_sure', label: 'I need advice' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'tiling',
+    questions: [
+      {
+        id: 'tiling_area',
+        text: 'Which area needs tiling?',
+        type: 'radio',
+        options: [
+          { value: 'floor', label: 'Floor' },
+          { value: 'wall', label: 'Wall (e.g., bathroom, kitchen splashback)' },
+          { value: 'indoor', label: 'Indoor' },
+          { value: 'outdoor', label: 'Outdoor' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'waterproofing',
+    questions: [
+      {
+        id: 'waterproofing_area',
+        text: 'What area needs waterproofing?',
+        type: 'radio',
+        options: [
+          { value: 'roof', label: 'Roof (Flat or Tiled)' },
+          { value: 'balcony', label: 'Balcony' },
+          { value: 'basement', label: 'Basement/Foundation' },
+          { value: 'shower', label: 'Shower' },
+          { value: 'not_sure', label: 'I\'m not sure where the leak is' },
+        ],
+      },
+      ...commonQuestions,
+    ],
+  },
 ];
 
 
+
+
+    
