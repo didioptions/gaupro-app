@@ -2054,7 +2054,33 @@ export const allProfessionals = {
         photos: ["https://picsum.photos/seed/fibre1/600/400"],
         avatarSeed: "fibre-fast-logo"
       }
-    ]
+    ],
+    cctv: [
+      {
+        id: "sentinel-security-systems",
+        name: "Sentinel Security Systems",
+        location: "Johannesburg, Gauteng",
+        description: "Professional installation and maintenance of high-definition CCTV camera systems for homes and businesses. We offer a range of solutions, from basic setups to advanced analytics.",
+        rating: 4.9,
+        reviews: 180,
+        isProVerified: true,
+        reviewData: [{ author: "Homeowner", rating: 5, comment: "The installation was incredibly neat and the camera quality is excellent. The app is easy to use. Highly recommend." }],
+        photos: ["https://picsum.photos/seed/cctv1/600/400"],
+        avatarSeed: "sentinel-security-logo"
+      },
+      {
+        id: "cape-surveillance-pros",
+        name: "Cape Surveillance Pros",
+        location: "Cape Town, Western Cape",
+        description: "Your local experts in CCTV and IP camera installations. We help you secure your property with reliable surveillance systems tailored to your budget and needs.",
+        rating: 4.8,
+        reviews: 155,
+        isProVerified: true,
+        reviewData: [{ author: "Small Business Owner", rating: 5, comment: "They installed cameras at my shop. The system works perfectly and the team was very professional and efficient." }],
+        photos: ["https://picsum.photos/seed/cctv2/600/400"],
+        avatarSeed: "hawk-eye-tracking-logo"
+      }
+    ],
 };
 
 export const getProfessionalById = (id: string) => {
