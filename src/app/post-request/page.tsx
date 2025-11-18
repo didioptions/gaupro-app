@@ -22,7 +22,7 @@ import { Calendar as CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useSearchParams } from 'next/navigation';
 import { allLocations } from '@/lib/locations';
 
@@ -142,11 +142,13 @@ export default function PostRequestPage() {
     if (step === 0) {
       return (
         <>
-          <h2 className="text-2xl">Request a Quote</h2>
-          <p className="text-muted-foreground">
-            Give us a few details and we’ll match you with the right professional.
-          </p>
-          <div className="py-8">
+          <CardHeader>
+             <CardTitle className="text-2xl">Request a Quote</CardTitle>
+             <CardDescription>
+                Give us a few details and we’ll match you with the right professional.
+             </CardDescription>
+          </CardHeader>
+          <CardContent className="py-8">
             <Autocomplete
               options={allServices}
               value={selectedService}
@@ -160,7 +162,7 @@ export default function PostRequestPage() {
               placeholder="What service do you need? e.g. Plumber"
               inputClassName="h-12 text-base w-full justify-between text-muted-foreground font-normal"
             />
-          </div>
+          </CardContent>
         </>
       );
     }
@@ -187,7 +189,7 @@ export default function PostRequestPage() {
 
       return (
         <form onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
-            <header className='text-left'>
+            <CardHeader className='text-left bg-secondary/50'>
               <div className="flex items-center gap-4 mb-4">
                   <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                     <ArrowLeft />
@@ -197,21 +199,22 @@ export default function PostRequestPage() {
                     <p className="text-muted-foreground">Step {step} of {totalSteps}</p>
                   </div>
               </div>
-            </header>
+              <Progress value={progress} className="h-2" />
+            </CardHeader>
 
             {serviceImage && questionStepIndex === 0 && (
-              <div className="relative h-32 w-full mb-4">
+              <div className="relative h-32 w-full">
                 <Image
                   src={serviceImage.imageUrl}
                   alt={serviceImage.description || ''}
                   fill
-                  className="object-cover rounded-t-lg"
+                  className="object-cover"
                   data-ai-hint={serviceImage.imageHint}
                 />
               </div>
             )}
             
-          <div className="py-8 min-h-[250px]">
+          <CardContent className="py-8 min-h-[300px]">
             <h3 className="mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
               <RadioGroup
@@ -313,8 +316,8 @@ export default function PostRequestPage() {
                 defaultValue={formData[currentQuestion.id] as string | undefined}
               />
             )}
-          </div>
-          <div className="flex justify-between items-center">
+          </CardContent>
+          <div className="flex justify-between items-center p-6 border-t">
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
@@ -329,7 +332,7 @@ export default function PostRequestPage() {
     if (isFinalStep) {
       return (
         <form onSubmit={handleSubmit}>
-          <header className="text-left">
+          <CardHeader className="text-left bg-secondary/50">
             <div className="flex items-center gap-4 mb-4">
               <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
@@ -339,8 +342,9 @@ export default function PostRequestPage() {
                  <p className="text-muted-foreground">Step {step} of {totalSteps}</p>
               </div>
             </div>
-          </header>
-          <div className="py-8 space-y-4">
+            <Progress value={progress} className="h-2" />
+          </CardHeader>
+          <CardContent className="py-8 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Input
@@ -387,8 +391,8 @@ export default function PostRequestPage() {
                     I agree to Gaupro’s <Link href="/terms" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
                 </Label>
             </div>
-          </div>
-          <div className="flex justify-between items-center">
+          </CardContent>
+          <div className="flex justify-between items-center p-6 border-t">
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
@@ -409,11 +413,8 @@ export default function PostRequestPage() {
       <main className="flex-grow bg-secondary/30">
         <div className="container mx-auto px-4 py-12 md:py-16">
             <div className="max-w-2xl mx-auto">
-                <Card>
-                    <CardContent className="p-6 md:p-8">
-                        {step > 0 && !isSubmitted && <Progress value={progress} className="h-2 mb-6" />}
-                        {renderStepContent()}
-                    </CardContent>
+                <Card className="overflow-hidden">
+                    {renderStepContent()}
                 </Card>
             </div>
         </div>
