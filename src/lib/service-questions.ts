@@ -1022,1802 +1022,6 @@ export const serviceQuestionSets: QuestionSet[] = [
     ],
   },
   {
-    service: 'event-planners',
-    questions: [
-      {
-        id: 'event_type',
-        text: 'What type of event are you planning?',
-        type: 'radio',
-        options: [
-          { value: 'wedding', label: 'Wedding' },
-          { value: 'corporate', label: 'Corporate Event' },
-          { value: 'private_party', label: 'Private Party (Birthday, Anniversary)' },
-          { value: 'conference', label: 'Conference or Seminar' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'florists',
-    questions: [
-      {
-        id: 'occasion',
-        text: 'What is the occasion for the flowers?',
-        type: 'radio',
-        options: [
-          { value: 'wedding', label: 'Wedding' },
-          { value: 'event', label: 'Event (Corporate, Party)' },
-          { value: 'gift', label: 'Gift or Special Occasion' },
-          { value: 'funeral', label: 'Funeral or Sympathy' },
-          { value: 'subscription', label: 'Regular Subscription (Home/Office)' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'wedding-photographers',
-    questions: [
-      {
-        id: 'wedding_budget',
-        text: 'What is your approximate wedding photography budget?',
-        type: 'radio',
-        options: [
-          { value: '5k_10k', label: 'R5,000 - R10,000' },
-          { value: '10k_20k', label: 'R10,000 - R20,000' },
-          { value: '20k_30k', label: 'R20,000 - R30,000' },
-          { value: '30k_plus', label: 'R30,000+' },
-          { value: 'not_sure', label: 'I\'m not sure yet' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'debt-collection',
-    questions: [
-      {
-        id: 'debt_type',
-        text: 'What type of debt needs to be collected?',
-        type: 'radio',
-        options: [
-          { value: 'personal', label: 'Personal/Individual Debt' },
-          { value: 'commercial', label: 'Commercial/Business Debt' },
-          { value: 'rental', label: 'Rental Arrears' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'loans',
-    questions: [
-      {
-        id: 'loan_type',
-        text: 'What type of loan are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'personal', label: 'Personal Loan' },
-          { value: 'business', label: 'Business Loan' },
-          { value: 'home_loan', label: 'Home Loan / Bond' },
-          { value: 'vehicle', label: 'Vehicle Finance' },
-          { value: 'consolidation', label: 'Debt Consolidation Loan' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'medical-aid',
-    questions: [
-      {
-        id: 'coverage_for',
-        text: 'Who needs medical aid cover?',
-        type: 'radio',
-        options: [
-          { value: 'myself', label: 'Just myself' },
-          { value: 'spouse', label: 'Myself and my spouse/partner' },
-          { value: 'family', label: 'My family (including children)' },
-          { value: 'business', label: 'My business/employees' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'recruitment-agencies',
-    questions: [
-      {
-        id: 'user_type',
-        text: 'Are you looking to hire an employee or find a job?',
-        type: 'radio',
-        options: [
-          { value: 'company', label: 'I\'m a company looking to hire' },
-          { value: 'candidate', label: 'I\'m a candidate looking for a job' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'logo-design',
-    questions: [
-      {
-        id: 'business_stage',
-        text: 'What stage is your business at?',
-        type: 'radio',
-        options: [
-          { value: 'new', label: 'New business/brand (starting from scratch)' },
-          { value: 'refresh', label: 'Existing business needing a logo refresh' },
-          { value: 'idea', label: 'Just an idea, exploring options' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'beauty-salons',
-    questions: [
-      {
-        id: 'treatment_type',
-        text: 'What beauty treatment are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'facial', label: 'Facial' },
-          { value: 'manicure_pedicure', label: 'Manicure/Pedicure' },
-          { value: 'waxing', label: 'Waxing' },
-          { value: 'massage', label: 'Massage' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'dermatologists',
-    questions: [
-      {
-        id: 'visit_reason',
-        text: 'What is the primary reason for your visit?',
-        type: 'radio',
-        options: [
-          { value: 'acne', label: 'Acne Treatment' },
-          { value: 'screening', label: 'Skin Cancer Screening' },
-          { value: 'eczema', label: 'Eczema/Psoriasis' },
-          { value: 'cosmetic', label: 'Cosmetic Dermatology' },
-          { value: 'consultation', label: 'General Consultation' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'laser-clinics',
-    questions: [
-      {
-        id: 'laser_treatment_type',
-        text: 'What type of laser treatment are you interested in?',
-        type: 'radio',
-        options: [
-          { value: 'hair_removal', label: 'Hair Removal' },
-          { value: 'tattoo_removal', label: 'Tattoo Removal' },
-          { value: 'skin_rejuvenation', label: 'Skin Rejuvenation' },
-          { value: 'scar_vein_treatment', label: 'Scar/Vein Treatment' },
-          { value: 'not_sure', label: 'Not Sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'personal-trainers',
-    questions: [
-      {
-        id: 'fitness_goal',
-        text: 'What is your main fitness goal?',
-        type: 'radio',
-        options: [
-          { value: 'weight_loss', label: 'Weight Loss' },
-          { value: 'muscle_gain', label: 'Muscle Gain' },
-          { value: 'general_fitness', label: 'Improve General Fitness' },
-          { value: 'sport_specific', label: 'Sport-specific Training' },
-          { value: 'rehabilitation', label: 'Post-injury Rehabilitation' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'chiropractors',
-    questions: [
-      {
-        id: 'concern_area',
-        text: 'What is the main area of concern?',
-        type: 'radio',
-        options: [
-          { value: 'back_pain', label: 'Back Pain' },
-          { value: 'neck_pain', label: 'Neck Pain' },
-          { value: 'headaches', label: 'Headaches/Migraines' },
-          { value: 'joint_pain', label: 'Joint Pain (e.g., shoulder, knee)' },
-          { value: 'wellness', label: 'General Wellness/Adjustment' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'make-up-artists',
-    questions: [
-      {
-        id: 'makeup_occasion',
-        text: 'What is the occasion for the makeup?',
-        type: 'radio',
-        options: [
-          { value: 'wedding', label: 'Wedding' },
-          { value: 'formal_event', label: 'Matric Dance/Formal Event' },
-          { value: 'photoshoot', label: 'Photoshoot/Filming' },
-          { value: 'lesson', label: 'Personal Lesson' },
-          { value: 'party', label: 'Special Occasion Party' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'physiotherapists',
-    questions: [
-      {
-        id: 'physio_reason',
-        text: 'What are you seeking physiotherapy for?',
-        type: 'radio',
-        options: [
-          { value: 'sports_injury', label: 'Sports Injury' },
-          { value: 'rehab', label: 'Post-surgery Rehabilitation' },
-          { value: 'chronic_pain', label: 'Chronic Pain Management' },
-          { value: 'assessment', label: 'General Assessment' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'counsellors',
-    questions: [
-      {
-        id: 'counselling_type',
-        text: 'What type of counselling are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'individual', label: 'Individual Counselling' },
-          { value: 'couples', label: 'Couples/Marriage Counselling' },
-          { value: 'family', label: 'Family Counselling' },
-          { value: 'trauma', label: 'Trauma/Grief Counselling' },
-          { value: 'not_sure', label: 'Not Sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'gynaecologists',
-    questions: [
-      {
-        id: 'gynae_reason',
-        text: 'What is the reason for your appointment?',
-        type: 'radio',
-        options: [
-          { value: 'checkup', label: 'Annual Check-up' },
-          { value: 'pregnancy', label: 'Pregnancy/Maternity Care' },
-          { value: 'menstrual', label: 'Menstrual Issues' },
-          { value: 'contraception', label: 'Contraception' },
-          { value: 'concern', label: 'Specific Concern' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'hair-stylists',
-    questions: [
-      {
-        id: 'hair_service',
-        text: 'What hair service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'cut_blowdry', label: 'Cut & Blow-dry' },
-          { value: 'colour', label: 'Colour/Highlights' },
-          { value: 'styling', label: 'Special Occasion Styling (Updo)' },
-          { value: 'treatment', label: 'Treatment' },
-          { value: 'consultation', label: 'Consultation' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'access-control',
-    questions: [
-      {
-        id: 'access_control_type',
-        text: 'What type of access control system do you need?',
-        type: 'radio',
-        options: [
-          { value: 'biometric', label: 'Biometric (Fingerprint/Face)' },
-          { value: 'card_tag', label: 'Card/Tag System' },
-          { value: 'keypad', label: 'Keypad System' },
-          { value: 'intercom', label: 'Intercom System' },
-          { value: 'repair', label: 'Repair/Maintenance' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'cctv',
-    questions: [
-      {
-        id: 'cctv_requirement',
-        text: 'What is your CCTV requirement?',
-        type: 'radio',
-        options: [
-          { value: 'installation', label: 'New Installation' },
-          { value: 'add_cameras', label: 'Add more cameras to existing system' },
-          { value: 'repair', label: 'Repair/Maintenance' },
-          { value: 'upgrade', label: 'Upgrade System' },
-          { value: 'remote_viewing', label: 'Remote Viewing Setup' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'tracing',
-    questions: [
-      {
-        id: 'tracing_type',
-        text: 'What type of tracing service do you require?',
-        type: 'radio',
-        options: [
-          { value: 'trace_person', label: 'Trace a Person' },
-          { value: 'trace_debtor', label: 'Trace a Debtor' },
-          { value: 'trace_witness', label: 'Trace a Witness' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'armed-response',
-    questions: [
-      {
-        id: 'property_type_security',
-        text: 'What type of property needs armed response?',
-        type: 'radio',
-        options: [
-          { value: 'residential', label: 'Residential Home' },
-          { value: 'business', label: 'Business/Commercial Property' },
-          { value: 'complex', label: 'Complex/Estate' },
-          { value: 'farm', label: 'Farm/Plot' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'fire-safety',
-    questions: [
-      {
-        id: 'fire_safety_service',
-        text: 'What fire safety service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'extinguisher', label: 'Fire Extinguisher Supply/Service' },
-          { value: 'alarm_system', label: 'Fire Detection/Alarm System' },
-          { value: 'certificate', label: 'Fire Safety Certificate (Compliance)' },
-          { value: 'consultation', label: 'Fire Escape Plan/Consultation' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'auto-electricians',
-    questions: [
-      {
-        id: 'auto_electric_issue',
-        text: "What issue are you experiencing with your vehicle's electronics?",
-        type: 'radio',
-        options: [
-          { value: 'battery_starting', label: 'Battery/Starting issues' },
-          { value: 'faulty_lights', label: 'Faulty lights' },
-          { value: 'wiring_problems', label: 'Wiring problems' },
-          { value: 'warning_lights', label: 'Warning lights on dashboard' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'car-aircon-regassing',
-    questions: [
-      {
-        id: 'aircon_service',
-        text: "What service do you need for your car's aircon?",
-        type: 'radio',
-        options: [
-          { value: 'regassing', label: 'Regassing' },
-          { value: 'repair', label: 'Repair (not cooling)' },
-          { value: 'leak_detection', label: 'Leak detection' },
-          { value: 'general_service', label: 'General service' },
-          { value: 'not_sure', label: 'Not sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'gearboxes',
-    questions: [
-      {
-        id: 'gearbox_service',
-        text: 'What service do you need for your gearbox?',
-        type: 'radio',
-        options: [
-          { value: 'repair', label: 'Repair' },
-          { value: 'replacement', label: 'Replacement' },
-          { value: 'service_oil_change', label: 'Service/Oil change' },
-          { value: 'diagnostics', label: 'Diagnostics' },
-          { value: 'not_sure', label: 'Not sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'batteries',
-    questions: [
-      {
-        id: 'battery_help',
-        text: 'What do you need help with regarding your battery?',
-        type: 'radio',
-        options: [
-          { value: 'new_battery', label: 'New battery purchase' },
-          { value: 'testing', label: 'Battery testing' },
-          { value: 'fitting', label: 'Battery fitting/installation' },
-          { value: 'flat', label: "Battery is flat/car won't start" },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'engine-overhauls',
-    questions: [
-      {
-        id: 'overhaul_reason',
-        text: 'What is the reason for the engine overhaul?',
-        type: 'radio',
-        options: [
-          { value: 'high_mileage', label: 'High mileage/wear' },
-          { value: 'failure', label: 'Specific failure (e.g., blown gasket)' },
-          { value: 'performance', label: 'Performance upgrade' },
-          { value: 'diagnostics', label: 'Diagnostics/Quote' },
-          { value: 'not_sure', label: 'Not sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'brakes-and-clutches',
-    questions: [
-      {
-        id: 'brake_clutch_service',
-        text: 'What service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'brake', label: 'Brake replacement/repair' },
-          { value: 'clutch', label: 'Clutch replacement/repair' },
-          { value: 'both', label: 'Both brake and clutch' },
-          { value: 'inspection', label: 'Inspection/Diagnostics' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'fuels',
-    questions: [
-      {
-        id: 'fuel_service',
-        text: 'What fuel service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'emergency_delivery', label: 'Emergency fuel delivery' },
-          { value: 'bulk_supply', label: 'Bulk fuel supply' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'forklift-training',
-    questions: [
-      {
-        id: 'forklift_training_type',
-        text: 'What type of forklift training do you need?',
-        type: 'radio',
-        options: [
-          { value: 'certification', label: 'New operator certification' },
-          { value: 'refresher', label: 'Refresher course' },
-          { value: 'group_training', label: 'On-site group training' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'team-building',
-    questions: [
-      {
-        id: 'team_size',
-        text: 'What is the approximate size of your team?',
-        type: 'radio',
-        options: [
-          { value: 'small', label: 'Small (1-10 people)' },
-          { value: 'medium', label: 'Medium (11-30 people)' },
-          { value: 'large', label: 'Large (31-100 people)' },
-          { value: 'very_large', label: 'Very Large (101+ people)' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'life-coaches',
-    questions: [
-      {
-        id: 'coaching_area',
-        text: 'What area are you seeking coaching for?',
-        type: 'radio',
-        options: [
-          { value: 'career', label: 'Career development' },
-          { value: 'personal_growth', label: 'Personal growth' },
-          { value: 'relationships', label: 'Relationships' },
-          { value: 'health_wellness', label: 'Health and wellness' },
-          { value: 'balance', label: 'General life balance' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'firearm-training',
-    questions: [
-      {
-        id: 'firearm_training_type',
-        text: 'What type of firearm training are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'competency', label: 'Competency training (for license)' },
-          { value: 'advanced', label: 'Advanced/Tactical training' },
-          { value: 'sport', label: 'Sport shooting' },
-          { value: 'self_defense', label: 'Self-defense' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'security-training',
-    questions: [
-      {
-        id: 'security_training_grade',
-        text: 'What grade of security training are you interested in?',
-        type: 'radio',
-        options: [
-          { value: 'e_to_c', label: 'Grade E to C (Basic)' },
-          { value: 'b_to_a', label: 'Grade B to A (Supervisory)' },
-          { value: 'specialized', label: 'Specialized (e.g., Armed Response, CIT)' },
-          { value: 'not_sure', label: 'Not sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'first-aid',
-    questions: [
-      {
-        id: 'first_aid_level',
-        text: 'What level of First Aid training do you need?',
-        type: 'radio',
-        options: [
-          { value: 'level_1', label: 'Level 1 (Basic)' },
-          { value: 'level_2', label: 'Level 2' },
-          { value: 'level_3', label: 'Level 3' },
-          { value: 'group', label: 'Group/Corporate training' },
-          { value: 'not_sure', label: 'Not sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'holiday-accommodation',
-    questions: [
-      {
-        id: 'accommodation_type',
-        text: 'What type of holiday accommodation are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'self_catering', label: 'Self-Catering' },
-          { value: 'b_and_b', label: 'Bed & Breakfast' },
-          { value: 'hotel', label: 'Hotel' },
-          { value: 'guest_house', label: 'Guest House' },
-          { value: 'lodge', label: 'Lodge' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'venues',
-    questions: [
-      {
-        id: 'venue_event_type',
-        text: 'What type of event are you planning?',
-        type: 'radio',
-        options: [
-          { value: 'conference', label: 'Conference/Meeting' },
-          { value: 'party', label: 'Party (Birthday, etc.)' },
-          { value: 'corporate', label: 'Corporate Function' },
-          { value: 'wedding', label: 'Wedding' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'wedding-venues',
-    questions: [
-      {
-        id: 'guest_count',
-        text: 'How many guests are you expecting?',
-        type: 'radio',
-        options: [
-          { value: 'intimate', label: 'Intimate (1-50)' },
-          { value: 'medium', label: 'Medium (51-120)' },
-          { value: 'large', label: 'Large (121-200)' },
-          { value: 'very_large', label: 'Very Large (201+)' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'tv-repairs',
-    questions: [
-      {
-        id: 'tv_problem',
-        text: 'What seems to be the problem with your TV?',
-        type: 'radio',
-        options: [
-          { value: 'no_power', label: 'No power' },
-          { value: 'blank_screen', label: 'Screen is blank or has lines' },
-          { value: 'sound_issue', label: 'Sound issues' },
-          { value: 'other', label: 'Other issue' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'dstv-installers',
-    questions: [
-      {
-        id: 'dstv_service',
-        text: 'What DSTV service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'new_installation', label: 'New installation' },
-          { value: 'realignment', label: 'Re-alignment or signal issue' },
-          { value: 'extra_view', label: 'Extra view setup' },
-          { value: 'upgrade', label: 'Upgrade' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'fridge-repairs',
-    questions: [
-      {
-        id: 'fridge_issue',
-        text: 'What is the issue with your fridge?',
-        type: 'radio',
-        options: [
-          { value: 'not_cooling', label: 'Not cooling' },
-          { value: 'leaking', label: 'Leaking water' },
-          { value: 'noise', label: 'Making strange noises' },
-          { value: 'freezer_issue', label: 'Freezer not working' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'tv-installers',
-    questions: [
-      {
-        id: 'tv_installation_type',
-        text: 'What kind of TV installation do you need?',
-        type: 'radio',
-        options: [
-          { value: 'wall_mount', label: 'Wall mounting' },
-          { value: 'setup_tuning', label: 'Initial setup & tuning' },
-          { value: 'home_theatre', label: 'Home theatre setup' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'conveyancers',
-    questions: [
-      {
-        id: 'conveyancing_need',
-        text: 'What type of property transaction do you need assistance with?',
-        type: 'radio',
-        options: [
-          { value: 'buying', label: 'Buying a property' },
-          { value: 'selling', label: 'Selling a property' },
-          { value: 'bond_registration', label: 'Bond registration' },
-          { value: 'property_transfer', label: 'Property transfer' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'estate-agents',
-    questions: [
-      {
-        id: 'estate_agent_need',
-        text: 'Are you looking to buy, sell, or rent a property?',
-        type: 'radio',
-        options: [
-          { value: 'sell', label: 'I want to sell my property' },
-          { value: 'buy', label: 'I\'m looking to buy a property' },
-          { value: 'rent', label: 'I\'m looking for a property to rent' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'labour-lawyers',
-    questions: [
-      {
-        id: 'labour_law_query',
-        text: 'What is the nature of your labour law query?',
-        type: 'radio',
-        options: [
-          { value: 'unfair_dismissal', label: 'Unfair dismissal' },
-          { value: 'contract_review', label: 'Employment contract review' },
-          { value: 'ccma_case', label: 'CCMA case' },
-          { value: 'general_advice', label: 'General advice' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'taxis',
-    questions: [
-      {
-        id: 'taxi_service_type',
-        text: 'What kind of taxi service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'once_off', label: 'Once-off trip' },
-          { value: 'airport_transfer', label: 'Airport transfer' },
-          { value: 'regular_commute', label: 'Regular commute' },
-          { value: 'event_transport', label: 'Event transport' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'school-transport',
-    questions: [
-      {
-        id: 'child_count',
-        text: 'For how many children do you need transport?',
-        type: 'radio',
-        options: [
-          { value: '1', label: '1 child' },
-          { value: '2', label: '2 children' },
-          { value: '3', label: '3 children' },
-          { value: '4_plus', label: '4+ children' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'transportation',
-    questions: [
-      {
-        id: 'transport_need',
-        text: 'What do you need to transport?',
-        type: 'radio',
-        options: [
-          { value: 'goods', label: 'Goods/Parcels' },
-          { value: 'furniture', label: 'Furniture' },
-          { value: 'people', label: 'People (Shuttle Service)' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'cellphone-repairs',
-    questions: [
-      {
-        id: 'cellphone_issue',
-        text: 'What is the issue with your cellphone?',
-        type: 'radio',
-        options: [
-          { value: 'screen', label: 'Cracked screen' },
-          { value: 'battery', label: 'Battery replacement' },
-          { value: 'water_damage', label: 'Water damage' },
-          { value: 'no_power', label: 'Not turning on' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'networking',
-    questions: [
-      {
-        id: 'networking_service',
-        text: 'What kind of networking service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'wifi', label: 'Home WiFi setup/troubleshooting' },
-          { value: 'office_network', label: 'Office network setup' },
-          { value: 'cabling', label: 'Cabling installation' },
-          { value: 'security', label: 'Network security' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'office-equipment',
-    questions: [
-      {
-        id: 'office_equipment_service',
-        text: 'What kind of office equipment service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'repair', label: 'Printer/Copier repair' },
-          { value: 'purchase', label: 'Equipment purchase' },
-          { value: 'rental', label: 'Equipment rental' },
-          { value: 'maintenance', label: 'General maintenance' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'internet-solutions',
-    questions: [
-      {
-        id: 'internet_solution_need',
-        text: 'What internet solution are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'fibre', label: 'Fibre installation' },
-          { value: 'adsl', label: 'ADSL/VDSL' },
-          { value: 'mobile', label: 'LTE/5G Mobile internet' },
-          { value: 'troubleshooting', label: 'General troubleshooting' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'gas-suppliers',
-    questions: [
-      {
-        id: 'gas_service_type',
-        text: 'What type of gas service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'new_bottle', label: 'New gas bottle/cylinder' },
-          { value: 'refill', label: 'Gas refill/exchange' },
-          { value: 'coc', label: 'Gas installation compliance certificate (COC)' },
-          { value: 'appliance_servicing', label: 'Gas appliance servicing' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'marble-and-granite-suppliers',
-    questions: [
-      {
-        id: 'marble_granite_need',
-        text: 'What are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'kitchen_countertops', label: 'Kitchen countertops' },
-          { value: 'bathroom_vanities', label: 'Bathroom vanities' },
-          { value: 'flooring', label: 'Flooring' },
-          { value: 'wall_cladding', label: 'Wall cladding' },
-          { value: 'other', label: 'Other custom work' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'personal-protection-equipment',
-    questions: [
-      {
-        id: 'job_details',
-        text: 'What type of PPE are you looking for?',
-        type: 'textarea',
-        placeholder: 'e.g., Safety boots, hard hats, high-visibility vests, gloves, masks, etc. Please specify quantities if known.',
-      },
-      locationQuestion,
-      urgencyQuestion,
-      budgetQuestion,
-    ],
-  },
-  {
-    service: 'stationery',
-    questions: [
-      {
-        id: 'stationery_type',
-        text: 'What type of stationery do you need? (Select all that apply)',
-        type: 'checkbox',
-        options: [
-          { value: 'office_basics', label: 'Office Basics (Pens, Paper, Staples)' },
-          { value: 'printing', label: 'Printing Supplies (Ink, Toner, Paper)' },
-          { value: 'filing', label: 'Filing & Storage (Files, Folders, Labels)' },
-          { value: 'scholastic', label: 'Scholastic/School Supplies' },
-          { value: 'art_craft', label: 'Art & Craft Supplies' },
-          { value: 'bulk_order', label: 'Bulk Office Order' },
-        ],
-      },
-      {
-        id: 'job_details',
-        text: 'Please provide more details about the items and quantities you need.',
-        type: 'textarea',
-        placeholder: 'e.g., 10 boxes of A4 paper, 5 black ink cartridges for HP Deskjet, 50 blue pens...',
-      },
-      locationQuestion,
-      urgencyQuestion,
-      budgetQuestion,
-    ],
-  },
-  {
-    service: 'swimming-pool-supplies',
-    questions: [
-      {
-        id: 'pool_supplies_need',
-        text: 'What swimming pool supplies are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'chemicals', label: 'Chemicals (Chlorine, Acid)' },
-          { value: 'pool_cleaner', label: 'Pool cleaner/kreepy' },
-          { value: 'pump_filter', label: 'Pump/Filter' },
-          { value: 'pool_cover', label: 'Pool cover' },
-          { value: 'maintenance_equipment', label: 'General maintenance equipment' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'agricultural-equipment',
-    questions: [
-      {
-        id: 'agri_equipment_service',
-        text: 'What kind of agricultural equipment service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'purchase', label: 'Purchase new equipment' },
-          { value: 'repair', label: 'Repair existing equipment' },
-          { value: 'hire', label: 'Equipment hire' },
-          { value: 'servicing', label: 'Servicing/Maintenance' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'agricultural-services',
-    questions: [
-      {
-        id: 'agri_service',
-        text: 'What agricultural service are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'crop_spraying', label: 'Crop spraying' },
-          { value: 'soil_analysis', label: 'Soil analysis' },
-          { value: 'livestock_services', label: 'Livestock services' },
-          { value: 'farm_planning', label: 'Farm planning/consulting' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'borehole-drillers',
-    questions: [
-      {
-        id: 'borehole_reason',
-        text: 'What is the primary reason for drilling a borehole?',
-        type: 'radio',
-        options: [
-          { value: 'home_use', label: 'New borehole for home/garden use' },
-          { value: 'agri_use', label: 'New borehole for agricultural use' },
-          { value: 'yield_testing', label: 'Borehole yield testing' },
-          { value: 'maintenance', label: 'Borehole cleaning/maintenance' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'baby-sitters',
-    questions: [
-      {
-        id: 'babysitter_need',
-        text: 'When do you need a baby sitter?',
-        type: 'radio',
-        options: [
-          { value: 'once_off_day', label: 'Once-off (daytime)' },
-          { value: 'once_off_evening', label: 'Once-off (evening)' },
-          { value: 'regularly', label: 'Regularly (e.g., weekly)' },
-          { value: 'full_time', label: 'Full-time' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'creches',
-    questions: [
-      {
-        id: 'child_age',
-        text: 'What age is your child?',
-        type: 'radio',
-        options: [
-          { value: '0_1', label: '0-1 year' },
-          { value: '1_2', label: '1-2 years' },
-          { value: '3_4', label: '3-4 years' },
-          { value: '5_6', label: '5-6 years' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'day-care-centres',
-    questions: [
-      {
-        id: 'child_age',
-        text: 'What age is your child?',
-        type: 'radio',
-        options: [
-          { value: '0_1', label: '0-1 year' },
-          { value: '1_2', label: '1-2 years' },
-          { value: '3_4', label: '3-4 years' },
-          { value: '5_6', label: '5-6 years' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'pre-schools',
-    questions: [
-      {
-        id: 'child_age',
-        text: 'What age is your child?',
-        type: 'radio',
-        options: [
-          { value: '3_4', label: '3-4 years' },
-          { value: '4_5', label: '4-5 years' },
-          { value: '5_6', label: '5-6 years (Grade R)' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'dressmakers',
-    questions: [
-      {
-        id: 'dressmaker_need',
-        text: 'What do you need a dressmaker for?',
-        type: 'radio',
-        options: [
-          { value: 'custom_outfit', label: 'Custom-made outfit (e.g., wedding, matric dance)' },
-          { value: 'alterations', label: 'Alterations to existing clothing' },
-          { value: 'repairs', label: 'Repairs' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'embroidery',
-    questions: [
-      {
-        id: 'embroidery_need',
-        text: 'What do you need embroidered?',
-        type: 'radio',
-        options: [
-          { value: 'corporate_wear', label: 'Corporate wear (logos on shirts)' },
-          { value: 'personal_items', label: 'Personal items (gifting)' },
-          { value: 'team_uniforms', label: 'Team/School uniforms' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'cake-shops',
-    questions: [
-      {
-        id: 'cake_occasion',
-        text: 'What is the occasion for the cake?',
-        type: 'radio',
-        options: [
-          { value: 'birthday', label: 'Birthday' },
-          { value: 'wedding', label: 'Wedding' },
-          { value: 'corporate_event', label: 'Corporate Event' },
-          { value: 'special_treat', label: 'Special Treat' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'caterers',
-    questions: [
-      {
-        id: 'catering_event_type',
-        text: 'What type of event are you catering for?',
-        type: 'radio',
-        options: [
-          { value: 'wedding', label: 'Wedding' },
-          { value: 'corporate_function', label: 'Corporate Function' },
-          { value: 'private_party', label: 'Private Party' },
-          { value: 'funeral', label: 'Funeral' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'groomers',
-    questions: [
-      {
-        id: 'pet_type',
-        text: 'What pet do you need groomed?',
-        type: 'radio',
-        options: [
-          { value: 'dog', label: 'Dog' },
-          { value: 'cat', label: 'Cat' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'pet-sitters',
-    questions: [
-      {
-        id: 'pet_sitting_type',
-        text: 'What kind of pet sitting do you need?',
-        type: 'radio',
-        options: [
-          { value: 'at_my_home', label: "At my home (while I'm away)" },
-          { value: 'daily_visits', label: 'Daily visits' },
-          { value: 'dog_walking', label: 'Dog walking' },
-          { value: 'boarding', label: "Boarding at sitter's home" },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'tour-operators',
-    questions: [
-      {
-        id: 'tour_type',
-        text: 'What kind of tour are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'safari', label: 'Safari/Wildlife tour' },
-          { value: 'city_cultural', label: 'City/Cultural tour' },
-          { value: 'adventure', label: 'Adventure tour' },
-          { value: 'custom_private', label: 'Custom private tour' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'travel-agents',
-    questions: [
-      {
-        id: 'travel_assistance_need',
-        text: 'What type of travel assistance do you need?',
-        type: 'radio',
-        options: [
-          { value: 'international_package', label: 'International holiday package' },
-          { value: 'local_package', label: 'Local holiday package' },
-          { value: 'flights_accommodation', label: 'Flights and accommodation booking' },
-          { value: 'visa_assistance', label: 'Visa assistance' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'town-planners',
-    questions: [
-      {
-        id: 'town_planner_service',
-        text: 'What service do you need from a town planner?',
-        type: 'radio',
-        options: [
-          { value: 'rezoning', label: 'Rezoning application' },
-          { value: 'subdivision', label: 'Subdivision or consolidation of land' },
-          { value: 'consent_use', label: 'Consent use application' },
-          { value: 'building_plans', label: 'Building plan submissions' },
-          { value: 'consultation', label: 'General consultation/feasibility' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'djs',
-    questions: [
-        {
-            id: 'dj_event_type',
-            text: 'What type of event is the DJ for?',
-            type: 'radio',
-            options: [
-                { value: 'wedding', label: 'Wedding' },
-                { value: 'corporate_event', label: 'Corporate Event' },
-                { value: 'birthday_party', label: 'Birthday Party' },
-                { value: 'club_or_bar', label: 'Club or Bar' },
-                { value: 'other', label: 'Other' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'tent-hire',
-    questions: [
-        {
-            id: 'tent_type',
-            text: 'What type of tent do you need?',
-            type: 'radio',
-            options: [
-                { value: 'peg_and_pole', label: 'Peg and Pole Tent' },
-                { value: 'frame', label: 'Frame Tent' },
-                { value: 'stretch', label: 'Stretch Tent' },
-                { value: 'not_sure', label: 'Not Sure / Need Advice' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'toilet-hire',
-    questions: [
-        {
-            id: 'toilet_type',
-            text: 'What type of portable toilets do you need?',
-            type: 'radio',
-            options: [
-                { value: 'standard', label: 'Standard Portable Toilets' },
-                { value: 'luxury', label: 'Luxury/VIP Toilets' },
-                { value: 'disabled_access', label: 'Disabled Access Toilets' },
-                { value: 'construction_site', label: 'Construction Site Toilets' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'videographers',
-    questions: [
-        {
-            id: 'video_event_type',
-            text: 'What type of event do you need filmed?',
-            type: 'radio',
-            options: [
-                { value: 'wedding', label: 'Wedding' },
-                { value: 'corporate', label: 'Corporate Event/Video' },
-                { value: 'music_video', label: 'Music Video' },
-                { value: 'personal_event', label: 'Personal Event (e.g., Birthday)' },
-                { value: 'real_estate', label: 'Real Estate' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'party-planners',
-    questions: [
-      {
-        id: 'party_type',
-        text: 'What type of party are you planning?',
-        type: 'radio',
-        options: [
-          { value: 'birthday', label: 'Birthday Party' },
-          { value: 'anniversary', label: 'Anniversary' },
-          { value: 'baby_shower', label: 'Baby Shower' },
-          { value: 'themed_party', label: 'Themed Party' },
-          { value: 'other', label: 'Other' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'insurance',
-    questions: [
-        {
-            id: 'insurance_type',
-            text: 'What type of insurance are you looking for?',
-            type: 'radio',
-            options: [
-                { value: 'car', label: 'Car Insurance' },
-                { value: 'home', label: 'Home Insurance' },
-                { value: 'life', label: 'Life Insurance' },
-                { value: 'business', label: 'Business Insurance' },
-                { value: 'medical_aid', label: 'Medical Aid' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'dentists',
-    questions: [
-        {
-            id: 'dentist_reason',
-            text: 'What is the reason for your dental visit?',
-            type: 'radio',
-            options: [
-                { value: 'checkup', label: 'General Check-up and Cleaning' },
-                { value: 'pain', label: 'Pain or Emergency' },
-                { value: 'cosmetic', label: 'Cosmetic (Whitening, Veneers)' },
-                { value: 'filling_extraction', label: 'Filling or Extraction' },
-                { value: 'braces', label: 'Braces/Orthodontics' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'massage-therapists',
-    questions: [
-        {
-            id: 'massage_type',
-            text: 'What type of massage are you looking for?',
-            type: 'radio',
-            options: [
-                { value: 'swedish', label: 'Swedish/Relaxation' },
-                { value: 'deep_tissue', label: 'Deep Tissue' },
-                { value: 'sports', label: 'Sports Massage' },
-                { value: 'couples', label: 'Couples Massage' },
-                { value: 'not_sure', label: 'Not Sure / Recommendation' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'psychologists',
-    questions: [
-        {
-            id: 'psychologist_reason',
-            text: 'What are you seeking help for?',
-            type: 'radio',
-            options: [
-                { value: 'anxiety_depression', label: 'Anxiety or Depression' },
-                { value: 'relationship_issues', label: 'Relationship Issues' },
-                { value: 'trauma', label: 'Trauma' },
-                { value: 'personal_growth', label: 'Personal Growth' },
-                { value: 'child_adolescent', label: 'Child or Adolescent Issues' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'plastic-surgeons',
-    questions: [
-        {
-            id: 'plastic_surgery_area',
-            text: 'What area are you interested in?',
-            type: 'radio',
-            options: [
-                { value: 'face', label: 'Face (e.g., Rhinoplasty, Facelift)' },
-                { value: 'breast', label: 'Breast (e.g., Augmentation, Reduction)' },
-                { value: 'body', label: 'Body (e.g., Liposuction, Tummy Tuck)' },
-                { value: 'non_surgical', label: 'Non-surgical (e.g., Botox, Fillers)' },
-                { value: 'consultation', label: 'General Consultation' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'dieticians',
-    questions: [
-        {
-            id: 'dietician_goal',
-            text: 'What is your primary goal?',
-            type: 'radio',
-            options: [
-                { value: 'weight_loss', label: 'Weight Loss' },
-                { value: 'medical_condition', label: 'Managing a Medical Condition (e.g., Diabetes)' },
-                { value: 'sports_nutrition', label: 'Sports Nutrition' },
-                { value: 'healthy_eating', label: 'General Healthy Eating Plan' },
-                { value: 'child_nutrition', label: 'Child Nutrition' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'panel-beaters',
-    questions: [
-        {
-            id: 'panel_beating_service',
-            text: 'What service do you need?',
-            type: 'radio',
-            options: [
-                { value: 'dent_repair', label: 'Dent and Scratch Repair' },
-                { value: 'major_repair', label: 'Major Accident Repair' },
-                { value: 'spray_painting', label: 'Spray Painting' },
-                { value: 'hail_damage', label: 'Hail Damage Repair' },
-                { value: 'assessment_quote', label: 'Assessment for Insurance Quote' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'mechanics',
-    questions: [
-        {
-            id: 'mechanic_service',
-            text: 'What service does your car need?',
-            type: 'radio',
-            options: [
-                { value: 'major_service', label: 'Major Service' },
-                { value: 'minor_service', label: 'Minor Service / Oil Change' },
-                { value: 'specific_repair', label: 'Specific Repair (e.g., Brakes, Engine)' },
-                { value: 'diagnostics', label: 'Diagnostics (Warning light on)' },
-                { value: 'not_sure', label: 'I\'m not sure' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'auto-glass',
-    questions: [
-        {
-            id: 'auto_glass_service',
-            text: 'What do you need?',
-            type: 'radio',
-            options: [
-                { value: 'windscreen_replacement', label: 'Windscreen Replacement' },
-                { value: 'chip_repair', label: 'Windscreen Chip Repair' },
-                { value: 'side_window', label: 'Side or Rear Window Replacement' },
-                { value: 'quote_for_insurance', label: 'Quote for Insurance' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'tow-bars',
-    questions: [
-        {
-            id: 'tow_bar_service',
-            text: 'What service do you need?',
-            type: 'radio',
-            options: [
-                { value: 'installation', label: 'New Tow Bar Installation' },
-                { value: 'repair', label: 'Repair Existing Tow Bar' },
-                { value: 'wiring', label: 'Wiring and Electrics' },
-                { value: 'quote', label: 'Just getting a quote' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'towing',
-    questions: [
-        {
-            id: 'towing_reason',
-            text: 'Why do you need a tow?',
-            type: 'radio',
-            options: [
-                { value: 'breakdown', label: 'Vehicle Breakdown' },
-                { value: 'accident', label: 'Accident Scene' },
-                { value: 'transport', label: 'Vehicle Transport (non-emergency)' },
-                { value: 'roadside_assistance', label: 'Roadside Assistance (e.g., flat battery, flat tyre)' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'computer-courses',
-    questions: [
-        {
-            id: 'course_level',
-            text: 'What is your current skill level?',
-            type: 'radio',
-            options: [
-                { value: 'beginner', label: 'Beginner (Basic computer skills)' },
-                { value: 'intermediate', label: 'Intermediate (e.g., Office Suite)' },
-                { value: 'advanced', label: 'Advanced (e.g., Programming, Networking)' },
-                { value: 'specific_software', label: 'Specific Software (e.g., Adobe, AutoCAD)' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'driving-schools',
-    questions: [
-        {
-            id: 'license_code',
-            text: 'What license code are you going for?',
-            type: 'radio',
-            options: [
-                { value: 'learners', label: 'Learner\'s License' },
-                { value: 'code_8', label: 'Code 8 (B) - Light Motor Vehicle' },
-                { value: 'code_10', label: 'Code 10 (C1) - Heavy Vehicle' },
-                { value: 'motorcycle', label: 'Motorcycle License (A)' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'swimming-lessons',
-    questions: [
-        {
-            id: 'swimmer_age',
-            text: 'Who are the lessons for?',
-            type: 'radio',
-            options: [
-                { value: 'infant_toddler', label: 'Infant/Toddler' },
-                { value: 'child', label: 'Child (4-12 years)' },
-                { value: 'teenager', label: 'Teenager' },
-                { value: 'adult', label: 'Adult' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'appliance-repairs',
-    questions: [
-        {
-            id: 'appliance_type',
-            text: 'Which appliance needs repair?',
-            type: 'radio',
-            options: [
-                { value: 'fridge_freezer', label: 'Fridge / Freezer' },
-                { value: 'washing_machine', label: 'Washing Machine' },
-                { value: 'dishwasher', label: 'Dishwasher' },
-                { value: 'oven_stove', label: 'Oven / Stove' },
-                { value: 'other', label: 'Other' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'lawyers',
-    questions: [
-        {
-            id: 'legal_area',
-            text: 'What area of law do you need assistance with?',
-            type: 'radio',
-            options: [
-                { value: 'family', label: 'Family Law (Divorce, Custody)' },
-                { value: 'criminal', label: 'Criminal Law' },
-                { value: 'commercial', label: 'Commercial/Business Law' },
-                { value: 'property', label: 'Property Law/Conveyancing' },
-                { value: 'labour', label: 'Labour Law' },
-                { value: 'other', label: 'Other/Not Sure' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'divorce-lawyers',
-    questions: [
-      {
-        id: 'divorce_type',
-        text: 'What best describes your situation?',
-        type: 'radio',
-        options: [
-          { value: 'uncontested', label: 'Uncontested Divorce (Both parties agree)' },
-          { value: 'contested', label: 'Contested Divorce' },
-          { value: 'consultation', label: 'Just need legal advice/consultation' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'couriers',
-    questions: [
-      {
-        id: 'delivery_type',
-        text: 'What type of delivery service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'local_sameday', label: 'Local Same-Day' },
-          { value: 'overnight', label: 'Overnight to another city' },
-          { value: 'international', label: 'International' },
-          { value: 'bulk', label: 'Bulk/Freight' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'shuttle-services',
-    questions: [
-      {
-        id: 'shuttle_service_type',
-        text: 'What type of shuttle service do you need?',
-        type: 'radio',
-        options: [
-          { value: 'airport', label: 'Airport Transfer' },
-          { value: 'point_to_point', label: 'Point-to-Point Transfer' },
-          { value: 'event', label: 'Event/Group Transport' },
-          { value: 'tour', label: 'Tour/Sightseeing' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'marriage-counsellors',
-    questions: [
-      {
-        id: 'counselling_format',
-        text: 'What format of counselling are you looking for?',
-        type: 'radio',
-        options: [
-          { value: 'couples', label: 'Couples sessions' },
-          { value: 'individual', label: 'Individual sessions' },
-          { value: 'pre_marital', label: 'Pre-marital counselling' },
-          { value: 'not_sure', label: 'Not sure' },
-        ],
-      },
-      ...commonQuestions,
-    ],
-  },
-  {
-    service: 'auditors',
-    questions: [
-        {
-            id: 'audit_type',
-            text: 'What type of audit service do you need?',
-            type: 'radio',
-            options: [
-                { value: 'internal', label: 'Internal Audit' },
-                { value: 'external', label: 'External/Statutory Audit' },
-                { value: 'forensic', label: 'Forensic Audit' },
-                { value: 'compliance', label: 'Compliance Audit' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'printing',
-    questions: [
-        {
-            id: 'printing_need',
-            text: 'What do you need printed?',
-            type: 'radio',
-            options: [
-                { value: 'business_cards', label: 'Business Cards' },
-                { value: 'flyers', label: 'Flyers/Brochures' },
-                { value: 'banners', label: 'Banners/Posters' },
-                { value: 'documents', label: 'Documents' },
-                { value: 'other', label: 'Other' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'signs',
-    questions: [
-        {
-            id: 'sign_type',
-            text: 'What type of sign do you need?',
-            type: 'radio',
-            options: [
-                { value: 'shop_front', label: 'Shop Front Signage' },
-                { value: 'vehicle', label: 'Vehicle Branding/Signage' },
-                { value: 'event', label: 'Event Banners/Signs' },
-                { value: 'safety', label: 'Safety Signs' },
-                { value: 'other', label: 'Other' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
-    service: 'car-window-tinting',
-    questions: [
-        {
-            id: 'tinting_type',
-            text: 'What type of tint are you looking for?',
-            type: 'radio',
-            options: [
-                { value: 'smash_grab', label: 'Smash and Grab' },
-                { value: 'standard', label: 'Standard Tint' },
-                { value: 'removal', label: 'Removal of old tint' },
-                { value: 'not_sure', label: 'Not Sure / Need advice' },
-            ],
-        },
-        ...commonQuestions,
-    ],
-  },
-  {
     service: 'upholstery-cleaning',
     questions: [
       {
@@ -3074,6 +1278,368 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
+  {
+    service: 'aluminium-doors-and-windows',
+    questions: [
+        {
+            id: 'aluminium_service',
+            text: 'What do you need?',
+            type: 'radio',
+            options: [
+                { value: 'new_windows', label: 'New Windows' },
+                { value: 'new_doors', label: 'New Doors (Sliding, Folding, etc.)' },
+                { value: 'repair', label: 'Repair existing windows/doors' },
+                { value: 'replacement', label: 'Replace old windows/doors' },
+            ],
+        },
+        ...commonQuestions,
+    ],
+  },
+  {
+      service: 'blinds',
+      questions: [
+          {
+              id: 'blinds_type',
+              text: 'What type of blinds are you interested in?',
+              type: 'radio',
+              options: [
+                  { value: 'venetian', label: 'Venetian (Aluminium or Wood)' },
+                  { value: 'roller', label: 'Roller Blinds' },
+                  { value: 'vertical', label: 'Vertical Blinds' },
+                  { value: 'roman', label: 'Roman Blinds' },
+                  { value: 'not_sure', label: 'Not sure / Need advice' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'carpeting',
+      questions: [
+          {
+              id: 'carpeting_area',
+              text: 'Which area needs carpeting?',
+              type: 'radio',
+              options: [
+                  { value: 'bedroom', label: 'Bedroom(s)' },
+                  { value: 'living_area', label: 'Living Area' },
+                  { value: 'office', label: 'Office/Commercial Space' },
+                  { value: 'full_house', label: 'Entire House' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'gas-installers',
+      questions: [
+          {
+              id: 'gas_appliance',
+              text: 'What do you need installed?',
+              type: 'radio',
+              options: [
+                  { value: 'hob', label: 'Gas Hob/Stove' },
+                  { value: 'geyser', label: 'Gas Geyser' },
+                  { value: 'fireplace', label: 'Gas Fireplace' },
+                  { value: 'coc', label: 'Certificate of Compliance (CoC) inspection' },
+                  { value: 'repair', label: 'Repair/Service existing installation' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'interior-designing',
+      questions: [
+          {
+              id: 'design_scope',
+              text: 'What is the scope of your project?',
+              type: 'radio',
+              options: [
+                  { value: 'single_room', label: 'Single Room Design' },
+                  { value: 'full_home', label: 'Full Home Interior Design' },
+                  { value: 'consultation', label: 'Design Consultation' },
+                  { value: 'commercial', label: 'Commercial Space (Office, Retail)' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'palisade-fencing',
+      questions: [
+          {
+              id: 'palisade_service',
+              text: 'What do you need for your palisade fencing?',
+              type: 'radio',
+              options: [
+                  { value: 'new_install', label: 'New Installation' },
+                  { value: 'repair', label: 'Repair existing fence' },
+                  { value: 'painting', label: 'Painting/Maintenance' },
+                  { value: 'gate', label: 'Matching Gate' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'roofing',
+      questions: [
+          {
+              id: 'roofing_service',
+              text: 'What is the main issue with your roof?',
+              type: 'radio',
+              options: [
+                  { value: 'leak_repair', label: 'Leak Repair' },
+                  { value: 'new_roof', label: 'New Roof Installation / Replacement' },
+                  { value: 'waterproofing', label: 'Waterproofing' },
+                  { value: 'maintenance', label: 'General Maintenance/Inspection' },
+                  { value: 'painting', label: 'Roof Painting' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'solar-geysers',
+      questions: [
+          {
+              id: 'geyser_service',
+              text: 'What service do you need for a solar geyser?',
+              type: 'radio',
+              options: [
+                  { value: 'new_install', label: 'New Installation' },
+                  { value: 'repair', label: 'Repair existing system' },
+                  { value: 'service', label: 'General Service/Maintenance' },
+                  { value: 'quote_advice', label: 'Just getting quotes/advice' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'upholsterers',
+      questions: [
+          {
+              id: 'upholstery_item',
+              text: 'What item needs upholstery work?',
+              type: 'radio',
+              options: [
+                  { value: 'couch', label: 'Couch/Sofa' },
+                  { value: 'chair', label: 'Armchair/Dining Chairs' },
+                  { value: 'headboard', label: 'Headboard' },
+                  { value: 'outdoor', label: 'Outdoor Furniture Cushions' },
+                  { value: 'other', label: 'Other' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'tar-surfacing',
+      questions: [
+          {
+              id: 'tar_area',
+              text: 'What area needs tar surfacing?',
+              type: 'radio',
+              options: [
+                  { value: 'driveway', label: 'Driveway' },
+                  { value: 'parking_lot', label: 'Parking Lot' },
+                  { value: 'road', label: 'Small Road/Access Way' },
+                  { value: 'repair', label: 'Pothole/Crack Repair' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'painter',
+      questions: [
+          {
+              id: 'paint_area',
+              text: 'What needs painting?',
+              type: 'radio',
+              options: [
+                  { value: 'interior', label: 'Interior' },
+                  { value: 'exterior', label: 'Exterior' },
+                  { value: 'both', label: 'Interior and Exterior' },
+                  { value: 'roof', label: 'Roof' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'home-improvements',
+      questions: [
+          {
+              id: 'improvement_type',
+              text: 'What type of home improvement are you planning?',
+              type: 'radio',
+              options: [
+                  { value: 'kitchen', label: 'Kitchen Renovation' },
+                  { value: 'bathroom', label: 'Bathroom Renovation' },
+                  { value: 'extension', label: 'Building Extension' },
+                  { value: 'general', label: 'General Repairs and Maintenance' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'glass-works',
+      questions: [
+          {
+              id: 'glass_service',
+              text: 'What glass service do you need?',
+              type: 'radio',
+              options: [
+                  { value: 'window_replace', label: 'Window pane replacement' },
+                  { value: 'shower_door', label: 'Frameless Shower Door' },
+                  { value: 'table_top', label: 'Custom Glass Table Top' },
+                  { value: 'mirror', label: 'Custom Mirror' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'gardeners',
+      questions: [
+          {
+              id: 'gardening_service',
+              text: 'What gardening service do you need?',
+              type: 'radio',
+              options: [
+                  { value: 'once_off', label: 'Once-off garden clean-up' },
+                  { value: 'regular', label: 'Regular maintenance (weekly/bi-weekly)' },
+                  { value: 'landscaping', label: 'Landscaping design/installation' },
+                  { value: 'tree_felling', label: 'Tree felling/pruning' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'fencing',
+      questions: [
+          {
+              id: 'fencing_type',
+              text: 'What type of fencing do you need?',
+              type: 'radio',
+              options: [
+                  { value: 'electric', label: 'Electric Fence' },
+                  { value: 'palisade', label: 'Palisade (Steel)' },
+                  { value: 'wire', label: 'Wire Mesh' },
+                  { value: 'precast', label: 'Precast Concrete Wall' },
+                  { value: 'repair', label: 'Repair existing fence' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'ceiling-installers',
+      questions: [
+          {
+              id: 'ceiling_service',
+              text: 'What do you need?',
+              type: 'radio',
+              options: [
+                  { value: 'new_ceiling', label: 'New ceiling installation' },
+                  { value: 'repair', label: 'Ceiling repair (e.g., water damage)' },
+                  { value: 'cornice', label: 'Cornice installation/repair' },
+                  { value: 'suspended', label: 'Suspended ceiling (for offices)' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'carpenter',
+      questions: [
+          {
+              id: 'carpentry_work',
+              text: 'What carpentry work do you need?',
+              type: 'radio',
+              options: [
+                  { value: 'cupboards', label: 'Built-in Cupboards' },
+                  { value: 'kitchen', label: 'Kitchen Cabinets' },
+                  { value: 'decking', label: 'Wooden Decking' },
+                  { value: 'doors_windows', label: 'Hanging Doors / Window Frames' },
+                  { value: 'custom', label: 'Custom Furniture' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'air-conditioning',
+      questions: [
+          {
+              id: 'ac_service',
+              text: 'What service do you need for your air conditioner?',
+              type: 'radio',
+              options: [
+                  { value: 'installation', label: 'New unit installation' },
+                  { value: 'repair', label: 'Repair (not cooling, leaking, etc.)' },
+                  { value: 'service', label: 'General service/maintenance' },
+                  { value: 'regas', label: 'Regassing' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'awnings',
+      questions: [
+          {
+              id: 'awning_type',
+              text: 'What type of awning are you looking for?',
+              type: 'radio',
+              options: [
+                  { value: 'retractable', label: 'Retractable Awning' },
+                  { value: 'fixed', label: 'Fixed Awning' },
+                  { value: 'shade_sail', label: 'Shade Sail' },
+                  { value: 'repair', label: 'Repair existing awning' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'carports',
+      questions: [
+          {
+              id: 'carport_type',
+              text: 'What type of carport do you need?',
+              type: 'radio',
+              options: [
+                  { value: 'shade_net', label: 'Shade Net Carport' },
+                  { value: 'steel_ibr', label: 'Steel (IBR) Carport' },
+                  { value: 'repair', label: 'Repair existing carport' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  },
+  {
+      service: 'carpet-cleaning',
+      questions: [
+          {
+              id: 'carpet_cleaning_area',
+              text: 'What needs to be cleaned?',
+              type: 'checkbox',
+              options: [
+                  { value: 'loose_rugs', label: 'Loose Rugs' },
+                  { value: 'fitted_carpets', label: 'Fitted Carpets' },
+                  { value: 'upholstery', label: 'Upholstery (Couches, Chairs)' },
+                  { value: 'mattress', label: 'Mattress' },
+              ],
+          },
+          ...commonQuestions,
+      ],
+  }
 ];
 
 
