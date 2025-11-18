@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
@@ -41,6 +41,13 @@ export default function PostRequestPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [locationValue, setLocationValue] = useState('');
+
+  useEffect(() => {
+    // If a service is passed in the URL, skip the first step.
+    if (serviceQuery) {
+      setStep(1);
+    }
+  }, [serviceQuery]);
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === selectedService) ||
