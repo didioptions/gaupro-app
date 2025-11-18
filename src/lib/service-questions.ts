@@ -1927,11 +1927,222 @@ export const serviceQuestionSets: QuestionSet[] = [
       { id: 'counselling_reason', text: 'What would you like to focus on?', type: 'radio', options: [{ value: 'anxiety_stress', label: 'Anxiety / Stress' }, { value: 'depression', label: 'Depression / Low Mood' }, { value: 'relationships', label: 'Relationships' }, { value: 'trauma', label: 'Trauma' }] },
       ...commonQuestions,
     ],
-  }
+  },
+  {
+    service: 'access-control',
+    questions: [
+      { id: 'access_system_type', text: 'What type of access control system do you need?', type: 'radio', options: [{ value: 'biometric', label: 'Biometric (Fingerprint/Face)' }, { value: 'card_tag', label: 'Card / Tag System' }, { value: 'intercom', label: 'Intercom System' }, { value: 'keypad', label: 'Keypad Entry' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'armed-response',
+    questions: [
+      { id: 'property_type_response', text: 'What type of property needs armed response?', type: 'radio', options: [{ value: 'residential', label: 'Residential Home' }, { value: 'business', label: 'Business Premises' }, { value: 'complex', label: 'Residential Complex' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'car-alarms',
+    questions: [
+      { id: 'car_alarm_service', text: 'What service do you need for your car alarm?', type: 'radio', options: [{ value: 'new_install', label: 'New Installation' }, { value: 'repair', label: 'Repair Existing Alarm' }, { value: 'upgrade', label: 'Upgrade Alarm System' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'car-tracking',
+    questions: [
+      { id: 'tracking_feature', text: 'What is the most important feature for you?', type: 'radio', options: [{ value: 'stolen_recovery', label: 'Stolen Vehicle Recovery' }, { value: 'live_tracking', label: 'Live Tracking via App' }, { value: 'insurance_approved', label: 'Insurance Approved Unit' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'fire-safety',
+    questions: [
+      { id: 'fire_safety_need', text: 'What fire safety service do you require?', type: 'radio', options: [{ value: 'extinguisher', label: 'Fire Extinguisher Servicing / Supply' }, { value: 'compliance_cert', label: 'Compliance Certificate' }, { value: 'detection_system', label: 'Fire Detection System' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'private-investigators',
+    questions: [
+      { id: 'investigation_type', text: 'What type of investigation do you need?', type: 'radio', options: [{ value: 'infidelity', label: 'Infidelity / Matrimonial' }, { value: 'corporate', label: 'Corporate / Employee' }, { value: 'missing_person', label: 'Missing Person' }, { value: 'background_check', label: 'Background Check' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'security',
+    questions: [
+      { id: 'security_service', text: 'What type of security service do you need?', type: 'radio', options: [{ value: 'guarding', label: 'Guarding Services (Residential/Commercial)' }, { value: 'alarm_monitoring', label: 'Alarm Monitoring' }, { value: 'cctv_monitoring', label: 'CCTV Monitoring' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'tracing',
+    questions: [
+      { id: 'tracing_subject', text: 'Who or what needs to be traced?', type: 'radio', options: [{ value: 'person', label: 'A Person' }, { value: 'vehicle', label: 'A Vehicle' }, { value: 'asset', label: 'An Asset' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'auto-electricians',
+    questions: [
+      { id: 'auto_elec_issue', text: 'What is the electrical issue with your vehicle?', type: 'radio', options: [{ value: 'not_starting', label: 'Not Starting / Battery Problem' }, { value: 'lights', label: 'Lights Not Working' }, { value: 'wiring', label: 'Wiring Problem' }, { value: 'other', label: 'Other/Unsure' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'auto-glass',
+    questions: [
+      { id: 'glass_type', text: 'Which glass needs replacement or repair?', type: 'radio', options: [{ value: 'windscreen', label: 'Front Windscreen' }, { value: 'side_window', label: 'Side Window' }, { value: 'rear_window', label: 'Rear Window' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'batteries',
+    questions: [
+      { id: 'vehicle_type', text: 'What type of vehicle is it for?', type: 'radio', options: [{ value: 'car', label: 'Car / Light Vehicle' }, { value: 'truck', label: 'Truck / Heavy Vehicle' }, { value: 'motorcycle', label: 'Motorcycle' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'brakes-and-clutches',
+    questions: [
+      { id: 'brake_clutch_service', text: 'What service do you need?', type: 'radio', options: [{ value: 'brake_replacement', label: 'Brake Pad/Disc Replacement' }, { value: 'clutch_replacement', label: 'Clutch Kit Replacement' }, { value: 'inspection', label: 'Inspection / Diagnosis' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'car-aircon-regassing',
+    questions: [
+      { id: 'aircon_issue', text: 'What is the problem with your aircon?', type: 'radio', options: [{ value: 'not_cold', label: 'Not blowing cold air' }, { value: 'not_blowing', label: 'Not blowing at all' }, { value: 'service', label: 'Just needs a service/regas' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'engine-overhauls',
+    questions: [
+      { id: 'engine_issue', text: 'What is the reason for the overhaul?', type: 'radio', options: [{ value: 'high_mileage', label: 'High Mileage / Preventative' }, { value: 'overheating', label: 'Overheating / Blown Gasket' }, { value: 'performance', label: 'Lack of Performance / Smoking' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'gearboxes',
+    questions: [
+      { id: 'gearbox_type', text: 'What type of gearbox is it?', type: 'radio', options: [{ value: 'manual', label: 'Manual' }, { value: 'automatic', label: 'Automatic' }, { value: 'dsg_cvt', label: 'DSG / CVT' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'mechanics',
+    questions: [
+      { id: 'mechanic_service', text: 'What service does your car need?', type: 'radio', options: [{ value: 'major_service', label: 'Major Service' }, { value: 'minor_service', label: 'Minor Service / Oil Change' }, { value: 'diagnosis', label: 'Diagnosis of a problem' }, { value: 'repair', label: 'Specific Repair' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'panel-beaters',
+    questions: [
+      { id: 'damage_severity', text: 'What is the extent of the damage?', type: 'radio', options: [{ value: 'minor', label: 'Minor (Scratches, Dents)' }, { value: 'moderate', label: 'Moderate (Single panel damage)' }, { value: 'major', label: 'Major (Multiple panels / Structural)' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'towing',
+    questions: [
+      { id: 'towing_reason', text: 'Why do you need a tow?', type: 'radio', options: [{ value: 'breakdown', label: 'Breakdown' }, { value: 'accident', label: 'Accident' }, { value: 'transport', label: 'Vehicle Transport (Non-emergency)' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'tow-bars',
+    questions: [
+      { id: 'vehicle_make_model', text: 'What is the make and model of your vehicle?', type: 'textarea', placeholder: 'e.g., Toyota Hilux 2018' },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'computer-courses',
+    questions: [
+      { id: 'course_level', text: 'What is your current skill level?', type: 'radio', options: [{ value: 'beginner', label: 'Beginner' }, { value: 'intermediate', label: 'Intermediate' }, { value: 'advanced', label: 'Advanced' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'driving-schools',
+    questions: [
+      { id: 'licence_code', text: 'Which licence code are you applying for?', type: 'radio', options: [{ value: 'code_8', label: 'Code 8 (B) - Light Motor Vehicle' }, { value: 'code_10', label: 'Code 10 (C1) - Heavy Vehicle' }, { value: 'motorcycle', label: 'Motorcycle' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'firearm-training',
+    questions: [
+      { id: 'training_purpose', text: 'What is the purpose of the training?', type: 'radio', options: [{ value: 'competency', label: 'Competency Certificate for Licence' }, { value: 'self_defence', label: 'Self-Defence' }, { value: 'sport', label: 'Sport Shooting' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'first-aid',
+    questions: [
+      { id: 'first_aid_level', text: 'Which First Aid level do you need?', type: 'radio', options: [{ value: 'level_1', label: 'Level 1' }, { value: 'level_2', label: 'Level 2' }, { value: 'level_3', label: 'Level 3' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'forklift-training',
+    questions: [
+      { id: 'forklift_experience', text: 'Do you have previous forklift experience?', type: 'radio', options: [{ value: 'yes', label: 'Yes (Refresher course)' }, { value: 'no', label: 'No (Novice course)' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'life-coaches',
+    questions: [
+      { id: 'coaching_area', text: 'Which area of your life would you like to focus on?', type: 'radio', options: [{ value: 'career', label: 'Career' }, { value: 'relationships', label: 'Relationships' }, { value: 'personal_growth', label: 'Personal Growth' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'security-training',
+    questions: [
+      { id: 'psira_grade', text: 'Which PSIRA grade are you training for?', type: 'radio', options: [{ value: 'grade_e', label: 'Grade E' }, { value: 'grade_d', label: 'Grade D' }, { value: 'grade_c', label: 'Grade C' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'swimming-lessons',
+    questions: [
+      { id: 'swimmer_age', text: 'Who are the lessons for?', type: 'radio', options: [{ value: 'infant', label: 'Infant / Toddler' }, { value: 'child', label: 'Child' }, { value: 'adult', label: 'Adult' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'team-building',
+    questions: [
+      { id: 'group_size', text: 'How many people are in your team?', type: 'radio', options: [{ value: 'small', label: 'Small (Under 15)' }, { value: 'medium', label: 'Medium (15-50)' }, { value: 'large', label: 'Large (50+)' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'holiday-accommodation',
+    questions: [
+      { id: 'destination', text: 'Where would you like to go?', type: 'textarea', placeholder: 'e.g., Cape Town, Kruger National Park, Durban' },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'venues',
+    questions: [
+      { id: 'event_type_venue', text: 'What type of event are you hosting?', type: 'radio', options: [{ value: 'conference', label: 'Conference' }, { value: 'party', label: 'Party / Celebration' }, { value: 'workshop', label: 'Workshop / Training' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'wedding-venues',
+    questions: [
+      { id: 'guest_count', text: 'How many guests are you expecting?', type: 'radio', options: [{ value: 'small', label: 'Intimate (Under 50)' }, { value: 'medium', label: 'Medium (50-150)' }, { value: 'large', label: 'Large (150+)' }] },
+      ...commonQuestions,
+    ],
+  },
 ];
-
-
-
-
-    
-
