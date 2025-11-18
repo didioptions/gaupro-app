@@ -1639,6 +1639,294 @@ export const serviceQuestionSets: QuestionSet[] = [
           },
           ...commonQuestions,
       ],
+  },
+  // New sets start here
+  {
+    service: 'djs',
+    questions: [
+      { id: 'event_type', text: 'What type of event is it?', type: 'radio', options: [{ value: 'wedding', label: 'Wedding' }, { value: 'corporate', label: 'Corporate Event' }, { value: 'birthday', label: 'Birthday Party' }, { value: 'other', label: 'Other' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'event-decorations',
+    questions: [
+      { id: 'decor_style', text: 'What is the desired style or theme?', type: 'radio', options: [{ value: 'modern', label: 'Modern & Minimalist' }, { value: 'rustic', label: 'Rustic & Natural' }, { value: 'glamorous', label: 'Glamorous & Elegant' }, { value: 'custom', label: 'Custom Theme' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'event-planners',
+    questions: [
+      { id: 'planning_level', text: 'What level of planning do you need?', type: 'radio', options: [{ value: 'full', label: 'Full Planning' }, { value: 'partial', label: 'Partial Planning' }, { value: 'day_of', label: 'Day-of Coordination' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'florists',
+    questions: [
+      { id: 'floral_needs', text: 'What floral arrangements do you need?', type: 'checkbox', options: [{ value: 'bouquets', label: 'Bouquets & Boutonnieres' }, { value: 'centerpieces', label: 'Table Centerpieces' }, { value: 'ceremony', label: 'Ceremony Decor' }, { value: 'reception', label: 'Reception Decor' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'photographers',
+    questions: [
+      { id: 'photo_type', text: 'What type of photography do you need?', type: 'radio', options: [{ value: 'event', label: 'Event' }, { value: 'portrait', label: 'Portraits' }, { value: 'product', label: 'Product' }, { value: 'commercial', label: 'Commercial' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'wedding-photographers',
+    questions: [
+      { id: 'wedding_coverage', text: 'How many hours of coverage do you need?', type: 'radio', options: [{ value: 'half_day', label: 'Half Day (4-6 hours)' }, { value: 'full_day', label: 'Full Day (8-10 hours)' }, { value: 'custom', label: 'Custom Hours' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'party-planners',
+    questions: [
+      { id: 'party_type', text: 'What type of party are you planning?', type: 'radio', options: [{ value: 'kids', label: "Kids' Birthday" }, { value: 'adult', label: "Adults' Birthday" }, { value: 'anniversary', label: 'Anniversary' }, { value: 'other', label: 'Other Celebration' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'tent-hire',
+    questions: [
+      { id: 'tent_type', text: 'What type of tent do you need?', type: 'radio', options: [{ value: 'frame', label: 'Frame Tent' }, { value: 'stretch', label: 'Stretch Tent' }, { value: 'marquee', label: 'Marquee' }, { value: 'not_sure', label: 'Not Sure / Need Advice' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'toilet-hire',
+    questions: [
+      { id: 'toilet_type', text: 'What type of portable toilets do you need?', type: 'radio', options: [{ value: 'standard', label: 'Standard Units' }, { value: 'luxury', label: 'Luxury Trailer Units' }, { value: 'disabled', label: 'Disabled Access Units' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'videographers',
+    questions: [
+      { id: 'video_style', text: 'What video style are you looking for?', type: 'radio', options: [{ value: 'cinematic', label: 'Cinematic Highlight Film' }, { value: 'documentary', label: 'Documentary Style' }, { value: 'corporate', label: 'Corporate Video' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'accounting',
+    questions: [
+      { id: 'accounting_service_type', text: 'What accounting service do you need?', type: 'radio', options: [{ value: 'bookkeeping', label: 'Bookkeeping' }, { value: 'tax', label: 'Tax Returns (Personal or Business)' }, { value: 'financials', label: 'Financial Statements' }, { value: 'payroll', label: 'Payroll' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'auditors',
+    questions: [
+      { id: 'audit_type', text: 'What type of audit do you require?', type: 'radio', options: [{ value: 'internal', label: 'Internal Audit' }, { value: 'external', label: 'External/Statutory Audit' }, { value: 'forensic', label: 'Forensic Audit' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'business-consultants',
+    questions: [
+      { id: 'consulting_area', text: 'Which area of your business needs help?', type: 'radio', options: [{ value: 'strategy', label: 'Business Strategy' }, { value: 'marketing', label: 'Marketing' }, { value: 'operations', label: 'Operations' }, { value: 'hr', label: 'Human Resources' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'company-registrations',
+    questions: [
+      { id: 'registration_type', text: 'What do you need to register?', type: 'radio', options: [{ value: 'new_pty', label: 'New Private Company (Pty) Ltd' }, { value: 'npc', label: 'Non-Profit Company (NPC)' }, { value: 'amendments', label: 'Amendments to existing company' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'debt-collection',
+    questions: [
+      { id: 'debt_type', text: 'What type of debt needs to be collected?', type: 'radio', options: [{ value: 'commercial', label: 'Commercial (Business to Business)' }, { value: 'consumer', label: 'Consumer (Personal)' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'debt-counsellors',
+    questions: [
+      { id: 'counselling_need', text: 'Are you currently under debt review?', type: 'radio', options: [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No, I need help' }, { value: 'exploring', label: 'Just exploring my options' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'financial-advisors',
+    questions: [
+      { id: 'advice_area', text: 'What do you need financial advice on?', type: 'radio', options: [{ value: 'investment', label: 'Investments' }, { value: 'retirement', label: 'Retirement Planning' }, { value: 'estate', label: 'Estate Planning' }, { value: 'holistic', label: 'Holistic Financial Plan' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'insurance',
+    questions: [
+      { id: 'insurance_type', text: 'What type of insurance do you need?', type: 'radio', options: [{ value: 'car_home', label: 'Car & Home' }, { value: 'life', label: 'Life & Disability' }, { value: 'business', label: 'Business Insurance' }, { value: 'medical', label: 'Medical Aid' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'loans',
+    questions: [
+      { id: 'loan_type', text: 'What type of loan are you looking for?', type: 'radio', options: [{ value: 'personal', label: 'Personal Loan' }, { value: 'business', label: 'Business Loan' }, { value: 'home', label: 'Home Loan / Bond' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'medical-aid',
+    questions: [
+      { id: 'medical_aid_need', text: 'Are you looking for a new medical aid or to change your current one?', type: 'radio', options: [{ value: 'new', label: 'New Medical Aid' }, { value: 'change', label: 'Change Current Plan/Provider' }, { value: 'advice', label: 'Just need advice' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'recruitment-agencies',
+    questions: [
+      { id: 'hiring_need', text: 'What type of position are you looking to fill?', type: 'radio', options: [{ value: 'permanent', label: 'Permanent' }, { value: 'temporary', label: 'Temporary / Contract' }, { value: 'executive', label: 'Executive Search' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'graphic-designers',
+    questions: [
+      { id: 'design_need', text: 'What do you need designed?', type: 'radio', options: [{ value: 'logo_branding', label: 'Logo & Branding' }, { value: 'marketing_materials', label: 'Marketing Materials (brochures, flyers)' }, { value: 'social_media', label: 'Social Media Graphics' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'website-designers',
+    questions: [
+      { id: 'website_type', text: 'What type of website do you need?', type: 'radio', options: [{ value: 'brochure', label: 'Brochure/Informational Site' }, { value: 'ecommerce', label: 'E-commerce / Online Store' }, { value: 'revamp', label: 'Revamp existing site' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'logo-design',
+    questions: [
+      { id: 'logo_style', text: 'What style of logo are you looking for?', type: 'radio', options: [{ value: 'modern', label: 'Modern & Minimalist' }, { value: 'classic', label: 'Classic & Elegant' }, { value: 'playful', label: 'Playful & Illustrated' }, { value: 'not_sure', label: 'Not sure / Designer\'s choice' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'printing',
+    questions: [
+      { id: 'print_items', text: 'What do you need printed?', type: 'checkbox', options: [{ value: 'business_cards', label: 'Business Cards' }, { value: 'flyers', label: 'Flyers / Brochures' }, { value: 'banners', label: 'Banners / Posters' }, { value: 'other', label: 'Other' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'signs',
+    questions: [
+      { id: 'sign_type', text: 'What type of sign do you need?', type: 'radio', options: [{ value: 'shopfront', label: 'Shopfront Signage' }, { value: 'vehicle', label: 'Vehicle Branding / Wraps' }, { value: 'safety', label: 'Safety Signs' }, { value: 'promotional', label: 'Promotional Banners' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'beauty-salons',
+    questions: [
+      { id: 'treatment_type', text: 'What treatment are you looking for?', type: 'radio', options: [{ value: 'nails', label: 'Nails (Manicure/Pedicure)' }, { value: 'facial', label: 'Facial' }, { value: 'waxing', label: 'Waxing' }, { value: 'lashes', label: 'Lashes/Brows' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'dentists',
+    questions: [
+      { id: 'dental_need', text: 'What is the reason for your visit?', type: 'radio', options: [{ value: 'checkup', label: 'Check-up & Cleaning' }, { value: 'pain', label: 'Pain or Emergency' }, { value: 'cosmetic', label: 'Cosmetic (Whitening, etc.)' }, { value: 'other', label: 'Other' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'dermatologists',
+    questions: [
+      { id: 'skin_concern', text: 'What is your primary skin concern?', type: 'radio', options: [{ value: 'acne', label: 'Acne' }, { value: 'aging', label: 'Aging / Wrinkles' }, { value: 'eczema_psoriasis', label: 'Eczema / Psoriasis' }, { value: 'mole_check', label: 'Mole / Skin Cancer Check' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'dieticians',
+    questions: [
+      { id: 'diet_goal', text: 'What is your primary goal?', type: 'radio', options: [{ value: 'weight_loss', label: 'Weight Loss' }, { value: 'medical', label: 'Medical Condition Management' }, { value: 'sports', label: 'Sports Nutrition' }, { value: 'general', label: 'General Healthy Eating' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'gynaecologists',
+    questions: [
+      { id: 'gynae_visit_reason', text: 'What is the reason for your visit?', type: 'radio', options: [{ value: 'checkup', label: 'Annual Check-up' }, { value: 'pregnancy', label: 'Pregnancy-related' }, { value: 'problem', label: 'Specific Problem/Concern' }, { value: 'contraception', label: 'Contraception' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'hair-stylists',
+    questions: [
+      { id: 'hair_service', text: 'What service do you need?', type: 'radio', options: [{ value: 'cut', label: 'Cut & Style' }, { value: 'color', label: 'Color / Highlights' }, { value: 'treatment', label: 'Treatment' }, { value: 'styling', label: 'Event Styling' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'laser-clinics',
+    questions: [
+      { id: 'laser_treatment', text: 'What treatment are you interested in?', type: 'radio', options: [{ value: 'hair_removal', label: 'Laser Hair Removal' }, { value: 'skin_rejuvenation', label: 'Skin Rejuvenation' }, { value: 'tattoo_removal', label: 'Tattoo Removal' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'make-up-artists',
+    questions: [
+      { id: 'makeup_occasion', text: 'What is the occasion?', type: 'radio', options: [{ value: 'wedding', label: 'Wedding' }, { value: 'matric_dance', label: 'Matric Dance' }, { value: 'photoshoot', label: 'Photoshoot' }, { value: 'special_event', label: 'Special Event' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'marriage-counsellors',
+    questions: [
+      { id: 'counselling_format', text: 'What format are you looking for?', type: 'radio', options: [{ value: 'couple', label: 'Couple Counselling' }, { value: 'pre_marital', label: 'Pre-marital Counselling' }, { value: 'individual', label: 'Individual Relationship Counselling' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'massage-therapists',
+    questions: [
+      { id: 'massage_type', text: 'What type of massage are you looking for?', type: 'radio', options: [{ value: 'relax', label: 'Relaxation / Swedish' }, { value: 'deep_tissue', label: 'Deep Tissue / Sports' }, { value: 'hot_stone', label: 'Hot Stone' }, { value: 'pregnancy', label: 'Pregnancy Massage' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'personal-trainers',
+    questions: [
+      { id: 'fitness_goal', text: 'What is your main fitness goal?', type: 'radio', options: [{ value: 'weight_loss', label: 'Weight Loss' }, { value: 'muscle_gain', label: 'Build Muscle' }, { value: 'general_fitness', label: 'General Fitness & Toning' }, { value: 'sport_specific', label: 'Sport-specific Training' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'physiotherapists',
+    questions: [
+      { id: 'injury_area', text: 'What area of the body is affected?', type: 'radio', options: [{ value: 'back_neck', label: 'Back / Neck' }, { value: 'shoulder_arm', label: 'Shoulder / Arm' }, { value: 'hip_leg', label: 'Hip / Leg' }, { value: 'sports_injury', label: 'Sports Injury' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'plastic-surgeons',
+    questions: [
+      { id: 'procedure_interest', text: 'What area are you interested in?', type: 'radio', options: [{ value: 'face', label: 'Face (Facelift, Rhinoplasty, etc.)' }, { value: 'breast', label: 'Breast (Augmentation, Reduction, Lift)' }, { value: 'body', label: 'Body (Tummy Tuck, Liposuction)' }, { value: 'non_surgical', label: 'Non-Surgical (Botox, Fillers)' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'psychologists',
+    questions: [
+      { id: 'therapy_for', text: 'Who is the therapy for?', type: 'radio', options: [{ value: 'myself', label: 'Myself (Adult)' }, { value: 'child', label: 'My Child / Teenager' }, { value: 'couple', label: 'My Partner and I (Couple)' }] },
+      ...commonQuestions,
+    ],
+  },
+  {
+    service: 'counsellors',
+    questions: [
+      { id: 'counselling_reason', text: 'What would you like to focus on?', type: 'radio', options: [{ value: 'anxiety_stress', label: 'Anxiety / Stress' }, { value: 'depression', label: 'Depression / Low Mood' }, { value: 'relationships', label: 'Relationships' }, { value: 'trauma', label: 'Trauma' }] },
+      ...commonQuestions,
+    ],
   }
 ];
 
@@ -1646,3 +1934,4 @@ export const serviceQuestionSets: QuestionSet[] = [
 
 
     
+
