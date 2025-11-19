@@ -29,7 +29,8 @@ export default function ServicePage() {
     const service = allServices.find(s => s.value === currentService);
     const serviceLabel = service?.label || currentService.charAt(0).toUpperCase() + currentService.slice(1);
     
-    const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
+    // Corrected pluralization logic
+    const pluralServiceLabel = service?.label || (serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`);
     
     const locationName = typeof locationQuery === 'string'
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')

@@ -153,8 +153,8 @@
     {
       "id": "sunshine-kids-logo",
       "description": "A bright and cheerful logo for a preschool with a sun icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1613060800375-a02e17b3915b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaGVlcmZ1bCUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "cheerful logo"
+      "imageUrl": "https://images.unsplash.com/photo-1613060800375-a02e17b3915b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoYXBweSUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy logo"
     },
     {
       "id": "tiny-tots-logo",
@@ -477,13 +477,13 @@
     {
       "id": "global-journeys-logo",
       "description": "A professional logo for a travel agency with a globe icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1554260570-9140fd3b7614?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnbG9iZSUyMGxvZ298ZW58MHx8fHwxNzYzMDI2NDQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1554260570-3d816b83f941?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnbG9iZSUyMGxvZ298ZW58MHx8fHwxNzYzMDI2NDQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "globe logo"
     },
     {
       "id": "glow-up-logo",
       "description": "A modern, stylish logo for a beauty salon.",
-      "imageUrl": "https://images.unsplash.com/photo-1554260570-3d816b83f941?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiZWF1dHklMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1554260570-9140fd3b7614?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiZWF1dHklMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "beauty logo"
     },
     {
@@ -675,7 +675,7 @@
     {
       "id": "coverwise-logo",
       "description": "A logo for an insurance company with a shield.",
-      "imageUrl": "https://images.unsplash.com/photo-1683729748363-4622bd9f1e3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2MzAzMTU1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1683729748363-4622bd9f1e3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2MzAzMTU1Nnww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "shield logo"
     },
     {
@@ -693,458 +693,188 @@
     {
       "id": "growth-partners-logo",
       "description": "A logo for a business consulting firm.",
-      "imageUrl": "https://images.unsplash.com/photo-1660071155921-7204712d7d1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25zdWx0aW5nJTIwbG9nb3xlbnwwfHx8fDE3NjI5NjAyMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1660071155921-7204712d7d1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25zdWx0aW5nJTIwbG9nb3xlbnwwfHx8fDE3NjI5NjAyMTZ8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "consulting logo"
     },
     {
       "id": "swift-reg-logo",
       "description": "A logo for a company registration service.",
-      "imageUrl": "https://images.unsplash.com/photo-1669217541686-b492ea32c548?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyZWdpc3RyYXRpb24lMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1669217541686-b492ea32c548?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyZWdpc3RyYXRpb24lMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "registration logo"
     },
     {
       "id": "apex-collect-logo",
       "description": "A logo for a debt collection agency.",
-      "imageUrl": "https://images.unsplash.com/photo-1761329896962-55cddcf5e907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2xsZWN0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761329896962-55cddcf5e907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2xsZWN0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "collection logo"
     },
     {
       "id": "fresh-start-debt-logo",
       "description": "A logo for a debt counselling service.",
-      "imageUrl": "https://images.unsplash.com/photo-1557298294-2dbc0ba4c6b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3Vuc2VsbGluZyUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1557298294-2dbc0ba4c6b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3Vuc2VsbGluZyUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "counselling logo"
     },
     {
       "id": "quantum-finance-logo",
       "description": "A logo for financial advisors.",
-      "imageUrl": "https://images.unsplash.com/photo-1637489981573-e45e9297cb21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZHZpc29yJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1637489981573-e45e9297cb21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZHZpc29yJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "advisor logo"
     },
     {
       "id": "quick-loan-logo",
       "description": "A logo for a loan provider.",
-      "imageUrl": "https://images.unsplash.com/photo-1679317932564-b3fd1cf1ea92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsb2FuJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1679317932564-b3fd1cf1ea92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsb2FuJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "loan logo"
     },
     {
       "id": "health-cover-logo",
       "description": "A logo for a medical aid broker.",
-      "imageUrl": "https://images.unsplash.com/photo-1631507623095-c710d184498f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtZWRpY2FsJTIwYWlkJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1631507623095-c710d184498f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtZWRpY2FsJTIwYWlkJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "medical aid logo"
     },
     {
       "id": "talent-source-logo",
       "description": "A logo for a recruitment agency.",
-      "imageUrl": "https://images.unsplash.com/photo-1762340277972-a5dc7a7d3ace?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyZWNydWl0bWVudCUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762340277972-a5dc7a7d3ace?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyZWNydWl0bWVudCUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "recruitment logo"
     },
     {
       "id": "dj-pulse-logo",
       "description": "A modern logo for a DJ service.",
-      "imageUrl": "https://images.unsplash.com/photo-1758225709268-fc275fc45ebb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkaiUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758225709268-fc275fc45ebb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkaiUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "dj logo"
     },
     {
       "id": "elegance-decor-logo",
       "description": "An elegant logo for an event decor company.",
-      "imageUrl": "https://images.unsplash.com/photo-1729237261091-bae8eba0c60c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxldmVudCUyMGRlY29yfGVufDB8fHx8MTc2MzAxNjY5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1729237261091-bae8eba0c60c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxldmVudCUyMGRlY29yfGVufDB8fHx8MTc2MzAxNjY5MXww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "event decor"
     },
     {
       "id": "seamless-events-logo",
       "description": "A professional logo for an event planning company.",
-      "imageUrl": "https://images.unsplash.com/photo-1524824267900-2fa9cbf7a506?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxldmVudCUyMHBsYW5uZXJ8ZW58MHx8fHwxNzYzMDE2NjkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1524824267900-2fa9cbf7a506?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxldmVudCUyMHBsYW5uZXJ8ZW58MHx8fHwxNzYzMDE2NjkxfDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "event planner"
     },
     {
       "id": "bloom-room-logo",
       "description": "A beautiful logo for a florist.",
-      "imageUrl": "https://images.unsplash.com/photo-1746559764439-ae87c5a3c858?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmbG9yaXN0JTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1746559764439-ae87c5a3c858?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmbG9yaXN0JTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "florist logo"
     },
     {
       "id": "lens-light-logo",
       "description": "A logo for a photography studio.",
-      "imageUrl": "https://images.unsplash.com/photo-1589905608318-5cb221537f69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwaG90b2dyYXBoeSUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1589905608318-5cb221537f69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwaG90b2dyYXBoeSUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "photography logo"
     },
     {
       "id": "celebrate-well-logo",
       "description": "A fun logo for a party planning service.",
-      "imageUrl": "https://images.unsplash.com/photo-1761311983700-b7e324c18c5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwYXJ0eSUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761311983700-b7e324c18c5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwYXJ0eSUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "party logo"
     },
     {
       "id": "apex-tent-logo",
       "description": "A logo for a tent hire company.",
-      "imageUrl": "https://images.unsplash.com/photo-1694578345441-c8ebfb5258fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZW50JTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1694578345441-c8ebfb5258fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZW50JTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "tent logo"
     },
     {
       "id": "super-loos-logo",
       "description": "A logo for a portable toilet hire company.",
-      "imageUrl": "https://images.unsplash.com/photo-1662973222574-77a583212174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0b2lsZXQlMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1662973222574-77a583212174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0b2lsZXQlMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "toilet logo"
     },
     {
       "id": "cinematic-stories-logo",
       "description": "A logo for a videography company.",
-      "imageUrl": "https://images.unsplash.com/photo-1662466767333-433cc73ebbb7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx2aWRlbyUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1662466767333-433cc73ebbb7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx2aWRlbyUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "video logo"
     },
     {
       "id": "ac-comfort-logo",
       "description": "A logo for an air conditioning company.",
-      "imageUrl": "https://images.unsplash.com/photo-1611488006001-eb993d4d2ec4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhaXJjb24lMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1611488006001-eb993d4d2ec4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhaXJjb24lMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "aircon logo"
     },
     {
       "id": "alum-designs-logo",
       "description": "A logo for an aluminium window and door company.",
-      "imageUrl": "https://images.unsplash.com/photo-1760597371632-bbd930d6b844?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhbHVtaW5pdW0lMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1760597371632-bbd930d6b844?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhbHVtaW5pdW0lMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "aluminium logo"
     },
     {
       "id": "shade-masters-logo",
       "description": "A logo for an awning and shadeport company.",
-      "imageUrl": "https://images.unsplash.com/photo-1567972787521-761ca528e1c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhd25pbmclMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1567972787521-761ca528e1c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhd25pbmclMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "awning logo"
     },
     {
       "id": "modern-rails-logo",
       "description": "A logo for a balustrade company.",
-      "imageUrl": "https://images.unsplash.com/photo-1599235619515-c15104c0caba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiYWx1c3RyYWRlJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1599235619515-c15104c0caba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiYWx1c3RyYWRlJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "balustrade logo"
     },
     {
       "id": "dream-bath-logo",
       "description": "A logo for a bathroom renovation company.",
-      "imageUrl": "https://images.unsplash.com/photo-1557351801-b64caa15c250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiYXRocm9vbSUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1557351801-b64caa15c250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiYXRocm9vbSUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "bathroom logo"
     },
     {
       "id": "blind-ambition-logo",
       "description": "A logo for a blinds company.",
-      "imageUrl": "https://images.unsplash.com/photo-1728406970302-8be1af6bda4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YmxpbmRzJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1728406970302-8be1af6bda4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YmxpbmRzJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "blinds logo"
     },
     {
       "id": "solid-build-logo",
       "description": "A logo for a construction/building company.",
-      "imageUrl": "https://images.unsplash.com/photo-1630644964646-6cc8ac5b47ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxidWlsZGVyJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1630644964646-6cc8ac5b47ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxidWlsZGVyJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "builder logo"
     },
     {
       "id": "secure-guard-logo",
       "description": "A logo for a burglar bar company.",
-      "imageUrl": "https://images.unsplash.com/photo-1631209012417-902426765ffb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXJnbGFyJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1631209012417-902426765ffb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXJnbGFyJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "burglar logo"
     },
     {
       "id": "wood-creations-logo",
       "description": "A logo for a carpentry company.",
-      "imageUrl": "https://images.unsplash.com/photo-1672780313910-2b1a3d5a2897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXJwZW50cnklMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1672780313910-2b1a3d5a2897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXJwZW50cnklMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "carpentry logo"
     },
     {
       "id": "plush-floors-logo",
       "description": "A logo for a carpeting company.",
-      "imageUrl": "https://images.unsplash.com/photo-1733366771949-9b1439734c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYXJwZXQlMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1733366771949-9b1439734c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYXJwZXQlMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "carpet logo"
     },
     {
       "id": "sparkle-clean-logo",
       "description": "A logo for a carpet cleaning company.",
-      "imageUrl": "https://images.unsplash.com/photo-1690049585211-fe8f5178fd0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjbGVhbmluZyUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1690049585211-fe8f5178fd0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjbGVhbmluZyUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "cleaning logo"
     },
     {
       "id": "coverpro-carports-logo",
       "description": "A logo for a carport company.",
-      "imageUrl": "https://images.unsplash.com/photo-1758609938669-48993dbc5fed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXJwb3J0JTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758609938669-48993dbc5fed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXJwb3J0JTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "carport logo"
     },
     {
       "id": "ceiling-masters-logo",
       "description": "A logo for a ceiling installation company.",
-      "imageUrl": "https://images.unsplash.com/photo-1638800213251-ec31194b1cd4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjZWlsaW5nJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1638800213251-ec31194b1cd4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjZWlsaW5nJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "ceiling logo"
     },
     {
       "id": "spotless-logo",
       "description": "A logo for a cleaning services company.",
-      "imageUrl": "https://images.unsplash.com/photo-1580842364727-5b5997cb693f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjbGVhbmluZyUyMHNlcnZpY2UlMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1580842364727-5b5997cb693f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjbGVhbmluZyUyMHNlcnZpY2UlMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "cleaning service logo"
-    },
-    {
-      "id": "the-door-store-logo",
-      "description": "Logo for a door supplier and installer.",
-      "imageUrl": "https://images.unsplash.com/photo-1757283491661-deaef4a1c438?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkb29yJTIwbG9nb3xlbnwwfHx8fDE3NjMwNjQzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "door logo"
-    },
-    {
-      "id": "wall-wizards-logo",
-      "description": "Logo for a drywall and partitioning company.",
-      "imageUrl": "https://images.unsplash.com/photo-1696365070450-43cccd994657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3YWxsJTIwY29uc3RydWN0aW9ufGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wall construction"
-    },
-    {
-      "id": "spark-safe-logo",
-      "description": "Logo for an electrical company.",
-      "imageUrl": "https://images.unsplash.com/flagged/photo-1587096472434-8b65b343980d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbGVjdHJpY2lhbiUyMGxvZ298ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "electrician logo"
-    },
-    {
-      "id": "secure-zone-fencing-logo",
-      "description": "Logo for an electric fencing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1740176346568-0dd9936d375a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlbGVjdHJpYyUyMGZlbmNlfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "electric fence"
-    },
-    {
-      "id": "iron-clad-fencing-logo",
-      "description": "Logo for a general fencing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1615231779115-6bd3e0d7856b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtZXRhbCUyMGZlbmNlfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "metal fence"
-    },
-    {
-      "id": "perfect-finish-flooring-logo",
-      "description": "Logo for a flooring company.",
-      "imageUrl": "https://images.unsplash.com/photo-1573869908170-64b53a60d8da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b29kJTIwZmxvb3Jpbmd8ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wood flooring"
-    },
-    {
-      "id": "green-thumb-gardeners-logo",
-      "description": "Logo for a gardening service.",
-      "imageUrl": "https://images.unsplash.com/photo-1695462131713-7bbfb8317ac4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnYXJkZW5pbmclMjBsb2dvfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gardening logo"
-    },
-    {
-      "id": "gas-safe-installers-logo",
-      "description": "Logo for a gas installation company.",
-      "imageUrl": "https://images.unsplash.com/photo-1614662089438-7934e5af0972?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnYXMlMjBmbGFtZXxlbnwwfHx8fDE3NjMwNjQzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gas flame"
-    },
-    {
-      "id": "gate-gurus-logo",
-      "description": "Logo for a gate installation and repair company.",
-      "imageUrl": "https://images.unsplash.com/photo-1762926627817-9730c1a71d91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnYXRlJTIwbG9nb3xlbnwwfHx8fDE3NjMwNjQzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gate logo"
-    },
-    {
-      "id": "clear-view-glass-logo",
-      "description": "Logo for a glass and glazier company.",
-      "imageUrl": "https://images.unsplash.com/photo-1701743805775-96b708fb8155?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnbGFzcyUyMHBhbmV8ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "glass pane"
-    },
-    {
-      "id": "flow-well-gutters-logo",
-      "description": "Logo for a gutter installation company.",
-      "imageUrl": "https://images.unsplash.com/photo-1758997508217-eec3367c268c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxndXR0ZXIlMjBzeXN0ZW18ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gutter system"
-    },
-    {
-      "id": "mr-fixit-logo",
-      "description": "Logo for a handyman service.",
-      "imageUrl": "https://images.unsplash.com/photo-1611134313089-c28c32796751?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoYW5keW1hbiUyMHRvb2xzfGVufDB8fHx8MTc2Mjk3NjcxMXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "handyman tools"
-    },
-    {
-      "id": "power-wash-pros-logo",
-      "description": "Logo for a high pressure cleaning service.",
-      "imageUrl": "https://images.unsplash.com/photo-1662405964427-0e5e4c483a7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcmVzc3VyZSUyMHdhc2hlcnxlbnwwfHx8fDE3NjMwNjQzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "pressure washer"
-    },
-    {
-      "id": "dream-home-reno-logo",
-      "description": "Logo for a home improvement company.",
-      "imageUrl": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxob3VzZSUyMHBsYW58ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "house plan"
-    },
-    {
-      "id": "stylish-spaces-logo",
-      "description": "Logo for an interior design company.",
-      "imageUrl": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxpbnRlcmlvciUyMGRlc2lnbnxlbnwwfHx8fDE3NjMwNzE2Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "interior design"
-    },
-    {
-      "id": "gourmet-kitchens-logo",
-      "description": "Logo for a kitchen renovation company.",
-      "imageUrl": "https://images.unsplash.com/photo-1502005097973-6a7082348e28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxraXRjaGVuJTIwZGVzaWdufGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "kitchen design"
-    },
-    {
-      "id": "lam-floor-direct-logo",
-      "description": "Logo for a laminate flooring company.",
-      "imageUrl": "https://images.unsplash.com/photo-1678742753298-9e6b10fcc42f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3b29kJTIwbGFtaW5hdGV8ZW58MHx8fHwxNzYyOTc2NjQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wood laminate"
-    },
-    {
-      "id": "wash-n-go-logo",
-      "description": "Logo for a laundry service.",
-      "imageUrl": "https://images.unsplash.com/photo-1567500284069-9c0400b02032?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsYXVuZHJ5JTIwYmFza2V0fGVufDB8fHx8MTc2MzAyMjk0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "laundry basket"
-    },
-    {
-      "id": "key-masters-logo",
-      "description": "Logo for a locksmith company.",
-      "imageUrl": "https://images.unsplash.com/photo-1731806577136-0f2219a87c9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxrZXklMjBsb2NrfGVufDB8fHx8MTc2Mjk1MzI5NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "key lock"
-    },
-    {
-      "id": "sparkling-offices-logo",
-      "description": "Logo for an office cleaning service.",
-      "imageUrl": "https://images.unsplash.com/photo-1582061575118-93cc82eca33b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxvZmZpY2UlMjBidWlsZGluZ3xlbnwwfHx8fDE3NjMwNjk5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "office building"
-    },
-    {
-      "id": "paint-pros-logo",
-      "description": "Logo for a painting company.",
-      "imageUrl": "https://images.unsplash.com/photo-1690743300963-c09faf1d06f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwYWludGJydXNoJTIwc3Ryb2tlfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "paintbrush stroke"
-    },
-    {
-      "id": "fortress-fencing-logo",
-      "description": "Logo for a palisade fencing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1722540552533-26e80bbc85ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYWxpc2FkZSUyMGZlbmNlfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "palisade fence"
-    },
-    {
-      "id": "pave-perfect-logo",
-      "description": "Logo for a paving company.",
-      "imageUrl": "https://images.unsplash.com/photo-1693762573720-233d286a2f96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYXZpbmclMjBzdG9uZXN8ZW58MHx8fHwxNzYzMDI2Njk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "paving stones"
-    },
-    {
-      "id": "pest-busters-logo",
-      "description": "Logo for a pest control company.",
-      "imageUrl": "https://images.unsplash.com/photo-1759945493963-18c5e62a1be4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxpbnNlY3QlMjBidWd8ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "insect bug"
-    },
-    {
-      "id": "smooth-finish-plastering-logo",
-      "description": "Logo for a plastering company.",
-      "imageUrl": "https://images.unsplash.com/photo-1673263404454-bdfb07050095?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGxhc3RlciUyMHdhbGx8ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "plaster wall"
-    },
-    {
-      "id": "flow-right-plumbers-logo",
-      "description": "Logo for a plumbing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1615238168944-6ed817aeb4ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3YXRlciUyMHBpcGV8ZW58MHx8fHwxNzYyOTcxMjM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "water pipe"
-    },
-    {
-      "id": "crystal-clear-pools-logo",
-      "description": "Logo for a pool cleaning service.",
-      "imageUrl": "https://images.unsplash.com/photo-1721651435707-cb5c23b36ca2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2xlYW4lMjBwb29sfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "clean pool"
-    },
-    {
-      "id": "wall-crete-logo",
-      "description": "Logo for a precast fencing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb25jcmV0ZSUyMHdhbGx8ZW58MHx8fHwxNzYzMDA3NjI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "concrete wall"
-    },
-    {
-      "id": "power-pay-logo",
-      "description": "Logo for a prepaid electricity meter company.",
-      "imageUrl": "https://images.unsplash.com/photo-1555009784-ae7e7d1b97aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlbGVjdHJpY2l0eSUyMG1ldGVyfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "electricity meter"
-    },
-    {
-      "id": "roof-guardian-logo",
-      "description": "Logo for a roofing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1518736346281-76873166a64a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyb29mJTIwdGlsZXN8ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "roof tiles"
-    },
-    {
-      "id": "gate-protect-logo",
-      "description": "Logo for a security gate company.",
-      "imageUrl": "https://images.unsplash.com/photo-1760890769552-f2cfe952e8c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzZWN1cml0eSUyMGdhdGV8ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "security gate"
-    },
-    {
-      "id": "all-weather-shades-logo",
-      "description": "Logo for a shadeport company.",
-      "imageUrl": "https://images.unsplash.com/photo-1572037937577-0a8ddb818441?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzaGFkZSUyMG5ldHxlbnwwfHx8fDE3NjMwNjQzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "shade net"
-    },
-    {
-      "id": "glass-design-showers-logo",
-      "description": "Logo for a shower door company.",
-      "imageUrl": "https://images.unsplash.com/photo-1675882555315-5bfc0d3d61bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzaG93ZXIlMjBkb29yfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "shower door"
-    },
-    {
-      "id": "sun-stream-solar-logo",
-      "description": "Logo for a solar geyser company.",
-      "imageUrl": "https://images.unsplash.com/photo-1673009539558-b502e6039bc8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzb2xhciUyMGdleXNlcnxlbnwwfHx8fDE3NjMwNjQzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "solar geyser"
-    },
-    {
-      "id": "power-sol-logo",
-      "description": "Logo for a solar systems company.",
-      "imageUrl": "https://images.unsplash.com/photo-1497440001374-f26997328c1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzb2xhciUyMHBhbmVsfGVufDB8fHx8MTc2Mjk5MDg3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "solar panel"
-    },
-    {
-      "id": "road-kings-tar-logo",
-      "description": "Logo for a tar surfacing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1628626101670-fe74950237d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhc3BoYWx0JTIwcm9hZHxlbnwwfHx8fDE3NjMwNjQzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "asphalt road"
-    },
-    {
-      "id": "african-thatch-logo",
-      "description": "Logo for a thatched roofing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1642981715316-bccf7051c335?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0aGF0Y2glMjByb29mfGVufDB8fHx8MTc2MzA2NDM1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "thatch roof"
-    },
-    {
-      "id": "comfy-couch-cleaners-logo",
-      "description": "Logo for an upholstery cleaning company.",
-      "imageUrl": "https://images.unsplash.com/photo-1684165610413-2401399e0e59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzb2ZhJTIwY2xlYW58ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "sofa clean"
-    },
-    {
-      "id": "dry-tech-waterproofing-logo",
-      "description": "Logo for a waterproofing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1535868118629-f37bcd69ff59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3YXRlciUyMGRyb3B8ZW58MHx8fHwxNzYzMDQwMDc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "water drop"
-    },
-    {
-      "id": "iron-works-welders-logo",
-      "description": "Logo for a welding company.",
-      "imageUrl": "https://images.unsplash.com/photo-1631622482055-1f6858e0cd9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWxkaW5nJTIwbWFza3xlbnwwfHx8fDE3NjMwNjQzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "welding mask"
-    },
-    {
-      "id": "wendy-world-logo",
-      "description": "Logo for a wendy house company.",
-      "imageUrl": "https://images.unsplash.com/photo-1693297162063-399177bd6e3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29vZGVuJTIwY2FiaW58ZW58MHx8fHwxNzYyOTk0MDczfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wooden cabin"
-    },
-    {
-      "id": "gleam-team-windows-logo",
-      "description": "Logo for a window cleaning company.",
-      "imageUrl": "https://images.unsplash.com/photo-1676091108102-a0477d3feabe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2xlYW4lMjB3aW5kb3d8ZW58MHx8fHwxNzYzMDY0MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "clean window"
-    },
-    {
-      "id": "tint-perfect-logo",
-      "description": "Logo for a window tinting company.",
-      "imageUrl": "https://images.unsplash.com/photo-1614670151715-cb3ff0c28015?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0aW50ZWQlMjB3aW5kb3d8ZW58MHx8fHwxNzYzMDY0MzU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "tinted window"
-    },
-    {
-      "id": "wire-worx-fencing-logo",
-      "description": "Logo for a wire mesh fencing company.",
-      "imageUrl": "https://images.unsplash.com/photo-1517265598349-76511a2fb389?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aXJlJTIwZmVuY2V8ZW58MHx8fHwxNzYzMDY0MzU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wire fence"
-    },
-    {
-      "id": "deck-kings-logo",
-      "description": "Logo for a wooden decking company.",
-      "imageUrl": "https://images.unsplash.com/photo-1714069708373-ab2a558b7e8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b29kZW4lMjBkZWNrfGVufDB8fHx8MTc2Mjk2NTI5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wooden deck"
     }
   ]
 }

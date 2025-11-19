@@ -2081,6 +2081,32 @@ export const allProfessionals = {
         avatarSeed: "hawk-eye-tracking-logo"
       }
     ],
+    "car-tracking": [
+        {
+            id: "auto-guard-tracking",
+            name: "AutoGuard Tracking",
+            location: "Johannesburg, Gauteng",
+            description: "Advanced vehicle tracking and fleet management solutions. We offer live tracking, stolen vehicle recovery, and detailed reporting to protect your assets and optimize your fleet.",
+            rating: 4.8,
+            reviews: 210,
+            isProVerified: true,
+            reviewData: [{ author: "Car Owner", rating: 5, comment: "Their recovery team found my car within an hour of it being stolen. I am so grateful for their fast response." }],
+            photos: ["https://picsum.photos/seed/cartrack1/600/400"],
+            avatarSeed: "auto-guard-logo"
+        },
+        {
+            id: "hawk-eye-fleet",
+            name: "Hawk-Eye Fleet Solutions",
+            location: "Cape Town, Western Cape",
+            description: "Powerful fleet management and vehicle tracking systems for businesses of all sizes. Monitor driver behaviour, reduce fuel costs, and improve efficiency with our cutting-edge technology.",
+            rating: 4.7,
+            reviews: 160,
+            isProVerified: true,
+            reviewData: [{ author: "Logistics Manager", rating: 5, comment: "Their system has given us complete visibility over our fleet. We've seen a 15% reduction in fuel costs." }],
+            photos: ["https://picsum.photos/seed/cartrack2/600/400"],
+            avatarSeed: "hawk-eye-tracking-logo"
+        }
+    ]
 };
 
 export const getProfessionalById = (id: string) => {
