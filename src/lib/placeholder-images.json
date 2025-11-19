@@ -681,13 +681,13 @@
     {
       "id": "precision-acct-logo",
       "description": "A logo for an accounting firm.",
-      "imageUrl": "https://images.unsplash.com/photo-1640342538716-286e4e27e104?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhY2NvdW50aW5nJTIwbG9nb3xlbnwwfHx8fDE3NjI5ODk5Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1640342538716-286e4e27e104?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhY2NvdW50aW5nJTIwbG9nb3xlbnwwfHx8fDE3NjI5ODk5Mzl8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "accounting logo"
     },
     {
       "id": "veritas-audit-logo",
       "description": "A logo for an auditing firm.",
-      "imageUrl": "https://images.unsplash.com/photo-1632218537886-cd8a6c866d5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhdWRpdCUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1632218537886-cd8a6c866d5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhdWRpdCUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg4fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "audit logo"
     },
     {
@@ -875,6 +875,24 @@
       "description": "A logo for a cleaning services company.",
       "imageUrl": "https://images.unsplash.com/photo-1580842364727-5b5997cb693f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjbGVhbmluZyUyMHNlcnZpY2UlMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "cleaning service logo"
+    },
+    {
+      "id": "sentinel-security-logo",
+      "description": "A logo for a security services company.",
+      "imageUrl": "https://images.unsplash.com/photo-1727449323072-069009f3ed0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxrbmlnaHQlMjBoZWxtZXQlMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "knight helmet logo"
+    },
+    {
+      "id": "eden-landscapes-logo",
+      "description": "A logo with a lush green leaf for a landscaping company.",
+      "imageUrl": "https://images.unsplash.com/photo-1738443423770-437f805a5a0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsYW5kc2NhcGluZyUyMGxvZ298ZW58MHx8fHwxNzYzMDkyNjAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "landscaping logo"
+    },
+    {
+      "id": "joburg-garden-pros-logo",
+      "description": "A modern logo for a Johannesburg-based gardening service.",
+      "imageUrl": "https://images.unsplash.com/photo-1761665471923-d345a557b789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnYXJkZW5pbmclMjBsb2dvfGVufDB8fHx8MTc2MzA5MjYwMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gardening logo"
     }
   ]
 }

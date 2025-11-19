@@ -1707,23 +1707,6 @@ export const allProfessionals = {
         avatarSeed: "tv-techs-logo"
       }
     ],
-    "dstv-installers": [
-      {
-        id: "sat-pros-installations",
-        name: "Sat-Pros Installations",
-        location: "Cape Town",
-        description: "Accredited DStv installers for new installations, upgrades, extra view setup, and signal problems. We ensure a perfect picture, every time.",
-        rating: 4.9,
-        reviews: 300,
-        isProVerified: true,
-        reviewData: [
-          { author: "New Homeowner", rating: 5, comment: "They did our new DStv installation. The work was neat and they explained everything clearly." },
-          { author: "Frustrated Viewer", rating: 5, comment: "I was having signal problems for weeks. They came and sorted it out in 20 minutes. Should have called them sooner!" }
-        ],
-        photos: ["https://picsum.photos/seed/dstv1/600/400"],
-        avatarSeed: "sat-pros-logo"
-      }
-    ],
     "fridge-repairs": [
       {
         id: "cool-care-repairs",
@@ -2055,32 +2038,6 @@ export const allProfessionals = {
         avatarSeed: "fibre-fast-logo"
       }
     ],
-    cctv: [
-      {
-        id: "sentinel-security-systems",
-        name: "Sentinel Security Systems",
-        location: "Johannesburg, Gauteng",
-        description: "Professional installation and maintenance of high-definition CCTV camera systems for homes and businesses. We offer a range of solutions, from basic setups to advanced analytics.",
-        rating: 4.9,
-        reviews: 180,
-        isProVerified: true,
-        reviewData: [{ author: "Homeowner", rating: 5, comment: "The installation was incredibly neat and the camera quality is excellent. The app is easy to use. Highly recommend." }],
-        photos: ["https://picsum.photos/seed/cctv1/600/400"],
-        avatarSeed: "sentinel-security-logo"
-      },
-      {
-        id: "cape-surveillance-pros",
-        name: "Cape Surveillance Pros",
-        location: "Cape Town, Western Cape",
-        description: "Your local experts in CCTV and IP camera installations. We help you secure your property with reliable surveillance systems tailored to your budget and needs.",
-        rating: 4.8,
-        reviews: 155,
-        isProVerified: true,
-        reviewData: [{ author: "Small Business Owner", rating: 5, comment: "They installed cameras at my shop. The system works perfectly and the team was very professional and efficient." }],
-        photos: ["https://picsum.photos/seed/cctv2/600/400"],
-        avatarSeed: "hawk-eye-tracking-logo"
-      }
-    ],
     "car-tracking": [
         {
             id: "auto-guard-tracking",
@@ -2105,6 +2062,79 @@ export const allProfessionals = {
             reviewData: [{ author: "Logistics Manager", rating: 5, comment: "Their system has given us complete visibility over our fleet. We've seen a 15% reduction in fuel costs." }],
             photos: ["https://picsum.photos/seed/cartrack2/600/400"],
             avatarSeed: "hawk-eye-tracking-logo"
+        }
+    ],
+    cctv: [
+        {
+            id: "sentinel-security-systems",
+            name: "Sentinel Security Systems",
+            location: "Johannesburg, Gauteng",
+            description: "Professional installation and maintenance of high-definition CCTV camera systems for homes and businesses. We offer a range of solutions, from basic setups to advanced analytics.",
+            rating: 4.9,
+            reviews: 180,
+            isProVerified: true,
+            reviewData: [{ author: "Homeowner", rating: 5, comment: "The installation was incredibly neat and the camera quality is excellent. The app is easy to use. Highly recommend." }],
+            photos: ["https://picsum.photos/seed/cctv1/600/400"],
+            avatarSeed: "sentinel-security-logo"
+        },
+        {
+            id: "cape-surveillance-pros",
+            name: "Cape Surveillance Pros",
+            location: "Cape Town, Western Cape",
+            description: "Your local experts in CCTV and IP camera installations. We help you secure your property with reliable surveillance systems tailored to your budget and needs.",
+            rating: 4.8,
+            reviews: 155,
+            isProVerified: true,
+            reviewData: [{ author: "Small Business Owner", rating: 5, comment: "They installed cameras at my shop. The system works perfectly and the team was very professional and efficient." }],
+            photos: ["https://picsum.photos/seed/cctv2/600/400"],
+            avatarSeed: "hawk-eye-tracking-logo"
+        }
+    ],
+    "dstv-installers": [
+        {
+            id: "sat-pros-installations",
+            name: "Sat-Pros Installations",
+            location: "Cape Town",
+            description: "Accredited DStv installers for new installations, upgrades, extra view setup, and signal problems. We ensure a perfect picture, every time.",
+            rating: 4.9,
+            reviews: 300,
+            isProVerified: true,
+            reviewData: [
+                { author: "New Homeowner", rating: 5, comment: "They did our new DStv installation. The work was neat and they explained everything clearly." },
+                { author: "Frustrated Viewer", rating: 5, comment: "I was having signal problems for weeks. They came and sorted it out in 20 minutes. Should have called them sooner!" }
+            ],
+            photos: ["https://picsum.photos/seed/dstv1/600/400"],
+            avatarSeed: "sat-pros-logo"
+        }
+    ],
+    landscaping: [
+        {
+            id: "eden-landscapes-cpt",
+            name: "Eden Landscapes",
+            location: "Cape Town",
+            description: "Creative landscape design and installation. We specialize in water-wise indigenous gardens, modern outdoor living spaces, and vertical gardens.",
+            rating: 4.9,
+            reviews: 95,
+            isProVerified: true,
+            reviewData: [
+                { author: "The Wilsons", rating: 5, comment: "They transformed our dusty backyard into a beautiful, water-wise garden. We spend all our time out here now. So talented!" },
+            ],
+            photos: ["https://picsum.photos/seed/landscaping1/600/400"],
+            avatarSeed: "eden-landscapes-logo"
+        },
+        {
+            id: "joburg-garden-pros",
+            name: "Jo'burg Garden Pros",
+            location: "Johannesburg",
+            description: "Full-service landscaping from design to regular maintenance. We also specialize in irrigation systems and seasonal planting to keep your garden looking its best.",
+            rating: 4.8,
+            reviews: 130,
+            isProVerified: true,
+            reviewData: [
+                { author: "Corporate Park", rating: 5, comment: "They maintain the gardens at our office park. The grounds always look immaculate. Very reliable service." },
+            ],
+            photos: ["https://picsum.photos/seed/landscaping2/600/400"],
+            avatarSeed: "joburg-garden-pros-logo"
         }
     ]
 };
