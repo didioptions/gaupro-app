@@ -2043,7 +2043,7 @@ export const allProfessionals = {
             id: "auto-guard-tracking",
             name: "AutoGuard Tracking",
             location: "Johannesburg, Gauteng",
-            description: "Advanced vehicle tracking and fleet management solutions. We offer live tracking, stolen vehicle recovery, and detailed reporting to protect your assets and optimize your fleet.",
+            description: "Advanced vehicle tracking and fleet management solutions. We offer live tracking, stolen vehicle recovery, and detailed reporting to protect your assets.",
             rating: 4.8,
             reviews: 210,
             isProVerified: true,
@@ -2055,7 +2055,7 @@ export const allProfessionals = {
             id: "hawk-eye-fleet",
             name: "Hawk-Eye Fleet Solutions",
             location: "Cape Town, Western Cape",
-            description: "Powerful fleet management and vehicle tracking systems for businesses of all sizes. Monitor driver behaviour, reduce fuel costs, and improve efficiency with our cutting-edge technology.",
+            description: "Powerful fleet management and vehicle tracking systems for businesses. Monitor driver behaviour, reduce fuel costs, and improve efficiency with our cutting-edge technology.",
             rating: 4.7,
             reviews: 160,
             isProVerified: true,
@@ -2069,7 +2069,7 @@ export const allProfessionals = {
             id: "sentinel-security-systems",
             name: "Sentinel Security Systems",
             location: "Johannesburg, Gauteng",
-            description: "Professional installation and maintenance of high-definition CCTV camera systems for homes and businesses. We offer a range of solutions, from basic setups to advanced analytics.",
+            description: "Professional installation and maintenance of high-definition {service} camera systems for homes and businesses. We offer a range of solutions, from basic setups to advanced analytics.",
             rating: 4.9,
             reviews: 180,
             isProVerified: true,
@@ -2081,7 +2081,7 @@ export const allProfessionals = {
             id: "cape-surveillance-pros",
             name: "Cape Surveillance Pros",
             location: "Cape Town, Western Cape",
-            description: "Your local experts in CCTV and IP camera installations. We help you secure your property with reliable surveillance systems tailored to your budget and needs.",
+            description: "Your local experts in {service} and IP camera installations. We help you secure your property with reliable surveillance systems tailored to your budget and needs.",
             rating: 4.8,
             reviews: 155,
             isProVerified: true,
@@ -2095,7 +2095,7 @@ export const allProfessionals = {
             id: "sat-pros-installations",
             name: "Sat-Pros Installations",
             location: "Cape Town",
-            description: "Accredited DStv installers for new installations, upgrades, extra view setup, and signal problems. We ensure a perfect picture, every time.",
+            description: "Accredited {service} for new installations, upgrades, extra view setup, and signal problems. We ensure a perfect picture, every time.",
             rating: 4.9,
             reviews: 300,
             isProVerified: true,
@@ -2126,7 +2126,7 @@ export const allProfessionals = {
             id: "joburg-garden-pros",
             name: "Jo'burg Garden Pros",
             location: "Johannesburg",
-            description: "Full-service landscaping from design to regular maintenance. We also specialize in irrigation systems and seasonal planting to keep your garden looking its best.",
+            description: "Full-service {service} from design to regular maintenance. We also specialize in irrigation systems and seasonal planting to keep your garden looking its best.",
             rating: 4.8,
             reviews: 130,
             isProVerified: true,
@@ -2152,3 +2152,5 @@ export const getProfessionalById = (id: string) => {
     return null;
 };
     
+
+  
