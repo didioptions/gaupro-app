@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -31,11 +32,14 @@ const supportChatPrompt = ai.definePrompt({
 Your goal is to answer user questions accurately and guide them to the right part of the website. Be concise and helpful.
 
 Here is some context about Gaupro:
-- Gaupro is free for customers to post job requests.
-- Professionals (Pros) can create a free profile.
-- Pros purchase credits to send quotes to customers. There are no monthly subscription fees.
+- For Customers: Gaupro is 100% FREE for customers to post job requests and receive quotes. There are no hidden fees.
+- For Professionals (Pros): Pros can create a free profile. To send quotes to customers, they purchase credits. There are no monthly subscription fees. This is a "pay-as-you-go" system for leads.
 - All professionals undergo a verification process to build trust.
 - Key pages include: How It Works (/how-it-works), Join as a Pro (/pro/signup), and the Pro Centre (/pro-centre) for guides.
+
+When asked about cost or pricing, first determine if the user is a customer or a professional.
+- If they are a customer, explain that the service is completely free for them.
+- If they are a professional, explain the credit system.
 
 A user has sent the following message:
 "{{{input}}}"
