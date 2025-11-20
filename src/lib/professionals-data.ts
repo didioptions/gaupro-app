@@ -2136,6 +2136,32 @@ export const allProfessionals = {
             photos: ["https://picsum.photos/seed/landscaping2/600/400"],
             avatarSeed: "joburg-garden-pros-logo"
         }
+    ],
+    demolition: [
+        {
+            id: "demo-kings-jhb",
+            name: "Demo Kings JHB",
+            location: "Johannesburg",
+            description: "Safe and efficient {service} services for residential and commercial projects. We handle everything from interior strip-outs to complete building takedowns, including site clearing and rubble removal.",
+            rating: 4.8,
+            reviews: 88,
+            isProVerified: true,
+            reviewData: [{ author: "Property Developer", rating: 5, comment: "Fast, safe, and professional. They cleared a site for us ahead of schedule. Will definitely use them again." }],
+            photos: ["https://picsum.photos/seed/demo1/600/400"],
+            avatarSeed: "demo-kings-logo"
+        },
+        {
+            id: "cape-demolition",
+            name: "Cape Demolition & Rubble",
+            location: "Cape Town",
+            description: "Your local experts in {service} and rubble removal. We specialize in residential projects, including wall removal, pool demolition, and site preparation for renovations.",
+            rating: 4.9,
+            reviews: 115,
+            isProVerified: true,
+            reviewData: [{ author: "Home Renovator", rating: 5, comment: "They removed an internal wall for my open-plan kitchen project. The work was done carefully and they left the site perfectly clean." }],
+            photos: ["https://picsum.photos/seed/demo2/600/400"],
+            avatarSeed: "cape-demolition-logo"
+        }
     ]
 };
 

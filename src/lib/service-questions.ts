@@ -2470,5 +2470,25 @@ export const serviceQuestionSets: QuestionSet[] = [
       ...commonQuestions,
     ],
   },
+  {
+      service: 'demolition',
+      questions: [
+        {
+          id: 'demolition_type',
+          text: 'What needs to be demolished?',
+          type: 'radio',
+          options: [
+            { value: 'full_house', label: 'Entire House / Building' },
+            { value: 'interior_walls', label: 'Interior Walls' },
+            { value: 'exterior_wall', label: 'Exterior Wall / Fence' },
+            { value: 'swimming_pool', label: 'Swimming Pool' },
+            { value: 'garage', label: 'Garage or Outbuilding' },
+            { value: 'other', label: 'Other' },
+          ],
+        },
+        ...commonQuestions,
+      ],
+  },
 ];
+
 

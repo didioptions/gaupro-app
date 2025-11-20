@@ -198,6 +198,12 @@
       "description": "A person signing an official company registration document.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_reg.PNG?alt=media&token=487d27e9-d757-410a-bf1f-b510ed97c8ef",
       "imageHint": "document signing"
+    },
+    {
+      "id": "demolition-image",
+      "description": "An excavator demolishing a brick wall at a construction site.",
+      "imageUrl": "https://picsum.photos/seed/demolition-hero/1200/500",
+      "imageHint": "excavator demolishing"
     }
   ]
 }
