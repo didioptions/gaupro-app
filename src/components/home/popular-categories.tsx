@@ -10,51 +10,52 @@ import { allServices } from "@/lib/service-questions";
 import { Button } from "../ui/button";
 
 const popularServices = [
-  { name: "Builders", href: "/services/builders", imageId: "builders-image" },
-  { name: "Movers", href: "/services/movers", imageId: "movers-image" },
-  { name: "Caterers", href: "/services/caterers", imageId: "caterers-image" },
-  { name: "Architects", href: "/services/architects", imageId: "architects-image" },
-  { name: "Handyman", href: "/services/handyman", imageId: "handyman-image" },
-  { name: "Solar Panel Installation", href: "/services/solar-systems", imageId: "solar-systems-image" },
-  { name: "Security", href: "/services/security", imageId: "security-image" },
-  { name: "Cleaning Services", href: "/services/cleaning-service", imageId: "cleaning-service-image" },
+  { name: "Builders", value: "builders", imageId: "builders-image" },
+  { name: "Movers", value: "movers", imageId: "movers-image" },
+  { name: "Caterers", value: "caterers", imageId: "caterers-image" },
+  { name: "Architects", value: "architects", imageId: "architects-image" },
+  { name: "Handymen", value: "handyman", imageId: "handyman-image" },
+  { name: "Solar Systems", value: "solar-systems", imageId: "solar-systems-image" },
+  { name: "Security", value: "security", imageId: "security-image" },
+  { name: "Cleaning Services", value: "cleaning-service", imageId: "cleaning-service-image" },
 ];
 
 const weddingServices = [
-  { name: "DJs", href: "/services/djs", imageId: "djs-image" },
-  { name: "Event Decorations", href: "/services/event-decorations", imageId: "event-decorations-image" },
-  { name: "Party Planners", href: "/services/party-planners", imageId: "party-planners-image" },
-  { name: "Tent Hire", href: "/services/tent-hire", imageId: "tent-hire-image" },
-  { name: "Photographers", href: "/services/photographers", imageId: "photographers-image" },
-  { name: "Toilet Hire", href: "/services/toilet-hire", imageId: "toilet-hire-image" },
-  { name: "Videographers", href: "/services/videographers", imageId: "videographers-image" },
-  { name: "Wedding Photographers", href: "/services/photographers", imageId: "wedding-photographers-image" },
+  { name: "Djs", value: "djs", imageId: "djs-image" },
+  { name: "Event Decorations", value: "event-decorations", imageId: "event-decorations-image" },
+  { name: "Party Planners", value: "party-planners", imageId: "party-planners-image" },
+  { name: "Tent Hire", value: "tent-hire", imageId: "tent-hire-image" },
+  { name: "Photographers", value: "photographers", imageId: "photographers-image" },
+  { name: "Toilet Hire", value: "toilet-hire", imageId: "toilet-hire-image" },
+  { name: "Videographers", value: "videographers", imageId: "videographers-image" },
+  { name: "Wedding Photographers", value: "wedding-photographers", imageId: "wedding-photographers-image" },
 ];
 
 const homeServices = [
-  { name: "Builders", href: "/services/builders", imageId: "builders-image" },
-  { name: "Plumbers", href: "/services/plumber", imageId: "plumber-image" },
-  { name: "Electricians", href: "/services/electrician", imageId: "electrician-image" },
-  { name: "Painters", href: "/services/painter", imageId: "painter-image" },
-  { name: "Gardeners", href: "/services/gardeners", imageId: "gardeners-image" },
-  { name: "Pest Control", href: "/services/pest-control", imageId: "pest-control-image" },
-  { name: "Tree Felling", href: "/services/tree-felling", imageId: "tree-felling-image" },
-  { name: "Carpenters", href: "/services/carpenter", imageId: "carpenters-image" },
+  { name: "Builders", value: "builders", imageId: "builders-image" },
+  { name: "Plumbers", value: "plumber", imageId: "plumber-image" },
+  { name: "Electricians", value: "electrician", imageId: "electrician-image" },
+  { name: "Painters", value: "painter", imageId: "painter-image" },
+  { name: "Gardeners", value: "gardeners", imageId: "gardeners-image" },
+  { name: "Pest Control", value: "pest-control", imageId: "pest-control-image" },
+  { name: "Tree Felling", value: "tree-felling", imageId: "tree-felling-image" },
+  { name: "Carpenters", value: "carpenter", imageId: "carpenters-image" },
 ];
 
 const businessServices = [
-    { name: "Accounting", href: "/services/accounting", imageId: "accounting-image" },
-    { name: "Auditors", href: "/services/auditors", imageId: "auditors-image" },
-    { name: "Debt Counsellors", href: "/services/debt-counsellors", imageId: "debt-counsellors-image" },
-    { name: "Financial Advisors", href: "/services/financial-advisors", imageId: "financial-advisors-image" },
-    { name: "Home Loans", href: "/services/home-loans", imageId: "home-loans-image" },
-    { name: "Insurance", href: "/services/insurance", imageId: "insurance-image" },
-    { name: "Business Consultants", href: "/services/business-consultants", imageId: "business-consultants-image" },
-    { name: "Company Registrations", href: "/services/company-registrations", imageId: "company-registrations-image" },
+    { name: "Accounting", value: "accounting", imageId: "accounting-image" },
+    { name: "Auditors", value: "auditors", imageId: "auditors-image" },
+    { name: "Debt Counsellors", value: "debt-counsellors", imageId: "debt-counsellors-image" },
+    { name: "Financial Advisors", value: "financial-advisors", imageId: "financial-advisors-image" },
+    { name: "Home Loans", value: "home-loans", imageId: "home-loans-image" },
+    { name: "Insurance", value: "insurance", imageId: "insurance-image" },
+    { name: "Business Consultants", value: "business-consultants", imageId: "business-consultants-image" },
+    { name: "Company Registrations", value: "company-registrations", imageId: "company-registrations-image" },
 ];
 
-const CategoryCard = ({ name, href, imageId }: { name: string, href: string, imageId: string }) => {
+const CategoryCard = ({ name, value, imageId }: { name: string, value: string, imageId: string }) => {
   const categoryImage = CategoryImages.find(c => c.id === imageId);
+  const href = `/services/${value}`;
   return (
     <Link href={href} className="group">
       <Card className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">

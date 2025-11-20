@@ -16,11 +16,11 @@ const allCategories = [
   { category: 'Business & Finance', services: ['Accounting', 'Auditors', 'Business Consultants', 'Company Registrations', 'Debt Collection', 'Debt Counsellors', 'Financial Advisors', 'Insurance', 'Loans', 'Medical Aid', 'Recruitment Agencies'] },
   { category: 'Digital Design, Media & Marketing', services: ['Graphic Designers', 'Logo Design', 'Printing', 'Signs', 'Website Designers'] },
   { category: 'Health, Wellness & Beauty', services: ['Beauty Salons', 'Chiropractors', 'Counsellors', 'Dentists', 'Dermatologists', 'Dieticians', 'Gynaecologists', 'Hair Stylists', 'Laser Clinics', 'Make Up Artists', 'Marriage Counsellors', 'Massage Therapists', 'Personal Trainers', 'Physiotherapists', 'Plastic Surgeons', 'Psychologists'] },
-  { category: 'Alarms & Security', services: ['Access Control', 'Alarm Systems', 'Armed Response', 'Car Alarms', 'Car Tracking', 'CCTV', 'Fire Safety', 'Private Investigators', 'Security', 'Tracing'] },
+  { category: 'Alarms & Security', services: ['Access Control', 'Alarm Systems', 'Armed Response', 'Car Alarms', 'Car Tracking', 'Cctv', 'Fire Safety', 'Private Investigators', 'Security', 'Tracing'] },
   { category: 'Cars & Automotive', services: ['Auto Electricians', 'Auto Glass', 'Batteries', 'Brakes and Clutches', 'Car Aircon Regassing', 'Car Window Tinting', 'Engine Overhauls', 'Fuels', 'Gearboxes', 'Mechanics', 'Panel Beaters', 'Towing', 'Tow Bars'] },
   { category: 'Lessons & Training', services: ['Computer Courses', 'Driving Schools', 'Firearm Training', 'First Aid', 'Forklift Training', 'Life Coaches', 'Security Training', 'Swimming Lessons', 'Team Building'] },
   { category: 'Accommodation & Venues', services: ['Holiday Accommodation', 'Venues', 'Wedding Venues'] },
-  { category: 'Home Appliances & Equipment', services: ['Appliance Repairs', 'DSTV Installers', 'Fridge Repairs', 'Tv Installers', 'Tv Repairs'] },
+  { category: 'Home Appliances & Equipment', services: ['Appliance Repairs', 'Dstv Installers', 'Fridge Repairs', 'Tv Installers', 'Tv Repairs'] },
   { category: 'Property & Legal', services: ['Conveyancers', 'Divorce Lawyers', 'Estate Agents', 'Labour Lawyers', 'Lawyers'] },
   { category: 'Transportation & Logistics', services: ['Couriers', 'Movers', 'Rubble Removals', 'School Transport', 'Shuttle Services', 'Taxis', 'Transportation'] },
   { category: 'Computers & Telecommunications', services: ['Cellphone Repairs', 'Computer Repairs', 'Internet Solutions', 'Laptop Repairs', 'Networking', 'Office Equipment'] },
@@ -97,7 +97,7 @@ export default function AllCategoriesPage() {
                     <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
                     {group.services.map((serviceName) => {
-                        const service = allServices.find(s => s.label === serviceName);
+                        const service = allServices.find(s => s.label.toLowerCase() === serviceName.toLowerCase());
                         const href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
                         return (
                         <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
