@@ -73,10 +73,13 @@ export default function ServicePage() {
         heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
     }
     
-    const priceEstimates = [
-      'The average cost is R500 - R1500.',
-      'The cheapest price is R250',
-      'The most expensive price is R10500',
+    const benefits = [
+      '🛡️ Fully Vetted Companies',
+      '📈 High Customer Ratings',
+      '🤲 Service You Can Trust',
+      '📍 Local & Reliable',
+      '✨ Consistent Quality Work',
+      '📞 Easy, Safe & Quick Bookings',
     ];
 
     const introText = useMemo(() => {
@@ -194,11 +197,10 @@ export default function ServicePage() {
                                 </Card>
                                 <Card className="bg-card">
                                     <CardContent className="p-6">
-                                        <h3 className="mb-3 text-foreground">Price Estimate for {pluralServiceLabel.toLowerCase()} in {locationName}</h3>
-                                        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                                            {priceEstimates.map(est => <li key={est}>{est}</li>)}
+                                        <h3 className="mb-3 text-foreground">Why Use Gaupro?</h3>
+                                        <ul className="text-sm text-muted-foreground space-y-2">
+                                            {benefits.map(benefit => <li key={benefit}>{benefit}</li>)}
                                         </ul>
-                                        <p className="text-xs text-muted-foreground mt-4">Compare quotes from up to 5 local professionals.</p>
                                     </CardContent>
                                 </Card>
                             </aside>
