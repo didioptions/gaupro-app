@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A support chatbot flow for Gaupro using Retrieval-Augmented Generation (RAG).
@@ -12,7 +13,7 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import { Document, index, retrieve } from 'genkit/document';
-import { memoryIndexer, devLocalRetriever } from 'genkit/dev-tools';
+import { memoryIndexer, devLocalRetriever } from 'genkit/tools';
 import { googleAI } from '@genkit-ai/google-genai';
 
 
@@ -43,6 +44,41 @@ const gauproKnowledge = [
         {
             source: 'https://gaupro.co.za/blog/how-to-succeed-on-gaupro',
             title: 'Success Guide for Professionals'
+        }
+    ),
+    Document.fromText(
+        `Why Choose Gaupro: Gaupro is chosen by over 50,000 South Africans because it solves the traditional hiring nightmare. Instead of hours of searching and calling, you post a job in 2 minutes. Instead of unverifiable claims, you get access to ID-checked professionals with verified reviews. You compare multiple quotes side-by-side transparently, and your contact details remain private until you decide to share them. This saves time, reduces anxiety, and ensures you hire with confidence.`,
+        {
+            source: 'https://gaupro.co.za/blog/why-choose-gaupro',
+            title: 'Why Choose Gaupro'
+        }
+    ),
+    Document.fromText(
+        `Gaupro vs Traditional Hiring: The old way of hiring involves searching classifieds, having no verification, price mysteries, and no accountability. The Gaupro way offers a single job post that reaches hundreds, ID and credential-checked pros, side-by-side quote comparison, and verified customer reviews. This makes the process faster, safer, and more convenient.`,
+        {
+            source: 'https://gaupro.co.za/blog/gaupro-difference',
+            title: 'Gaupro Difference'
+        }
+    ),
+    Document.fromText(
+        `How Gaupro Works (Detailed): Step 1 is posting a job by selecting a service category and answering smart questions. Step 2 is receiving and comparing quotes from multiple pros on your dashboard, where you can see profiles, reviews, and portfolios. Step 3 is hiring with confidence. You accept a quote, arrange service directly, and pay the pro upon completion. Gaupro offers dispute support and ensures accountability through its review system.`,
+        {
+            source: 'https://gaupro.co.za/blog/how-gaupro-works',
+            title: 'How Gaupro Works Detailed'
+        }
+    ),
+    Document.fromText(
+        `Why Professionals Love Gaupro: Professionals choose Gaupro to get a steady stream of quality leads from real customers. It allows them to build their online reputation through verified reviews and showcase their work. It's a cost-effective marketing channel with flexible, pay-as-you-go credit options instead of expensive monthly subscriptions. Professionals report higher quality leads, better job values, and significant business growth.`,
+        {
+            source: 'https://gaupro.co.za/blog/why-professionals-love-gaupro',
+            title: 'Why Professionals Love Gaupro'
+        }
+    ),
+     Document.fromText(
+        `Gaupro vs Competitors: Compared to Kandua, Bark, and Facebook, Gaupro is the overall winner. It is completely free for customers, offers complete verification of all pros, provides instant quotes, has a verified review system, and offers 24/7 support with dispute help. Other platforms lack in one or more of these key areas, especially in verification and support. Professionals prefer Gaupro for higher quality leads and better ROI.`,
+        {
+            source: 'https://gaupro.co.za/blog/gaupro-vs-others',
+            title: 'Gaupro vs Other Options'
         }
     ),
 ];
