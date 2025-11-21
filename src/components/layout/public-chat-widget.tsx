@@ -13,7 +13,7 @@ import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCi
 import { ScrollArea } from '../ui/scroll-area';
 import { Input } from '../ui/input';
 import { usePathname } from 'next/navigation';
-import { ragChatFlow } from '@/ai/flows/rag-chat-flow';
+import { getSupportResponse } from '@/ai/flows/support-chat-flow';
 import { cn } from '@/lib/utils';
 
 type Message = {
@@ -93,7 +93,7 @@ export default function PublicChatWidget() {
     setIsLoading(true);
 
     try {
-      const aiResponse = await ragChatFlow(messageText);
+      const aiResponse = await getSupportResponse(messageText);
       const botMessage = {
         id: messages.length + 2,
         sender: 'bot' as const,
