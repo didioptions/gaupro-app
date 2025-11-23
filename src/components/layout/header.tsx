@@ -20,6 +20,33 @@ import { useRouter } from 'next/navigation';
 import { Skeleton } from '../ui/skeleton';
 import { Badge } from '../ui/badge';
 
+const Logo = () => (
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-8 w-8 text-primary"
+  >
+    <path
+      d="M3 9.5L12 4L21 9.5V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.5Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M9 16L11 18L15 14"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+
 export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const { user, isUserLoading } = useUser();
@@ -169,7 +196,8 @@ export default function Header() {
       <div className="container flex h-16 max-w-screen-2xl items-center">
         <div className="mr-4 flex flex-1 items-center justify-start">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-extrabold text-2xl tracking-tighter">GAU<span className="text-primary">PRO</span></span>
+            <Logo />
+            <span className="font-bold text-xl tracking-tight">Gaupro</span>
           </Link>
         </div>
         
@@ -186,7 +214,8 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="pr-0">
               <Link href="/" className="mr-6 flex items-center space-x-2" onClick={closeSheet}>
-                 <span className="font-extrabold text-2xl tracking-tighter">GAU<span className="text-primary">PRO</span></span>
+                 <Logo />
+                 <span className="font-bold text-xl tracking-tight">Gaupro</span>
               </Link>
               <div className="flex flex-col space-y-4 pt-6">
                 {renderMobileNav()}
