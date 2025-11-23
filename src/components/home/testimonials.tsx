@@ -1,4 +1,3 @@
-
 'use client';
 import Image from 'next/image';
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,28 +9,28 @@ const testimonials = [
     quote: "Gaupro made it so easy to find a reliable plumber. I got three quotes within an hour and the job was done the next day. Highly recommend!",
     author: "Sarah L.",
     location: "Johannesburg",
-    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/real_sara_with_bgc.png?alt=media&token=a490681a-36e3-4af2-b156-cb909ef6def4",
+    avatarUrl: "https://picsum.photos/seed/sarah-l/80/80",
     avatarSeed: "1",
   },
   {
     quote: "The quality of professionals on this platform is outstanding. We found an amazing photographer for our wedding and couldn't be happier with the results.",
     author: "David & Emily R.",
     location: "Cape Town",
-    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/david_pic_with_bgc.png?alt=media&token=c3502e6c-7d0a-438b-bc17-b898723ce40b",
+    avatarUrl: "https://picsum.photos/seed/david-emily/80/80",
     avatarSeed: "2",
   },
   {
     quote: "As a small business owner, finding a good web designer was crucial. Gaupro connected me with a talented developer who built a fantastic website for us.",
     author: "Mike T.",
     location: "Durban",
-    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/mike_t_with_bgc.png?alt=media&token=9db3b083-28e0-484b-bc3f-a5aab0731e09",
+    avatarUrl: "https://picsum.photos/seed/mike-t/80/80",
     avatarSeed: "3",
   },
   {
     quote: "I needed my garden completely redone. The quotes were fair, and the pro I hired did an incredible job. My backyard is now my favorite place to be.",
     author: "Jessica P.",
     location: "Pretoria",
-    avatarUrl: "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Jessica_P._with_bgc.png?alt=media&token=cdf8bb8d-dbc0-4489-b222-595a1a90f4cc",
+    avatarUrl: "https://picsum.photos/seed/jessica-p/80/80",
     avatarSeed: "4",
   },
 ];

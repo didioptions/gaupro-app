@@ -5,7 +5,7 @@ import HomepageQuoteForm from "./homepage-quote-form";
 
 export default function Hero() {
   const heroImage = {
-    imageUrl: 'https://storage.googleapis.com/stablediffusion-413813-assets/image-1729007672223.png',
+    imageUrl: 'https://picsum.photos/seed/hero-handyman/1920/1080',
     description: 'A friendly handyman in uniform holding a toolbox against a blurred background of a modern home interior.',
     imageHint: 'handyman toolbox'
   };
