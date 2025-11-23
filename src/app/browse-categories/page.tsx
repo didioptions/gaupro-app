@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -8,7 +7,7 @@ import Footer from '@/components/layout/footer';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
+import { Search, MapPin } from 'lucide-react';
 
 const allCategories = [
   { category: 'Home, Building & Gardening', services: ['Air Conditioning', 'Aluminium Doors And Windows', 'Awnings', 'Balustrades', 'Bathroom Renovations', 'Blinds', 'Builders', 'Burglar Bars', 'Carpenters', 'Carpeting', 'Carpet Cleaning', 'Carports', 'Ceiling Installers', 'Cleaning Services', 'Concrete Slabs', 'Curtains', 'Demolition', 'Doors', 'Drywalls', 'Electricians', 'Electric Fencing', 'Fencing', 'Flooring', 'Garage Doors', 'Garage Door Motors', 'Gardeners', 'Gas Installers', 'Gates', 'Gate Motors', 'Glass Works', 'Guttering', 'Handymen', 'High Pressure Cleaning', 'Home Improvements', 'Interior Designing', 'Kitchen Renovations', 'Laminate Flooring', 'Landscaping', 'Laundry Services', 'Locksmiths', 'Office Cleaning', 'Painters', 'Palisade Fencing', 'Paving', 'Pest Control', 'Plastering', 'Plumbers', 'Pool Cleaning', 'Precast Fencing', 'Prepaid Electricity Meters', 'Roofing', 'Security Gates', 'Shadeports', 'Shower Doors', 'Solar Geysers', 'Solar Systems', 'Swimming Pool Builders', 'Tar Surfacing', 'Thatched Roofing', 'Tiling', 'Tree Felling', 'Upholsterers', 'Upholstery Cleaning', 'Waterproofing', 'Welders', 'Wendy Houses', 'Window Cleaning', 'Window Tinting', 'Wire Mesh Fencing', 'Wooden Decking'] },
@@ -37,6 +36,7 @@ const allCategories = [
 
 export default function AllCategoriesPage() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [locationQuery, setLocationQuery] = useState('');
 
   const filteredCategories = useMemo(() => {
     if (!searchQuery) {
@@ -79,15 +79,27 @@ export default function AllCategoriesPage() {
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
               Find trusted professionals for any service you need in South Africa.
             </p>
-            <div className="relative max-w-lg mx-auto mt-8">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                type="text"
-                placeholder="What service do you need?"
-                className="h-12 pl-10 text-base"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                />
+            <div className="max-w-2xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-2 bg-white p-2 rounded-lg shadow-md border">
+              <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input
+                  type="text"
+                  placeholder="What service do you need?"
+                  className="h-12 pl-10 text-base w-full bg-transparent border-0 focus-visible:ring-0"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+              </div>
+              <div className="relative">
+                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input
+                  type="text"
+                  placeholder="e.g. Cape Town"
+                  className="h-12 pl-10 text-base w-full bg-transparent border-0 focus-visible:ring-0"
+                  value={locationQuery}
+                  onChange={(e) => setLocationQuery(e.target.value)}
+                  />
+              </div>
             </div>
           </header>
           <div className="max-w-5xl mx-auto space-y-12">
@@ -98,7 +110,11 @@ export default function AllCategoriesPage() {
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
                     {group.services.map((serviceName) => {
                         const service = allServices.find(s => s.label.toLowerCase() === serviceName.toLowerCase());
-                        const href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
+                        let href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
+                        if (locationQuery) {
+                           const locationSlug = locationQuery.toLowerCase().replace(/\s+/g, '-');
+                           href += `?location=${locationSlug}`;
+                        }
                         return (
                         <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
                             {serviceName}
