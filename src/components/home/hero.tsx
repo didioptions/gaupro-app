@@ -2,13 +2,10 @@
 
 import Image from "next/image";
 import HomepageQuoteForm from "./homepage-quote-form";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Hero() {
-  const heroImage = {
-    imageUrl: 'https://picsum.photos/seed/hero-handyman/1920/1080',
-    description: 'A friendly handyman in uniform holding a toolbox against a blurred background of a modern home interior.',
-    imageHint: 'handyman toolbox'
-  };
+  const heroImage = PlaceHolderImages.find(p => p.id === 'homepage-hero');
   
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center text-white py-20 md:py-0">
