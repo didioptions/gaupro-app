@@ -90,7 +90,7 @@ export default function BrowseLeadsPage() {
                                 <SelectItem value="100">100km</SelectItem>
                             </SelectContent>
                         </Select>
-                        <Button className="h-12 px-6" disabled>GO</Button>
+                        <Button className="h-12 px-6">GO</Button>
                     </div>
                 </div>
               </div>
