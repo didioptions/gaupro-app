@@ -8,6 +8,7 @@ import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin } from 'lucide-react';
+import TopProsByLocation from '@/components/browse/top-pros-by-location';
 
 const allCategories = [
   { category: 'Home, Building & Gardening', services: ['Air Conditioning', 'Aluminium Doors And Windows', 'Awnings', 'Balustrades', 'Bathroom Renovations', 'Blinds', 'Builders', 'Burglar Bars', 'Carpenters', 'Carpeting', 'Carpet Cleaning', 'Carports', 'Ceiling Installers', 'Cleaning Services', 'Concrete Slabs', 'Curtains', 'Demolition', 'Doors', 'Drywalls', 'Electricians', 'Electric Fencing', 'Fencing', 'Flooring', 'Garage Doors', 'Garage Door Motors', 'Gardeners', 'Gas Installers', 'Gates', 'Gate Motors', 'Glass Works', 'Guttering', 'Handymen', 'High Pressure Cleaning', 'Home Improvements', 'Interior Designing', 'Kitchen Renovations', 'Laminate Flooring', 'Landscaping', 'Laundry Services', 'Locksmiths', 'Office Cleaning', 'Painters', 'Palisade Fencing', 'Paving', 'Pest Control', 'Plastering', 'Plumbers', 'Pool Cleaning', 'Precast Fencing', 'Prepaid Electricity Meters', 'Roofing', 'Security Gates', 'Shadeports', 'Shower Doors', 'Solar Geysers', 'Solar Systems', 'Swimming Pool Builders', 'Tar Surfacing', 'Thatched Roofing', 'Tiling', 'Tree Felling', 'Upholsterers', 'Upholstery Cleaning', 'Waterproofing', 'Welders', 'Wendy Houses', 'Window Cleaning', 'Window Tinting', 'Wire Mesh Fencing', 'Wooden Decking'] },
@@ -102,34 +103,39 @@ export default function AllCategoriesPage() {
               </div>
             </div>
           </header>
-          <div className="max-w-5xl mx-auto space-y-12">
-            {filteredCategories.length > 0 ? (
-                filteredCategories.map((group) => (
-                <div key={group.category}>
-                    <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
-                    {group.services.map((serviceName) => {
-                        const service = allServices.find(s => s.label.toLowerCase() === serviceName.toLowerCase());
-                        let href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
-                        if (locationQuery) {
-                           const locationSlug = locationQuery.toLowerCase().replace(/\s+/g, '-');
-                           href += `?location=${locationSlug}`;
-                        }
-                        return (
-                        <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
-                            {serviceName}
-                        </Link>
-                        );
-                    })}
+          <div className="max-w-5xl mx-auto">
+
+            {locationQuery && searchQuery && <TopProsByLocation location={locationQuery} service={searchQuery} />}
+
+            <div className="space-y-12">
+                {filteredCategories.length > 0 ? (
+                    filteredCategories.map((group) => (
+                    <div key={group.category}>
+                        <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
+                        {group.services.map((serviceName) => {
+                            const service = allServices.find(s => s.label.toLowerCase() === serviceName.toLowerCase());
+                            let href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
+                            if (locationQuery) {
+                               const locationSlug = locationQuery.toLowerCase().replace(/\s+/g, '-');
+                               href += `?location=${locationSlug}`;
+                            }
+                            return (
+                            <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
+                                {serviceName}
+                            </Link>
+                            );
+                        })}
+                        </div>
                     </div>
-                </div>
-                ))
-            ) : (
-                <div className="text-center text-muted-foreground py-16">
-                    <p className="text-lg">No services found for "{searchQuery}"</p>
-                    <p>Try a different search term or browse the full list.</p>
-                </div>
-            )}
+                    ))
+                ) : (
+                    <div className="text-center text-muted-foreground py-16">
+                        <p className="text-lg">No services found for "{searchQuery}"</p>
+                        <p>Try a different search term or browse the full list.</p>
+                    </div>
+                )}
+            </div>
           </div>
         </div>
       </main>

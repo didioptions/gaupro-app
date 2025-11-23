@@ -1185,7 +1185,7 @@ export const allProfessionals = {
     ],
     "rubble-removal": [
         {
-            id: "a-to-z-rubble",
+            id: "a-to-z-rubble-springs",
             name: "A to Z Rubble Removals",
             location: "Springs",
             description: "Fast and reliable rubble removal for building sites, garden refuse, and general waste in Springs and surrounding areas. We offer skip hire and manual loading.",
@@ -1277,7 +1277,7 @@ export const allProfessionals = {
         },
         {
             id: "joburg-rubble-pros",
-            name: "Joburg Rubble Pros",
+            name: "Jozi Rubble Pros",
             location: "Johannesburg",
             description: "Fast, reliable, and affordable rubble removal services across Johannesburg. We handle construction debris, garden refuse, and site clearing.",
             rating: 4.9,
@@ -1300,6 +1300,89 @@ export const allProfessionals = {
             reviewData: [{ author: "Renovator", rating: 5, comment: "The only skip hire company I use. Their service is impeccable." }],
             photos: ["https://picsum.photos/seed/rubble-sandton1/600/400"],
             avatarSeed: "skip-boys-logo"
+        },
+        {
+            id: "alberton-waste-away",
+            name: "Alberton Waste Away",
+            location: "Alberton",
+            description: "Local rubble and garden refuse removal for Alberton and the south of Johannesburg. Same-day service available.",
+            rating: 4.7,
+            reviews: 85,
+            isProVerified: true,
+            serviceLocations: ["alberton", "germiston"],
+            reviewData: [{ author: "Homeowner", rating: 5, comment: "Called them to clear out garage junk. They were fast and affordable." }],
+            photos: ["https://picsum.photos/seed/rubble-alberton1/600/400"],
+            avatarSeed: "skip-boys-logo"
+        },
+        {
+            id: "benoni-clean-sweep",
+            name: "Benoni Clean Sweep",
+            location: "Benoni",
+            description: "Rubble removal and site clearing experts in Benoni. We also offer skip hire for construction and renovation projects.",
+            rating: 4.8,
+            reviews: 78,
+            isProVerified: true,
+            serviceLocations: ["benoni", "boksburg", "kempton-park"],
+            reviewData: [{ author: "Contractor", rating: 5, comment: "Reliable skip delivery and collection. Good prices." }],
+            photos: ["https://picsum.photos/seed/rubble-benoni1/600/400"],
+            avatarSeed: "skip-boys-logo"
+        },
+         {
+            id: 'midrand-rubble-away',
+            name: 'Midrand Rubble Away',
+            location: 'Midrand',
+            description: 'Fast and efficient rubble and garden refuse removal in Midrand. We offer skip hire and manual loading services for any size job.',
+            rating: 4.9,
+            reviews: 110,
+            isProVerified: true,
+            serviceLocations: ['midrand', 'centurion', 'kyalami'],
+            reviewData: [
+              {
+                author: 'Developer Dave',
+                rating: 5,
+                comment: 'Best rubble removal service in Midrand. Always on time and they leave the site clean.',
+              },
+            ],
+            photos: ['https://picsum.photos/seed/rubble-midrand1/600/400'],
+            avatarSeed: 'skip-boys-logo',
+        },
+        {
+            id: 'pretoria-waste-warriors',
+            name: 'Pretoria Waste Warriors',
+            location: 'Pretoria',
+            description: 'Rubble removal, garden waste, and general junk clearing for all of Pretoria. We pride ourselves on fast, friendly service.',
+            rating: 4.8,
+            reviews: 150,
+            isProVerified: true,
+            serviceLocations: ['pretoria', 'centurion'],
+            reviewData: [
+              {
+                author: 'Mrs. van Jaarsveld',
+                rating: 5,
+                comment: 'They cleared out my entire garage. The team was so friendly and worked incredibly hard. Highly recommended.',
+              },
+            ],
+            photos: ['https://picsum.photos/seed/rubble-pretoria1/600/400'],
+            avatarSeed: 'themba-rubble-removers-logo',
+        },
+        {
+            id: 'soweto-site-clearers',
+            name: 'Soweto Site Clearers',
+            location: 'Soweto',
+            description: 'Local rubble and junk removal experts in Soweto. No job too big or small for our team. We handle building rubble and general waste.',
+            rating: 4.9,
+            reviews: 98,
+            isProVerified: true,
+            serviceLocations: ['soweto', 'johannesburg'],
+            reviewData: [
+              {
+                author: 'Thabo G.',
+                rating: 5,
+                comment: 'Quick and reliable. They cleared my backyard of building rubble in just a few hours.',
+              },
+            ],
+            photos: ['https://picsum.photos/seed/rubble-soweto1/600/400'],
+            avatarSeed: 'ndlovu-construction-logo',
         }
     ],
     default: [
@@ -2525,7 +2608,7 @@ export const allProfessionals = {
             rating: 4.9,
             reviews: 250,
             isProVerified: true,
-            serviceLocations: ['johannesburg', 'sandton', 'randburg', 'roodepoort'],
+            serviceLocations: ['johannesburg', 'sandton', 'randburg', 'roodepoort', 'midrand'],
             reviewData: [{ author: 'Mrs. Dlamini', rating: 5, comment: 'They came out at 2am for a burst pipe. Lifesavers! Very professional and efficient.' }],
             photos: ['https://picsum.photos/seed/plumbking/600/400'],
             avatarSeed: 'plumber-image',
@@ -2542,6 +2625,19 @@ export const allProfessionals = {
             reviewData: [{ author: 'Mr. Botha', rating: 5, comment: 'Found a hidden leak that was costing me a fortune. Very impressed with their technology and skill.' }],
             photos: ['https://picsum.photos/seed/pretoriaplumb/600/400'],
             avatarSeed: 'plumber-image',
+        },
+        {
+            id: 'midrand-pipe-masters',
+            name: 'Midrand Pipe Masters',
+            location: 'Midrand',
+            description: 'Your local Midrand {service}. We specialize in residential and commercial plumbing, from simple repairs to complex installations.',
+            rating: 4.9,
+            reviews: 150,
+            isProVerified: true,
+            serviceLocations: ['midrand', 'centurion', 'kyalami'],
+            reviewData: [{ author: 'Corporate Park', rating: 5, comment: 'They handle all the plumbing maintenance for our office park. Fast, reliable and professional.' }],
+            photos: ['https://picsum.photos/seed/midrand-plumber/600/400'],
+            avatarSeed: 'plumber-image',
         }
     ],
     electrician: [
@@ -2553,7 +2649,7 @@ export const allProfessionals = {
             rating: 4.9,
             reviews: 210,
             isProVerified: true,
-            serviceLocations: ['sandton', 'bryanston', 'fourways', 'morningside'],
+            serviceLocations: ['sandton', 'bryanston', 'fourways', 'morningside', 'midrand'],
             reviewData: [{ author: 'Corporate HQ', rating: 5, comment: 'Our go-to electricians for all office maintenance. Always professional and reliable.' }],
             photos: ['https://picsum.photos/seed/sandtonspark/600/400'],
             avatarSeed: 'electrician-image',
@@ -2569,6 +2665,19 @@ export const allProfessionals = {
             serviceLocations: ['boksburg', 'benoni', 'kempton-park', 'springs'],
             reviewData: [{ author: 'Mrs. van Niekerk', rating: 5, comment: 'They fixed my tripping power issue quickly and at a great price. Very friendly service.' }],
             photos: ['https://picsum.photos/seed/eastrandelec/600/400'],
+            avatarSeed: 'electrician-image',
+        },
+        {
+            id: 'midrand-power-pros',
+            name: 'Midrand Power Pros',
+            location: 'Midrand',
+            description: 'Certified {service} in Midrand for all your electrical needs. We specialize in solar backup systems, CoCs, and general electrical maintenance.',
+            rating: 4.8,
+            reviews: 130,
+            isProVerified: true,
+            serviceLocations: ['midrand', 'centurion', 'tembisa'],
+            reviewData: [{ author: 'Homeowner', rating: 5, comment: 'They installed my inverter and battery system. The work was neat and very professional.' }],
+            photos: ['https://picsum.photos/seed/midrand-electrician/600/400'],
             avatarSeed: 'electrician-image',
         }
     ],
@@ -2619,4 +2728,5 @@ export const getProfessionalById = (id: string) => {
     
 
   
+
 
