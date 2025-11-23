@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -201,7 +200,7 @@ export default function ContactPage() {
                         <h3 className="text-xl font-semibold">Check our Help Center</h3>
                         <p className="text-foreground">Find quick answers to common questions about accounts, payments, or leads.</p>
                         <Button variant="link" asChild className="px-0">
-                            <Link href="#">Visit Help Center →</Link>
+                            <Link href="/pro-centre">Visit Help Center →</Link>
                         </Button>
                     </div>
                 </div>
