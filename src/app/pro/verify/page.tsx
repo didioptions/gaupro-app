@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -147,7 +148,7 @@ export default function VerificationPage() {
                   <RadioGroup
                     value={docType}
                     onValueChange={setDocType}
-                    className="flex gap-4"
+                    className="flex flex-wrap gap-4"
                   >
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="id-document" id="id-document" />
@@ -159,6 +160,18 @@ export default function VerificationPage() {
                       <RadioGroupItem value="passport" id="passport" />
                       <Label htmlFor="passport" className="font-normal">
                         Passport
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="drivers-licence" id="drivers-licence" />
+                      <Label htmlFor="drivers-licence" className="font-normal">
+                        Driver's Licence
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="utility-bill" id="utility-bill" />
+                      <Label htmlFor="utility-bill" className="font-normal">
+                        Utility Bill
                       </Label>
                     </div>
                   </RadioGroup>
