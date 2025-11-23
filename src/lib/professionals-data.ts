@@ -1039,6 +1039,99 @@ export const allProfessionals = {
             avatarSeed: "deck-kings-logo"
         }
     ],
+    "rubble-removal": [
+        {
+            id: "a-to-z-rubble",
+            name: "A to Z Rubble Removals",
+            location: "Springs",
+            description: "Fast and reliable rubble removal for building sites, garden refuse, and general waste in Springs and surrounding areas. We offer skip hire and manual loading.",
+            rating: 4.8,
+            reviews: 55,
+            isProVerified: true,
+            serviceLocations: ["springs", "benoni", "brakpan"],
+            reviewData: [{ author: "John D.", rating: 5, comment: "Quick service and very affordable. They cleaned up my building site in no time." }],
+            photos: ["https://picsum.photos/seed/rubble1/600/400"],
+            avatarSeed: "skip-boys-logo"
+        },
+        {
+            id: "themba-rubble-removers-springs",
+            name: "Themba Rubble Removers",
+            location: "Springs",
+            description: "Efficient and friendly rubble removal service. No job is too big or too small. We clear sites quickly and dispose of waste responsibly.",
+            rating: 4.9,
+            reviews: 72,
+            isProVerified: true,
+            serviceLocations: ["springs"],
+            reviewData: [{ author: "Sarah L.", rating: 5, comment: "Themba and his team were fantastic. Very professional and left the place spotless." }],
+            photos: ["https://picsum.photos/seed/rubble2/600/400"],
+            avatarSeed: "themba-rubble-removers-logo"
+        },
+        {
+            id: "east-rand-waste-springs",
+            name: "East Rand Waste & Pool Service Pty Ltd",
+            location: "Springs",
+            description: "Comprehensive waste management including rubble removal and skip hire. We also offer weekly pool maintenance services.",
+            rating: 4.7,
+            reviews: 64,
+            isProVerified: true,
+            serviceLocations: ["springs", "boksburg", "benoni"],
+            reviewData: [{ author: "Complex Manager", rating: 5, comment: "We use them for all our waste removal. Always on time and very reliable." }],
+            photos: ["https://picsum.photos/seed/rubble3/600/400"],
+            avatarSeed: "pro-services-inc"
+        },
+        {
+            id: "skip-boys-springs",
+            name: "Skip Boys",
+            location: "Springs",
+            description: "Affordable skip hire for all your waste removal needs. We drop off and pick up, making your cleanup easy.",
+            rating: 4.6,
+            reviews: 48,
+            isProVerified: true,
+            serviceLocations: ["springs", "brakpan"],
+            reviewData: [{ author: "DIY Renovator", rating: 4, comment: "Good service, fair price. The skip was a bit old but did the job." }],
+            photos: ["https://picsum.photos/seed/rubble4/600/400"],
+            avatarSeed: "skip-boys-logo"
+        },
+        {
+            id: "ndlovu-construction-springs",
+            name: "Ndlovu Construction & Removals",
+            location: "Springs",
+            description: "Building contractors also offering site clearing and rubble removal services. Your one-stop shop for small building projects.",
+            rating: 4.8,
+            reviews: 39,
+            isProVerified: true,
+            serviceLocations: ["springs"],
+            reviewData: [{ author: "Peter M.", rating: 5, comment: "Hired them to build a wall and they cleared all the rubble afterwards. Very professional service." }],
+            photos: ["https://picsum.photos/seed/rubble5/600/400"],
+            avatarSeed: "ndlovu-construction-logo"
+        },
+        {
+            id: "quick-clear-springs",
+            name: "Quick Clear Rubble",
+            location: "Springs",
+            description: "Same-day rubble and garden refuse removal service. Call us for a quick and easy quote.",
+            rating: 4.9,
+            reviews: 81,
+            isProVerified: true,
+            serviceLocations: ["springs", "nigel"],
+            reviewData: [{ author: "Jane F.", rating: 5, comment: "Called them in the morning and my garden refuse was gone by the afternoon. Incredible service!" }],
+            photos: ["https://picsum.photos/seed/rubble6/600/400"],
+            avatarSeed: "quick-clear-logo"
+        },
+        {
+            id: "springs-waste-management",
+            name: "Springs Waste Management",
+            location: "Springs",
+            description: "Your local specialists in responsible waste and rubble disposal. We are committed to recycling and eco-friendly practices.",
+            rating: 4.7,
+            reviews: 53,
+            isProVerified: true,
+            serviceLocations: ["springs"],
+            reviewData: [{ author: "Eco-Warrior", rating: 5, comment: "I chose them because they recycle. Very happy with their professional approach." }],
+            photos: ["https://picsum.photos/seed/rubble7/600/400"],
+            avatarSeed: "waste-management-logo"
+        }
+    ],
     default: [
         {
             id: "pro-services-inc",
@@ -2091,21 +2184,21 @@ export const allProfessionals = {
         }
     ],
     "dstv-installers": [
-        {
-            id: "sat-pros-installations",
-            name: "Sat-Pros Installations",
-            location: "Cape Town",
-            description: "Accredited {service} for new installations, upgrades, extra view setup, and signal problems. We ensure a perfect picture, every time.",
-            rating: 4.9,
-            reviews: 300,
-            isProVerified: true,
-            reviewData: [
-                { author: "New Homeowner", rating: 5, comment: "They did our new DStv installation. The work was neat and they explained everything clearly." },
-                { author: "Frustrated Viewer", rating: 5, comment: "I was having signal problems for weeks. They came and sorted it out in 20 minutes. Should have called them sooner!" }
-            ],
-            photos: ["https://picsum.photos/seed/dstv1/600/400"],
-            avatarSeed: "sat-pros-logo"
-        }
+      {
+        id: "sat-pros-installations",
+        name: "Sat-Pros Installations",
+        location: "Cape Town",
+        description: "Accredited {service} for new installations, upgrades, extra view setup, and signal problems. We ensure a perfect picture, every time.",
+        rating: 4.9,
+        reviews: 300,
+        isProVerified: true,
+        reviewData: [
+          { author: "New Homeowner", rating: 5, comment: "They did our new DStv installation. The work was neat and they explained everything clearly." },
+          { author: "Frustrated Viewer", rating: 5, comment: "I was having signal problems for weeks. They came and sorted it out in 20 minutes. Should have called them sooner!" }
+        ],
+        photos: ["https://picsum.photos/seed/dstv1/600/400"],
+        avatarSeed: "sat-pros-logo"
+      }
     ],
     landscaping: [
         {
