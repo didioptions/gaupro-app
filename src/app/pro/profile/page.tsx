@@ -1,4 +1,3 @@
-
 'use client';
 
 import { AlertCircle, Users } from 'lucide-react';
@@ -26,7 +25,7 @@ export default function ProProfilePage() {
             <AlertTitle className="font-bold">Action Required</AlertTitle>
             <div className="flex justify-between items-center">
                 <AlertDescription className="text-red-700">
-                    Your account has limited access. Before we activate your account, we need you to verify your profile to maintain a trusted workplace. We need your ID and utility bill.
+                    Your account has limited access. Before we activate your account, we need you to verify your profile to maintain a trusted workplace. We need your identification such as ID or Passport Drivers licence or Utility bills.
                 </AlertDescription>
                 <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
                   <Link href="/pro/verify">Verify your ID</Link>
