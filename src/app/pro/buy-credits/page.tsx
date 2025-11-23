@@ -138,6 +138,17 @@ export default function BuyCreditsPage() {
                     Proceed to Checkout
                 </Button>
              </div>
+
+            <Card className="mt-12">
+              <CardHeader>
+                <CardTitle className="text-2xl font-normal">What are Credits?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>You need to buy credits to respond to customers on Gaupro. The cost of a job varies from 1 to 5 credits and this depends on the size of the job and the number of pros in the area.</p>
+                <p>For example, a bigger job like a bathroom remodel will cost 4 credits, while smaller jobs like swimming lessons will be 1 credit. The base cost of 1 credit is R30, but this reduces if you buy credits in bulk.</p>
+              </CardContent>
+            </Card>
+
           </div>
         </div>
         <Dialog open={isPaymentDialogOpen} onOpenChange={setIsPaymentDialogOpen}>
