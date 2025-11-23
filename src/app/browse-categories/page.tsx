@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useMemo, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { allLocations } from '@/lib/locations';
+import { Autocomplete } from '@/components/ui/autocomplete';
 
 const allCategories = [
   { category: 'Home, Building & Gardening', services: ['Air Conditioning', 'Aluminium Doors And Windows', 'Awnings', 'Balustrades', 'Bathroom Renovations', 'Blinds', 'Builders', 'Burglar Bars', 'Carpenters', 'Carpeting', 'Carpet Cleaning', 'Carports', 'Ceiling Installers', 'Cleaning Services', 'Concrete Slabs', 'Curtains', 'Demolition', 'Doors', 'Drywalls', 'Electricians', 'Electric Fencing', 'Fencing', 'Flooring', 'Garage Doors', 'Garage Door Motors', 'Gardeners', 'Gas Installers', 'Gates', 'Gate Motors', 'Glass Works', 'Guttering', 'Handymen', 'High Pressure Cleaning', 'Home Improvements', 'Interior Designing', 'Kitchen Renovations', 'Laminate Flooring', 'Landscaping', 'Laundry Services', 'Locksmiths', 'Office Cleaning', 'Painters', 'Palisade Fencing', 'Paving', 'Pest Control', 'Plastering', 'Plumbers', 'Pool Cleaning', 'Precast Fencing', 'Prepaid Electricity Meters', 'Roofing', 'Security Gates', 'Shadeports', 'Shower Doors', 'Solar Geysers', 'Solar Systems', 'Swimming Pool Builders', 'Tar Surfacing', 'Thatched Roofing', 'Tiling', 'Tree Felling', 'Upholsterers', 'Upholstery Cleaning', 'Waterproofing', 'Welders', 'Wendy Houses', 'Window Cleaning', 'Window Tinting', 'Wire Mesh Fencing', 'Wooden Decking'] },
@@ -37,15 +39,26 @@ const allCategories = [
 ];
 
 export default function AllCategoriesPage() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [serviceQuery, setServiceQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
   const router = useRouter();
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
-    const serviceSlug = allServices.find(s => s.label.toLowerCase() === searchQuery.toLowerCase())?.value || searchQuery.toLowerCase().replace(/\s+/g, '-');
-    const locationParam = locationQuery ? `&location=${locationQuery.toLowerCase().replace(/\s+/g, '-')}` : '';
-    router.push(`/post-request?service=${serviceSlug}${locationParam}`);
+    if (!serviceQuery) {
+      alert('Please select a service.');
+      return;
+    }
+
+    const serviceSlug = allServices.find(s => s.label.toLowerCase() === serviceQuery.toLowerCase())?.value || serviceQuery.toLowerCase().replace(/\s+/g, '-');
+    
+    let url = `/services/${serviceSlug}`;
+    if (locationQuery) {
+        const locationSlug = allLocations.find(l => l.label.toLowerCase() === locationQuery.toLowerCase())?.value || locationQuery.toLowerCase().replace(/\s+/g, '-');
+        url += `?location=${locationSlug}`;
+    }
+    
+    router.push(url);
   };
 
   return (
@@ -61,22 +74,28 @@ export default function AllCategoriesPage() {
             <form onSubmit={handleSearch} className="max-w-2xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-5 gap-2 bg-white p-2 rounded-lg shadow-md border">
               <div className="relative md:col-span-2">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input
-                  type="text"
-                  placeholder="What service do you need?"
-                  className="h-12 pl-10 text-base w-full bg-transparent border-0 focus-visible:ring-0"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  <Autocomplete
+                      options={allServices}
+                      value={serviceQuery}
+                      onValueChange={(value) => {
+                          const service = allServices.find(s => s.value === value);
+                          setServiceQuery(service?.label || value);
+                      }}
+                      placeholder="What service do you need?"
+                      inputClassName="h-12 pl-10 text-base w-full bg-transparent border-0 focus-visible:ring-0 text-foreground"
                   />
               </div>
               <div className="relative md:col-span-2">
                   <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input
-                  type="text"
-                  placeholder="e.g. Cape Town"
-                  className="h-12 pl-10 text-base w-full bg-transparent border-0 focus-visible:ring-0"
-                  value={locationQuery}
-                  onChange={(e) => setLocationQuery(e.target.value)}
+                  <Autocomplete
+                      options={allLocations}
+                      value={locationQuery}
+                      onValueChange={(value) => {
+                          const location = allLocations.find(l => l.value === value);
+                          setLocationQuery(location?.label || value);
+                      }}
+                      placeholder="e.g. Cape Town"
+                      inputClassName="h-12 pl-10 text-base w-full bg-transparent border-0 focus-visible:ring-0 text-foreground"
                   />
               </div>
               <Button type="submit" className="h-12 w-full md:col-span-1">Search</Button>

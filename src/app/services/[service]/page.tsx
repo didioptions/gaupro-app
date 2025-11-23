@@ -172,8 +172,7 @@ export default function ServicePage() {
                             <div className="flex items-center gap-1 text-sm text-muted-foreground">
                                 <Link href="/" className="hover:text-primary">Gaupro</Link>
                                 <ChevronRight className="h-4 w-4" />
-                                <Link href={`/services/in/${locationQuery}`} className="hover:text-primary">{locationName}</Link>
-                                <ChevronRight className="h-4 w-4" />
+                                {locationQuery && <><Link href={`/services/in/${locationQuery}`} className="hover:text-primary">{locationName}</Link><ChevronRight className="h-4 w-4" /></>}
                                 <span className="font-medium text-foreground">{pluralServiceLabel}</span>
                             </div>
                              {introText}
