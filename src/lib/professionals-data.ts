@@ -206,7 +206,7 @@ export const allProfessionals = {
         photos: ["https://picsum.photos/seed/ac2/600/400"],
         avatarSeed: "ac-comfort-logo"
       },
-      {
+       {
             id: "alberton-air-pros",
             name: "Alberton Air Pros",
             location: "Alberton",
@@ -1274,6 +1274,32 @@ export const allProfessionals = {
             reviewData: [{ author: "Eco-Warrior", rating: 5, comment: "I chose them because they recycle. Very happy with their professional approach." }],
             photos: ["https://picsum.photos/seed/rubble7/600/400"],
             avatarSeed: "waste-management-logo"
+        },
+        {
+            id: "joburg-rubble-pros",
+            name: "Joburg Rubble Pros",
+            location: "Johannesburg",
+            description: "Fast, reliable, and affordable rubble removal services across Johannesburg. We handle construction debris, garden refuse, and site clearing.",
+            rating: 4.9,
+            reviews: 120,
+            isProVerified: true,
+            serviceLocations: ["johannesburg", "sandton", "randburg", "roodepoort"],
+            reviewData: [{ author: "Builder Bob", rating: 5, comment: "These guys are my go-to for site clearing. Always on time and they work fast." }],
+            photos: ["https://picsum.photos/seed/rubble-jhb1/600/400"],
+            avatarSeed: "skip-boys-logo"
+        },
+        {
+            id: "sandton-skip-hire",
+            name: "Sandton Skip Hire",
+            location: "Sandton",
+            description: "Premium skip hire and rubble removal for Sandton's residential and commercial clients. Clean trucks, professional service.",
+            rating: 4.8,
+            reviews: 95,
+            isProVerified: true,
+            serviceLocations: ["sandton", "bryanston", "morningside"],
+            reviewData: [{ author: "Renovator", rating: 5, comment: "The only skip hire company I use. Their service is impeccable." }],
+            photos: ["https://picsum.photos/seed/rubble-sandton1/600/400"],
+            avatarSeed: "skip-boys-logo"
         }
     ],
     default: [
@@ -2593,3 +2619,4 @@ export const getProfessionalById = (id: string) => {
     
 
   
+
