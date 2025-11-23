@@ -1,4 +1,5 @@
 
+
 export const allProfessionals = {
     "fire-safety": [
         {
@@ -104,6 +105,19 @@ export const allProfessionals = {
             reviewData: [{ author: "XYZ Events", phone: "", rating: 5, comment: "Their food is always a highlight at our corporate functions. Professional, creative, and delicious." }],
             photos: ["https://picsum.photos/seed/cater1/600/400"],
             avatarSeed: "gourmet-gatherings-logo"
+        },
+        {
+            id: "soweto-feasts",
+            name: "Soweto Feasts Catering",
+            location: "Soweto",
+            description: "Authentic South African cuisine for any event. Specializing in traditional dishes and braais for weddings, parties, and corporate functions.",
+            rating: 4.9,
+            reviews: 110,
+            isProVerified: true,
+            serviceLocations: ["soweto", "johannesburg"],
+            reviewData: [{ author: "Thabo M.", rating: 5, comment: "The best traditional food I've had at an event. Our international guests loved it!" }],
+            photos: ["https://picsum.photos/seed/soweto-cater/600/400"],
+            avatarSeed: "gourmet-gatherings-logo"
         }
     ],
     groomers: [
@@ -191,6 +205,19 @@ export const allProfessionals = {
         ],
         photos: ["https://picsum.photos/seed/ac2/600/400"],
         avatarSeed: "ac-comfort-logo"
+      },
+      {
+            id: "alberton-air-pros",
+            name: "Alberton Air Pros",
+            location: "Alberton",
+            description: "Local experts in {service} installation and maintenance for homes and offices in Alberton. We guarantee cool summers and warm winters.",
+            rating: 4.8,
+            reviews: 78,
+            isProVerified: true,
+            serviceLocations: ["alberton", "germiston"],
+            reviewData: [{ author: "Mrs. Smith", rating: 5, comment: "Installed our new aircon unit just in time for summer. Very professional and clean." }],
+            photos: ["https://picsum.photos/seed/albertonair/600/400"],
+            avatarSeed: "ac-comfort-logo"
       }
     ],
     "aluminium-doors-and-windows": [
@@ -208,7 +235,20 @@ export const allProfessionals = {
         ],
         photos: ["https://picsum.photos/seed/alum1/600/400", "https://picsum.photos/seed/alum2/600/400"],
         avatarSeed: "alum-designs-logo"
-      }
+      },
+       {
+            id: "roodepoort-glass-aluminium",
+            name: "Roodepoort Glass & Aluminium",
+            location: "Roodepoort",
+            description: "Specialists in custom aluminium windows and doors. We offer competitive pricing and professional installation for all {service}.",
+            rating: 4.7,
+            reviews: 88,
+            isProVerified: true,
+            serviceLocations: ["roodepoort", "krugersdorp", "randburg"],
+            reviewData: [{ author: "David", rating: 5, comment: "The new stacking doors are amazing. Great quality and installation was perfect." }],
+            photos: ["https://picsum.photos/seed/roodepoortalum/600/400"],
+            avatarSeed: "alum-designs-logo"
+        }
     ],
     awnings: [
       {
@@ -257,7 +297,20 @@ export const allProfessionals = {
         ],
         photos: ["https://picsum.photos/seed/bath1/600/400", "https://picsum.photos/seed/bath2/600/400"],
         avatarSeed: "dream-bath-logo"
-      }
+      },
+      {
+            id: "benoni-bathrooms",
+            name: "Benoni Bathrooms",
+            location: "Benoni",
+            description: "Your local specialists for complete {service}. We offer affordable packages for modernizing your bathroom, including tiling, plumbing, and fittings.",
+            rating: 4.7,
+            reviews: 63,
+            isProVerified: true,
+            serviceLocations: ["benoni", "boksburg", "kempton-park"],
+            reviewData: [{ author: "Mrs. Jones", rating: 5, comment: "My new bathroom is beautiful! They did a wonderful job and were very tidy." }],
+            photos: ["https://picsum.photos/seed/benonibath/600/400"],
+            avatarSeed: "dream-bath-logo"
+        }
     ],
     blinds: [
       {
@@ -290,7 +343,20 @@ export const allProfessionals = {
         ],
         photos: ["https://picsum.photos/seed/carpentry1/600/400", "https://picsum.photos/seed/carpentry2/600/400"],
         avatarSeed: "wood-creations-logo"
-      }
+      },
+      {
+            id: "krugersdorp-kraftsmen",
+            name: "Krugersdorp Kraftsmen",
+            location: "Krugersdorp",
+            description: "Expert {service} for all your woodworking needs, from custom furniture to built-in cupboards and kitchen installations.",
+            rating: 4.8,
+            reviews: 95,
+            isProVerified: true,
+            serviceLocations: ["krugersdorp", "roodepoort"],
+            reviewData: [{ author: "Mr. Van Zyl", rating: 5, comment: "Built us a beautiful new kitchen. The workmanship is outstanding." }],
+            photos: ["https://picsum.photos/seed/krugersdorpcarp/600/400"],
+            avatarSeed: "wood-creations-logo"
+        }
     ],
     carpeting: [
       {
@@ -323,7 +389,20 @@ export const allProfessionals = {
         ],
         photos: ["https://picsum.photos/seed/carpetclean1/600/400"],
         avatarSeed: "sparkle-clean-logo"
-      }
+      },
+       {
+            id: "centurion-carpet-kings",
+            name: "Centurion Carpet Kings",
+            location: "Centurion",
+            description: "Deep cleaning for carpets, rugs, and upholstery in Centurion and surrounding areas. We remove tough stains and leave your carpets fresh.",
+            rating: 4.9,
+            reviews: 150,
+            isProVerified: true,
+            serviceLocations: ["centurion", "midrand", "pretoria"],
+            reviewData: [{ author: "Mrs. Botha", rating: 5, comment: "My carpets look and smell amazing. They managed to get out all the pet stains." }],
+            photos: ["https://picsum.photos/seed/centurioncarp/600/400"],
+            avatarSeed: "sparkle-clean-logo"
+        }
     ],
     "concrete-slabs": [
         {
@@ -408,6 +487,19 @@ export const allProfessionals = {
             ],
             photos: ["https://picsum.photos/seed/elecfence1/600/400"],
             avatarSeed: "secure-zone-fencing-logo"
+        },
+        {
+            id: "vereeniging-secure-fence",
+            name: "Vereeniging Secure Fence",
+            location: "Vereeniging",
+            description: "Installation and repair of {service} and security gates. We provide CoCs for all new installations in the Vaal Triangle.",
+            rating: 4.8,
+            reviews: 99,
+            isProVerified: true,
+            serviceLocations: ["vereeniging", "vanderbijlpark"],
+            reviewData: [{ author: "Mr. Jacobs", rating: 5, comment: "Very happy with my new electric fence. The team was professional and the price was fair." }],
+            photos: ["https://picsum.photos/seed/vereenigfence/600/400"],
+            avatarSeed: "secure-zone-fencing-logo"
         }
     ],
     fencing: [
@@ -458,6 +550,19 @@ export const allProfessionals = {
                 { author: "Busy Professional", rating: 5, comment: "I don't have time for gardening, so Green Thumb is a lifesaver. It's so nice to come home to a neat and tidy garden." }
             ],
             photos: ["https://picsum.photos/seed/garden1/600/400"],
+            avatarSeed: "green-thumb-gardeners-logo"
+        },
+        {
+            id: "kempton-gardens",
+            name: "Kempton Garden & Lawn",
+            location: "Kempton Park",
+            description: "Your local garden service for weekly lawn mowing, hedge trimming, and garden clean-ups in Kempton Park.",
+            rating: 4.7,
+            reviews: 92,
+            isProVerified: true,
+            serviceLocations: ["kempton-park", "edenvale", "boksburg"],
+            reviewData: [{ author: "Mrs. Pienaar", rating: 5, comment: "My garden always looks neat and tidy. Very reliable service." }],
+            photos: ["https://picsum.photos/seed/kemptongarden/600/400"],
             avatarSeed: "green-thumb-gardeners-logo"
         }
     ],
@@ -646,6 +751,19 @@ export const allProfessionals = {
             ],
             photos: ["https://picsum.photos/seed/locksmith1/600/400"],
             avatarSeed: "key-masters-logo"
+        },
+        {
+            id: "vaal-lock-and-key",
+            name: "Vaal Lock & Key",
+            location: "Vanderbijlpark",
+            description: "24/7 emergency {service} for the Vaal area. We handle car, home, and business lockouts, key cutting, and lock replacements.",
+            rating: 4.9,
+            reviews: 180,
+            isProVerified: true,
+            serviceLocations: ["vanderbijlpark", "vereeniging"],
+            reviewData: [{ author: "Frantic Driver", rating: 5, comment: "Locked my keys in my car at the mall. They arrived in 15 minutes! Fantastic service." }],
+            photos: ["https://picsum.photos/seed/vaallock/600/400"],
+            avatarSeed: "key-masters-logo"
         }
     ],
     "office-cleaning": [
@@ -697,6 +815,19 @@ export const allProfessionals = {
             ],
             photos: ["https://picsum.photos/seed/paving1/600/400", "https://picsum.photos/seed/paving2/600/400"],
             avatarSeed: "pave-perfect-logo"
+        },
+        {
+            id: "brakpan-paving-pros",
+            name: "Brakpan Paving Pros",
+            location: "Brakpan",
+            description: "Affordable and durable {service} solutions for driveways and patios in Brakpan. We offer a range of styles and colours to suit your home.",
+            rating: 4.6,
+            reviews: 55,
+            isProVerified: true,
+            serviceLocations: ["brakpan", "springs", "benoni"],
+            reviewData: [{ author: "Mr. Naude", rating: 5, comment: "Great job on my new driveway. The price was very reasonable." }],
+            photos: ["https://picsum.photos/seed/brakpanpave/600/400"],
+            avatarSeed: "pave-perfect-logo"
         }
     ],
     "pest-control": [
@@ -713,6 +844,19 @@ export const allProfessionals = {
                 { author: "Restaurant Owner", rating: 5, comment: "They handle our monthly pest control and keep our restaurant compliant and pest-free. Very professional." }
             ],
             photos: ["https://picsum.photos/seed/pest1/600/400"],
+            avatarSeed: "pest-busters-logo"
+        },
+        {
+            id: "edenvale-pest-patrol",
+            name: "Edenvale Pest Patrol",
+            location: "Edenvale",
+            description: "Your local solution for all {service} problems. We safely and effectively remove ants, cockroaches, rats, and other common household pests.",
+            rating: 4.8,
+            reviews: 112,
+            isProVerified: true,
+            serviceLocations: ["edenvale", "bedfordview", "kempton-park"],
+            reviewData: [{ author: "Mrs. Green", rating: 5, comment: "Solved our ant problem which has been bothering us for months. Very professional and friendly." }],
+            photos: ["https://picsum.photos/seed/edenvalepest/600/400"],
             avatarSeed: "pest-busters-logo"
         }
     ],
@@ -1781,6 +1925,27 @@ export const allProfessionals = {
         ],
         photos: ["https://picsum.photos/seed/appliancerepair1/600/400"],
         avatarSeed: "appliance-pro-logo"
+      },
+      {
+        id: 'boksburg-appliance-care',
+        name: 'Boksburg Appliance Care',
+        location: 'Boksburg',
+        description:
+          'Expert {service} for all major brands. We repair fridges, washing machines, ovens, and more. Fast, friendly, and reliable service in Boksburg.',
+        rating: 4.8,
+        reviews: 95,
+        isProVerified: true,
+        serviceLocations: ['boksburg', 'benoni', 'germiston'],
+        reviewData: [
+          {
+            author: 'Liza M.',
+            rating: 5,
+            comment:
+              'They fixed my washing machine the same day I called. Very impressed with the quick service.',
+          },
+        ],
+        photos: ['https://picsum.photos/seed/boksburgappliance/600/400'],
+        avatarSeed: 'appliance-pro-logo',
       }
     ],
     "tv-repairs": [
@@ -2181,6 +2346,19 @@ export const allProfessionals = {
             reviewData: [{ author: "Small Business Owner", rating: 5, comment: "They installed cameras at my shop. The system works perfectly and the team was very professional and efficient." }],
             photos: ["https://picsum.photos/seed/cctv2/600/400"],
             avatarSeed: "hawk-eye-tracking-logo"
+        },
+        {
+            id: "sandton-cctv-solutions",
+            name: "Sandton CCTV Solutions",
+            location: "Sandton",
+            description: "High-end {service} installations for homes and businesses in Sandton. We specialize in IP cameras, remote monitoring, and smart security integration.",
+            rating: 4.9,
+            reviews: 130,
+            isProVerified: true,
+            serviceLocations: ["sandton", "bryanston", "fourways"],
+            reviewData: [{ author: "Mr. Naidoo", rating: 5, comment: "Top quality installation and the camera system is superb. Very professional team." }],
+            photos: ["https://picsum.photos/seed/sandtoncctv/600/400"],
+            avatarSeed: "sentinel-security-logo"
         }
     ],
     "dstv-installers": [
@@ -2198,7 +2376,20 @@ export const allProfessionals = {
         ],
         photos: ["https://picsum.photos/seed/dstv1/600/400"],
         avatarSeed: "sat-pros-logo"
-      }
+      },
+      {
+        id: "germiston-satellite-services",
+        name: "Germiston Satellite Services",
+        location: "Germiston",
+        description: "Accredited {service} for new installs, relocations, and signal repairs in Germiston and the East Rand.",
+        rating: 4.8,
+        reviews: 120,
+        isProVerified: true,
+        serviceLocations: ["germiston", "boksburg", "benoni"],
+        reviewData: [{ author: "Happy Customer", rating: 5, comment: "Finally have a perfect picture! They fixed my signal problem quickly." }],
+        photos: ["https://picsum.photos/seed/germistondstv/600/400"],
+        avatarSeed: "sat-pros-logo"
+    }
     ],
     landscaping: [
         {
@@ -2228,6 +2419,19 @@ export const allProfessionals = {
             ],
             photos: ["https://picsum.photos/seed/landscaping2/600/400"],
             avatarSeed: "joburg-garden-pros-logo"
+        },
+        {
+            id: "midrand-landscapes",
+            name: "Midrand Landscapes",
+            location: "Midrand",
+            description: "Creative {service} and garden design for modern homes and corporate campuses in Midrand. We specialize in indigenous and water-wise gardens.",
+            rating: 4.9,
+            reviews: 85,
+            isProVerified: true,
+            serviceLocations: ["midrand", "centurion", "kyalami"],
+            reviewData: [{ author: "Tech Park", rating: 5, comment: "They designed and installed our new office park gardens. They look fantastic and are low-maintenance." }],
+            photos: ["https://picsum.photos/seed/midrandscape/600/400"],
+            avatarSeed: "eden-landscapes-logo"
         }
     ],
     demolition: [
@@ -2254,6 +2458,122 @@ export const allProfessionals = {
             reviewData: [{ author: "Home Renovator", rating: 5, comment: "They removed an internal wall for my open-plan kitchen project. The work was done carefully and they left the site perfectly clean." }],
             photos: ["https://picsum.photos/seed/demo2/600/400"],
             avatarSeed: "cape-demolition-logo"
+        }
+    ],
+    builders: [
+      {
+        id: "ndlovu-construction",
+        name: "Ndlovu Construction",
+        location: "Johannesburg",
+        description: "High-quality residential and commercial {service}. From new builds to major renovations, our team delivers excellence and reliability.",
+        rating: 4.9,
+        reviews: 120,
+        isProVerified: true,
+        serviceLocations: ["johannesburg", "sandton", "randburg"],
+        reviewData: [
+          { author: "The Smiths", rating: 5, comment: "Ndlovu Construction built our dream home. Professional, on-time, and the quality is outstanding." }
+        ],
+        photos: ["https://picsum.photos/seed/ndlovu1/600/400"],
+        avatarSeed: "solid-build-logo"
+      },
+      {
+        id: "soweto-builders",
+        name: "Soweto Building Solutions",
+        location: "Soweto",
+        description: "Your trusted local {service} in Soweto for home extensions, renovations, and new builds. Quality workmanship at affordable prices.",
+        rating: 4.8,
+        reviews: 95,
+        isProVerified: true,
+        serviceLocations: ["soweto", "roodepoort", "johannesburg"],
+        reviewData: [{ author: "Jabu P.", rating: 5, comment: "They built my new garage and did a fantastic job. I would recommend them to anyone in Soweto." }],
+        photos: ["https://picsum.photos/seed/sowetobuild/600/400"],
+        avatarSeed: "solid-build-logo"
+      }
+    ],
+    plumber: [
+        {
+            id: 'gauteng-plumb-king',
+            name: 'Gauteng Plumb King',
+            location: 'Johannesburg',
+            description: '24/7 emergency {service} across Johannesburg. We fix burst geysers, blocked drains, and all plumbing issues. No call-out fee.',
+            rating: 4.9,
+            reviews: 250,
+            isProVerified: true,
+            serviceLocations: ['johannesburg', 'sandton', 'randburg', 'roodepoort'],
+            reviewData: [{ author: 'Mrs. Dlamini', rating: 5, comment: 'They came out at 2am for a burst pipe. Lifesavers! Very professional and efficient.' }],
+            photos: ['https://picsum.photos/seed/plumbking/600/400'],
+            avatarSeed: 'plumber-image',
+        },
+        {
+            id: 'pretoria-plumbing-pros',
+            name: 'Pretoria Plumbing Pros',
+            location: 'Pretoria',
+            description: 'Reliable and affordable {service} for Pretoria and Centurion. From leak detection to new installations, we do it all.',
+            rating: 4.8,
+            reviews: 180,
+            isProVerified: true,
+            serviceLocations: ['pretoria', 'centurion'],
+            reviewData: [{ author: 'Mr. Botha', rating: 5, comment: 'Found a hidden leak that was costing me a fortune. Very impressed with their technology and skill.' }],
+            photos: ['https://picsum.photos/seed/pretoriaplumb/600/400'],
+            avatarSeed: 'plumber-image',
+        }
+    ],
+    electrician: [
+        {
+            id: 'sandton-sparkies',
+            name: 'Sandton Sparkies',
+            location: 'Sandton',
+            description: '24/7 expert {service} for Sandton and surrounding areas. We do CoCs, fault finding, and new installations for residential and commercial properties.',
+            rating: 4.9,
+            reviews: 210,
+            isProVerified: true,
+            serviceLocations: ['sandton', 'bryanston', 'fourways', 'morningside'],
+            reviewData: [{ author: 'Corporate HQ', rating: 5, comment: 'Our go-to electricians for all office maintenance. Always professional and reliable.' }],
+            photos: ['https://picsum.photos/seed/sandtonspark/600/400'],
+            avatarSeed: 'electrician-image',
+        },
+        {
+            id: 'east-rand-electrical',
+            name: 'East Rand Electrical',
+            location: 'Boksburg',
+            description: 'Qualified and affordable {service} serving Boksburg, Benoni, and Kempton Park. We handle everything from DB boards to full house wiring.',
+            rating: 4.7,
+            reviews: 150,
+            isProVerified: true,
+            serviceLocations: ['boksburg', 'benoni', 'kempton-park', 'springs'],
+            reviewData: [{ author: 'Mrs. van Niekerk', rating: 5, comment: 'They fixed my tripping power issue quickly and at a great price. Very friendly service.' }],
+            photos: ['https://picsum.photos/seed/eastrandelec/600/400'],
+            avatarSeed: 'electrician-image',
+        }
+    ],
+    painter: [
+        {
+            id: 'randburg-painters',
+            name: 'Randburg Pro Painters',
+            location: 'Randburg',
+            description: 'Professional interior and exterior {service} for homes and offices in Randburg. We guarantee a perfect finish with quality paints.',
+            rating: 4.8,
+            reviews: 130,
+            isProVerified: true,
+            serviceLocations: ['randburg', 'sandton', 'roodepoort'],
+            reviewData: [{ author: 'Homeowner', rating: 5, comment: 'They painted the exterior of my house and it looks brand new. Very meticulous work.' }],
+            photos: ['https://picsum.photos/seed/randburgpaint/600/400'],
+            avatarSeed: 'painter-image',
+        }
+    ],
+    handyman: [
+        {
+            id: 'handy-andy-jhb',
+            name: 'Handy Andy JHB',
+            location: 'Johannesburg',
+            description: 'Your reliable go-to {service} for all odd jobs around the house. From hanging pictures to fixing leaky taps, no job is too small.',
+            rating: 4.9,
+            reviews: 350,
+            isProVerified: true,
+            serviceLocations: ['johannesburg', 'sandton', 'randburg'],
+            reviewData: [{ author: 'Busy Mom', rating: 5, comment: 'Andy is a lifesaver! He fixed everything on my to-do list in one afternoon. Highly recommend.' }],
+            photos: ['https://picsum.photos/seed/handyandy/600/400'],
+            avatarSeed: 'handyman-image',
         }
     ]
 };
