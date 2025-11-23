@@ -2,7 +2,7 @@
 'use client';
 
 import * as React from 'react';
-import { Check } from 'lucide-react';
+import { Check, Search } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import {
@@ -18,6 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { Input } from './input';
 
 interface AutocompleteOption {
   value: string;
@@ -42,31 +43,50 @@ export function Autocomplete({
   inputClassName,
 }: AutocompleteProps) {
   const [open, setOpen] = React.useState(false);
+  const [inputValue, setInputValue] = React.useState('');
 
   const selectedOption = React.useMemo(
     () => options.find((option) => option.value === value),
     [options, value]
   );
 
+  React.useEffect(() => {
+    setInputValue(selectedOption?.label || '');
+  }, [selectedOption]);
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <button
-          id={id}
-          role="combobox"
-          aria-expanded={open}
-          className={cn(
-            'w-full justify-between text-left font-normal',
-            inputClassName
-          )}
-        >
-          {selectedOption ? selectedOption.label : placeholder}
-        </button>
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <Input
+            id={id}
+            value={inputValue}
+            onChange={(e) => {
+              setInputValue(e.target.value);
+              if (!open) {
+                setOpen(true);
+              }
+            }}
+            onClick={() => setOpen(true)}
+            placeholder={placeholder}
+            className={cn("pl-10", inputClassName)}
+            autoComplete="off"
+          />
+        </div>
       </PopoverTrigger>
       <PopoverContent className="w-[--radix-popover-trigger-width] p-0" onOpenAutoFocus={(e) => e.preventDefault()}>
-        <Command>
+        <Command
+          filter={(value, search) => {
+            if (value.toLowerCase().includes(search.toLowerCase())) return 1;
+            return 0;
+          }}
+        >
           <CommandInput
+            value={inputValue}
+            onValueChange={setInputValue}
             placeholder="Search..."
+            className="h-9"
           />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
@@ -76,7 +96,8 @@ export function Autocomplete({
                   key={option.value}
                   value={option.label}
                   onSelect={() => {
-                    onValueChange(option.value === value ? '' : option.value);
+                    onValueChange(option.value);
+                    setInputValue(option.label);
                     setOpen(false);
                   }}
                 >

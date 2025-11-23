@@ -46,15 +46,15 @@ export default function AllCategoriesPage() {
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     if (!serviceQuery) {
-      alert('Please select a service.');
+      router.push('/browse-categories');
       return;
     }
-
-    const serviceSlug = allServices.find(s => s.label.toLowerCase() === serviceQuery.toLowerCase())?.value || serviceQuery.toLowerCase().replace(/\s+/g, '-');
+    
+    const serviceSlug = serviceQuery; // Already the value
+    const locationSlug = locationQuery;
     
     let url = `/services/${serviceSlug}`;
-    if (locationQuery) {
-        const locationSlug = allLocations.find(l => l.label.toLowerCase() === locationQuery.toLowerCase())?.value || locationQuery.toLowerCase().replace(/\s+/g, '-');
+    if (locationSlug) {
         url += `?location=${locationSlug}`;
     }
     
@@ -73,29 +73,21 @@ export default function AllCategoriesPage() {
             </p>
             <form onSubmit={handleSearch} className="max-w-2xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-5 gap-2 bg-white p-2 rounded-lg shadow-md border">
               <div className="relative md:col-span-2">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                   <Autocomplete
                       options={allServices}
                       value={serviceQuery}
-                      onValueChange={(value) => {
-                          const service = allServices.find(s => s.value === value);
-                          setServiceQuery(service?.label || value);
-                      }}
+                      onValueChange={setServiceQuery}
                       placeholder="What service do you need?"
-                      inputClassName="h-12 pl-10 text-base w-full bg-transparent border-0 focus-visible:ring-0 text-foreground"
+                      inputClassName="h-12 border-0 focus-visible:ring-0 text-foreground"
                   />
               </div>
               <div className="relative md:col-span-2">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                   <Autocomplete
                       options={allLocations}
                       value={locationQuery}
-                      onValueChange={(value) => {
-                          const location = allLocations.find(l => l.value === value);
-                          setLocationQuery(location?.label || value);
-                      }}
+                      onValueChange={setLocationQuery}
                       placeholder="e.g. Cape Town"
-                      inputClassName="h-12 pl-10 text-base w-full bg-transparent border-0 focus-visible:ring-0 text-foreground"
+                      inputClassName="h-12 border-0 focus-visible:ring-0 text-foreground"
                   />
               </div>
               <Button type="submit" className="h-12 w-full md:col-span-1">Search</Button>
