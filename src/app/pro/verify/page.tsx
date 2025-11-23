@@ -134,7 +134,7 @@ export default function VerificationPage() {
   return (
     <div className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">Profile Verification</h1>
+        <h1 className="text-3xl md:text-4xl font-normal mb-2">Profile Verification</h1>
         <p className="text-muted-foreground mb-8">
           We need to verify your profile to maintain a trusted and safe marketplace for everyone.
         </p>
