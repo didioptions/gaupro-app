@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, FormEvent } from 'react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allServices } from '@/lib/service-questions';
@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin } from 'lucide-react';
 import TopProsByLocation from '@/components/browse/top-pros-by-location';
+import { Button } from '@/components/ui/button';
 
 const allCategories = [
   { category: 'Home, Building & Gardening', services: ['Air Conditioning', 'Aluminium Doors And Windows', 'Awnings', 'Balustrades', 'Bathroom Renovations', 'Blinds', 'Builders', 'Burglar Bars', 'Carpenters', 'Carpeting', 'Carpet Cleaning', 'Carports', 'Ceiling Installers', 'Cleaning Services', 'Concrete Slabs', 'Curtains', 'Demolition', 'Doors', 'Drywalls', 'Electricians', 'Electric Fencing', 'Fencing', 'Flooring', 'Garage Doors', 'Garage Door Motors', 'Gardeners', 'Gas Installers', 'Gates', 'Gate Motors', 'Glass Works', 'Guttering', 'Handymen', 'High Pressure Cleaning', 'Home Improvements', 'Interior Designing', 'Kitchen Renovations', 'Laminate Flooring', 'Landscaping', 'Laundry Services', 'Locksmiths', 'Office Cleaning', 'Painters', 'Palisade Fencing', 'Paving', 'Pest Control', 'Plastering', 'Plumbers', 'Pool Cleaning', 'Precast Fencing', 'Prepaid Electricity Meters', 'Roofing', 'Security Gates', 'Shadeports', 'Shower Doors', 'Solar Geysers', 'Solar Systems', 'Swimming Pool Builders', 'Tar Surfacing', 'Thatched Roofing', 'Tiling', 'Tree Felling', 'Upholsterers', 'Upholstery Cleaning', 'Waterproofing', 'Welders', 'Wendy Houses', 'Window Cleaning', 'Window Tinting', 'Wire Mesh Fencing', 'Wooden Decking'] },
@@ -38,12 +39,13 @@ const allCategories = [
 export default function AllCategoriesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
+  const [submittedQuery, setSubmittedQuery] = useState({ service: '', location: '' });
 
   const filteredCategories = useMemo(() => {
-    if (!searchQuery) {
+    if (!submittedQuery.service) {
       return allCategories;
     }
-    const lowercasedQuery = searchQuery.toLowerCase();
+    const lowercasedQuery = submittedQuery.service.toLowerCase();
 
     return allCategories
       .map(group => {
@@ -67,7 +69,12 @@ export default function AllCategoriesPage() {
         return null;
       })
       .filter((g): g is NonNullable<typeof g> => g !== null);
-  }, [searchQuery]);
+  }, [submittedQuery]);
+
+  const handleSearch = (e: FormEvent) => {
+    e.preventDefault();
+    setSubmittedQuery({ service: searchQuery, location: locationQuery });
+  };
 
 
   return (
@@ -80,8 +87,8 @@ export default function AllCategoriesPage() {
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
               Find trusted professionals for any service you need in South Africa.
             </p>
-            <div className="max-w-2xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-2 bg-white p-2 rounded-lg shadow-md border">
-              <div className="relative">
+            <form onSubmit={handleSearch} className="max-w-2xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-5 gap-2 bg-white p-2 rounded-lg shadow-md border">
+              <div className="relative md:col-span-2">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                   <Input
                   type="text"
@@ -91,7 +98,7 @@ export default function AllCategoriesPage() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   />
               </div>
-              <div className="relative">
+              <div className="relative md:col-span-2">
                   <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                   <Input
                   type="text"
@@ -101,11 +108,12 @@ export default function AllCategoriesPage() {
                   onChange={(e) => setLocationQuery(e.target.value)}
                   />
               </div>
-            </div>
+              <Button type="submit" className="h-12 w-full md:w-auto">Search</Button>
+            </form>
           </header>
           <div className="max-w-5xl mx-auto">
 
-            {locationQuery && searchQuery && <TopProsByLocation location={locationQuery} service={searchQuery} />}
+            {submittedQuery.location && submittedQuery.service && <TopProsByLocation location={submittedQuery.location} service={submittedQuery.service} />}
 
             <div className="space-y-12">
                 {filteredCategories.length > 0 ? (
@@ -131,7 +139,7 @@ export default function AllCategoriesPage() {
                     ))
                 ) : (
                     <div className="text-center text-muted-foreground py-16">
-                        <p className="text-lg">No services found for "{searchQuery}"</p>
+                        <p className="text-lg">No services found for "{submittedQuery.service}"</p>
                         <p>Try a different search term or browse the full list.</p>
                     </div>
                 )}

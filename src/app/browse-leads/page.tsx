@@ -56,9 +56,9 @@ export default function BrowseLeadsPage() {
                 </Button>
               </div>
 
-              <div className="max-w-4xl mx-auto mb-10">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-2 bg-card p-2 rounded-lg shadow-md">
-                    <div className="relative md:col-span-2">
+              <div className="max-w-3xl mx-auto mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="relative">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input
                             type="text"
@@ -77,20 +77,6 @@ export default function BrowseLeadsPage() {
                             value={locationQuery}
                             onChange={(e) => setLocationQuery(e.target.value)}
                         />
-                    </div>
-                    <div className="flex gap-2">
-                       <Select>
-                            <SelectTrigger className="h-12 text-base">
-                                <SelectValue placeholder="Radius" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="10">10km</SelectItem>
-                                <SelectItem value="20">20km</SelectItem>
-                                <SelectItem value="50">50km</SelectItem>
-                                <SelectItem value="100">100km</SelectItem>
-                            </SelectContent>
-                        </Select>
-                        <Button className="h-12 px-6">GO</Button>
                     </div>
                 </div>
               </div>
