@@ -33,6 +33,7 @@ type FormData = {
 export default function PostRequestPage() {
   const searchParams = useSearchParams();
   const serviceQuery = searchParams.get('service') || '';
+  const locationQuery = searchParams.get('location') || '';
 
   const [step, setStep] = useState(0);
   const [selectedService, setSelectedService] = useState(serviceQuery);
@@ -40,14 +41,23 @@ export default function PostRequestPage() {
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
-  const [locationValue, setLocationValue] = useState('');
+  
+  const initialLocation = locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const [locationValue, setLocationValue] = useState(initialLocation);
+
 
   useEffect(() => {
     // If a service is passed in the URL, skip the first step.
     if (serviceQuery) {
       setStep(1);
     }
-  }, [serviceQuery]);
+     if (locationQuery) {
+      const locationLabel = allLocations.find(l => l.value === locationQuery)?.label || initialLocation;
+      setLocationValue(locationLabel);
+      handleInputChange('suburb', locationLabel);
+      handleInputChange('city', ''); // Assuming suburb implies city for now
+    }
+  }, [serviceQuery, locationQuery]);
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === selectedService) ||
@@ -179,7 +189,9 @@ export default function PostRequestPage() {
       }
 
       const isNextButtonDisabled = () => {
-        if(currentQuestion.type === 'textarea' || currentQuestion.type === 'location') return false; // Allow empty textarea/location
+        if(currentQuestion.type === 'textarea') return false; 
+        if(currentQuestion.type === 'location' && (formData['city'] || formData['suburb'])) return false;
+
         const value = formData[currentQuestion.id];
         if (currentQuestion.type === 'checkbox') {
           return !value || (Array.isArray(value) && value.length === 0);
@@ -271,17 +283,17 @@ export default function PostRequestPage() {
                             id="city" 
                             placeholder="e.g. Johannesburg" 
                             onChange={(e) => handleInputChange('city', e.target.value)}
-                            defaultValue={formData['city'] as string | undefined}
+                            defaultValue={formData['city'] as string || locationValue}
                         />
                     </div>
                     <div>
                         <Label htmlFor="suburb">Suburb</Label>
                         <Autocomplete
                             options={allLocations}
-                            value={locationValue}
+                            value={formData['suburb'] as string || ''}
                             onValueChange={(value) => {
-                                setLocationValue(value);
-                                handleInputChange('suburb', value);
+                                const location = allLocations.find(l => l.value === value);
+                                handleInputChange('suburb', location?.label || value);
                             }}
                             placeholder="Type to search your suburb..."
                         />

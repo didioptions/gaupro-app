@@ -2,13 +2,13 @@
 'use client';
 
 import { useState, useMemo, FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin } from 'lucide-react';
-import TopProsByLocation from '@/components/browse/top-pros-by-location';
 import { Button } from '@/components/ui/button';
 
 const allCategories = [
@@ -39,43 +39,14 @@ const allCategories = [
 export default function AllCategoriesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
-  const [submittedQuery, setSubmittedQuery] = useState({ service: '', location: '' });
-
-  const filteredCategories = useMemo(() => {
-    if (!submittedQuery.service) {
-      return allCategories;
-    }
-    const lowercasedQuery = submittedQuery.service.toLowerCase();
-
-    return allCategories
-      .map(group => {
-        const matchingServices = group.services.filter(service =>
-          service.toLowerCase().includes(lowercasedQuery)
-        );
-
-        if (matchingServices.length > 0) {
-          // If services match, return the group with only the matching services
-          return {
-            ...group,
-            services: matchingServices,
-          };
-        }
-        
-        if (group.category.toLowerCase().includes(lowercasedQuery)) {
-           // If the category name matches, return the group with all its services
-           return group;
-        }
-
-        return null;
-      })
-      .filter((g): g is NonNullable<typeof g> => g !== null);
-  }, [submittedQuery]);
+  const router = useRouter();
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
-    setSubmittedQuery({ service: searchQuery, location: locationQuery });
+    const serviceSlug = allServices.find(s => s.label.toLowerCase() === searchQuery.toLowerCase())?.value || searchQuery.toLowerCase().replace(/\s+/g, '-');
+    const locationParam = locationQuery ? `&location=${locationQuery.toLowerCase().replace(/\s+/g, '-')}` : '';
+    router.push(`/post-request?service=${serviceSlug}${locationParam}`);
   };
-
 
   return (
     <>
@@ -108,41 +79,27 @@ export default function AllCategoriesPage() {
                   onChange={(e) => setLocationQuery(e.target.value)}
                   />
               </div>
-              <Button type="submit" className="h-12 w-full md:w-auto">Search</Button>
+              <Button type="submit" className="h-12 w-full md:col-span-1">Search</Button>
             </form>
           </header>
           <div className="max-w-5xl mx-auto">
-
-            {submittedQuery.location && submittedQuery.service && <TopProsByLocation location={submittedQuery.location} service={submittedQuery.service} />}
-
             <div className="space-y-12">
-                {filteredCategories.length > 0 ? (
-                    filteredCategories.map((group) => (
-                    <div key={group.category}>
-                        <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
-                        {group.services.map((serviceName) => {
-                            const service = allServices.find(s => s.label.toLowerCase() === serviceName.toLowerCase());
-                            let href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
-                            if (locationQuery) {
-                               const locationSlug = locationQuery.toLowerCase().replace(/\s+/g, '-');
-                               href += `?location=${locationSlug}`;
-                            }
-                            return (
-                            <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
-                                {serviceName}
-                            </Link>
-                            );
-                        })}
-                        </div>
+                {allCategories.map((group) => (
+                <div key={group.category}>
+                    <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
+                    {group.services.map((serviceName) => {
+                        const service = allServices.find(s => s.label.toLowerCase() === serviceName.toLowerCase());
+                        const href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
+                        return (
+                        <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
+                            {serviceName}
+                        </Link>
+                        );
+                    })}
                     </div>
-                    ))
-                ) : (
-                    <div className="text-center text-muted-foreground py-16">
-                        <p className="text-lg">No services found for "{submittedQuery.service}"</p>
-                        <p>Try a different search term or browse the full list.</p>
-                    </div>
-                )}
+                </div>
+                ))}
             </div>
           </div>
         </div>
