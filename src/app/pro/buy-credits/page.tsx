@@ -7,6 +7,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog';
 
 const creditPacks = [
   { id: '10', credits: 10, price: 300, pricePerCredit: 30, discount: null, save: null },
@@ -21,15 +29,36 @@ const addOn = {
   pricePerLead: 6,
 };
 
+const paymentMethods = [
+    { id: 'credit-card', label: 'Credit Card' },
+    { id: 'payfast', label: 'EFT/Card with Payfast' },
+    { id: 'direct-deposit', label: 'Direct Deposit' },
+];
+
 export default function BuyCreditsPage() {
   const [selectedPack, setSelectedPack] = useState<string | null>(null);
   const [includeAddon, setIncludeAddon] = useState(false);
+  const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string | null>(null);
 
   const transactionTotal = useMemo(() => {
     const packPrice = creditPacks.find(p => p.id === selectedPack)?.price || 0;
     const addonPrice = includeAddon ? addOn.price : 0;
     return packPrice + addonPrice;
   }, [selectedPack, includeAddon]);
+
+  const handleProceedToCheckout = () => {
+    if (selectedPack) {
+      setIsPaymentDialogOpen(true);
+    }
+  };
+
+  const handlePayment = () => {
+    // Placeholder for actual payment logic
+    console.log('Processing payment with:', selectedPaymentMethod);
+    alert(`Payment processing for R ${transactionTotal.toFixed(2)} via ${selectedPaymentMethod}`);
+    setIsPaymentDialogOpen(false);
+  };
 
   return (
       <div className="py-12 md:py-20">
@@ -105,12 +134,41 @@ export default function BuyCreditsPage() {
              </Card>
              
              <div className="flex justify-end">
-                <Button size="lg" className="px-10" disabled={!selectedPack}>
+                <Button size="lg" className="px-10" disabled={!selectedPack} onClick={handleProceedToCheckout}>
                     Proceed to Checkout
                 </Button>
              </div>
           </div>
         </div>
+        <Dialog open={isPaymentDialogOpen} onOpenChange={setIsPaymentDialogOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Choose Payment Method</DialogTitle>
+            </DialogHeader>
+            <div className="py-4">
+                <RadioGroup value={selectedPaymentMethod || ''} onValueChange={setSelectedPaymentMethod}>
+                    <div className="space-y-3">
+                        {paymentMethods.map(method => (
+                            <div key={method.id} className="flex items-center p-3 border rounded-md has-[:checked]:bg-blue-50 has-[:checked]:border-primary">
+                                <RadioGroupItem value={method.id} id={method.id} />
+                                <Label htmlFor={method.id} className="pl-3 font-normal cursor-pointer text-base">
+                                    {method.label}
+                                </Label>
+                            </div>
+                        ))}
+                    </div>
+                </RadioGroup>
+            </div>
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button variant="outline">Cancel</Button>
+              </DialogClose>
+              <Button onClick={handlePayment} disabled={!selectedPaymentMethod} className="bg-red-500 hover:bg-red-600">
+                Proceed to Payment
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
   );
 }
