@@ -77,8 +77,80 @@ const faqSections = [
     value: 'pros',
     faqs: [
       {
+        q: 'How can my business benefit from Gaupro?',
+        a: 'Gaupro is an online marketplace that connects you with customers looking to hire trusted service professionals. Our smart lead-matching system links your business with the right customers based on service type, location, and availability. When a matching job appears, we instantly send you the project details by email so you can decide whether to respond.',
+      },
+      {
+        q: 'How does Gaupro work for Pros?',
+        a: 'Gaupro uses a pay-per-lead system. You receive job notifications for free. Each notification includes a short summary of what the customer needs, and you only purchase the lead if you want to contact the customer to quote or set up a meeting.\n\nHow it works:\n\n1. Customers request a service on Gaupro.\n2. We send you a lead notification via SMS or email.\n3. You check the job details and location.\n4. If you’re interested, log in and buy the lead.\n5. You get full customer contact details.\n6. Contact the customer (preferably within 1 hour) and send your quote.\n7. The customer reviews multiple quotes and hires the Pro they prefer.\n\nUp to 5 Pros can respond to a lead. Customers compare prices, reviews, photos, and experience before choosing who to hire. When you win the job, you discuss the final details directly with the customer and get paid by them.\nTip: Always request a review — it helps you win more jobs.',
+      },
+      {
+        q: 'How much do Gaupro leads cost?',
+        a: 'Pros pay for leads using Gaupro credits. A single credit costs around R30, but the price drops with bulk packages (as low as R24 per credit). Each lead requires a certain number of credits based on category and demand, usually 1 to 5 credits.\n\nMany Pros find that one completed job can cover their entire year of lead costs.',
+      },
+      {
+        q: 'Is there a monthly or annual fee?',
+        a: 'No. You only pay for the leads you choose. You’re fully in control.',
+      },
+      {
+        q: 'What payment methods are accepted?',
+        a: 'Credit Card, Instant EFT / Direct Deposit.',
+      },
+      {
+        q: 'Will clicking “View Customer Details” charge me?',
+        a: 'No. Clicking the button simply takes you to the full request page on Gaupro. You are only charged when you click “Purchase Lead” and have enough credits in your account.',
+      },
+      {
+        q: 'Can I choose which types of leads I get?',
+        a: 'Yes. You can select which services you offer by editing your service keywords on your profile.',
+      },
+      {
+        q: 'Can I choose the areas I want to work in?',
+        a: 'Yes. Set your service area radius in your business profile. Gaupro will only send leads within that range.',
+      },
+      {
+        q: 'I’m not receiving many leads — why?',
+        a: 'This may happen due to market demand or seasonal patterns. You can try adding more service categories. If the issue continues, you can contact our support team at support@gaupro.co.za.',
+      },
+      {
+        q: 'What if I get a bad lead? Can I request a refund?',
+        a: 'Yes. If a lead has incorrect information, wrong location, or the customer never requested the work, you can dispute it. If verified, we refund the credits back into your Gaupro balance. Requests must be made within 14 days. Note: Refunds are issued in credits only, not cash.',
+      },
+      {
+        q: 'If I don’t win the job, do I still pay for the lead?',
+        a: 'Yes. Gaupro charges for providing the customer details and connection. The customer chooses who to hire, and some markets are competitive.',
+      },
+      {
+        q: 'Who are the customers requesting quotes?',
+        a: 'These are real customers looking to compare quotes quickly. They want fast responses and choose Pros based on price, reviews, photos, and experience.',
+      },
+      {
+        q: 'How do customers find Gaupro?',
+        a: 'Most traffic comes from strong search engine rankings, social media promotions, and referrals. Gaupro invests in ongoing digital advertising and reaches a large volume of monthly visitors.',
+      },
+      {
+        q: 'Do I have to buy leads to be listed on Gaupro’s directory?',
+        a: 'No. Creating a profile on Gaupro is 100% free, and customers can contact you straight from your profile. Buying leads is optional.',
+      },
+      {
+        q: 'How do I join Gaupro?',
+        a: 'Click “Join as a Pro” on the website and follow the signup steps. You can also contact our support team if you need assistance.',
+      },
+      {
+        q: 'I can’t sign in — what should I do?',
+        a: 'Make sure you’re using your email address and password. Your first password is sent via email when you register. If you forgot your details, use the reset option. If you still cannot log in, reach out to our support team.',
+      },
+      {
+        q: 'How do I update my email or personal details?',
+        a: 'Sign in, open the Menu, then go to Account Settings. You can update your personal info, contact number, and email address there.',
+      },
+      {
+        q: 'What if I get a negative review?',
+        a: 'Gaupro values honest customer feedback, so reviews are not removed unless they break our Terms & Conditions. You are encouraged to reply professionally, clarify any misunderstandings, and improve relationships. Responding to reviews helps build trust with future customers. If you need help responding to a review, our support team can assist.',
+      },
+      {
         q: 'How much does Gaupro cost for professionals?',
-        a: 'It\'s free to create a profile. To send quotes to customers, pros purchase credits. This "pay-as-you-go" system is often more cost-effective than traditional advertising. There are no monthly subscription fees.',
+        a: "It's free to create a profile. To send quotes to customers, pros purchase credits. This 'pay-as-you-go' system is often more cost-effective than traditional advertising. There are no monthly subscription fees.",
       },
       {
         q: 'How do I get more leads on Gaupro?',
@@ -136,7 +208,7 @@ export default function FAQPage() {
                     {section.faqs.map((faq, index) => (
                       <AccordionItem value={`item-${section.value}-${index}`} key={index}>
                         <AccordionTrigger>{faq.q}</AccordionTrigger>
-                        <AccordionContent>{faq.a}</AccordionContent>
+                        <AccordionContent className="whitespace-pre-wrap">{faq.a}</AccordionContent>
                       </AccordionItem>
                     ))}
                   </Accordion>
