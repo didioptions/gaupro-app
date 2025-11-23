@@ -19,8 +19,20 @@ const faqSections = [
     value: 'customers',
     faqs: [
       {
-        q: 'Is Gaupro really free for customers?',
-        a: 'Yes, 100%. Posting a job, receiving quotes, and comparing professionals is completely free for customers. You only pay the professional you decide to hire for their services.',
+        q: 'What is Gaupro?',
+        a: 'Gaupro is a South African online platform that helps customers quickly find trusted local service providers for any project — from plumbing and building to cleaning, renovations, and more.',
+      },
+      {
+        q: 'How does Gaupro work?',
+        a: 'Gaupro gives you two easy ways to find the right service provider:\n\n1. Search manually – Browse and discover Pros directly on the website.\n2. Let Gaupro find Pros for you – Simply answer a few quick questions about what you need, and we’ll send your request to the right professionals.\n\nOnce your request is submitted, interested Pros will reach out to discuss your project. You can check their Gaupro profiles, compare quotes, and hire the one that suits you best.',
+      },
+      {
+        q: 'Does Gaupro cost anything for customers?',
+        a: 'No. Gaupro is 100% free for customers to post jobs, receive quotes, and compare professionals. You only pay the professional you decide to hire for their services.',
+      },
+      {
+        q: 'What happens after I submit a project?',
+        a: 'Your request is shared with nearby professionals who offer the service you need. Depending on your contact preferences, a Pro may call, text, or email you. You can receive up to 5 quotes from Pros ready to assist.',
       },
       {
         q: 'How does Gaupro verify its professionals?',
@@ -31,8 +43,32 @@ const faqSections = [
         a: 'Most users receive their first few quotes within 1-2 hours of posting a job. For popular services in major cities, it can be as fast as 30 minutes.',
       },
       {
+        q: 'Should I add details about my project?',
+        a: 'Absolutely. The more details you provide, the easier it is for Pros to understand your needs and send accurate quotes. Clear information helps connect you with the most suitable professionals.',
+      },
+      {
+        q: 'When does my request close?',
+        a: 'We will follow up after 48 hours to check if you’ve been helped. If there’s no response within 24 hours, we assume your issue is resolved and close the request. If not, we’ll send your request to more Pros until you confirm you’ve been assisted.',
+      },
+      {
+        q: 'How do I change the details of my request?',
+        a: 'If you haven’t received any quotes yet, email us the updated info and we’ll adjust your project. If you already have quotes, it’s best to contact those Pros directly to share the new details.',
+      },
+      {
+        q: 'How do I cancel my request?',
+        a: 'Go to My Projects, open your posted request, scroll down, and choose “Cancel Project.” You can also email us at support@gaupro.co.za.',
+      },
+      {
+        q: 'Do professionals provide free estimates?',
+        a: 'It depends on the Pro. Some offer free quotes, while others may charge. Feel free to ask each provider directly.',
+      },
+      {
         q: 'What if I have a problem with a professional I hired?',
         a: 'While Gaupro is a connection platform, we offer dispute resolution support to help facilitate communication. We recommend always having a written agreement with the pro you hire.',
+      },
+       {
+        q: 'How do professionals accept payment?',
+        a: 'Payment methods differ from business to business. Always confirm the preferred payment option with the Pro you choose.',
       },
     ],
   },
