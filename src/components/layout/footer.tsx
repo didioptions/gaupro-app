@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from "next/link";
@@ -32,6 +31,7 @@ const footerSections = [
       { text: 'How It Works', href: '/how-it-works' },
       { text: 'Trust & Safety', href: '/trust-and-safety' },
       { text: 'Request Quote', href: '/post-request' },
+      { text: 'FAQ', href: '/faq' },
     ],
   },
 ];
