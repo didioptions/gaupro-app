@@ -173,11 +173,12 @@ export default function PublicChatWidget() {
                         }`}
                       >
                         <div
-                          className={`max-w-xs rounded-lg px-3 py-2 text-sm whitespace-pre-wrap ${
+                          className={cn(
+                            'max-w-xs rounded-lg px-3 py-2 text-sm whitespace-pre-wrap',
                             message.sender === 'bot'
                               ? 'bg-secondary'
                               : 'bg-primary text-primary-foreground'
-                          }`}
+                          )}
                         >
                           {message.text}
                         </div>

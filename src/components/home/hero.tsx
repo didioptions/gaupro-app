@@ -1,12 +1,14 @@
-
 'use client';
 
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Image from "next/image";
 import HomepageQuoteForm from "./homepage-quote-form";
 
 export default function Hero() {
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
+  const heroImage = {
+    imageUrl: 'https://storage.googleapis.com/stablediffusion-413813-assets/image-1729007672223.png',
+    description: 'A friendly handyman in uniform holding a toolbox against a blurred background of a modern home interior.',
+    imageHint: 'handyman toolbox'
+  };
   
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center text-white py-20 md:py-0">
