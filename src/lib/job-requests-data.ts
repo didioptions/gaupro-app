@@ -15,7 +15,17 @@ export const jobRequests = [
     customer: {
       name: 'Jane Doe',
       phone: '082 123 4567',
-    }
+    },
+    questionsAndAnswers: [
+      {
+        question: 'What do you need help with?',
+        answer: 'Burst or leaking pipe'
+      },
+      {
+        question: 'Is this an emergency?',
+        answer: 'Yes, it is'
+      }
+    ]
   },
   {
     id: 8,
@@ -31,7 +41,13 @@ export const jobRequests = [
     customer: {
       name: 'David Miller',
       phone: '081 222 3333',
-    }
+    },
+    questionsAndAnswers: [
+      {
+        question: 'What is your main goal for installing a solar system?',
+        answer: 'Beat Loadshedding'
+      }
+    ]
   },
   {
     id: 9,
@@ -47,7 +63,13 @@ export const jobRequests = [
     customer: {
       name: 'Priya Naidoo',
       phone: '072 444 5555',
-    }
+    },
+    questionsAndAnswers: [
+      {
+        question: 'What type of website do you need?',
+        answer: 'E-commerce (Online Store)'
+      }
+    ]
   },
   {
     id: 2,
@@ -63,7 +85,13 @@ export const jobRequests = [
     customer: {
       name: 'John Smith',
       phone: '083 987 6543',
-    }
+    },
+    questionsAndAnswers: [
+        {
+          question: 'What needs painting?',
+          answer: 'Interior'
+        }
+    ]
   },
   {
     id: 3,
@@ -79,7 +107,21 @@ export const jobRequests = [
     customer: {
       name: 'Peter Jones',
       phone: '071 234 5678',
-    }
+    },
+    questionsAndAnswers: [
+        {
+          question: 'What is the issue?',
+          answer: 'Lighting Installation / Repair'
+        },
+        {
+          question: 'Is this an emergency?',
+          answer: 'No, it is not'
+        },
+        {
+          question: 'What is the property type?',
+          answer: 'Home / Residential'
+        }
+    ]
   },
   {
     id: 4,
@@ -95,7 +137,13 @@ export const jobRequests = [
     customer: {
       name: 'Susan Williams',
       phone: '060 111 2222',
-    }
+    },
+    questionsAndAnswers: [
+        {
+          question: 'What gardening service do you need?',
+          answer: 'Once-off garden clean-up'
+        }
+    ]
   },
   {
     id: 5,
@@ -111,7 +159,13 @@ export const jobRequests = [
     customer: {
       name: 'Michael Brown',
       phone: '072 333 4444',
-    }
+    },
+    questionsAndAnswers: [
+      {
+        question: 'What kind of building works do you need?',
+        answer: 'Other'
+      }
+    ]
   },
   {
     id: 6,
@@ -127,7 +181,13 @@ export const jobRequests = [
     customer: {
       name: 'Emily Davis',
       phone: '084 555 6666',
-    }
+    },
+    questionsAndAnswers: [
+      {
+        question: 'What type of cleaning do you need?',
+        answer: 'House Cleaning'
+      }
+    ]
   },
   {
     id: 7,
@@ -143,7 +203,13 @@ export const jobRequests = [
     customer: {
       name: 'Chris Green',
       phone: '076 777 8888',
-    }
+    },
+    questionsAndAnswers: [
+      {
+        question: 'What type of work do you need done?',
+        answer: 'Installation, Assembly'
+      }
+    ]
   },
    {
     id: 10,
@@ -159,6 +225,16 @@ export const jobRequests = [
     customer: {
       name: 'Ben Kruger',
       phone: '083 654 3210',
-    }
+    },
+    questionsAndAnswers: [
+      {
+        question: 'What CCTV service do you need?',
+        answer: 'New System Installation'
+      },
+      {
+        question: 'How many cameras do you need?',
+        answer: '1-4 Cameras'
+      }
+    ]
   }
 ];

@@ -112,6 +112,18 @@ export default function BrowseLeadsPage() {
                             </div>
                             <h2 className="text-xl font-bold mb-2 text-foreground">{job.title}</h2>
                             <p className="text-muted-foreground text-sm mb-4">{job.description}</p>
+
+                            {job.questionsAndAnswers && job.questionsAndAnswers.length > 0 && (
+                                <div className="mt-4 pt-4 border-t space-y-2 text-sm">
+                                    {job.questionsAndAnswers.map((qa, index) => (
+                                        <div key={index}>
+                                            <p className="font-semibold text-foreground">{qa.question}</p>
+                                            <p className="text-muted-foreground">{qa.answer}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
                           </div>
                           <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-muted-foreground">
                             <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {job.posted}</span></div>
