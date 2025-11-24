@@ -9,14 +9,14 @@ export default function ProCta() {
   return (
     <section className="bg-card py-20 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="rounded-lg bg-primary text-primary-foreground overflow-hidden">
+        <div className="rounded-lg bg-background overflow-hidden border">
           <div className="grid md:grid-cols-2 items-center">
             <div className="p-8 md:p-12 lg:p-16">
-              <h2 className="text-3xl md:text-4xl font-normal mb-4 font-headline">Are you a Pro?</h2>
-              <p className="text-lg text-primary-foreground/80 mb-8">
+              <h2 className="text-3xl md:text-4xl font-normal mb-4 font-headline text-foreground">Are you a Pro?</h2>
+              <p className="text-lg text-muted-foreground mb-8">
                 Join Gaupro to grow your business. Get quality leads from customers in your area looking for your services.
               </p>
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Button asChild size="lg">
                 <Link href="/pro/signup">Start Getting Leads</Link>
               </Button>
             </div>
