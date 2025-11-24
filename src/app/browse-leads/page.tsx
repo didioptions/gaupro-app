@@ -110,7 +110,7 @@ export default function BrowseLeadsPage() {
                               <MapPin className="h-4 w-4" />
                               <span>{job.location}</span>
                             </div>
-                            <h2 className="text-xl font-bold mb-2 text-foreground">{job.title}</h2>
+                            <h2 className="text-xl font-semibold mb-2 text-foreground">{job.title}</h2>
                             <p className="text-muted-foreground text-sm mb-4">{job.description}</p>
 
                             {job.questionsAndAnswers && job.questionsAndAnswers.length > 0 && (
