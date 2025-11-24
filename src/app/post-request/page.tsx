@@ -25,6 +25,17 @@ import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { allLocations } from '@/lib/locations';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -186,6 +197,28 @@ export default function PostRequestPage() {
     const isQuestionStep = questionStepIndex >= 0 && questionStepIndex < questions.length;
     const isFinalStep = step === totalSteps;
     
+    const ConfirmationDialog = (
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button type="button" variant="ghost" size="icon" className="absolute top-2 right-2">
+            <X className="h-5 w-5" />
+          </Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure you want to cancel?</AlertDialogTitle>
+            <AlertDialogDescription>
+              You're about {Math.round(progress)}% done. If you cancel now, your progress will be lost.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Continue Request</AlertDialogCancel>
+            <AlertDialogAction onClick={handleClose}>Cancel Request</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    );
+
     if (isQuestionStep) {
       const currentQuestion = questions[questionStepIndex];
       if (!currentQuestion) {
@@ -207,9 +240,7 @@ export default function PostRequestPage() {
       return (
         <form onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
             <CardHeader className='text-left bg-secondary/50 relative'>
-              <Button type="button" variant="ghost" size="icon" onClick={handleClose} className="absolute top-2 right-2">
-                  <X className="h-5 w-5" />
-              </Button>
+              {ConfirmationDialog}
               <div className="flex items-center gap-4 mb-4">
                   <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                     <ArrowLeft />
@@ -353,9 +384,7 @@ export default function PostRequestPage() {
       return (
         <form onSubmit={handleSubmit}>
           <CardHeader className="text-left bg-secondary/50 relative">
-             <Button type="button" variant="ghost" size="icon" onClick={handleClose} className="absolute top-2 right-2">
-                  <X className="h-5 w-5" />
-              </Button>
+             {ConfirmationDialog}
             <div className="flex items-center gap-4 mb-4">
               <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
