@@ -56,9 +56,9 @@ export default function BrowseLeadsPage() {
                 </Button>
               </div>
 
-              <div className="max-w-3xl mx-auto mb-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="relative">
+              <div className="max-w-4xl mx-auto mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    <div className="relative md:col-span-2">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input
                             type="text"
@@ -72,11 +72,25 @@ export default function BrowseLeadsPage() {
                         <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input
                             type="text"
-                            placeholder="Johannesburg"
+                            placeholder="Durban"
                             className="h-12 pl-10 text-base"
                             value={locationQuery}
                             onChange={(e) => setLocationQuery(e.target.value)}
                         />
+                    </div>
+                    <div className="flex gap-2">
+                        <Select>
+                          <SelectTrigger className="h-12">
+                            <SelectValue placeholder="Radius" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="10">10 km</SelectItem>
+                            <SelectItem value="25">25 km</SelectItem>
+                            <SelectItem value="50">50 km</SelectItem>
+                            <SelectItem value="100">100 km</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <Button className="h-12" size="lg">GO</Button>
                     </div>
                 </div>
               </div>
