@@ -42,6 +42,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Autocomplete } from './ui/autocomplete';
 import { allLocations } from '@/lib/locations';
 import { ScrollArea } from './ui/scroll-area';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -366,14 +367,29 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                   required
                 />
               </div>
-               <div className="space-y-2">
-                  <Input
-                  id="phoneNumber"
-                  type="tel"
-                  placeholder="Your Cellphone Number"
-                  onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  required
-                  />
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 <div className="space-y-2">
+                    <Input
+                    id="phoneNumber"
+                    type="tel"
+                    placeholder="Your Cellphone Number"
+                    onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                    required
+                    />
+                </div>
+                 <div className="space-y-2">
+                    <Select onValueChange={(value) => handleInputChange('contactTime', value)} defaultValue="anytime">
+                      <SelectTrigger>
+                        <SelectValue placeholder="Contact me..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="anytime">Contact me Anytime</SelectItem>
+                        <SelectItem value="mornings">Mornings Only</SelectItem>
+                        <SelectItem value="afternoons">Afternoons Only</SelectItem>
+                        <SelectItem value="evenings">Evenings Only</SelectItem>
+                      </SelectContent>
+                    </Select>
+                 </div>
               </div>
               <div className="flex items-start space-x-3 pt-4">
                   <Checkbox 
