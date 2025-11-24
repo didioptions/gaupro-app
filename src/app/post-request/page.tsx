@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, X } from 'lucide-react';
+import { ArrowLeft, X, ThumbsUp, Tag, Star, Clock, Shield } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from '@/components/ui/progress';
 import { Label } from '@/components/ui/label';
@@ -41,6 +41,34 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
 };
+
+const whyChooseGaupro = [
+    {
+        icon: '🆓',
+        title: 'No fees',
+        description: 'Gaupro is completely free to use! Simply submit your service request, and professionals will reach out with quotes—no hidden costs, no surprises.'
+    },
+    {
+        icon: '📊',
+        title: 'Compare quotes',
+        description: 'Receive multiple estimates from qualified professionals so you can easily compare prices and choose the option that fits your budget. Know exactly what your project will cost before you hire anyone.'
+    },
+    {
+        icon: '👍',
+        title: 'Trusted hiring',
+        description: 'Hire with confidence! Every professional on Gaupro has ratings, reviews, photos, and a record of completed jobs. You can see their work history and make an informed choice, ensuring quality and reliability every time.'
+    },
+    {
+        icon: '✨',
+        title: 'Save time and effort',
+        description: 'No more endlessly searching for service providers or cold-calling companies. Gaupro connects you directly to trusted professionals in your area, making the process fast and stress-free.'
+    },
+    {
+        icon: '🔒',
+        title: 'Safe and reliable',
+        description: 'All professionals are verified and vetted, so you can trust that your project is in capable hands.'
+    }
+];
 
 export default function PostRequestPage() {
   const searchParams = useSearchParams();
@@ -485,6 +513,21 @@ export default function PostRequestPage() {
                     {renderStepContent()}
                 </Card>
             </div>
+
+            <section className="max-w-4xl mx-auto mt-16">
+                <h2 className="text-2xl text-center mb-8 font-normal">Why choose Gaupro for reliable service?</h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                    {whyChooseGaupro.map(item => (
+                        <div key={item.title} className="flex items-start gap-4">
+                            <div className="text-3xl">{item.icon}</div>
+                            <div>
+                                <h3 className="font-semibold text-lg">{item.title}</h3>
+                                <p className="text-muted-foreground">{item.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
         </div>
       </main>
       <Footer />
