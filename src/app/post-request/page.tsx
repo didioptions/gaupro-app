@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from '@/components/ui/progress';
 import { Label } from '@/components/ui/label';
@@ -23,7 +23,7 @@ import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { allLocations } from '@/lib/locations';
 
 type FormData = {
@@ -32,6 +32,7 @@ type FormData = {
 
 export default function PostRequestPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const serviceQuery = searchParams.get('service') || '';
   const locationQuery = searchParams.get('location') || '';
 
@@ -85,6 +86,10 @@ export default function PostRequestPage() {
       setStep((prev) => prev - 1);
     }
   };
+
+  const handleClose = () => {
+    router.push('/');
+  }
 
   const handleInputChange = (
     questionId: string,
@@ -201,7 +206,10 @@ export default function PostRequestPage() {
 
       return (
         <form onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
-            <CardHeader className='text-left bg-secondary/50'>
+            <CardHeader className='text-left bg-secondary/50 relative'>
+              <Button type="button" variant="ghost" size="icon" onClick={handleClose} className="absolute top-2 right-2">
+                  <X className="h-5 w-5" />
+              </Button>
               <div className="flex items-center gap-4 mb-4">
                   <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                     <ArrowLeft />
@@ -344,7 +352,10 @@ export default function PostRequestPage() {
     if (isFinalStep) {
       return (
         <form onSubmit={handleSubmit}>
-          <CardHeader className="text-left bg-secondary/50">
+          <CardHeader className="text-left bg-secondary/50 relative">
+             <Button type="button" variant="ghost" size="icon" onClick={handleClose} className="absolute top-2 right-2">
+                  <X className="h-5 w-5" />
+              </Button>
             <div className="flex items-center gap-4 mb-4">
               <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
