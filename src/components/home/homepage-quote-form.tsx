@@ -46,14 +46,14 @@ export default function HomepageQuoteForm() {
             inputClassName="h-12 pl-10 border-0 focus-visible:ring-0 shadow-none text-base text-gray-700 bg-transparent"
           />
         </div>
-        <Separator orientation="vertical" className="h-6 bg-gray-200" />
+        <Separator orientation="vertical" className="h-6 bg-gray-300" />
         <div className="relative flex-grow">
           <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
            <Autocomplete
             options={allLocations}
             value={locationValue}
             onValueChange={setLocationValue}
-            placeholder="e.g. Durban"
+            placeholder="e.g. Randburg"
             inputClassName="h-12 pl-10 border-0 focus-visible:ring-0 shadow-none text-base text-gray-700 bg-transparent"
           />
         </div>
