@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import Link from 'next/link';
-import { BarChart2, BookOpen, Bot, CheckCircle, ChevronRight, Clock, Mail, MessageCircle, Phone, Search, Users, Zap } from 'lucide-react';
+import { BarChart2, BookOpen, Bot, CheckCircle, ChevronRight, Clock, Mail, MessageCircle, Phone, Search, Users, Zap, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -243,15 +243,24 @@ export default function ProCentrePage() {
                         <CardTitle>Lead Response System: Time is Money</CardTitle>
                     </CardHeader>
                     <CardContent className="p-6">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                            {responseTimes.map(item => (
-                                <div key={item.time} className="p-4 bg-secondary/50 rounded-lg">
-                                    <p className="text-sm font-semibold text-foreground">Response Time</p>
-                                    <p className="font-bold text-lg">{item.time}</p>
-                                    <p className="text-3xl font-extrabold text-primary mt-2">{item.conversion}</p>
-                                    <p className="text-sm font-semibold text-foreground">Conversion</p>
+                       <div className="relative">
+                          {/* Timeline track */}
+                          <div className="absolute left-1/2 -translate-x-1/2 top-4 h-1 w-full bg-border rounded-full max-w-xl mx-auto"></div>
+                          
+                          <div className="grid grid-cols-4 gap-4 text-center relative z-10">
+                            {responseTimes.map((item, index) => (
+                              <div key={item.time} className="flex flex-col items-center">
+                                {/* Dot on timeline */}
+                                <div className="w-4 h-4 rounded-full bg-primary border-2 border-background mb-2"></div>
+                                <div className="p-4 bg-secondary/50 rounded-lg w-full">
+                                  <p className="text-sm font-semibold text-muted-foreground">Response Time</p>
+                                  <p className="font-bold text-lg text-foreground">{item.time}</p>
+                                  <p className="text-3xl font-extrabold text-primary mt-2">{item.conversion}</p>
+                                  <p className="text-sm font-semibold text-muted-foreground">Conversion Rate</p>
                                 </div>
+                              </div>
                             ))}
+                          </div>
                         </div>
                     </CardContent>
                 </Card>
