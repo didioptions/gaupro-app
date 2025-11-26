@@ -243,25 +243,17 @@ export default function ProCentrePage() {
                         <CardTitle>Lead Response System: Time is Money</CardTitle>
                     </CardHeader>
                     <CardContent className="p-6">
-                       <div className="relative">
-                          {/* Timeline track */}
-                          <div className="absolute left-1/2 -translate-x-1/2 top-4 h-1 w-full bg-border rounded-full max-w-xl mx-auto"></div>
-                          
-                          <div className="grid grid-cols-4 gap-4 text-center relative z-10">
+                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                             {responseTimes.map((item, index) => (
-                              <div key={item.time} className="flex flex-col items-center">
-                                {/* Dot on timeline */}
-                                <div className="w-4 h-4 rounded-full bg-primary border-2 border-background mb-2"></div>
-                                <div className="p-4 bg-secondary/50 rounded-lg w-full">
+                              <div key={item.time} className="p-4 bg-secondary/50 rounded-lg flex flex-col items-center justify-start">
                                   <p className="text-sm font-semibold text-muted-foreground">Response Time</p>
+                                  <Clock className="h-8 w-8 text-primary my-2" />
                                   <p className="font-bold text-lg text-foreground">{item.time}</p>
-                                  <p className="text-3xl font-extrabold text-primary mt-2">{item.conversion}</p>
+                                  <p className="text-3xl font-extrabold text-primary mt-4">{item.conversion}</p>
                                   <p className="text-sm font-semibold text-muted-foreground">Conversion Rate</p>
-                                </div>
                               </div>
                             ))}
                           </div>
-                        </div>
                     </CardContent>
                 </Card>
             </section>
