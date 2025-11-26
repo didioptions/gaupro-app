@@ -12,7 +12,7 @@ const benefits = [
 
 export default function WhyHire() {
   return (
-    <section className="py-16 md:py-20 bg-background">
+    <section className="py-16 md:py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-normal mb-4">
@@ -20,7 +20,7 @@ export default function WhyHire() {
             </h2>
             <div className="flex justify-center items-center gap-x-4 gap-y-2 flex-wrap mb-6">
                 {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                    <div key={index} className="flex items-center gap-2 text-sm font-medium text-foreground">
                         {benefit.icon}
                         <span>{benefit.text}</span>
                     </div>
