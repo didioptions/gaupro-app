@@ -35,7 +35,7 @@ export default function MissionPage() {
             )}
           <div className="absolute inset-0 bg-black/60" />
           <div className="relative container mx-auto px-4 py-16">
-            <h1 className="text-3xl md:text-5xl font-extrabold">Our Mission</h1>
+            <h1 className="text-3xl md:text-5xl font-normal">Our Mission</h1>
             <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90">
              Empowering South Africa’s Service Professionals — One Connection at a Time.
             </p>
@@ -51,7 +51,7 @@ export default function MissionPage() {
                 </section>
 
                 <section className="p-8 bg-background rounded-lg text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">💪 What Drives Us</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal mb-4">💪 What Drives Us</h2>
                     <p className="text-foreground max-w-2xl mx-auto mb-6">
                         South Africa is full of talent — but too many professionals go unnoticed. That’s why Gaupro exists: to bring visibility, trust, and opportunity together in one platform.
                     </p>
@@ -72,7 +72,7 @@ export default function MissionPage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">🚀 Our Vision</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-center mb-6">🚀 Our Vision</h2>
                     <p className="text-foreground text-center max-w-3xl mx-auto mb-8">
                        We’re building South Africa’s most trusted professional network, connecting people and businesses through meaningful relationships. We envision a country where:
                     </p>
@@ -93,7 +93,7 @@ export default function MissionPage() {
                 </section>
 
                  <section>
-                    <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">❤️ Our Core Values</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-center mb-10">❤️ Our Core Values</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                         {values.map(value => (
                             <div key={value.name} className="p-4 border rounded-lg bg-card text-center">
@@ -106,14 +106,14 @@ export default function MissionPage() {
                 </section>
 
                 <section className="text-center border-t pt-16">
-                    <h2 className="text-3xl font-bold">📈 Our Promise</h2>
+                    <h2 className="text-3xl font-normal">📈 Our Promise</h2>
                     <p className="mt-4 text-foreground max-w-xl mx-auto">
                         We’re more than just a business directory — we’re your growth partner. When local professionals succeed, our entire nation moves forward. Because when small businesses grow, communities grow too.
                     </p>
                 </section>
 
                 <section className="text-center bg-primary text-primary-foreground p-10 rounded-lg">
-                    <h2 className="text-3xl font-bold">💬 Join the Movement</h2>
+                    <h2 className="text-3xl font-normal">💬 Join the Movement</h2>
                     <p className="mt-2 max-w-2xl mx-auto text-primary-foreground/80">
                         Be part of a new generation of professionals shaping South Africa’s service economy. Join Gaupro today and discover how easy it is to grow your business online.
                     </p>
