@@ -110,9 +110,9 @@ export default function Footer() {
 
   return (
     <footer className="bg-background text-foreground border-t">
-      <div className="container mx-auto px-4 py-12">
         {showLocations && (
-          <div className="mb-12">
+          <div className="py-12 bg-background">
+            <div className="container mx-auto px-4">
               <h2 className="text-xl font-bold text-center md:text-left mb-8">Browse Top Service Professionals in South Africa</h2>
                <div className="columns-2 md:columns-4 lg:columns-6 gap-x-8 text-sm">
                   {locationsData.map((loc, index) => {
@@ -136,36 +136,40 @@ export default function Footer() {
                   </div>
               </div>
           </div>
-        )}
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 border-t pt-12">
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h3 className="font-semibold mb-4 text-foreground">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.text}>
-                    <Link href={link.href} className="text-sm text-foreground hover:text-primary">
-                      {link.text}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <div>
-            <h3 className="font-semibold mb-4 text-foreground">Download Apps</h3>
-            <div className="flex flex-col space-y-4 mt-6">
-                 <Link href="#" className="inline-block">
-                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-12"/>
-                 </Link>
-                 <Link href="#" className="inline-block">
-                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" className="h-12"/>
-                 </Link>
-            </div>
-          </div>
         </div>
-        
+        )}
+      <div className="bg-secondary/50">
+        <div className="container mx-auto px-4 py-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              {footerSections.map((section) => (
+                <div key={section.title}>
+                  <h3 className="font-semibold mb-4 text-foreground">{section.title}</h3>
+                  <ul className="space-y-2">
+                    {section.links.map((link) => (
+                      <li key={link.text}>
+                        <Link href={link.href} className="text-sm text-foreground hover:text-primary">
+                          {link.text}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              <div>
+                <h3 className="font-semibold mb-4 text-foreground">Download Apps</h3>
+                <div className="flex flex-col space-y-4 mt-6">
+                    <Link href="#" className="inline-block">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-12"/>
+                    </Link>
+                    <Link href="#" className="inline-block">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" className="h-12"/>
+                    </Link>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div className="container mx-auto px-4 py-8">
         <div className="border-t pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-lg font-bold text-foreground">
