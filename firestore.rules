@@ -21,12 +21,22 @@ service cloud.firestore {
       allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == userId;
     }
     
-    // Anyone can read professional profiles, but only the linked user can modify them.
+    // Anyone can read a single professional profile, but a user can only list/query for their own profile.
     match /professionalProfiles/{professionalProfileId} {
-      allow read: if true;
+      allow get: if true;
+      allow list: if isSignedIn() && request.query.where.userId == request.auth.uid;
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+    
+    // DEPRECATED: Rules below are for the old professionals collection. The new one is professionalProfiles.
+    match /professionals/{professionalId} {
+       allow get: if true;
+       allow list: if isSignedIn() && request.query.where.userId == request.auth.uid;
+       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
+       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
     }
 
     // --- Subcollections ---
