@@ -1,46 +1,34 @@
 
 'use client';
 
-import { ThumbsUp, Tags, FilePenLine } from "lucide-react";
+import { Check, Clock, DollarSign, MapPin, Verified } from "lucide-react";
 
 const benefits = [
-  {
-    icon: <FilePenLine className="h-10 w-10 text-primary" />,
-    title: 'Free to Use',
-    description:
-      'Using Gaupro costs you nothing. Tell us what you need done, and we’ll connect you with trusted pros who send you free quotes.',
-  },
-  {
-    icon: <Tags className="h-10 w-10 text-primary" />,
-    title: 'Get Free Estimates',
-    description:
-      'Receive multiple quotes so you can compare prices and understand your project cost before hiring anyone.',
-  },
-  {
-    icon: <ThumbsUp className="h-10 w-10 text-primary" />,
-    title: 'Hire with Confidence',
-    description:
-      'Check each pro’s ratings, photos, and past work. With all the info you need in one place, choosing the right expert becomes simple and stress-free.',
-  },
+    { icon: <Verified className="h-5 w-5 text-primary" />, text: 'Verified Experts' },
+    { icon: <Clock className="h-5 w-5 text-primary" />, text: 'Save Time' },
+    { icon: <DollarSign className="h-5 w-5 text-primary" />, text: 'Compare Quotes' },
+    { icon: <MapPin className="h-5 w-5 text-primary" />, text: 'Nearby Services' },
 ];
 
 export default function WhyHire() {
   return (
     <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-normal text-center mb-12">
-          Hire Trusted Professionals on Gaupro for Any Job
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
-          {benefits.map((benefit, index) => (
-            <div key={index} className="p-6">
-              <div className="flex justify-center items-center h-20 w-20 rounded-full bg-primary/10 mx-auto mb-4">
-                  {benefit.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-              <p className="text-muted-foreground">{benefit.description}</p>
+        <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-normal mb-4">
+                Gaupro – Find Trusted Local Professionals Fast
+            </h2>
+            <div className="flex justify-center items-center gap-x-4 gap-y-2 flex-wrap mb-6">
+                {benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                        {benefit.icon}
+                        <span>{benefit.text}</span>
+                    </div>
+                ))}
             </div>
-          ))}
+            <p className="text-foreground/80 leading-relaxed">
+                “Just tell us the service you need, and Gaupro instantly connects you with the best local professionals in your area. From plumbing and electrical work to cleaning, tech support, and home repairs, our platform makes it easy to find trusted, verified experts without any hidden fees or stress. Get multiple quotes, compare professionals, and hire with confidence – all in minutes. Gaupro is your go-to platform for fast, reliable, and professional local services.”
+            </p>
         </div>
       </div>
     </section>
