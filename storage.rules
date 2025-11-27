@@ -2,10 +2,10 @@ rules_version = '2';
 
 service firebase.storage {
   match /b/{bucket}/o {
-    // Default rule: allows read and write access only for authenticated users.
-    // This is a secure starting point.
+    // Allow read access to everyone for all files
     match /{allPaths=**} {
-      allow read, write: if request.auth != null;
+      allow read;
+      allow write: if request.auth != null;
     }
   }
 }
