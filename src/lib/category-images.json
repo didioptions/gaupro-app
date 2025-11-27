@@ -9,8 +9,8 @@
     },
     {
       "id": "movers-image",
-      "description": "Two professional movers in uniform carrying a large box.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_movers.PNG?alt=media&token=16198f39-f9c2-48f8-8097-cc74c335832a",
+      "description": "Two professional movers in uniform carrying a large box into a new home.",
+      "imageUrl": "https://images.unsplash.com/photo-1594757366364-a62a34683043?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxNb3ZlcnN8ZW58MHx8fHwxNzYzOTk3OTQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "movers boxes"
     },
     {
@@ -39,8 +39,8 @@
     },
     {
       "id": "security-image",
-      "description": "A modern security camera mounted on an exterior wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_SECURR.PNG?alt=media&token=a054c25f-2c6b-45b0-9a3d-3b74b1e56991",
+      "description": "A modern security camera mounted on an exterior wall of a home.",
+      "imageUrl": "https://images.unsplash.com/photo-1594488518061-24b457c17983?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzZWN1cml0eSUyMGNhbWVyYXxlbnwwfHx8fDE3NjM5OTc5NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "security camera"
     },
     {
