@@ -10,28 +10,28 @@ const testimonials = [
     author: "Sarah L.",
     location: "Johannesburg",
     avatarUrl: "https://picsum.photos/seed/sarah-l/80/80",
-    avatarSeed: "1",
+    avatarSeed: "sarah-l",
   },
   {
     quote: "The quality of professionals on this platform is outstanding. We found an amazing photographer for our wedding and couldn't be happier with the results.",
     author: "David & Emily R.",
     location: "Cape Town",
     avatarUrl: "https://picsum.photos/seed/david-emily/80/80",
-    avatarSeed: "2",
+    avatarSeed: "david-emily",
   },
   {
     quote: "As a small business owner, finding a good web designer was crucial. Gaupro connected me with a talented developer who built a fantastic website for us.",
     author: "Mike T.",
     location: "Durban",
     avatarUrl: "https://picsum.photos/seed/mike-t/80/80",
-    avatarSeed: "3",
+    avatarSeed: "mike-t",
   },
   {
     quote: "I needed my garden completely redone. The quotes were fair, and the pro I hired did an incredible job. My backyard is now my favorite place to be.",
     author: "Jessica P.",
     location: "Pretoria",
     avatarUrl: "https://picsum.photos/seed/jessica-p/80/80",
-    avatarSeed: "4",
+    avatarSeed: "jessica-p",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function Testimonials() {
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => {
-              const imageUrl = (testimonial as any).avatarUrl || `https://picsum.photos/seed/${testimonial.avatarSeed}/80/80`;
+              const imageUrl = testimonial.avatarUrl || `https://picsum.photos/seed/${testimonial.avatarSeed}/80/80`;
               return (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
