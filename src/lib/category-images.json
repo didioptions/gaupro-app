@@ -40,7 +40,7 @@
     {
       "id": "security-image",
       "description": "A modern security camera mounted on an exterior wall of a home.",
-      "imageUrl": "https://images.unsplash.com/photo-1594488518061-24b457c17983?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNlY3VyaXR5JTIwY2FtZXJhfGVufDB8fDB8fHww",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_SECURR.PNG?alt=media",
       "imageHint": "security camera"
     },
     {
@@ -207,3 +207,5 @@
     }
   ]
 }
+
+    
