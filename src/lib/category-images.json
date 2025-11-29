@@ -94,7 +94,7 @@
     {
       "id": "photographers-image",
       "description": "A photographer holding a professional camera, ready to shoot.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_photographer.PNG?alt=media&token=d1532f8f-1de4-4861-8f52-8700203f7e6f",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_photographer.PNG?alt=media&token=0d306609-d8af-4e99-bf19-ceec326c5b50",
       "imageHint": "photographer camera"
     },
     {
@@ -208,7 +208,7 @@
     {
       "id": "jumping-castle-image",
       "description": "A colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_jumping%20castel.PNG?alt=media",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_jumping%20castel.PNG?alt=media&token=ab3b483e-1052-47c1-a8e0-1c3809e53066",
       "imageHint": "jumping castle"
     }
   ]
