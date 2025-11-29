@@ -10,7 +10,7 @@
     {
       "id": "movers-image",
       "description": "Two professional movers in uniform carrying a large box into a new home.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_movers.PNG?alt=media&token=d017a6af-de3d-411d-8924-0a798a18bbd7",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_movers.PNG?alt=media&token=d017a6af-de3d-411d-8924-0a798a18bbd7",
       "imageHint": "movers boxes"
     },
     {
@@ -40,7 +40,7 @@
     {
       "id": "security-image",
       "description": "A modern security camera mounted on an exterior wall of a home.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_SECURR.PNG?alt=media&token=0536c86e-7218-4d83-b70f-4fe634fbcdbb",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_SECURR.PNG?alt=media&token=0536c86e-7218-4d83-b70f-4fe634fbcdbb",
       "imageHint": "security camera"
     },
     {
@@ -64,13 +64,13 @@
     {
       "id": "painter-image",
       "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_h%20painters.PNG?alt=media&token=d7e3cbed-ec03-4ee2-8d2a-e13343be8a93",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_h%20painters.PNG?alt=media&token=d7e3cbed-ec03-4ee2-8d2a-e13343be8a93",
       "imageHint": "living room decor"
     },
     {
       "id": "djs-image",
       "description": "A DJ mixing music on a turntable at a lively event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_djs.PNG?alt=media&token=b7f8373b-f4b9-43c3-8f0a-7ed4010b9f5f",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_dj.PNG?alt=media&token=81d7cbb9-2605-458b-a0c9-25d0c8fa6f73",
       "imageHint": "DJ event"
     },
     {
@@ -94,7 +94,7 @@
     {
       "id": "photographers-image",
       "description": "A photographer holding a professional camera, ready to shoot.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_photographer.PNG?alt=media&token=0d306609-d8af-4e99-bf19-ceec326c5b50",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_photographer.PNG?alt=media&token=0d306609-d8af-4e99-bf19-ceec326c5b50",
       "imageHint": "photographer camera"
     },
     {
@@ -118,37 +118,37 @@
     {
       "id": "plumber-image",
       "description": "A professional plumber working under a kitchen sink.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_plumber.PNG?alt=media&token=8d27576a-54a8-48b9-9133-28f0907e6005",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_plumber.PNG?alt=media&token=8d27576a-54a8-48b9-9133-28f0907e6005",
       "imageHint": "plumber working"
     },
     {
       "id": "electrician-image",
       "description": "An electrician carefully working on a circuit breaker panel.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_elec.PNG?alt=media&token=6c747796-03ac-4b95-a131-778fe83d1c1c",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_elec.PNG?alt=media&token=6c747796-03ac-4b95-a131-778fe83d1c1c",
       "imageHint": "electrician working"
     },
     {
       "id": "gardeners-image",
       "description": "A lush, green, well-maintained garden with blooming flowers.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_garden.PNG?alt=media&token=38c11696-6f87-430c-8822-77291a136ea5",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_garden.PNG?alt=media&token=38c11696-6f87-430c-8822-77291a136ea5",
       "imageHint": "garden flowers"
     },
     {
       "id": "pest-control-image",
       "description": "A pest control professional in uniform inspecting the exterior of a clean house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_pest.PNG?alt=media&token=624f2b3e-f6a4-4a4a-a0cb-1033b0e33471",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_pest.PNG?alt=media&token=624f2b3e-f6a4-4a4a-a0cb-1033b0e33471",
       "imageHint": "pest control"
     },
     {
       "id": "tree-felling-image",
       "description": "A person with safety gear cutting a tree branch.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_tree.PNG?alt=media&token=b367098e-49b0-4f59-994c-e837d04f14e4",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_tree.PNG?alt=media&token=b367098e-49b0-4f59-994c-e837d04f14e4",
       "imageHint": "tree felling"
     },
     {
       "id": "carpenters-image",
       "description": "A carpenter measuring a piece of wood in a workshop.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_carpenter.PNG?alt=media&token=8667b3b3-85f2-4521-99c5-ab65e0486c9f",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_carpenter.PNG?alt=media&token=8667b3b3-85f2-4521-99c5-ab65e0486c9f",
       "imageHint": "carpenter wood"
     },
     {
@@ -208,7 +208,7 @@
     {
       "id": "jumping-castle-image",
       "description": "A colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_jumping%20castel.PNG?alt=media&token=ab3b483e-1052-47c1-a8e0-1c3809e53066",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_jumping%20castel.PNG?alt=media&token=ab3b483e-1052-47c1-a8e0-1c3809e53066",
       "imageHint": "jumping castle"
     }
   ]
