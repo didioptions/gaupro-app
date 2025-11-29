@@ -204,6 +204,12 @@
       "description": "An excavator demolishing a brick wall at a construction site.",
       "imageUrl": "https://picsum.photos/seed/demolition-hero/1200/500",
       "imageHint": "excavator demolishing"
+    },
+    {
+      "id": "jumping-castle-image",
+      "description": "A colorful jumping castle set up for a kids party.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_jumping%20castel.PNG?alt=media",
+      "imageHint": "jumping castle"
     }
   ]
 }

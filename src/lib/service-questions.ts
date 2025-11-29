@@ -118,6 +118,7 @@ export const allServices = [
     { value: 'interior-designing', label: 'Interior Designing' },
     { value: 'internet-solutions', label: 'Internet Solutions' },
     { value: 'irrigation', label: 'Irrigation' },
+    { value: 'jumping-castle-hire', label: 'Jumping Castle Hire' },
     { value: 'kitchen-renovations', label: 'Kitchen Renovations' },
     { value: 'labour-lawyers', label: 'Labour Lawyers' },
     { value: 'laminate-flooring', label: 'Laminate Flooring' },
@@ -2490,5 +2491,6 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
 ];
+
 
 
