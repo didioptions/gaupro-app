@@ -10,7 +10,7 @@
     {
       "id": "movers-image",
       "description": "Two professional movers in uniform carrying a large box into a new home.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/1%202%203%20resized-image.png?alt=media&token=b5d4f593-51a8-4228-a477-74439c2834b6",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_movers.PNG?alt=media&token=f1a62e32-80d4-4b4d-968e-b67e2c568a46",
       "imageHint": "movers boxes"
     },
     {
@@ -39,9 +39,9 @@
     },
     {
       "id": "security-image",
-      "description": "A modern security camera mounted on an exterior wall of a home.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/securuty_gaurd_1_cropped.png?alt=media&token=72e0661d-c2e9-4d39-bf19-ed940d6e69ef",
-      "imageHint": "security camera"
+      "description": "A security gaurd in uniform speaking into a walkie-talkie.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/securuty_gaurd_1_cropped.png?alt=media&token=963591c8-a76c-4860-844c-223d6a9a4b3d",
+      "imageHint": "security guard"
     },
     {
       "id": "cctv-image",
