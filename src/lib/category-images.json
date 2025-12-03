@@ -1,4 +1,3 @@
-
 {
   "categoryImages": [
     {
@@ -70,25 +69,25 @@
     {
       "id": "djs-image",
       "description": "A DJ mixing music on a turntable at a lively event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_dj.PNG?alt=media&token=5470d045-844c-4573-8441-55c32890664d",
+      "imageUrl": "https://images.unsplash.com/photo-1598387993441-2b89f4b4e332?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxESiUyMGV2ZW50fGVufDB8fHx8MTc2NDA0NTg5NXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "DJ event"
     },
     {
       "id": "event-decorations-image",
       "description": "A beautifully decorated table setting for a wedding or event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_dec.PNG?alt=media&token=b4d8a556-55c3-4d6d-9783-a7ce2e49c719",
+      "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxldmVudCUyMGRlY29yYXRpb258ZW58MHx8fHwxNzY0MDQ1ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "event decoration"
     },
     {
       "id": "party-planners-image",
       "description": "A party planner with a clipboard, smiling at a well-organized event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_planner.PNG?alt=media&token=8d27a3c3-3e11-4560-951c-8e47b99c0d3a",
+      "imageUrl": "https://images.unsplash.com/photo-1579294545588-a39151597813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXJ0eSUyMHBsYW5uZXJ8ZW58MHx8fHwxNzY0MDQ1ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "party planner"
     },
     {
       "id": "tent-hire-image",
       "description": "A large white event tent set up on a grassy field for a wedding.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_tent.PNG?alt=media&token=0973a941-0f72-460d-a34f-0153835f8fc3",
+      "imageUrl": "https://images.unsplash.com/photo-1568393524854-a37f59c83405?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxldmVudCUyMHRlbnR8ZW58MHx8fHwxNzY0MDQ1ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "event tent"
     },
     {
@@ -100,19 +99,19 @@
     {
       "id": "toilet-hire-image",
       "description": "A row of clean, modern portable toilets for an outdoor event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_toilet.PNG?alt=media&token=404d55b8-d21d-4009-8488-825501ba16d9",
+      "imageUrl": "https://images.unsplash.com/photo-1587875486518-e3aaa3333939?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwb3J0YWJsZSUyMHRvaWxldHN8ZW58MHx8fHwxNzY0MDQ1ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "portable toilets"
     },
     {
       "id": "videographers-image",
       "description": "A videographer operating a camera on a tripod during an event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_vid.PNG?alt=media&token=6a1843b0-6815-46aa-bde6-834c38d21b36",
+      "imageUrl": "https://images.unsplash.com/photo-1575439462429-9c3279f54790?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2aWRlb2dyYXBoZXJ8ZW58MHx8fHwxNzY0MDQ1ODk2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "videographer camera"
     },
     {
       "id": "wedding-photographers-image",
       "description": "A photographer taking a picture of a newly married couple.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_wed.PNG?alt=media&token=46d0a7a3-5353-4876-aa43-6c2e3919e951",
+      "imageUrl": "https://images.unsplash.com/photo-1511285560921-4c9a8a2a72a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaGVyfGVufDB8fHx8MTc2NDA0NTg5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wedding photographer"
     },
     {
