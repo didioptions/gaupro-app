@@ -69,49 +69,49 @@
     {
       "id": "djs-image",
       "description": "A DJ mixing music on a turntable at a lively event.",
-      "imageUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGp8ZW58MHx8MHx8fDA%3D",
       "imageHint": "DJ event"
     },
     {
       "id": "event-decorations-image",
       "description": "A beautifully decorated table setting for a wedding or event.",
-      "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZXZlbnQlMjBkZWNvcmF0aW9ufGVufDB8fDB8fHww",
       "imageHint": "event decoration"
     },
     {
       "id": "party-planners-image",
       "description": "A party planner with a clipboard, smiling at a well-organized event.",
-      "imageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2VkZGluZyUyMHBsYW5uZXJ8ZW58MHx8MHx8fDA%3D",
       "imageHint": "party planner"
     },
     {
       "id": "tent-hire-image",
       "description": "A large white event tent set up on a grassy field for a wedding.",
-      "imageUrl": "https://images.unsplash.com/photo-1568393524854-a37f59c83405?w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1568393524854-a37f59c83405?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXZlbnQlMjB0ZW50fGVufDB8fDB8fHww",
       "imageHint": "event tent"
     },
     {
       "id": "photographers-image",
       "description": "A photographer holding a professional camera, ready to shoot.",
-      "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGhvdG9ncmFwaGVyfGVufDB8fDB8fHww",
       "imageHint": "photographer camera"
     },
     {
       "id": "toilet-hire-image",
       "description": "A row of clean, modern portable toilets for an outdoor event.",
-      "imageUrl": "https://images.unsplash.com/photo-1587875486518-e3aaa3333939?w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1587875486518-e3aaa3333939?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9ydGFibGUlMjB0b2lsZXRzfGVufDB8fDB8fHww",
       "imageHint": "portable toilets"
     },
     {
       "id": "videographers-image",
       "description": "A videographer operating a camera on a tripod during an event.",
-      "imageUrl": "https://images.unsplash.com/photo-1575439462429-9c3279f54790?w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1575439462429-9c3279f54790?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dmlkZW9ncmFwaGVyfGVufDB8fDB8fHww",
       "imageHint": "videographer camera"
     },
     {
       "id": "wedding-photographers-image",
       "description": "A photographer taking a picture of a newly married couple.",
-      "imageUrl": "https://images.unsplash.com/photo-1511285560921-4c9a8a2a72a9?w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1511285560921-4c9a8a2a72a9?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2VkZGluZyUyMHBob3RvZ3JhcGhlcnxlbnwwfHx8fHx8MA%3D%3D",
       "imageHint": "wedding photographer"
     },
     {
