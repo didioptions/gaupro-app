@@ -9,9 +9,9 @@
     },
     {
       "id": "movers-image",
-      "description": "Two professional movers in uniform carrying a large box into a new home.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_movers.PNG?alt=media&token=f1a62e32-80d4-4b4d-968e-b67e2c568a46",
-      "imageHint": "movers boxes"
+      "description": "Two professional movers in uniform carrying a couch.",
+      "imageUrl": "https://images.unsplash.com/photo-1587588494883-e18719a7c3d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb3ZlcnN8ZW58MHx8fHwxNzYzODczMzMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "movers couch"
     },
     {
       "id": "cleaning-service-image",
@@ -40,7 +40,7 @@
     {
       "id": "security-image",
       "description": "A security gaurd in uniform speaking into a walkie-talkie.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/securuty_gaurd_1_cropped.png?alt=media&token=963591c8-a76c-4860-844c-223d6a9a4b3d",
+      "imageUrl": "https://images.unsplash.com/photo-1629733189178-576b595c5b5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzZWN1cml0eSUyMGd1YXJkfGVufDB8fHx8MTc2Mzg3MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "security guard"
     },
     {
@@ -94,7 +94,7 @@
     {
       "id": "photographers-image",
       "description": "A photographer holding a professional camera, ready to shoot.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_photographer.PNG?alt=media&token=1db0b307-e070-4375-824c-e8369363e80c",
+      "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwaG90b2dyYXBoZXJ8ZW58MHx8fHwxNzYzODczMzMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "photographer camera"
     },
     {
