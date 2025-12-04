@@ -9,7 +9,7 @@
     {
       "id": "movers-image",
       "description": "Two professional movers in uniform carrying a couch.",
-      "imageUrl": "https://images.unsplash.com/photo-1587588494883-e18719a7c3d2?w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_movers.PNG?alt=media&token=e112312c-4e9b-448b-b90a-068606a1bd14",
       "imageHint": "movers couch"
     },
     {
@@ -39,7 +39,7 @@
     {
       "id": "security-image",
       "description": "A security gaurd in uniform speaking into a walkie-talkie.",
-      "imageUrl": "https://images.unsplash.com/photo-1559124135-d2f62b08a3f8?w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/securuty_gaurd_1_cropped.png?alt=media&token=dd6b2d24-3406-4b2a-89a3-5b8c34f9b2d2",
       "imageHint": "security guard"
     },
     {
