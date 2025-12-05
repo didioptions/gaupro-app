@@ -10,7 +10,7 @@
     {
       "id": "movers-image",
       "description": "Two professional movers in uniform carrying a couch.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_movers.PNG?alt=media&token=efc0b541-4f2e-4d93-867e-8668e2825dba",
+      "imageUrl": "https://images.unsplash.com/photo-1587588432363-c7e534f37a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "imageHint": "movers couch"
     },
     {
@@ -52,7 +52,7 @@
     {
       "id": "caterers-image",
       "description": "A close-up shot of a gourmet food platter with various appetizers.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_caterers%20(1).PNG?alt=media&token=c495bdd6-f40b-4bb1-8106-2a692841db91",
+      "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2F0ZXJpbmclMjBmb29kfGVufDB8fDB8fHww",
       "imageHint": "catering food"
     },
     {
