@@ -46,26 +46,26 @@
     {
       "id": "cctv-image",
       "description": "A modern security camera mounted on an exterior wall.",
-      "imageUrl": "https://images.unsplash.com/photo-1594488518061-24b457c17983?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNlY3VyaXR5JTIwY2FtZXJhfGVufDB8fDB8fHww",
+      "imageUrl": "https://picsum.photos/seed/cctv-works/300/200",
       "imageHint": "security camera"
     },
     {
       "id": "caterers-image",
       "description": "A close-up shot of a gourmet food platter with various appetizers.",
-      "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1080&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2F0ZXJpbmclMjBmb29kfGVufDB8fDB8fHww",
+      "imageUrl": "https://picsum.photos/seed/catering-works/300/200",
       "imageHint": "catering food"
     },
     {
       "id": "rubble-removal-image",
       "description": "A clean and tidy living room after a rubble removal service.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_hm%20rubble.PNG?alt=media&token=43a2b937-6dc1-41ad-964d-abc2b4dc058c",
+      "imageUrl": "https://picsum.photos/seed/rubble-works/300/200",
       "imageHint": "clean room"
     },
     {
       "id": "painter-image",
       "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_h%20painters.PNG?alt=media&token=1c6b3e9e-5693-41a4-9275-555f5f4f89d5",
-      "imageHint": "living room decor"
+      "imageUrl": "https://picsum.photos/seed/painter-works/300/200",
+      "imageHint": "living room"
     },
     {
       "id": "djs-image",
@@ -118,85 +118,85 @@
     {
       "id": "plumber-image",
       "description": "A professional plumber working under a kitchen sink.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_plumber.PNG?alt=media&token=8d27576a-54a8-48b9-9133-28f0907e6005",
+      "imageUrl": "https://picsum.photos/seed/plumber-works/300/200",
       "imageHint": "plumber working"
     },
     {
       "id": "electrician-image",
       "description": "An electrician carefully working on a circuit breaker panel.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_elec.PNG?alt=media&token=6c747796-03ac-4b95-a131-778fe83d1c1c",
+      "imageUrl": "https://picsum.photos/seed/electrician-works/300/200",
       "imageHint": "electrician working"
     },
     {
       "id": "gardeners-image",
       "description": "A lush, green, well-maintained garden with blooming flowers.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_garden.PNG?alt=media&token=38c11696-6f87-430c-8822-77291a136ea5",
+      "imageUrl": "https://picsum.photos/seed/garden-works/300/200",
       "imageHint": "garden flowers"
     },
     {
       "id": "pest-control-image",
       "description": "A pest control professional in uniform inspecting the exterior of a clean house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_pest.PNG?alt=media&token=624f2b3e-f6a4-4a4a-a0cb-1033b0e33471",
+      "imageUrl": "https://picsum.photos/seed/pest-works/300/200",
       "imageHint": "pest control"
     },
     {
       "id": "tree-felling-image",
       "description": "A person with safety gear cutting a tree branch.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_tree.PNG?alt=media&token=b367098e-49b0-4f59-994c-e837d04f14e4",
+      "imageUrl": "https://picsum.photos/seed/tree-works/300/200",
       "imageHint": "tree felling"
     },
     {
       "id": "carpenters-image",
       "description": "A carpenter measuring a piece of wood in a workshop.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_carpenter.PNG?alt=media&token=8667b3b3-85f2-4521-99c5-ab65e0486c9f",
+      "imageUrl": "https://picsum.photos/seed/carpenter-works/300/200",
       "imageHint": "carpenter wood"
     },
     {
       "id": "accounting-image",
       "description": "A calculator and pen on top of financial documents.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_accounting.PNG?alt=media&token=9635034c-1d07-4228-ae71-d64e101f3796",
+      "imageUrl": "https://picsum.photos/seed/accounting-works/300/200",
       "imageHint": "accounting finance"
     },
     {
       "id": "auditors-image",
       "description": "A person with a magnifying glass examining a financial report.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_auditors.PNG?alt=media&token=98c3973c-6625-45dc-bfde-276709405d46",
+      "imageUrl": "https://picsum.photos/seed/auditor-works/300/200",
       "imageHint": "auditor report"
     },
     {
       "id": "debt-counsellors-image",
       "description": "A supportive handshake over a desk, symbolizing financial help.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_debt.PNG?alt=media&token=df4f4946-b6f1-43c3-b452-972149b01ddc",
+      "imageUrl": "https://picsum.photos/seed/debt-works/300/200",
       "imageHint": "financial help"
     },
     {
       "id": "financial-advisors-image",
       "description": "A financial advisor discussing charts with a client.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_financial.PNG?alt=media&token=d16075bc-695c-4235-9008-a0e2a3b04c8f",
+      "imageUrl": "https://picsum.photos/seed/financial-works/300/200",
       "imageHint": "financial advisor"
     },
     {
       "id": "home-loans-image",
       "description": "A miniature house model held in hands.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_homeloan.PNG?alt=media&token=9b207ac9-1588-466d-9b5f-5541604a8b7c",
+      "imageUrl": "https://picsum.photos/seed/homeloan-works/300/200",
       "imageHint": "house model"
     },
     {
       "id": "insurance-image",
       "description": "An umbrella protecting a family, symbolizing insurance coverage.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_ins.PNG?alt=media&token=d6a9926d-944f-40e9-b5d7-d7e5563914a2",
+      "imageUrl": "https://picsum.photos/seed/insurance-works/300/200",
       "imageHint": "insurance protection"
     },
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_cons.PNG?alt=media&token=f03126be-b94f-4318-bc1c-9b776269229e",
+      "imageUrl": "https://picsum.photos/seed/consultant-works/300/200",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_reg.PNG?alt=media&token=487d27e9-d757-410a-bf1f-b510ed97c8ef",
+      "imageUrl": "https://picsum.photos/seed/registration-works/300/200",
       "imageHint": "document signing"
     },
     {
@@ -208,7 +208,7 @@
     {
       "id": "jumping-castle-image",
       "description": "A colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/result_jumping%20castel.PNG?alt=media&token=ab3b483e-1052-47c1-a8e0-1c3809e53066",
+      "imageUrl": "https://picsum.photos/seed/jumping-castle/300/200",
       "imageHint": "jumping castle"
     }
   ]
