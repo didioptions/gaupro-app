@@ -69,7 +69,7 @@
     {
       "id": "djs-image",
       "description": "A DJ mixing music on a turntable at a lively event.",
-      "imageUrl": "https://picsum.photos/seed/djs-work/300/200",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_dj.PNG?alt=media&token=e9da4f8d-7090-4713-bc52-bd7633fcfe07",
       "imageHint": "DJ event"
     },
     {
