@@ -1,3 +1,4 @@
+
 {
   "categoryImages": [
     {
@@ -87,7 +88,7 @@
     {
       "id": "tent-hire-image",
       "description": "A large white event tent set up on a grassy field for a wedding.",
-      "imageUrl": "https://picsum.photos/seed/tent-hire/300/200",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_tent%20hire.PNG?alt=media&token=673234c2-aabb-48d4-981a-dc2a480848b4",
       "imageHint": "event tent"
     },
     {
