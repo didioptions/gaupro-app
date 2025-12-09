@@ -130,7 +130,7 @@
     {
       "id": "gardeners-image",
       "description": "A lush, green, well-maintained garden with blooming flowers.",
-      "imageUrl": "https://picsum.photos/seed/garden-works/300/200",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/resized-image%20(4).png?alt=media&token=8493ed10-321c-4830-82dd-6f57416a6797",
       "imageHint": "garden flowers"
     },
     {
@@ -213,3 +213,5 @@
     }
   ]
 }
+
+    
