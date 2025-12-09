@@ -64,7 +64,7 @@
     {
       "id": "painter-image",
       "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
-      "imageUrl": "https://picsum.photos/seed/painter-works/300/200",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/resized-image%20(5).png?alt=media&token=a237ffc2-bcdb-494b-a94f-9211f2f93f25",
       "imageHint": "living room"
     },
     {
@@ -213,5 +213,3 @@
     }
   ]
 }
-
-    
