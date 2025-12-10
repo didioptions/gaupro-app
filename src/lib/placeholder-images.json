@@ -9,13 +9,13 @@
     {
       "id": "fire-safe-solutions-logo",
       "description": "A logo for a fire safety company with a shield and a flame icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1643219086762-2ff48d483197?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1643219086762-2ff48d483197?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fire shield logo"
     },
     {
       "id": "national-fire-logo",
       "description": "A professional logo for a national fire protection service.",
-      "imageUrl": "https://images.unsplash.com/photo-1643252819983-7cfa20188914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmaXJlJTIwcHJvdGVjdGlvbiUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg3fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1643252819983-7cfa20188914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmaXJlJTIwcHJvdGVjdGlvbiUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fire protection logo"
     },
     {
@@ -177,7 +177,7 @@
     {
       "id": "themba-rubble-removers-logo",
       "description": "Logo for Themba Rubble Removers company.",
-      "imageUrl": "https://images.unsplash.com/photo-1687523327554-fa9f50423489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM4NjA0Nzd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1687523327554-fa9f50423489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM4NjA0Nzd8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "company logo"
     },
     {
@@ -201,7 +201,7 @@
     {
       "id": "tech-savvy-logo",
       "description": "A logo for a computer repair service featuring a circuit board pattern.",
-      "imageUrl": "https://images.unsplash.com/photo-1697952431907-8542919a16b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaXJjdWl0JTIwYm9hcmR8ZW58MHx8fHwxNzYzMDEwNjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1697952431907-8542919a16b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaXJjdWl0JTIwYm9hcmR8ZW58MHx8fHwxNzYzMDEwNjQ0fDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "circuit board"
     },
     {
@@ -555,7 +555,7 @@
     {
       "id": "mind-matters-logo",
       "description": "A logo for a psychologist's practice.",
-      "imageUrl": "https://images.unsplash.com/photo-1699283104534-901fd10c614c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxicmFpbiUyMGxvZ298ZW58MHx8fHwxNzYzMDcxNjM5fDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1699283104534-901fd10c614c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhY2NvdW50aW5nJTIwZmluYW5jZXxlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "brain logo"
     },
     {
@@ -783,7 +783,7 @@
     {
       "id": "accounting-image",
       "description": "A calculator and pen on top of financial documents.",
-      "imageUrl": "https://images.unsplash.com/photo-1563212034-a3c52118cce2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhY2NvdW50aW5nJTIwZmluYW5jZXxlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Accountant%202).png?alt=media&token=ba08721a-63a6-4d04-b346-37ade3b704e8",
       "imageHint": "accounting finance"
     },
     {
@@ -801,43 +801,43 @@
     {
       "id": "financial-advisors-image",
       "description": "A financial advisor discussing charts with a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "financial advisor"
     },
     {
       "id": "home-loans-image",
       "description": "A miniature house model held in hands.",
-      "imageUrl": "https://images.unsplash.com/photo-1653164488636-7407bec89281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxob3VzZSUyMG1vZGVsfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653164488636-7407bec89281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxob3VzZSUyMG1vZGVsfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "house model"
     },
     {
       "id": "insurance-image",
       "description": "An umbrella protecting a family, symbolizing insurance coverage.",
-      "imageUrl": "https://images.unsplash.com/photo-1747114936280-257b662bfe72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9ufGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1747114936280-257b662bfe72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9ufGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "insurance protection"
     },
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
       "id": "demolition-image",
       "description": "An excavator demolishing a brick wall at a construction site.",
-      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "excavator demolishing"
     },
     {
       "id": "jumping-castle-image",
       "description": "A colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://images.unsplash.com/photo-1701430662846-b729f2c3634c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxqdW1waW5nJTIwY2FzdGxlfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1701430662846-b729f2c3634c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxqdW1waW5nJTIwY2FzdGxlfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "jumping castle"
     }
   ]
