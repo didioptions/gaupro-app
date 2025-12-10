@@ -58,7 +58,7 @@
     {
       "id": "rubble-removal-image",
       "description": "A clean and tidy living room after a rubble removal service.",
-      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "clean room"
     },
     {
@@ -172,13 +172,13 @@
     {
       "id": "financial-advisors-image",
       "description": "A financial advisor discussing charts with a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "financial advisor"
     },
     {
       "id": "home-loans-image",
       "description": "A miniature house model held in hands.",
-      "imageUrl": "https://images.unsplash.com/photo-1653164488636-7407bec89281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxob3VzZSUyMG1vZGVsfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653164488636-7407bec89281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxob3VzZSUyMG1vZGVsfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "house model"
     },
     {
