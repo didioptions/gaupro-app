@@ -172,7 +172,7 @@
     {
       "id": "financial-advisors-image",
       "description": "A financial advisor discussing charts with a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "financial advisor"
     },
     {
@@ -184,7 +184,7 @@
     {
       "id": "insurance-image",
       "description": "An umbrella protecting a family, symbolizing insurance coverage.",
-      "imageUrl": "https://images.unsplash.com/photo-1747114936280-257b662bfe72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9ufGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Insurance%201.png?alt=media&token=2bfd8693-b888-463b-aaad-0f5aa0552b37",
       "imageHint": "insurance protection"
     },
     {
@@ -202,13 +202,13 @@
     {
       "id": "demolition-image",
       "description": "An excavator demolishing a brick wall at a construction site.",
-      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "excavator demolishing"
     },
     {
       "id": "jumping-castle-image",
       "description": "A colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://images.unsplash.com/photo-1701430662846-b729f2c3634c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxqdW1waW5nJTIwY2FzdGxlfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1701430662846-b729f2c3634c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxqdW1waW5nJTIwY2FzdGxlfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "jumping castle"
     }
   ]
