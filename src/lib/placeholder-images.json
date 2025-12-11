@@ -2,20 +2,20 @@
   "placeholderImages": [
     {
       "id": "homepage-hero",
-      "description": "A stunning panoramic view of the Johannesburg city skyline at sunset.",
-      "imageUrl": "https://images.unsplash.com/photo-1502905704466-2690947baeee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaXR5JTIwc2t5bGluZXxlbnwwfHx8fDE3NjM5MTU5MzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "city skyline"
+      "description": "A professional tradesperson with tools, looking confident.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GOOD%20HOME%20PIC_imresizer%20(1).jpg?alt=media&token=a7681c2a-023f-4f8d-8cf2-0fe9c791a749",
+      "imageHint": "professional tradesperson"
     },
     {
       "id": "fire-safe-solutions-logo",
       "description": "A logo for a fire safety company with a shield and a flame icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1643219086762-2ff48d483197?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1643219086762-2ff48d483197?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjMwNTM0ODh8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "fire shield logo"
     },
     {
       "id": "national-fire-logo",
       "description": "A professional logo for a national fire protection service.",
-      "imageUrl": "https://images.unsplash.com/photo-1643252819983-7cfa20188914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmaXJlJTIwcHJvdGVjdGlvbiUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1643252819983-7cfa20188914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmaXJlJTIwcHJvdGVjdGlvbiUyMGxvZ298ZW58MHx8fHwxNzYzMDUzNDg3fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "fire protection logo"
     },
     {
@@ -33,19 +33,19 @@
     {
       "id": "hero-background-image",
       "description": "A bright and modern living room with a comfortable sofa.",
-      "imageUrl": "https://images.unsplash.com/photo-1631679706909-1844bbd07221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsaXZpbmclMjByb29tfGVufDB8fHx8MTc2MTA4OTI5OXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1631679706909-1844bbd07221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsaXZpbmclMjByb29tfGVufDB8fHx8MTc2MTA4OTI5OXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "modern living room"
     },
     {
       "id": "meaningful-work-card",
       "description": "Two people shaking hands, symbolizing a successful partnership or community impact.",
-      "imageUrl": "https://images.unsplash.com/photo-1759189615360-467c44e5b8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21tdW5pdHklMjBpbXBhY3R8ZW58MHx8fHwxNzYxMDg5Mjk4fDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1759189615360-467c44e5b8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21tdW5pdHklMjBpbXBhY3R8ZW58MHx8fHwxNzYxMDg5Mjk4fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "community impact"
     },
     {
       "id": "growth-learning-card",
       "description": "A line graph showing upward growth, representing career development.",
-      "imageUrl": "https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncm93dGglMjBjaGFydHxlbnwwfHx8fDE3NjEwMDU2OTN8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncm93dGglMjBjaGFydHxlbnwwfHx8fDE3NjEwMDU2OTN8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "growth chart"
     },
     {
@@ -483,7 +483,7 @@
     {
       "id": "global-journeys-logo",
       "description": "A professional logo for a travel agency with a globe icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1554260570-9140fd3b7614?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnbG9iZSUyMGxvZ298ZW58MHx8fHwxNzYzMDI2NDQyfDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1554260570-9140fd3b7614?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiZWF1dHklMjBsb2dvfGVufDB8fHx8MTc2MzA1MzQ4OHww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "globe logo"
     },
     {
@@ -675,7 +675,7 @@
     {
       "id": "cctv-image",
       "description": "A modern security camera mounted on an exterior wall.",
-      "imageUrl": "https://images.unsplash.com/photo-1520697830682-bbb6e85e2b0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZWN1cml0eSUyMGNhbWVyYXxlbnwwfHx8fDE3NjUzMzQ3NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1520697830682-bbb6e85e2b0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZWN1cml0eSUyMGNhbWVyYXxlbnwwfHx8fDE3NjUzMzQ3NDB8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "security camera"
     },
     {
@@ -687,7 +687,7 @@
     {
       "id": "rubble-removal-image",
       "description": "A clean and tidy living room after a rubble removal service.",
-      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "clean room"
     },
     {
@@ -735,13 +735,13 @@
     {
       "id": "videographers-image",
       "description": "A videographer operating a camera on a tripod during an event.",
-      "imageUrl": "https://images.unsplash.com/photo-1619955617520-8dc17e989d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2aWRlb2dyYXBoZXIlMjBjYW1lcmF8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1619955617520-8dc17e989d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2aWRlb2dyYXBoZXIlMjBjYW1lcmF8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "videographer camera"
     },
     {
       "id": "wedding-photographers-image",
       "description": "A photographer taking a picture of a newly married couple.",
-      "imageUrl": "https://images.unsplash.com/photo-1611550287705-7ff8b459c8eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaGVyfGVufDB8fHx8MTc2NTMzNzUzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1611550287705-7ff8b459c8eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaGVyfGVufDB8fHx8MTc2NTMzNzUzMHww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "wedding photographer"
     },
     {
@@ -789,13 +789,13 @@
     {
       "id": "auditors-image",
       "description": "A person with a magnifying glass examining a financial report.",
-      "imageUrl": "https://images.unsplash.com/photo-1636819483716-854492c76683?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhdWRpdG9yJTIwcmVwb3J0fGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Auditors%20.png?alt=media&token=abb6c1cb-c6f3-458e-881f-cda3b1ea7d73",
       "imageHint": "auditor report"
     },
     {
       "id": "debt-counsellors-image",
       "description": "A supportive handshake over a desk, symbolizing financial help.",
-      "imageUrl": "https://images.unsplash.com/photo-1689903777384-31fd780bef3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBoZWxwfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1689903777384-31fd780bef3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBoZWxwfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "financial help"
     },
     {
@@ -813,7 +813,7 @@
     {
       "id": "insurance-image",
       "description": "An umbrella protecting a family, symbolizing insurance coverage.",
-      "imageUrl": "https://images.unsplash.com/photo-1747114936280-257b662bfe72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9ufGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Insurance%201.png?alt=media&token=2bfd8693-b888-463b-aaad-0f5aa0552b37",
       "imageHint": "insurance protection"
     },
     {
@@ -837,7 +837,7 @@
     {
       "id": "jumping-castle-image",
       "description": "A colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://images.unsplash.com/photo-1701430662846-b729f2c3634c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxqdW1waW5nJTIwY2FzdGxlfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_jumping%20castel.PNG?alt=media&token=1be91eba-a36c-4226-bcb6-31d38663951a",
       "imageHint": "jumping castle"
     }
   ]
