@@ -26,6 +26,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent } from '@/components/ui/card';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import Image from 'next/image';
 
 const formSchema = z.object({
   phoneNumber: z.string().min(10, {
@@ -48,20 +49,13 @@ const formSchema = z.object({
 
 const Logo = () => (
   <span className="flex items-center space-x-2">
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 80 80"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <Image
+      src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/LOGO-1.jpg?alt=media&token=4feae3fa-00ef-43a5-8fb2-bad34615f0a4"
+      alt="Gaupro Logo"
+      width={32}
+      height={32}
       className="h-8 w-8"
-    >
-      <path d="M15 0H80V80H15L0 60V20L15 0Z" fill="hsl(var(--destructive))" />
-      <path
-        d="M45.72 56.88V48.16C45.72 44.4 44.48 41.52 41.84 39.52C39.24 37.52 35.84 36.52 31.64 36.52C27.8 36.52 24.68 37.32 22.28 38.92V27.4H53.4V20.2H14.84V60H30.8C31.76 60 32.5333 59.8533 33.12 59.56C33.7067 59.2667 34.12 58.8 34.36 58.16L35.8 54.4C36.92 56.4 38.4667 57.8933 40.44 58.88C42.4133 59.8667 44.44 60.36 46.52 60.36C49.96 60.36 52.6667 59.32 54.64 57.24C56.6133 55.16 57.6 52.2667 57.6 48.56C57.6 44.44 56.4667 41.1333 54.2 38.64C51.9333 36.1467 48.88 34.9 45.04 34.9H41.64V43.72H45.04C46.8533 43.72 48.12 44.2933 48.84 45.44C49.56 46.5867 49.92 47.92 49.92 49.44C49.92 51.16 49.3867 52.5467 48.32 53.6C47.2533 54.6533 45.8 55.28 43.96 55.48L45.72 56.88Z"
-        fill="white"
-      />
-    </svg>
+    />
     <span className="font-semibold text-2xl tracking-tighter text-primary">
       aupro
     </span>
