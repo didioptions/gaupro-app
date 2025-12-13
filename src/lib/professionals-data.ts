@@ -1386,64 +1386,64 @@ export const allProfessionals = {
         }
     ],
     default: [
-        {
-            id: "pro-services-inc",
-            name: "Pro Services Inc.",
-            location: "Alberton",
-            description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, and pride ourselves on quick response times and high-quality workmanship.",
-            rating: 4.6,
-            reviews: 42,
-            address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
-            yearsInBusiness: 9,
-            employees: 4,
-            isProVerified: true,
-            serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton", "midrand", "sandton", "johannesburg", "pretoria", "tembisa"],
-            reviewData: [
-                { author: "Katleho", phone: "061****434", comment: "Excellent service. They were quick to respond, finished the job quickly, and left the site spotless. Very professional and hard-working team.", rating: 5 }
-            ],
-             photos: [
-                "https://picsum.photos/seed/pro1/600/400",
-                "https://picsum.photos/seed/pro2/600/400",
-            ],
-            avatarSeed: "pro-services-inc"
-        },
-        {
-            id: "general-solutions-pty",
-            name: "General Solutions Pty",
-            location: "Germiston",
-            description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from start to finish.",
-            rating: 0.0,
-            reviews: 0,
-            address: "789 Industrial Rd, Germiston",
-            yearsInBusiness: 1,
-            employees: 2,
-            isProVerified: false,
-            serviceLocations: ["germiston", "bedfordview", "edenvale", "midrand", "johannesburg", "pretoria", "tembisa", "benoni", "boksburg", "kempton-park"],
-            reviewData: [],
-            photos: [],
-            avatarSeed: "general-solutions"
-        },
-        {
-            id: "expert-crew-sa",
-            name: "Expert Crew SA",
-            location: "Soweto",
-            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
-            rating: 4.9,
-            reviews: 76,
-            address: "24 Worker's Way, Soweto",
-            yearsInBusiness: 12,
-            employees: 8,
-            isProVerified: true,
-            serviceLocations: ["soweto", "johannesburg", "midrand", "sandton", "roodepoort", "pretoria", "tembisa", "benoni", "boksburg"],
-            reviewData: [{
-                author: "Sarah P.",
-                phone: "072****123",
-                comment: "Extremely professional and efficient. They finished the job in half the expected time. Highly recommended!", rating: 5
-            }],
-            photos: [ "https://picsum.photos/seed/expert1/600/400",],
-            avatarSeed: "expert-crew-logo"
-        }
-    ],
+      {
+        id: "sparkle-clean-pros",
+        name: "Sparkle & Shine Cleaners",
+        location: "Alberton",
+        description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, and pride ourselves on quick response times and high-quality workmanship.",
+        rating: 4.8,
+        reviews: 142,
+        address: "16 Porth Pean Street, New Redruth, Alberton - 1449",
+        yearsInBusiness: 9,
+        employees: 4,
+        isProVerified: true,
+        serviceLocations: ["bedfordview", "benoni", "boksburg", "brakpan", "edenvale", "germiston", "kempton-park", "linksfield", "modderfontein", "alberton", "midrand", "sandton", "johannesburg", "pretoria", "tembisa"],
+        reviewData: [
+            { author: "Katleho", phone: "061****434", comment: "Excellent service. They were quick to respond, finished the job quickly, and left the site spotless. Very professional and hard-working team.", rating: 5 }
+        ],
+         photos: [
+            "https://picsum.photos/seed/pro1/600/400",
+            "https://picsum.photos/seed/pro2/600/400",
+        ],
+        avatarSeed: "sparkle-clean-logo"
+    },
+    {
+        id: "dlamini-cleaning-solutions",
+        name: "Dlamini Cleaning Solutions",
+        location: "Germiston",
+        description: "A new, fresh, exciting company who will handle all your {service} needs. We are a new, fresh and exciting company that provides top-notch service and customer satisfaction, from start to finish.",
+        rating: 4.5,
+        reviews: 78,
+        address: "789 Industrial Rd, Germiston",
+        yearsInBusiness: 1,
+        employees: 2,
+        isProVerified: false,
+        serviceLocations: ["germiston", "bedfordview", "edenvale", "midrand", "johannesburg", "pretoria", "tembisa", "benoni", "boksburg", "kempton-park"],
+        reviewData: [{ author: "Thabo M", phone: "083****111", comment: "Good service and friendly staff. Did a great job with our office deep clean.", rating: 4 }],
+        photos: [],
+        avatarSeed: "cleaning-service-image"
+    },
+    {
+        id: "expert-clean-crew",
+        name: "Expert Clean Crew SA",
+        location: "Soweto",
+        description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
+        rating: 4.9,
+        reviews: 215,
+        address: "24 Worker's Way, Soweto",
+        yearsInBusiness: 12,
+        employees: 8,
+        isProVerified: true,
+        serviceLocations: ["soweto", "johannesburg", "midrand", "sandton", "roodepoort", "pretoria", "tembisa", "benoni", "boksburg"],
+        reviewData: [{
+            author: "Sarah P.",
+            phone: "072****123",
+            comment: "Extremely professional and efficient. They cleaned our carpets and they look brand new. Highly recommended!", rating: 5
+        }],
+        photos: [ "https://picsum.photos/seed/expert1/600/400",],
+        avatarSeed: "expert-crew-logo"
+    }
+],
     "wedding-photographers": [
       {
         id: "eternal-moments-photo",
@@ -2730,3 +2730,6 @@ export const getProfessionalById = (id: string) => {
   
 
 
+
+
+      
