@@ -2583,7 +2583,7 @@ export const allProfessionals = {
           { author: "The Smiths", rating: 5, comment: "Ndlovu Construction built our dream home. Professional, on-time, and the quality is outstanding." }
         ],
         photos: ["https://picsum.photos/seed/ndlovu1/600/400"],
-        avatarSeed: "solid-build-logo"
+        avatarSeed: "ndlovu-construction-logo"
       },
       {
         id: "soweto-builders",
@@ -2596,7 +2596,111 @@ export const allProfessionals = {
         serviceLocations: ["soweto", "roodepoort", "johannesburg"],
         reviewData: [{ author: "Jabu P.", rating: 5, comment: "They built my new garage and did a fantastic job. I would recommend them to anyone in Soweto." }],
         photos: ["https://picsum.photos/seed/sowetobuild/600/400"],
-        avatarSeed: "solid-build-logo"
+        avatarSeed: "soweto-builders-logo"
+      },
+      {
+        id: "cape-build-masters",
+        name: "Cape Build Masters",
+        location: "Cape Town",
+        description: "Leading {service} in the Western Cape, specializing in luxury homes, modern renovations, and commercial developments. Our commitment to quality is unmatched.",
+        rating: 4.9,
+        reviews: 185,
+        isProVerified: true,
+        serviceLocations: ["cape-town", "stellenbosch", "somerset-west"],
+        reviewData: [{ author: "The Van Wyks", rating: 5, comment: "From start to finish, Cape Build Masters were exceptional. Their attention to detail is incredible." }],
+        photos: ["https://picsum.photos/seed/capebuild/600/400"],
+        avatarSeed: "cape-build-masters-logo"
+      },
+      {
+        id: "durban-construction-co",
+        name: "Durban Construction Co.",
+        location: "Durban",
+        description: "Reliable and experienced {service} for the KZN region. We handle everything from boundary walls to complete new homes with professionalism.",
+        rating: 4.7,
+        reviews: 110,
+        isProVerified: true,
+        serviceLocations: ["durban", "umhlanga", "ballito"],
+        reviewData: [{ author: "Priya S.", rating: 5, comment: "They renovated our offices and did a brilliant job. The project was completed on time and within budget." }],
+        photos: ["https://picsum.photos/seed/durbanbuild/600/400"],
+        avatarSeed: "durban-construction-logo"
+      },
+      {
+        id: "pretoria-prestige-build",
+        name: "Pretoria Prestige Build",
+        location: "Pretoria",
+        description: "Pretoria's choice for high-end residential {service} and renovations. We are NHBRC registered and pride ourselves on superior craftsmanship.",
+        rating: 4.8,
+        reviews: 140,
+        isProVerified: true,
+        serviceLocations: ["pretoria", "centurion"],
+        reviewData: [{ author: "Adv. Botha", rating: 5, comment: "A truly professional outfit. Their quality of work and project management was excellent." }],
+        photos: ["https://picsum.photos/seed/pretoriabuild/600/400"],
+        avatarSeed: "pretoria-prestige-build-logo"
+      },
+      {
+        id: "zulu-brick-and-mortar",
+        name: "Zulu Brick & Mortar",
+        location: "KwaZulu-Natal",
+        description: "Traditional and modern building techniques combined. We offer quality {service} across KZN, from residential homes to community projects.",
+        rating: 4.9,
+        reviews: 85,
+        isProVerified: true,
+        serviceLocations: ["durban", "pietermaritzburg"],
+        reviewData: [{ author: "Gogo Dlamini", rating: 5, comment: "They built a strong, beautiful home for my family. I am very grateful for their hard work." }],
+        photos: ["https://picsum.photos/seed/zulubuild/600/400"],
+        avatarSeed: "zulu-brick-mortar-logo"
+      },
+      {
+        id: "sandton-skyline-dev",
+        name: "Sandton Skyline Developments",
+        location: "Sandton",
+        description: "Specializing in luxury apartment renovations and high-end commercial {service} in Sandton. We deliver sophisticated results for discerning clients.",
+        rating: 5.0,
+        reviews: 99,
+        isProVerified: true,
+        serviceLocations: ["sandton", "bryanston", "morningside"],
+        reviewData: [{ author: "CEO, Tech Corp", rating: 5, comment: "They refurbished our entire office floor. The result is world-class. Highly professional." }],
+        photos: ["https://picsum.photos/seed/sandtondev/600/400"],
+        avatarSeed: "sandton-skyline-dev-logo"
+      },
+      {
+        id: "bafana-building-group",
+        name: "Bafana Building Group",
+        location: "Johannesburg South",
+        description: "Affordable and reliable {service} for new homes, extensions, and renovations. No job is too big or too small for our dedicated team.",
+        rating: 4.7,
+        reviews: 135,
+        isProVerified: true,
+        serviceLocations: ["johannesburg", "alberton", "germiston"],
+        reviewData: [{ author: "T. Mokoena", rating: 5, comment: "They added a new bedroom to our house. The work was done well and the price was fair." }],
+        photos: ["https://picsum.photos/seed/bafanabuild/600/400"],
+        avatarSeed: "bafana-building-group-logo"
+      },
+      {
+        id: "winelands-heritage-builders",
+        name: "Winelands Heritage Builders",
+        location: "Stellenbosch",
+        description: "Specialists in renovating and restoring historical buildings in the Cape Winelands. We combine traditional methods with modern standards to preserve heritage.",
+        rating: 4.9,
+        reviews: 75,
+        isProVerified: true,
+        serviceLocations: ["stellenbosch", "paarl", "franschhoek"],
+        reviewData: [{ author: "Wine Estate Owner", rating: 5, comment: "They restored our old manor house beautifully, paying close attention to every historical detail." }],
+        photos: ["https://picsum.photos/seed/winelandsbuild/600/400"],
+        avatarSeed: "winelands-heritage-builders-logo"
+      },
+      {
+        id: "eco-build-solutions",
+        name: "EcoBuild Solutions",
+        location: "Nationwide",
+        description: "Sustainable and eco-friendly {service}. We use innovative green materials and building methods to create energy-efficient homes for a better future.",
+        rating: 4.8,
+        reviews: 105,
+        isProVerified: true,
+        serviceLocations: ["johannesburg", "cape-town", "durban"],
+        reviewData: [{ author: "Green Advocate", rating: 5, comment: "So happy to have found a builder that shares our values. Our new home is not only beautiful but also incredibly energy-efficient." }],
+        photos: ["https://picsum.photos/seed/ecobuild/600/400"],
+        avatarSeed: "eco-build-solutions-logo"
       }
     ],
     plumber: [
