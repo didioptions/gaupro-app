@@ -365,7 +365,7 @@ export const allProfessionals = {
                 { author: "First-time Safari", rating: 5, comment: "As a first-timer, I was blown away. They take care of everything. You just have to enjoy the experience." },
                 { author: "The Millers", rating: 5, comment: "This was our third safari with them. They never disappoint." },
                 { author: "German Couple", rating: 5, comment: "The guide's passion for the bush is infectious. We learned so much." },
-                { author: "Solo Traveller", rating: 5, comment: "Felt completely safe and well looked-after as a solo traveller. The group was great." },
+                { author: "Solo Traveller", rating: 5, comment: "Felt completely safe and well-cared-for as a solo traveller. The group was great." },
                 { author: "SA Local", rating: 5, comment: "Even as a South African, I saw Kruger in a new light. Their expertise is invaluable." },
                 { author: "B. Cole", rating: 5, comment: "The whole trip was seamless, from the booking to the final drop-off." },
                 { author: "Nature Lover", rating: 5, comment: "A truly immersive wildlife experience. Can't wait to go back." }
@@ -713,8 +713,9 @@ export const allProfessionals = {
         photos: ["https://picsum.photos/seed/blinds1/600/400"],
         avatarSeed: "blind-ambition-logo"
       }
-    ]
-}
+    ],
+    default: [],
+};
 
 export const getProfessionalById = (id: string) => {
     for (const category in allProfessionals) {
@@ -728,4 +729,3 @@ export const getProfessionalById = (id: string) => {
     }
     return null;
 };
-    
