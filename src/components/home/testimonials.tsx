@@ -65,8 +65,8 @@ export default function Testimonials() {
                         <Image
                           src={imageUrl}
                           alt={`Avatar of ${testimonial.author}`}
-                          width={80}
-                          height={80}
+                          width={48}
+                          height={48}
                           className="rounded-full"
                           data-ai-hint="profile picture"
                         />
