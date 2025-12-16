@@ -1,6 +1,7 @@
 
 
 
+
 export const allProfessionals = {
     "fire-safety": [
         {
@@ -1391,33 +1392,33 @@ export const allProfessionals = {
             id: "sparkle-shine-cleaners",
             name: "Sparkle & Shine Cleaners",
             location: "Alberton",
-            description: "Your trusted experts for quality {service}. We provide top-notch residential and commercial cleaning, leaving your space spotless and fresh.",
+            description: "Your trusted experts for quality cleaning services. We provide top-notch residential and commercial cleaning, leaving your space spotless and fresh.",
             rating: 4.8,
             reviews: 12,
             isProVerified: true,
             serviceLocations: ["alberton", "germiston", "boksburg"],
             reviewData: [{ author: "Katleho", rating: 5, comment: "Excellent service. They were quick to respond and left the site spotless." }],
-            photos: ["https://picsum.photos/seed/clean1/600/400"],
+            photos: ["https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_cleaning.PNG?alt=media&token=5bee0f0e-2906-4615-85bc-2edc96290dfa"],
             avatarSeed: "sparkle-clean-logo"
         },
         {
             id: "dlamini-cleaning-solutions",
             name: "Dlamini Cleaning Solutions",
             location: "Germiston",
-            description: "A new, fresh, exciting company who will handle all your {service} needs. We provide top-notch service and customer satisfaction, from start to finish.",
+            description: "A fresh, exciting company who will handle all your cleaning needs. We provide top-notch service and customer satisfaction, from start to finish.",
             rating: 4.5,
             reviews: 8,
             isProVerified: false,
             serviceLocations: ["germiston", "bedfordview", "edenvale"],
             reviewData: [{ author: "Thabo M", rating: 5, comment: "Good service and friendly staff. Did a great job with our office deep clean." }],
             photos: [],
-            avatarSeed: "expert-crew-logo"
+            avatarSeed: "dlamini-cleaning-solutions-logo"
         },
         {
             id: "expert-clean-crew",
             name: "Expert Clean Crew SA",
             location: "Soweto",
-            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
+            description: "Connecting you with top-tier cleaning experts. Our network of professionals is vetted for skill and reliability. We guarantee satisfaction.",
             rating: 4.9,
             reviews: 14,
             isProVerified: true,
@@ -1427,8 +1428,8 @@ export const allProfessionals = {
                 rating: 5,
                 comment: "Extremely professional and efficient. They cleaned our carpets and they look brand new. Highly recommended!"
             }],
-            photos: [ "https://picsum.photos/seed/expert1/600/400",],
-            avatarSeed: "dlamini-cleaning-solutions-logo"
+            photos: ["https://picsum.photos/seed/expert1/600/400"],
+            avatarSeed: "expert-crew-logo"
         }
     ],
     security: [
@@ -1441,7 +1442,20 @@ export const allProfessionals = {
             reviews: 12,
             isProVerified: true,
             serviceLocations: ["sandton", "johannesburg", "midrand"],
-            reviewData: [{ author: "Corporate Client", rating: 5, comment: "Very professional guards and a top-notch response team. We feel secure with Titan." }],
+            reviewData: [
+              { author: "Corporate Client", rating: 5, comment: "Very professional guards and a top-notch response team. We feel secure with Titan." },
+              { author: "J. Smith", rating: 4, comment: "Good response time, but the initial installation had a few hiccups." },
+              { author: "Sandton Homeowner", rating: 5, comment: "Their presence in the neighborhood is a great deterrent. Feel much safer." },
+              { author: "Anonymous", rating: 5, comment: "The alarm system they installed is state-of-the-art and easy to use." },
+              { author: "Maria P.", rating: 4, comment: "Reliable service, fair pricing for the area." },
+              { author: "Complex Manager", rating: 5, comment: "Titan handles our entire complex. Their guards are diligent and professional." },
+              { author: "David R.", rating: 5, comment: "Had a false alarm and their team called me within seconds. Very impressed." },
+              { author: "Thandi M.", rating: 5, comment: "I trust Titan with my family's safety. Their VIP service is excellent." },
+              { author: "Small Business Owner", rating: 4, comment: "The system works well. The monthly fee is a bit high but worth it for the peace of mind." },
+              { author: "Richard G.", rating: 5, comment: "Switched from another provider and the difference is night and day. Titan is far more professional." },
+              { author: "Linda K.", rating: 5, comment: "Their technical support for the alarm system is fantastic. Always helpful." },
+              { author: "Estate Security", rating: 5, comment: "A great partner in securing our residential estate." }
+            ],
             photos: ["https://picsum.photos/seed/security1/600/400"],
             avatarSeed: "titan-security-logo",
             yearsInBusiness: 15,
