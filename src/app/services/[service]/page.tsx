@@ -37,7 +37,18 @@ export default function ServicePage() {
         : "South Africa";
 
     const professionals = useMemo(() => {
-        const baseProfessionals = (allProfessionals as any)[currentService] || allProfessionals.default;
+        const key = currentService.replace(/-/g, ' ');
+        const baseProfessionals = Object.values(allProfessionals).flat().filter(pro => pro.serviceCategory.toLowerCase() === key.toLowerCase());
+
+        if (baseProfessionals.length === 0) {
+            // Fallback to default if no specific pros are found
+            const defaultPros = allProfessionals.default;
+            if (!locationQuery) return defaultPros;
+            return defaultPros.filter((pro: any) => 
+                pro.serviceLocations && pro.serviceLocations.includes(locationQuery)
+            );
+        }
+
         if (!locationQuery) {
             return baseProfessionals;
         }

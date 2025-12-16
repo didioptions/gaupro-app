@@ -1,6 +1,36 @@
 
-export const allProfessionals = {
-    "fire-safety": [
+
+type Professional = {
+  id: string;
+  name: string;
+  location: string;
+  description: string;
+  rating: number;
+  reviews: number;
+  avatarSeed: string;
+  serviceCategory: string;
+  serviceLocations?: string[];
+  tags?: string[];
+  isProVerified?: boolean;
+  yearsInBusiness?: number;
+  employees?: number;
+  address?: string;
+  photos?: string[];
+  businessHours?: string;
+  reviewData?: {
+    author: string;
+    phone?: string;
+    rating: number;
+    comment: string;
+  }[];
+};
+
+type ProfessionalsByCategory = {
+  [key: string]: Professional[];
+};
+
+export const allProfessionals: ProfessionalsByCategory = {
+    "fire safety": [
         {
             id: "fire-safe-solutions-jhb",
             name: "Fire-Safe Solutions JHB",
@@ -12,6 +42,7 @@ export const allProfessionals = {
             yearsInBusiness: 12,
             employees: 15,
             businessHours: "Mon-Fri, 8am-5pm",
+            serviceCategory: "fire safety",
             tags: ["Fire Extinguishers", "Fire Detection", "Compliance Certificates"],
             reviewData: [
                 { author: "Office Parks Inc.", rating: 5, comment: "They handle the annual fire safety compliance for all our buildings. Very professional and reliable service." },
@@ -43,6 +74,7 @@ export const allProfessionals = {
             yearsInBusiness: 25,
             employees: 200,
             businessHours: "Open 24/7",
+            serviceCategory: "fire safety",
             tags: ["Sprinkler Systems", "Fire Alarms", "Evacuation Planning"],
             reviewData: [
                 { author: "Mega Malls Pty", rating: 5, comment: "Their expertise in large-scale fire suppression systems is unmatched. A crucial partner for our facilities." },
@@ -75,6 +107,7 @@ export const allProfessionals = {
             yearsInBusiness: 8,
             employees: 10,
             businessHours: "Mon-Fri, 9am-5pm",
+            serviceCategory: "fire safety",
             tags: ["Risk Assessments", "Fire Extinguisher Servicing", "Staff Training"],
             reviewData: [
                 { author: "The Eatery Group", rating: 5, comment: "Made the process of getting our restaurant compliant very easy. The inspector was knowledgeable and helpful." },
@@ -94,7 +127,7 @@ export const allProfessionals = {
             avatarSeed: "cape-fire-compliance"
         }
     ],
-    dressmakers: [
+    "dressmakers": [
         {
             id: "sew-elegant-jhb",
             name: "Sew Elegant JHB",
@@ -106,6 +139,7 @@ export const allProfessionals = {
             yearsInBusiness: 15,
             employees: 5,
             businessHours: "By Appointment Only",
+            serviceCategory: "dressmakers",
             tags: ["Wedding Gowns", "Matric Dresses", "Alterations", "Tailoring"],
             reviewData: [
                 { author: "Thandi M.", rating: 5, comment: "They made my wedding dress and it was absolutely perfect. The attention to detail was amazing." },
@@ -136,6 +170,7 @@ export const allProfessionals = {
             yearsInBusiness: 10,
             employees: 3,
             businessHours: "Mon-Sat, 9am-6pm",
+            serviceCategory: "dressmakers",
             tags: ["Hemming", "Resizing", "Tailoring", "Repairs"],
             reviewData: [
                 { author: "John S.", rating: 5, comment: "Fast, professional, and my suit fits perfectly now. Highly recommend their services." },
@@ -154,7 +189,7 @@ export const allProfessionals = {
             avatarSeed: "alteration-studio-logo"
         }
     ],
-    embroidery: [
+    "embroidery": [
         {
             id: "stitch-it-pro",
             name: "Stitch-It Pro",
@@ -166,6 +201,7 @@ export const allProfessionals = {
             yearsInBusiness: 7,
             employees: 6,
             businessHours: "Mon-Fri, 8:30am-5pm",
+            serviceCategory: "embroidery",
             tags: ["Corporate Branding", "Uniforms", "Personalized Gifts", "Digitizing"],
             reviewData: [
                 { author: "ABC Corp", rating: 5, comment: "Our company shirts look fantastic with our logo embroidered. The quality is top-notch." },
@@ -183,7 +219,7 @@ export const allProfessionals = {
             avatarSeed: "stitch-it-pro-logo"
         }
     ],
-    "cake-shops": [
+    "cake shops": [
         {
             id: "the-sweet-spot-bakery",
             name: "The Sweet Spot Bakery",
@@ -195,6 +231,7 @@ export const allProfessionals = {
             yearsInBusiness: 5,
             employees: 8,
             businessHours: "Tue-Sat, 9am-4pm",
+            serviceCategory: "cake shops",
             tags: ["Custom Cakes", "Wedding Cakes", "Birthday Cakes", "Cupcakes"],
             reviewData: [
                 { author: "Sarah P.", rating: 5, comment: "The most beautiful and delicious wedding cake! Our guests couldn't stop talking about it." },
@@ -217,7 +254,7 @@ export const allProfessionals = {
             avatarSeed: "sweet-spot-bakery-logo"
         }
     ],
-    caterers: [
+    "caterers": [
         {
             id: "gourmet-gatherings-cpt",
             name: "Gourmet Gatherings CPT",
@@ -229,6 +266,7 @@ export const allProfessionals = {
             yearsInBusiness: 9,
             employees: 12,
             businessHours: "By Appointment",
+            serviceCategory: "caterers",
             tags: ["Corporate Catering", "Wedding Catering", "Private Parties", "Bespoke Menus"],
             reviewData: [
                 { author: "XYZ Events", rating: 5, comment: "Their food is always a highlight at our corporate functions. Professional, creative, and delicious." },
@@ -260,6 +298,7 @@ export const allProfessionals = {
             yearsInBusiness: 12,
             employees: 10,
             businessHours: "By Appointment",
+            serviceCategory: "caterers",
             tags: ["Traditional Cuisine", "Braai Catering", "Shisanyama", "Event Catering"],
             reviewData: [
                 { author: "Thabo M.", rating: 5, comment: "The best traditional food I've had at an event. Our international guests loved it!" },
@@ -281,7 +320,7 @@ export const allProfessionals = {
             avatarSeed: "gourmet-gatherings-logo"
         }
     ],
-    groomers: [
+    "groomers": [
         {
             id: "the-dapper-dog-jhb",
             name: "The Dapper Dog JHB",
@@ -293,6 +332,7 @@ export const allProfessionals = {
             yearsInBusiness: 6,
             employees: 4,
             businessHours: "Tue-Sat, 8am-5pm",
+            serviceCategory: "groomers",
             tags: ["Dog Grooming", "Pet Spa", "Nail Trimming", "De-shedding"],
             reviewData: [
                 { author: "Lindiwe T.", rating: 5, comment: "My fluffy dog always comes back looking and smelling amazing. The staff are so patient and caring." },
@@ -312,7 +352,7 @@ export const allProfessionals = {
             avatarSeed: "dapper-dog-logo"
         }
     ],
-    "pet-sitters": [
+    "pet sitters": [
         {
             id: "happy-paws-pet-sitting",
             name: "Happy Paws Pet Sitting",
@@ -324,6 +364,7 @@ export const allProfessionals = {
             yearsInBusiness: 4,
             employees: 3,
             businessHours: "By Appointment",
+            serviceCategory: "pet sitters",
             tags: ["In-home Pet Sitting", "Dog Walking", "Cat Sitting"],
             reviewData: [
                 { author: "Mike V.", rating: 5, comment: "I can travel without worrying about my cats. They send me daily updates and the cats are always happy and relaxed when I get back." },
@@ -342,7 +383,7 @@ export const allProfessionals = {
             avatarSeed: "happy-paws-logo"
         }
     ],
-    "tour-operators": [
+    "tour operators": [
         {
             id: "safari-scapes-sa",
             name: "Safari-Scapes SA",
@@ -354,6 +395,7 @@ export const allProfessionals = {
             yearsInBusiness: 18,
             employees: 20,
             businessHours: "Mon-Sat, 8am-6pm",
+            serviceCategory: "tour operators",
             tags: ["Kruger Safaris", "Guided Game Drives", "Wildlife Tours"],
             reviewData: [
                 { author: "Anna S.", rating: 5, comment: "The best safari of my life! Our guide was incredibly knowledgeable and we saw the Big 5. Highly recommend." },
@@ -374,7 +416,7 @@ export const allProfessionals = {
             avatarSeed: "safari-scapes-logo"
         }
     ],
-    "travel-agents": [
+    "travel agents": [
         {
             id: "global-journeys-travel",
             name: "Global Journeys Travel",
@@ -386,6 +428,7 @@ export const allProfessionals = {
             yearsInBusiness: 10,
             employees: 15,
             businessHours: "Mon-Fri, 9am-5pm",
+            serviceCategory: "travel agents",
             tags: ["International Holidays", "Local Travel", "Flight Deals", "Tour Packages"],
             reviewData: [
                 { author: "David C.", rating: 5, comment: "They planned our family trip to Thailand perfectly. Everything was seamless and they saved us a lot of money." },
@@ -407,7 +450,7 @@ export const allProfessionals = {
             avatarSeed: "global-journeys-logo"
         }
     ],
-    "air-conditioning": [
+    "air conditioning": [
       {
         id: "ac-comfort-zone",
         name: "AC Comfort Zone",
@@ -419,6 +462,7 @@ export const allProfessionals = {
         yearsInBusiness: 10,
         employees: 8,
         businessHours: "Mon-Sat, 8am-5pm",
+        serviceCategory: "air conditioning",
         tags: ["AC Installation", "AC Repairs", "AC Servicing", "Commercial HVAC"],
         reviewData: [
           { author: "J. Naidoo", rating: 5, comment: "Fast installation and very neat work. The new unit works perfectly. Very happy with their service." },
@@ -449,6 +493,7 @@ export const allProfessionals = {
         yearsInBusiness: 7,
         employees: 5,
         businessHours: "Mon-Fri, 8am-5pm",
+        serviceCategory: "air conditioning",
         tags: ["AC Regassing", "Aircon Repairs", "New Installations", "Durban"],
         reviewData: [
           { author: "Mike L.", rating: 5, comment: "My aircon wasn't cooling. They came out the same day, found the leak, and regassed it. Excellent service." },
@@ -478,6 +523,7 @@ export const allProfessionals = {
             yearsInBusiness: 8,
             employees: 4,
             businessHours: "Mon-Fri, 8am-5pm",
+            serviceCategory: "air conditioning",
             tags: ["Aircon Installation", "AC Maintenance", "Residential AC", "Alberton"],
             reviewData: [
                 { author: "Mrs. Smith", rating: 5, comment: "Installed our new aircon unit just in time for summer. Very professional and clean." },
@@ -497,7 +543,7 @@ export const allProfessionals = {
             avatarSeed: "ac-comfort-logo"
       }
     ],
-    "aluminium-doors-and-windows": [
+    "aluminium doors and windows": [
       {
         id: "alum-designs-pta",
         name: "Alu-Designs PTA",
@@ -509,6 +555,7 @@ export const allProfessionals = {
         yearsInBusiness: 15,
         employees: 20,
         businessHours: "Mon-Fri, 8am-5pm",
+        serviceCategory: "aluminium doors and windows",
         tags: ["Aluminium Windows", "Sliding Doors", "Folding Doors", "Enclosures"],
         reviewData: [
           { author: "Mrs. Van der Merwe", rating: 5, comment: "The new folding doors have completely transformed our living area. The quality and installation were top-notch." },
@@ -541,6 +588,7 @@ export const allProfessionals = {
             yearsInBusiness: 10,
             employees: 7,
             businessHours: "Mon-Fri, 8am-5pm",
+            serviceCategory: "aluminium doors and windows",
             tags: ["Aluminium Windows", "Stacking Doors", "Sliding Doors", "Repairs"],
             reviewData: [
                 { author: "David", rating: 5, comment: "The new stacking doors are amazing. Great quality and installation was perfect." },
@@ -560,7 +608,7 @@ export const allProfessionals = {
             avatarSeed: "alum-designs-logo"
         }
     ],
-    awnings: [
+    "awnings": [
       {
         id: "shade-masters-sa",
         name: "Shade Masters SA",
@@ -572,6 +620,7 @@ export const allProfessionals = {
         yearsInBusiness: 12,
         employees: 10,
         businessHours: "Mon-Fri, 8am-5pm",
+        serviceCategory: "awnings",
         tags: ["Retractable Awnings", "Fixed Awnings", "Shade Sails", "Patio Covers"],
         reviewData: [
           { author: "Cafe Owner", rating: 5, comment: "The new retractable awning for our patio is perfect. Great quality and the installation team was very professional." },
@@ -590,7 +639,7 @@ export const allProfessionals = {
         avatarSeed: "shade-masters-logo"
       }
     ],
-    balustrades: [
+    "balustrades": [
       {
         id: "modern-rails-cpt",
         name: "Modern Rails CPT",
@@ -602,6 +651,7 @@ export const allProfessionals = {
         yearsInBusiness: 9,
         employees: 12,
         businessHours: "Mon-Fri, 8:30am-5pm",
+        serviceCategory: "balustrades",
         tags: ["Frameless Glass", "Stainless Steel", "Staircases", "Balconies"],
         reviewData: [
           { author: "New Homeowner", rating: 5, comment: "The frameless glass balustrade on our balcony is stunning. It completely opened up the view. Excellent workmanship." },
@@ -622,7 +672,7 @@ export const allProfessionals = {
         avatarSeed: "modern-rails-logo"
       }
     ],
-    "bathroom-renovations": [
+    "bathroom renovations": [
       {
         id: "dream-bath-reno",
         name: "Dream Bath Renovations",
@@ -634,6 +684,7 @@ export const allProfessionals = {
         yearsInBusiness: 11,
         employees: 9,
         businessHours: "Mon-Fri, 8am-5pm",
+        serviceCategory: "bathroom renovations",
         tags: ["Full Renovations", "Tiling", "Plumbing", "Bathroom Design"],
         reviewData: [
           { author: "The Smiths", rating: 5, comment: "They transformed our old, dated bathroom into a modern masterpiece. We are so happy with the result." },
@@ -664,6 +715,7 @@ export const allProfessionals = {
             yearsInBusiness: 6,
             employees: 4,
             businessHours: "Mon-Sat, 8am-5pm",
+            serviceCategory: "bathroom renovations",
             tags: ["Bathroom Packages", "Tiling", "Plumbing", "Affordable Renovations"],
             reviewData: [
                 { author: "Mrs. Jones", rating: 5, comment: "My new bathroom is beautiful! They did a wonderful job and were very tidy." },
@@ -681,7 +733,7 @@ export const allProfessionals = {
             avatarSeed: "dream-bath-logo"
         }
     ],
-    blinds: [
+    "blinds": [
       {
         id: "blind-ambition-za",
         name: "Blind Ambition",
@@ -693,6 +745,7 @@ export const allProfessionals = {
         yearsInBusiness: 15,
         employees: 30,
         businessHours: "Mon-Fri, 9am-5pm; Sat, 9am-1pm",
+        serviceCategory: "blinds",
         tags: ["Venetian Blinds", "Roller Blinds", "Roman Blinds", "Vertical Blinds"],
         reviewData: [
           { author: "Linda G.", rating: 5, comment: "Great selection and the installation was quick and professional. The new blinds look fantastic." },
@@ -714,14 +767,14 @@ export const allProfessionals = {
         avatarSeed: "blind-ambition-logo"
       }
     ],
-    default: [],
+    "default": [],
 };
 
-export const getProfessionalById = (id: string) => {
+export const getProfessionalById = (id: string): Professional | null => {
     for (const category in allProfessionals) {
         if (Object.prototype.hasOwnProperty.call(allProfessionals, category)) {
-            const professionalsInCategory = (allProfessionals as any)[category];
-            const found = professionalsInCategory.find((pro: any) => pro.id === id);
+            const professionalsInCategory = allProfessionals[category];
+            const found = professionalsInCategory.find((pro: Professional) => pro.id === id);
             if (found) {
                 return found;
             }
