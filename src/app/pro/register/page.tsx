@@ -50,7 +50,7 @@ const formSchema = z.object({
 const Logo = () => (
   <span className="flex items-center space-x-2">
     <Image
-      src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.appspot.com/o/Gaupro-Logo-2.png?alt=media&token=2422a5e5-397a-4528-98e9-f2c00227181f"
+      src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gaupro-logo.png_1_with_bgc.png?alt=media&token=b746d9b7-9a4b-473e-8fe5-1578f3e4a015"
       alt="Gaupro Logo"
       width={128}
       height={32}
