@@ -1,5 +1,4 @@
 
-
 type Professional = {
   id: string;
   name: string;
@@ -127,7 +126,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "cape-fire-compliance"
         }
     ],
-    "dressmakers": [
+    "dressmaker": [
         {
             id: "sew-elegant-jhb",
             name: "Sew Elegant JHB",
@@ -219,7 +218,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "stitch-it-pro-logo"
         }
     ],
-    "cake shops": [
+    "cake shop": [
         {
             id: "the-sweet-spot-bakery",
             name: "The Sweet Spot Bakery",
@@ -254,7 +253,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "sweet-spot-bakery-logo"
         }
     ],
-    "caterers": [
+    "caterer": [
         {
             id: "gourmet-gatherings-cpt",
             name: "Gourmet Gatherings CPT",
@@ -320,7 +319,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "gourmet-gatherings-logo"
         }
     ],
-    "groomers": [
+    "groomer": [
         {
             id: "the-dapper-dog-jhb",
             name: "The Dapper Dog JHB",
@@ -352,7 +351,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "dapper-dog-logo"
         }
     ],
-    "pet sitters": [
+    "pet sitter": [
         {
             id: "happy-paws-pet-sitting",
             name: "Happy Paws Pet Sitting",
@@ -383,7 +382,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "happy-paws-logo"
         }
     ],
-    "tour operators": [
+    "tour operator": [
         {
             id: "safari-scapes-sa",
             name: "Safari-Scapes SA",
@@ -416,7 +415,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "safari-scapes-logo"
         }
     ],
-    "travel agents": [
+    "travel agent": [
         {
             id: "global-journeys-travel",
             name: "Global Journeys Travel",
@@ -543,7 +542,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "ac-comfort-logo"
       }
     ],
-    "aluminium doors and windows": [
+    "aluminium doors and window": [
       {
         id: "alum-designs-pta",
         name: "Alu-Designs PTA",
@@ -608,7 +607,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "alum-designs-logo"
         }
     ],
-    "awnings": [
+    "awning": [
       {
         id: "shade-masters-sa",
         name: "Shade Masters SA",
@@ -639,7 +638,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "shade-masters-logo"
       }
     ],
-    "balustrades": [
+    "balustrade": [
       {
         id: "modern-rails-cpt",
         name: "Modern Rails CPT",
@@ -672,7 +671,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "modern-rails-logo"
       }
     ],
-    "bathroom renovations": [
+    "bathroom renovation": [
       {
         id: "dream-bath-reno",
         name: "Dream Bath Renovations",
@@ -733,7 +732,7 @@ export const allProfessionals: ProfessionalsByCategory = {
             avatarSeed: "dream-bath-logo"
         }
     ],
-    "blinds": [
+    "blind": [
       {
         id: "blind-ambition-za",
         name: "Blind Ambition",
