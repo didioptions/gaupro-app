@@ -1,4 +1,5 @@
 
+
 type Professional = {
   id: string;
   name: string;
@@ -609,7 +610,8 @@ export const allProfessionals: ProfessionalsByCategory = {
         { author: "Pinetown Factory", rating: 4, comment: "We use their services for our factory. They are reliable and trustworthy." },
         { author: "Highly Visible", rating: 5, comment: "Their vehicles are always visible in the area. It's a great deterrent." },
         { author: "Mrs. Zondi", rating: 5, comment: "I feel much safer since we switched to Nkosi Protection." },
-        { author: "Great Local Company", rating: 5, comment: "It's great to support a local company that is doing such good work in the community." }
+        { author: "Great Local Company", rating: 5, comment: "It's great to support a local company that is doing such good work in the community." },
+        { author: "Top Team", rating: 5, comment: "A great team doing great work." }
       ],
       photos: ["https://picsum.photos/seed/sec2/600/400"],
       avatarSeed: "nkosi-protection-logo"
@@ -942,5 +944,6 @@ export const getProfessionalById = (id: string): Professional | null => {
     }
     return null;
 };
+
 
 
