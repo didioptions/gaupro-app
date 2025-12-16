@@ -9,7 +9,7 @@
     {
       "id": "fire-safe-solutions-logo",
       "description": "A logo for a fire safety company with a shield and a flame icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1627257062083-0b09fafdeed5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1627257062083-0b09fafdeed5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fire shield logo"
     },
     {
@@ -583,8 +583,8 @@
       "imageHint": "fortress logo"
     },
     {
-      "id": "titan-response-logo",
-      "description": "A logo for an armed response company.",
+      "id": "titan-security-logo",
+      "description": "A strong, modern logo for a security company with a shield icon.",
       "imageUrl": "https://images.unsplash.com/photo-1720681275814-e6512b9e4295?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMHNoaWVsZCUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "security shield logo"
     },
@@ -851,6 +851,30 @@
       "description": "High-end tree felling service logo.",
       "imageUrl": "https://images.unsplash.com/photo-1703261579292-ba45b2bdcf2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdW1taXQlMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "summit tree"
+    },
+    {
+      "id": "gauteng-fast-movers-logo",
+      "description": "Logo for Gauteng Fast Movers",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "moving truck"
+    },
+    {
+      "id": "roodepoort-relocators-logo",
+      "description": "Logo for Roodepoort Relocators",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "local movers"
+    },
+    {
+      "id": "jhb-office-movers-logo",
+      "description": "Logo for JHB Office Movers",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "office building"
+    },
+    {
+      "id": "pretoria-pack-and-move-logo",
+      "description": "Logo for Pretoria Pack & Move",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "moving boxes"
     }
   ]
 }

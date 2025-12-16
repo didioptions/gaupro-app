@@ -99,6 +99,86 @@ export const allProfessionals: ProfessionalsByCategory = {
       ],
       photos: ["https://picsum.photos/seed/move1/600/400"],
       avatarSeed: "movers-image"
+    },
+    {
+      id: "gauteng-fast-movers",
+      name: "Gauteng Fast Movers",
+      location: "Johannesburg",
+      description: "Quick and efficient {service} for the greater Johannesburg area, including Sandton, Randburg, and Roodepoort. We specialize in residential and small office moves.",
+      rating: 4.7,
+      reviews: 18,
+      isProVerified: true,
+      yearsInBusiness: 8,
+      employees: 15,
+      businessHours: "Mon-Sun, 8am-6pm",
+      serviceCategory: "movers",
+      serviceLocations: ["johannesburg", "sandton", "randburg", "roodepoort"],
+      tags: ["Residential Moves", "Small Office Moves", "Man with a Van", "Packing"],
+      reviewData: [
+        { author: "B. Khumalo", rating: 5, comment: "Very fast and professional. They moved my 2-bedroom apartment in under 4 hours." }
+      ],
+      photos: ["https://picsum.photos/seed/gautengmove/600/400"],
+      avatarSeed: "gauteng-fast-movers-logo"
+    },
+    {
+      id: "roodepoort-relocators",
+      name: "Roodepoort Relocators",
+      location: "Roodepoort",
+      description: "Your local Roodepoort {service}. We know the West Rand like the back of our hand, ensuring a quick and hassle-free move every time.",
+      rating: 4.9,
+      reviews: 22,
+      isProVerified: true,
+      yearsInBusiness: 10,
+      employees: 8,
+      businessHours: "Mon-Sat, 8am-5pm",
+      serviceCategory: "movers",
+      serviceLocations: ["roodepoort", "krugersdorp", "randburg"],
+      tags: ["Local Moves", "West Rand", "Furniture Transport", "Packing"],
+      reviewData: [
+        { author: "L. van der Westhuizen", rating: 5, comment: "Excellent service from a truly local team. They were on time, friendly, and very careful with my furniture." }
+      ],
+      photos: ["https://picsum.photos/seed/roodepoortmove/600/400"],
+      avatarSeed: "roodepoort-relocators-logo"
+    },
+    {
+      id: "jhb-office-movers",
+      name: "JHB Office Movers",
+      location: "Sandton",
+      description: "Specialists in corporate and office relocations. We minimize downtime and handle all your sensitive equipment with the utmost care. Your trusted {service} for business moves.",
+      rating: 4.8,
+      reviews: 12,
+      isProVerified: true,
+      yearsInBusiness: 15,
+      employees: 30,
+      businessHours: "Open 24/7 by appointment",
+      serviceCategory: "movers",
+      serviceLocations: ["sandton", "johannesburg", "midrand", "pretoria", "roodepoort"],
+      tags: ["Office Relocation", "IT Equipment Moving", "Corporate Moves"],
+      reviewData: [
+        { author: "A. Naicker (CFO)", rating: 5, comment: "They moved our entire office of 100 people over a weekend. We were up and running on Monday morning without a single issue. Incredible!" }
+      ],
+      photos: ["https://picsum.photos/seed/officemove/600/400"],
+      avatarSeed: "jhb-office-movers-logo"
+    },
+    {
+      id: "pretoria-pack-and-move",
+      name: "Pretoria Pack & Move",
+      location: "Pretoria",
+      description: "Comprehensive {service} in Pretoria and Centurion. We offer full packing and unpacking services to make your move completely hands-off and stress-free.",
+      rating: 4.9,
+      reviews: 19,
+      isProVerified: false,
+      yearsInBusiness: 7,
+      employees: 14,
+      businessHours: "Mon-Sat, 8am-6pm",
+      serviceCategory: "movers",
+      serviceLocations: ["pretoria", "centurion", "midrand"],
+      tags: ["Full Service Moving", "Packing & Unpacking", "Residential Moves"],
+      reviewData: [
+        { author: "Dr. E. Scholtz", rating: 5, comment: "Their packing service is phenomenal. It's the only way to move. They packed our entire 4-bedroom house with such care and organization." }
+      ],
+      photos: ["https://picsum.photos/seed/ptamove/600/400"],
+      avatarSeed: "pretoria-pack-and-move-logo"
     }
   ],
   "caterers": [
