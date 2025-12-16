@@ -38,13 +38,18 @@ export default function ServicePage() {
 
     const professionals = useMemo(() => {
         const key = currentService.replace(/-/g, ' ');
-        const baseProfessionals = Object.values(allProfessionals).flat().filter(pro => pro.serviceCategory.toLowerCase() === key.toLowerCase());
+        const baseProfessionals = allProfessionals[key] || [];
 
         if (baseProfessionals.length === 0) {
-            // Fallback to default if no specific pros are found
+            // Fallback for cases where the key might be singular vs. plural, etc.
+             const allPros = Object.values(allProfessionals).flat();
+             const filtered = allPros.filter(pro => pro.serviceCategory.toLowerCase() === key.toLowerCase());
+             if (filtered.length > 0) return filtered;
+             
+            // Last resort fallback for default pros
             const defaultPros = allProfessionals.default;
-            if (!locationQuery) return defaultPros;
-            return defaultPros.filter((pro: any) => 
+            if (!locationQuery) return defaultPros || [];
+            return (defaultPros || []).filter((pro: any) => 
                 pro.serviceLocations && pro.serviceLocations.includes(locationQuery)
             );
         }
