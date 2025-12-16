@@ -1,5 +1,4 @@
 
-
 type Professional = {
   id: string;
   name: string;
@@ -944,6 +943,3 @@ export const getProfessionalById = (id: string): Professional | null => {
     }
     return null;
 };
-
-
-

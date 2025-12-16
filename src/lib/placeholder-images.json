@@ -15,13 +15,13 @@
     {
       "id": "national-fire-logo",
       "description": "A professional logo for a national fire protection service.",
-      "imageUrl": "https://images.unsplash.com/photo-1753156327382-83720339fddc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmlyZSUyMHByb3RlY3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1753156327382-83720339fddc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmlyZSUyMHByb3RlY3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "fire protection logo"
     },
     {
       "id": "cape-fire-compliance",
       "description": "A logo for a fire safety compliance company in Cape Town.",
-      "imageUrl": "https://images.unsplash.com/photo-1643729041862-bf411535a4d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21wbGlhbmNlJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1643729041862-bf411535a4d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21wbGlhbmNlJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "compliance logo"
     },
     {
@@ -33,7 +33,7 @@
     {
       "id": "hero-background-image",
       "description": "A bright and modern living room with a comfortable sofa.",
-      "imageUrl": "https://images.unsplash.com/photo-1631679706909-1844bbd07221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsaXZpbmclMjByb29tfGVufDB8fHx8MTc2MTA4OTI5OXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1631679706909-1844bbd07221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsaXZpbmclMjByb29tfGVufDB8fHx8MTc2MTA4OTI5OXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "modern living room"
     },
     {
@@ -75,7 +75,7 @@
     {
       "id": "instant-quotes-card",
       "description": "A smartphone screen showing an instant notification or message for a quote.",
-      "imageUrl": "https://images.unsplash.com/photo-1605364850023-a917c39f8fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxpbnN0YW50JTIwbm90aWZpY2F0aW9ufGVufDB8fHx8MTc2MTI1ODY3NXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605364850023-a917c39f8fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxpbnN0YW50JTIwbm90aWZpY2F0aW9ufGVufDB8fHx8MTc2MTI1ODY3NXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "instant notification"
     },
     {
@@ -177,7 +177,7 @@
     {
       "id": "themba-rubble-removers-logo",
       "description": "Logo for Themba Rubble Removers company.",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "company logo"
     },
     {
@@ -207,7 +207,7 @@
     {
       "id": "fibre-fast-logo",
       "description": "A logo for an internet provider with a speeding fibre optic cable graphic.",
-      "imageUrl": "https://images.unsplash.com/photo-1693304396377-a482127f535a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmlicmUlMjBvcHRpY3xlbnwwfHx8fDE3NjU4MzIxNTl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1693304396377-a482127f535a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmlicmUlMjBvcHRpY3xlbnwwfHx8fDE3NjU4MzIxNTl8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "fibre optic"
     },
     {
@@ -237,7 +237,7 @@
     {
       "id": "coastal-escapes-logo",
       "description": "A logo for holiday accommodation featuring a palm tree and a setting sun.",
-      "imageUrl": "https://images.unsplash.com/photo-1653539314286-8ab160b9cbbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYWxtJTIwdHJlZSUyMHN1bnNldHxlbnwwfHx8fDE3NjU4MzIxNTl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653539314286-8ab160b9cbbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYWxtJTIwdHJlZSUyMHN1bnNldHxlbnwwfHx8fDE3NjU4MzIxNTl8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "palm tree sunset"
     },
     {
@@ -507,8 +507,8 @@
     {
       "id": "derma-care-logo",
       "description": "A clinical and clean logo for a dermatology clinic.",
-      "imageUrl": "https://images.unsplash.com/photo-1760860991924-237b4160efbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxza2luJTIwY2FyZSUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "skin care logo"
+      "imageUrl": "https://images.unsplash.com/photo-1760860991924-237b4160efbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "security logo"
     },
     {
       "id": "nutri-plan-logo",
@@ -761,6 +761,96 @@
       "description": "A logo with a stylized crowd and a shield for event security.",
       "imageUrl": "https://images.unsplash.com/photo-1701453538421-279282367f13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjcm93ZCUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "crowd logo"
+    },
+    {
+      "id": "arbor-pros-logo",
+      "description": "Logo for a professional tree felling company with a large tree icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1699206794689-4ae2b988475b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0cmVlJTIwbG9nb3xlbnwwfHx8fDE3NjU4OTkyNDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tree logo"
+    },
+    {
+      "id": "joburg-tree-fellers-logo",
+      "description": "Logo for a Johannesburg based tree felling company.",
+      "imageUrl": "https://images.unsplash.com/photo-1657730391002-bf55ff069a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0cmVlJTIwc2VydmljZXxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tree service"
+    },
+    {
+      "id": "cape-tree-crew-logo",
+      "description": "Logo for a Cape Town tree felling crew.",
+      "imageUrl": "https://images.unsplash.com/photo-1699779393356-ae950758ee67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsb2dvJTIwdHJlZXxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo tree"
+    },
+    {
+      "id": "durban-tree-surgeons-logo",
+      "description": "Logo for a Durban based tree surgery company.",
+      "imageUrl": "https://images.unsplash.com/photo-1727818899530-5a3bee908607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmVlJTIwcmVtb3ZhbHxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tree removal"
+    },
+    {
+      "id": "pretoria-tree-experts-logo",
+      "description": "Logo for a Pretoria based tree felling company.",
+      "imageUrl": "https://images.unsplash.com/photo-1738777215249-d66bfda9791b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0cmVlJTIwZXhwZXJ0c3xlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tree experts"
+    },
+    {
+      "id": "green-giants-logo",
+      "description": "Logo for a large tree removal company.",
+      "imageUrl": "https://images.unsplash.com/photo-1677607221452-dc9291daf28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnaWFudCUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "giant tree"
+    },
+    {
+      "id": "safe-cut-tree-felling-logo",
+      "description": "Logo emphasizing safety in tree felling.",
+      "imageUrl": "https://images.unsplash.com/photo-1705694312853-c85baecce580?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzYWZlJTIwdHJlZSUyMGN1dHxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "safe tree cut"
+    },
+    {
+      "id": "the-tree-terminator-logo",
+      "description": "A bold logo for a tree removal company.",
+      "imageUrl": "https://images.unsplash.com/photo-1622385648155-fc668cb24ac6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0cmVlJTIwdGVybWluYXRvcnxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tree terminator"
+    },
+    {
+      "id": "zulu-land-tree-fellers-logo",
+      "description": "Logo for a KZN based tree felling company.",
+      "imageUrl": "https://images.unsplash.com/photo-1738084919615-9f06e3805764?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8enVsdSUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "zulu tree"
+    },
+    {
+      "id": "precision-tree-felling-logo",
+      "description": "Logo highlighting precision in tree removal.",
+      "imageUrl": "https://images.unsplash.com/photo-1678775700423-f535a00306e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJlY2lzaW9uJTIwY3V0fGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "precision cut"
+    },
+    {
+      "id": "the-stump-grinders-logo",
+      "description": "Logo for a company specializing in stump grinding.",
+      "imageUrl": "https://images.unsplash.com/photo-1754321895426-68b04ba453e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHVtcCUyMGdyaW5kaW5nfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stump grinding"
+    },
+    {
+      "id": "bafana-tree-services-logo",
+      "description": "A national tree service company logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1759207027168-eae53a5c4a8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxuYXRpb25hbCUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "national tree"
+    },
+    {
+      "id": "eco-arborists-logo",
+      "description": "Logo for an eco-friendly tree felling company.",
+      "imageUrl": "https://images.unsplash.com/photo-1760405451116-0a61173c307f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlY28lMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eco tree"
+    },
+    {
+      "id": "urban-foresters-logo",
+      "description": "Logo for a tree service operating in urban areas.",
+      "imageUrl": "https://images.unsplash.com/photo-1595437581138-377a422c54da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dXJiYW4lMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "urban tree"
+    },
+    {
+      "id": "summit-tree-felling-logo",
+      "description": "High-end tree felling service logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1703261579292-ba45b2bdcf2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdW1taXQlMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "summit tree"
     }
   ]
 }

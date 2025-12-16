@@ -27,9 +27,8 @@ export default function ServicePage() {
     const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
 
     const service = allServices.find(s => s.value === currentService);
-    const serviceLabel = service?.label || currentService.charAt(0).toUpperCase() + currentService.slice(1);
+    const serviceLabel = service?.label || currentService.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     
-    // Corrected pluralization logic
     const pluralServiceLabel = service?.label || (serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`);
     
     const locationName = typeof locationQuery === 'string'
@@ -37,30 +36,33 @@ export default function ServicePage() {
         : "South Africa";
 
     const professionals = useMemo(() => {
-        const key = currentService.replace(/-/g, ' ');
-        const baseProfessionals = allProfessionals[key] || [];
+        // Flatten all professionals into a single array
+        const allPros = Object.values(allProfessionals).flat();
 
-        if (baseProfessionals.length === 0) {
-            // Fallback for cases where the key might be singular vs. plural, etc.
-             const allPros = Object.values(allProfessionals).flat();
-             const filtered = allPros.filter(pro => pro.serviceCategory.toLowerCase() === key.toLowerCase());
-             if (filtered.length > 0) return filtered;
-             
-            // Last resort fallback for default pros
-            const defaultPros = allProfessionals.default;
-            if (!locationQuery) return defaultPros || [];
-            return (defaultPros || []).filter((pro: any) => 
+        // Filter by service category, using the URL slug directly
+        let filteredPros = allPros.filter(pro => pro.serviceCategory === currentService);
+
+        // If no professionals are found for the specific slug, try a fallback (e.g. for plurals or variations)
+        if (filteredPros.length === 0) {
+            const singularKey = currentService.endsWith('s') ? currentService.slice(0, -1) : currentService;
+            const pluralKey = !currentService.endsWith('s') ? `${currentService}s` : currentService;
+            
+            filteredPros = allPros.filter(pro => 
+                pro.serviceCategory === singularKey || 
+                pro.serviceCategory === pluralKey ||
+                pro.tags?.includes(serviceLabel)
+            );
+        }
+
+        // If there's a location query, filter by that as well
+        if (locationQuery) {
+            return filteredPros.filter((pro: any) => 
                 pro.serviceLocations && pro.serviceLocations.includes(locationQuery)
             );
         }
 
-        if (!locationQuery) {
-            return baseProfessionals;
-        }
-        return baseProfessionals.filter((pro: any) => 
-            pro.serviceLocations && pro.serviceLocations.includes(locationQuery)
-        );
-    }, [currentService, locationQuery]);
+        return filteredPros;
+    }, [currentService, locationQuery, serviceLabel]);
     
     const isLoading = false;
     const error = null;
