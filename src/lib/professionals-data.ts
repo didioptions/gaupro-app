@@ -1,4 +1,5 @@
 
+
 type Professional = {
   id: string;
   name: string;
@@ -167,7 +168,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       avatarSeed: "gourmet-gatherings-logo"
     }
   ],
-  "builders": [
+  "builder": [
     {
       id: "soweto-building-solutions",
       name: "Soweto Building Solutions",
@@ -180,7 +181,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 15,
       employees: 12,
       businessHours: "Mon-Sat, 7am-6pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       tags: ["Home Renovations", "Building Extensions", "New Builds", "Foundations", "modern renovations", "commercial developments"],
       reviewData: [
         { author: "Thandi J.", rating: 5, comment: "They built our extension and did a fantastic job. The team was professional and always on time." },
@@ -213,7 +214,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 20,
       employees: 45,
       businessHours: "Mon-Fri, 8am-5pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       tags: ["Luxury Homes", "Commercial Developments", "Modern Renovations"],
       reviewData: [
         { author: "Architect Partner", rating: 5, comment: "I've worked with Ndlovu on several projects. Their quality and professionalism are second to none." },
@@ -243,7 +244,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 25,
       employees: 60,
       businessHours: "Mon-Fri, 7:30am-5pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       serviceLocations: ["cape-town", "stellenbosch", "paarl"],
       tags: ["New Home Construction", "Sustainable Building", "Large-scale Renovations", "modern renovations"],
       reviewData: [
@@ -273,7 +274,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 18,
       employees: 35,
       businessHours: "Mon-Fri, 7am-5pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       serviceLocations: ["durban", "umhlanga", "ballito"],
       tags: ["Commercial Construction", "Coastal Building", "Renovations", "commercial developments"],
       reviewData: [
@@ -305,7 +306,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 14,
       employees: 22,
       businessHours: "Mon-Fri, 7am-5pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       serviceLocations: ["pretoria", "centurion"],
       tags: ["Residential Builds", "Tuscan Style", "Modern Homes", "Building Quality"],
       reviewData: [
@@ -334,7 +335,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 22,
       employees: 50,
       businessHours: "Mon-Sat, 7am-5pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       serviceLocations: ["durban", "pietermaritzburg", "richards-bay"],
       tags: ["Brickwork", "Plastering", "Structural Building", "Foundations"],
       reviewData: [
@@ -364,7 +365,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 30,
       employees: 150,
       businessHours: "Mon-Fri, 8am-6pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       serviceLocations: ["sandton", "rosebank", "hydepark"],
       tags: ["High-Rise Buildings", "Luxury Apartments", "Commercial Developments"],
       reviewData: [
@@ -396,7 +397,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 40,
       employees: 500,
       businessHours: "Mon-Fri, 7am-5pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       serviceLocations: ["johannesburg", "cape-town", "durban", "pretoria"],
       tags: ["Infrastructure", "Housing Projects", "Community Development", "commercial developments"],
       reviewData: [
@@ -430,7 +431,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 35,
       employees: 30,
       businessHours: "Mon-Fri, 8am-5pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       serviceLocations: ["stellenbosch", "franschhoek", "paarl"],
       tags: ["Heritage Restoration", "Wine Cellars", "Historic Renovations", "modern renovations"],
       reviewData: [
@@ -461,7 +462,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       yearsInBusiness: 12,
       employees: 28,
       businessHours: "Mon-Fri, 8am-5pm",
-      serviceCategory: "builders",
+      serviceCategory: "builder",
       serviceLocations: ["cape-town", "southern-suburbs", "deep-south"],
       tags: ["Green Building", "Sustainable Construction", "Off-grid Homes", "Eco-friendly Materials"],
       reviewData: [
