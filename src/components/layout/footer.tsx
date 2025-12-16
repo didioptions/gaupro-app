@@ -112,7 +112,7 @@ const Logo = () => (
       alt="Gaupro Logo"
       width={128}
       height={32}
-      className="h-8 w-auto"
+      className="h-10 w-auto"
     />
   </span>
 );
