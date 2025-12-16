@@ -757,7 +757,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       reviewData: [
         { author: "Zimbali Homeowner", rating: 5, comment: "They provide the security for our estate. They are professional and very effective." },
         { author: "Ballito Resident", rating: 5, comment: "They understand the local crime trends and adapt their patrols accordingly. Very smart." },
-        { author: " beachfront B&B", rating: 5, comment: "The safety of our guests is paramount. We trust Coastal Watch completely." },
+        { author: "beachfront B&B", rating: 5, comment: "The safety of our guests is paramount. We trust Coastal Watch completely." },
         { author: "Salt Rock Family", rating: 4, comment: "Good, reliable service. The call centre can be a bit busy during peak season." },
         { author: "Local Knowledge", rating: 5, comment: "Their local knowledge is a huge advantage. They know the area inside out." },
         { author: "D. Govender", rating: 5, comment: "Fast response times and professional staff. What more can you ask for?" },
@@ -942,4 +942,5 @@ export const getProfessionalById = (id: string): Professional | null => {
     }
     return null;
 };
+
 
