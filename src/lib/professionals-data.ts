@@ -1,5 +1,6 @@
 
 
+
 export const allProfessionals = {
     "fire-safety": [
         {
@@ -1416,7 +1417,7 @@ export const allProfessionals = {
             id: "expert-clean-crew",
             name: "Expert Clean Crew SA",
             location: "Soweto",
-            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability. We guarantee satisfaction.",
+            description: "Connecting you with top-tier {service} experts. Our network of professionals is vetted for skill and reliability in specialized tasks. We guarantee satisfaction.",
             rating: 4.9,
             reviews: 14,
             isProVerified: true,
@@ -1442,7 +1443,11 @@ export const allProfessionals = {
             serviceLocations: ["sandton", "johannesburg", "midrand"],
             reviewData: [{ author: "Corporate Client", rating: 5, comment: "Very professional guards and a top-notch response team. We feel secure with Titan." }],
             photos: ["https://picsum.photos/seed/security1/600/400"],
-            avatarSeed: "titan-security-logo"
+            avatarSeed: "titan-security-logo",
+            yearsInBusiness: 15,
+            employees: 120,
+            businessHours: "Open 24/7",
+            tags: ["Armed Response", "Guarding", "Alarm Systems", "VIP Security"]
         },
         {
             id: "nkosi-protection-services",
@@ -1455,7 +1460,9 @@ export const allProfessionals = {
             serviceLocations: ["durban", "umhlanga", "pinetown"],
             reviewData: [{ author: "Community Forum", rating: 5, comment: "Nkosi Protection has made a real difference in our neighbourhood. Their presence is a great deterrent." }],
             photos: ["https://picsum.photos/seed/security2/600/400"],
-            avatarSeed: "nkosi-protection-logo"
+            avatarSeed: "nkosi-protection-logo",
+            yearsInBusiness: 8,
+            employees: 60
         },
         {
             id: "eagle-eye-security",
@@ -1468,7 +1475,9 @@ export const allProfessionals = {
             serviceLocations: ["cape-town", "bellville", "stellenbosch"],
             reviewData: [{ author: "Tech-savvy Homeowner", rating: 5, comment: "The alarm system they installed is fantastic. I can control everything from my phone." }],
             photos: ["https://picsum.photos/seed/security3/600/400"],
-            avatarSeed: "eagle-eye-security-logo"
+            avatarSeed: "eagle-eye-security-logo",
+            yearsInBusiness: 5,
+            employees: 25
         },
         {
             id: "bafana-guarding",
@@ -1481,7 +1490,9 @@ export const allProfessionals = {
             serviceLocations: ["soweto", "johannesburg"],
             reviewData: [{ author: "Local Shop Owner", rating: 5, comment: "The Bafana guards are always alert and professional. I trust them to protect my store." }],
             photos: ["https://picsum.photos/seed/security4/600/400"],
-            avatarSeed: "bafana-guarding-logo"
+            avatarSeed: "bafana-guarding-logo",
+            yearsInBusiness: 12,
+            employees: 80
         },
         {
             id: "veritas-risk-management",
@@ -1494,7 +1505,8 @@ export const allProfessionals = {
             serviceLocations: ["pretoria", "centurion"],
             reviewData: [{ author: "Factory Manager", rating: 5, comment: "Veritas provided a thorough risk assessment and implemented effective security measures." }],
             photos: ["https://picsum.photos/seed/security5/600/400"],
-            avatarSeed: "veritas-risk-logo"
+            avatarSeed: "veritas-risk-logo",
+            employees: 40
         },
         {
             id: "protector-group-sa",
@@ -1507,7 +1519,9 @@ export const allProfessionals = {
             serviceLocations: ["johannesburg", "cape-town", "durban"],
             reviewData: [{ author: "National Retailer", rating: 4, comment: "They provide guarding for all our stores. A reliable national partner." }],
             photos: ["https://picsum.photos/seed/security6/600/400"],
-            avatarSeed: "protector-group-logo"
+            avatarSeed: "protector-group-logo",
+            yearsInBusiness: 20,
+            employees: 500
         },
         {
             id: "coastal-watch-security",
@@ -1520,7 +1534,8 @@ export const allProfessionals = {
             serviceLocations: ["port-elizabeth"],
             reviewData: [{ author: "Seaside Resident", rating: 5, comment: "Their visible patrols make our community feel much safer. Great service." }],
             photos: ["https://picsum.photos/seed/security7/600/400"],
-            avatarSeed: "coastal-watch-logo"
+            avatarSeed: "coastal-watch-logo",
+            yearsInBusiness: 7
         },
         {
             id: "alpha-response-team",
@@ -1533,7 +1548,8 @@ export const allProfessionals = {
             serviceLocations: ["sandton", "randburg", "fourways"],
             reviewData: [{ author: "Gated Community", rating: 5, comment: "Their response times are unbeatable. The best security decision we've made." }],
             photos: ["https://picsum.photos/seed/security8/600/400"],
-            avatarSeed: "alpha-response-logo"
+            avatarSeed: "alpha-response-logo",
+            employees: 45
         },
         {
             id: "sentinel-guarding",
@@ -1559,12 +1575,13 @@ export const allProfessionals = {
             serviceLocations: ["johannesburg", "pretoria"],
             reviewData: [{ author: "Festival Organizer", rating: 5, comment: "The most professional event security team we have ever worked with. They handled a large crowd perfectly." }],
             photos: ["https://picsum.photos/seed/security10/600/400"],
-            avatarSeed: "secure-events-logo"
+            avatarSeed: "secure-events-logo",
+            businessHours: "By Appointment"
         }
     ],
     default: [
       {
-        id: "sparkle-clean-pros",
+        id: "sparkle-shine-cleaners",
         name: "Sparkle & Shine Cleaners",
         location: "Alberton",
         description: "Your trusted experts for quality {service}. We are fully registered and our commitment to quality work has been recognized by many happy customers. We handle all types of projects, big or small, and pride ourselves on quick response times and high-quality workmanship.",

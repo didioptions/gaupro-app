@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { Badge } from '@/components/ui/badge';
@@ -24,6 +25,7 @@ export type Professional = {
   employees?: number;
   address?: string;
   photos?: string[];
+  businessHours?: string;
   reviewData?: {
     author: string;
     phone?: string;
@@ -53,16 +55,19 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                         <div className="flex-grow">
                             <h1 className="text-3xl">{professional.name}</h1>
                             <p className="text-muted-foreground">{professional.location}</p>
-                            {professional.tags && (
-                              <div className="flex flex-wrap gap-2 mt-2">
-                                {professional.tags.map((tag: string) => <Badge variant="outline" key={tag}>{tag}</Badge>)}
-                              </div>
-                            )}
+                            
                             <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground mt-4">
                                 {professional.isProVerified && <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-green-500" /> Pro Verified</span>}
                                 {professional.yearsInBusiness && <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {professional.yearsInBusiness} Years in Business</span>}
                                 {professional.employees && <span className="flex items-center gap-1.5"><Users className="h-4 w-4" /> {professional.employees} Employees</span>}
+                                {professional.businessHours && <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {professional.businessHours}</span>}
                             </div>
+
+                            {professional.tags && (
+                              <div className="flex flex-wrap gap-2 mt-4">
+                                {professional.tags.map((tag: string) => <Badge variant="secondary" key={tag}>{tag}</Badge>)}
+                              </div>
+                            )}
                         </div>
                         <div className="text-center flex-shrink-0">
                             <div className="bg-teal-500 text-white font-bold text-2xl rounded-md w-16 h-16 flex items-center justify-center mx-auto">
