@@ -28,7 +28,7 @@
     {
       "id": "architects-image",
       "description": "An architect reviewing blueprints at a desk.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ultra-realistic%20professional%20%20architects.jpg?alt=media&token=8cb2a4b6-5fca-4186-a5cc-d190c377e50e",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/catagory%20arch%20(2).png?alt=media&token=fddd226b-2225-4a18-bc91-5d263f7c9f5b",
       "imageHint": "architect blueprint"
     },
     {
@@ -39,9 +39,9 @@
     },
     {
       "id": "security-image",
-      "description": "A security gaurd in uniform speaking into a walkie-talkie.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/securuty_gaurd_1_cropped%20(1).png?alt=media&token=72c0385d-d941-4f5b-92e0-64d7d4c1ac50",
-      "imageHint": "security guard"
+      "description": "A security guard monitoring CCTV footage in a control room.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/security%20(1).png?alt=media&token=7041a5cf-6981-46c5-a9d9-321677b3f774",
+      "imageHint": "security control room"
     },
     {
       "id": "cctv-image",
