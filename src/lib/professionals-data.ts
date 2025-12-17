@@ -1009,6 +1009,314 @@ export const allProfessionals: ProfessionalsByCategory = {
       avatarSeed: "expert-crew-logo"
     }
   ],
+  "tree-felling": [
+    {
+        id: "arbor-pros-jhb",
+        name: "Arbor Pros JHB",
+        location: "Johannesburg",
+        description: "Your go-to experts for safe and efficient {service}. We handle everything from large-scale tree removal to delicate pruning and stump grinding. Fully insured.",
+        rating: 4.9,
+        reviews: 28,
+        isProVerified: true,
+        yearsInBusiness: 15,
+        employees: 10,
+        businessHours: "Mon-Sat, 7am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["johannesburg", "sandton", "randburg"],
+        tags: ["Tree Felling", "Stump Grinding", "Pruning", "Emergency Tree Removal"],
+        reviewData: [
+            { author: "Sandton Resident", rating: 5, comment: "Removed a massive tree that was dangerously close to my house. The team was incredibly professional and left the place spotless." },
+            { author: "Anna V.", rating: 5, comment: "Excellent service. They were quick, safe, and their pricing was very reasonable. Highly recommend." }
+        ],
+        photos: ["https://picsum.photos/seed/arbor1/600/400"],
+        avatarSeed: "arbor-pros-logo"
+    },
+    {
+        id: "joburg-tree-fellers",
+        name: "Joburg Tree Fellers",
+        location: "Johannesburg",
+        description: "Fast, reliable, and affordable {service} across Johannesburg. We offer 24/7 emergency services for storm-damaged trees.",
+        rating: 4.8,
+        reviews: 35,
+        isProVerified: true,
+        yearsInBusiness: 10,
+        employees: 8,
+        businessHours: "Open 24/7",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["johannesburg", "roodepoort", "soweto"],
+        tags: ["24/7 Service", "Storm Damage", "Site Clearing", "Tree Removal"],
+        reviewData: [
+            { author: "B. Khumalo", rating: 5, comment: "A huge branch fell during a storm at night. They came out immediately and made the area safe. Lifesavers!" },
+            { author: "Developer", rating: 4, comment: "Cleared a large plot for us quickly. Good work, though scheduling took a few days." }
+        ],
+        photos: ["https://picsum.photos/seed/joburgtree/600/400"],
+        avatarSeed: "joburg-tree-fellers-logo"
+    },
+    {
+        id: "cape-tree-crew",
+        name: "Cape Tree Crew",
+        location: "Cape Town",
+        description: "Specialists in dealing with the unique challenges of Cape Town's trees. From trimming large palms to removing invasive species, we do it all.",
+        rating: 4.9,
+        reviews: 25,
+        isProVerified: true,
+        yearsInBusiness: 20,
+        employees: 12,
+        businessHours: "Mon-Fri, 8am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["cape-town", "southern-suburbs", "bellville"],
+        tags: ["Palm Trimming", "Invasive Species Removal", "Tree Maintenance"],
+        reviewData: [
+            { author: "Southern Suburbs Resident", rating: 5, comment: "They are experts at trimming our old oak trees without damaging them. True professionals." },
+            { author: "Jane D.", rating: 5, comment: "Removed a Port Jackson tree from my garden. Very knowledgeable about invasive species." }
+        ],
+        photos: ["https://picsum.photos/seed/capetree/600/400"],
+        avatarSeed: "cape-tree-crew-logo"
+    },
+    {
+        id: "durban-tree-surgeons",
+        name: "Durban Tree Surgeons",
+        location: "Durban",
+        description: "KZN's trusted name for all {service} and arborist services. We specialize in large, difficult-to-access trees and coastal tree care.",
+        rating: 4.8,
+        reviews: 22,
+        isProVerified: false,
+        yearsInBusiness: 18,
+        employees: 15,
+        businessHours: "Mon-Sat, 7am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["durban", "umhlanga", "ballito"],
+        tags: ["Arborist Services", "Coastal Tree Care", "Difficult Access Trees"],
+        reviewData: [
+            { author: "Umhlanga Resident", rating: 5, comment: "Had a very large tree in a tight spot. They removed it piece by piece with incredible skill." },
+            { author: "Mr. Pillay", rating: 5, comment: "Excellent service and advice on how to care for the trees on our property." }
+        ],
+        photos: ["https://picsum.photos/seed/durbantree/600/400"],
+        avatarSeed: "durban-tree-surgeons-logo"
+    },
+    {
+        id: "pretoria-tree-experts",
+        name: "Pretoria Tree Experts",
+        location: "Pretoria",
+        description: "Your local Pretoria experts for tree felling, stump removal, and professional pruning. We guarantee clean and safe work every time.",
+        rating: 4.9,
+        reviews: 31,
+        isProVerified: true,
+        yearsInBusiness: 12,
+        employees: 9,
+        businessHours: "Mon-Fri, 7am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["pretoria", "centurion"],
+        tags: ["Local Experts", "Clean & Safe", "Stump Removal", "Pruning"],
+        reviewData: [
+            { author: "Mrs. van Jaarsveld", rating: 5, comment: "The team was so professional. They removed the tree and the stump and left my garden cleaner than they found it." },
+            { author: "Centurion Homeowner", rating: 5, comment: "Fast, efficient, and very safe. You can see they know what they're doing." }
+        ],
+        photos: ["https://picsum.photos/seed/ptatree/600/400"],
+        avatarSeed: "pretoria-tree-experts-logo"
+    },
+    {
+        id: "green-giants-felling",
+        name: "Green Giants Tree Felling",
+        location: "National",
+        description: "Large scale land clearing and commercial {service}. We have the heavy machinery and large teams to handle the biggest jobs.",
+        rating: 4.7,
+        reviews: 18,
+        isProVerified: true,
+        yearsInBusiness: 25,
+        employees: 50,
+        businessHours: "Mon-Fri, 7am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["johannesburg", "durban", "cape-town"],
+        tags: ["Land Clearing", "Commercial Tree Felling", "Heavy Machinery"],
+        reviewData: [
+            { author: "Property Developer", rating: 5, comment: "They cleared a 5-hectare site for us in record time. Very impressive operation." },
+            { author: "Municipality", rating: 4, comment: "A reliable partner for large-scale municipal tree maintenance projects." }
+        ],
+        photos: ["https://picsum.photos/seed/greengiants/600/400"],
+        avatarSeed: "green-giants-logo"
+    },
+    {
+        id: "safe-cut-tree-felling",
+        name: "Safe-Cut Tree Felling",
+        location: "Randburg",
+        description: "Safety is our priority. We are fully insured and use the latest techniques to ensure every job is done without risk to your property.",
+        rating: 5.0,
+        reviews: 15,
+        isProVerified: true,
+        yearsInBusiness: 8,
+        employees: 6,
+        businessHours: "Mon-Fri, 8am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["randburg", "fourways", "northcliff"],
+        tags: ["Safety First", "Fully Insured", "Modern Techniques"],
+        reviewData: [
+            { author: "Nervous Homeowner", rating: 5, comment: "I was so worried about a tree falling on my house. They were so careful and professional, it really put my mind at ease." }
+        ],
+        photos: ["https://picsum.photos/seed/safecut/600/400"],
+        avatarSeed: "safe-cut-tree-felling-logo"
+    },
+    {
+        id: "the-tree-terminator",
+        name: "The Tree Terminator",
+        location: "East Rand",
+        description: "Got a problem tree? We'll take care of it. Fast, no-fuss {service} on the East Rand. We get the job done.",
+        rating: 4.6,
+        reviews: 29,
+        isProVerified: false,
+        yearsInBusiness: 12,
+        employees: 7,
+        businessHours: "Mon-Sat, 7am-6pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["benoni", "boksburg", "kempton-park"],
+        tags: ["Fast Service", "No-Fuss", "East Rand Specialist"],
+        reviewData: [
+            { author: "John D.", rating: 5, comment: "Called them in the morning, the tree was gone by the afternoon. Incredible service." }
+        ],
+        photos: ["https://picsum.photos/seed/terminator/600/400"],
+        avatarSeed: "the-tree-terminator-logo"
+    },
+    {
+        id: "zulu-land-tree-fellers",
+        name: "Zulu-Land Tree Fellers",
+        location: "KZN",
+        description: "Proudly serving the communities of KwaZulu-Natal. From the coast to the midlands, we offer reliable and affordable tree services.",
+        rating: 4.8,
+        reviews: 21,
+        isProVerified: true,
+        yearsInBusiness: 15,
+        employees: 14,
+        businessHours: "Mon-Fri, 7am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["durban", "pietermaritzburg", "hillcrest"],
+        tags: ["KZN Specialist", "Affordable", "Reliable"],
+        reviewData: [
+            { author: "Mrs. Khumalo", rating: 5, comment: "A great local company that does excellent work. They are very respected in the community." }
+        ],
+        photos: ["https://picsum.photos/seed/zulutree/600/400"],
+        avatarSeed: "zulu-land-tree-fellers-logo"
+    },
+    {
+        id: "precision-tree-felling",
+        name: "Precision Tree Felling",
+        location: "Cape Town",
+        description: "Specialists in technical tree removals in confined spaces. We use advanced rigging techniques to dismantle trees safely.",
+        rating: 5.0,
+        reviews: 18,
+        isProVerified: true,
+        yearsInBusiness: 10,
+        employees: 5,
+        businessHours: "Mon-Fri, 8am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["cape-town", "camps-bay", "constantia"],
+        tags: ["Technical Rigging", "Confined Spaces", "Expert Arborists"],
+        reviewData: [
+            { author: "Architect", rating: 5, comment: "I had a huge tree in a tiny courtyard. I didn't think it was possible to remove it without a crane. These guys are wizards." }
+        ],
+        photos: ["https://picsum.photos/seed/precisiontree/600/400"],
+        avatarSeed: "precision-tree-felling-logo"
+    },
+    {
+        id: "the-stump-grinders",
+        name: "The Stump Grinders",
+        location: "Gauteng",
+        description: "Don't just fell the tree, remove the stump! We specialize in fast and effective stump grinding services across Gauteng.",
+        rating: 4.9,
+        reviews: 24,
+        isProVerified: true,
+        yearsInBusiness: 9,
+        employees: 4,
+        businessHours: "Mon-Sat, 8am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["johannesburg", "pretoria", "sandton"],
+        tags: ["Stump Grinding", "Stump Removal", "Specialist Service"],
+        reviewData: [
+            { author: "Homeowner", rating: 5, comment: "They ground down 5 stumps in my garden in under an hour. Now I can finally plant my new lawn. Great service!" }
+        ],
+        photos: ["https://picsum.photos/seed/stumpgrinder/600/400"],
+        avatarSeed: "the-stump-grinders-logo"
+    },
+    {
+        id: "bafana-tree-services",
+        name: "Bafana Tree Services",
+        location: "National",
+        description: "A national network of professional {service} teams. We provide consistent, high-quality tree services for residential and corporate clients.",
+        rating: 4.7,
+        reviews: 40,
+        isProVerified: true,
+        yearsInBusiness: 20,
+        employees: 100,
+        businessHours: "Mon-Fri, 7am-6pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["johannesburg", "cape-town", "durban"],
+        tags: ["National Network", "Corporate Clients", "Consistent Quality"],
+        reviewData: [
+            { author: "Facilities Manager", rating: 5, comment: "I use them for all our properties across the country. One point of contact, consistent service. Makes my life easy." }
+        ],
+        photos: ["https://picsum.photos/seed/bafanatree/600/400"],
+        avatarSeed: "bafana-tree-services-logo"
+    },
+    {
+        id: "eco-arborists",
+        name: "Eco Arborists",
+        location: "Cape Town",
+        description: "Sustainable and environmentally friendly tree management. We focus on preserving trees where possible, and responsible removal when necessary.",
+        rating: 4.9,
+        reviews: 16,
+        isProVerified: true,
+        yearsInBusiness: 8,
+        employees: 6,
+        businessHours: "Mon-Fri, 8am-4pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["cape-town", "somerset-west", "noordhoek"],
+        tags: ["Eco-friendly", "Arborist Consulting", "Tree Preservation"],
+        reviewData: [
+            { author: "Nature Lover", rating: 5, comment: "I was so glad to find a company that wanted to save my tree rather than just cut it down. They did some amazing pruning work." }
+        ],
+        photos: ["https://picsum.photos/seed/ecoarbor/600/400"],
+        avatarSeed: "eco-arborists-logo"
+    },
+    {
+        id: "urban-foresters",
+        name: "Urban Foresters",
+        location: "Johannesburg",
+        description: "Managing the urban forest of Johannesburg. We are experts in dealing with trees in urban environments, close to buildings and power lines.",
+        rating: 4.8,
+        reviews: 22,
+        isProVerified: true,
+        yearsInBusiness: 12,
+        employees: 11,
+        businessHours: "Mon-Fri, 7am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["johannesburg", "parkhurst", "greenside"],
+        tags: ["Urban Forestry", "Power Line Clearing", "Confined Space"],
+        reviewData: [
+            { author: "Parkhurst Resident", rating: 5, comment: "They trimmed a huge tree that was growing into the power lines. They worked safely and professionally." }
+        ],
+        photos: ["https://picsum.photos/seed/urbanforest/600/400"],
+        avatarSeed: "urban-foresters-logo"
+    },
+    {
+        id: "summit-tree-felling",
+        name: "Summit Tree Felling",
+        location: "Durbanville",
+        description: "Reaching new heights in tree care. High-end, professional {service} for discerning clients in the Northern Suburbs of Cape Town.",
+        rating: 5.0,
+        reviews: 12,
+        isProVerified: true,
+        yearsInBusiness: 15,
+        employees: 7,
+        businessHours: "Mon-Fri, 8am-5pm",
+        serviceCategory: "tree-felling",
+        serviceLocations: ["durbanville", "bellville", "brackenfell"],
+        tags: ["High-end Service", "Northern Suburbs", "Professional Arborists"],
+        reviewData: [
+            { author: "Estate Owner", rating: 5, comment: "A premium service for a premium property. Their work is flawless and their team is exceptionally professional." }
+        ],
+        photos: ["https://picsum.photos/seed/summittree/600/400"],
+        avatarSeed: "summit-tree-felling-logo"
+    }
+],
   "default": []
 };
 

@@ -703,66 +703,6 @@
       "imageHint": "eco logo"
     },
     {
-      "id": "titan-security-logo",
-      "description": "A strong, modern logo for a security company with a shield icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1720681275814-e6512b9e4295?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMHNoaWVsZCUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "security shield"
-    },
-    {
-      "id": "nkosi-protection-logo",
-      "description": "A logo featuring a stylized African eagle, representing vigilance.",
-      "imageUrl": "https://images.unsplash.com/photo-1757269746970-dc477517268f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlYWdsZSUyMGV5ZSUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "eagle logo"
-    },
-    {
-      "id": "eagle-eye-security-logo",
-      "description": "A logo with a camera lens integrated into an eagle's eye.",
-      "imageUrl": "https://images.unsplash.com/photo-1757269746970-dc477517268f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlYWdsZSUyMGV5ZSUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "camera eye"
-    },
-    {
-      "id": "bafana-guarding-logo",
-      "description": "A simple, strong logo with a stylized shield and the company name.",
-      "imageUrl": "https://images.unsplash.com/photo-1764113697577-b5899b9a339d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzY2FsZXMlMjBqdXN0aWNlfGVufDB8fHx8MTc2NTgxNjg3OXww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "shield logo"
-    },
-    {
-      "id": "veritas-risk-logo",
-      "description": "An elegant, corporate logo for a risk management company.",
-      "imageUrl": "https://images.unsplash.com/photo-1697797390907-b6455bd2a347?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlbGVnYW50JTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "corporate logo"
-    },
-    {
-      "id": "protector-group-logo",
-      "description": "A logo with a stylized person icon being protected by a shield.",
-      "imageUrl": "https://images.unsplash.com/photo-1634129003118-37a254f894bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxrbmlnaHQlMjBoZWxtZXQlMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "protection logo"
-    },
-    {
-      "id": "coastal-watch-logo",
-      "description": "A logo with a lighthouse and waves for a coastal security company.",
-      "imageUrl": "https://images.unsplash.com/photo-1616781296065-2a85e43a91b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsaWdodGhvdXNlJTIwbG9nb3xlbnwwfHx8fDE3NjU4MTI3ODZ8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "lighthouse logo"
-    },
-    {
-      "id": "alpha-response-logo",
-      "description": "A dynamic logo with a wolf or similar predator for a tactical team.",
-      "imageUrl": "https://images.unsplash.com/photo-1634676579930-b3b3a613763f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b2xmLTIwZWFnbGUlMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "wolf logo"
-    },
-    {
-      "id": "sentinel-guarding-logo",
-      "description": "A classic logo with a sentinel or guard silhouette.",
-      "imageUrl": "https://images.unsplash.com/photo-1634129003118-37a254f894bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxrbmlnaHQlMjBoZWxtZXQlMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "guard logo"
-    },
-    {
-      "id": "secure-events-logo",
-      "description": "A logo with a stylized crowd and a shield for event security.",
-      "imageUrl": "https://images.unsplash.com/photo-1701453538421-279282367f13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjcm93ZCUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "crowd logo"
-    },
-    {
       "id": "arbor-pros-logo",
       "description": "Logo for a professional tree felling company with a large tree icon.",
       "imageUrl": "https://images.unsplash.com/photo-1699206794689-4ae2b988475b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0cmVlJTIwbG9nb3xlbnwwfHx8fDE3NjU4OTkyNDV8MA&ixlib-rb-4.1.0&q=80&w=1080",
@@ -851,30 +791,6 @@
       "description": "High-end tree felling service logo.",
       "imageUrl": "https://images.unsplash.com/photo-1703261579292-ba45b2bdcf2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdW1taXQlMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "summit tree"
-    },
-    {
-      "id": "gauteng-fast-movers-logo",
-      "description": "Logo for Gauteng Fast Movers",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "moving truck"
-    },
-    {
-      "id": "roodepoort-relocators-logo",
-      "description": "Logo for Roodepoort Relocators",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "local movers"
-    },
-    {
-      "id": "jhb-office-movers-logo",
-      "description": "Logo for JHB Office Movers",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "office building"
-    },
-    {
-      "id": "pretoria-pack-and-move-logo",
-      "description": "Logo for Pretoria Pack & Move",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU3NTU0NzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "moving boxes"
     }
   ]
 }
