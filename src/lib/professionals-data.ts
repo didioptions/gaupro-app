@@ -37,33 +37,210 @@ export const allProfessionals: ProfessionalsByCategory = {
       location: "Johannesburg",
       description: "Your go-to experts for all {service} needs. From emergency leak repairs to full bathroom installations, we provide fast, reliable, and affordable services across Johannesburg.",
       rating: 4.9,
-      reviews: 15,
+      reviews: 5,
       isProVerified: true,
       yearsInBusiness: 15,
       employees: 10,
       businessHours: "Open 24/7",
       serviceCategory: "plumber",
-      serviceLocations: ["johannesburg", "sandton", "randburg"],
+      serviceLocations: ["johannesburg", "sandton", "randburg", "melrose"],
       tags: ["Emergency Plumbing", "Geyser Repair", "Blocked Drains", "CoC"],
       reviewData: [
         { author: "S. Naidoo", rating: 5, comment: "Called them at 2 AM for a burst pipe. They were here within 30 minutes and fixed it. Lifesavers!" },
         { author: "Mike B.", rating: 5, comment: "Excellent service. Replaced my geyser quickly and for a fair price." },
         { author: "Linda F.", rating: 4, comment: "Cleared a very stubborn drain. The team was professional and friendly." },
         { author: "Tom G.", rating: 5, comment: "Their COC inspection was thorough and they explained everything clearly. Highly recommend." },
-        { author: "Grace M.", rating: 5, comment: "I've used them for years for all my plumbing needs. Always reliable." },
-        { author: "Peter Z.", rating: 5, comment: "Fast, efficient, and they cleaned up after themselves. Great job." },
-        { author: "Anna K.", rating: 5, comment: "Fixed my leaking toilet. Very happy with the service." },
-        { author: "Ben S.", rating: 4, comment: "Good service, though they were a bit late. The work was top-notch." },
-        { author: "Lerato P.", rating: 5, comment: "The best plumbers in Joburg. I wouldn't call anyone else." },
-        { author: "Chris H.", rating: 5, comment: "Professional, knowledgeable, and honest. A pleasure to deal with." },
-        { author: "Zanele D.", rating: 5, comment: "They were recommended by a friend and I can see why. Excellent service." },
-        { author: "Mr. Jacobs", rating: 5, comment: "Efficient and professional. Solved a problem two other plumbers couldn't." },
-        { author: "Sandton Office", rating: 5, comment: "They handle all the plumbing maintenance for our office park. Always reliable." },
-        { author: "Maria V.", rating: 5, comment: "Quick to respond and the plumber who came was very helpful." },
-        { author: "D. Chen", rating: 5, comment: "A quality service you can trust. Fair pricing as well." }
+        { author: "Grace M.", rating: 5, comment: "I've used them for years for all my plumbing needs. Always reliable." }
       ],
       photos: ["https://picsum.photos/seed/plumb1/600/400"],
       avatarSeed: "plumber-hero-image"
+    },
+    {
+      id: "cpt-flow-masters",
+      name: "Cape Flow Masters",
+      location: "Cape Town",
+      description: "Cape Town's premier {service} service. We handle everything from residential leak detection to large-scale commercial plumbing projects. Quality workmanship guaranteed.",
+      rating: 4.8,
+      reviews: 5,
+      isProVerified: true,
+      yearsInBusiness: 20,
+      employees: 18,
+      businessHours: "Mon-Fri, 7am-6pm",
+      serviceCategory: "plumber",
+      serviceLocations: ["cape-town", "bellville", "durbanville"],
+      tags: ["Leak Detection", "Commercial Plumbing", "Bathroom Renovations"],
+      reviewData: [
+        { author: "David L.", rating: 5, comment: "Found a hidden leak that two other plumbers missed. Saved us thousands. Incredibly professional." },
+        { author: "Restaurant Owner", rating: 5, comment: "They handle all the plumbing for our restaurant. Always reliable and efficient." }
+      ],
+      photos: ["https://picsum.photos/seed/cptflow/600/400"],
+      avatarSeed: "cpt-flow-masters-logo"
+    },
+    {
+      id: "durban-drain-doctors",
+      name: "Durban Drain Doctors",
+      location: "Durban",
+      description: "Blocked drain specialists in Durban. We use the latest technology to clear any blockage quickly and effectively, 24/7.",
+      rating: 4.7,
+      reviews: 4,
+      isProVerified: true,
+      yearsInBusiness: 12,
+      employees: 8,
+      businessHours: "Open 24/7",
+      serviceCategory: "plumber",
+      serviceLocations: ["durban", "umhlanga", "pinetown"],
+      tags: ["Blocked Drains", "24/7 Emergency", "High-Pressure Jetting"],
+      reviewData: [
+        { author: "Mrs. Pillay", rating: 5, comment: "My kitchen drain was completely blocked. They came out on a Sunday and sorted it out in under an hour. Amazing!" },
+        { author: "Property Manager", rating: 5, comment: "Our go-to company for all drain issues in our apartment blocks. Always a fast and effective solution." }
+      ],
+      photos: ["https://picsum.photos/seed/dbndrain/600/400"],
+      avatarSeed: "durban-drain-doctors-logo"
+    },
+    {
+      id: "pta-geyser-gurus",
+      name: "Pretoria Geyser Gurus",
+      location: "Pretoria",
+      description: "Experts in geyser installation, repair, and replacement. We work with all major brands and offer solar geyser solutions.",
+      rating: 4.9,
+      reviews: 3,
+      isProVerified: true,
+      yearsInBusiness: 10,
+      employees: 6,
+      businessHours: "Mon-Sat, 8am-6pm",
+      serviceCategory: "plumber",
+      serviceLocations: ["pretoria", "centurion"],
+      tags: ["Geyser Repair", "Geyser Installation", "Solar Geysers"],
+      reviewData: [
+        { author: "J. van der Merwe", rating: 5, comment: "My geyser burst and they replaced it the same day. The installation was neat and professional." },
+        { author: "Eco Homeowner", rating: 5, comment: "They installed a solar geyser for us. The quality of the work was excellent and they explained the whole system clearly." }
+      ],
+      photos: ["https://picsum.photos/seed/ptageyser/600/400"],
+      avatarSeed: "pta-geyser-gurus-logo"
+    },
+    {
+      id: "randburg-rapid-rooter",
+      name: "Randburg Rapid Rooter",
+      location: "Randburg",
+      description: "Fast and reliable general {service} for the Randburg area. From dripping taps to complete bathroom makeovers, we do it all with a smile.",
+      rating: 4.8,
+      reviews: 5,
+      isProVerified: true,
+      yearsInBusiness: 9,
+      employees: 5,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "plumber",
+      serviceLocations: ["randburg", "fourways", "northcliff"],
+      tags: ["General Plumbing", "Bathroom Renovations", "Leak Repairs"],
+      reviewData: [
+        { author: "Lindiwe K.", rating: 5, comment: "Fixed my leaking shower and re-tiled the wall. It looks fantastic. Very happy with the service." },
+        { author: "First-time Homeowner", rating: 5, comment: "They were so helpful and patient, explaining everything they were doing. A great experience." }
+      ],
+      photos: ["https://picsum.photos/seed/randburgplumb/600/400"],
+      avatarSeed: "randburg-rapid-rooter-logo"
+    },
+    {
+      id: "soweto-water-works",
+      name: "Soweto Water Works",
+      location: "Soweto",
+      description: "Your local Soweto {service} experts. We are committed to providing affordable and reliable plumbing services to our community.",
+      rating: 4.7,
+      reviews: 4,
+      isProVerified: true,
+      yearsInBusiness: 15,
+      employees: 10,
+      businessHours: "Mon-Sat, 7am-6pm",
+      serviceCategory: "plumber",
+      serviceLocations: ["soweto", "johannesburg-south"],
+      tags: ["Community Plumbing", "Affordable", "General Repairs"],
+      reviewData: [
+        { author: "Gogo Dlamini", rating: 5, comment: "A good, honest plumber. He fixed my toilet and didn't overcharge me. I will use him again." },
+        { author: "Community Project", rating: 5, comment: "They helped us with the plumbing for our new community hall. Great work from a great local team." }
+      ],
+      photos: ["https://picsum.photos/seed/sowetowater/600/400"],
+      avatarSeed: "soweto-water-works-logo"
+    },
+    {
+      id: "ballito-coastline-plumbing",
+      name: "Ballito Coastline Plumbing",
+      location: "Ballito",
+      description: "Specialists in coastal {service}, dealing with the effects of rust and corrosion. We offer durable solutions for beachfront properties.",
+      rating: 4.9,
+      reviews: 2,
+      isProVerified: true,
+      yearsInBusiness: 11,
+      employees: 7,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "plumber",
+      serviceLocations: ["ballito", "umhlanga", "salt-rock"],
+      tags: ["Coastal Plumbing", "Rust Prevention", "Estate Plumbing"],
+      reviewData: [
+        { author: "Zimbali Estate", rating: 5, comment: "They understand the challenges of coastal plumbing. Their solutions last. The only plumbers we use in the estate." }
+      ],
+      photos: ["https://picsum.photos/seed/ballitoplumb/600/400"],
+      avatarSeed: "ballito-coastline-plumbing-logo"
+    },
+    {
+      id: "winelands-plumbing-co",
+      name: "Winelands Plumbing Co.",
+      location: "Stellenbosch",
+      description: "High-end {service} for homes, wine farms, and guest houses in the Cape Winelands. We specialize in stylish finishes and water-saving solutions.",
+      rating: 5.0,
+      reviews: 5,
+      isProVerified: true,
+      yearsInBusiness: 25,
+      employees: 20,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "plumber",
+      serviceLocations: ["stellenbosch", "franschhoek", "paarl"],
+      tags: ["Luxury Bathrooms", "Water-Saving", "Wine Farm Plumbing"],
+      reviewData: [
+        { author: "Boutique Hotel Owner", rating: 5, comment: "The quality of their finishing is exceptional. Our new guest bathrooms are stunning. A pleasure to work with." },
+        { author: "Wine Farmer", rating: 5, comment: "They installed a new water-saving system for our cellar. Very knowledgeable and professional." }
+      ],
+      photos: ["https://picsum.photos/seed/winelandsplumb/600/400"],
+      avatarSeed: "winelands-plumbing-co-logo"
+    },
+    {
+      id: "eco-plumb-sa",
+      name: "Eco Plumb SA",
+      location: "National",
+      description: "Green {service} solutions for a sustainable future. We specialize in rainwater harvesting, greywater systems, and solar geysers nationwide.",
+      rating: 4.8,
+      reviews: 3,
+      isProVerified: true,
+      yearsInBusiness: 8,
+      employees: 30,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "plumber",
+      serviceLocations: ["johannesburg", "cape-town", "durban"],
+      tags: ["Green Plumbing", "Rainwater Harvesting", "Greywater Systems"],
+      reviewData: [
+        { author: "Green Building Council", rating: 5, comment: "A leader in sustainable plumbing solutions in South Africa. We highly recommend their services." }
+      ],
+      photos: ["https://picsum.photos/seed/ecoplumb/600/400"],
+      avatarSeed: "eco-plumb-sa-logo"
+    },
+    {
+      id: "a-to-z-plumbers",
+      name: "A to Z Plumbers",
+      location: "Benoni",
+      description: "Covering all your {service} needs from A to Z. A reliable and affordable family-run business serving the East Rand for over 30 years.",
+      rating: 4.7,
+      reviews: 5,
+      isProVerified: true,
+      yearsInBusiness: 32,
+      employees: 12,
+      businessHours: "Mon-Fri, 7am-6pm",
+      serviceCategory: "plumber",
+      serviceLocations: ["benoni", "boksburg", "kempton-park"],
+      tags: ["Family Business", "Affordable", "General Plumbing"],
+      reviewData: [
+        { author: "Mrs. Grobler", rating: 5, comment: "They have been our family plumbers for years. Always honest, reliable, and fair." },
+        { author: "East Rand Business", rating: 5, comment: "A great local company that you can trust to get the job done right." }
+      ],
+      photos: ["https://picsum.photos/seed/atozplumb/600/400"],
+      avatarSeed: "a-to-z-plumbers-logo"
     }
   ],
   "movers": [
@@ -752,7 +929,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         { author: "National Coverage", rating: 5, comment: "Their national coverage is a big advantage for a business like ours." },
         { author: "Mr. Khumalo", rating: 4, comment: "A solid and reliable security provider." },
         { author: "Consistent Service", rating: 4, comment: "The service is consistent across all our branches, which is important." },
-        { author: "Well-Managed", rating: 5, comment: "A very well-managed company. You can see it in their service delivery." },
+        { author: "Well-Managed", rating: 5, comment: "A very well-managed company. You can see it in their service." },
         { author: "Industry Leader", rating: 5, comment: "They are an industry leader for a reason. They know what they are doing." },
         { author: "Security Manager", rating: 4, comment: "As a security manager, I find them easy to work with and responsive." },
         { author: "Always Alert", rating: 5, comment: "Their guards are always alert and vigilant. It's very reassuring." }
@@ -979,10 +1156,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       avatarSeed: "sparkle-clean-logo"
     },
      {
-      id: "expert-crew-cleaners",
+      "id": "expert-crew-cleaners",
       name: "Expert Crew Cleaners",
       location: "Cape Town",
-      description: "Dedicated cleaning experts for residential and commercial properties in Cape Town. We bring the sparkle back to your space.",
+      description": "Dedicated cleaning experts for residential and commercial properties in Cape Town. We bring the sparkle back to your space.",
       rating: 4.9,
       reviews: 11,
       isProVerified: true,
@@ -1116,7 +1293,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "pretoria-tree-experts-logo"
     },
     {
-        id: "green-giants-felling",
+        id": "green-giants-felling",
         name: "Green Giants Tree Felling",
         location: "National",
         description: "Large scale land clearing and commercial {service}. We have the heavy machinery and large teams to handle the biggest jobs.",
@@ -1137,7 +1314,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "green-giants-logo"
     },
     {
-        id: "safe-cut-tree-felling",
+        id": "safe-cut-tree-felling",
         name: "Safe-Cut Tree Felling",
         location: "Randburg",
         description: "Safety is our priority. We are fully insured and use the latest techniques to ensure every job is done without risk to your property.",
@@ -1157,7 +1334,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "safe-cut-tree-felling-logo"
     },
     {
-        id: "the-tree-terminator",
+        id": "the-tree-terminator",
         name: "The Tree Terminator",
         location: "East Rand",
         description: "Got a problem tree? We'll take care of it. Fast, no-fuss {service} on the East Rand. We get the job done.",
@@ -1177,7 +1354,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "the-tree-terminator-logo"
     },
     {
-        id: "zulu-land-tree-fellers",
+        id": "zulu-land-tree-fellers",
         name: "Zulu-Land Tree Fellers",
         location: "KZN",
         description: "Proudly serving the communities of KwaZulu-Natal. From the coast to the midlands, we offer reliable and affordable tree services.",
@@ -1197,7 +1374,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "zulu-land-tree-fellers-logo"
     },
     {
-        id: "precision-tree-felling",
+        id": "precision-tree-felling",
         name: "Precision Tree Felling",
         location: "Cape Town",
         description: "Specialists in technical tree removals in confined spaces. We use advanced rigging techniques to dismantle trees safely.",
@@ -1217,7 +1394,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "precision-tree-felling-logo"
     },
     {
-        id: "the-stump-grinders",
+        id": "the-stump-grinders",
         name: "The Stump Grinders",
         location: "Gauteng",
         description: "Don't just fell the tree, remove the stump! We specialize in fast and effective stump grinding services across Gauteng.",
@@ -1237,7 +1414,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "the-stump-grinders-logo"
     },
     {
-        id: "bafana-tree-services",
+        id": "bafana-tree-services",
         name: "Bafana Tree Services",
         location: "National",
         description: "A national network of professional {service} teams. We provide consistent, high-quality tree services for residential and corporate clients.",
@@ -1257,7 +1434,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "bafana-tree-services-logo"
     },
     {
-        id: "eco-arborists",
+        id": "eco-arborists",
         name: "Eco Arborists",
         location: "Cape Town",
         description: "Sustainable and environmentally friendly tree management. We focus on preserving trees where possible, and responsible removal when necessary.",
@@ -1277,7 +1454,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "eco-arborists-logo"
     },
     {
-        id: "urban-foresters",
+        id": "urban-foresters",
         name: "Urban Foresters",
         location: "Johannesburg",
         description: "Managing the urban forest of Johannesburg. We are experts in dealing with trees in urban environments, close to buildings and power lines.",
@@ -1297,7 +1474,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "urban-foresters-logo"
     },
     {
-        id: "summit-tree-felling",
+        id": "summit-tree-felling",
         name: "Summit Tree Felling",
         location: "Durbanville",
         description: "Reaching new heights in tree care. High-end, professional {service} for discerning clients in the Northern Suburbs of Cape Town.",
@@ -1332,3 +1509,5 @@ export const getProfessionalById = (id: string): Professional | null => {
     }
     return null;
 };
+
+    

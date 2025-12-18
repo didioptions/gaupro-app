@@ -7,9 +7,63 @@
       "imageHint": "diverse professionals team"
     },
     {
+      "id": "cpt-flow-masters-logo",
+      "description": "A sleek logo for a Cape Town plumbing company with a water drop icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1596461404969-9d0551c1b2a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3YXRlciUyMGRyb3AlMjBsb2dvfGVufDB8fHx8MTc2NTg5OTI0NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water drop logo"
+    },
+    {
+      "id": "durban-drain-doctors-logo",
+      "description": "A professional logo for a drain cleaning service.",
+      "imageUrl": "https://images.unsplash.com/photo-1627916699496-c77b3b3334c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwbHVtYmluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODk5MjQ1fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "plumbing logo"
+    },
+    {
+      "id": "pta-geyser-gurus-logo",
+      "description": "A logo for a geyser repair company with a flame and water icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1622359400582-7203401e18a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWF0JTIwZmlyZSUyMGxvZ298ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "heat fire logo"
+    },
+    {
+      "id": "randburg-rapid-rooter-logo",
+      "description": "A dynamic logo for a plumbing service in Randburg.",
+      "imageUrl": "https://images.unsplash.com/photo-1631027129528-76a955745199?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwbHVtYmluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODk5MjQ1fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "plumbing logo"
+    },
+    {
+      "id": "soweto-water-works-logo",
+      "description": "A community-focused logo for a Soweto plumbing company.",
+      "imageUrl": "https://images.unsplash.com/photo-1634578194401-dd15f628f328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21tdW5pdHklMjBsb2dvfGVufDB8fHx8MTc2NTg5OTI0NXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "community logo"
+    },
+    {
+      "id": "ballito-coastline-plumbing-logo",
+      "description": "A logo for a coastal plumbing service with a wave icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1755106198083-2a81832049d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3YXZlJTIwbG9nb3xlbnwwfHx8fDE3NjU4OTkyNDV8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "wave logo"
+    },
+    {
+      "id": "winelands-plumbing-co-logo",
+      "description": "An elegant logo for a high-end plumbing company in the Winelands.",
+      "imageUrl": "https://images.unsplash.com/photo-1628151242358-da3954279b37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlbGVnYW50JTIwbG9nb3xlbnwwfHx8fDE3NjU4OTkyNDV8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "elegant logo"
+    },
+    {
+      "id": "eco-plumb-sa-logo",
+      "description": "A green logo for an eco-friendly plumbing company.",
+      "imageUrl": "https://images.unsplash.com/photo-1670341445737-06f70d9b291a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlY28lMjBsb2dvfGVufDB8fHx8MTc2NTg5OTI0NXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "eco logo"
+    },
+    {
+      "id": "a-to-z-plumbers-logo",
+      "description": "A classic, trustworthy logo for a long-standing plumbing business.",
+      "imageUrl": "https://images.unsplash.com/photo-1698382318218-1c0a161a803a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3cmVuY2glMjBsb2dvfGVufDB8fHx8fDE3NjU4OTkyNDV8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "wrench logo"
+    },
+    {
       "id": "fire-safe-solutions-logo",
       "description": "A logo for a fire safety company with a shield and a flame icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1627257062083-0b09fafdeed5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1627257062083-0b09fafdeed5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmaXJlJTIwc2hpZWxkJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "fire shield logo"
     },
     {
@@ -207,7 +261,7 @@
     {
       "id": "fibre-fast-logo",
       "description": "A logo for an internet provider with a speeding fibre optic cable graphic.",
-      "imageUrl": "https://images.unsplash.com/photo-1693304396377-a482127f535a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmlicmUlMjBvcHRpY3xlbnwwfHx8fDE3NjU4MzIxNTl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1693304396377-a482127f535a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmlicmUlMjBvcHRpY2xlbnwwfHx8fDE3NjU4MzIxNTl8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "fibre optic"
     },
     {
@@ -315,7 +369,7 @@
     {
       "id": "city-link-shuttles-logo",
       "description": "A logo for a shuttle service featuring a stylized van and a map pin.",
-      "imageUrl": "https://images.unsplash.com/photo-1614314221195-3108381b5f65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx2YW4lMjBtYXB8ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1614314221195-3108381b5f65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx2YW4lMjBtYXB8ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "van map"
     },
     {
@@ -327,13 +381,13 @@
     {
       "id": "quick-cab-logo",
       "description": "A logo for a taxi service with a classic yellow cab icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1628068147106-6bf8c5fa792a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx5ZWxsb3clMjBjYWJ8ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1628068147106-6bf8c5fa792a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxyZWxsb3clMjBjYWJ8ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "yellow cab"
     },
     {
       "id": "logi-link-logo",
       "description": "A professional logo for a transportation and logistics company with interlocking arrows.",
-      "imageUrl": "https://images.unsplash.com/photo-1647032713701-a80d2b69e502?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbnRlcmxvY2tpbmclMjBhcnJvd3N8ZW58MHx8fHwxNzY1ODMyMTU5fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1647032713701-a80d2b69e502?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxpbnRlcmxvY2tpbmclMjBhcnJvd3N8ZW58MHx8fHwxNzY1ODMyMTU5fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "interlocking arrows"
     },
     {
@@ -345,13 +399,13 @@
     {
       "id": "backup-power-logo",
       "description": "Logo for Backup Power CPT",
-      "imageUrl": "https://images.unsplash.com/photo-1644571669401-9ab344866592?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYXR0ZXJ5JTIwcG93ZXJ8ZW58MHx8fHwxNzY1ODMyMTU5fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1644571669401-9ab344866592?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxiYXR0ZXJ5JTIwcG93ZXJ8ZW58MHx8fHwxNzY1ODMyMTU5fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "battery power"
     },
     {
       "id": "gas-direct-logo",
       "description": "Logo for Gas Direct SA",
-      "imageUrl": "https://images.unsplash.com/photo-1627881960266-52ffbc47aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnYXMlMjBjeWxpbmRlcnxlbnwwfHx8fDE3NjU3Nzg0MzV8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1627881960266-52ffbc47aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxnYXMlMjBjeWxpbmRlcnxlbnwwfHx8fDE3NjU3Nzg0MzV8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "gas cylinder"
     },
     {
@@ -417,13 +471,13 @@
     {
       "id": "nanny-on-call-logo",
       "description": "Logo for Nanny-on-Call",
-      "imageUrl": "https://images.unsplash.com/photo-1602734846297-9299fc2d4703?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWRkeSUyMGJlYXJ8ZW58MHx8fHwxNzY1ODMxMjEwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1602734846297-9299fc2d4703?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0ZWRkeSUyMGJlYXJ8ZW58MHx8fHwxNzY1ODMxMjEwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "teddy bear"
     },
     {
       "id": "kiddie-cove-logo",
       "description": "Logo for Kiddie Cove Daycare",
-      "imageUrl": "https://images.unsplash.com/photo-1535572290543-960a8046f5af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0b3klMjBibG9ja3N8ZW58MHx8fHwxNzY1ODMyMTU5fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1535572290543-960a8046f5af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0b3klMjBibG9ja3N8ZW58MHx8fHwxNzY1ODMyMTU5fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "toy blocks"
     },
     {
@@ -465,7 +519,7 @@
     {
       "id": "dapper-dog-logo",
       "description": "A cute and stylish logo for a dog grooming salon.",
-      "imageUrl": "https://images.unsplash.com/photo-1668686056311-431d1bfc6363?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkb2clMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1668686056311-431d1bfc6363?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkb2clMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "dog logo"
     },
     {
@@ -483,7 +537,7 @@
     {
       "id": "global-journeys-logo",
       "description": "A professional logo for a travel agency with a globe icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1762599180260-deb643596e99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnbG9iZSUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762599180260-deb643596e99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxnbG9iZSUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "globe logo"
     },
     {
@@ -501,7 +555,7 @@
     {
       "id": "safe-space-logo",
       "description": "A calming logo for a counseling service.",
-      "imageUrl": "https://images.unsplash.com/photo-1553514378-7a76afaa1b0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYWxtJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553514378-7a76afaa1b0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjYWxtJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "calm logo"
     },
     {
@@ -525,7 +579,7 @@
     {
       "id": "style-lab-logo",
       "description": "A trendy logo for a modern hair salon.",
-      "imageUrl": "https://images.unsplash.com/photo-1762745103111-b37a7bd82046?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoYWlyJTIwc2Fsb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762745103111-b37a7bd82046?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxoYWlyJTIwc2Fsb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "hair salon logo"
     },
     {
@@ -537,7 +591,7 @@
     {
       "id": "canvas-beauty-logo",
       "description": "A chic logo for a makeup artist.",
-      "imageUrl": "https://images.unsplash.com/photo-1747172741584-6851de179085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1747172741584-6851de179085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtYWtldXAlMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "makeup logo"
     },
     {
@@ -549,13 +603,13 @@
     {
       "id": "serene-hands-logo",
       "description": "A logo for a massage therapist with calming hands imagery.",
-      "imageUrl": "https://images.unsplash.com/photo-1664948962404-e699cfda2f80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYXNzYWdlJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1664948962404-e699cfda2f80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtYXNzYWdlJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "massage logo"
     },
     {
       "id": "mind-matters-logo",
       "description": "A logo for a psychologist's practice.",
-      "imageUrl": "https://images.unsplash.com/photo-1633977264416-8c66c1300e63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxicmFpbiUyMGxvZ298ZW58MHx8fHwxNzY1ODA4NDc0fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1633977264416-8c66c1300e63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxiaW5uJTIwbG9nb3xlbnwwfHx8fDE3NjU4MDg0NzR8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "brain logo"
     },
     {
@@ -603,13 +657,13 @@
     {
       "id": "eagle-eye-logo",
       "description": "A logo for a private investigator.",
-      "imageUrl": "https://images.unsplash.com/photo-1671043126282-35226fac3d13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYWduaWZ5aW5nJTIwZ2xhc3MlMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1671043126282-35226fac3d13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxtYWduaWZ5aW5nJTIwZ2xhc3MlMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "magnifying glass logo"
     },
     {
       "id": "sentinel-security-logo",
       "description": "A logo for a security services company.",
-      "imageUrl": "https://images.unsplash.com/photo-1634129003118-37a254f894bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxrbmlnaHQlMjBoZWxtZXQlMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1634129003118-37a254f894bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHhuaWdodCUyMGhlbG1ldCUyMGxvZ29fZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "knight helmet logo"
     },
     {
@@ -633,7 +687,7 @@
     {
       "id": "sparkle-clean-logo",
       "description": "Logo for a cleaning company showing bubbles and sparkles.",
-      "imageUrl": "https://images.unsplash.com/photo-1763929559497-2508b4a4332e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcGFya2xlJTIwYnViYmxlcyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1763929559497-2508b4a4332e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxzcGFya2xlJTIwYnViYmxlcyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "sparkle bubbles logo"
     },
     {
@@ -645,61 +699,61 @@
     {
       "id": "soweto-builders-logo",
       "description": "Logo for Soweto Building Solutions",
-      "imageUrl": "https://images.unsplash.com/photo-1764522319659-1ab9b3fdfa7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1764522319659-1ab9b3fdfa7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "construction logo"
     },
     {
       "id": "ndlovu-construction-logo",
       "description": "Logo for Ndlovu Construction company",
-      "imageUrl": "https://images.unsplash.com/photo-1634578194401-dd15f628f328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxidWlsZGluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1634578194401-dd15f628f328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxidWlsZGluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "building logo"
     },
     {
       "id": "cape-build-masters-logo",
       "description": "Logo for Cape Build Masters company",
-      "imageUrl": "https://images.unsplash.com/photo-1630349713703-08b0f938487c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1630349713703-08b0f938487c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "construction logo"
     },
     {
       "id": "durban-construction-logo",
       "description": "Logo for Durban Construction Co.",
-      "imageUrl": "https://images.unsplash.com/photo-1724638197379-b5a38b2fffbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxidWlsZGluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1724638197379-b5a38b2fffbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxidWlsZGluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "building logo"
     },
     {
       "id": "pretoria-prestige-build-logo",
       "description": "Logo for Pretoria Prestige Build",
-      "imageUrl": "https://images.unsplash.com/photo-1669941893691-69ce832bf9b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1669941893691-69ce832bf9b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "construction logo"
     },
     {
       "id": "zulu-brick-mortar-logo",
       "description": "Logo for Zulu Brick & Mortar company",
-      "imageUrl": "https://images.unsplash.com/photo-1645337546539-e89bfbd1935f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxicmljayUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1645337546539-e89bfbd1935f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxicmljayUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "brick logo"
     },
     {
       "id": "sandton-skyline-dev-logo",
       "description": "Logo for Sandton Skyline Developments",
-      "imageUrl": "https://images.unsplash.com/photo-1613119877592-24fae52092b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxza3lsaW5lJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1613119877592-24fae52092b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxza3lsaW5lJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "skyline logo"
     },
     {
       "id": "bafana-building-group-logo",
       "description": "Logo for Bafana Building Group",
-      "imageUrl": "https://images.unsplash.com/photo-1692372374563-9ab54f303b7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1692372374563-9ab54f303b7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "construction logo"
     },
     {
       "id": "winelands-heritage-builders-logo",
       "description": "Logo for Winelands Heritage Builders",
-      "imageUrl": "https://images.unsplash.com/photo-1601437546250-96d9ca473e05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoZXJpdGFnZSUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1601437546250-96d9ca473e05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx4ZXJpdGFnZSUyMGxvZ29fZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "heritage logo"
     },
     {
       "id": "eco-build-solutions-logo",
       "description": "Logo for EcoBuild Solutions",
-      "imageUrl": "https://images.unsplash.com/photo-1670341445737-06f70d9b291a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlY28lMjBsb2dvfGVufDB8fHx8MTc2NTc0NDQ5OHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1670341445737-06f70d9b291a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxlY28lMjBsb2dvfGVufDB8fHx8MTc2NTc0NDQ5OHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "eco logo"
     },
     {
@@ -723,7 +777,7 @@
     {
       "id": "durban-tree-surgeons-logo",
       "description": "Logo for a Durban based tree surgery company.",
-      "imageUrl": "https://images.unsplash.com/photo-1727818899530-5a3bee908607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmVlJTIwcmVtb3ZhbHxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1727818899530-5a3bee908607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0cmVlJTIwcmVtb3ZhbHxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "tree removal"
     },
     {
@@ -735,7 +789,7 @@
     {
       "id": "green-giants-logo",
       "description": "Logo for a large tree removal company.",
-      "imageUrl": "https://images.unsplash.com/photo-1677607221452-dc9291daf28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnaWFudCUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1677607221452-dc9291daf28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxnaWFudCUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "giant tree"
     },
     {
@@ -747,7 +801,7 @@
     {
       "id": "the-tree-terminator-logo",
       "description": "A bold logo for a tree removal company.",
-      "imageUrl": "https://images.unsplash.com/photo-1622385648155-fc668cb24ac6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0cmVlJTIwdGVybWluYXRvcnxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1622385648155-fc668cb24ac6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0cmVlJTIwdGVybWluYXRvcnxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "tree terminator"
     },
     {
@@ -777,13 +831,13 @@
     {
       "id": "eco-arborists-logo",
       "description": "Logo for an eco-friendly tree felling company.",
-      "imageUrl": "https://images.unsplash.com/photo-1760405451116-0a61173c307f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlY28lMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1760405451116-0a61173c307f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxlY28lMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "eco tree"
     },
     {
       "id": "urban-foresters-logo",
       "description": "Logo for a tree service operating in urban areas.",
-      "imageUrl": "https://images.unsplash.com/photo-1595437581138-377a422c54da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dXJiYW4lMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595437581138-377a422c54da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnJhbiUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "urban tree"
     },
     {
