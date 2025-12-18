@@ -1155,7 +1155,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       photos: ["https://picsum.photos/seed/clean1/600/400"],
       avatarSeed: "sparkle-clean-logo"
     },
-     {
+    {
       id: "expert-crew-cleaners",
       name: "Expert Crew Cleaners",
       location: "Cape Town",
@@ -1293,7 +1293,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "pretoria-tree-experts-logo"
     },
     {
-        id": "green-giants-felling",
+        id: "green-giants-felling",
         name: "Green Giants Tree Felling",
         location: "National",
         description: "Large scale land clearing and commercial {service}. We have the heavy machinery and large teams to handle the biggest jobs.",
@@ -1314,7 +1314,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "green-giants-logo"
     },
     {
-        id": "safe-cut-tree-felling",
+        id: "safe-cut-tree-felling",
         name: "Safe-Cut Tree Felling",
         location: "Randburg",
         description: "Safety is our priority. We are fully insured and use the latest techniques to ensure every job is done without risk to your property.",
@@ -1334,7 +1334,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "safe-cut-tree-felling-logo"
     },
     {
-        id": "the-tree-terminator",
+        id: "the-tree-terminator",
         name: "The Tree Terminator",
         location: "East Rand",
         description: "Got a problem tree? We'll take care of it. Fast, no-fuss {service} on the East Rand. We get the job done.",
@@ -1354,7 +1354,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "the-tree-terminator-logo"
     },
     {
-        id": "zulu-land-tree-fellers",
+        id: "zulu-land-tree-fellers",
         name: "Zulu-Land Tree Fellers",
         location: "KZN",
         description: "Proudly serving the communities of KwaZulu-Natal. From the coast to the midlands, we offer reliable and affordable tree services.",
@@ -1374,7 +1374,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "zulu-land-tree-fellers-logo"
     },
     {
-        id": "precision-tree-felling",
+        id: "precision-tree-felling",
         name: "Precision Tree Felling",
         location: "Cape Town",
         description: "Specialists in technical tree removals in confined spaces. We use advanced rigging techniques to dismantle trees safely.",
@@ -1394,7 +1394,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "precision-tree-felling-logo"
     },
     {
-        id": "the-stump-grinders",
+        id: "the-stump-grinders",
         name: "The Stump Grinders",
         location: "Gauteng",
         description: "Don't just fell the tree, remove the stump! We specialize in fast and effective stump grinding services across Gauteng.",
@@ -1414,7 +1414,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "the-stump-grinders-logo"
     },
     {
-        id": "bafana-tree-services",
+        id: "bafana-tree-services",
         name: "Bafana Tree Services",
         location: "National",
         description: "A national network of professional {service} teams. We provide consistent, high-quality tree services for residential and corporate clients.",
@@ -1434,7 +1434,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "bafana-tree-services-logo"
     },
     {
-        id": "eco-arborists",
+        id: "eco-arborists",
         name: "Eco Arborists",
         location: "Cape Town",
         description: "Sustainable and environmentally friendly tree management. We focus on preserving trees where possible, and responsible removal when necessary.",
@@ -1474,7 +1474,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "urban-foresters-logo"
     },
     {
-        id": "summit-tree-felling",
+        id: "summit-tree-felling",
         name: "Summit Tree Felling",
         location: "Durbanville",
         description: "Reaching new heights in tree care. High-end, professional {service} for discerning clients in the Northern Suburbs of Cape Town.",
@@ -1510,4 +1510,5 @@ export const getProfessionalById = (id: string): Professional | null => {
     return null;
 };
 
+    
     
