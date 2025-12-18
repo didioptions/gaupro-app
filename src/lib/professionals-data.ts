@@ -1156,10 +1156,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       avatarSeed: "sparkle-clean-logo"
     },
      {
-      "id": "expert-crew-cleaners",
+      id: "expert-crew-cleaners",
       name: "Expert Crew Cleaners",
       location: "Cape Town",
-      description": "Dedicated cleaning experts for residential and commercial properties in Cape Town. We bring the sparkle back to your space.",
+      description: "Dedicated cleaning experts for residential and commercial properties in Cape Town. We bring the sparkle back to your space.",
       rating: 4.9,
       reviews: 11,
       isProVerified: true,
