@@ -1159,7 +1159,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       id: "expert-crew-cleaners",
       name: "Expert Crew Cleaners",
       location: "Cape Town",
-      description: "Dedicated cleaning experts for residential and commercial properties in Cape Town. We bring the sparkle back to your space.",
+      description": "Dedicated cleaning experts for residential and commercial properties in Cape Town. We bring the sparkle back to your space.",
       rating: 4.9,
       reviews: 11,
       isProVerified: true,
@@ -1454,7 +1454,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         avatarSeed: "eco-arborists-logo"
     },
     {
-        id": "urban-foresters",
+        id: "urban-foresters",
         name: "Urban Foresters",
         location: "Johannesburg",
         description: "Managing the urban forest of Johannesburg. We are experts in dealing with trees in urban environments, close to buildings and power lines.",
