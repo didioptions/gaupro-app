@@ -52,7 +52,7 @@
     {
       "id": "caterers-image",
       "description": "A close-up shot of a gourmet food platter with various appetizers.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_caterers%20(1).PNG?alt=media&token=cb0c0a97-3104-49b9-a6a2-cc6b7a254b2c",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation_2101454071%20(1).png?alt=media&token=b41a04cd-bb46-49bd-b33a-d1b431f61537",
       "imageHint": "catering food"
     },
     {
@@ -106,7 +106,7 @@
     {
       "id": "videographers-image",
       "description": "A videographer operating a camera on a tripod during an event.",
-      "imageUrl": "https://images.unsplash.com/photo-1619955617520-8dc17e989d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2aWRlb2dyYXBoZXIlMjBjYW1lcmF8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1619955617520-8dc17e989d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2aWRlb2dyYXBoZXIlMjBjYW1lcmF8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "videographer camera"
     },
     {
@@ -172,13 +172,13 @@
     {
       "id": "financial-advisors-image",
       "description": "A financial advisor discussing charts with a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "financial advisor"
     },
     {
       "id": "home-loans-image",
       "description": "A miniature house model held in hands.",
-      "imageUrl": "https://images.unsplash.com/photo-1653164488636-7407bec89281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxob3VzZSUyMG1vZGVsfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653164488636-7407bec89281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxob3VzZSUyMG1vZGVsfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "house model"
     },
     {
