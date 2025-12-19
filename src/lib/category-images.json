@@ -216,6 +216,12 @@
       "description": "A modern air conditioning unit mounted on a wall.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Air%20Conditioning%20(1).png?alt=media&token=34348fd8-30bb-4850-ac55-4f8c5f416760",
       "imageHint": "air conditioner"
+    },
+    {
+      "id": "aluminium-doors-and-windows-image",
+      "description": "Modern, sleek aluminum doors and windows on a contemporary home.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/aluminium%20doors%20and%20windows%20(1).png?alt=media&token=7672ce22-2926-4830-ad75-d5b239e9908a",
+      "imageHint": "aluminium doors windows"
     }
   ]
 }
