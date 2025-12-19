@@ -228,6 +228,12 @@
       "description": "A retractable awning over a patio area.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/awnings%20(1).png?alt=media&token=5d88ccd0-e9ed-498e-ad4e-e2ab2a72a272",
       "imageHint": "patio awning"
+    },
+    {
+      "id": "burglar-bars-image",
+      "description": "Strong burglar bars installed on a window.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Burglar%20Bars%20(1).png?alt=media&token=72891b8b-d687-4b25-b09b-eb03b081dc77",
+      "imageHint": "burglar bars"
     }
   ]
 }
