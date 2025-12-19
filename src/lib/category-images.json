@@ -58,7 +58,7 @@
     {
       "id": "rubble-removal-image",
       "description": "A clean and tidy living room after a rubble removal service.",
-      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "clean room"
     },
     {
@@ -106,13 +106,13 @@
     {
       "id": "videographers-image",
       "description": "A videographer operating a camera on a tripod during an event.",
-      "imageUrl": "https://images.unsplash.com/photo-1619955617520-8dc17e989d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2aWRlb2dyYXBoZXIlMjBjYW1lcmF8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1619955617520-8dc17e989d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2aWRlb2dyYXBoZXIlMjBjYW1lcmF8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "videographer camera"
     },
     {
       "id": "wedding-photographers-image",
       "description": "A photographer taking a picture of a newly married couple.",
-      "imageUrl": "https://images.unsplash.com/photo-1611550287705-7ff8b459c8eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaGVyfGVufDB8fHx8MTc2NTMzNzUzMHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1611550287705-7ff8b459c8eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaGVyfGVufDB8fHx8MTc2NTMzNzUzMHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wedding photographer"
     },
     {
@@ -166,7 +166,7 @@
     {
       "id": "debt-counsellors-image",
       "description": "A supportive handshake over a desk, symbolizing financial help.",
-      "imageUrl": "https://images.unsplash.com/photo-1689903777384-31fd780bef3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBoZWxwfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1689903777384-31fd780bef3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBoZWxwfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "financial help"
     },
     {
@@ -178,7 +178,7 @@
     {
       "id": "home-loans-image",
       "description": "A miniature house model held in hands.",
-      "imageUrl": "https://images.unsplash.com/photo-1653164488636-7407bec89281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxob3VzZSUyMG1vZGVsfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/home%20loan%20good%20(1).png?alt=media&token=cbc9fb90-fe6f-4f94-89f7-d8edfae95e35",
       "imageHint": "house model"
     },
     {
@@ -190,19 +190,19 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
       "id": "demolition-image",
       "description": "An excavator demolishing a brick wall at a construction site.",
-      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHhleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHhleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "excavator demolishing"
     },
     {
@@ -210,6 +210,12 @@
       "description": "A colorful jumping castle set up for a kids party.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/jumping%20castle%20(1).png?alt=media&token=4bff19dc-6431-4b82-8248-fea52b8af2fb",
       "imageHint": "jumping castle"
+    },
+    {
+      "id": "air-conditioning-image",
+      "description": "A modern air conditioning unit mounted on a wall.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Air%20Conditioning%20(1).png?alt=media&token=34348fd8-30bb-4850-ac55-4f8c5f416760",
+      "imageHint": "air conditioner"
     }
   ]
 }
