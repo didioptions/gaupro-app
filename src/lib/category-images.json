@@ -58,7 +58,7 @@
     {
       "id": "rubble-removal-image",
       "description": "A clean and tidy living room after a rubble removal service.",
-      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "clean room"
     },
     {
@@ -172,7 +172,7 @@
     {
       "id": "financial-advisors-image",
       "description": "A financial advisor discussing charts with a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaW5hbmNpYWwlMjBhZHZpc29yfGVufDB8fHx8MTc2NTI2MTE0OHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/financial%20advisors%20(1).png?alt=media&token=a6cfec82-e30f-45a8-b448-a4f89a4f2a4a",
       "imageHint": "financial advisor"
     },
     {
