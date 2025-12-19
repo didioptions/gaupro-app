@@ -222,6 +222,12 @@
       "description": "Modern, sleek aluminum doors and windows on a contemporary home.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/aluminium%20doors%20and%20windows%20(1).png?alt=media&token=7672ce22-2926-4830-ad75-d5b239e9908a",
       "imageHint": "aluminium doors windows"
+    },
+    {
+      "id": "awnings-image",
+      "description": "A retractable awning over a patio area.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/awnings%20(1).png?alt=media&token=5d88ccd0-e9ed-498e-ad4e-e2ab2a72a272",
+      "imageHint": "patio awning"
     }
   ]
 }
