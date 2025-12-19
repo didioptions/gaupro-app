@@ -15,13 +15,13 @@
     {
       "id": "durban-drain-doctors-logo",
       "description": "A professional logo for a drain cleaning service.",
-      "imageUrl": "https://images.unsplash.com/photo-1627916699496-c77b3b3334c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwbHVtYmluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODk5MjQ1fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1627916699496-c77b3b3334c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwbHVtYmluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODk5MjQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "plumbing logo"
     },
     {
       "id": "pta-geyser-gurus-logo",
       "description": "A logo for a geyser repair company with a flame and water icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1622359400582-7203401e18a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWF0JTIwZmlyZSUyMGxvZ298ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1622359400582-7203401e18a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWF0JTIwZmlyZSUyMGxvZ298ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "heat fire logo"
     },
     {
@@ -511,12 +511,6 @@
       "imageHint": "bakery logo"
     },
     {
-      "id": "gourmet-gatherings-logo",
-      "description": "An elegant logo for a high-end catering service.",
-      "imageUrl": "https://images.unsplash.com/photo-1697797390907-b6455bd2a347?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlbGVnYW50JTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "elegant logo"
-    },
-    {
       "id": "dapper-dog-logo",
       "description": "A cute and stylish logo for a dog grooming salon.",
       "imageUrl": "https://images.unsplash.com/photo-1668686056311-431d1bfc6363?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxkb2clMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
@@ -685,166 +679,214 @@
       "imageHint": "cosmetic logo"
     },
     {
-      "id": "sparkle-clean-logo",
-      "description": "Logo for a cleaning company showing bubbles and sparkles.",
-      "imageUrl": "https://images.unsplash.com/photo-1763929559497-2508b4a4332e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxzcGFya2xlJTIwYnViYmxlcyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "sparkle bubbles logo"
+      "id": "builders-image",
+      "description": "A professional builder in a hard hat, smiling confidently at a construction site.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/builder%20good.jpg?alt=media&token=a71c0461-b5c9-4ee1-9ae3-7ca73c90a0ee",
+      "imageHint": "builder construction"
     },
     {
-      "id": "expert-crew-logo",
-      "description": "Logo for a professional crew or team.",
-      "imageUrl": "https://images.unsplash.com/photo-1758499535896-7be3b226d854?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZWFtJTIwbG9nb3xlbnwwfHx8fDE3NjU3NzA0NTJ8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "team logo"
+      "id": "movers-image",
+      "description": "Two professional movers in uniform carrying a couch.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/movers%20good.jpg?alt=media&token=6723d13e-f3d9-4dd7-b64a-3a240a80206b",
+      "imageHint": "movers couch"
     },
     {
-      "id": "soweto-builders-logo",
-      "description": "Logo for Soweto Building Solutions",
-      "imageUrl": "https://images.unsplash.com/photo-1764522319659-1ab9b3fdfa7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "construction logo"
+      "id": "cleaning-service-image",
+      "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation_2101429574%20(1).png?alt=media&token=1b98a0f3-7baf-4f3d-9058-90e1a81a73f9",
+      "imageHint": "cleaning service"
     },
     {
-      "id": "ndlovu-construction-logo",
-      "description": "Logo for Ndlovu Construction company",
-      "imageUrl": "https://images.unsplash.com/photo-1634578194401-dd15f628f328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxidWlsZGluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "building logo"
+      "id": "handyman-image",
+      "description": "A friendly handyman holding a set of tools.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/can%20you%20make%20clear%20color.jpg?alt=media&token=bd5b819b-ddfe-4f3c-a0d6-9a35717eea04",
+      "imageHint": "handyman tools"
     },
     {
-      "id": "cape-build-masters-logo",
-      "description": "Logo for Cape Build Masters company",
-      "imageUrl": "https://images.unsplash.com/photo-1630349713703-08b0f938487c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "construction logo"
+      "id": "architects-image",
+      "description": "An architect reviewing blueprints at a desk.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ultra-realistic%20professional%20%20architects.jpg?alt=media&token=8cb2a4b6-5fca-4186-a5cc-d190c377e50e",
+      "imageHint": "architect blueprint"
     },
     {
-      "id": "durban-construction-logo",
-      "description": "Logo for Durban Construction Co.",
-      "imageUrl": "https://images.unsplash.com/photo-1724638197379-b5a38b2fffbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxidWlsZGluZyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "building logo"
+      "id": "solar-systems-image",
+      "description": "A modern solar panel installation on a residential roof.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation_2101467424%20(1).png?alt=media&token=6dd70301-970b-4d1b-8aad-79c94481e4b7",
+      "imageHint": "solar panels"
     },
     {
-      "id": "pretoria-prestige-build-logo",
-      "description": "Logo for Pretoria Prestige Build",
-      "imageUrl": "https://images.unsplash.com/photo-1669941893691-69ce832bf9b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "construction logo"
+      "id": "security-image",
+      "description": "A security guard monitoring CCTV footage in a control room.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/security%20(1).png?alt=media&token=7041a5cf-6981-46c5-a9d9-321677b3f774",
+      "imageHint": "security control room"
     },
     {
-      "id": "zulu-brick-mortar-logo",
-      "description": "Logo for Zulu Brick & Mortar company",
-      "imageUrl": "https://images.unsplash.com/photo-1645337546539-e89bfbd1935f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxicmljayUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "brick logo"
+      "id": "cctv-image",
+      "description": "A modern security camera mounted on an exterior wall.",
+      "imageUrl": "https://images.unsplash.com/photo-1520697830682-bbb6e85e2b0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZWN1cml0eSUyMGNhbWVyYXxlbnwwfHx8fDE3NjUzMzQ3NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "security camera"
     },
     {
-      "id": "sandton-skyline-dev-logo",
-      "description": "Logo for Sandton Skyline Developments",
-      "imageUrl": "https://images.unsplash.com/photo-1613119877592-24fae52092b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxza3lsaW5lJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNjB8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "skyline logo"
+      "id": "caterers-image",
+      "description": "A close-up shot of a gourmet food platter with various appetizers.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation_2101454071%20(1).png?alt=media&token=b41a04cd-bb46-49bd-b33a-d1b431f61537",
+      "imageHint": "catering food"
     },
     {
-      "id": "bafana-building-group-logo",
-      "description": "Logo for Bafana Building Group",
-      "imageUrl": "https://images.unsplash.com/photo-1692372374563-9ab54f303b7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxjb25zdHJ1Y3Rpb24lMjBsb2dvfGVufDB8fHx8MTc2NTgzMjE2MHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "construction logo"
+      "id": "rubble-removal-image",
+      "description": "A clean and tidy living room after a rubble removal service.",
+      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clean room"
     },
     {
-      "id": "winelands-heritage-builders-logo",
-      "description": "Logo for Winelands Heritage Builders",
-      "imageUrl": "https://images.unsplash.com/photo-1601437546250-96d9ca473e05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx4ZXJpdGFnZSUyMGxvZ29fZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "heritage logo"
+      "id": "painter-image",
+      "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation_2106908307%20(1).png?alt=media&token=6d0e1435-94a4-4beb-8fe8-432bf0951c78",
+      "imageHint": "living room"
     },
     {
-      "id": "eco-build-solutions-logo",
-      "description": "Logo for EcoBuild Solutions",
-      "imageUrl": "https://images.unsplash.com/photo-1670341445737-06f70d9b291a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxlY28lMjBsb2dvfGVufDB8fHx8MTc2NTc0NDQ5OHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "eco logo"
+      "id": "djs-image",
+      "description": "A DJ mixing music on a turntable at a lively event.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/DJ%20(1).png?alt=media&token=57140d72-a49d-47b3-a4c8-2670db85466d",
+      "imageHint": "DJ event"
     },
     {
-      "id": "arbor-pros-logo",
-      "description": "Logo for a professional tree felling company with a large tree icon.",
-      "imageUrl": "https://images.unsplash.com/photo-16992070794689-4ae2b988475b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0cmVlJTIwbG9nb3xlbnwwfHx8fDE3NjU4OTkyNDV8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "tree logo"
+      "id": "event-decorations-image",
+      "description": "A beautifully decorated table setting for a wedding or event.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Deco%20(1).png?alt=media&token=3e7aca83-897f-4fdb-a3f6-26db54466cca",
+      "imageHint": "event decoration"
     },
     {
-      "id": "joburg-tree-fellers-logo",
-      "description": "Logo for a Johannesburg based tree felling company.",
-      "imageUrl": "https://images.unsplash.com/photo-1657730391002-bf55ff069a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0cmVlJTIwc2VydmljZXxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "tree service"
+      "id": "party-planners-image",
+      "description": "A party planner with a clipboard, smiling at a well-organized event.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/party_planners%20(1).png?alt=media&token=63a1b99e-cb50-4f39-85db-970925e2b840",
+      "imageHint": "party planner"
     },
     {
-      "id": "cape-tree-crew-logo",
-      "description": "Logo for a Cape Town tree felling crew.",
-      "imageUrl": "https://images.unsplash.com/photo-1699779393356-ae950758ee67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsb2dvJTIwdHJlZXxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "logo tree"
+      "id": "tent-hire-image",
+      "description": "A large white event tent set up on a grassy field for a wedding.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/tent%20hire%20good.png?alt=media&token=dee6d013-c1ea-4c19-a769-d51976e6d947",
+      "imageHint": "event tent"
     },
     {
-      "id": "durban-tree-surgeons-logo",
-      "description": "Logo for a Durban based tree surgery company.",
-      "imageUrl": "https://images.unsplash.com/photo-1727818899530-5a3bee908607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0cmVlJTIwcmVtb3ZhbHxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "tree removal"
+      "id": "photographers-image",
+      "description": "A photographer holding a professional camera, ready to shoot.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_photographer.PNG?alt=media&token=d50d4b5d-3124-4172-8baf-58a0bdc4fad1",
+      "imageHint": "photographer camera"
     },
     {
-      "id": "pretoria-tree-experts-logo",
-      "description": "Logo for a Pretoria based tree felling company.",
-      "imageUrl": "https://images.unsplash.com/photo-1738777215249-d66bfda9791b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0cmVlJTIwZXhwZXJ0c3xlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "tree experts"
+      "id": "toilet-hire-image",
+      "description": "A row of clean, modern portable toilets for an outdoor event.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/toilet%20hire.png?alt=media&token=a1abd3bc-a693-4448-8fff-cb7695f0579d",
+      "imageHint": "portable toilets"
     },
     {
-      "id": "green-giants-logo",
-      "description": "Logo for a large tree removal company.",
-      "imageUrl": "https://images.unsplash.com/photo-1677607221452-dc9291daf28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxnaWFudCUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "giant tree"
+      "id": "videographers-image",
+      "description": "A videographer operating a camera on a tripod during an event.",
+      "imageUrl": "https://images.unsplash.com/photo-1619955617520-8dc17e989d79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2aWRlb2dyYXBoZXIlMjBjYW1lcmF8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "videographer camera"
     },
     {
-      "id": "safe-cut-tree-felling-logo",
-      "description": "Logo emphasizing safety in tree felling.",
-      "imageUrl": "https://images.unsplash.com/photo-1705694312853-c85baecce580?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzYWZlJTIwdHJlZSUyMGN1dHxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "safe tree cut"
+      "id": "wedding-photographers-image",
+      "description": "A photographer taking a picture of a newly married couple.",
+      "imageUrl": "https://images.unsplash.com/photo-1611550287705-7ff8b459c8eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaGVyfGVufDB8fHx8MTc2NTMzNzUzMHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding photographer"
     },
     {
-      "id": "the-tree-terminator-logo",
-      "description": "A bold logo for a tree removal company.",
-      "imageUrl": "https://images.unsplash.com/photo-1622385648155-fc668cb24ac6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx0cmVlJTIwdGVybWluYXRvcnxlbnwwfHx8fDE3NjU4OTkyNDR8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "tree terminator"
+      "id": "plumber-image",
+      "description": "A plumber's hands fixing a chrome bathroom faucet.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/plumber%20good%20(1).png?alt=media&token=c15fc88a-c591-41d9-a87e-d371529b2788",
+      "imageHint": "plumber faucet"
     },
     {
-      "id": "zulu-land-tree-fellers-logo",
-      "description": "Logo for a KZN based tree felling company.",
-      "imageUrl": "https://images.unsplash.com/photo-1738084919615-9f06e3805764?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8enVsdSUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "zulu tree"
+      "id": "electrician-image",
+      "description": "An electrician carefully working on a circuit breaker panel.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Electricians%20good%20(1).jpg?alt=media&token=f43a60ef-f674-4eb6-8814-b842742dfe62",
+      "imageHint": "electrician working"
     },
     {
-      "id": "precision-tree-felling-logo",
-      "description": "Logo highlighting precision in tree removal.",
-      "imageUrl": "https://images.unsplash.com/photo-1678775700423-f535a00306e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJlY2lzaW9uJTIwY3V0fGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "precision cut"
+      "id": "gardeners-image",
+      "description": "A lush, green, well-maintained garden with blooming flowers.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garders%20good%20(1).png?alt=media&token=be72d085-6f9e-43bc-b619-9325a65db151",
+      "imageHint": "garden flowers"
     },
     {
-      "id": "the-stump-grinders-logo",
-      "description": "Logo for a company specializing in stump grinding.",
-      "imageUrl": "https://images.unsplash.com/photo-1754321895426-68b04ba453e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHVtcCUyMGdyaW5kaW5nfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "stump grinding"
+      "id": "pest-control-image",
+      "description": "A pest control professional in uniform inspecting the exterior of a clean house.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/pest%20con%20(1).jpg?alt=media&token=3d87bea8-3627-43ca-b292-4324ef4f4cb9",
+      "imageHint": "pest control"
     },
     {
-      "id": "bafana-tree-services-logo",
-      "description": "A national tree service company logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1759207027168-eae53a5c4a8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxuYXRpb25hbCUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "national tree"
+      "id": "tree-felling-image",
+      "description": "A person with safety gear cutting a tree branch.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/20251217_2113_image%20(1).png?alt=media&token=fdae2cd9-8f18-4656-ad6b-b1fe512e6949",
+      "imageHint": "tree felling"
     },
     {
-      "id": "eco-arborists-logo",
-      "description": "Logo for an eco-friendly tree felling company.",
-      "imageUrl": "https://images.unsplash.com/photo-1760405451116-0a61173c307f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxlY28lMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "eco tree"
+      "id": "carpenters-image",
+      "description": "A carpenter measuring a piece of wood in a workshop.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/cap%20good%20(1).png?alt=media&token=1dafe0d7-40e2-40ce-bada-accbe677b538",
+      "imageHint": "carpenter wood"
     },
     {
-      "id": "urban-foresters-logo",
-      "description": "Logo for a tree service operating in urban areas.",
-      "imageUrl": "https://images.unsplash.com/photo-1595437581138-377a422c54da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhcnJhbiUyMHRyZWV8ZW58MHx8fHwxNzY1ODk5MjQ0fDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "urban tree"
+      "id": "accounting-image",
+      "description": "A calculator and pen on top of financial documents.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Accountant%202).png?alt=media&token=ba08721a-63a6-4d04-b346-37ade3b704e8",
+      "imageHint": "accounting finance"
     },
     {
-      "id": "summit-tree-felling-logo",
-      "description": "High-end tree felling service logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1703261579292-ba45b2bdcf2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdW1taXQlMjB0cmVlfGVufDB8fHx8MTc2NTg5OTI0NHww&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "summit tree"
+      "id": "auditors-image",
+      "description": "A person with a magnifying glass examining a financial report.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/auditors%20good%20(1).png?alt=media&token=4f99dc83-ce7b-49f1-9b5f-d3134986b8ec",
+      "imageHint": "auditor report"
+    },
+    {
+      "id": "debt-counsellors-image",
+      "description": "A supportive handshake over a desk, symbolizing financial help.",
+      "imageUrl": "https://images.unsplash.com/photo-1689903777384-31fd780bef3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBoZWxwfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "financial help"
+    },
+    {
+      "id": "financial-advisors-image",
+      "description": "A financial advisor discussing charts with a client.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/financial%20advisors%20(1).png?alt=media&token=a6cfec82-e30f-45a8-b448-a4f89a4f2a4a",
+      "imageHint": "financial advisor"
+    },
+    {
+      "id": "home-loans-image",
+      "description": "A miniature house model held in hands.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/home%20loan%20good%20(1).png?alt=media&token=cbc9fb90-fe6f-4f94-89f7-d8edfae95e35",
+      "imageHint": "house model"
+    },
+    {
+      "id": "insurance-image",
+      "description": "An umbrella protecting a family, symbolizing insurance coverage.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Insurance%201.png?alt=media&token=2bfd8693-b888-463b-aaad-0f5aa0552b37",
+      "imageHint": "insurance protection"
+    },
+    {
+      "id": "business-consultants-image",
+      "description": "A business consultant presenting a growth strategy on a whiteboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "business strategy"
+    },
+    {
+      "id": "company-registrations-image",
+      "description": "A person signing an official company registration document.",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "document signing"
+    },
+    {
+      "id": "demolition-image",
+      "description": "An excavator demolishing a brick wall at a construction site.",
+      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHhleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "excavator demolishing"
+    },
+    {
+      "id": "jumping-castle-image",
+      "description": "A colorful jumping castle set up for a kids party.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/jumping%20castle%20(1).png?alt=media&token=4bff19dc-6431-4b82-8248-fea52b8af2fb",
+      "imageHint": "jumping castle"
     }
   ]
 }
