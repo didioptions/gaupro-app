@@ -234,6 +234,12 @@
       "description": "Strong burglar bars installed on a window.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Burglar%20Bars%20(1).png?alt=media&token=72891b8b-d687-4b25-b09b-eb03b081dc77",
       "imageHint": "burglar bars"
+    },
+    {
+      "id": "bathroom-renovations-image",
+      "description": "A modern, stylish bathroom with clean lines and contemporary fixtures.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Bathroom%20Renovations.png?alt=media&token=2b0e6664-a0ac-4618-b9b8-5a1be5e4c1ba",
+      "imageHint": "modern bathroom"
     }
   ]
 }
