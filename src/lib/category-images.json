@@ -240,6 +240,12 @@
       "description": "A modern, stylish bathroom with clean lines and contemporary fixtures.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Bathroom%20Renovations.png?alt=media&token=2b0e6664-a0ac-4618-b9b8-5a1be5e4c1ba",
       "imageHint": "modern bathroom"
+    },
+    {
+      "id": "blinds-image",
+      "description": "Modern blinds installed on a large window.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Blinds%20(1).png?alt=media&token=580fc7c2-808b-417c-b514-a7d9566c856b",
+      "imageHint": "window blinds"
     }
   ]
 }
