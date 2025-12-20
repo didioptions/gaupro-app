@@ -246,6 +246,18 @@
       "description": "Modern blinds installed on a large window.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Blinds%20(1).png?alt=media&token=580fc7c2-808b-417c-b514-a7d9566c856b",
       "imageHint": "window blinds"
+    },
+    {
+      "id": "carports-image",
+      "description": "An abstract image of a city skyline, used as a placeholder.",
+      "imageUrl": "https://picsum.photos/seed/carports-placeholder/300/200",
+      "imageHint": "city skyline"
+    },
+    {
+      "id": "real-carports-image",
+      "description": "A modern steel carport providing shade for a car.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carports%20(1).png?alt=media&token=96e4ddf5-53d5-46f1-9de4-a2c04893d936",
+      "imageHint": "carport shade"
     }
   ]
 }
