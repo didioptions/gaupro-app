@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, MessageCircle } from 'lucide-react';
+import { Star, MessageCircle, Verified } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
@@ -83,24 +83,40 @@ export default function ProfessionalCard({ professional, service }: Professional
                   <h3 className="text-xl text-foreground">{professional.name}</h3>
                 </Link>
                 <p className="text-sm text-muted-foreground">{professional.location}</p>
+
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm mt-2 text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                        <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                        <span className="font-bold text-foreground">{professional.rating > 0 ? professional.rating.toFixed(1) : '0.0'}</span>
+                        <span>({professional.reviews} reviews)</span>
+                    </div>
+                    {professional.isProVerified && (
+                        <div className="flex items-center gap-1 text-green-600">
+                            <Verified className="h-4 w-4" />
+                            <span>Verified</span>
+                        </div>
+                    )}
+                </div>
+
                 <p className="text-sm mt-2 text-foreground">
                   {renderDescription()}
                 </p>
               </div>
             </div>
           </div>
-          <div className="text-left sm:text-right">
-            <Badge className="text-base font-bold bg-teal-500 text-white border-teal-500 px-3">{professional.rating > 0 ? professional.rating.toFixed(1) : '0.0'}</Badge>
-            <p className="text-xs text-muted-foreground mt-1">{professional.reviews} reviews</p>
+          <div className="text-left sm:text-right space-y-2">
             <RequestQuoteDialog
               service={service}
               initialStep={0}
               initialData={{}}
             >
-              <Button variant="outline" className="mt-4 w-full sm:w-auto">
+              <Button className="w-full sm:w-auto">
                 Request a Quote
               </Button>
             </RequestQuoteDialog>
+             <Button variant="outline" className="w-full sm:w-auto" asChild>
+                <Link href={`/pro/${professional.id}?service=${service}`}>View Profile</Link>
+             </Button>
           </div>
         </div>
         {professional.reviewData && professional.reviewData.length > 0 && (
