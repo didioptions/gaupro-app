@@ -47,7 +47,7 @@ export const allServices = [
     { value: 'carpet-cleaning', label: 'Carpet Cleaning' },
     { value: 'carpeting', label: 'Carpeting' },
     { value: 'carports', label: 'Carports' },
-    { value: 'carpenter', label: 'Carpenters' },
+    { value: 'carpenters', label: 'Carpenters' },
     { value: 'caterers', label: 'Caterers' },
     { value: 'cctv', label: 'Cctv' },
     { value: 'ceiling-installers', label: 'Ceiling Installers' },
@@ -1484,7 +1484,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
   {
-      service: 'carpenter',
+      service: 'carpentry',
       questions: [
           {
               id: 'carpentry_work',
@@ -2491,6 +2491,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
 ];
+
 
 
 
