@@ -13,7 +13,7 @@ const popularServices = [
   { name: "Builders", value: "builders", imageId: "builders-image" },
   { name: "Movers", value: "movers", imageId: "movers-image" },
   { name: "Caterers", value: "caterers", imageId: "caterers-image" },
-  { name: "Architects", value: "architects", imageId: "architects-image" },
+  { name: "Carports", value: "carports", imageId: "carports-image" },
   { name: "Handymen", value: "handyman", imageId: "handyman-image" },
   { name: "Solar Systems", value: "solar-systems", imageId: "solar-systems-image" },
   { name: "Security", value: "security", imageId: "security-image" },
