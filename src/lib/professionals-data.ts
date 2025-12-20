@@ -30,6 +30,149 @@ type ProfessionalsByCategory = {
 };
 
 export const allProfessionals: ProfessionalsByCategory = {
+  "bathroom-renovations": [
+    {
+      id: "dream-bathrooms-jhb",
+      name: "Dream Bathrooms JHB",
+      location: "Johannesburg",
+      description: "Transform your space with Johannesburg's top {service} experts. We create stunning, functional bathrooms tailored to your style and budget.",
+      rating: 4.9,
+      reviews: 32,
+      isProVerified: true,
+      yearsInBusiness: 12,
+      employees: 8,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "bathroom-renovations",
+      serviceLocations: ["johannesburg", "sandton", "randburg"],
+      tags: ["Modern Bathrooms", "Full Remodels", "Tiling", "Plumbing"],
+      reviewData: [
+        { author: "Maria S.", rating: 5, comment: "They completely transformed our old, dated bathroom into a modern sanctuary. The team was professional from start to finish." },
+        { author: "David P.", rating: 5, comment: "Incredible attention to detail. The tiling work is flawless. Highly recommend Dream Bathrooms." }
+      ],
+      photos: ["https://picsum.photos/seed/bath1/600/400"],
+      avatarSeed: "dream-bathrooms-logo"
+    },
+    {
+      id: "cape-bathroom-co",
+      name: "Cape Bathroom Co.",
+      location: "Cape Town",
+      description: "Cape Town's specialists in bespoke {service}. We combine elegant design with quality craftsmanship for bathrooms that are both beautiful and practical.",
+      rating: 4.8,
+      reviews: 25,
+      isProVerified: true,
+      yearsInBusiness: 15,
+      employees: 10,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "bathroom-renovations",
+      serviceLocations: ["cape-town", "southern-suburbs", "bellville"],
+      tags: ["Luxury Bathrooms", "Custom Designs", "Water-saving fixtures"],
+      reviewData: [
+        { author: "The Carters", rating: 5, comment: "Our new bathroom is like something out of a magazine. The design process was fantastic and the execution was perfect." }
+      ],
+      photos: ["https://picsum.photos/seed/bath2/600/400"],
+      avatarSeed: "cape-bathroom-logo"
+    },
+    {
+      id: "durban-bathroom-pros",
+      name: "Durban Bathroom Pros",
+      location: "Durban",
+      description: "Reliable and affordable {service} in Durban. From simple fixture updates to complete overhauls, we deliver quality results on time and on budget.",
+      rating: 4.7,
+      reviews: 18,
+      isProVerified: true,
+      yearsInBusiness: 9,
+      employees: 6,
+      businessHours: "Mon-Sat, 7am-6pm",
+      serviceCategory: "bathroom-renovations",
+      serviceLocations: ["durban", "umhlanga", "pinetown"],
+      tags: ["Affordable Renovations", "Shower Installations", "Bathroom Repairs"],
+      reviewData: [
+        { author: "N. Govender", rating: 5, comment: "Excellent value for money. They did a great job on our bathroom and stuck to the quoted price." }
+      ],
+      photos: ["https://picsum.photos/seed/bath3/600/400"],
+      avatarSeed: "durban-bathroom-pros-logo"
+    },
+    {
+      id: "pta-premier-bathrooms",
+      name: "PTA Premier Bathrooms",
+      location: "Pretoria",
+      description: "Pretoria's choice for high-quality {service}. We use the best materials and skilled artisans to ensure a finish that lasts.",
+      rating: 4.9,
+      reviews: 21,
+      isProVerified: true,
+      yearsInBusiness: 11,
+      employees: 9,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "bathroom-renovations",
+      serviceLocations: ["pretoria", "centurion"],
+      tags: ["High-Quality Finishes", "Waterproofing", "Bathroom Design"],
+      reviewData: [
+        { author: "J. Botha", rating: 5, comment: "The quality of their work is outstanding. Our new bathroom feels solid and looks beautiful. True professionals." }
+      ],
+      photos: ["https://picsum.photos/seed/bath4/600/400"],
+      avatarSeed: "pta-premier-logo"
+    },
+    {
+      id: "the-bathroom-boutique",
+      name: "The Bathroom Boutique",
+      location: "Sandton",
+      description: "Luxury and designer {service} for the discerning client. We create spa-like experiences in your own home with high-end fixtures and finishes.",
+      rating: 5.0,
+      reviews: 15,
+      isProVerified: true,
+      yearsInBusiness: 8,
+      employees: 5,
+      businessHours: "By Appointment",
+      serviceCategory: "bathroom-renovations",
+      serviceLocations: ["sandton", "bryanston", "hydepark"],
+      tags: ["Luxury Bathrooms", "Designer Bathrooms", "Spa Bathrooms"],
+      reviewData: [
+        { author: "Anonymous", rating: 5, comment: "They created a bathroom that is a work of art. The process was seamless and the result is beyond my wildest dreams." }
+      ],
+      photos: ["https://picsum.photos/seed/bath5/600/400"],
+      avatarSeed: "bathroom-boutique-logo"
+    },
+    {
+      id: "quick-fix-bathrooms",
+      name: "Quick-Fix Bathrooms",
+      location: "Gauteng",
+      description: "Fast and efficient bathroom updates and repairs. We focus on smaller projects like shower installations, vanity replacements, and tiling repairs.",
+      rating: 4.6,
+      reviews: 29,
+      isProVerified: false,
+      yearsInBusiness: 6,
+      employees: 4,
+      businessHours: "Mon-Sat, 8am-6pm",
+      serviceCategory: "bathroom-renovations",
+      serviceLocations: ["johannesburg", "pretoria"],
+      tags: ["Bathroom Repairs", "Shower Installation", "Quick Updates"],
+      reviewData: [
+        { author: "P. Jones", rating: 5, comment: "Replaced my old shower with a new walk-in one. They did it in a single day. Very impressed." }
+      ],
+      photos: ["https://picsum.photos/seed/bath6/600/400"],
+      avatarSeed: "quick-fix-logo"
+    },
+    {
+      id: "all-about-bathrooms",
+      name: "All About Bathrooms",
+      location: "Cape Town",
+      description: "Your one-stop-shop for all {service}. From design consultation to final installation, we manage the entire project for a stress-free experience.",
+      rating: 4.8,
+      reviews: 23,
+      isProVerified: true,
+      yearsInBusiness: 14,
+      employees: 15,
+      businessHours: "Mon-Fri, 9am-5pm",
+      serviceCategory: "bathroom-renovations",
+      serviceLocations: ["cape-town", "northern-suburbs", "southern-suburbs"],
+      tags: ["Full Service", "Project Management", "Bathroom Design"],
+      reviewData: [
+        { author: "The Harris Family", rating: 5, comment: "It was so easy working with them. They handled everything, from the plumbers to the electricians. The final result is amazing." }
+      ],
+      photos: ["https://picsum.photos/seed/bath7/600/400"],
+      avatarSeed: "all-about-bathrooms-logo"
+    }
+  ],
   "plumber": [
     {
       id: "jhb-plumb-pros",

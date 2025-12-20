@@ -17,7 +17,7 @@ const popularServices = [
   { name: "Handymen", value: "handyman", imageId: "handyman-image" },
   { name: "Solar Systems", value: "solar-systems", imageId: "solar-systems-image" },
   { name: "Security", value: "security", imageId: "security-image" },
-  { name: "Cleaning Services", value: "cleaning-service", imageId: "cleaning-service-image" },
+  { name: "Bathroom Renovations", value: "top-companies/bathroom-renovations", imageId: "bathroom-renovations-image" },
 ];
 
 const weddingServices = [
