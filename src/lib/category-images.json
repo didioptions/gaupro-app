@@ -254,12 +254,6 @@
       "imageHint": "carport shade"
     },
     {
-      "id": "carpeting-image",
-      "description": "A carpenter measuring a piece of wood in a workshop.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/cap%20good%20(1).png?alt=media&token=c460db95-0f77-4848-9a6b-76d71464b654",
-      "imageHint": "carpenter wood"
-    },
-    {
       "id": "balustrades-image",
       "description": "Modern glass balustrades on a staircase.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/bula%20(1).png?alt=media&token=9e12eb5f-9e59-4700-9446-ba9fdb8c01da",
@@ -306,6 +300,12 @@
       "description": "A high-pressure washer cleaning a dirty patio.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/%F0%9F%92%A6%20High%20Pressure%20Cleaning%20(1).png?alt=media&token=3d4442ad-fb75-44ad-b41d-d249d62017fc",
       "imageHint": "pressure washer"
+    },
+    {
+      "id": "gas-installers-image",
+      "description": "A certified professional installing a gas appliance safely.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gas%20inst%20(1).png?alt=media&token=17497aad-d08c-4b40-af9a-a53e5749ff4f",
+      "imageHint": "gas installation"
     }
   ]
 }
