@@ -252,6 +252,12 @@
       "description": "A modern steel carport providing shade for a car.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carports%20(1).png?alt=media&token=96e4ddf5-53d5-46f1-9de4-a2c04893d936",
       "imageHint": "carport shade"
+    },
+    {
+      "id": "carpeting-image",
+      "description": "A carpenter measuring a piece of wood in a workshop.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/cap%20good%20(1).png?alt=media&token=c460db95-0f77-4848-9a6b-76d71464b654",
+      "imageHint": "carpenter wood"
     }
   ]
 }
