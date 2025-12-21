@@ -270,6 +270,12 @@
       "description": "A modern garage door on a residential house.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garage%20door%20(1).png?alt=media&token=98640832-963b-41bb-8698-b987f6bf87f1",
       "imageHint": "garage door"
+    },
+    {
+      "id": "curtains-image",
+      "description": "Elegant curtains hanging in a well-lit room.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/curtains%20(1).png?alt=media&token=e965480d-e56b-415b-8619-708cf58fb039",
+      "imageHint": "curtains window"
     }
   ]
 }
