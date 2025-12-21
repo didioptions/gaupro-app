@@ -300,6 +300,12 @@
       "description": "A worker installing a new ceiling.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/ceiling%20insta%20(1).png?alt=media&token=a04b2349-73b9-41a1-ba79-2459238494ce",
       "imageHint": "ceiling installation"
+    },
+    {
+      "id": "high-pressure-cleaning-image",
+      "description": "A high-pressure washer cleaning a dirty patio.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/%F0%9F%92%A6%20High%20Pressure%20Cleaning%20(1).png?alt=media&token=3d4442ad-fb75-44ad-b41d-d249d62017fc",
+      "imageHint": "pressure washer"
     }
   ]
 }
