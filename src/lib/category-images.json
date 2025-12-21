@@ -294,6 +294,12 @@
       "description": "A worker installing a drywall panel.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/fitting%20drywall%20(1).png?alt=media&token=47fde21e-0727-4930-b932-cda863b6e670",
       "imageHint": "drywall installation"
+    },
+    {
+      "id": "ceiling-installers-image",
+      "description": "A worker installing a new ceiling.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/ceiling%20insta%20(1).png?alt=media&token=a04b2349-73b9-41a1-ba79-2459238494ce",
+      "imageHint": "ceiling installation"
     }
   ]
 }
