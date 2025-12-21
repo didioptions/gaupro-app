@@ -264,6 +264,12 @@
       "description": "Modern glass balustrades on a staircase.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/bula%20(1).png?alt=media&token=9e12eb5f-9e59-4700-9446-ba9fdb8c01da",
       "imageHint": "glass balustrades"
+    },
+    {
+      "id": "garage-doors-image",
+      "description": "A modern garage door on a residential house.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garage%20door%20(1).png?alt=media&token=98640832-963b-41bb-8698-b987f6bf87f1",
+      "imageHint": "garage door"
     }
   ]
 }
