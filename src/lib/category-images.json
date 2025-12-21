@@ -288,6 +288,12 @@
       "description": "A freshly poured concrete slab for a new building foundation.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Concrete%20Slabs%20(1).png?alt=media&token=5e4f8139-1487-4023-95cf-565c32277335",
       "imageHint": "concrete slab"
+    },
+    {
+      "id": "drywalls-image",
+      "description": "A worker installing a drywall panel.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/fitting%20drywall%20(1).png?alt=media&token=47fde21e-0727-4930-b932-cda863b6e670",
+      "imageHint": "drywall installation"
     }
   ]
 }
