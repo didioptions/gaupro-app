@@ -276,6 +276,12 @@
       "description": "Elegant curtains hanging in a well-lit room.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/curtains%20(1).png?alt=media&token=e965480d-e56b-415b-8619-708cf58fb039",
       "imageHint": "curtains window"
+    },
+    {
+      "id": "flooring-image",
+      "description": "A worker installing new wooden flooring.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/flooring%20installers%20(1).png?alt=media&token=51575da8-3f9c-4bd0-ac46-ff9b7cdf7247",
+      "imageHint": "flooring installation"
     }
   ]
 }
