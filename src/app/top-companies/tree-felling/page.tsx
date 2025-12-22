@@ -13,8 +13,6 @@ export default function TopTreeFellingPage() {
   const treeFellingPros = allProfessionals['tree-felling'] || [];
   const topCompanies = treeFellingPros.sort((a, b) => b.rating - a.rating).slice(0, 7);
 
-  const heroImage = PlaceHolderImages.find(p => p.id === 'tree-felling-image');
-
   const benefits = [
     '🛡️ Fully Vetted Companies',
     '📈 High Customer Ratings',
@@ -29,16 +27,14 @@ export default function TopTreeFellingPage() {
       <Header />
       <main className="flex-grow">
          <section className="relative min-h-[500px] flex items-center justify-center text-center text-white">
-            {heroImage && (
-                <Image
-                    src={heroImage.imageUrl}
-                    alt={heroImage.description || "Service background image"}
-                    fill
-                    className="object-cover"
-                    priority
-                    data-ai-hint={heroImage.imageHint}
-                />
-            )}
+            <Image
+                src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/1%20tree%20felling.jpg?alt=media&token=4be03afa-d8a5-4bb0-bc87-7ce535bbf2fd"
+                alt="Tree felling service background"
+                fill
+                className="object-cover"
+                priority
+                data-ai-hint="tree felling service"
+            />
              <div className="absolute inset-0 bg-black/60" />
              <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                 <div className="hidden md:block">
