@@ -30,6 +30,129 @@ type ProfessionalsByCategory = {
 };
 
 export const allProfessionals: ProfessionalsByCategory = {
+  "gardeners": [
+    {
+      id: "green-thumb-gardens-jhb",
+      name: "Green Thumb Gardens",
+      location: "Johannesburg",
+      description: "From garden maintenance to complete landscape design, we provide top-quality {service}. Let us cultivate the garden of your dreams.",
+      rating: 4.9,
+      reviews: 45,
+      isProVerified: true,
+      yearsInBusiness: 12,
+      employees: 15,
+      businessHours: "Mon-Sat, 8am-5pm",
+      serviceCategory: "gardeners",
+      serviceLocations: ["johannesburg", "sandton", "randburg"],
+      tags: ["Landscaping", "Garden Maintenance", "Irrigation", "Lawn Care"],
+      reviewData: [
+        { author: "Themba L.", rating: 5, comment: "Our garden has never looked better! The team is professional, reliable, and truly has a green thumb." },
+        { author: "Sarah P.", rating: 5, comment: "They designed and installed our new garden. It's an oasis. Incredible work." }
+      ],
+      photos: ["https://picsum.photos/seed/garden1/600/400"],
+      avatarSeed: "green-thumb-logo"
+    },
+    {
+      id: "cape-garden-gurus",
+      name: "Cape Garden Gurus",
+      location: "Cape Town",
+      description: "Specializing in water-wise and indigenous {service} for the Cape. We create beautiful, sustainable gardens that thrive in the local climate.",
+      rating: 4.8,
+      reviews: 38,
+      isProVerified: true,
+      yearsInBusiness: 10,
+      employees: 10,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "gardeners",
+      serviceLocations: ["cape-town", "southern-suburbs", "bellville"],
+      tags: ["Water-wise Gardens", "Indigenous Plants", "Landscaping"],
+      reviewData: [
+        { author: "Janine V.", rating: 5, comment: "They transformed our water-thirsty lawn into a stunning fynbos garden. So knowledgeable and passionate." }
+      ],
+      photos: ["https://picsum.photos/seed/garden2/600/400"],
+      avatarSeed: "cape-garden-gurus-logo"
+    },
+    {
+      id: "durban-lawn-legends",
+      name: "Durban Lawn Legends",
+      location: "Durban",
+      description: "The best lawns in Durban start here. We offer expert lawn care, from regular mowing and fertilizing to complete lawn overhauls.",
+      rating: 4.7,
+      reviews: 32,
+      isProVerified: true,
+      yearsInBusiness: 8,
+      employees: 12,
+      businessHours: "Mon-Fri, 7am-4pm",
+      serviceCategory: "gardeners",
+      serviceLocations: ["durban", "umhlanga", "pinetown"],
+      tags: ["Lawn Care", "Mowing Service", "Fertilizing"],
+      reviewData: [
+        { author: "Rajesh N.", rating: 5, comment: "My lawn is the envy of the neighborhood thanks to these guys. Always looks perfect." }
+      ],
+      photos: ["https://picsum.photos/seed/garden3/600/400"],
+      avatarSeed: "durban-lawn-legends-logo"
+    },
+    {
+      id: "pretoria-perfect-gardens",
+      name: "Pretoria Perfect Gardens",
+      location: "Pretoria",
+      description: "Complete garden services in Pretoria. We do it all: regular maintenance, clean-ups, landscaping, and irrigation.",
+      rating: 4.8,
+      reviews: 29,
+      isProVerified: true,
+      yearsInBusiness: 11,
+      employees: 9,
+      businessHours: "Mon-Fri, 8am-5pm",
+      serviceCategory: "gardeners",
+      serviceLocations: ["pretoria", "centurion"],
+      tags: ["Garden Services", "Clean-ups", "Landscaping"],
+      reviewData: [
+        { author: "Elize B.", rating: 5, comment: "A very reliable and hardworking team. My garden is always neat and tidy." }
+      ],
+      photos: ["https://picsum.photos/seed/garden4/600/400"],
+      avatarSeed: "pretoria-perfect-gardens-logo"
+    },
+    {
+      id: "randburg-rose-care",
+      name: "Randburg Rose & Garden",
+      location: "Randburg",
+      description: "Specialists in rose care and classic garden design. We provide expert pruning, feeding, and pest control for prize-winning roses.",
+      rating: 5.0,
+      reviews: 15,
+      isProVerified: true,
+      yearsInBusiness: 20,
+      employees: 4,
+      businessHours: "By Appointment",
+      serviceCategory: "gardeners",
+      serviceLocations: ["randburg", "sandton"],
+      tags: ["Rose Care", "Classic Gardens", "Pruning"],
+      reviewData: [
+        { author: "Mrs. Henderson", rating: 5, comment: "My roses have never been healthier or more beautiful. True experts." }
+      ],
+      photos: ["https://picsum.photos/seed/garden5/600/400"],
+      avatarSeed: "randburg-rose-care-logo"
+    },
+    {
+      id: "eco-scapes-sa",
+      name: "Eco-Scapes SA",
+      location: "National",
+      description: "Sustainable and ecological landscape design and {service}. We create food gardens, natural swimming pools, and biodiversity-friendly habitats.",
+      rating: 4.9,
+      reviews: 22,
+      isProVerified: true,
+      yearsInBusiness: 9,
+      employees: 18,
+      businessHours: "Mon-Fri, 9am-4pm",
+      serviceCategory: "gardeners",
+      serviceLocations: ["johannesburg", "cape-town", "durban"],
+      tags: ["Ecological Design", "Food Gardens", "Natural Pools"],
+      reviewData: [
+        { author: "Sustainable Living Blogger", rating: 5, comment: "A truly innovative company that is changing the way we think about gardens." }
+      ],
+      photos: ["https://picsum.photos/seed/garden6/600/400"],
+      avatarSeed: "eco-scapes-sa-logo"
+    }
+  ],
   "bathroom-renovations": [
     {
       id: "dream-bathrooms-jhb",
