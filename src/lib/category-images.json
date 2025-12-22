@@ -195,13 +195,13 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
       "id": "demolition-image",
       "description": "An excavator demolishing a brick wall at a construction site.",
-      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHhleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHhleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "excavator demolishing"
     },
     {
