@@ -94,7 +94,7 @@
     {
       "id": "photographers-image",
       "description": "A photographer holding a professional camera, ready to shoot.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/result_photographer.PNG?alt=media&token=d50d4b5d-3124-4172-8baf-58a0bdc4fad1",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Photographers.jpg?alt=media&token=da9c4b02-727d-4b81-8206-acace9ba82ae",
       "imageHint": "photographer camera"
     },
     {
@@ -309,5 +309,3 @@
     }
   ]
 }
-
-    
