@@ -8,12 +8,13 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import ProfessionalCard from '@/components/services/professional-card';
+import { CategoryImages } from '@/lib/category-images';
 
 export default function TopBathroomRenovationsPage() {
   const bathroomRenoPros = allProfessionals['bathroom-renovations'] || [];
   const topCompanies = bathroomRenoPros.sort((a, b) => b.rating - a.rating).slice(0, 7);
 
-  const heroImage = PlaceHolderImages.find(p => p.id === 'bathroom-renovations-image');
+  const heroImage = CategoryImages.find(p => p.id === 'bathroom-renovations-image');
 
   const benefits = [
     '🛡️ Fully Vetted Companies',
