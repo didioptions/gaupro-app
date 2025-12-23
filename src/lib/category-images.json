@@ -280,7 +280,7 @@
     {
       "id": "concrete-slabs-image",
       "description": "A freshly poured concrete slab for a new building foundation.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Concrete%20Slabs%20(1).png?alt=media&token=5e4f8139-1487-4023-95cf-565c32277335",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Concrete%20Slabs%20A.jpg?alt=media&token=31c8e41e-cf0b-4588-b01f-52ce601815d2",
       "imageHint": "concrete slab"
     },
     {
@@ -306,6 +306,12 @@
       "description": "A certified professional installing a gas appliance safely.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gas%20inst%20(1).png?alt=media&token=17497aad-d08c-4b40-af9a-a53e5749ff4f",
       "imageHint": "gas installation"
+    },
+    {
+      "id": "debt-collection-image",
+      "description": "A gavel and a calculator on a desk, representing legal and financial collection.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Debt%20Collection%20A.jpg?alt=media&token=9af40147-350f-4deb-b299-80bfc329271c",
+      "imageHint": "gavel finance"
     }
   ]
 }
