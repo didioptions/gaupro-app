@@ -286,7 +286,7 @@
     {
       "id": "drywalls-image",
       "description": "A worker installing a drywall panel.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/fitting%20drywall%20(1).png?alt=media&token=47fde21e-0727-4930-b932-cda863b6e670",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/drywall%20A.jpg?alt=media&token=085ae4ef-a07e-4988-bdf2-11b1263deef0",
       "imageHint": "drywall installation"
     },
     {
@@ -324,6 +324,12 @@
       "description": "A stylish modern front door on a house.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Doors%20A.jpg?alt=media&token=b7b23c1b-607b-41e4-9105-a8a5253c5f27",
       "imageHint": "modern front door"
+    },
+    {
+      "id": "electric-fencing-image",
+      "description": "An electric fence installed on top of a wall.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Electric%20Fencing%20A.jpg?alt=media&token=bb6ff6f9-4bab-4c29-b71e-21c518af3b25",
+      "imageHint": "electric fence"
     }
   ]
 }
