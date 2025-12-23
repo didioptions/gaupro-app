@@ -1,3 +1,4 @@
+
 {
   "categoryImages": [
     {
@@ -249,7 +250,7 @@
     {
       "id": "carports-image",
       "description": "A modern steel carport providing shade for a car.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carports%20(1).png?alt=media&token=96e4ddf5-53d5-46f1-9de4-a2c04893d936",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carports%20A.jpg?alt=media&token=8b376726-0c0c-4a45-9833-0fc5c7c9d686",
       "imageHint": "carport shade"
     },
     {
@@ -291,7 +292,7 @@
     {
       "id": "ceiling-installers-image",
       "description": "A worker installing a new ceiling.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/ceiling%20insta%20(1).png?alt=media&token=a04b2349-73b9-41a1-ba79-2459238494ce",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ceiling%20Installers.jpg?alt=media&token=230c8dc5-bd1f-4bf7-a83e-a27cc333e12c",
       "imageHint": "ceiling installation"
     },
     {
