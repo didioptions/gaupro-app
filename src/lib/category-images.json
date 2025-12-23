@@ -16,7 +16,7 @@
     {
       "id": "cleaning-service-image",
       "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation_2101429574%20(1).png?alt=media&token=1b98a0f3-7baf-4f3d-9058-90e1a81a73f9",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Cleaning%20Services%20a.jpg?alt=media&token=d89d0246-8eb7-4e97-9167-585ba949f093",
       "imageHint": "cleaning service"
     },
     {
@@ -312,6 +312,14 @@
       "description": "A gavel and a calculator on a desk, representing legal and financial collection.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Debt%20Collection%20A.jpg?alt=media&token=9af40147-350f-4deb-b299-80bfc329271c",
       "imageHint": "gavel finance"
+    },
+    {
+      "id": "carpet-cleaning-image",
+      "description": "A professional cleaning a carpet with a machine.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpet%20Cleaning%20A%20A.jpg?alt=media&token=fcbe9da6-45aa-465f-816c-69c242e48900",
+      "imageHint": "carpet cleaning"
     }
   ]
 }
+
+    
