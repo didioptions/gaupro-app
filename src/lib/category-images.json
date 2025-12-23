@@ -262,8 +262,14 @@
     {
       "id": "garage-doors-image",
       "description": "A modern garage door on a residential house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garage%20door%20(1).png?alt=media&token=98640832-963b-41bb-8698-b987f6bf87f1",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garage%20door%20A.jpg?alt=media&token=ccbdf8d2-1dba-4ef4-9015-d0906eaa467d",
       "imageHint": "garage door"
+    },
+    {
+      "id": "garage-door-motors-image",
+      "description": "A professional installing or repairing a garage door motor.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
+      "imageHint": "garage motor"
     },
     {
       "id": "curtains-image",
