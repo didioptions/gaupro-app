@@ -1,4 +1,3 @@
-
 {
   "categoryImages": [
     {
@@ -202,7 +201,7 @@
     {
       "id": "demolition-image",
       "description": "An excavator demolishing a brick wall at a construction site.",
-      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHhleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHhleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "excavator demolishing"
     },
     {
@@ -220,13 +219,13 @@
     {
       "id": "aluminium-doors-and-windows-image",
       "description": "Modern, sleek aluminum doors and windows on a contemporary home.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/aluminium%20doors%20and%20windows%20(1).png?alt=media&token=7672ce22-2926-4830-ad75-d5b239e9908a",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/aluminium%20doors%20and%20windows%20A.jpg?alt=media&token=934e91fd-9bc2-4e94-94f2-fdbe3f16970d",
       "imageHint": "aluminium doors windows"
     },
     {
       "id": "awnings-image",
       "description": "A retractable awning over a patio area.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/awnings%20(1).png?alt=media&token=5d88ccd0-e9ed-498e-ad4e-e2ab2a72a272",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/awnings%20A.jpg?alt=media&token=80bd2543-7b32-47c0-9ef4-0a91dfabf6c9",
       "imageHint": "patio awning"
     },
     {
