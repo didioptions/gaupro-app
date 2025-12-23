@@ -202,7 +202,7 @@
     {
       "id": "demolition-image",
       "description": "An excavator demolishing a brick wall at a construction site.",
-      "imageUrl": "https://images.unsplash.com/photo-1582490772231-20eb7d216852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHhleGNhdmF0b3IlMjBkZW1vbGlzaGluZ3xlbnwwfHx8fDE3NjUzODU5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/demolitions%20A.jpg?alt=media&token=62f34816-e6b7-4b6b-97ca-59d02f182d73",
       "imageHint": "excavator demolishing"
     },
     {
@@ -318,6 +318,12 @@
       "description": "A professional cleaning a carpet with a machine.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpet%20Cleaning%20A%20A.jpg?alt=media&token=fcbe9da6-45aa-465f-816c-69c242e48900",
       "imageHint": "carpet cleaning"
+    },
+    {
+      "id": "doors-image",
+      "description": "A stylish modern front door on a house.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Doors%20A.jpg?alt=media&token=b7b23c1b-607b-41e4-9105-a8a5253c5f27",
+      "imageHint": "modern front door"
     }
   ]
 }
