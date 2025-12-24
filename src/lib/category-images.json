@@ -336,6 +336,12 @@
       "description": "An electric fence installed on top of a wall.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Electric%20Fencing%20A.jpg?alt=media&token=bb6ff6f9-4bab-4c29-b71e-21c518af3b25",
       "imageHint": "electric fence"
+    },
+    {
+      "id": "fencing-image",
+      "description": "A newly installed wooden fence in a suburban backyard.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fencing%20A.jpg?alt=media&token=7c49821c-32cc-4e34-8578-5ff9ed4e07d5",
+      "imageHint": "wooden fence"
     }
   ]
 }
