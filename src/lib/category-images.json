@@ -1,3 +1,4 @@
+
 {
   "categoryImages": [
     {
@@ -57,7 +58,7 @@
     {
       "id": "rubble-removal-image",
       "description": "A clean and tidy living room after a rubble removal service.",
-      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "clean room"
     },
     {
@@ -165,7 +166,7 @@
     {
       "id": "debt-counsellors-image",
       "description": "A supportive handshake over a desk, symbolizing financial help.",
-      "imageUrl": "https://images.unsplash.com/photo-1689903777384-31fd780bef3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBoZWxwfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1689903777384-31fd780bef3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBoZWxwfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "financial help"
     },
     {
@@ -189,13 +190,13 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -271,12 +272,6 @@
       "imageHint": "garage motor"
     },
     {
-      "id": "gate-motors-image",
-      "description": "A professional installing or repairing a gate motor.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gate%20Motors%20A-min.jpg?alt=media&token=8016e035-53a7-435e-8d23-2f3d19c7af6d",
-      "imageHint": "gate motor"
-    },
-    {
       "id": "curtains-image",
       "description": "Elegant curtains hanging in a well-lit room.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/curtains%20(1).png?alt=media&token=e965480d-e56b-415b-8619-708cf58fb039",
@@ -331,16 +326,22 @@
       "imageHint": "wooden fence"
     },
     {
-      "id": "glass-works-image",
-      "description": "A worker cutting a large sheet of glass.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/glass%20(1).jpg?alt=media&token=b11baa0d-1c01-44f4-b376-5632179cb001",
-      "imageHint": "glass cutting"
-    },
-    {
       "id": "ceiling-installers-image",
       "description": "A worker installing a new ceiling.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ceiling%20Installers.jpg?alt=media&token=230c8dc5-bd1f-4bf7-a83e-a27cc333e12c",
       "imageHint": "ceiling installation"
+    },
+    {
+      "id": "gate-motors-image",
+      "description": "A professional installing or repairing a gate motor.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gate%20Motors%20A-min.jpg?alt=media&token=8016e035-53a7-435e-8d23-2f3d19c7af6d",
+      "imageHint": "gate motor"
+    },
+    {
+      "id": "glass-works-image",
+      "description": "A worker cutting a large sheet of glass.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/glass%20(1).jpg?alt=media&token=b11baa0d-1c01-44f4-b376-5632179cb001",
+      "imageHint": "glass cutting"
     },
     {
       "id": "guttering-image",
@@ -371,6 +372,24 @@
       "description": "A beautiful, modern kitchen with an island and new appliances.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Kitchen%20Renovations%20%20A.jpg?alt=media&token=50cd41d0-9a09-4e09-8d5c-19703d124f37",
       "imageHint": "modern kitchen"
+    },
+    {
+      "id": "laminate-flooring-image",
+      "description": "A worker installing new laminate flooring.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Laminate%20Flooring%20(1).jpg?alt=media&token=06104fab-0c19-4a34-b6c8-d89cf8b26996",
+      "imageHint": "laminate flooring"
+    },
+    {
+      "id": "landscaping-image",
+      "description": "A beautifully landscaped garden with a path and various plants.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Landscaping%20%20aa.jpg?alt=media&token=4206fb54-15f5-425b-8096-72477081c464",
+      "imageHint": "garden landscaping"
+    },
+    {
+      "id": "laundry-services-image",
+      "description": "A stack of clean, folded laundry.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Laundry%20Services%20A%20(1).jpg?alt=media&token=7b82785e-6b0f-4fa8-adb0-3e73d9a15c75",
+      "imageHint": "folded laundry"
     }
   ]
 }
