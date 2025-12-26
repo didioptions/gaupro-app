@@ -462,8 +462,24 @@
       "description": "A robust, decorative security gate at the entrance of a home.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/security%20gates%20A.jpg?alt=media&token=0e6b9eb0-2b27-46e4-8e4f-5b59c52f810c",
       "imageHint": "security gate"
+    },
+    {
+      "id": "solar-geysers-image",
+      "description": "A solar geyser installed on a roof.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Solar%20Geysers%20A%20(1).jpg?alt=media&token=1bec3dd6-e3ff-4259-8d5d-167ab3838027",
+      "imageHint": "solar geyser"
+    },
+    {
+      "id": "swimming-pool-builders-image",
+      "description": "A newly built swimming pool in a backyard.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/swimming%20pool%20builders%20A.jpg?alt=media&token=b1d0fa19-38b1-429f-9a0c-4ebf2ecba880",
+      "imageHint": "swimming pool"
+    },
+    {
+      "id": "tar-surfacing-image",
+      "description": "A team working on tar surfacing a driveway.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/tar%20surfacing%20AA.jpg?alt=media&token=7376ca16-db34-438a-bcd9-a61de682764e",
+      "imageHint": "tar driveway"
     }
   ]
 }
-
-    
