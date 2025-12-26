@@ -1,4 +1,3 @@
-
 {
   "categoryImages": [
     {
@@ -196,7 +195,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -296,30 +295,6 @@
       "imageHint": "concrete slab"
     },
     {
-      "id": "drywalls-image",
-      "description": "A worker installing a drywall panel.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/drywall%20A.jpg?alt=media&token=085ae4ef-a07e-4988-bdf2-11b1263deef0",
-      "imageHint": "drywall installation"
-    },
-    {
-      "id": "ceiling-installers-image",
-      "description": "A worker installing a new ceiling.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ceiling%20Installers.jpg?alt=media&token=230c8dc5-bd1f-4bf7-a83e-a27cc333e12c",
-      "imageHint": "ceiling installation"
-    },
-    {
-      "id": "high-pressure-cleaning-image",
-      "description": "A high-pressure washer cleaning a dirty patio.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/%F0%9F%92%A6%20High%20Pressure%20Cleaning%20(1).png?alt=media&token=3d4442ad-fb75-44ad-b41d-d249d62017fc",
-      "imageHint": "pressure washer"
-    },
-    {
-      "id": "gas-installers-image",
-      "description": "A certified professional installing a gas appliance safely.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gas%20inst%20(1).png?alt=media&token=17497aad-d08c-4b40-af9a-a53e5749ff4f",
-      "imageHint": "gas installation"
-    },
-    {
       "id": "debt-collection-image",
       "description": "A gavel and a calculator on a desk, representing legal and financial collection.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Debt%20Collection%20A.jpg?alt=media&token=9af40147-350f-4deb-b299-80bfc329271c",
@@ -344,6 +319,12 @@
       "imageHint": "electric fence"
     },
     {
+      "id": "drywalls-image",
+      "description": "A worker installing a drywall panel.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/drywall%20A.jpg?alt=media&token=085ae4ef-a07e-4988-bdf2-11b1263deef0",
+      "imageHint": "drywall installation"
+    },
+    {
       "id": "fencing-image",
       "description": "A newly installed wooden fence in a suburban backyard.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fencing%20A.jpg?alt=media&token=7c49821c-32cc-4e34-8578-5ff9ed4e07d5",
@@ -354,6 +335,24 @@
       "description": "A worker cutting a large sheet of glass.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/glass%20(1).jpg?alt=media&token=b11baa0d-1c01-44f4-b376-5632179cb001",
       "imageHint": "glass cutting"
+    },
+    {
+      "id": "ceiling-installers-image",
+      "description": "A worker installing a new ceiling.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ceiling%20Installers.jpg?alt=media&token=230c8dc5-bd1f-4bf7-a83e-a27cc333e12c",
+      "imageHint": "ceiling installation"
+    },
+    {
+      "id": "guttering-image",
+      "description": "A worker installing new gutters on a house.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Guttering%20(1)-min.jpg?alt=media&token=07cc330d-0db9-4ff1-aac5-52df94cdf4cf",
+      "imageHint": "gutter installation"
+    },
+    {
+      "id": "high-pressure-cleaning-image",
+      "description": "A high-pressure washer cleaning a dirty patio.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/High%20Pressure%20Cleaning%20A.jpg?alt=media&token=2e0cc3d4-c729-43d2-8e06-223abff0ea83",
+      "imageHint": "pressure washer"
     }
   ]
 }
