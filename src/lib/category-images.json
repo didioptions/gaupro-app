@@ -196,7 +196,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -272,6 +272,12 @@
       "imageHint": "garage motor"
     },
     {
+      "id": "gate-motors-image",
+      "description": "A professional installing or repairing a gate motor.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gate%20Motors%20A-min.jpg?alt=media&token=8016e035-53a7-435e-8d23-2f3d19c7af6d",
+      "imageHint": "gate motor"
+    },
+    {
       "id": "curtains-image",
       "description": "Elegant curtains hanging in a well-lit room.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/curtains%20(1).png?alt=media&token=e965480d-e56b-415b-8619-708cf58fb039",
@@ -342,6 +348,12 @@
       "description": "A newly installed wooden fence in a suburban backyard.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fencing%20A.jpg?alt=media&token=7c49821c-32cc-4e34-8578-5ff9ed4e07d5",
       "imageHint": "wooden fence"
+    },
+    {
+      "id": "glass-works-image",
+      "description": "A worker cutting a large sheet of glass.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/glass%20(1).jpg?alt=media&token=b11baa0d-1c01-44f4-b376-5632179cb001",
+      "imageHint": "glass cutting"
     }
   ]
 }
