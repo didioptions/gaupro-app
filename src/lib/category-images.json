@@ -190,13 +190,13 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -426,6 +426,24 @@
       "description": "A crystal clear swimming pool sparkling in the sun.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Pool%20Cleaning%20A.jpg?alt=media&token=1e8ffba6-9ca9-461f-aeca-765bd2bd88b5",
       "imageHint": "clean swimming pool"
+    },
+    {
+      "id": "precast-fencing-image",
+      "description": "A precast concrete fence being installed.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Precast%20Fencing%20A%20(1).jpg?alt=media&token=4a83a66f-39ba-4d10-9914-fc5f08e9118e",
+      "imageHint": "precast fence"
+    },
+    {
+      "id": "prepaid-electricity-meters-image",
+      "description": "A modern prepaid electricity meter on a wall.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Prepaid%20Electricity%20Meters%20A%20(1).jpg?alt=media&token=761a08f0-23f3-4873-bca5-76a0abdd385a",
+      "imageHint": "prepaid meter"
+    },
+    {
+      "id": "roofing-image",
+      "description": "A team of roofers working on a residential roof.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Roofing%20A.jpg?alt=media&token=9e518fa6-d967-4085-8e2d-c753a338e5df",
+      "imageHint": "roofing work"
     }
   ]
 }
