@@ -353,6 +353,24 @@
       "description": "A high-pressure washer cleaning a dirty patio.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/High%20Pressure%20Cleaning%20A.jpg?alt=media&token=2e0cc3d4-c729-43d2-8e06-223abff0ea83",
       "imageHint": "pressure washer"
+    },
+    {
+      "id": "home-improvements-image",
+      "description": "A modern kitchen during a renovation, showing progress.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/home%20improvement%20(1).jpg?alt=media&token=671c40d3-8fa5-45e1-8b66-8c8660c8aba4",
+      "imageHint": "kitchen renovation"
+    },
+    {
+      "id": "interior-designing-image",
+      "description": "A stylishly decorated living room with modern furniture and art.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/interior%20designers%20A.jpg?alt=media&token=82ffb0b3-c7ad-4f46-bc0b-00c9cbe86d57",
+      "imageHint": "modern living room"
+    },
+    {
+      "id": "kitchen-renovations-image",
+      "description": "A beautiful, modern kitchen with an island and new appliances.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Kitchen%20Renovations%20%20A.jpg?alt=media&token=50cd41d0-9a09-4e09-8d5c-19703d124f37",
+      "imageHint": "modern kitchen"
     }
   ]
 }
