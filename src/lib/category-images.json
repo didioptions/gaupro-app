@@ -444,6 +444,26 @@
       "description": "A team of roofers working on a residential roof.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Roofing%20A.jpg?alt=media&token=9e518fa6-d967-4085-8e2d-c753a338e5df",
       "imageHint": "roofing work"
+    },
+    {
+      "id": "shower-doors-image",
+      "description": "A frameless glass shower door in a modern bathroom.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Shower%20Doors%20A%20(1).jpg?alt=media&token=9716f9c9-ce85-48ab-a28d-60bd9f7781c5",
+      "imageHint": "glass shower door"
+    },
+    {
+      "id": "shadeports-image",
+      "description": "Multiple shadeport structures providing cover for cars in a parking lot.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Shadeports%20AA.jpg?alt=media&token=f762b8be-6ae4-4eb4-915e-e29272322644",
+      "imageHint": "shadeport parking"
+    },
+    {
+      "id": "security-gates-image",
+      "description": "A robust, decorative security gate at the entrance of a home.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/security%20gates%20A.jpg?alt=media&token=0e6b9eb0-2b27-46e4-8e4f-5b59c52f810c",
+      "imageHint": "security gate"
     }
   ]
 }
+
+    
