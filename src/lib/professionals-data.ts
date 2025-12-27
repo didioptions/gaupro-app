@@ -1,5 +1,6 @@
 
 
+
 type Professional = {
   id: string;
   name: string;
@@ -30,6 +31,50 @@ type ProfessionalsByCategory = {
 };
 
 export const allProfessionals: ProfessionalsByCategory = {
+  "rubble-removal": [
+    {
+      id: "skip-boys-jhb",
+      name: "Skip Boys JHB",
+      location: "Johannesburg",
+      description: "Fast and reliable skip hire and {service}. We drop off, you fill up, we take it away. Perfect for construction sites and home renovations.",
+      rating: 4.8,
+      reviews: 35,
+      isProVerified: true,
+      yearsInBusiness: 10,
+      employees: 15,
+      businessHours: "Mon-Sat, 7am-5pm",
+      serviceCategory: "rubble-removal",
+      serviceLocations: ["johannesburg", "sandton", "randburg"],
+      tags: ["Skip Hire", "Building Rubble", "Site Clearing"],
+      reviewData: [
+        { author: "Builder Bob", rating: 5, comment: "Always on time with their drop-offs and collections. The only skip company I use." },
+        { author: "Home Renovator", rating: 5, comment: "Made cleaning up after my renovation so easy. Great service." }
+      ],
+      photos: ["https://picsum.photos/seed/skip1/600/400"],
+      avatarSeed: "skip-boys-logo"
+    },
+    {
+      id: "themba-rubble-removers",
+      name: "Themba Rubble Removers",
+      location: "Soweto",
+      description: "Your local Soweto expert for all types of {service}. We remove building rubble, garden refuse, and general waste. No job too big or small.",
+      rating: 4.9,
+      reviews: 42,
+      isProVerified: true,
+      yearsInBusiness: 12,
+      employees: 8,
+      businessHours: "Mon-Sat, 8am-6pm",
+      serviceCategory: "rubble-removal",
+      serviceLocations: ["soweto", "johannesburg-south"],
+      tags: ["Rubble Removal", "Garden Refuse", "Waste Management"],
+      reviewData: [
+        { author: "Gogo Dlamini", rating: 5, comment: "A very hardworking and honest team. They cleared my yard quickly and for a good price." },
+        { author: "Local Builder", rating: 5, comment: "I use Themba for all my sites. Always reliable and they leave the place clean." }
+      ],
+      photos: ["https://picsum.photos/seed/themba-rubble/600/400"],
+      avatarSeed: "themba-rubble-removers-logo"
+    }
+  ],
   "gardeners": [
     {
       id: "green-thumb-gardens-jhb",
