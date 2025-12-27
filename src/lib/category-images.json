@@ -498,6 +498,24 @@
       "description": "A serene and modern beauty salon interior.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Beauty%20Salons.jpg?alt=media&token=32716712-af95-43f1-b470-56ebb70e9a84",
       "imageHint": "beauty salon"
+    },
+    {
+      "id": "chiropractors-image",
+      "description": "A chiropractor adjusting a patient's back.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/chiropractors.jpg?alt=media&token=3f244cf8-c190-4a32-bcc7-83ec061ba141",
+      "imageHint": "chiropractor patient"
+    },
+    {
+      "id": "counsellors-image",
+      "description": "A counsellor listening attentively to a client in a calm setting.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Counsellors.jpg?alt=media&token=a4ff9125-327f-433a-a15f-f8238736f729",
+      "imageHint": "counsellor client"
+    },
+    {
+      "id": "dentists-image",
+      "description": "A dentist examining a patient's teeth in a modern clinic.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/dentists.jpg?alt=media&token=4d7cb273-1c62-4c49-831e-208ea8193a86",
+      "imageHint": "dentist patient"
     }
   ]
 }
