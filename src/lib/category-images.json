@@ -462,6 +462,24 @@
       "description": "A modern, stylish bathroom with a walk-in shower and clean design.",
       "imageUrl": "https://images.unsplash.com/photo-1604709177595-ee9c2580e9a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBiYXRocm9vbXxlbnwwfHx8fDE3NjUzODU5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "modern bathroom"
+    },
+    {
+      "id": "graphic-designers-image",
+      "description": "A graphic designer working on a tablet with a stylus.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Graphic%20Designers.jpg?alt=media&token=13b219ee-a08c-4e62-9800-ba6e1fa122fe",
+      "imageHint": "graphic designer"
+    },
+    {
+      "id": "logo-design-image",
+      "description": "A collection of modern and creative logo designs on a screen.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/logo%20designers.jpg?alt=media&token=4920b5f2-ade0-45c0-b3cf-04217308d292",
+      "imageHint": "logo design"
+    },
+    {
+      "id": "signs-image",
+      "description": "Various business signs on a street, including a neon sign.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Signs.jpg?alt=media&token=ec4a7179-1124-41df-94d5-57ad2b737056",
+      "imageHint": "business signs"
     }
   ]
 }
