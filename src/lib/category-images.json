@@ -516,6 +516,24 @@
       "description": "A dentist examining a patient's teeth in a modern clinic.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/dentists.jpg?alt=media&token=4d7cb273-1c62-4c49-831e-208ea8193a86",
       "imageHint": "dentist patient"
+    },
+    {
+      "id": "dermatologists-image",
+      "description": "A dermatologist examining a patient's skin with a special tool.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/dermatologists.jpg?alt=media&token=70e1df00-b162-4e10-983b-7af1675b1f32",
+      "imageHint": "dermatologist skin"
+    },
+    {
+      "id": "gynaecologists-image",
+      "description": "A female doctor in scrubs, smiling warmly in a clinical setting.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gynaecologists.jpg?alt=media&token=5ea66d7d-f7c4-45a7-8e98-dec3f3305a43",
+      "imageHint": "doctor smiling"
+    },
+    {
+      "id": "hair-stylists-image",
+      "description": "A hair stylist cutting a client's hair in a modern salon.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Hair%20Stylists.jpg?alt=media&token=193532aa-dec8-42db-a4c1-c98159c245f7",
+      "imageHint": "hair stylist"
     }
   ]
 }
