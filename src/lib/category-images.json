@@ -196,7 +196,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -426,6 +426,26 @@
       "description": "A welder with a mask on, creating sparks while working on a metal structure.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/welders%20A.jpg?alt=media&token=f1fc2f1a-3bd5-4a23-80af-aed508740861",
       "imageHint": "welder sparks"
+    },
+    {
+      "id": "wendy-houses-image",
+      "description": "A well-built wooden wendy house in a garden.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wendy%20Houses%20A.jpg?alt=media&token=984d3f90-7f74-4876-87dc-4cede3151507",
+      "imageHint": "wendy house"
+    },
+    {
+      "id": "window-cleaning-image",
+      "description": "A professional cleaning a large window with a squeegee.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/window%20cleaning%20A.jpg?alt=media&token=f8eab32a-b5a7-481d-bcbd-915c4e7af768",
+      "imageHint": "window squeegee"
+    },
+    {
+      "id": "window-tinting-image",
+      "description": "A professional applying tint film to a car window.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Window%20Tinting%20A.jpg?alt=media&token=0908d6a7-514b-482a-974c-b8df6f64c92a",
+      "imageHint": "window tinting"
     }
   ]
 }
+
+    
