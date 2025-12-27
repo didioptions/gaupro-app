@@ -16,7 +16,7 @@
     {
       "id": "cleaning-service-image",
       "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation%20cleaning%20serv.jpg?alt=media&token=03f34b3b-89ab-488d-b5f5-082d56e9e20f",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation%20cleaning%20serv.jpg?alt=media&token=b03f603e-e422-4b16-83d6-f236a91e27ed",
       "imageHint": "cleaning service"
     },
     {
@@ -444,8 +444,18 @@
       "description": "A professional applying tint film to a car window.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Window%20Tinting%20A.jpg?alt=media&token=0908d6a7-514b-482a-974c-b8df6f64c92a",
       "imageHint": "window tinting"
+    },
+    {
+      "id": "wire-mesh-fencing-image",
+      "description": "A durable wire mesh fence enclosing a property.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wire%20Mesh%20Fencing%20A.jpg?alt=media&token=4349d1da-8290-4721-8523-c5e72f0c0ee2",
+      "imageHint": "wire fence"
+    },
+    {
+      "id": "wooden-decking-image",
+      "description": "A beautiful wooden deck in a backyard, perfect for outdoor living.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wooden%20Decking%20A.jpg?alt=media&token=e589862d-e806-496a-a274-d42ab97407bf",
+      "imageHint": "wooden deck"
     }
   ]
 }
-
-    
