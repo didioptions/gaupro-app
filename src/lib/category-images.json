@@ -236,12 +236,6 @@
       "imageHint": "garage door"
     },
     {
-      "id": "garage-door-motors-image",
-      "description": "A professional installing or repairing a garage door motor.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
-      "imageHint": "garage motor"
-    },
-    {
       "id": "gate-motors-image",
       "description": "A professional installing or repairing a gate motor.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gate%20Motors%20A-min.jpg?alt=media&token=8016e035-53a7-435e-8d23-2f3d19c7af6d",
