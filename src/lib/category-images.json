@@ -196,20 +196,8 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
-    },
-    {
-      "id": "demolition-image",
-      "description": "An excavator demolishing a brick wall at a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/demolitions%20A.jpg?alt=media&token=62f34816-e6b7-4b6b-97ca-59d02f182d73",
-      "imageHint": "excavator demolishing"
-    },
-    {
-      "id": "doors-image",
-      "description": "A stylish modern front door on a house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Doors%20A.jpg?alt=media&token=b7b23c1b-607b-41e4-9105-a8a5253c5f27",
-      "imageHint": "modern front door"
     },
     {
       "id": "electric-fencing-image",
@@ -224,6 +212,24 @@
       "imageHint": "drywall installation"
     },
     {
+      "id": "demolition-image",
+      "description": "An excavator demolishing a brick wall at a construction site.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/demolitions%20A.jpg?alt=media&token=62f34816-e6b7-4b6b-97ca-59d02f182d73",
+      "imageHint": "excavator demolishing"
+    },
+    {
+      "id": "doors-image",
+      "description": "A stylish modern front door on a house.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Doors%20A.jpg?alt=media&token=b7b23c1b-607b-41e4-9105-a8a5253c5f27",
+      "imageHint": "modern front door"
+    },
+    {
+      "id": "fencing-image",
+      "description": "A newly installed wooden fence in a suburban backyard.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fencing%20A.jpg?alt=media&token=7c49821c-32cc-4e34-8578-5ff9ed4e07d5",
+      "imageHint": "wooden fence"
+    },
+    {
       "id": "garage-doors-image",
       "description": "A modern garage door on a residential house.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garage%20door%20A.jpg?alt=media&token=ccbdf8d2-1dba-4ef4-9015-d0906eaa467d",
@@ -234,12 +240,6 @@
       "description": "A professional installing or repairing a garage door motor.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
       "imageHint": "garage motor"
-    },
-    {
-      "id": "fencing-image",
-      "description": "A newly installed wooden fence in a suburban backyard.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fencing%20A.jpg?alt=media&token=7c49821c-32cc-4e34-8578-5ff9ed4e07d5",
-      "imageHint": "wooden fence"
     },
     {
       "id": "gate-motors-image",
@@ -408,6 +408,24 @@
       "description": "A professional steam cleaning a sofa.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/upholstery%20cleaning%20A.jpg?alt=media&token=4845e2a1-f84a-415a-ba73-10e0d2720b8e",
       "imageHint": "upholstery cleaning"
+    },
+    {
+      "id": "tiler-image",
+      "description": "A professional tiler installing large format tiles on a floor.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TILLERS.jpg?alt=media&token=ad376bbb-7416-4f93-884c-0304aaff4a2c",
+      "imageHint": "tiler floor"
+    },
+    {
+      "id": "waterproofing-image",
+      "description": "A worker applying waterproofing membrane to a rooftop.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Waterproofing%20A.jpg?alt=media&token=92dd41f7-2ebf-4dd4-a168-60d74be0e062",
+      "imageHint": "waterproofing roof"
+    },
+    {
+      "id": "welders-image",
+      "description": "A welder with a mask on, creating sparks while working on a metal structure.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/welders%20A.jpg?alt=media&token=f1fc2f1a-3bd5-4a23-80af-aed508740861",
+      "imageHint": "welder sparks"
     }
   ]
 }
