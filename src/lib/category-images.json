@@ -456,6 +456,18 @@
       "description": "A beautiful wooden deck in a backyard, perfect for outdoor living.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wooden%20Decking%20A.jpg?alt=media&token=e589862d-e806-496a-a274-d42ab97407bf",
       "imageHint": "wooden deck"
+    },
+    {
+      "id": "jumping-castle-image",
+      "description": "A colorful jumping castle in a backyard during a kids' party.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Jumping%20castles%20A.jpg?alt=media&token=a0545a90-3449-411a-bd88-66178c734794",
+      "imageHint": "jumping castle"
+    },
+    {
+      "id": "bathroom-renovations-image",
+      "description": "A luxurious, modern bathroom with a freestanding tub and stylish tiles.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Bathroom%20Renovations.jpg?alt=media&token=f0d2c67b-1178-4340-975a-f1f35f29d2e1",
+      "imageHint": "modern bathroom"
     }
   ]
 }
