@@ -206,102 +206,6 @@
       "imageHint": "excavator demolishing"
     },
     {
-      "id": "jumping-castle-image",
-      "description": "A colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/jumping%20c.jpg?alt=media&token=5cc50e6f-403d-4c6d-ad28-f814dffbd29b",
-      "imageHint": "jumping castle"
-    },
-    {
-      "id": "air-conditioning-image",
-      "description": "A modern air conditioning unit mounted on a wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Air%20Conditioning%20A.jpg?alt=media&token=db0cb32d-5d6d-4fd3-a2c8-94e42416124c",
-      "imageHint": "air conditioner"
-    },
-    {
-      "id": "aluminium-doors-and-windows-image",
-      "description": "Modern, sleek aluminum doors and windows on a contemporary home.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/aluminium%20doors%20and%20windows%20A.jpg?alt=media&token=934e91fd-9bc2-4e94-94f2-fdbe3f16970d",
-      "imageHint": "aluminium doors windows"
-    },
-    {
-      "id": "awnings-image",
-      "description": "A retractable awning over a patio area.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/awnings%20A.jpg?alt=media&token=80bd2543-7b32-47c0-9ef4-0a91dfabf6c9",
-      "imageHint": "patio awning"
-    },
-    {
-      "id": "burglar-bars-image",
-      "description": "Strong burglar bars installed on a window.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Burglar%20Bars%20(1).png?alt=media&token=72891b8b-d687-4b25-b09b-eb03b081dc77",
-      "imageHint": "burglar bars"
-    },
-    {
-      "id": "bathroom-renovations-image",
-      "description": "A modern, stylish bathroom with clean lines and contemporary fixtures.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/bathroom%20Reno.jpg?alt=media&token=8fcb33ef-78bd-45ee-9ff1-9a61a06b8b71",
-      "imageHint": "modern bathroom"
-    },
-    {
-      "id": "blinds-image",
-      "description": "Modern blinds installed on a large window.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/blinds%20A.jpg?alt=media&token=49469ccb-3b17-4ccb-aae2-d92468eb0975",
-      "imageHint": "window blinds"
-    },
-    {
-      "id": "carports-image",
-      "description": "A modern steel carport providing shade for a car.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carports%20A.jpg?alt=media&token=8b376726-0c0c-4a45-9833-0fc5c7c9d686",
-      "imageHint": "carport shade"
-    },
-    {
-      "id": "balustrades-image",
-      "description": "Modern glass balustrades on a staircase.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Balustrades.jpg?alt=media&token=5f94d8ed-5444-4daf-8273-97d016d8fe3b",
-      "imageHint": "glass balustrades"
-    },
-    {
-      "id": "garage-doors-image",
-      "description": "A modern garage door on a residential house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garage%20door%20A.jpg?alt=media&token=ccbdf8d2-1dba-4ef4-9015-d0906eaa467d",
-      "imageHint": "garage door"
-    },
-    {
-      "id": "garage-door-motors-image",
-      "description": "A professional installing or repairing a garage door motor.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
-      "imageHint": "garage motor"
-    },
-    {
-      "id": "curtains-image",
-      "description": "Elegant curtains hanging in a well-lit room.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/curtains%20(1).png?alt=media&token=e965480d-e56b-415b-8619-708cf58fb039",
-      "imageHint": "curtains window"
-    },
-    {
-      "id": "flooring-image",
-      "description": "A worker installing new wooden flooring.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/flooring%20installers%20(1).png?alt=media&token=51575da8-3f9c-4bd0-ac46-ff9b7cdf7247",
-      "imageHint": "flooring installation"
-    },
-    {
-      "id": "concrete-slabs-image",
-      "description": "A freshly poured concrete slab for a new building foundation.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Concrete%20Slabs%20A.jpg?alt=media&token=31c8e41e-cf0b-4588-b01f-52ce601815d2",
-      "imageHint": "concrete slab"
-    },
-    {
-      "id": "debt-collection-image",
-      "description": "A gavel and a calculator on a desk, representing legal and financial collection.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Debt%20Collection%20A.jpg?alt=media&token=9af40147-350f-4deb-b299-80bfc329271c",
-      "imageHint": "gavel finance"
-    },
-    {
-      "id": "carpet-cleaning-image",
-      "description": "A professional cleaning a carpet with a machine.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpet%20Cleaning%20A%20A.jpg?alt=media&token=fcbe9da6-45aa-465f-816c-69c242e48900",
-      "imageHint": "carpet cleaning"
-    },
-    {
       "id": "doors-image",
       "description": "A stylish modern front door on a house.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Doors%20A.jpg?alt=media&token=b7b23c1b-607b-41e4-9105-a8a5253c5f27",
@@ -320,16 +224,22 @@
       "imageHint": "drywall installation"
     },
     {
+      "id": "garage-doors-image",
+      "description": "A modern garage door on a residential house.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garage%20door%20A.jpg?alt=media&token=ccbdf8d2-1dba-4ef4-9015-d0906eaa467d",
+      "imageHint": "garage door"
+    },
+    {
+      "id": "garage-door-motors-image",
+      "description": "A professional installing or repairing a garage door motor.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
+      "imageHint": "garage motor"
+    },
+    {
       "id": "fencing-image",
       "description": "A newly installed wooden fence in a suburban backyard.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fencing%20A.jpg?alt=media&token=7c49821c-32cc-4e34-8578-5ff9ed4e07d5",
       "imageHint": "wooden fence"
-    },
-    {
-      "id": "ceiling-installers-image",
-      "description": "A worker installing a new ceiling.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ceiling%20Installers.jpg?alt=media&token=230c8dc5-bd1f-4bf7-a83e-a27cc333e12c",
-      "imageHint": "ceiling installation"
     },
     {
       "id": "gate-motors-image",
@@ -480,6 +390,24 @@
       "description": "A team working on tar surfacing a driveway.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/tar%20surfacing%20AA.jpg?alt=media&token=7376ca16-db34-438a-bcd9-a61de682764e",
       "imageHint": "tar driveway"
+    },
+    {
+      "id": "thatched-roofing-image",
+      "description": "A beautifully thatched roof on a luxury home or lodge.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Thatched%20Roofing%20A.jpg?alt=media&token=b11ab84b-9723-4417-a049-7ba7e3919595",
+      "imageHint": "thatched roof"
+    },
+    {
+      "id": "upholsterers-image",
+      "description": "An upholsterer working on a vintage chair.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/upholsterers%20A.jpg?alt=media&token=63bb06c0-c9bf-4c0c-b765-99c70bb1ac3b",
+      "imageHint": "upholstery chair"
+    },
+    {
+      "id": "upholstery-cleaning-image",
+      "description": "A professional steam cleaning a sofa.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/upholstery%20cleaning%20A.jpg?alt=media&token=4845e2a1-f84a-415a-ba73-10e0d2720b8e",
+      "imageHint": "upholstery cleaning"
     }
   ]
 }
