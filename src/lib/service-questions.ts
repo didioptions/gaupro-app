@@ -1568,7 +1568,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           ...commonQuestions,
       ],
   },
-  {
+{
     service: 'djs',
     questions: [
         { id: 'event_type', text: 'What type of event is it?', type: 'radio', options: [{ value: 'wedding', label: 'Wedding' }, { value: 'corporate', label: 'Corporate Event' }, { value: 'party', label: 'Birthday Party / Private Function' }, { value: 'club', label: 'Club / Bar' }] },
@@ -2491,6 +2491,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
 ];
+
 
 
 
