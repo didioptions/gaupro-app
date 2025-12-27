@@ -57,9 +57,9 @@
     },
     {
       "id": "rubble-removal-image",
-      "description": "A clean and tidy living room after a rubble removal service.",
-      "imageUrl": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMHJvb218ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "clean room"
+      "description": "A pile of rubble and debris from a construction site.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/rubble.jpg?alt=media&token=b931b4ae-a006-4dce-8f87-c81692b97f47",
+      "imageHint": "rubble construction"
     },
     {
       "id": "painter-image",
@@ -450,6 +450,18 @@
       "description": "A beautiful wooden deck in a backyard, perfect for outdoor living.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wooden%20Decking%20A.jpg?alt=media&token=e589862d-e806-496a-a274-d42ab97407bf",
       "imageHint": "wooden deck"
+    },
+    {
+      "id": "jumping-castle-image",
+      "description": "A bright and colorful jumping castle set up for a kids party.",
+      "imageUrl": "https://images.unsplash.com/photo-1517594421932-94570cd05959?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib3VuY3klMjBjYXN0bGV8ZW58MHx8fHwxNzY1Mzg1OTkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bouncy castle"
+    },
+    {
+      "id": "bathroom-renovations-image",
+      "description": "A modern, stylish bathroom with a walk-in shower and clean design.",
+      "imageUrl": "https://images.unsplash.com/photo-1604709177595-ee9c2580e9a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBiYXRocm9vbXxlbnwwfHx8fDE3NjUzODU5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern bathroom"
     }
   ]
 }
