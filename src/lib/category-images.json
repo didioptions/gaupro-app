@@ -480,6 +480,24 @@
       "description": "Various business signs on a street, including a neon sign.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Signs.jpg?alt=media&token=ec4a7179-1124-41df-94d5-57ad2b737056",
       "imageHint": "business signs"
+    },
+    {
+      "id": "printing-image",
+      "description": "A close-up of a large format printer in action.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Printing.jpg?alt=media&token=582a7326-02a8-4a4b-aae2-71605eb99231",
+      "imageHint": "printing machine"
+    },
+    {
+      "id": "website-designers-image",
+      "description": "A person working on a website layout on a computer.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Website%20Designers.jpg?alt=media&token=4528b2a3-298d-4d7f-aa0d-dcf95c897ac0",
+      "imageHint": "website design"
+    },
+    {
+      "id": "beauty-salons-image",
+      "description": "A serene and modern beauty salon interior.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Beauty%20Salons.jpg?alt=media&token=32716712-af95-43f1-b470-56ebb70e9a84",
+      "imageHint": "beauty salon"
     }
   ]
 }
