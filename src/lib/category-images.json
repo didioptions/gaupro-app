@@ -534,6 +534,18 @@
       "description": "A hair stylist cutting a client's hair in a modern salon.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Hair%20Stylists.jpg?alt=media&token=193532aa-dec8-42db-a4c1-c98159c245f7",
       "imageHint": "hair stylist"
+    },
+    {
+      "id": "laser-clinics-image",
+      "description": "A laser hair removal procedure being performed on a leg.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Laser%20Clinics.jpg?alt=media&token=0ed6c07c-9972-4365-83b9-51b3220886fa",
+      "imageHint": "laser treatment"
+    },
+    {
+      "id": "make-up-artists-image",
+      "description": "A makeup artist applying makeup to a client's face.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Make%20Up%20Artists.jpg?alt=media&token=65b3c73d-9bdd-4ccc-b7b1-c2e636f0d4f6",
+      "imageHint": "makeup artist"
     }
   ]
 }
