@@ -546,6 +546,26 @@
       "description": "A makeup artist applying makeup to a client's face.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Make%20Up%20Artists.jpg?alt=media&token=65b3c73d-9bdd-4ccc-b7b1-c2e636f0d4f6",
       "imageHint": "makeup artist"
+    },
+    {
+      "id": "marriage-counsellors-image",
+      "description": "A supportive and understanding counseling session between a couple and a therapist.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Marriage%20Counsellors.jpg?alt=media&token=423051ba-da6b-4bab-9446-20d7027a11db",
+      "imageHint": "marriage counseling"
+    },
+    {
+      "id": "massage-therapists-image",
+      "description": "A person receiving a relaxing back massage in a serene spa environment.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Massage%20Therapists.jpg?alt=media&token=038345ff-70d6-45f5-8e4e-5c088bc3e75a",
+      "imageHint": "back massage"
+    },
+    {
+      "id": "personal-trainers-image",
+      "description": "A personal trainer motivating a client during a workout session in a gym.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Personal%20Trainers.jpg?alt=media&token=0779453a-3390-46c1-8546-e6b733326b3f",
+      "imageHint": "personal trainer workout"
     }
   ]
 }
+
+    
