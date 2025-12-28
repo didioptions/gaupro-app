@@ -172,7 +172,7 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
@@ -440,12 +440,6 @@
       "imageHint": "window squeegee"
     },
     {
-      "id": "window-tinting-image",
-      "description": "A professional applying tint film to a car window.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Window%20Tinting%20A.jpg?alt=media&token=0908d6a7-514b-482a-974c-b8df6f64c92a",
-      "imageHint": "window tinting"
-    },
-    {
       "id": "wire-mesh-fencing-image",
       "description": "A durable wire mesh fence enclosing a property.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wire%20Mesh%20Fencing%20A.jpg?alt=media&token=4349d1da-8290-4721-8523-c5e72f0c0ee2",
@@ -666,6 +660,12 @@
       "description": "A close-up of a car's gearbox and transmission system.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gearboxes.jpg?alt=media&token=166db1e2-cb85-4e55-9a7e-70ad8ee6386a",
       "imageHint": "car gearbox"
+    },
+    {
+      "id": "car-window-tinting-image",
+      "description": "A professional applying tint film to a car window.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/car%20window%20tint.jpg?alt=media&token=63ebd572-0715-4e1a-9da4-3cfa6d1901ac",
+      "imageHint": "car window tinting"
     }
   ]
 }
