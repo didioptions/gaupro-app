@@ -14,12 +14,6 @@
       "imageHint": "movers couch"
     },
     {
-      "id": "cleaning-service-image",
-      "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation%20cleaning%20serv.jpg?alt=media&token=b03f603e-e422-4b16-83d6-f236a91e27ed",
-      "imageHint": "cleaning service"
-    },
-    {
       "id": "handyman-image",
       "description": "A friendly handyman holding a set of tools.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/handmen%20A.jpg?alt=media&token=8e6b5137-cb89-4bfa-9cdc-bec0ca1859d9",
@@ -44,22 +38,10 @@
       "imageHint": "security guard"
     },
     {
-      "id": "cctv-image",
-      "description": "A modern security camera mounted on an exterior wall.",
-      "imageUrl": "https://images.unsplash.com/photo-1520697830682-bbb6e85e2b0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZWN1cml0eSUyMGNhbWVyYXxlbnwwfHx8fDE3NjUzMzQ3NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "security camera"
-    },
-    {
       "id": "caterers-image",
       "description": "A close-up shot of a gourmet food platter with various appetizers.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation_2101454071%20(1).png?alt=media&token=b41a04cd-bb46-49bd-b33a-d1b431f61537",
       "imageHint": "catering food"
-    },
-    {
-      "id": "rubble-removal-image",
-      "description": "A pile of rubble and debris from a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/rubble.jpg?alt=media&token=b931b4ae-a006-4dce-8f87-c81692b97f47",
-      "imageHint": "rubble construction"
     },
     {
       "id": "painter-image",
@@ -196,7 +178,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -422,6 +404,30 @@
       "imageHint": "welder sparks"
     },
     {
+      "id": "jumping-castle-image",
+      "description": "A bright and colorful jumping castle set up for a kids party.",
+      "imageUrl": "https://images.unsplash.com/photo-1517594421932-94570cd05959?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib3VuY3klMjBjYXN0bGV8ZW58MHx8fHwxNzY1Mzg1OTkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bouncy castle"
+    },
+    {
+      "id": "bathroom-renovations-image",
+      "description": "A modern, stylish bathroom with a walk-in shower and clean design.",
+      "imageUrl": "https://images.unsplash.com/photo-1604709177595-ee9c2580e9a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBiYXRocm9vbXxlbnwwfHx8fDE3NjUzODU5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern bathroom"
+    },
+    {
+      "id": "rubble-removal-image",
+      "description": "A pile of rubble and debris from a construction site.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/rubble.jpg?alt=media&token=b931b4ae-a006-4dce-8f87-c81692b97f47",
+      "imageHint": "rubble construction"
+    },
+    {
+      "id": "cleaning-service-image",
+      "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation%20cleaning%20serv.jpg?alt=media&token=b03f603e-e422-4b16-83d6-f236a91e27ed",
+      "imageHint": "cleaning service"
+    },
+    {
       "id": "wendy-houses-image",
       "description": "A well-built wooden wendy house in a garden.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wendy%20Houses%20A.jpg?alt=media&token=984d3f90-7f74-4876-87dc-4cede3151507",
@@ -450,18 +456,6 @@
       "description": "A beautiful wooden deck in a backyard, perfect for outdoor living.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wooden%20Decking%20A.jpg?alt=media&token=e589862d-e806-496a-a274-d42ab97407bf",
       "imageHint": "wooden deck"
-    },
-    {
-      "id": "jumping-castle-image",
-      "description": "A bright and colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://images.unsplash.com/photo-1517594421932-94570cd05959?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib3VuY3klMjBjYXN0bGV8ZW58MHx8fHwxNzY1Mzg1OTkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "bouncy castle"
-    },
-    {
-      "id": "bathroom-renovations-image",
-      "description": "A modern, stylish bathroom with a walk-in shower and clean design.",
-      "imageUrl": "https://images.unsplash.com/photo-1604709177595-ee9c2580e9a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBiYXRocm9vbXxlbnwwfHx8fDE3NjUzODU5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "modern bathroom"
     },
     {
       "id": "graphic-designers-image",
@@ -600,6 +594,24 @@
       "description": "An armed response officer standing alert next to a patrol vehicle.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Armed%20Response.jpg?alt=media&token=95418d68-9de5-426b-a369-6a5f0ba6d70e",
       "imageHint": "armed response"
+    },
+    {
+      "id": "car-tracking-image",
+      "description": "A map interface showing a car's location being tracked in real-time.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Car%20Tracking.jpg?alt=media&token=e782bd83-72d9-4171-94ad-f94ae21ab3f4",
+      "imageHint": "car tracking map"
+    },
+    {
+      "id": "cctv-image",
+      "description": "A modern security camera mounted on an exterior wall.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/CCTV.jpg?alt=media&token=3a5f33a5-1810-430e-b211-3bc0adfd82f9",
+      "imageHint": "security camera"
+    },
+    {
+      "id": "fire-safety-image",
+      "description": "A fire extinguisher mounted on a wall, ready for use.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Fire%20Safety.jpg?alt=media&token=99b12200-607b-436b-91ea-bd88e072c921",
+      "imageHint": "fire extinguisher"
     }
   ]
 }
