@@ -172,7 +172,7 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
@@ -612,6 +612,24 @@
       "description": "A fire extinguisher mounted on a wall, ready for use.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Fire%20Safety.jpg?alt=media&token=99b12200-607b-436b-91ea-bd88e072c921",
       "imageHint": "fire extinguisher"
+    },
+    {
+      "id": "private-investigators-image",
+      "description": "A private investigator looking at evidence with a magnifying glass.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Private%20Investigators.jpg?alt=media&token=b35af51f-60ea-4c75-849c-1b40a6bf350c",
+      "imageHint": "private investigator"
+    },
+    {
+      "id": "tracing-image",
+      "description": "A map with pins and strings, symbolizing the process of tracing someone.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Tracing.jpg?alt=media&token=a38905cd-42a8-461c-899b-c2d109bb8e1a",
+      "imageHint": "tracing map"
+    },
+    {
+      "id": "auto-electricians-image",
+      "description": "An auto electrician diagnosing a car's electrical system with a multimeter.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Auto%20Electricians.jpg?alt=media&token=36e4b5bc-61c7-4e0f-9bf1-216eabdae77a",
+      "imageHint": "auto electrician"
     }
   ]
 }
