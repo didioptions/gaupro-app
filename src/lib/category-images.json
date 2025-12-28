@@ -172,7 +172,7 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
@@ -648,6 +648,24 @@
       "description": "A mechanic inspecting the brake disc and caliper of a car on a lift.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Brakes%20and%20Clutches.jpg?alt=media&token=647c9222-2066-4cea-81ee-9cc81eb9262e",
       "imageHint": "brake inspection"
+    },
+    {
+      "id": "car-aircon-regassing-image",
+      "description": "A technician servicing a car's air conditioning system.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Car%20Aircon%20Regassing.jpg?alt=media&token=76e4cb50-4228-417f-9b40-f55cad82718f",
+      "imageHint": "car aircon"
+    },
+    {
+      "id": "engine-overhauls-image",
+      "description": "A mechanic working on a disassembled car engine.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Engine%20Overhauls.jpg?alt=media&token=15457021-6ee9-4464-8cd1-18b026527198",
+      "imageHint": "engine overhaul"
+    },
+    {
+      "id": "gearboxes-image",
+      "description": "A close-up of a car's gearbox and transmission system.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gearboxes.jpg?alt=media&token=166db1e2-cb85-4e55-9a7e-70ad8ee6386a",
+      "imageHint": "car gearbox"
     }
   ]
 }
