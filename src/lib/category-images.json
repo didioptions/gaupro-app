@@ -564,6 +564,24 @@
       "description": "A personal trainer motivating a client during a workout session in a gym.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Personal%20Trainers.jpg?alt=media&token=0779453a-3390-46c1-8546-e6b733326b3f",
       "imageHint": "personal trainer workout"
+    },
+    {
+      "id": "physiotherapists-image",
+      "description": "A physiotherapist helping a patient with rehabilitation exercises.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Physiotherapists.jpg?alt=media&token=0a83250e-b745-47b3-93e6-2be183d6be44",
+      "imageHint": "physiotherapy exercises"
+    },
+    {
+      "id": "plastic-surgeons-image",
+      "description": "A surgeon in a sterile environment, focused and ready for a procedure.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Plastic%20Surgeons.jpg?alt=media&token=8ba765e7-97ba-4d70-9b60-ceb35be169fa",
+      "imageHint": "surgeon sterile"
+    },
+    {
+      "id": "psychologists-image",
+      "description": "A calm and welcoming therapy office with two chairs facing each other.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Psychologists.jpg?alt=media&token=bc1ab515-b81f-46e8-b689-92f60cca3a97",
+      "imageHint": "therapy office"
     }
   ]
 }
