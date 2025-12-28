@@ -172,7 +172,7 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
@@ -406,13 +406,13 @@
     {
       "id": "jumping-castle-image",
       "description": "A bright and colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://images.unsplash.com/photo-1517594421932-94570cd05959?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib3VuY3klMjBjYXN0bGV8ZW58MHx8fHwxNzY1Mzg1OTkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Jumping%20Castle%20A.jpg?alt=media&token=1d743a41-3b7c-487b-a3d8-e7c65c694a59",
       "imageHint": "bouncy castle"
     },
     {
       "id": "bathroom-renovations-image",
       "description": "A modern, stylish bathroom with a walk-in shower and clean design.",
-      "imageUrl": "https://images.unsplash.com/photo-1604709177595-ee9c2580e9a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBiYXRocm9vbXxlbnwwfHx8fDE3NjUzODU5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/bathroom%20reno%20A.jpg?alt=media&token=c6c49c71-2cb2-474c-83b6-5d275e53303c",
       "imageHint": "modern bathroom"
     },
     {
@@ -630,6 +630,24 @@
       "description": "An auto electrician diagnosing a car's electrical system with a multimeter.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Auto%20Electricians.jpg?alt=media&token=36e4b5bc-61c7-4e0f-9bf1-216eabdae77a",
       "imageHint": "auto electrician"
+    },
+    {
+      "id": "auto-glass-image",
+      "description": "A technician carefully installing a new windscreen on a car.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Auto%20Glass.jpg?alt=media&token=435feaff-9f4c-4ce6-951c-79f4af37fc51",
+      "imageHint": "windscreen installation"
+    },
+    {
+      "id": "batteries-image",
+      "description": "A car battery being tested with a voltmeter.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Batteries.jpg?alt=media&token=bf0d8e29-1a9d-44f9-80bb-99536e6e2805",
+      "imageHint": "car battery"
+    },
+    {
+      "id": "brakes-and-clutches-image",
+      "description": "A mechanic inspecting the brake disc and caliper of a car on a lift.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Brakes%20and%20Clutches.jpg?alt=media&token=647c9222-2066-4cea-81ee-9cc81eb9262e",
+      "imageHint": "brake inspection"
     }
   ]
 }
