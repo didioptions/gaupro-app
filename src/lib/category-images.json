@@ -582,8 +582,24 @@
       "description": "A calm and welcoming therapy office with two chairs facing each other.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Psychologists.jpg?alt=media&token=bc1ab515-b81f-46e8-b689-92f60cca3a97",
       "imageHint": "therapy office"
+    },
+    {
+      "id": "access-control-image",
+      "description": "A person using a fingerprint scanner for access control.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Access%20Control.jpg?alt=media&token=7dec0089-3629-45d8-801a-d80a66510d59",
+      "imageHint": "fingerprint scanner"
+    },
+    {
+      "id": "alarm-systems-image",
+      "description": "A modern home alarm system panel on a wall.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Alarm%20Systems.jpg?alt=media&token=a76fbaa8-b619-424f-8fe0-891874282b85",
+      "imageHint": "alarm panel"
+    },
+    {
+      "id": "armed-response-image",
+      "description": "An armed response officer standing alert next to a patrol vehicle.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Armed%20Response.jpg?alt=media&token=95418d68-9de5-426b-a369-6a5f0ba6d70e",
+      "imageHint": "armed response"
     }
   ]
 }
-
-    
