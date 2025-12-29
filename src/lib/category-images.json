@@ -178,7 +178,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -500,12 +500,6 @@
       "imageHint": "counsellor client"
     },
     {
-      "id": "dentists-image",
-      "description": "A dentist examining a patient's teeth in a modern clinic.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/dentists.jpg?alt=media&token=4d7cb273-1c62-4c49-831e-208ea8193a86",
-      "imageHint": "dentist patient"
-    },
-    {
       "id": "dermatologists-image",
       "description": "A dermatologist examining a patient's skin with a special tool.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/dermatologists.jpg?alt=media&token=70e1df00-b162-4e10-983b-7af1675b1f32",
@@ -756,6 +750,30 @@
       "description": "A technician repairing a washing machine.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Appliance%20Repairs.jpg?alt=media&token=81e38fe8-149f-48c0-86b9-d179788e2293",
       "imageHint": "appliance repair"
+    },
+    {
+      "id": "dstv-installers-image",
+      "description": "A technician installing a satellite dish on a roof.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/DStv%20installers.jpg?alt=media&token=ecda8985-a532-4886-967c-06f4e61c5f9f",
+      "imageHint": "satellite installation"
+    },
+    {
+      "id": "fridge-repairs-image",
+      "description": "A technician inspecting the back of a refrigerator.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fridge%20Repairs.jpg?alt=media&token=510f94ef-d009-49b1-813f-5b2aac1c7e15",
+      "imageHint": "fridge repair"
+    },
+    {
+      "id": "tv-installers-image",
+      "description": "A person mounting a flat-screen TV on a wall.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TV%20Installers.jpg?alt=media&token=5f52a671-224f-4335-8c36-9801d39a9533",
+      "imageHint": "tv wall mount"
+    },
+    {
+      "id": "tv-repairs-image",
+      "description": "A technician working on the internal components of a television.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TV%20Repairs.jpg?alt=media&token=3f146d07-a0ec-4472-8c76-579a42e0cd89",
+      "imageHint": "tv repair"
     }
   ]
 }
