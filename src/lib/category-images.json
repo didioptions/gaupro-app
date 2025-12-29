@@ -684,8 +684,24 @@
       "description": "A close-up of a tow bar installed on the back of an SUV.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/towing%20bars.jpg?alt=media&token=17793672-4d9b-4cfc-96ac-e1a12291e813",
       "imageHint": "tow bar"
+    },
+    {
+      "id": "computer-courses-image",
+      "description": "A person learning on a computer in a modern classroom setting.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Computer%20Courses.jpg?alt=media&token=4feb4b47-c07e-4582-9884-d46c840583e4",
+      "imageHint": "computer class"
+    },
+    {
+      "id": "firearm-training-image",
+      "description": "A person safely practicing at a shooting range with an instructor.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Firearm%20Training.jpg?alt=media&token=532a4e18-95a9-4b4b-9752-dd5ffb7a310e",
+      "imageHint": "firearm training"
+    },
+    {
+      "id": "first-aid-image",
+      "description": "A first aid training session with a CPR dummy.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/First%20Aid.jpg?alt=media&token=531cca38-e041-4063-ad89-fb5af2760107",
+      "imageHint": "first aid CPR"
     }
   ]
 }
-
-    
