@@ -702,6 +702,24 @@
       "description": "A first aid training session with a CPR dummy.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/First%20Aid.jpg?alt=media&token=531cca38-e041-4063-ad89-fb5af2760107",
       "imageHint": "first aid CPR"
+    },
+    {
+      "id": "forklift-training-image",
+      "description": "A person operating a forklift in a warehouse.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Forklift%20Training.jpg?alt=media&token=70ca5fe1-f565-4952-8959-4f1d964c9ef2",
+      "imageHint": "forklift training"
+    },
+    {
+      "id": "life-coaches-image",
+      "description": "A life coach having a motivational session with a client.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Life%20Coaches.jpg?alt=media&token=e6d892f4-2caa-4297-bb8d-5cdd9d603e62",
+      "imageHint": "life coach session"
+    },
+    {
+      "id": "security-training-image",
+      "description": "Security guards in training, practicing drills.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Security%20Training.jpg?alt=media&token=b4ab8c1f-9b72-4306-81c4-a6ee37e4faa4",
+      "imageHint": "security training"
     }
   ]
 }
