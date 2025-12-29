@@ -738,6 +738,24 @@
       "description": "A diverse team collaborating on a fun team-building activity.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Team%20Building.jpg?alt=media&token=a53a5a7e-b8ae-4b47-abba-fcad3c46919b",
       "imageHint": "team building"
+    },
+    {
+      "id": "venues-image",
+      "description": "An elegant indoor venue set up for a large event or conference.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Venues.jpg?alt=media&token=d69ca123-233b-4c5c-bad1-be867d70cc05",
+      "imageHint": "event venue"
+    },
+    {
+      "id": "wedding-venues-image",
+      "description": "A beautiful outdoor wedding venue with a floral arch.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/wedding%20venues%20%20A.jpg?alt=media&token=3cb50354-8c74-4f78-9a03-1336d91aa478",
+      "imageHint": "wedding venue"
+    },
+    {
+      "id": "appliance-repairs-image",
+      "description": "A technician repairing a washing machine.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Appliance%20Repairs.jpg?alt=media&token=81e38fe8-149f-48c0-86b9-d179788e2293",
+      "imageHint": "appliance repair"
     }
   ]
 }
