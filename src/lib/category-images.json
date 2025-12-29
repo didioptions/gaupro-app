@@ -178,7 +178,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -666,6 +666,26 @@
       "description": "A professional applying tint film to a car window.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/car%20window%20tint.jpg?alt=media&token=63ebd572-0715-4e1a-9da4-3cfa6d1901ac",
       "imageHint": "car window tinting"
+    },
+    {
+      "id": "panel-beaters-image",
+      "description": "A panel beater smoothing out a car body panel.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Panel%20Beaters%20AA.jpg?alt=media&token=1ee08f44-af5b-4865-a45e-d661faa57a36",
+      "imageHint": "panel beater"
+    },
+    {
+      "id": "towing-image",
+      "description": "A tow truck pulling a car on a highway.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/towing.jpg?alt=media&token=e1f1f98d-a70d-4a3c-84f7-f1376c0568ef",
+      "imageHint": "tow truck"
+    },
+    {
+      "id": "tow-bars-image",
+      "description": "A close-up of a tow bar installed on the back of an SUV.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/towing%20bars.jpg?alt=media&token=17793672-4d9b-4cfc-96ac-e1a12291e813",
+      "imageHint": "tow bar"
     }
   ]
 }
+
+    
