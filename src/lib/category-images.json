@@ -720,6 +720,24 @@
       "description": "Security guards in training, practicing drills.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Security%20Training.jpg?alt=media&token=b4ab8c1f-9b72-4306-81c4-a6ee37e4faa4",
       "imageHint": "security training"
+    },
+    {
+      "id": "swimming-lessons-image",
+      "description": "A child learning to swim with an instructor in a pool.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Swimming%20Lessons%20AA.jpg?alt=media&token=20ad4a1b-53f4-4105-b3af-2a23b64b9c43",
+      "imageHint": "swimming lesson"
+    },
+    {
+      "id": "holiday-accommodation-image",
+      "description": "A beautiful holiday home with a view of the ocean.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Holiday%20Accommodation.jpg?alt=media&token=df71f548-2447-4ca3-9591-e53f0ed52b19",
+      "imageHint": "holiday home ocean"
+    },
+    {
+      "id": "team-building-image",
+      "description": "A diverse team collaborating on a fun team-building activity.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Team%20Building.jpg?alt=media&token=a53a5a7e-b8ae-4b47-abba-fcad3c46919b",
+      "imageHint": "team building"
     }
   ]
 }
