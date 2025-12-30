@@ -828,6 +828,24 @@
       "description": "A taxi driving through a city street.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/taxis.jpg?alt=media&token=92c042f2-8f15-4f6d-a4a6-073f8c36d8e4",
       "imageHint": "taxi city"
+    },
+    {
+      "id": "transportation-image",
+      "description": "A large truck driving on a highway, symbolizing logistics and transportation.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Transportation.jpg?alt=media&token=1ca7600b-b20e-4328-a092-49fe4152bed8",
+      "imageHint": "truck highway"
+    },
+    {
+      "id": "cellphone-repairs-image",
+      "description": "A technician repairing a smartphone with precision tools.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Cellphone%20Repairs.jpg?alt=media&token=41a8da1d-2677-4662-9b39-8d69dc4f1087",
+      "imageHint": "phone repair"
+    },
+    {
+      "id": "computer-repairs-image",
+      "description": "The inside of a desktop computer with a technician's hands working on it.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Computer%20Repairs.jpg?alt=media&token=a3788a8c-9e00-473a-9e43-6c0ce2fb24c1",
+      "imageHint": "computer repair"
     }
   ]
 }
