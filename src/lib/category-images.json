@@ -810,6 +810,24 @@
       "description": "A courier delivering a package to a customer.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Couriers.jpg?alt=media&token=4a509afd-9ace-45d3-a273-fd958e52090b",
       "imageHint": "courier package"
+    },
+    {
+      "id": "school-transport-image",
+      "description": "A friendly school bus driver in front of a yellow bus.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/school%20trans.jpg?alt=media&token=59d26202-b352-4695-96aa-e1b30e4762b0",
+      "imageHint": "school bus"
+    },
+    {
+      "id": "shuttle-services-image",
+      "description": "A clean, modern shuttle van waiting for passengers.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Shuttle%20Services.jpg?alt=media&token=258b0e10-4dbb-492f-80c2-dfbc6d5e1f95",
+      "imageHint": "shuttle van"
+    },
+    {
+      "id": "taxis-image",
+      "description": "A taxi driving through a city street.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/taxis.jpg?alt=media&token=92c042f2-8f15-4f6d-a4a6-073f8c36d8e4",
+      "imageHint": "taxi city"
     }
   ]
 }
