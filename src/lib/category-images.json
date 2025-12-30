@@ -792,6 +792,24 @@
       "description": "An estate agent handing over keys to a new homeowner.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Estate%20Agents.jpg?alt=media&token=9238689b-c24f-4988-bdad-584a031a11b4",
       "imageHint": "handing over keys"
+    },
+    {
+      "id": "labour-lawyers-image",
+      "description": "A handshake over a desk, representing a labour agreement.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Labour%20Lawyers.jpg?alt=media&token=62bd2eaf-8b3d-4cd5-a697-8b5913b860f6",
+      "imageHint": "handshake desk"
+    },
+    {
+      "id": "lawyers-image",
+      "description": "A gavel and law books on a wooden table.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Lawyers.jpg?alt=media&token=fa7591af-5f1b-4933-9c33-e3ee3cea4f76",
+      "imageHint": "gavel books"
+    },
+    {
+      "id": "couriers-image",
+      "description": "A courier delivering a package to a customer.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Couriers.jpg?alt=media&token=4a509afd-9ace-45d3-a273-fd958e52090b",
+      "imageHint": "courier package"
     }
   ]
 }
