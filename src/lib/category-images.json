@@ -846,6 +846,24 @@
       "description": "The inside of a desktop computer with a technician's hands working on it.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Computer%20Repairs.jpg?alt=media&token=a3788a8c-9e00-473a-9e43-6c0ce2fb24c1",
       "imageHint": "computer repair"
+    },
+    {
+      "id": "internet-solutions-image",
+      "description": "A glowing fibre optic cable, representing fast internet.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Internet%20Solutions.jpg?alt=media&token=a9210646-6aeb-417c-bb9c-26ad286c17a8",
+      "imageHint": "fibre optic"
+    },
+    {
+      "id": "laptop-repairs-image",
+      "description": "A technician opening up a laptop to perform repairs.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Laptop%20Repairs.jpg?alt=media&token=01bb3059-9958-4e93-bdd3-078a382339aa",
+      "imageHint": "laptop repair"
+    },
+    {
+      "id": "networking-image",
+      "description": "A server room with network cables and routers.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Networking.jpg?alt=media&token=21d57ba3-56fe-47c8-a557-879d9971ecd4",
+      "imageHint": "server room"
     }
   ]
 }
