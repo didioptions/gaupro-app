@@ -63,7 +63,7 @@
     {
       "id": "pta-premier-logo",
       "description": "A premium logo for a Pretoria-based bathroom renovation company.",
-      "imageUrl": "https://images.unsplash.com/photo-1620288627-413152861563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcmVtaXVtJTIwbG9nb3xlbnwwfHx8fDE3Njk4OTU2NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620288627-413152861563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcmVtaXVtJTIwbG9nb3xlbnwwfHx8fDE3Njk4OTU2NTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "premium logo"
     },
     {
@@ -207,7 +207,7 @@
     {
       "id": "hero-background-image",
       "description": "A bright and modern living room with a comfortable sofa.",
-      "imageUrl": "https://images.unsplash.com/photo-1631679706909-1844bbd07221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsaXZpbmclMjByb29tfGVufDB8fHx8MTc2MTA4OTI5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1631679706909-1844bbd07221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsaXZpbmclMjByb29tfGVufDB8fHx8MTc2MTA4OTI5OXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "modern living room"
     },
     {
@@ -219,7 +219,7 @@
     {
       "id": "growth-learning-card",
       "description": "A line graph showing upward growth, representing career development.",
-      "imageUrl": "https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncm93dGglMjBjaGFydHxlbnwwfHx8fDE3NjEwMDU2OTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncm93dGglMjBjaGFydHxlbnwwfHx8fDE3NjEwMDU2OTN8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "growth chart"
     },
     {
@@ -243,25 +243,25 @@
     {
       "id": "analytics-dashboard-card",
       "description": "A vibrant and modern analytics dashboard on a screen, showing various charts and graphs.",
-      "imageUrl": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzYxMjAzNTU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzYxMjAzNTU3fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "analytics dashboard"
     },
     {
       "id": "instant-quotes-card",
       "description": "A smartphone screen showing an instant notification or message for a quote.",
-      "imageUrl": "https://images.unsplash.com/photo-1605364850023-a917c39f8fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxpbnN0YW50JTIwbm90aWZpY2F0aW9ufGVufDB8fHx8MTc2MTI1ODY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605364850023-a917c39f8fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHxpbnN0YW50JTIwbm90aWZpY2F0aW9ufGVufDB8fHx8MTc2MTI1ODY3NXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "instant notification"
     },
     {
       "id": "verified-badge-card",
       "description": "A close-up of a blue verified checkmark badge, symbolizing trust and authenticity.",
-      "imageUrl": "https://images.unsplash.com/photo-1592181572975-1d0d8880d175?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx2ZXJpZmllZCUyMGNoZWNrbWFya3xlbnwwfHx8fDE3NjEyNTg2NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1592181572975-1d0d8880d175?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHx2ZXJpZmllZCUyMGNoZWNrbWFya3xlbnwwfHx8fDE3NjEyNTg2NzV8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "verified checkmark"
     },
     {
       "id": "pro-signup-hero",
       "description": "A diverse group of smiling professionals, including a designer, an electrician, and a personal trainer.",
-      "imageUrl": "https://images.unsplash.com/photo-1578366941741-9e517759c620?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkaXZlcnNlJTIwcHJvZmVzc2lvbmFscyUyMHRlYW18ZW58MHx8fHwxNzYxMzMyMDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1578366941741-9e517759c620?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkaXZlcnNlJTIwcHJvZmVzc2lvbmFscyUyMHRlYW18ZW58MHx8fHwxNzYxMzMyMDM2fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "diverse professionals team"
     },
     {
@@ -797,6 +797,24 @@
       "description": "An elegant logo for a cosmetic dentistry clinic.",
       "imageUrl": "https://images.unsplash.com/photo-1747172741584-6851de179085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb3NtZXRpYyUyMGxvZ298ZW58MHx8fHwxNzY1ODMyMTYwfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "cosmetic logo"
+    },
+    {
+      "id": "labour-lawyers-image",
+      "description": "A handshake over a desk, representing a labour agreement.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Labour%20Lawyers.jpg?alt=media&token=62bd2eaf-8b3d-4cd5-a697-8b5913b860f6",
+      "imageHint": "handshake desk"
+    },
+    {
+      "id": "lawyers-image",
+      "description": "A gavel and law books on a wooden table.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Lawyers.jpg?alt=media&token=fa7591af-5f1b-4933-9c33-e3ee3cea4f76",
+      "imageHint": "gavel books"
+    },
+    {
+      "id": "couriers-image",
+      "description": "A courier delivering a package to a customer.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Couriers.jpg?alt=media&token=4a509afd-9ace-45d3-a273-fd958e52090b",
+      "imageHint": "courier package"
     }
   ]
 }
