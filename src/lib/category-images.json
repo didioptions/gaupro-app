@@ -178,7 +178,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -774,6 +774,24 @@
       "description": "A technician working on the internal components of a television.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TV%20Repairs.jpg?alt=media&token=3f146d07-a0ec-4472-8c76-579a42e0cd89",
       "imageHint": "tv repair"
+    },
+    {
+      "id": "conveyancers-image",
+      "description": "A person signing a property transfer document.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Conveyancers.jpg?alt=media&token=d9559a2a-66e1-4139-9b8c-09740b8225b8",
+      "imageHint": "document signing"
+    },
+    {
+      "id": "divorce-lawyers-image",
+      "description": "A broken wedding ring, symbolizing divorce.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Divorce%20Lawyers.jpg?alt=media&token=4fc3abce-d2bf-48aa-8008-4cca2a5717f9",
+      "imageHint": "broken ring"
+    },
+    {
+      "id": "estate-agents-image",
+      "description": "An estate agent handing over keys to a new homeowner.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Estate%20Agents.jpg?alt=media&token=9238689b-c24f-4988-bdad-584a031a11b4",
+      "imageHint": "handing over keys"
     }
   ]
 }
