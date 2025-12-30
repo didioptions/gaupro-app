@@ -172,13 +172,13 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -864,6 +864,30 @@
       "description": "A server room with network cables and routers.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Networking.jpg?alt=media&token=21d57ba3-56fe-47c8-a557-879d9971ecd4",
       "imageHint": "server room"
+    },
+    {
+      "id": "office-equipment-image",
+      "description": "A modern office printer and copier machine.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Office%20Equipment.jpg?alt=media&token=c3be481d-b227-4216-ac36-4b56fda94078",
+      "imageHint": "office printer"
+    },
+    {
+      "id": "generators-image",
+      "description": "A portable diesel generator.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Generators.jpg?alt=media&token=bd67a535-624a-4193-a3fd-da6766c0c0fb",
+      "imageHint": "portable generator"
+    },
+    {
+      "id": "plant-hire-image",
+      "description": "A large yellow excavator at a construction site.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Plant%20Hire.jpg?alt=media&token=9ae6c2fb-d6c8-449d-a2a0-21d1d9418cac",
+      "imageHint": "excavator construction"
+    },
+    {
+      "id": "skip-hire-image",
+      "description": "A large yellow skip bin for waste removal.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/good%20skip.jpg?alt=media&token=35b50ee3-cc95-4938-975e-cf40e9f6e404",
+      "imageHint": "skip bin"
     }
   ]
 }
