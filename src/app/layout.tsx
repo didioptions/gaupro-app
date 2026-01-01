@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
-import { FirebaseClientProvider } from '@/firebase';
-import CookieConsentBanner from '@/components/layout/cookie-consent-banner';
-import PublicChatWidget from '@/components/layout/public-chat-widget';
-
+import ClientLayout from '@/components/layout/client-layout';
 
 export const metadata: Metadata = {
   title: 'Gaupro | Find Trusted Pros for Any Project',
@@ -24,7 +20,7 @@ export default function RootLayout({
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
-          crossOrigin="true"
+          crossOrigin="anonymous"
         />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -32,12 +28,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body bg-background text-foreground antialiased flex flex-col min-h-screen">
-        <FirebaseClientProvider>
-          <div className="flex-grow">{children}</div>
-          <Toaster />
-          <CookieConsentBanner />
-          <PublicChatWidget />
-        </FirebaseClientProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
