@@ -134,16 +134,16 @@
       "imageHint": "carpenter wood"
     },
     {
-      "id": "accounting-image",
-      "description": "A calculator and pen on top of financial documents.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Accountant%202).png?alt=media&token=ba08721a-63a6-4d04-b346-37ade3b704e8",
-      "imageHint": "accounting finance"
+      "id": "auditors-image",
+      "description": "A person reviewing financial documents with a calculator.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/auditors%20good%20A.jpg?alt=media&token=fce3ae90-996e-42d5-92a4-16c2a3498662",
+      "imageHint": "auditor documents"
     },
     {
-      "id": "auditors-image",
-      "description": "A person with a magnifying glass examining a financial report.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/auditors%20good%20(1).png?alt=media&token=4f99dc83-ce7b-49f1-9b5f-d3134986b8ec",
-      "imageHint": "auditor report"
+      "id": "accounting-image",
+      "description": "A calculator and pen on top of financial documents.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/accountants.jpg?alt=media&token=a086d1b9-b6c5-4f25-98a8-8e263250a3c5",
+      "imageHint": "accounting finance"
     },
     {
       "id": "debt-counsellors-image",
@@ -172,13 +172,13 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -942,6 +942,18 @@
       "description": "An irrigation sprinkler watering a green field.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Irrigation.jpg?alt=media&token=a58486fa-73e1-41ad-bcec-c8b6082b3495",
       "imageHint": "irrigation sprinkler"
+    },
+    {
+      "id": "borehole-drillers-image",
+      "description": "A drilling rig boring a hole into the ground for water.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Borehole%20Drillers.jpg?alt=media&token=3a0502ab-b329-4b43-a4ef-cc7b3da73f0a",
+      "imageHint": "borehole drilling"
+    },
+    {
+      "id": "town-planners-image",
+      "description": "A town planner reviewing city maps and development plans.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Town%20Planners.jpg?alt=media&token=07e3b0ee-3fa8-40d2-a72d-663455a80b08",
+      "imageHint": "town planning map"
     }
   ]
 }
