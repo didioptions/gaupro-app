@@ -178,7 +178,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -906,6 +906,24 @@
       "description": "Gas cylinders ready for delivery.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gas%20Suppliers.jpg?alt=media&token=ffb10224-da6f-4fd9-969b-9529c6671483",
       "imageHint": "gas cylinders"
+    },
+    {
+      "id": "marble-and-granite-suppliers-image",
+      "description": "A beautiful slab of marble with intricate veining.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Marble%20and%20Granite%20Suppliers.jpg?alt=media&token=85aa0dc1-36c6-440f-bad2-4918899ac4f3",
+      "imageHint": "marble slab"
+    },
+    {
+      "id": "personal-protection-equipment-image",
+      "description": "A collection of personal protection equipment including a hard hat, gloves, and safety glasses.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Personal%20Protection%20Equipment.jpg?alt=media&token=e0536448-b317-42ee-b371-e05a40fd8ae8",
+      "imageHint": "safety equipment"
+    },
+    {
+      "id": "stationery-image",
+      "description": "A neatly organized desk with various stationery items like pens, notebooks, and clips.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Stationery.jpg?alt=media&token=7293490e-9ad8-457f-9d09-0ef1e59818dd",
+      "imageHint": "stationery desk"
     }
   ]
 }
