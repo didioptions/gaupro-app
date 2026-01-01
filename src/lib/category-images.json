@@ -178,7 +178,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -924,6 +924,24 @@
       "description": "A neatly organized desk with various stationery items like pens, notebooks, and clips.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Stationery.jpg?alt=media&token=7293490e-9ad8-457f-9d09-0ef1e59818dd",
       "imageHint": "stationery desk"
+    },
+    {
+      "id": "agricultural-equipment-image",
+      "description": "A large green tractor in a field.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Agricultural%20Equipment.jpg?alt=media&token=d0bebae4-138d-420f-a177-d3b5e98b6578",
+      "imageHint": "tractor field"
+    },
+    {
+      "id": "agricultural-services-image",
+      "description": "A farmer inspecting crops in a field.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Agricultural%20Services.jpg?alt=media&token=cf46a592-3e42-4c38-8be2-72e311663594",
+      "imageHint": "farmer crops"
+    },
+    {
+      "id": "irrigation-image",
+      "description": "An irrigation sprinkler watering a green field.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Irrigation.jpg?alt=media&token=a58486fa-73e1-41ad-bcec-c8b6082b3495",
+      "imageHint": "irrigation sprinkler"
     }
   ]
 }
