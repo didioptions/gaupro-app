@@ -64,7 +64,7 @@
     {
       "id": "party-planners-image",
       "description": "A party planner with a clipboard, smiling at a well-organized event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/party_planners%20(1).png?alt=media&token=63a1b99e-cb50-4f39-85db-970925e2b840",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Event%20Planners.jpg?alt=media&token=3884e702-cba3-49b0-acf8-2d371d425f2c",
       "imageHint": "party planner"
     },
     {
@@ -406,7 +406,7 @@
     {
       "id": "jumping-castle-image",
       "description": "A bright and colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Jumping%20Castle%20A.jpg?alt=media&token=1d743a41-3b7c-487b-a3d8-e7c65c694a59",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/jumping%20c.jpg?alt=media&token=5cc50e6f-403d-4c6d-ad28-f814dffbd29b",
       "imageHint": "bouncy castle"
     },
     {
@@ -1026,6 +1026,12 @@
       "description": "A driving instructor in a car with a student.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/driving%20school.jpg?alt=media&token=5bb9c330-7368-434c-834e-124958722fae",
       "imageHint": "driving lesson"
+    },
+    {
+      "id": "burglar-bars-image",
+      "description": "Strong steel burglar bars installed on a window.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Burglar%20Bars%20A.jpg?alt=media&token=798605b0-c1d0-4c61-9132-42f2a945565b",
+      "imageHint": "burglar bars"
     }
   ]
 }
