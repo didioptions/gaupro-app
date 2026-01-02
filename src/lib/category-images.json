@@ -172,13 +172,13 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -954,6 +954,24 @@
       "description": "A town planner reviewing city maps and development plans.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Town%20Planners.jpg?alt=media&token=07e3b0ee-3fa8-40d2-a72d-663455a80b08",
       "imageHint": "town planning map"
+    },
+    {
+      "id": "baby-sitters-image",
+      "description": "A friendly baby sitter playing with a happy toddler.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Baby%20Sitters.jpg?alt=media&token=18994a01-5d3c-4829-b3f2-e0ed1ffee376",
+      "imageHint": "babysitter toddler"
+    },
+    {
+      "id": "pre-schools-image",
+      "description": "Children in a preschool classroom learning and playing.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Pre-Schools.jpg?alt=media&token=5fc8ce8e-4064-4576-b763-5421642e0406",
+      "imageHint": "preschool children"
+    },
+    {
+      "id": "dressmakers-image",
+      "description": "A dressmaker working on a custom gown on a mannequin.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Dressmakers.jpg?alt=media&token=57260fdc-eac7-454f-ac1d-14c10756b28c",
+      "imageHint": "dressmaker mannequin"
     }
   ]
 }
