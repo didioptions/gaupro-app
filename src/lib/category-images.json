@@ -972,6 +972,24 @@
       "description": "A dressmaker working on a custom gown on a mannequin.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Dressmakers.jpg?alt=media&token=57260fdc-eac7-454f-ac1d-14c10756b28c",
       "imageHint": "dressmaker mannequin"
+    },
+    {
+      "id": "day-care-centres-image",
+      "description": "Children playing in a colorful and safe day care center.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Day%20Care%20Centres.jpg?alt=media&token=55d832af-dec0-45f1-b146-906c28812320",
+      "imageHint": "daycare children"
+    },
+    {
+      "id": "creches-image",
+      "description": "Toddlers and babies in a bright and playful creche environment.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Creches.jpg?alt=media&token=e243ab45-2a1b-42e5-aa55-829a8a3902a7",
+      "imageHint": "creche toddlers"
+    },
+    {
+      "id": "embroidery-image",
+      "description": "A close-up of a detailed embroidery pattern on fabric.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Embroidery.jpg?alt=media&token=61f37ec0-b774-41b3-8579-e1368ad31ec3",
+      "imageHint": "embroidery fabric"
     }
   ]
 }
