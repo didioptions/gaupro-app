@@ -1008,6 +1008,24 @@
       "description": "A person playing with a dog in a park.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Pet%20Sitters.jpg?alt=media&token=e0f076f6-4699-4094-9db5-cbdd2551d3f4",
       "imageHint": "pet sitter dog"
+    },
+    {
+      "id": "tour-operators-image",
+      "description": "A tour guide with a group of tourists looking at a map.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Tour%20Operators.jpg?alt=media&token=9394b46d-25c0-45f0-81a5-51ac7604b08c",
+      "imageHint": "tour guide"
+    },
+    {
+      "id": "travel-agents-image",
+      "description": "A travel agent at a desk with a globe and brochures.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Travel%20Agents.jpg?alt=media&token=27dfce37-2cce-4266-8028-a543c368c689",
+      "imageHint": "travel agent"
+    },
+    {
+      "id": "driving-schools-image",
+      "description": "A driving instructor in a car with a student.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/driving%20school.jpg?alt=media&token=5bb9c330-7368-434c-834e-124958722fae",
+      "imageHint": "driving lesson"
     }
   ]
 }
