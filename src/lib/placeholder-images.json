@@ -63,19 +63,19 @@
     {
       "id": "pta-premier-logo",
       "description": "A premium logo for a Pretoria-based bathroom renovation company.",
-      "imageUrl": "https://images.unsplash.com/photo-1620288627-413152861563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcmVtaXVtJTIwbG9nb3xlbnwwfHx8fDE3Njk4OTU2NTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620288627-413152861563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcmVtaXVtJTIwbG9nb3xlbnwwfHx8fDE3Njk4OTU2NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "premium logo"
     },
     {
       "id": "bathroom-boutique-logo",
       "description": "A luxurious and stylish logo for a high-end bathroom renovation boutique.",
-      "imageUrl": "https://images.unsplash.com/photo-1763116146135-7e937335f87d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsdXh1cnklMjBhZXN0aGV0aWNzJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNTl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1763116146135-7e937335f87d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsdXh1cnklMjBhZXN0aGV0aWNzJTIwbG9nb3xlbnwwfHx8fDE3NjU4MzIxNTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "luxury aesthetics logo"
     },
     {
       "id": "quick-fix-logo",
       "description": "A logo for a quick repair service featuring a wrench and a clock.",
-      "imageUrl": "https://images.unsplash.com/photo-1698382318218-1c0a161a803a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3cmVuY2glMjBsb2dvfGVufDB8fHx8fDE3NjU4OTkyNDV8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1698382318218-1c0a161a803a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3cmVuY2glMjBsb2dvfGVufDB8fHx8fDE3NjU4OTkyNDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wrench logo"
     },
     {
@@ -200,9 +200,9 @@
     },
     {
       "id": "pro-cta-image",
-      "description": "A professional tradesperson with tools, looking confident.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/CompressJPEG.Online_img(550x450).jpg?alt=media&token=3a696aa3-97b5-4a94-9f52-50860d6c5726",
-      "imageHint": "professional tools"
+      "description": "A group of diverse, smiling construction professionals in safety vests.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/G1-Photoroom%20(1).jpg?alt=media&token=6f38b834-d5e6-4692-b725-4a95290ecdc5",
+      "imageHint": "diverse professionals team"
     },
     {
       "id": "hero-background-image",
