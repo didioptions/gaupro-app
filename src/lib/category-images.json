@@ -990,6 +990,24 @@
       "description": "A close-up of a detailed embroidery pattern on fabric.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Embroidery.jpg?alt=media&token=61f37ec0-b774-41b3-8579-e1368ad31ec3",
       "imageHint": "embroidery fabric"
+    },
+    {
+      "id": "cake-shops-image",
+      "description": "A beautifully decorated cake in a bakery display.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/cake%20shop.jpg?alt=media&token=a69c400d-49b1-45df-acef-94c183e16b1e",
+      "imageHint": "bakery cake"
+    },
+    {
+      "id": "groomers-image",
+      "description": "A dog being groomed by a professional groomer.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Groomers.jpg?alt=media&token=c2a662a4-610f-4eae-a69a-d70b222b309f",
+      "imageHint": "dog grooming"
+    },
+    {
+      "id": "pet-sitters-image",
+      "description": "A person playing with a dog in a park.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Pet%20Sitters.jpg?alt=media&token=e0f076f6-4699-4094-9db5-cbdd2551d3f4",
+      "imageHint": "pet sitter dog"
     }
   ]
 }
