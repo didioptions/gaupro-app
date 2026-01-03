@@ -84,7 +84,7 @@ export default function ServicePage() {
         )
     }
 
-    const serviceImageId = `${currentService.replace(/-service$/, '')}-image`;
+    const serviceImageId = `${currentService}-image`;
     let heroImage = CategoryImages.find(p => p.id === `real-${serviceImageId}` || p.id === serviceImageId);
     
     if (!heroImage) {
