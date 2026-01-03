@@ -26,7 +26,7 @@ export default function ProCta() {
                   src={ctaImage.imageUrl}
                   alt={ctaImage.description}
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   data-ai-hint={ctaImage.imageHint}
                 />
               )}
