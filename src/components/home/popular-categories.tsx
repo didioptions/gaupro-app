@@ -25,7 +25,7 @@ const weddingServices = [
   { name: "Event Decorations", value: "event-decorations", imageId: "event-decorations-image" },
   { name: "Party Planners", value: "party-planners", imageId: "party-planners-image" },
   { name: "Tent Hire", value: "tent-hire", imageId: "tent-hire-image" },
-  { name: "Jumping Castle Hire", value: "jumping-castle-image", imageId: "jumping-castle-image" },
+  { name: "Jumping Castle Hire", value: "jumping-castle-hire", imageId: "jumping-castle-image" },
   { name: "Toilet Hire", value: "toilet-hire", imageId: "toilet-hire-image" },
   { name: "Videographers", value: "videographers", imageId: "videographers-image" },
   { name: "Wedding Photographers", value: "wedding-photographers", imageId: "wedding-photographers-image" },
