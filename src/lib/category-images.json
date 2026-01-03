@@ -172,13 +172,13 @@
     {
       "id": "business-consultants-image",
       "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHhidXNpbmVzcyUyMHN0cmF0ZWd5fGVufDB8fHx8MTc2NTM3MTMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business strategy"
     },
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -424,7 +424,7 @@
     {
       "id": "cleaning-service-image",
       "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation%20cleaning%20serv.jpg?alt=media&token=b03f603e-e422-4b16-83d6-f236a91e27ed",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/cleaning%20serv.jpg?alt=media&token=7881f30f-a49c-4a1c-8a0d-0a7a8b4cb8f3",
       "imageHint": "cleaning service"
     },
     {
@@ -1032,6 +1032,18 @@
       "description": "Strong steel burglar bars installed on a window.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Burglar%20Bars%20A.jpg?alt=media&token=798605b0-c1d0-4c61-9132-42f2a945565b",
       "imageHint": "burglar bars"
+    },
+    {
+      "id": "fuels-image",
+      "description": "A person refueling a car at a gas station.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/fuels%20c.jpg?alt=media&token=a8f05f54-8079-4c7d-abf1-c557b3aae45d",
+      "imageHint": "gas station"
+    },
+    {
+      "id": "curtains-image",
+      "description": "Elegant curtains hanging in a well-lit living room.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Curtains%20c.jpg?alt=media&token=f76fab69-06e2-422b-80bc-fb96e7b39234",
+      "imageHint": "elegant curtains"
     }
   ]
 }
