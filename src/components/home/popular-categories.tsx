@@ -23,7 +23,7 @@ const popularServices = [
 const weddingServices = [
   { name: "Djs", value: "djs", imageId: "djs-image" },
   { name: "Event Decorations", value: "event-decorations", imageId: "event-decorations-image" },
-  { name: "Party Planners", value: "party-planners", imageId: "party-planners-image" },
+  { name: "Party Planners", value: "party-planners", imageId: "event-planners-image" },
   { name: "Tent Hire", value: "tent-hire", imageId: "tent-hire-image" },
   { name: "Jumping Castle Hire", value: "jumping-castle-hire", imageId: "jumping-castle-image" },
   { name: "Toilet Hire", value: "toilet-hire", imageId: "toilet-hire-image" },
