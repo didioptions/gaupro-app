@@ -730,7 +730,7 @@
     {
       "id": "team-building-image",
       "description": "A diverse team collaborating on a fun team-building activity.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Team%20Building.jpg?alt=media&token=a53a5a7e-b8ae-4b47-abba-fcad3c46919b",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Team%20Building.jpg?alt=media&token=a53a5a7e-b8ae-4b47-abba-fcad4c46919b",
       "imageHint": "team building"
     },
     {
@@ -1072,19 +1072,19 @@
     {
       "id": "aluminium-doors-and-windows-image",
       "description": "Sleek aluminium sliding doors opening to a patio.",
-      "imageUrl": "https://picsum.photos/seed/aluminium-doors/800/600",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/aluminium%20doors%20and%20windows%20A.jpg?alt=media&token=934e91fd-9bc2-4e94-94f2-fdbe3f16970d",
       "imageHint": "aluminium doors"
     },
     {
       "id": "awnings-image",
       "description": "A retractable awning providing shade over a sunny patio.",
-      "imageUrl": "https://picsum.photos/seed/awning/800/600",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/awnings%20A.jpg?alt=media&token=80bd2543-7b32-47c0-9ef4-0a91dfabf6c9",
       "imageHint": "patio awning"
     },
     {
       "id": "balustrades-image",
       "description": "A modern glass balustrade on a staircase.",
-      "imageUrl": "https://picsum.photos/seed/balustrade/800/600",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Balustrades.jpg?alt=media&token=5f94d8ed-5444-4daf-8273-97d016d8fe3b",
       "imageHint": "glass balustrade"
     },
     {
