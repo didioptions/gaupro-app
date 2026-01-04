@@ -178,7 +178,7 @@
     {
       "id": "company-registrations-image",
       "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "document signing"
     },
     {
@@ -220,7 +220,7 @@
     {
       "id": "gate-motors-image",
       "description": "A professional installing or repairing a gate motor.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gate%20Motors%20A-min.jpg?alt=media&token=8016e035-53a7-435e-8d23-2f3d19c7af6d",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
       "imageHint": "gate motor"
     },
     {
@@ -1096,7 +1096,7 @@
     {
       "id": "ceiling-installers-image",
       "description": "A beautifully finished ceiling with downlights.",
-      "imageUrl": "https://picsum.photos/seed/ceiling/800/600",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ceiling%20Installers.jpg?alt=media&token=230c8dc5-bd1f-4bf7-a83e-a27cc333e12c",
       "imageHint": "modern ceiling"
     },
     {
@@ -1104,6 +1104,24 @@
       "description": "A freshly poured concrete slab for a new house foundation.",
       "imageUrl": "https://picsum.photos/seed/concrete-slab/800/600",
       "imageHint": "concrete foundation"
+    },
+    {
+      "id": "garage-door-motors-image",
+      "description": "A professional installing a new garage door motor.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
+      "imageHint": "garage motor"
+    },
+    {
+      "id": "carpeting-image",
+      "description": "A luxurious, soft carpet in a cozy living room setting.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpenters.jpg?alt=media&token=fdea5fc5-6adf-43f2-9e74-5e743ae97aa7",
+      "imageHint": "plush carpet"
+    },
+    {
+      "id": "carpet-cleaning-image",
+      "description": "A professional using a steam cleaner on a carpet.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpet%20Cleaning%20A%20A.jpg?alt=media&token=fcbe9da6-45aa-465f-816c-69c242e48900",
+      "imageHint": "carpet cleaning"
     }
   ]
 }
