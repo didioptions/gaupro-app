@@ -62,7 +62,7 @@
       "imageHint": "event decoration"
     },
     {
-      "id": "party-planners-image",
+      "id": "event-planners-image",
       "description": "A party planner with a clipboard, smiling at a well-organized event.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Event%20Planners%20G.jpg?alt=media&token=1897a04e-59dc-49ef-9419-89cc4cfeed8f",
       "imageHint": "party planner"
@@ -1044,6 +1044,24 @@
       "description": "Elegant curtains hanging in a well-lit living room.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Curtains%20c.jpg?alt=media&token=f76fab69-06e2-422b-80bc-fb96e7b39234",
       "imageHint": "elegant curtains"
+    },
+    {
+      "id": "car-alarms-image",
+      "description": "A modern car alarm key fob.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/car%20alarm%20c.jpg?alt=media&token=57db81a7-a1d4-4f06-9f02-f71fcef503bd",
+      "imageHint": "car alarm"
+    },
+    {
+      "id": "roofer-image",
+      "description": "A roofer working on a residential roof.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/roofer.jpg?alt=media&token=e015f808-b755-48db-9081-0a793f3f2530",
+      "imageHint": "roofer work"
+    },
+    {
+      "id": "mechanics-image",
+      "description": "A mechanic working under a car on a lift.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/c%20machanics.jpg?alt=media&token=7218c9a6-3ae9-4e7c-94bc-74678485bdea",
+      "imageHint": "mechanic car"
     }
   ]
 }
