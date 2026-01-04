@@ -45,8 +45,13 @@ export default function PublicChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const [showClosingScreen, setShowClosingScreen] = useState(false);
   const [rating, setRating] = useState(0);
+  const [isClient, setIsClient] = useState(false);
   const pathname = usePathname();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -66,8 +71,8 @@ export default function PublicChatWidget() {
     }
   }, [messages, isLoading]);
 
-  // Don't render the widget on pro-specific pages
-  if (pathname.startsWith('/pro/')) {
+  // Don't render the widget on pro-specific pages or on the server
+  if (pathname.startsWith('/pro/') || !isClient) {
     return null;
   }
 
