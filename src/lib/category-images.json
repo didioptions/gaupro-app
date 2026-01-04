@@ -404,7 +404,7 @@
       "imageHint": "welder sparks"
     },
     {
-      "id": "jumping-castle-image",
+      "id": "jumping-castle-hire-image",
       "description": "A bright and colorful jumping castle set up for a kids party.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Jumping%20Castle%20Hire%20a.jpg?alt=media&token=0dd3cb9e-c112-4ba5-9b31-c5ccbb5d8dcc",
       "imageHint": "bouncy castle"
@@ -1062,6 +1062,48 @@
       "description": "A mechanic working under a car on a lift.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/c%20machanics.jpg?alt=media&token=7218c9a6-3ae9-4e7c-94bc-74678485bdea",
       "imageHint": "mechanic car"
+    },
+    {
+      "id": "air-conditioning-image",
+      "description": "A modern air conditioning unit mounted on a wall.",
+      "imageUrl": "https://picsum.photos/seed/air-con/800/600",
+      "imageHint": "air conditioner"
+    },
+    {
+      "id": "aluminium-doors-and-windows-image",
+      "description": "Sleek aluminium sliding doors opening to a patio.",
+      "imageUrl": "https://picsum.photos/seed/aluminium-doors/800/600",
+      "imageHint": "aluminium doors"
+    },
+    {
+      "id": "awnings-image",
+      "description": "A retractable awning providing shade over a sunny patio.",
+      "imageUrl": "https://picsum.photos/seed/awning/800/600",
+      "imageHint": "patio awning"
+    },
+    {
+      "id": "balustrades-image",
+      "description": "A modern glass balustrade on a staircase.",
+      "imageUrl": "https://picsum.photos/seed/balustrade/800/600",
+      "imageHint": "glass balustrade"
+    },
+    {
+      "id": "blinds-image",
+      "description": "Stylish wooden venetian blinds on a window.",
+      "imageUrl": "https://picsum.photos/seed/blinds/800/600",
+      "imageHint": "wooden blinds"
+    },
+    {
+      "id": "ceiling-installers-image",
+      "description": "A beautifully finished ceiling with downlights.",
+      "imageUrl": "https://picsum.photos/seed/ceiling/800/600",
+      "imageHint": "modern ceiling"
+    },
+    {
+      "id": "concrete-slabs-image",
+      "description": "A freshly poured concrete slab for a new house foundation.",
+      "imageUrl": "https://picsum.photos/seed/concrete-slab/800/600",
+      "imageHint": "concrete foundation"
     }
   ]
 }
