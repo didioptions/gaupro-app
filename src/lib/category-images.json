@@ -1102,7 +1102,7 @@
     {
       "id": "concrete-slabs-image",
       "description": "A freshly poured concrete slab for a new house foundation.",
-      "imageUrl": "https://picsum.photos/seed/concrete-slab/800/600",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Concrete%20Slabs%20A.jpg?alt=media&token=31c8e41e-cf0b-4588-b01f-52ce601815d2",
       "imageHint": "concrete foundation"
     },
     {
@@ -1122,6 +1122,26 @@
       "description": "A professional using a steam cleaner on a carpet.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpet%20Cleaning%20A%20A.jpg?alt=media&token=fcbe9da6-45aa-465f-816c-69c242e48900",
       "imageHint": "carpet cleaning"
+    },
+    {
+      "id": "gas-installers-image",
+      "description": "A certified gas installer connecting a gas hob in a modern kitchen.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gas%20Installers%20C.jpg?alt=media&token=b6209aa5-fe1a-42e2-a21a-bd34e302bc2e",
+      "imageHint": "gas installation"
+    },
+    {
+      "id": "carports-image",
+      "description": "A sturdy, modern steel carport providing shelter for two vehicles.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carports%20A.jpg?alt=media&token=8b376726-0c0c-4a45-9833-0fc5c7c9d686",
+      "imageHint": "steel carport"
+    },
+    {
+      "id": "gates-image",
+      "description": "An elegant, modern driveway gate made of wood and steel.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gates.jpg?alt=media&token=1e400b95-6abc-4596-9d64-2a1d355bef7c",
+      "imageHint": "driveway gate"
     }
   ]
 }
+
+    
