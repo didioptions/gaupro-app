@@ -1,7 +1,8 @@
+
 'use client';
 
-import { useEffect, useState } from 'react';
-import { AlertCircle, Star, UserPlus, Image as ImageIcon } from 'lucide-react';
+import { useEffect, useState, useMemo } from 'react';
+import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -18,6 +19,9 @@ import { SupportChatWidget } from '@/components/pro/support-chat-widget';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
+import { jobRequests } from '@/lib/job-requests-data';
+import { Badge } from '@/components/ui/badge';
+import { allServices } from '@/lib/service-questions';
 
 export default function ProDashboardPage() {
   const { user, isUserLoading } = useUser();
@@ -48,7 +52,19 @@ export default function ProDashboardPage() {
     };
 
     fetchProfile();
-  }, [user, isUserLoading]);
+  }, [user, isUserLoading, firestore]);
+
+  const relevantLeads = useMemo(() => {
+    if (!profileData || (!profileData.tags && !profileData.serviceCategory)) {
+      return [];
+    }
+    const proServices = profileData.tags || [allServices.find(s => s.value === profileData.serviceCategory)?.label];
+    
+    return jobRequests.filter(job => 
+      proServices.some((service: string) => job.category.toLowerCase().includes(service.toLowerCase()))
+    ).slice(0, 3); // Limit to 3 for the dashboard view
+
+  }, [profileData]);
 
   if (isLoading) {
     return (
@@ -215,6 +231,38 @@ export default function ProDashboardPage() {
               </Card>
               
             </div>
+
+            <Card>
+              <CardHeader>
+                <div className="flex justify-between items-center">
+                  <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                    <Briefcase className="h-6 w-6 text-primary" />
+                    Leads for your services
+                  </CardTitle>
+                  <Button variant="secondary" asChild>
+                    <Link href="/browse-quotes">View all leads</Link>
+                  </Button>
+                </div>
+              </CardHeader>
+              <CardContent>
+                {relevantLeads.length > 0 ? (
+                  <div className="space-y-4">
+                    {relevantLeads.map(job => (
+                      <div key={job.id} className="p-3 border rounded-md flex justify-between items-center">
+                        <div>
+                          <p className="font-semibold">{job.title}</p>
+                          <p className="text-sm text-muted-foreground">{job.location} &bull; {job.posted}</p>
+                        </div>
+                        <Badge variant="outline">{job.category}</Badge>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-muted-foreground text-center py-4">No new leads matching your services right now. Check back later!</p>
+                )}
+              </CardContent>
+            </Card>
+
           </div>
         </div>
       </div>
