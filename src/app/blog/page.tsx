@@ -31,7 +31,7 @@ const blogPosts = [
     title: 'How Gaupro Works: Your 3-Step Solution to Any Service Need',
     description: 'A step-by-step guide on how to post a job, receive quotes, and hire professionals with confidence on Gaupro.',
     href: '/blog/how-gaupro-works',
-    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/How%20to%20Succeed%20on%20Gaupro.jpg?alt=media&token=c06ecddc-d523-4572-907d-77dc815583ba',
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Your%203-Step%20Solution%20%20A.jpg?alt=media&token=883e2a4a-b8bb-4e2a-ac97-5dfe7b4deb5a',
     imageHint: 'steps diagram',
     date: 'November 9, 2023',
     readTime: '6 min read',
