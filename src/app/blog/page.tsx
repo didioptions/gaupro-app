@@ -13,7 +13,7 @@ const blogPosts = [
     title: 'Why 50,000+ South Africans Choose Gaupro Over Traditional Hiring Methods',
     description: 'Discover how Gaupro is transforming the way South Africans find and hire trusted service professionals, making it easier, safer, and more affordable than ever before.',
     href: '/blog/why-choose-gaupro',
-    imageUrl: 'https://picsum.photos/seed/blog-intro/800/400',
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Why%2050%2C000%2B%20South%20Africans.jpg?alt=media&token=85b5984d-2221-45a5-9fea-f82a5948cce3',
     imageHint: 'happy customer handshake',
     date: 'October 26, 2023',
     readTime: '8 min read',
