@@ -72,12 +72,12 @@ export default function HowGauproWorksPostPage() {
 
               <div className="relative my-8 group cursor-pointer">
                 <Image 
-                  src="https://picsum.photos/seed/gaupro-video/1280/720"
-                  alt="Video thumbnail showing how Gaupro works"
+                  src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Your%203-Step%20Solution%20%20A.jpg?alt=media&token=883e2a4a-b8bb-4e2a-ac97-5dfe7b4deb5a"
+                  alt="Diagram showing the 3 simple steps to use Gaupro"
                   width={1280}
                   height={720}
                   className="rounded-lg shadow-md"
-                  data-ai-hint="video player"
+                  data-ai-hint="steps diagram"
                 />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-lg">
                   <PlayCircle className="h-20 w-20 text-white/80 group-hover:text-white transition-colors" />
@@ -88,16 +88,6 @@ export default function HowGauproWorksPostPage() {
               <section id="what-is-gaupro" className="scroll-mt-20">
                 <h2>What is Gaupro? South Africa's Leading Service Marketplace</h2>
                 <p>Gaupro.co.za is South Africa's fastest-growing platform connecting customers with trusted service professionals. Whether you need an emergency plumber in Johannesburg, a reliable electrician in Cape Town, or a painter in Durban, Gaupro simplifies finding quality service providers across SA.</p>
-                <div className="relative my-6">
-                   <Image 
-                    src="https://picsum.photos/seed/sa-map/800/400"
-                    alt="Infographic map of South Africa showing Gaupro coverage areas with service icons"
-                    width={800}
-                    height={400}
-                    className="rounded-lg w-full"
-                    data-ai-hint="South Africa map"
-                  />
-                </div>
                 <h3>Gaupro by the Numbers (2024):</h3>
                 <GauproByTheNumbers />
               </section>
