@@ -57,11 +57,11 @@ export default function WhyChooseGauproPage() {
               
               <div className="relative w-full aspect-video mb-8">
                 <Image 
-                    src="https://picsum.photos/seed/choose-gaupro-hero/1200/600"
-                    alt="50000 South Africans choose Gaupro over traditional hiring"
+                    src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/The%20Hiring%20Nightmare.jpg?alt=media&token=187772b4-0504-4287-96ae-7b98f1470a3a"
+                    alt="A frustrated person looking at their phone, symbolizing the difficulty of finding good service professionals."
                     fill
                     className="object-cover rounded-lg"
-                    data-ai-hint="happy person app"
+                    data-ai-hint="frustrated person phone"
                 />
               </div>
 
