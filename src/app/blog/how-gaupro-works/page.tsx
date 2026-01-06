@@ -97,7 +97,7 @@ export default function HowGauproWorksPostPage() {
                 <p>Getting started with Gaupro South Africa is incredibly simple:</p>
                 <div className="my-6">
                   <Image 
-                    src="https://picsum.photos/seed/gaupro-post-job/800/400"
+                    src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/notegpt-20260106231900-02.jpeg?alt=media&token=0bf03d3e-a092-49fa-a712-e4f3280117e2"
                     alt="Screenshot of Gaupro homepage with Post a Job button highlighted"
                     width={800}
                     height={200}
