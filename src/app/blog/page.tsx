@@ -22,7 +22,7 @@ const blogPosts = [
     title: 'The Gaupro Difference: Traditional Hiring vs Smart Hiring',
     description: "Let's be honest about how frustrating finding service professionals used to be. Here's how Gaupro revolutionizes the process.",
     href: '/blog/gaupro-difference',
-    imageUrl: 'https://picsum.photos/seed/blog-difference/800/400',
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/The%20Gaupro%20Difference.jpg?alt=media&token=c7d6340f-d1ea-4c96-b65f-fd3d10394099',
     imageHint: 'man thinking frustrated',
     date: 'November 2, 2023',
     readTime: '5 min read',
