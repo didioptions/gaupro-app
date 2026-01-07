@@ -123,7 +123,7 @@ export default function HowGauproWorksPostPage() {
                 <p>Within hours of posting on Gaupro.co.za, you'll receive 3-5 competitive quotes from interested professionals. You get detailed professional profiles including verification badges, experience, job history, reviews, and portfolios.</p>
                 <div className="my-6">
                     <Image 
-                        src="https://picsum.photos/seed/gaupro-dashboard/800/500"
+                        src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Receive%20%26%20Compare.jpg?alt=media&token=0e9a16e3-521d-486d-ad30-d0a9e6616637"
                         alt="Screenshot of Gaupro dashboard showing multiple quotes received"
                         width={800}
                         height={500}
