@@ -140,12 +140,12 @@ export default function HowGauproWorksPostPage() {
                 <p>Once you've chosen your pro, click "Accept Quote" on the platform. Your information is exchanged securely, and you can arrange service details directly. After the job, you can rate and review your experience to help others in the community.</p>
                 <div className="my-6">
                     <Image 
-                        src="https://picsum.photos/seed/gaupro-hire/800/300"
+                        src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Hire%20with%20Confidence%20Through%20Gaupro.jpg?alt=media&token=011295c6-b91f-4962-8ba9-02a34b285ced"
                         alt="Illustration of a security shield with checkmarks, representing a secure hiring process"
                         width={800}
                         height={300}
                         className="rounded-lg w-full"
-                        data-ai-hint="security shield"
+                        data-ai-hint="security shield handshake"
                     />
                 </div>
                  <p className="text-sm p-4 bg-yellow-100 border border-yellow-200 rounded-md">⚠️ Important: Gaupro never requests payment upfront. We're a free connection platform. You pay your chosen professional directly.</p>
