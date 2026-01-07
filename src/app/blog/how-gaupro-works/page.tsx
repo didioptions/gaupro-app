@@ -166,7 +166,7 @@ export default function HowGauproWorksPostPage() {
                 <p>Ready to find your perfect service provider?</p>
                 <div className="my-6">
                     <Image 
-                        src="https://picsum.photos/seed/gaupro-devices/800/400"
+                        src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Start%20Using%20Gaupro%20Today.jpg?alt=media&token=69ccc664-d20b-43ad-8a7c-4f41c37b8925"
                         alt="Laptop and phone showing the Gaupro platform"
                         width={800}
                         height={400}
