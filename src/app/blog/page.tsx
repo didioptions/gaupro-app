@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import SubscriptionForm from '@/components/blog/subscription-form';
 
 const blogPosts = [
   {
@@ -21,8 +22,8 @@ const blogPosts = [
     readTime: '8 min read',
   },
   {
-    title: '5 Tips for Planning a Dream Wedding in the Winelands',
-    description: "From choosing the right venue in Stellenbosch to managing your caterers, discover how to make your big day perfect without the stress.",
+    title: 'The Gaupro Difference: Traditional Hiring vs Smart Hiring',
+    description: "Let's be honest about how frustrating finding service professionals used to be. Here's how Gaupro revolutionizes the process.",
     href: '/blog/gaupro-difference',
     imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/The%20Gaupro%20Difference.jpg?alt=media&token=c7d6340f-d1ea-4c96-b65f-fd3d10394099',
     imageHint: 'wedding table setting',
@@ -132,10 +133,7 @@ export default function BlogPage() {
             <div className="container mx-auto px-4 text-center max-w-2xl">
                 <h2 className="text-2xl font-bold mb-2">Stay updated with local trends</h2>
                 <p className="text-muted-foreground mb-6">Join 12,000+ South Africans receiving our weekly advice for homeowners and pros.</p>
-                <form className="flex flex-col sm:flex-row gap-2">
-                    <Input type="email" placeholder="Your email address" className="h-12 text-base flex-grow bg-background" />
-                    <Button type="submit" size="lg" className="h-12">Subscribe</Button>
-                </form>
+                <SubscriptionForm />
             </div>
         </section>
 
