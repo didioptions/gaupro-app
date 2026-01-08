@@ -70,7 +70,7 @@ export default function HowGauproWorksPostPage() {
                 </CardContent>
               </Card>
 
-              <div className="relative my-8 group cursor-pointer">
+              <div className="relative my-8">
                 <Image 
                   src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Your%203-Step%20Solution%20%20A.jpg?alt=media&token=883e2a4a-b8bb-4e2a-ac97-5dfe7b4deb5a"
                   alt="Diagram showing the 3 simple steps to use Gaupro"
@@ -79,10 +79,6 @@ export default function HowGauproWorksPostPage() {
                   className="rounded-lg shadow-md"
                   data-ai-hint="steps diagram"
                 />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-lg">
-                  <PlayCircle className="h-20 w-20 text-white/80 group-hover:text-white transition-colors" />
-                </div>
-                <p className="text-center mt-2 font-semibold">Watch How Gaupro Works in 60 Seconds</p>
               </div>
 
               <section id="what-is-gaupro" className="scroll-mt-20">
