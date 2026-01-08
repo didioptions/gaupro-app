@@ -31,7 +31,7 @@ const blogPosts = [
     readTime: '5 min read',
   },
    {
-    title: 'How Much Does a Plumber Cost in Johannesburg (2024)',
+    title: 'How Gaupro Works: Your 3-Step Solution to Any Service Need in South Africa [2024 Complete Guide]',
     description: 'A step-by-step guide on how to post a job, receive quotes, and hire professionals with confidence on Gaupro.',
     href: '/blog/how-gaupro-works',
     imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Your%203-Step%20Solution%20%20A.jpg?alt=media&token=883e2a4a-b8bb-4e2a-ac97-5dfe7b4deb5a',
@@ -144,5 +144,3 @@ export default function BlogPage() {
     </>
   );
 }
-
-    
