@@ -113,7 +113,7 @@ export default function SupportLocalPage() {
               
               <div className="relative w-full aspect-video my-8">
                 <Image
-                  src="https://picsum.photos/seed/gaupro-app-mockup/1200/675"
+                  src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Supporting%20the%20Digital%20Evolution%20(1).jpg?alt=media&token=353aa2e0-1076-476f-9e74-608d781a9fef"
                   alt="The Gaupro app interface showing how to find local professionals in South Africa."
                   fill
                   className="object-cover rounded-lg"
