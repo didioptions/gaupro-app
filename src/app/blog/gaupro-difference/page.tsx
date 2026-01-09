@@ -2,6 +2,7 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { WhatsApp, Facebook, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 const WhatsAppIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500">
@@ -48,6 +49,10 @@ export default function GauproDifferencePage() {
               <p>For many South Africans, hiring a service professional has felt like a gamble.</p>
               
               <p>That’s exactly the problem Gaupro was created to solve.</p>
+
+              <div className="p-4 bg-secondary/50 rounded-lg my-6">
+                <p>Before hiring, it helps to understand current market prices. <Link href="/blog/service-costs-south-africa">Read our complete guide to service costs in South Africa.</Link></p>
+              </div>
 
               <section className="space-y-4">
                 <h2 className="text-2xl">Why Hiring Service Professionals Used to Be So Frustrating</h2>

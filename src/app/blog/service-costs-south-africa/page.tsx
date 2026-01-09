@@ -74,6 +74,9 @@ export default function ServiceCostsPage() {
                     <li><strong>Always get multiple quotes</strong> for accurate pricing</li>
                     <li><strong>Prices may be higher</strong> in major metros like Johannesburg and Cape Town</li>
                 </ul>
+                <div className="p-4 bg-secondary/50 rounded-lg my-6">
+                    <p>Want verified professionals at fair prices? <Link href="/blog/gaupro-difference">See how Gaupro makes hiring easier.</Link></p>
+                </div>
                 <h3>The Best Way to Get Accurate Pricing</h3>
                 <p>While this guide provides excellent benchmarks, the only way to get accurate pricing for YOUR specific job is to request quotes from multiple providers.</p>
                 <p><strong>Gaupro makes this easy:</strong> Post your job once, receive multiple quotes, and compare prices from verified service providers in your area.</p>
