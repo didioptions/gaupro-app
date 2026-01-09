@@ -66,7 +66,7 @@ const blogPosts = [
     title: "Why Supporting Local is Key to a Stronger SA Economy",
     description: 'Discover how hiring local service providers through Gaupro boosts the South African economy, creates jobs, and ensures better service.',
     href: '/blog/gaupro-vs-others',
-    imageUrl: 'https://picsum.photos/seed/support-local-sa/800/400',
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/SA%20G_resized%20(1).jpg?alt=media&token=dc2ce03a-0e20-4b16-b906-3c786da58f3e',
     imageHint: 'diverse professionals team',
     category: 'Analysis',
     date: 'November 23, 2023',
