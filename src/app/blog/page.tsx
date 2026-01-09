@@ -56,7 +56,7 @@ const blogPosts = [
     title: 'How to Succeed on Gaupro: Pro Success Strategies',
     description: 'Learn the proven strategies that top-earning professionals on Gaupro use to optimize their profiles, win more jobs, and maximize their income.',
     href: '/blog/how-to-succeed-on-gaupro',
-    imageUrl: 'https://picsum.photos/seed/blog-success/800/400',
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20How%20to%20Succeed%20on%20Gaupro.jpg?alt=media&token=9b0eabae-15b0-4560-b711-2040e36628b5',
     imageHint: 'success chart growth',
     category: 'For Pros',
     date: 'December 5, 2023',
