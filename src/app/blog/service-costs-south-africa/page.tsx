@@ -75,7 +75,7 @@ export default function ServiceCostsPage() {
                     <li><strong>Prices may be higher</strong> in major metros like Johannesburg and Cape Town</li>
                 </ul>
                 <div className="p-4 bg-secondary/50 rounded-lg my-6">
-                    <p>Want verified professionals at fair prices? <Link href="/blog/gaupro-difference">See how Gaupro makes hiring easier.</Link></p>
+                    <p>Want verified professionals at fair prices? <Link href="/blog/gaupro-difference" className="text-red-600 underline">See how Gaupro makes hiring easier.</Link></p>
                 </div>
                 <h3>The Best Way to Get Accurate Pricing</h3>
                 <p>While this guide provides excellent benchmarks, the only way to get accurate pricing for YOUR specific job is to request quotes from multiple providers.</p>

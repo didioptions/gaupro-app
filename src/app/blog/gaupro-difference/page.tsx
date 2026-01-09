@@ -51,7 +51,7 @@ export default function GauproDifferencePage() {
               <p>That’s exactly the problem Gaupro was created to solve.</p>
 
               <div className="p-4 bg-secondary/50 rounded-lg my-6">
-                <p>Before hiring, it helps to understand current market prices. <Link href="/blog/service-costs-south-africa">Read our complete guide to service costs in South Africa.</Link></p>
+                <p>Before hiring, it helps to understand current market prices. <Link href="/blog/service-costs-south-africa" className="text-red-600 underline">Read our complete guide to service costs in South Africa.</Link></p>
               </div>
 
               <section className="space-y-4">
