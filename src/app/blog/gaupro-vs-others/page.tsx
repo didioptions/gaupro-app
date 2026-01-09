@@ -23,7 +23,7 @@ export default function SupportLocalPage() {
 
               <div className="relative w-full aspect-video my-8">
                 <Image
-                  src="https://picsum.photos/seed/local-pros/1200/675"
+                  src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/SA%20G_resized%20(1).jpg?alt=media&token=dc2ce03a-0e20-4b16-b906-3c786da58f3e"
                   alt="Diverse South African service professionals representing the Gaupro community."
                   fill
                   className="object-cover rounded-lg"
@@ -62,7 +62,7 @@ export default function SupportLocalPage() {
 
               <div className="relative w-full aspect-video my-8">
                 <Image
-                  src="https://picsum.photos/seed/electrician-work/1200/675"
+                  src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/The%20Multiplier%20Effect%20A%20(1).jpg?alt=media&token=71971506-2251-4394-8183-4d77377e3d83"
                   alt="A professional electrician in South Africa providing quality home services."
                   fill
                   className="object-cover rounded-lg"
