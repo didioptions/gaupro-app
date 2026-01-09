@@ -93,7 +93,7 @@ export default function SupportLocalPage() {
 
               <div className="relative w-full aspect-video my-8">
                 <Image
-                  src="https://picsum.photos/seed/customer-handshake/1200/675"
+                  src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Better%20Quality%20and%20Personalized%20Accountability%20A.jpg?alt=media&token=aa8a07b2-2652-41b6-9f7d-1456069cce82"
                   alt="A happy customer and a local service provider shaking hands after a job well done."
                   fill
                   className="object-cover rounded-lg"
