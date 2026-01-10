@@ -46,7 +46,7 @@ const blogPosts = [
     title: 'How Much Do Services Cost in South Africa? Complete 2024 Pricing Guide',
     description: 'Find out how much services cost in South Africa. Plumbers, electricians, movers, painters & more. Updated 2024 prices.',
     href: '/blog/service-costs-south-africa',
-    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/service-costs-guide.jpg?alt=media&token=c2194f4c-d9c0-43e6-a079-05a8a6498b5a',
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/How%20Much%20Do%20Services%20Cost.jpg?alt=media&token=b8f90ddb-2273-44cf-8e80-ca456d46fcc8',
     imageHint: 'rand calculator',
     category: 'Pricing Guide',
     date: 'November 16, 2023',
