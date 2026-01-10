@@ -12,7 +12,7 @@ export default function SuccessStories() {
         <Card key={story.name}>
           <CardContent className="p-4 text-center">
             <Image
-              src={`https://picsum.photos/seed/${story.avatarSeed}/80/80`}
+              src={story.avatarSeed}
               alt={`Avatar of ${story.name}`}
               width={80}
               height={80}
