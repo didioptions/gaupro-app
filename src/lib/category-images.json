@@ -392,6 +392,12 @@
       "imageHint": "tiler floor"
     },
     {
+      "id": "tiling-image",
+      "description": "A professional tiler installing new floor tiles.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A-Tiler1024x543.jpg?alt=media&token=df215443-dc72-4559-8020-95d0b820c2e0",
+      "imageHint": "tiler floor"
+    },
+    {
       "id": "waterproofing-image",
       "description": "A worker applying waterproofing membrane to a rooftop.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Waterproofing%20A.jpg?alt=media&token=92dd41f7-2ebf-4dd4-a168-60d74be0e062",
@@ -1143,5 +1149,3 @@
     }
   ]
 }
-
-    
