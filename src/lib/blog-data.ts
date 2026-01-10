@@ -56,21 +56,21 @@ export const successStoriesData = [
     name: 'Thandi M.',
     location: 'Johannesburg',
     quote: '“Gaupro saved my wedding! Our caterer cancelled last minute, and we found a new, higher-rated one on Gaupro within an hour. The food was incredible!”',
-    avatarSeed: 'testimonial1',
+    avatarSeed: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/thandi_m_cropped.jpg?alt=media&token=bd61723f-ebc6-42f7-ae25-364af877ee3e',
     review: '(Verified Review)'
   },
   {
     name: 'John S.',
     location: 'Cape Town',
     quote: '“Best platform for home repairs. I’ve used it for a plumber, an electrician, and a painter. Every pro was vetted, professional, and did great work. No more endless searching.”',
-    avatarSeed: 'testimonial2',
+    avatarSeed: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/John_S._Cape_Town_cropped.jpg?alt=media&token=2d977f69-4570-40b7-9889-d3c60c91c9ac',
     review: '(Verified Review)'
   },
   {
     name: 'Mohammed R.',
     location: 'Durban',
     quote: '“As a service provider, Gaupro has been essential for growing my business. The leads are genuine, and the review system helps me build trust with new clients.”',
-    avatarSeed: 'testimonial3',
+    avatarSeed: 'https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Mohammed_R._Durban_cropped.jpg?alt=media&token=6d754510-5519-4f42-b8bc-01e107a69bff',
     review: '(Service Provider)'
   },
 ];
