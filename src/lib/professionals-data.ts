@@ -250,6 +250,214 @@ export const allProfessionals: ProfessionalsByCategory = {
                 {"author": "Cheryl E.", "rating": 5, "comment": "If you have a dangerous or difficult tree, these are the only people to call."}
             ]
         }
+    ],
+    "air-conditioning": [
+      {
+        "id": "ac-001",
+        "name": "CoolBreeze SA",
+        "location": "Johannesburg",
+        "description": "Expert {service} installation, repair, and maintenance for residential and commercial properties. We service all major brands.",
+        "rating": 4.9,
+        "reviews": 185,
+        "avatarSeed": "coolbreeze-sa-logo",
+        "serviceCategory": "air-conditioning",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Brenda T.", "rating": 5, "comment": "Fast, professional, and my AC has never worked better. Highly recommended!"},
+          {"author": "Mark D.", "rating": 5, "comment": "They diagnosed the issue with my office aircon quickly and fixed it the same day."},
+          {"author": "Zanele M.", "rating": 4, "comment": "Good service, but had to wait a day for the part to arrive."},
+          {"author": "Tom P.", "rating": 5, "comment": "Very knowledgeable technicians. They explained everything clearly."}
+        ]
+      },
+      {
+        "id": "ac-002",
+        "name": "Cape Airflow Solutions",
+        "location": "Cape Town",
+        "description": "Your go-to for {service} in Cape Town. We offer new installations, regular servicing, and emergency repairs at competitive rates.",
+        "rating": 4.8,
+        "reviews": 210,
+        "avatarSeed": "cape-airflow-logo",
+        "serviceCategory": "air-conditioning",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Jane S.", "rating": 5, "comment": "Fantastic service from start to finish. The installation was neat and professional."},
+          {"author": "Peter V.", "rating": 5, "comment": "Called them for an emergency repair on a hot day and they were lifesavers."},
+          {"author": "Nadia F.", "rating": 4, "comment": "The team was great, just a bit of a delay on the initial appointment time."},
+          {"author": "Gareth B.", "rating": 5, "comment": "I use them for all my rental properties. Always reliable and fair."}
+        ]
+      },
+      {
+        "id": "ac-003",
+        "name": "Durban Climate Control",
+        "location": "Durban",
+        "description": "Stay cool in the Durban heat with our expert {service} services. We specialize in high-wall, cassette, and ducted systems.",
+        "rating": 4.7,
+        "reviews": 150,
+        "avatarSeed": "durban-climate-logo",
+        "serviceCategory": "air-conditioning",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Sarah J.", "rating": 5, "comment": "Very happy with our new ducted system. The team was efficient and cleaned up perfectly."},
+          {"author": "Mike L.", "rating": 4, "comment": "Good job on the repair, but took a while to get a quote back."},
+          {"author": "Thandiwe N.", "rating": 5, "comment": "Excellent service. My AC is working like new again."},
+          {"author": "Chris P.", "rating": 5, "comment": "Knowledgeable and friendly technicians. Would definitely recommend."}
+        ]
+      },
+      {
+        "id": "ac-004",
+        "name": "Pretoria Air Kings",
+        "location": "Pretoria",
+        "description": "Leading providers of {service} solutions in Pretoria. From homes to large offices, we ensure optimal climate control.",
+        "rating": 4.9,
+        "reviews": 195,
+        "avatarSeed": "pretoria-air-kings-logo",
+        "serviceCategory": "air-conditioning",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Koos van der Merwe", "rating": 5, "comment": "Baie goeie diens. Hulle weet wat hulle doen."},
+          {"author": "Lerato M.", "rating": 5, "comment": "The installation was quick and the unit works perfectly. Very satisfied."},
+          {"author": "James H.", "rating": 4, "comment": "Efficient service, though a bit pricey."},
+          {"author": "Priya S.", "rating": 5, "comment": "I called them for a service and they were very thorough. Great job."}
+        ]
+      },
+      {
+        "id": "ac-005",
+        "name": "Eco-Cool",
+        "location": "Gqeberha",
+        "description": "Energy-efficient {service} solutions. We focus on eco-friendly units that save you money and keep you comfortable.",
+        "rating": 4.8,
+        "reviews": 120,
+        "avatarSeed": "eco-cool-logo",
+        "serviceCategory": "air-conditioning",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "David R.", "rating": 5, "comment": "Loved their focus on energy efficiency. They helped me choose the perfect unit."},
+          {"author": "Nolwazi Z.", "rating": 5, "comment": "Great service and my electricity bill has already gone down!"},
+          {"author": "Frank G.", "rating": 4, "comment": "Installation went well. Took a bit longer than expected but the result is good."},
+          {"author": "Amy T.", "rating": 5, "comment": "Very professional and helped me understand the benefits of an inverter unit."}
+        ]
+      },
+      {
+        "id": "ac-006",
+        "name": "24/7 Aircon Rescue",
+        "location": "Johannesburg",
+        "description": "Emergency {service} repairs, available 24/7. When your aircon gives up, we show up. Fast, reliable service day or night.",
+        "rating": 4.9,
+        "reviews": 250,
+        "avatarSeed": "247-aircon-rescue-logo",
+        "serviceCategory": "air-conditioning",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Sipho M.", "rating": 5, "comment": "My aircon died in the middle of a heatwave. They came out at 10pm and fixed it. Lifesavers!"},
+          {"author": "Karen W.", "rating": 5, "comment": "Incredibly fast response time. I was so impressed."},
+          {"author": "Leo D.", "rating": 5, "comment": "A bit more expensive for the call-out, but worth it for the speed and service."},
+          {"author": "Jessica B.", "rating": 5, "comment": "The only company that answered their phone after hours. Excellent service."}
+        ]
+      }
+    ],
+    "aluminium-doors-and-windows": [
+      {
+        "id": "adw-001",
+        "name": "Alu-Solutions JHB",
+        "location": "Johannesburg",
+        "description": "Modern and durable {service}. We custom-manufacture and install sliding doors, folding doors, and stylish window frames.",
+        "rating": 4.8,
+        "reviews": 130,
+        "avatarSeed": "alu-solutions-jhb-logo",
+        "serviceCategory": "aluminium-doors-and-windows",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Greg S.", "rating": 5, "comment": "The new stacking doors have transformed our living area. The quality is superb."},
+          {"author": "Michelle V.", "rating": 5, "comment": "Very professional from measurement to installation. The windows look amazing."},
+          {"author": "Brian T.", "rating": 4, "comment": "There was a slight delay in manufacturing, but the final product was worth the wait."},
+          {"author": "Nomsa K.", "rating": 5, "comment": "Excellent workmanship and very clean installation. I'm very happy."}
+        ]
+      },
+      {
+        "id": "adw-002",
+        "name": "Cape Glass & Aluminium",
+        "location": "Cape Town",
+        "description": "Leaders in high-quality {service} in Cape Town. We provide solutions that are both stylish and weather-resistant for coastal conditions.",
+        "rating": 4.9,
+        "reviews": 165,
+        "avatarSeed": "cape-glass-alu-logo",
+        "serviceCategory": "aluminium-doors-and-windows",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Richard P.", "rating": 5, "comment": "Their advice on which frames to use for the sea-facing side was invaluable. Great quality."},
+          {"author": "Linda M.", "rating": 5, "comment": "I am so pleased with my new windows. They look fantastic and the installation was seamless."},
+          {"author": "John D.", "rating": 4, "comment": "Good product, but the quoting process was a bit slow."},
+          {"author": "Feroza I.", "rating": 5, "comment": "They replaced all my old wooden frames with aluminium. The house looks so modern now."}
+        ]
+      },
+      {
+        "id": "adw-003",
+        "name": "Durban Frame & Glass",
+        "location": "Durban",
+        "description": "Affordable and stylish {service} for the greater Durban area. We offer a wide range of standard and custom sizes.",
+        "rating": 4.7,
+        "reviews": 115,
+        "avatarSeed": "durban-frame-glass-logo",
+        "serviceCategory": "aluminium-doors-and-windows",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Kyle R.", "rating": 5, "comment": "Great value for money and the installation team was very professional."},
+          {"author": "Samantha N.", "rating": 4, "comment": "The doors are great, but there was a small scratch which they came back to fix."},
+          {"author": "Trevor G.", "rating": 5, "comment": "I would recommend them to anyone. Good price and good quality."},
+          {"author": "Ayanda Z.", "rating": 5, "comment": "My new shopfront looks amazing thanks to them. Very happy customer."}
+        ]
+      },
+      {
+        "id": "adw-004",
+        "name": "Pretoria Aluminium Masters",
+        "location": "Pretoria",
+        "description": "Your trusted specialists for premium {service} in Pretoria. We pride ourselves on precision manufacturing and perfect installation.",
+        "rating": 4.9,
+        "reviews": 140,
+        "avatarSeed": "pta-alu-masters-logo",
+        "serviceCategory": "aluminium-doors-and-windows",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Elize de Villiers", "rating": 5, "comment": "Die kwaliteit van die werk is uitstekend. Baie dankie."},
+          {"author": "Tebogo S.", "rating": 5, "comment": "From start to finish, a very professional experience. The windows are perfect."},
+          {"author": "Carl B.", "rating": 4, "comment": "The installation was perfect, just a bit of a wait for the manufacturing."},
+          {"author": "Maryna P.", "rating": 5, "comment": "I love my new folding doors. They have completely opened up my patio area."}
+        ]
+      },
+      {
+        "id": "adw-005",
+        "name": "Alu-Style Centurion",
+        "location": "Centurion",
+        "description": "Custom designs for {service}. We work with architects and homeowners to create unique, high-quality installations.",
+        "rating": 4.8,
+        "reviews": 95,
+        "avatarSeed": "alu-style-centurion-logo",
+        "serviceCategory": "aluminium-doors-and-windows",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Jason F.", "rating": 5, "comment": "They helped me design a custom window for a difficult space. It came out perfectly."},
+          {"author": "Nthabi M.", "rating": 5, "comment": "Very creative and professional. They understood my vision completely."},
+          {"author": "Dirk V.", "rating": 4, "comment": "The design process was great. Installation took a day longer than planned."},
+          {"author": "Lianne K.", "rating": 5, "comment": "If you want something special, these are the guys to call. Highly skilled."}
+        ]
+      },
+      {
+        "id": "adw-006",
+        "name": "Value Aluminium",
+        "location": "East Rand",
+        "description": "Get the best value on standard {service}. We offer competitive pricing on quality products for housing projects and renovations.",
+        "rating": 4.6,
+        "reviews": 220,
+        "avatarSeed": "value-aluminium-logo",
+        "serviceCategory": "aluminium-doors-and-windows",
+        "isDemo": true, "priorityRank": 99,
+        "reviewData": [
+          {"author": "Paul G.", "rating": 5, "comment": "Best prices I could find for the quality. Very happy with my purchase."},
+          {"author": "Sannie R.", "rating": 4, "comment": "The windows are good. The communication could have been a bit better during the process."},
+          {"author": "Willie T.", "rating": 5, "comment": "I've used them for multiple projects. They always deliver good value."},
+          {"author": "Thoko D.", "rating": 5, "comment": "Great service and great prices. I will definitely use them again."}
+        ]
+      }
     ]
 };
 
