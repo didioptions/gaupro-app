@@ -7,6 +7,42 @@
       "imageHint": "diverse professionals team"
     },
     {
+      "id": "titancrush-demolitions-logo",
+      "description": "Minimal flat logo, initials 'TD', with a small wrecking ball icon, dark grey and yellow",
+      "imageUrl": "https://images.unsplash.com/photo-1596700204117-0f81d5835da1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3cmVja2luZyUyMGJhbGwlMjBsb2dvfGVufDB8fHx8MTc2ODE2ODAxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wrecking ball logo"
+    },
+    {
+      "id": "blom-breakers-logo",
+      "description": "Text-only logo, company name 'Blom Breakers', strong Afrikaans style, blue text",
+      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "quickwreck-sa-logo",
+      "description": "Clean wordmark logo, 'QuickWreck', bold modern font, red and black",
+      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "safetear-demolitions-logo",
+      "description": "Text-only logo, 'SafeTear', professional font with a small shield icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1741088996480-5e4158b56396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODEyNDEwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "urban-smashers-logo",
+      "description": "Industrial style text logo, 'Urban Smashers', stencil font, dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1636537640173-e9d7bb80fb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "megawreck-cc-logo",
+      "description": "Clean wordmark logo, 'MegaWreck', professional black font",
+      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
       "id": "clearnest-cleaning-logo",
       "description": "Minimal modern text logo, 'ClearNest', with a subtle feather icon, light blue and grey",
       "imageUrl": "https://images.unsplash.com/photo-1739055547874-4fe440a2bfea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmZWF0aGVyJTIwbG9nb3xlbnwwfHx8fDE3NjgxNjIyNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -400,150 +436,6 @@
       "id": "fine-finish-joinery-logo",
       "description": "Clean wordmark logo, 'Fine Finish Joinery', professional serif font, dark grey",
       "imageUrl": "https://images.unsplash.com/photo-1608241611705-fa1853e69b91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGV4dCUyMGxvZ298ZW58MHx8fHwxNzY4MTQ0NzQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "jozi-fresh-carpets-logo",
-      "description": "Clean wordmark logo, 'Jozi Fresh', with small water droplet icon, blue text",
-      "imageUrl": "https://images.unsplash.com/photo-1626737953167-d25b9474e74f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3YXRlciUyMGRyb3AlMjBsb2dvfGVufDB8fHx8MTc2ODE0MTE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "water drop logo"
-    },
-    {
-      "id": "cape-carpet-cleaners-logo",
-      "description": "Text-only logo, 'Cape Carpet Cleaners', professional green font",
-      "imageUrl": "https://images.unsplash.com/photo-1618588429012-0559f1cbc5aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "durban-steam-clean-logo",
-      "description": "Minimal flat logo, initials 'DSC', with small steam icon, blue and grey",
-      "imageUrl": "https://images.unsplash.com/photo-1628760584600-6c31148991e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdGVhbSUyMGxvZ298ZW58MHx8fHwxNzY4MTQ3MDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "steam logo"
-    },
-    {
-      "id": "pretoria-pro-clean-logo",
-      "description": "Clean wordmark logo, 'Pretoria Pro Clean', blue text on white background",
-      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "the-rug-doctor-logo",
-      "description": "Text-only logo, 'The Rug Doctor', with small plus icon, red and grey",
-      "imageUrl": "https://images.unsplash.com/photo-1662467150539-62912a63d499?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwbHVzJTIwbG9nb3xlbnwwfHx8fDE3NjgxNDcwMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "plus logo"
-    },
-    {
-      "id": "clean-and-go-logo",
-      "description": "Clean wordmark logo, 'Clean & Go', green text with small arrow icon",
-      "imageUrl": "https://images.unsplash.com/photo-1570566920413-fd6410fec24c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhcnJvdyUyMGxvZ298ZW58MHx8fHwxNzY4MTQ3MDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "arrow logo"
-    },
-    {
-      "id": "slab-masters-jhb-logo",
-      "description": "Minimal flat logo, initials 'SM', with small trowel icon, grey and black",
-      "imageUrl": "https://images.unsplash.com/photo-1716843803971-cf3882e78118?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJvd2VsJTIwbG9nb3xlbnwwfHx8fDE3NjgxNDcwMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "trowel logo"
-    },
-    {
-      "id": "cape-concrete-solutions-logo",
-      "description": "Text-only logo, 'Cape Concrete Solutions', professional dark blue font",
-      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "durban-concrete-kings-logo",
-      "description": "Clean wordmark logo, 'Concrete Kings', with small crown icon, dark grey",
-      "imageUrl": "https://images.unsplash.com/photo-1664157558430-3e4e1a5ac644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4MTQ3MDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "crown logo"
-    },
-    {
-      "id": "pretoria-foundation-pro-logo",
-      "description": "Text-only logo, 'Foundation Pro', strong black font on white background",
-      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "solid-slab-services-logo",
-      "description": "Minimal flat logo, initials 'SSS', in a square, blue and white",
-      "imageUrl": "https://images.unsplash.com/photo-1633796212691-0cfba2ab1dab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4MTQ3MDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "initials logo"
-    },
-    {
-      "id": "precision-concrete-logo",
-      "description": "Clean wordmark logo, 'Precision Concrete', grey professional font",
-      "imageUrl": "https://images.unsplash.com/photo-1608241611705-fa1853e69b91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGV4dCUyMGxvZ298ZW58MHx8fHwxNzY4MTQ0NzQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "gauteng-carports-logo",
-      "description": "Text-only logo, company name 'Gauteng Carports', professional dark blue text",
-      "imageUrl": "https://images.unsplash.com/photo-1618588429012-0559f1cbc5aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "cape-shelter-logo",
-      "description": "Clean wordmark logo, 'Cape Shelter Systems', blue and grey text",
-      "imageUrl": "https://images.unsplash.com/photo-1618588429012-0559f1cbc5aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "durban-shade-steel-logo",
-      "description": "Minimal flat logo, initials 'DSS', dark grey on light background",
-      "imageUrl": "https://images.unsplash.com/photo-1595409583957-5d1ec5869de9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4MTQ3MDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "initials logo"
-    },
-    {
-      "id": "pta-carport-kings-logo",
-      "description": "Text-only logo, 'Carport Kings', strong black font",
-      "imageUrl": "https://images.unsplash.com/photo-1608241611705-fa1853e69b91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGV4dCUyMGxvZ298ZW58MHx8fHwxNzY4MTQ0NzQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "shadeport-city-logo",
-      "description": "Clean wordmark logo, 'Shadeport City', professional blue font",
-      "imageUrl": "https://images.unsplash.com/photo-1608241611705-fa1853e69b91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGV4dCUyMGxvZ298ZW58MHx8fHwxNzY4MTQ0NzQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "steel-shield-logo",
-      "description": "Minimal flat logo, 'Steel Shield', with a simple shield icon, dark blue",
-      "imageUrl": "https://images.unsplash.com/photo-1741088996480-5e4158b56396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODEyNDEwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "shield logo"
-    },
-    {
-      "id": "jozi-ceilings-logo",
-      "description": "Text-only logo, 'Jozi Ceilings', clean blue font",
-      "imageUrl": "https://images.unsplash.com/photo-1708376368427-ede2b537d494?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "cape-ceiling-logo",
-      "description": "Clean wordmark logo, 'Cape Ceiling Solutions', professional dark grey text",
-      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "durban-ceiling-logo",
-      "description": "Minimal flat logo, initials 'DCD', blue on white background",
-      "imageUrl": "https://images.unsplash.com/photo-1570566920413-fd6410fec24c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4MTQ3MDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "initials logo"
-    },
-    {
-      "id": "pta-ceiling-masters-logo",
-      "description": "Text-only logo, company name 'Pretoria Ceiling Masters', black professional font",
-      "imageUrl": "https://images.unsplash.com/photo-1628557010295-dd9198c31b84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "top-down-logo",
-      "description": "Clean wordmark logo, 'Top-Down Interiors', with a small hammer icon, grey",
-      "imageUrl": "https://images.unsplash.com/photo-1647006872856-e9f7918a72e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoYW1tZXIlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "hammer logo"
-    },
-    {
-      "id": "quick-ceilings-logo",
-      "description": "Text-only logo, 'Quick Ceilings', blue text with a simple speed line",
-      "imageUrl": "https://images.unsplash.com/photo-1636537640173-e9d7bb80fb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "text logo"
     }
   ]
