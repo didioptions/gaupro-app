@@ -25,6 +25,8 @@ export type Professional = {
   address?: string;
   photos?: string[];
   businessHours?: string;
+  services?: string[];
+  otherServices?: string[];
   reviewData?: {
     author: string;
     phone?: string;
@@ -98,11 +100,35 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                     </TabsList>
                     <TabsContent value="overview">
                         <Card>
-                            <CardContent className="p-6 space-y-4">
+                            <CardContent className="p-6 space-y-6">
                                 <div>
                                     <h3 className="font-semibold text-lg mb-2">About Us</h3>
                                     <p>{professional.description}</p>
                                 </div>
+                                
+                                {(professional.services || professional.otherServices) && (
+                                <div className="pt-4">
+                                    <h3 className="font-semibold text-lg mb-4">Services Offered</h3>
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        {professional.services && (
+                                            <div>
+                                                <h4 className="font-medium mb-2">Main Services</h4>
+                                                <ul className="list-disc list-inside space-y-1 text-sm">
+                                                    {professional.services.map((service, index) => <li key={index}>{service}</li>)}
+                                                </ul>
+                                            </div>
+                                        )}
+                                        {professional.otherServices && (
+                                            <div>
+                                                <h4 className="font-medium mb-2">Other Services</h4>
+                                                <ul className="list-disc list-inside space-y-1 text-sm">
+                                                    {professional.otherServices.map((service, index) => <li key={index}>{service}</li>)}
+                                                </ul>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                )}
                                 
                                 {professional.photos && professional.photos.length > 0 &&
                                 <div className="pt-4">
