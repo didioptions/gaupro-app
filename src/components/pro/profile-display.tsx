@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { Badge } from '@/components/ui/badge';
@@ -40,7 +39,7 @@ interface ProfileDisplayProps {
 
 export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   const proImage = CategoryImages.find(p => p.id === professional.avatarSeed);
-  const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/80/80`;
+  const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/120/120`;
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
   return (
