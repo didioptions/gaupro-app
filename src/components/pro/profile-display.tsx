@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Star, ShieldCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, AlertTriangle } from 'lucide-react';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { CategoryImages } from '@/lib/category-images';
 import Link from 'next/link';
 
 export type Professional = {
@@ -39,7 +39,7 @@ interface ProfileDisplayProps {
 }
 
 export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
-  const proImage = PlaceHolderImages.find(p => p.id === professional.avatarSeed);
+  const proImage = CategoryImages.find(p => p.id === professional.avatarSeed);
   const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/80/80`;
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
