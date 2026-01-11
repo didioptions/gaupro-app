@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -38,7 +38,7 @@ const allCategories = [
   { category: 'Tourism & Outdoor Activities', services: ['Tour Operators', 'Travel Agents'] },
 ];
 
-export default function AllCategoriesPage() {
+function ClientSearchForm() {
   const [serviceQuery, setServiceQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
   const router = useRouter();
@@ -60,6 +60,38 @@ export default function AllCategoriesPage() {
     
     router.push(url);
   };
+  
+  return (
+      <form onSubmit={handleSearch} className="max-w-2xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-5 gap-2 bg-white p-2 rounded-lg shadow-md border">
+        <div className="relative md:col-span-2">
+            <Autocomplete
+                options={allServices}
+                value={serviceQuery}
+                onValueChange={setServiceQuery}
+                placeholder="What service do you need?"
+                inputClassName="h-12 border-0 focus-visible:ring-0 text-foreground"
+            />
+        </div>
+        <div className="relative md:col-span-2">
+            <Autocomplete
+                options={allLocations}
+                value={locationQuery}
+                onValueChange={setLocationQuery}
+                placeholder="e.g. Cape Town"
+                inputClassName="h-12 border-0 focus-visible:ring-0 text-foreground"
+            />
+        </div>
+        <Button type="submit" className="h-12 w-full md:col-span-1">Search</Button>
+      </form>
+  );
+}
+
+export default function AllCategoriesPage() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <>
@@ -71,27 +103,7 @@ export default function AllCategoriesPage() {
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
               Find trusted professionals for any service you need in South Africa.
             </p>
-            <form onSubmit={handleSearch} className="max-w-2xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-5 gap-2 bg-white p-2 rounded-lg shadow-md border">
-              <div className="relative md:col-span-2">
-                  <Autocomplete
-                      options={allServices}
-                      value={serviceQuery}
-                      onValueChange={setServiceQuery}
-                      placeholder="What service do you need?"
-                      inputClassName="h-12 border-0 focus-visible:ring-0 text-foreground"
-                  />
-              </div>
-              <div className="relative md:col-span-2">
-                  <Autocomplete
-                      options={allLocations}
-                      value={locationQuery}
-                      onValueChange={setLocationQuery}
-                      placeholder="e.g. Cape Town"
-                      inputClassName="h-12 border-0 focus-visible:ring-0 text-foreground"
-                  />
-              </div>
-              <Button type="submit" className="h-12 w-full md:col-span-1">Search</Button>
-            </form>
+            {isClient && <ClientSearchForm />}
           </header>
           <div className="max-w-5xl mx-auto">
             <div className="space-y-12">
