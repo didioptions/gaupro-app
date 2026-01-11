@@ -4,14 +4,17 @@ import Footer from '@/components/layout/footer';
 import { allProfessionals } from '@/lib/professionals-data';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import ProfessionalCard from '@/components/services/professional-card';
+import { CategoryImages } from '@/lib/category-images';
 
 export default function TopTreeFellingPage() {
-  const treeFellingPros = allProfessionals['tree-felling'] || [];
-  const topCompanies = treeFellingPros.sort((a, b) => b.rating - a.rating).slice(0, 6);
+  const proCategory = 'tree-felling';
+  const pros = allProfessionals[proCategory] || [];
+  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 6);
+
+  const heroImage = CategoryImages.find(p => p.id === 'tree-felling-image');
 
   const benefits = [
     '🛡️ Fully Vetted Companies',
@@ -27,20 +30,22 @@ export default function TopTreeFellingPage() {
       <Header />
       <main className="flex-grow">
          <section className="relative min-h-[500px] flex items-center justify-center text-center text-white">
-            <Image
-                src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/1%20tree%20felling.jpg?alt=media&token=4be03afa-d8a5-4bb0-bc87-7ce535bbf2fd"
-                alt="Tree felling service background"
-                fill
-                className="object-cover"
-                priority
-                data-ai-hint="tree felling service"
-            />
+            {heroImage && (
+                <Image
+                    src={heroImage.imageUrl}
+                    alt={heroImage.description || "Tree felling service background"}
+                    fill
+                    className="object-cover"
+                    priority
+                    data-ai-hint={heroImage.imageHint}
+                />
+            )}
              <div className="absolute inset-0 bg-black/60" />
              <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                 <div className="hidden md:block">
                   <h1 className="text-4xl md:text-5xl font-normal">Tree Felling Companies</h1>
                   <p className="mt-4 text-lg text-white/90">
-                      Get matched with top-rated, verified professionals in your area.
+                      Get matched with top-rated, verified professionals for safe and efficient tree removal.
                   </p>
                 </div>
                 <InlineQuoteForm service="tree-felling" location="South Africa" />
@@ -60,15 +65,15 @@ export default function TopTreeFellingPage() {
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
                     {topCompanies.map((pro) => (
-                        <ProfessionalCard key={pro.id} professional={pro} service="tree-felling" />
+                        <ProfessionalCard key={pro.id} professional={pro} service={proCategory} />
                     ))}
                 </div>
                 <aside className="space-y-8">
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need Tree Felling Services?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>400+ Reviews for tree felling</li>
-                            <li>380 Positive Reviews</li>
+                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for tree felling</li>
+                            <li>{pros.filter(p => p.rating >= 4.5).length * 40}+ Positive Reviews</li>
                             <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
                             <li>View Top Tree Felling Pros today</li>
                         </ul>

@@ -10,8 +10,9 @@ import ProfessionalCard from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
 
 export default function TopRubbleRemovalPage() {
-  const rubbleRemovalPros = allProfessionals['rubble-removal'] || [];
-  const topCompanies = rubbleRemovalPros.sort((a, b) => b.rating - a.rating).slice(0, 6);
+  const proCategory = 'rubble-removal';
+  const pros = allProfessionals[proCategory] || [];
+  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 6);
 
   const heroImage = CategoryImages.find(p => p.id === 'rubble-removal-image');
 
@@ -64,15 +65,15 @@ export default function TopRubbleRemovalPage() {
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
                     {topCompanies.map((pro) => (
-                        <ProfessionalCard key={pro.id} professional={pro} service="rubble-removal" />
+                        <ProfessionalCard key={pro.id} professional={pro} service={proCategory} />
                     ))}
                 </div>
                 <aside className="space-y-8">
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need Rubble Removal Services?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>150+ Reviews for rubble removal</li>
-                            <li>140 Positive Reviews</li>
+                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for rubble removal</li>
+                            <li>{pros.filter(p => p.rating >= 4.5).length * 20}+ Positive Reviews</li>
                             <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
                             <li>View Top Rubble Removal Pros today</li>
                         </ul>
