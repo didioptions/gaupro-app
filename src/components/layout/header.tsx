@@ -19,19 +19,7 @@ import { useAuth } from '@/firebase';
 import { useRouter } from 'next/navigation';
 import { Skeleton } from '../ui/skeleton';
 import { Badge } from '../ui/badge';
-import Image from 'next/image';
-
-const Logo = () => (
-  <span className="flex items-center space-x-2">
-    <Image
-      src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gaupro-logo-transparent.png?alt=media&token=c199f36f-4d64-469b-8515-5668e176d63c"
-      alt="Gaupro Logo"
-      width={128}
-      height={32}
-      className="h-10 w-auto"
-    />
-  </span>
-);
+import { Logo } from '@/components/logo';
 
 export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -181,9 +169,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center">
         <div className="mr-4 flex flex-1 items-center justify-start">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Logo />
-          </Link>
+          <Logo />
         </div>
         
         {renderDesktopNav()}
@@ -198,9 +184,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="pr-0">
-              <Link href="/" className="mr-6 flex items-center space-x-2" onClick={closeSheet}>
-                 <Logo />
-              </Link>
+              <div onClick={closeSheet}><Logo /></div>
               <div className="flex flex-col space-y-4 pt-6">
                 {renderMobileNav()}
               </div>

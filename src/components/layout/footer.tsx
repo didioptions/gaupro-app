@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { Facebook, Twitter, Linkedin } from 'lucide-react';
 import { usePathname } from "next/navigation";
-import Image from 'next/image';
+import { Logo } from '@/components/logo';
 
 const footerSections = [
   {
@@ -105,18 +105,6 @@ const locationsData = [
     { type: 'city', name: 'Polokwane' },
 ];
 
-const Logo = () => (
-  <span className="flex items-center space-x-2">
-    <Image
-      src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gaupro-logo-transparent.png?alt=media&token=c199f36f-4d64-469b-8515-5668e176d63c"
-      alt="Gaupro Logo"
-      width={128}
-      height={32}
-      className="h-10 w-auto"
-    />
-  </span>
-);
-
 export default function Footer() {
   const pathname = usePathname();
   const showLocations = pathname === '/';
@@ -185,8 +173,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="border-t pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="text-lg font-bold text-foreground">
-                <Logo />
+            <div>
+              <Logo />
               <span className="text-sm font-normal text-foreground ml-2">© 2025</span>
             </div>
             <nav className="flex gap-4 sm:gap-6 text-sm">

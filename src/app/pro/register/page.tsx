@@ -26,7 +26,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent } from '@/components/ui/card';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import Image from 'next/image';
+import { Logo } from '@/components/logo';
 
 const formSchema = z.object({
   phoneNumber: z.string().min(10, {
@@ -46,18 +46,6 @@ const formSchema = z.object({
     message: 'You must accept the terms of use.',
   }),
 });
-
-const Logo = () => (
-  <span className="flex items-center space-x-2">
-    <Image
-      src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gaupro-logo-transparent.png?alt=media&token=c199f36f-4d64-469b-8515-5668e176d63c"
-      alt="Gaupro Logo"
-      width={128}
-      height={32}
-      className="h-10 w-auto"
-    />
-  </span>
-);
 
 export default function ProRegisterPage() {
   const router = useRouter();
@@ -106,9 +94,9 @@ export default function ProRegisterPage() {
       <div className="w-full max-w-4xl">
         <Card className="grid md:grid-cols-2 overflow-hidden shadow-lg">
           <div className="hidden md:flex flex-col items-center justify-center bg-card p-10 text-center border-r">
-            <Link href="/" className="mb-6">
+            <div className="mb-6">
                 <Logo />
-            </Link>
+            </div>
             <p className="text-muted-foreground">
                 You want new customers fast. So we made it easy and it's free.
             </p>
