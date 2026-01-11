@@ -11,7 +11,7 @@ import { CategoryImages } from '@/lib/category-images';
 
 export default function TopRubbleRemovalPage() {
   const rubbleRemovalPros = allProfessionals['rubble-removal'] || [];
-  const topCompanies = rubbleRemovalPros.sort((a, b) => b.rating - a.rating).slice(0, 10);
+  const topCompanies = rubbleRemovalPros.sort((a, b) => b.rating - a.rating).slice(0, 6);
 
   const heroImage = CategoryImages.find(p => p.id === 'rubble-removal-image');
 
@@ -59,7 +59,7 @@ export default function TopRubbleRemovalPage() {
                     <ChevronRight className="h-4 w-4" />
                     <span className="font-medium text-foreground">Top Rubble Removal Companies</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top Rubble Removal Companies</h2>
+                <h2 className="text-3xl mt-1">Top 6 Rubble Removal Companies</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
