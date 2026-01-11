@@ -24,7 +24,7 @@ import Image from 'next/image';
 const Logo = () => (
   <span className="flex items-center space-x-2">
     <Image
-      src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gaupro-logo.png_1_with_bgc.png?alt=media&token=b746d9b7-9a4b-473e-8fe5-1578f3e4a015"
+      src="https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gaupro-logo-transparent.png?alt=media&token=c199f36f-4d64-469b-8515-5668e176d63c"
       alt="Gaupro Logo"
       width={128}
       height={32}
