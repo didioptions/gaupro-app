@@ -869,6 +869,222 @@
       "description": "Fine Finish Joinery logo",
       "imageUrl": "https://images.unsplash.com/photo-1499790769177-d907ff13190a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsdXh1cnklMjBsb2dvfGVufDB8fHx8MTc2ODE0MTkyNHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "luxury logo"
+    },
+    {
+      "id": "joburg-blind-co-logo",
+      "description": "Joburg Blind Co. logo",
+      "imageUrl": "https://images.unsplash.com/photo-1616781919864-d62e7a5de255?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiZWF1dHklMjBsb2dvfGVufDB8fHx8MTc2ODE0MTE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "beauty logo"
+    },
+    {
+      "id": "cape-window-dressings-logo",
+      "description": "Cape Window Dressings logo",
+      "imageUrl": "https://images.unsplash.com/photo-1598128558393-70ff21433be0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb3VudGFpbiUyMHdpbmRvd3xlbnwwfHx8fDE3NjgxNDI2ODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mountain window"
+    },
+    {
+      "id": "durban-blinds-direct-logo",
+      "description": "Durban Blinds Direct logo",
+      "imageUrl": "https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdW4lMjBzaGFkZXxlbnwwfHx8fDE3NjgxNDI2ODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun shade"
+    },
+    {
+      "id": "pretoria-blind-solutions-logo",
+      "description": "Pretoria Blind Solutions logo",
+      "imageUrl": "https://images.unsplash.com/photo-1701389598214-722746115985?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwbGFudCUyMGxvZ298ZW58MHx8fHwxNzY4MTM5MzAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "plant logo"
+    },
+    {
+      "id": "the-blind-factory-logo",
+      "description": "The Blind Factory logo",
+      "imageUrl": "https://images.unsplash.com/photo-1718878598715-f12d8a434c44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxnaW5rZ28lMjBsZWFmfGVufDB8fHx8MTc2ODE0MjY5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ginkgo leaf"
+    },
+    {
+      "id": "budget-blinds-sa-logo",
+      "description": "Budget Blinds SA logo",
+      "imageUrl": "https://images.unsplash.com/photo-1557008169-122906d15f60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb25leSUyMGJhZ3xlbnwwfHx8fDE3NjgxNDI2OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "money bag"
+    },
+    {
+      "id": "gauteng-builders-logo",
+      "description": "Gauteng Builders logo",
+      "imageUrl": "https://images.unsplash.com/photo-1698642398243-228723c34a2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxqb2hhbm5lc2J1cmclMjBza3lsaW5lfGVufDB8fHx8MTc2ODE0MjY4OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "johannesburg skyline"
+    },
+    {
+      "id": "cape-construction-logo",
+      "description": "Cape Construction Group logo",
+      "imageUrl": "https://images.unsplash.com/photo-1651583597427-44c1d248b625?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0YWJsZSUyMG1vdW50YWluJTIwbG9nb3xlbnwwfHx8fDE3NjgxNDI2OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "table mountain logo"
+    },
+    {
+      "id": "kzn-building-logo",
+      "description": "KZN Building Projects logo",
+      "imageUrl": "https://images.unsplash.com/photo-1587841187895-467268579e0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkdXJiYW4lMjBiZWFjaHxlbnwwfHx8fDE3NjgxNDI2ODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "durban beach"
+    },
+    {
+      "id": "jacaranda-construction-logo",
+      "description": "Jacaranda Construction logo",
+      "imageUrl": "https://images.unsplash.com/photo-1701389598214-722746115985?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHwamFjYXJhbmRhJTIwdHJlZSUyMGxvZ298ZW58MHx8fHwxNzY4MTM5MzAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "jacaranda tree logo"
+    },
+    {
+      "id": "reliable-renos-logo",
+      "description": "Reliable Renos logo",
+      "imageUrl": "https://images.unsplash.com/photo-1639768393560-6421522f2541?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZW5vdmF0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjgxNDI2OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "renovation logo"
+    },
+    {
+      "id": "summit-builders-logo",
+      "description": "Summit Builders Inc. logo",
+      "imageUrl": "https://images.unsplash.com/photo-1651583597427-44c1d248b625?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0YWJsZSUyMG1vdW50YWluJTIwbG9nb3xlbnwwfHx8fDE3NjgxNDI2OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "table mountain logo"
+    },
+    {
+      "id": "coolbreeze-sa-logo",
+      "description": "CoolBreeze SA company logo",
+      "imageUrl": "https://images.unsplash.com/photo-1625804595643-9115712ed444?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzbW9vdGglMjB3YXZlJTIwbG9nb3xlbnwwfHx8fDE3NjgxMzc0Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smooth wave logo"
+    },
+    {
+      "id": "cape-airflow-logo",
+      "description": "Cape Airflow Solutions logo",
+      "imageUrl": "https://images.unsplash.com/photo-1600868297771-f92022754659?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhdG9tJTIwbG9nb3xlbnwwfHx8fDE3NjgxNDI2OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "atom logo"
+    },
+    {
+      "id": "durban-climate-logo",
+      "description": "Durban Climate Control logo",
+      "imageUrl": "https://images.unsplash.com/photo-1672304899146-2915822e1189?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3VuJTIwc2hpbmUlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjY4OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun shine logo"
+    },
+    {
+      "id": "pretoria-air-kings-logo",
+      "description": "Pretoria Air Kings logo",
+      "imageUrl": "https://images.unsplash.com/photo-1547040827-3e75e9559556?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4MTQyNjkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crown logo"
+    },
+    {
+      "id": "eco-cool-logo",
+      "description": "Eco-Cool company logo",
+      "imageUrl": "https://images.unsplash.com/photo-1759150308121-5dd5e3c918b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxlY28lMjBsb2dvfGVufDB8fHx8MTc2ODE0MTE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eco logo"
+    },
+    {
+      "id": "247-aircon-rescue-logo",
+      "description": "24/7 Aircon Rescue logo",
+      "imageUrl": "https://images.unsplash.com/photo-1662947118828-55a298539e6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyZXNjdWUlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjY5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rescue logo"
+    },
+    {
+      "id": "alu-solutions-jhb-logo",
+      "description": "Alu-Solutions JHB logo",
+      "imageUrl": "https://images.unsplash.com/photo-1619472338578-3b10853a4798?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwYnVpbGRpbmd8ZW58MHx8fHwxNzY4MDc0NjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern building"
+    },
+    {
+      "id": "cape-glass-alu-logo",
+      "description": "Cape Glass & Aluminium logo",
+      "imageUrl": "https://images.unsplash.com/photo-1549490132-23c21c7d1e89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGlhbW9uZCUyMGxvZ298ZW58MHx8fHwxNzY4MTQyNjkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diamond logo"
+    },
+    {
+      "id": "durban-frame-glass-logo",
+      "description": "Durban Frame & Glass logo",
+      "imageUrl": "https://images.unsplash.com/photo-1759600103758-a5b6f3c4c925?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwYWxtJTIwdHJlZSUyMGxvZ298ZW58MHx8fHwxNzY4MTQyNjg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "palm tree logo"
+    },
+    {
+      "id": "pta-alu-masters-logo",
+      "description": "Pretoria Aluminium Masters logo",
+      "imageUrl": "https://images.unsplash.com/photo-1763155797170-c0883214555e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvdGVhJTIwZmxvd2VyfGVufDB8fHx8MTc2ODE0MjY5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "protea flower"
+    },
+    {
+      "id": "alu-style-centurion-logo",
+      "description": "Alu-Style Centurion logo",
+      "imageUrl": "https://images.unsplash.com/photo-1678846638210-915904085437?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3R5bGlzaCUyMGxvZ298ZW58MHx8fHwxNzY4MTQyNjkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stylish logo"
+    },
+    {
+      "id": "value-aluminium-logo",
+      "description": "Value Aluminium logo",
+      "imageUrl": "https://images.unsplash.com/photo-1557008169-122906d15f60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb25leSUyMGJhZyUyMGxvZ298ZW58MHx8fHwxNzY4MTQyNjkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "money bag logo"
+    },
+    {
+      "id": "jozi-fresh-carpets-logo",
+      "description": "Logo for Jozi Fresh Carpets",
+      "imageUrl": "https://images.unsplash.com/photo-1756592237899-2a969f64860b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjbGVhbiUyMGljb258ZW58MHx8fHwxNzY4NTkwMzgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clean icon"
+    },
+    {
+      "id": "cape-carpet-cleaners-logo",
+      "description": "Logo for Cape Carpet Cleaners",
+      "imageUrl": "https://images.unsplash.com/photo-1748446460790-0f199ef1b891?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlY28lMjBsb2dvfGVufDB8fHx8MTc2ODE0MTE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eco logo"
+    },
+    {
+      "id": "durban-steam-clean-logo",
+      "description": "Logo for Durban Steam Clean",
+      "imageUrl": "https://images.unsplash.com/photo-1698241419441-e9a930a576e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBzaGllbGR8ZW58MHx8fHwxNzY4NTkwMzgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern shield"
+    },
+    {
+      "id": "pretoria-pro-clean-logo",
+      "description": "Logo for Pretoria Pro Clean",
+      "imageUrl": "https://images.unsplash.com/photo-1549490132-23c21c7d1e89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGlhbW9uZCUyMGxvZ298ZW58MHx8fHwxNzY4MTQyNjkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diamond logo"
+    },
+    {
+      "id": "the-rug-doctor-logo",
+      "description": "Logo for The Rug Doctor",
+      "imageUrl": "https://images.unsplash.com/photo-1715424560124-7c37617345df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYWduaWZ5aW5nJTIwZ2xhc3N8ZW58MHx8fHwxNzY4NTkwMzgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "magnifying glass"
+    },
+    {
+      "id": "clean-and-go-logo",
+      "description": "Logo for Clean & Go",
+      "imageUrl": "https://images.unsplash.com/photo-1701389598214-722746115985?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyb2NrZXQlMjBsb2dvfGVufDB8fHx8MTc2ODU5MDM4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rocket logo"
+    },
+    {
+      "id": "slab-masters-jhb-logo",
+      "description": "Logo for Slab Masters JHB",
+      "imageUrl": "https://images.unsplash.com/photo-1644088299103-2b0e4548483b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb25jcmV0ZSUyMGljb258ZW58MHx8fHwxNzY4NTkwMzgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "concrete icon"
+    },
+    {
+      "id": "cape-concrete-solutions-logo",
+      "description": "Logo for Cape Concrete Solutions",
+      "imageUrl": "https://images.unsplash.com/photo-1763155797170-c0883214555e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvdGVhJTIwZmxvd2VyfGVufDB8fHx8MTc2ODE0MjY5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "protea flower"
+    },
+    {
+      "id": "durban-concrete-kings-logo",
+      "description": "Logo for Durban Concrete Kings",
+      "imageUrl": "https://images.unsplash.com/photo-1547040827-3e75e9559556?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4MTQyNjkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crown logo"
+    },
+    {
+      "id": "pretoria-foundation-pro-logo",
+      "description": "Logo for Pretoria Foundation Pro",
+      "imageUrl": "https://images.unsplash.com/photo-1507914449213-a4e9b940984a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dW5pb24lMjBidWlsZGluZ3N8ZW58MHx8fHwxNzY4NTkwMzgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "union buildings"
+    },
+    {
+      "id": "solid-slab-services-logo",
+      "description": "Logo for Solid Slab Services",
+      "imageUrl": "https://images.unsplash.com/photo-1627993096537-88226017a6d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyb2NrJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY4NTkwMzgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rock abstract"
+    },
+    {
+      "id": "precision-concrete-logo",
+      "description": "Logo for Precision Concrete",
+      "imageUrl": "https://images.unsplash.com/photo-1549490132-23c21c7d1e89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkaWFtb25kJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY4NTkwMzgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diamond abstract"
     }
   ]
 }
