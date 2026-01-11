@@ -8,7 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Star, MessageCircle, Verified } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { CategoryImages } from '@/lib/category-images';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
 // Define the type for a professional object
@@ -39,7 +39,7 @@ interface ProfessionalCardProps {
 export default function ProfessionalCard({ professional, service }: ProfessionalCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   
-  const proImage = PlaceHolderImages.find(p => p.id === professional.avatarSeed);
+  const proImage = CategoryImages.find(p => p.id === professional.avatarSeed);
   const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/80/80`;
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
