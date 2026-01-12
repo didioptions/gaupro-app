@@ -67,31 +67,6 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                   </span>
                                 )}
                             </div>
-
-                            {(professional.services || professional.otherServices) && (
-                              <div className="mt-4 pt-4 border-t">
-                                  <h3 className="font-semibold text-md mb-2">Services Offered</h3>
-                                  <div className="grid md:grid-cols-2 gap-x-6 text-sm">
-                                      {professional.services && (
-                                          <div>
-                                              <h4 className="font-medium mb-1">Main Services</h4>
-                                              <ul className="list-disc list-inside space-y-1">
-                                                  {professional.services.map((service, index) => <li key={index}>{service}</li>)}
-                                              </ul>
-                                          </div>
-                                      )}
-                                      {professional.otherServices && (
-                                          <div>
-                                              <h4 className="font-medium mb-1">Other Services</h4>
-                                              <ul className="list-disc list-inside space-y-1">
-                                                  {professional.otherServices.map((service, index) => <li key={index}>{service}</li>)}
-                                              </ul>
-                                          </div>
-                                      )}
-                                  </div>
-                              </div>
-                            )}
-
                         </div>
                         <div className="text-center flex-shrink-0">
                             <div className="bg-teal-500 text-white font-bold text-2xl rounded-md w-16 h-16 flex items-center justify-center mx-auto">
@@ -129,6 +104,30 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                     <p>{professional.description}</p>
                                 </div>
                                 
+                                {(professional.services || professional.otherServices) && (
+                                <div className="pt-4">
+                                    <h3 className="font-semibold text-lg mb-2">Services Offered</h3>
+                                    <div className="grid md:grid-cols-2 gap-x-6 text-sm">
+                                        {professional.services && (
+                                            <div>
+                                                <h4 className="font-medium mb-1">Main Services</h4>
+                                                <ul className="list-disc list-inside space-y-1">
+                                                    {professional.services.map((service, index) => <li key={index}>{service}</li>)}
+                                                </ul>
+                                            </div>
+                                        )}
+                                        {professional.otherServices && (
+                                            <div>
+                                                <h4 className="font-medium mb-1">Other Services</h4>
+                                                <ul className="list-disc list-inside space-y-1">
+                                                    {professional.otherServices.map((service, index) => <li key={index}>{service}</li>)}
+                                                </ul>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                )}
+
                                 {professional.photos && professional.photos.length > 0 &&
                                 <div className="pt-4">
                                     <h3 className="font-semibold text-lg mb-2">Photos</h3>
