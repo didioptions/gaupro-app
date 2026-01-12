@@ -75,7 +75,15 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                             <p className="text-xs text-muted-foreground mt-1">{professional.reviews} reviews</p>
                         </div>
                     </div>
-
+                     {professional.services && professional.services.length > 0 && (
+                        <div className="mt-4 pt-4 border-t">
+                            <div className="flex flex-wrap gap-2">
+                                {professional.services.map((service, index) => (
+                                    <Badge key={index} variant="secondary">{service}</Badge>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                     <div className="mt-6 pt-6 border-t flex flex-wrap gap-2">
                         <Button><MessageSquare className="h-4 w-4 mr-2" /> Request a quote</Button>
                         <Button variant="secondary"><Mail className="h-4 w-4 mr-2" /> Send an enquiry email</Button>
@@ -104,30 +112,6 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                     <p>{professional.description}</p>
                                 </div>
                                 
-                                {(professional.services || professional.otherServices) && (
-                                <div className="pt-4">
-                                    <h3 className="font-semibold text-lg mb-2">Services Offered</h3>
-                                    <div className="grid md:grid-cols-2 gap-x-6 text-sm">
-                                        {professional.services && (
-                                            <div>
-                                                <h4 className="font-medium mb-1">Main Services</h4>
-                                                <ul className="list-disc list-inside space-y-1">
-                                                    {professional.services.map((service, index) => <li key={index}>{service}</li>)}
-                                                </ul>
-                                            </div>
-                                        )}
-                                        {professional.otherServices && (
-                                            <div>
-                                                <h4 className="font-medium mb-1">Other Services</h4>
-                                                <ul className="list-disc list-inside space-y-1">
-                                                    {professional.otherServices.map((service, index) => <li key={index}>{service}</li>)}
-                                                </ul>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                                )}
-
                                 {professional.photos && professional.photos.length > 0 &&
                                 <div className="pt-4">
                                     <h3 className="font-semibold text-lg mb-2">Photos</h3>
