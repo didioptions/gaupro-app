@@ -475,184 +475,76 @@
       "imageHint": "text logo"
     },
     {
-      "id": "jozi-concrete-slabs-logo",
-      "description": "Strong text-only logo, 'Jozi Concrete', bold industrial font, dark grey",
-      "imageUrl": "https://images.unsplash.com/photo-1758560902402-0785e1ff77db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
+      "id": "prime-electrical-logo",
+      "description": "Clean wordmark logo, 'Prime Electrical', with a small lightning bolt icon, dark blue",
+      "imageUrl": "https://images.unsplash.com/photo-1763076470438-23c21c7d6e49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsaWdodG5pbmclMjBib2x0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDcwMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lightning logo"
     },
     {
-      "id": "cape-formwork-concrete-logo",
-      "description": "Clean wordmark logo, 'Cape Formwork', with a simple geometric shape icon, blue",
-      "imageUrl": "https://images.unsplash.com/photo-1651223969333-7a02ad74c4f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODIzMDU2NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "geometric logo"
-    },
-    {
-      "id": "durban-concrete-kings-logo",
-      "description": "Text-only logo, 'Durban Concrete Kings', with a small crown icon, gold and black",
-      "imageUrl": "https://images.unsplash.com/flagged/photo-1575888786965-fae3ed5e751f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "crown logo"
-    },
-    {
-      "id": "pretoria-slab-specialists-logo",
-      "description": "Minimal flat logo, initials 'PSS', with a simple level tool icon, grey and blue",
-      "imageUrl": "https://images.unsplash.com/photo-1673909447927-62443ed0ba9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsZXZlbCUyMHRvb2wlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "level tool logo"
-    },
-    {
-      "id": "quickslab-sa-logo",
-      "description": "Clean wordmark logo, 'QuickSlab', italic font suggesting speed, red and black",
-      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "solid-foundations-logo",
-      "description": "Strong text-only logo, 'Solid Foundations', in a bold serif font, dark grey",
-      "imageUrl": "https://images.unsplash.com/photo-1636537640173-e9d7bb80fb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "jozi-carports-logo",
-      "description": "Clean wordmark logo, 'Jozi Carports', with a simple roofline icon, blue",
-      "imageUrl": "https://images.unsplash.com/photo-1766068968965-33e34c5e554d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyb29mJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "roof logo"
-    },
-    {
-      "id": "cape-shadeport-kings-logo",
-      "description": "Text-only logo, 'Cape Shadeport Kings', with a small crown icon, dark blue",
-      "imageUrl": "https://images.unsplash.com/photo-1739323980445-b76a6e459d0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "crown logo"
-    },
-    {
-      "id": "durban-carport-creations-logo",
-      "description": "Minimal flat logo, initials 'DCC', green and grey",
-      "imageUrl": "https://images.unsplash.com/photo-1595409583957-5d1ec5869de9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "initials logo"
-    },
-    {
-      "id": "pretoria-steel-structures-logo",
-      "description": "Strong text-only logo, 'Pretoria Steel Structures', bold industrial font, dark grey",
-      "imageUrl": "https://images.unsplash.com/photo-1734412513254-6f365dee30a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "shade-it-sa-logo",
-      "description": "Clean wordmark logo, 'Shade-It', with a simple sun and shade icon, blue and yellow",
-      "imageUrl": "https://images.unsplash.com/photo-1767733366644-97b8b30b6daa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdW4lMjBsb2dvfGVufDB8fHx8MTc2ODE0NzAyMXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "sun logo"
-    },
-    {
-      "id": "pro-port-structures-logo",
-      "description": "Text-only logo, 'Pro-Port', professional and technical font, dark blue",
-      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "jozi-ceilings-logo",
-      "description": "Clean wordmark logo, 'Jozi Ceilings', with a simple line icon representing a ceiling, grey",
-      "imageUrl": "https://images.unsplash.com/photo-1729487151756-6908c8950d10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsaW5lJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "line logo"
-    },
-    {
-      "id": "cape-ceiling-drywall-logo",
-      "description": "Text-only logo, 'Cape Ceiling & Drywall', professional blue font",
-      "imageUrl": "https://images.unsplash.com/photo-1684977269247-5d79a7a3f245?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "durban-ceiling-solutions-logo",
-      "description": "Minimal flat logo, initials 'DCS', blue and grey",
-      "imageUrl": "https://images.unsplash.com/photo-1672268931087-9384cca148d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "initials logo"
-    },
-    {
-      "id": "pretoria-ceiling-cornice-logo",
-      "description": "Elegant text logo, 'Pretoria Ceiling & Cornice', with a simple cornice shape icon, grey",
-      "imageUrl": "https://images.unsplash.com/photo-1739055547959-3ced17cfefff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb3JuaWNlJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "cornice logo"
-    },
-    {
-      "id": "ceiling-fix-masters-logo",
-      "description": "Clean wordmark logo, 'Ceiling Fix Masters', with a small hammer and trowel icon, red and black",
-      "imageUrl": "https://images.unsplash.com/photo-1763076470453-e9cc7528c82b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dG9vbHMlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "tools logo"
-    },
-    {
-      "id": "top-line-interiors-logo",
-      "description": "Premium text-only logo, 'Top-Line', in a minimalist sans-serif font, black",
-      "imageUrl": "https://images.unsplash.com/photo-1734412513254-6f365dee30a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "prime-door-solutions-sa-logo",
-      "description": "Text-only logo, 'Prime Door Solutions', with a small key icon, dark blue",
-      "imageUrl": "https://images.unsplash.com/photo-1745615473689-34bf15f3320f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxrZXklMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "key logo"
-    },
-    {
-      "id": "elite-door-installers-gauteng-logo",
-      "description": "Clean wordmark logo, 'Elite Door Installers', in a professional serif font, black",
+      "id": "elite-electricians-gauteng-logo",
+      "description": "Text-only logo, 'Elite Electricians', professional serif font, black",
       "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "text logo"
     },
     {
-      "id": "accesspro-doors-fitment-logo",
-      "description": "Minimal flat logo, initials 'AP', with a small door hinge icon, blue and grey",
-      "imageUrl": "https://images.unsplash.com/photo-1653499676737-becf2c9562c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoaW5nZSUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "hinge logo"
+      "id": "voltpro-electrical-johannesburg-logo",
+      "description": "Minimal flat logo, initials 'VP', with a simple plug icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1748800645601-3a059b0d64f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbHVnJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "plug logo"
     },
     {
-      "id": "securefit-doors-johannesburg-logo",
-      "description": "Text-only logo, 'SecureFit', with a small shield icon, dark blue",
-      "imageUrl": "https://images.unsplash.com/photo-1767695086479-869f10facf90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "id": "safewire-electricians-johannesburg-logo",
+      "description": "Clean wordmark logo, 'SafeWire', with a simple shield icon, green and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1673909447927-62443ed0ba9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsZXZlbCUyMHRvb2wlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "shield logo"
     },
     {
-      "id": "precision-door-co-sa-logo",
-      "description": "Clean wordmark logo, 'Precision Door Co.', in a technical font, grey",
+      "id": "urban-electrical-solutions-logo",
+      "description": "Text-only logo, 'Urban Electrical', modern industrial font, dark grey",
       "imageUrl": "https://images.unsplash.com/photo-1758560902402-0785e1ff77db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "text logo"
     },
     {
-      "id": "urban-door-specialists-cpt-logo",
-      "description": "Text-only logo, 'Urban Door Specialists', in a modern sans-serif font, black",
-      "imageUrl": "https://images.unsplash.com/photo-1734412513254-6f365dee30a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
+      "id": "reliable-spark-electrical-logo",
+      "description": "Clean wordmark logo, 'Reliable Spark', with a simple sparkle icon, blue and yellow",
+      "imageUrl": "https://images.unsplash.com/photo-1701877339447-019a4fd89d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGFya2xlJTIwbG9nb3xlbnwwfHx8fDE3NjgxNjIyNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sparkle logo"
     },
     {
-      "id": "prowall-drywalls-sa-logo",
-      "description": "Strong text logo, 'ProWall', with a simple wall section icon, dark grey",
-      "imageUrl": "https://images.unsplash.com/photo-1677735476292-0fc57ab097b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3YWxsJTIwaWNvbnxlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wall icon"
-    },
-    {
-      "id": "precision-partitioning-gauteng-logo",
-      "description": "Clean wordmark logo, 'Precision Partitioning', in a technical, clean font, blue",
-      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "elite-drywall-systems-sa-logo",
-      "description": "Text-only logo, 'Elite Drywall', in a professional serif font, black",
-      "imageUrl": "https://images.unsplash.com/photo-1608241611705-fa1853e69b91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGV4dCUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "straightline-interiors-johannesburg-logo",
-      "description": "Minimal flat logo, 'StraightLine', with a long horizontal line icon, dark blue",
+      "id": "secureline-electric-fencing-logo",
+      "description": "Clean wordmark logo, 'SecureLine', with a simple fence line icon, dark blue",
       "imageUrl": "https://images.unsplash.com/photo-1723537814964-7e8382aaafb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bGluZSUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "line logo"
     },
     {
-      "id": "interior-wall-pros-cape-town-logo",
-      "description": "Clean wordmark logo, 'Interior Wall Pros', with a small trowel icon, grey",
-      "imageUrl": "https://images.unsplash.com/photo-1739055547874-4fe440a2bfea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0cm93ZWwlMjBsb2dvfGVufDB8fHx8MTc2ODE0NzAyMnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "trowel logo"
+      "id": "powerfence-solutions-sa-logo",
+      "description": "Strong text-only logo, 'PowerFence', bold font, with a small lightning bolt, red and black",
+      "imageUrl": "https://images.unsplash.com/photo-1763076470438-23c21c7d6e49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsaWdodG5pbmclMjBib2x0JTIwbG9nb3xlbnwwfHx8fDE3NjgxNDcwMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lightning logo"
     },
     {
-      "id": "primeboard-installers-kzn-logo",
-      "description": "Text-only logo, 'PrimeBoard', in a strong, reliable font, blue",
-      "imageUrl": "https://images.unsplash.com/photo-1758560902402-0785e1ff77db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "id": "safevolt-fencing-projects-logo",
+      "description": "Clean wordmark logo, 'SafeVolt', with a simple shield icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1673909447927-62443ed0ba9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsZXZlbCUyMHRvb2wlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "elite-electric-fence-installers-logo",
+      "description": "Text-only logo, 'Elite Electric Fence', professional serif font, black",
+      "imageUrl": "https://images.unsplash.com/photo-1636537640173-e9d7bb80fb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "text logo"
+    },
+    {
+      "id": "fortress-electric-fencing-randburg-logo",
+      "description": "Strong text-only logo, 'Fortress Fencing', in a bold, castle-like font, dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1709877769536-20bf1043b210?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "urban-perimeter-fencing-logo",
+      "description": "Minimal flat logo, initials 'UPF', with a simple fence post icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1748800645601-3a059b0d64f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbHVnJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "plug logo"
     }
   ]
 }
