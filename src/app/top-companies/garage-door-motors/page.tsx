@@ -12,7 +12,7 @@ import { CategoryImages } from '@/lib/category-images';
 export default function TopGarageDoorMotorsPage() {
   const proCategory = 'garage-door-motors';
   const pros = allProfessionals[proCategory] || [];
-  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 6);
+  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 5);
 
   const heroImage = CategoryImages.find(p => p.id === 'garage-door-motors-image');
 
@@ -60,7 +60,7 @@ export default function TopGarageDoorMotorsPage() {
                     <ChevronRight className="h-4 w-4" />
                     <span className="font-medium text-foreground">Top Garage Door Motor Companies</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top 6 Garage Door Motor Companies</h2>
+                <h2 className="text-3xl mt-1">Top 5 Garage Door Motor Companies in Gauteng</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">

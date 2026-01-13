@@ -12,7 +12,7 @@ import { CategoryImages } from '@/lib/category-images';
 export default function TopFencingPage() {
   const proCategory = 'fencing';
   const pros = allProfessionals[proCategory] || [];
-  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 6);
+  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 5);
 
   const heroImage = CategoryImages.find(p => p.id === 'fencing-image');
 
@@ -60,7 +60,7 @@ export default function TopFencingPage() {
                     <ChevronRight className="h-4 w-4" />
                     <span className="font-medium text-foreground">Top Fencing Companies</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top 6 Fencing Companies</h2>
+                <h2 className="text-3xl mt-1">Top 5 Fencing Companies in Gauteng</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">

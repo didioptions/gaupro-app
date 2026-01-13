@@ -545,6 +545,216 @@
       "description": "Minimal flat logo, initials 'UPF', with a simple fence post icon, blue and grey",
       "imageUrl": "https://images.unsplash.com/photo-1748800645601-3a059b0d64f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbHVnJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "plug logo"
+    },
+    {
+      "id": "gauteng-fence-masters-logo",
+      "description": "Minimal flat logo, 'GFM', with small fence icon, dark blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1698241401349-f495a898b0f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmZW5jZSUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fence logo"
+    },
+    {
+      "id": "proedge-fencing-solutions-logo",
+      "description": "Clean wordmark logo, 'ProEdge', with a sharp edge graphic, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1763260840428-1111a43a0d33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlZGdlJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "edge logo"
+    },
+    {
+      "id": "centurion-wall-fence-logo",
+      "description": "Text-only logo, 'Centurion Wall & Fence', strong block font, dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "urban-defence-fencing-logo",
+      "description": "Minimal flat logo, initials 'UDF', with a strong shield icon, black and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1673909447927-62443ed0ba9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsZXZlbCUyMHRvb2wlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "reliable-fencing-gates-logo",
+      "description": "Clean wordmark logo, 'Reliable', with a checkmark icon, green and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1734898144634-969986348123?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGVja21hcmslMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "checkmark logo"
+    },
+    {
+      "id": "gauteng-flooring-co-logo",
+      "description": "Clean wordmark logo, 'Gauteng Flooring Co.', modern professional font, dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1709877769536-20bf1043b210?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "pretoria-floor-masters-logo",
+      "description": "Text-only logo, 'Floor Masters', with a small crown icon, gold and black",
+      "imageUrl": "https://images.unsplash.com/photo-1736633633659-3992b9587a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crown logo"
+    },
+    {
+      "id": "tile-style-sa-logo",
+      "description": "Minimal flat logo, initials 'T&S', with a simple tile grid icon, grey and blue",
+      "imageUrl": "https://images.unsplash.com/photo-1763260840428-1111a43a0d33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlZGdlJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grid logo"
+    },
+    {
+      "id": "urban-concrete-flooring-logo",
+      "description": "Industrial style text logo, 'Urban Concrete', stencil font, dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "cozy-carpets-centurion-logo",
+      "description": "Text-only logo, 'Cozy Carpets', in a soft, friendly font, warm brown",
+      "imageUrl": "https://images.unsplash.com/photo-1684977269247-5d79a7a3f245?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "gauteng-garage-doors-logo",
+      "description": "Clean wordmark logo, 'Gauteng Garage Doors', with a simple garage icon, dark blue",
+      "imageUrl": "https://images.unsplash.com/photo-1748800645601-3a059b0d64f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbHVnJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "garage logo"
+    },
+    {
+      "id": "pretoria-door-pros-logo",
+      "description": "Text-only logo, 'Door Pros', bold professional font, black",
+      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "secure-a-door-sa-logo",
+      "description": "Minimal flat logo, initials 'SAD', with a simple lock icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1647006873249-8d3c75e6ca11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoYW1tZXIlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lock logo"
+    },
+    {
+      "id": "alu-door-designs-logo",
+      "description": "Clean wordmark logo, 'Alu-Door', modern font, silver and black",
+      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "west-rand-garage-doors-logo",
+      "description": "Text-only logo, 'West Rand Garage Doors', friendly font, dark blue",
+      "imageUrl": "https://images.unsplash.com/photo-1684977269247-5d79a7a3f245?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "motor-masters-gauteng-logo",
+      "description": "Minimal flat logo, 'Motor Masters', with a gear icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1727037347365-2bff295c562b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnZWFyJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gear logo"
+    },
+    {
+      "id": "pretoria-gate-door-automation-logo",
+      "description": "Clean wordmark logo, 'PGDA', with a small remote control icon, black and blue",
+      "imageUrl": "https://images.unsplash.com/photo-1763260840428-1111a43a0d33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlZGdlJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "remote logo"
+    },
+    {
+      "id": "jozi-auto-doors-logo",
+      "description": "Text-only logo, 'Jozi Auto-Doors', modern bold font, red and black",
+      "imageUrl": "https://images.unsplash.com/photo-1734412513254-6f365dee30a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "cape-door-automation-logo",
+      "description": "Minimal flat logo, initials 'CDA', with a simple wave icon, blue",
+      "imageUrl": "https://images.unsplash.com/photo-1665410618173-2ffade789974?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3YXZlJTIwbG9nb3xlbnwwfHx8fDE3NjgxNDExNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wave logo"
+    },
+    {
+      "id": "powerup-garage-motors-logo",
+      "description": "Clean wordmark logo, 'PowerUp', with a small battery icon, green and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1736633633659-3992b9587a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "battery logo"
+    },
+    {
+      "id": "gauteng-garden-pros-logo",
+      "description": "Minimal flat logo, 'Garden Pros', with a simple leaf icon, green and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1758560902402-0785e1ff77db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf logo"
+    },
+    {
+      "id": "cape-green-thumbs-logo",
+      "description": "Text-only logo, 'Cape Green Thumbs', with a green thumbprint icon",
+      "imageUrl": "https://images.unsplash.com/photo-1673909448712-985d7a103d8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thumbprint logo"
+    },
+    {
+      "id": "durban-garden-keepers-logo",
+      "description": "Clean wordmark logo, 'Garden Keepers', friendly font, green text",
+      "imageUrl": "https://images.unsplash.com/photo-1709877769536-20bf1043b210?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "pretoria-tuin-dienste-logo",
+      "description": "Text-only logo, 'Pretoria Tuin Dienste', with a simple flower icon, green and orange",
+      "imageUrl": "https://images.unsplash.com/photo-1744381403747-8f87c59db3b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3aW5kb3clMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flower logo"
+    },
+    {
+      "id": "jozi-jungle-tamers-logo",
+      "description": "Minimal flat logo, 'Jungle Tamers', with a leaf and machete icon, green and dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1608241611705-fa1853e69b91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGV4dCUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "machete logo"
+    },
+    {
+      "id": "gauteng-gas-pros-logo",
+      "description": "Clean wordmark logo, 'Gauteng Gas Pros', with a simple flame icon, blue and orange",
+      "imageUrl": "https://images.unsplash.com/photo-1626737953168-d6d8eda28553?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3YXRlciUyMGRyb3AlMjBsb2dvfGVufDB8fHx8MTc2ODE0MTE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flame logo"
+    },
+    {
+      "id": "safegas-cape-town-logo",
+      "description": "Text-only logo, 'SafeGas', with a shield icon, green and white",
+      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "durban-gas-fitters-logo",
+      "description": "Minimal flat logo, 'Durban Gas Fitters', with a simple gas cylinder icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1647006873249-8d3c75e6ca11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoYW1tZXIlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gas cylinder logo"
+    },
+    {
+      "id": "pretoria-gas-fire-logo",
+      "description": "Clean wordmark logo, 'Pretoria Gas & Fire', elegant font with a flame icon, warm orange and black",
+      "imageUrl": "https://images.unsplash.com/photo-1626261684380-94caded3e2d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3NjgyMzc5MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flame logo"
+    },
+    {
+      "id": "jozi-gas-express-logo",
+      "description": "Text-only logo, 'Jozi Gas Express', with speed lines, red and black",
+      "imageUrl": "https://images.unsplash.com/photo-1709877769536-20bf1043b210?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "speed lines logo"
+    },
+    {
+      "id": "gauteng-gate-masters-logo",
+      "description": "Strong wordmark logo, 'Gate Masters', with a stylized gate icon, black and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1748800645601-3a059b0d64f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbHVnJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gate icon"
+    },
+    {
+      "id": "pretoria-steel-gates-logo",
+      "description": "Text-only logo, 'Pretoria Steel Gates', industrial stencil font, dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1636537640173-e9d7bb80fb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "cape-auto-gates-logo",
+      "description": "Minimal flat logo, 'Cape Auto-Gates', with a simple remote control signal icon, blue",
+      "imageUrl": "https://images.unsplash.com/photo-1763260840428-1111a43a0d33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlZGdlJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "signal icon"
+    },
+    {
+      "id": "durban-gate-fence-logo",
+      "description": "Clean wordmark logo, 'Durban Gate & Fence', with a combined gate and fence icon, green and black",
+      "imageUrl": "https://images.unsplash.com/photo-1698241401349-f495a898b0f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmZW5jZSUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gate fence icon"
+    },
+    {
+      "id": "access-control-jhb-logo",
+      "description": "Text-only logo, 'Access Control JHB', modern tech font, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
     }
   ]
 }
