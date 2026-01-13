@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useSearchParams, useParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -23,6 +23,11 @@ export default function ServicePage() {
     const params = useParams();
     const searchParams = useSearchParams();
     const locationQuery = searchParams.get('location');
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
 
@@ -116,7 +121,7 @@ export default function ServicePage() {
     }, [currentService, locationName]);
 
     const ProfessionalList = () => {
-        if (isLoading) {
+        if (isLoading || !isClient) { // Check for isClient here
             return Array.from({ length: 5 }).map((_, index) => (
                 <Card key={index}>
                     <CardContent className="p-6">
