@@ -665,6 +665,246 @@
       "description": "Clean wordmark logo, 'PowerUp', with a small battery icon, green and grey",
       "imageUrl": "https://images.unsplash.com/photo-1736633633659-3992b9587a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "battery logo"
+    },
+    {
+      "id": "gauteng-garden-pros-logo",
+      "description": "Minimal flat logo, 'Gauteng Garden Pros', with a simple leaf icon, green and white",
+      "imageUrl": "https://images.unsplash.com/photo-1693666731851-993c9e760781?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3NjgyMzc5MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf logo"
+    },
+    {
+      "id": "cape-green-fingers-logo",
+      "description": "Text-only logo, 'Cape Green Fingers', elegant script font, green",
+      "imageUrl": "https://images.unsplash.com/photo-1693848197332-ec82270f3ebf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODE2MjI1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "durban-lush-lawns-logo",
+      "description": "Clean wordmark logo, 'Lush Lawns', with a simple grass icon, green and blue",
+      "imageUrl": "https://images.unsplash.com/photo-1693666731851-993c9e760781?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3NjgyMzc5MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grass logo"
+    },
+    {
+      "id": "pretoria-garden-services-logo",
+      "description": "Text-only logo, 'Pretoria Garden Services', professional serif font, dark green",
+      "imageUrl": "https://images.unsplash.com/photo-1734412513254-6f365dee30a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "the-garden-guru-logo",
+      "description": "Friendly text logo, 'The Garden Guru', with a simple spade icon, green and brown",
+      "imageUrl": "https://images.unsplash.com/photo-1626261684380-94caded3e2d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3NjgyMzc5MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spade logo"
+    },
+    {
+      "id": "safegas-installers-jhb-logo",
+      "description": "Clean wordmark logo, 'SafeGas', with a simple flame icon, blue and orange",
+      "imageUrl": "https://images.unsplash.com/photo-1647006873249-8d3c75e6ca11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoYW1tZXIlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flame logo"
+    },
+    {
+      "id": "cape-gas-professionals-logo",
+      "description": "Text-only logo, 'Cape Gas Professionals', professional serif font, dark blue",
+      "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "pretoria-gas-fireplace-logo",
+      "description": "Elegant wordmark logo, 'Pretoria Gas & Fireplace', with a stylized flame icon, warm orange and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1647006873226-f9a93f3b753a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoYW1tZXIlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flame logo"
+    },
+    {
+      "id": "durban-gas-solutions-logo",
+      "description": "Minimal flat logo, initials 'DGS', blue and white",
+      "imageUrl": "https://images.unsplash.com/photo-1672268931087-9384cca148d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "initials logo"
+    },
+    {
+      "id": "gauteng-gas-coc-logo",
+      "description": "Text-only logo, 'Gauteng Gas CoC', with a prominent checkmark/shield icon, green and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1734898144634-969986348123?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGVja21hcmslMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "checkmark logo"
+    },
+    {
+      "id": "gauteng-gate-fence-logo",
+      "description": "Clean wordmark logo, 'Gauteng Gate & Fence', strong block font, dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1734412513254-6f365dee30a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "pretoria-steel-gates-logo",
+      "description": "Text-only logo, 'Pretoria Steel Gates', industrial stencil font, black",
+      "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "cape-town-custom-gates-logo",
+      "description": "Elegant wordmark logo, 'Cape Custom Gates', with a subtle wave icon integrated, blue",
+      "imageUrl": "https://images.unsplash.com/photo-1665410618173-2ffade789974?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3YXZlJTIwbG9nb3xlbnwwfHx8fDE3NjgxNDExNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wave logo"
+    },
+    {
+      "id": "durban-gate-automation-logo",
+      "description": "Minimal flat logo, initials 'DGA', with a small gear icon, dark blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1727037347365-2bff295c562b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnZWFyJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gear logo"
+    },
+    {
+      "id": "secure-a-gate-jhb-logo",
+      "description": "Clean wordmark logo, 'Secure-A-Gate', with a prominent lock icon, blue and black",
+      "imageUrl": "https://images.unsplash.com/photo-1647006873226-f9a93f3b753a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoYW1tZXIlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lock logo"
+    },
+    {
+      "id": "gate-motor-gurus-logo",
+      "description": "Clean wordmark logo, 'Gate Motor Gurus', with a simple gear icon, dark blue",
+      "imageUrl": "https://images.unsplash.com/photo-1727037347365-2bff295c562b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnZWFyJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gear logo"
+    },
+    {
+      "id": "pretoria-gate-automation-logo",
+      "description": "Text-only logo, 'Pretoria Gate Automation', professional font, black",
+      "imageUrl": "https://images.unsplash.com/photo-1636537640173-e9d7bb80fb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "jozi-auto-doors-logo",
+      "description": "Modern text-only logo, 'Jozi Auto-Doors', bold font, red and black",
+      "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "cape-town-gate-motors-logo",
+      "description": "Clean wordmark logo, 'Cape Town Gate Motors', with a small mountain icon, blue",
+      "imageUrl": "https://images.unsplash.com/photo-1672268931087-9384cca148d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mountain logo"
+    },
+    {
+      "id": "durban-access-control-logo",
+      "description": "Minimal flat logo, initials 'DAC', with a simple remote icon, dark blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1763260840428-1111a43a0d33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlZGdlJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "remote logo"
+    },
+    {
+      "id": "247-gate-motor-rescue-logo",
+      "description": "Text-only logo, '24/7 Gate Motor Rescue', with a plus/cross icon, red and white",
+      "imageUrl": "https://images.unsplash.com/photo-1673909447927-62443ed0ba9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsZXZlbCUyMHRvb2wlMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cross logo"
+    },
+    {
+      "id": "gauteng-glass-glazing-logo",
+      "description": "Clean wordmark logo, 'Gauteng Glass & Glazing', professional blue font",
+      "imageUrl": "https://images.unsplash.com/photo-1734412513254-6f365dee30a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "pretoria-glass-experts-logo",
+      "description": "Text-only logo, 'Glass Experts', with a simple window pane icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1744381403747-8f87c59db3b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3aW5kb3clMjBsb2dvfGVufDB8fHx8MTc2ODI0NzAyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "window logo"
+    },
+    {
+      "id": "cape-town-frameless-logo",
+      "description": "Minimalist wordmark logo, 'Cape Frameless', elegant light font, grey",
+      "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "durban-glass-aluminium-logo",
+      "description": "Minimal flat logo, initials 'DGA', geometric design, blue and silver",
+      "imageUrl": "https://images.unsplash.com/photo-1570566920413-fd6410fec24c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "initials logo"
+    },
+    {
+      "id": "express-glass-repairs-logo",
+      "description": "Clean wordmark logo, 'Express Glass', with a motion/speed line, red and black",
+      "imageUrl": "https://images.unsplash.com/photo-1723537814964-7e8382aaafb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bGluZSUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "line logo"
+    },
+    {
+      "id": "clear-view-glass-sandton-logo",
+      "description": "Text-only logo, 'Clear View', elegant and minimalist, light blue font",
+      "imageUrl": "https://images.unsplash.com/photo-1758560902402-0785e1ff77db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "gauteng-gutter-pros-logo",
+      "description": "Clean wordmark logo, 'Gutter Pros', with a simple roofline and gutter icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1693666731851-993c9e760781?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3NjgyMzc5MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "roof logo"
+    },
+    {
+      "id": "pretoria-gutter-roof-logo",
+      "description": "Text-only logo, 'Pretoria Gutter & Roof', professional and bold font, dark blue",
+      "imageUrl": "https://images.unsplash.com/photo-1734412513254-6f365dee30a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "cape-town-guttering-logo",
+      "description": "Minimal flat logo, initials 'CTG', with a simple water droplet icon, blue",
+      "imageUrl": "https://images.unsplash.com/photo-1762700939586-9b4a761acf21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3YXRlciUyMGRyb3AlMjBsb2dvfGVufDB8fHx8MTc2ODE0MTE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water drop logo"
+    },
+    {
+      "id": "durban-gutter-clean-logo",
+      "description": "Clean wordmark logo, 'Gutter Clean', with a simple leaf icon to represent clean, green and blue",
+      "imageUrl": "https://images.unsplash.com/photo-1626261684380-94caded3e2d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3NjgyMzc5MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf logo"
+    },
+    {
+      "id": "seamless-gutter-co-sa-logo",
+      "description": "Text-only logo, 'Seamless Gutter Co.', elegant, flowing script font, dark grey",
+      "imageUrl": "https://images.unsplash.com/photo-1693848197332-ec82270f3ebf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODE2MjI1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "value-gutters-randburg-logo",
+      "description": "Simple text-only logo, 'Value Gutters', bold, friendly font, blue and white",
+      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "gauteng-handyman-services-logo",
+      "description": "Minimal flat logo, 'Gauteng Handyman', with crossed hammer and wrench icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1647006873226-f9a93f3b753a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoYW1tZXIlMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tools logo"
+    },
+    {
+      "id": "pretoria-property-maintenance-logo",
+      "description": "Clean wordmark logo, 'Pretoria Property Maintenance', professional font, dark blue",
+      "imageUrl": "https://images.unsplash.com/photo-1636537640173-e9d7bb80fb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "cape-town-odd-jobs-logo",
+      "description": "Friendly text-only logo, 'Cape Town Odd Jobs', with a small toolbox icon, blue and yellow",
+      "imageUrl": "https://images.unsplash.com/photo-1764123108291-0f48d2c7e563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0b29scyUyMGxvZ298ZW58MHx8fHwxNzY4MjQ3MDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "toolbox logo"
+    },
+    {
+      "id": "durban-handyman-pro-logo",
+      "description": "Clean wordmark logo, 'Handyman Pro', with a simple checkmark/shield icon, green and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1734898144634-969986348123?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGVja21hcmslMjBsb2dvfGVufDB8fHx8MTc2ODE0MjE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "checkmark logo"
+    },
+    {
+      "id": "mr-fix-it-randburg-logo",
+      "description": "Text-only logo, 'Mr. Fix-It', retro style with a wrench graphic, red and white",
+      "imageUrl": "https://images.unsplash.com/photo-1637832177167-1d402c167d5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d3JlbmNoJTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wrench logo"
+    },
+    {
+      "id": "the-maintenance-team-logo",
+      "description": "Professional text-only logo, 'The Maintenance Team', in a strong, clean font, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgyNDcwMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "roofer-image",
+      "description": "A roofer working on a residential roof.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/roofer.jpg?alt=media&token=e015f808-b755-48db-9081-0a793f3f2530",
+      "imageHint": "roofer work"
     }
   ]
 }
