@@ -60,7 +60,7 @@ export default function TopHighPressureCleaningPage() {
                     <ChevronRight className="h-4 w-4" />
                     <span className="font-medium text-foreground">Top High Pressure Cleaning Companies</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top 6 High Pressure Cleaning Companies</h2>
+                <h2 className="text-3xl mt-1">Top 5 High Pressure Cleaning Companies</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">

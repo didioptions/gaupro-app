@@ -9,12 +9,12 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import ProfessionalCard from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
 
-export default function TopHomeImprovementsPage() {
-  const proCategory = 'home-improvements';
+export default function TopKitchenRenovationsPage() {
+  const proCategory = 'kitchen-renovations';
   const pros = allProfessionals[proCategory] || [];
   const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 6);
 
-  const heroImage = CategoryImages.find(p => p.id === 'home-improvements-image');
+  const heroImage = CategoryImages.find(p => p.id === 'kitchen-renovations-image');
 
   const benefits = [
     '🛡️ Fully Vetted Companies',
@@ -33,7 +33,7 @@ export default function TopHomeImprovementsPage() {
             {heroImage && (
                 <Image
                     src={heroImage.imageUrl}
-                    alt={heroImage.description || "Home improvements service background"}
+                    alt={heroImage.description || "Kitchen renovation service background"}
                     fill
                     className="object-cover"
                     priority
@@ -43,9 +43,9 @@ export default function TopHomeImprovementsPage() {
              <div className="absolute inset-0 bg-black/60" />
              <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                 <div className="hidden md:block">
-                  <h1 className="text-4xl md:text-5xl font-normal">Top Home Improvement Companies</h1>
+                  <h1 className="text-4xl md:text-5xl font-normal">Top Kitchen Renovation Companies</h1>
                   <p className="mt-4 text-lg text-white/90">
-                      From small repairs to major renovations, find trusted pros to improve your home.
+                      Transform your kitchen with custom designs, cabinetry, and expert installation.
                   </p>
                 </div>
                 <InlineQuoteForm service={proCategory} location="South Africa" />
@@ -58,9 +58,9 @@ export default function TopHomeImprovementsPage() {
                 <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Link href="/" className="hover:text-primary">Gaupro</Link>
                     <ChevronRight className="h-4 w-4" />
-                    <span className="font-medium text-foreground">Top Home Improvement Companies</span>
+                    <span className="font-medium text-foreground">Top Kitchen Renovation Companies</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top 5 Home Improvement Companies</h2>
+                <h2 className="text-3xl mt-1">Top 5 Kitchen Renovation Companies</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
@@ -70,12 +70,12 @@ export default function TopHomeImprovementsPage() {
                 </div>
                 <aside className="space-y-8">
                     <div className="p-6 border rounded-lg bg-card">
-                        <h3 className="mb-3 font-semibold text-foreground">Planning a Project?</h3>
+                        <h3 className="mb-3 font-semibold text-foreground">Planning a Kitchen Reno?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for home improvements</li>
-                            <li>{pros.filter(p => p.rating >= 4).length * 40}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
-                            <li>View Top Home Improvement Companies today</li>
+                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for kitchen renovations</li>
+                            <li>{pros.filter(p => p.rating >= 4).length * 30}+ Positive Reviews</li>
+                            <li>Recently hired Pros have been rated 4.9/5 stars by customers</li>
+                            <li>View Top Kitchen Renovation Companies today</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">
