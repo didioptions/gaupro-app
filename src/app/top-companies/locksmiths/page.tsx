@@ -9,12 +9,12 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import ProfessionalCard from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
 
-export default function TopOfficeCleaningPage() {
-  const proCategory = 'office-cleaning';
+export default function TopLocksmithsPage() {
+  const proCategory = 'locksmiths';
   const pros = allProfessionals[proCategory] || [];
   const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 6);
 
-  const heroImage = CategoryImages.find(p => p.id === 'office-cleaning-image');
+  const heroImage = CategoryImages.find(p => p.id === 'locksmiths-image');
 
   const benefits = [
     '🛡️ Fully Vetted Companies',
@@ -33,7 +33,7 @@ export default function TopOfficeCleaningPage() {
             {heroImage && (
                 <Image
                     src={heroImage.imageUrl}
-                    alt={heroImage.description || "Office cleaning service background"}
+                    alt={heroImage.description || "Locksmith service background"}
                     fill
                     className="object-cover"
                     priority
@@ -43,9 +43,9 @@ export default function TopOfficeCleaningPage() {
              <div className="absolute inset-0 bg-black/60" />
              <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                 <div className="hidden md:block">
-                  <h1 className="text-4xl md:text-5xl font-normal">Top Office Cleaning Companies</h1>
+                  <h1 className="text-4xl md:text-5xl font-normal">Top Locksmiths</h1>
                   <p className="mt-4 text-lg text-white/90">
-                      Professional and reliable cleaning services for a pristine work environment.
+                      24/7 emergency locksmiths for lockouts, key cutting, and lock repairs.
                   </p>
                 </div>
                 <InlineQuoteForm service={proCategory} location="South Africa" />
@@ -58,9 +58,9 @@ export default function TopOfficeCleaningPage() {
                 <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Link href="/" className="hover:text-primary">Gaupro</Link>
                     <ChevronRight className="h-4 w-4" />
-                    <span className="font-medium text-foreground">Top Office Cleaning Companies</span>
+                    <span className="font-medium text-foreground">Top Locksmiths</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top 5 Office Cleaning Companies</h2>
+                <h2 className="text-3xl mt-1">Top 5 Locksmiths</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
@@ -70,12 +70,12 @@ export default function TopOfficeCleaningPage() {
                 </div>
                 <aside className="space-y-8">
                     <div className="p-6 border rounded-lg bg-card">
-                        <h3 className="mb-3 font-semibold text-foreground">Need Office Cleaning?</h3>
+                        <h3 className="mb-3 font-semibold text-foreground">Need a Locksmith?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for office cleaning</li>
+                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for locksmiths</li>
                             <li>{pros.filter(p => p.rating >= 4).length * 40}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.9/5 stars by customers</li>
-                            <li>View Top Office Cleaning Companies today</li>
+                            <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
+                            <li>View Top Locksmiths today</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">
