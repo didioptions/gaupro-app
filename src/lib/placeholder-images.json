@@ -367,7 +367,7 @@
       "imageHint": "spinning circle"
     },
     {
-      "id": "ironshield-sandton-logo",
+      "id": "ironshield-sandton-fencing-logo",
       "description": "Logo with text 'IronShield' and a strong shield icon.",
       "imageUrl": "https://images.unsplash.com/photo-1762857362081-cabed5d9abab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODQxMjQ3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "shield logo"
@@ -455,6 +455,96 @@
       "description": "Logo 'EvenWall' with perfectly straight, parallel lines.",
       "imageUrl": "https://images.unsplash.com/photo-1656534637771-615ec64fe2b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYXJhbGxlbCUyMGxpbmVzfGVufDB8fHx8MTc2ODQyMjc4NHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "parallel lines"
+    },
+    {
+      "id": "solidcast-sandton-fencing-logo",
+      "description": "Strong logo with text 'SolidCast' and a castle wall icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1666562971455-c14d503727f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjYXN0bGUlMjB3YWxsfGVufDB8fHx8MTc2ODQyNDc1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "castle wall"
+    },
+    {
+      "id": "preform-pta-logo",
+      "description": "Logo with text 'PreForm' in a modern, geometric font.",
+      "imageUrl": "https://images.unsplash.com/photo-1739475981422-95aea37df49e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnZW9tZXRyaWMlMjBmb250fGVufDB8fHx8MTc2ODQyNDc1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "geometric font"
+    },
+    {
+      "id": "stanley-concrete-midrand-logo",
+      "description": "Classic, reliable text logo 'STANLEY Concrete'.",
+      "imageUrl": "https://images.unsplash.com/photo-1697797224696-713aa0e86b1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjbGFzc2ljJTIwbG9nb3xlbnwwfHx8fDE3Njg0MjQ3NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "classic logo"
+    },
+    {
+      "id": "buildsafe-gauteng-logo",
+      "description": "Logo with text 'BuildSafe' and a shield icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1762857362081-cabed5d9abab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODQxMjQ3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "urban-systems-logo",
+      "description": "Urban style logo 'Urban Systems' with a city skyline graphic.",
+      "imageUrl": "https://images.unsplash.com/photo-1502905704466-2690947baeee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaXR5JTIwc2t5bGluZXxlbnwwfHx8fDE3Njg0MDI5MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city skyline"
+    },
+    {
+      "id": "powerpay-sandton-logo",
+      "description": "Modern logo 'PowerPay' with a lightning bolt and a coin icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1671550876949-4a2aee2bbdbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsaWdodG5pbmclMjBjb2lufGVufDB8fHx8MTc2ODQyNDc1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lightning coin"
+    },
+    {
+      "id": "smartmeter-pta-logo",
+      "description": "Logo with 'SmartMeter' text and a brain icon inside a meter.",
+      "imageUrl": "https://images.unsplash.com/photo-1644648479153-2a3dbee76212?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxicmFpbiUyMG1ldGVyfGVufDB8fHx8MTc2ODQyNDc1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brain meter"
+    },
+    {
+      "id": "mid-energy-midrand-logo",
+      "description": "Clean text logo 'MID Energy'.",
+      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzU5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "easywatt-gauteng-logo",
+      "description": "Friendly logo 'EasyWatt' with a smiling lightbulb character.",
+      "imageUrl": "https://images.unsplash.com/photo-1712244063451-2f034b0df9e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzbWlsaW5nJTIwbGlnaHRidWxifGVufDB8fHx8MTc2ODQyNDc1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smiling lightbulb"
+    },
+    {
+      "id": "gridpoint-installers-logo",
+      "description": "Geometric logo 'GridPoint' with a grid and a location pin.",
+      "imageUrl": "https://images.unsplash.com/photo-1677922866235-62c6df1765ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncmlkJTIwcGlufGVufDB8fHx8MTc2ODQyNDc1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grid pin"
+    },
+    {
+      "id": "strongpeak-sandton-roofing-logo",
+      "description": "Logo 'StrongPeak' with a mountain peak and a roofline.",
+      "imageUrl": "https://images.unsplash.com/photo-1649503411891-26ff44a3d6cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb3VudGFpbiUyMHJvb2Z8ZW58MHx8fHwxNzY4NDI0NzU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mountain roof"
+    },
+    {
+      "id": "rrr-roof-works-pta-logo",
+      "description": "Initials logo 'RRR' with 'Roof Works' underneath.",
+      "imageUrl": "https://images.unsplash.com/photo-1535662755496-7a1b41997db2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpbml0aWFscyUyMGxvZ298ZW58MHx8fHwxNzY4NDI0NzU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "initials logo"
+    },
+    {
+      "id": "irontop-midrand-logo",
+      "description": "Bold, industrial logo 'IronTop'.",
+      "imageUrl": "https://images.unsplash.com/photo-1716499120809-a1d10e2239fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbmR1c3RyaWFsJTIwbG9nb3xlbnwwfHx8fDE3NjgzNjI1Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial logo"
+    },
+    {
+      "id": "securespan-gauteng-logo",
+      "description": "Logo 'SecureSpan' with a graphic showing a wide, secure roof span.",
+      "imageUrl": "https://images.unsplash.com/photo-1716686135669-f342dc43c423?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyb29mJTIwc3BhbnxlbnwwfHx8fDE3Njg0MjQ3NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "roof span"
+    },
+    {
+      "id": "proshield-roofs-logo",
+      "description": "Logo 'ProShield' with a roof icon inside a shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1625450585964-6bc2d22d22b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyb29mJTIwc2hpZWxkfGVufDB8fHx8MTc2ODQyNDc1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "roof shield"
     }
   ]
 }
