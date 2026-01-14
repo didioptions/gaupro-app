@@ -7,64 +7,34 @@
       "imageHint": "diverse professionals team"
     },
     {
-      "id": "cleardesk-sandton-logo",
-      "description": "Minimalist logo with text 'ClearDesk' and a sparkling icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1533558527255-407147f3ae72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzcGFya2xlJTIwbG9nb3xlbnwwfHx8fDE3NjgzMzI0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "sparkle logo"
+      "id": "fixall-sandton-handyman-logo",
+      "description": "Simple logo with a wrench and hammer crossed, with text 'FixAll'.",
+      "imageUrl": "https://images.unsplash.com/photo-1574870013220-8131a4a54b01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0b29scyUyMGxvZ298ZW58MHx8fHwxNzY4NDE1MDU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tools logo"
     },
     {
-      "id": "prooffice-clean-pta-logo",
-      "description": "Professional logo with text 'ProOffice' and a shield icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1734562379606-597ecdb9fea5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODQxMjQ3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "shield logo"
+      "id": "khaya-handy-services-pta-logo",
+      "description": "Logo with text 'Khaya Handy' and a simple house outline.",
+      "imageUrl": "https://images.unsplash.com/photo-1704823821765-e5f41d8588a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxob3VzZSUyMGxvZ298ZW58MHx8fHwxNzY4MzMyNDUzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "house logo"
     },
     {
-      "id": "skoonworkplace-midrand-logo",
-      "description": "Friendly logo with text 'SkoonWorkplace' in a clean font.",
-      "imageUrl": "https://images.unsplash.com/photo-1747868752289-e74d613cb5ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzU5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
+      "id": "smarthaus-midrand-logo",
+      "description": "Modern logo with a gear and wrench icon, text 'SmartFix'.",
+      "imageUrl": "https://images.unsplash.com/photo-1727037347365-2bff295c562b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnZWFyJTIwbG9nb3xlbnwwfHx8fDE3Njg0MTUwNTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gear logo"
     },
     {
-      "id": "khanya-office-care-logo",
-      "description": "Bright logo with text 'Khanya' and a sun icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1694191610907-d1cdf7efd2f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdW4lMjBsb2dvfGVufDB8fHx8MTc2ODMzMjQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "sun logo"
+      "id": "urbanhandy-gauteng-logo",
+      "description": "Urban-style text logo 'UrbanHandy' in a stencil font.",
+      "imageUrl": "https://images.unsplash.com/photo-1701500096456-28186c4a306d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdGVuY2lsJTIwbG9nb3xlbnwwfHx8fDE3Njg0MTUwNTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stencil logo"
     },
     {
-      "id": "primespace-cleaning-logo",
-      "description": "Modern logo 'PrimeSpace' with clean, geometric lines.",
-      "imageUrl": "https://images.unsplash.com/photo-1691737832567-73def85e90bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODQxNTA1OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "geometric logo"
-    },
-    {
-      "id": "perfectcoat-sandton-logo",
-      "description": "Logo with a paintbrush stroke and text 'PerfectCoat'.",
-      "imageUrl": "https://images.unsplash.com/photo-1701888072113-78eb5006e4bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwYWludGJydXNoJTIwbG9nb3xlbnwwfHx8fDE3Njg0MTI0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "paintbrush logo"
-    },
-    {
-      "id": "vividbrush-pta-logo",
-      "description": "Colorful logo with text 'VividBrush' and an abstract brush icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1627873828946-44e8b5261d2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb2xvcmZ1bCUyMGJydXNoJTIwbG9nb3xlbnwwfHx8fDE3Njg0MTI0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "colorful brush logo"
-    },
-    {
-      "id": "khula-paintworks-midrand-logo",
-      "description": "Logo with a house and paint roller icon, text 'Khula PaintWorks'.",
-      "imageUrl": "https://images.unsplash.com/photo-1538332500874-972da2e6b7c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3VzZSUyMHBhaW50JTIwbG9nb3xlbnwwfHx8fDE3Njg0MTI0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "house paint logo"
-    },
-    {
-      "id": "elite-finish-gauteng-logo",
-      "description": "Elegant, text-only logo 'Elite Finish' in a serif font.",
-      "imageUrl": "https://images.unsplash.com/photo-1570566920413-fd6410fec24c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzZXJpZiUyMHRleHQlMjBsb2dvfGVufDB8fHx8MTc2ODQxMjQ3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "serif text logo"
-    },
-    {
-      "id": "smoothwall-services-logo",
-      "description": "Minimalist logo with text 'SmoothWall' and a smooth wave icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1761624159464-686d31623aa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3YXZlJTIwaWNvbiUyMGxvZ298ZW58MHx8fHwxNzY4NDEyNDcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wave icon logo"
+      "id": "protask-handymen-logo",
+      "description": "Clean logo with a checkmark inside a toolbox icon, text 'ProTask'.",
+      "imageUrl": "https://images.unsplash.com/photo-1753156395373-c6e426b221bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0b29sYm94JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzI0NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "toolbox logo"
     },
     {
       "id": "aquablast-sandton-logo",
@@ -109,12 +79,6 @@
       "imageHint": "text logo"
     },
     {
-      "id": "smarthaus-midrand-logo",
-      "description": "Minimal flat logo, initials 'SH', with a simple smart home icon, dark blue and light blue",
-      "imageUrl": "https://images.unsplash.com/photo-1767695086481-b3e2090e6825?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c21hcnQlMjBob21lJTIwbG9nb3xlbnwwfHx8fDE3NjgzMzI0NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "smart home logo"
-    },
-    {
       "id": "mzansi-homeworks-logo",
       "description": "Text-only logo, 'Mzansi HomeWorks', incorporating a subtle pattern inspired by South African art, black and gold",
       "imageUrl": "https://images.unsplash.com/photo-1740307952247-9965fe193da1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwYXR0ZXJuJTIwbG9nb3xlbnwwfHx8fDE3NjgzMzI0NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -155,66 +119,6 @@
       "description": "Geometric logo with the text 'Forma', using clean lines and shapes, monochrome",
       "imageUrl": "https://images.unsplash.com/photo-1691737833025-25a098efbeeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODQxNTA1OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "geometric logo"
-    },
-    {
-      "id": "primecook-sandton-kitchens-logo",
-      "description": "Clean wordmark logo, 'PrimeCook', with a chef's hat or whisk icon, black and stainless steel grey",
-      "imageUrl": "https://images.unsplash.com/photo-1627862242777-342b36f8e7d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGVmJTIwaGF0JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzI0NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "chef hat logo"
-    },
-    {
-      "id": "khaya-kitchen-studio-pta-logo",
-      "description": "Warm text-only logo, 'Khaya Kitchens', in a friendly, modern font, warm grey and wood tones",
-      "imageUrl": "https://images.unsplash.com/photo-1684976849784-cdf289cbccda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzU5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "elite-cabinetry-midrand-logo",
-      "description": "Text-only logo, 'Elite Cabinetry', in a strong, classic serif font, dark blue",
-      "imageUrl": "https://images.unsplash.com/photo-1747868752289-e74d613cb5ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzU5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "moderntaste-gauteng-logo",
-      "description": "Minimalist wordmark logo, 'ModernTaste', in a clean, sans-serif font, charcoal grey",
-      "imageUrl": "https://images.unsplash.com/photo-1616943229189-bc60570b4364?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzU5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "text logo"
-    },
-    {
-      "id": "saffron-kitchen-co-logo",
-      "description": "Elegant logo with 'Saffron' in a script font and a simple saffron flower icon, orange and dark grey",
-      "imageUrl": "https://images.unsplash.com/photo-1629067441737-0c22914c68b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmbG93ZXIlMjBsb2dvfGVufDB8fHx8MTc2ODMzMjQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "flower logo"
-    },
-    {
-      "id": "fixall-sandton-handyman-logo",
-      "description": "Simple logo with a wrench and hammer crossed, with text 'FixAll'.",
-      "imageUrl": "https://images.unsplash.com/photo-1574870013220-8131a4a54b01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0b29scyUyMGxvZ298ZW58MHx8fHwxNzY4NDE1MDU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "tools logo"
-    },
-    {
-      "id": "khaya-handy-services-pta-logo",
-      "description": "Logo with text 'Khaya Handy' and a simple house outline.",
-      "imageUrl": "https://images.unsplash.com/photo-1704823821765-e5f41d8588a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxob3VzZSUyMGxvZ298ZW58MHx8fHwxNzY4MzMyNDUzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "house logo"
-    },
-    {
-      "id": "smartfix-midrand-logo",
-      "description": "Modern logo with a gear and wrench icon, text 'SmartFix'.",
-      "imageUrl": "https://images.unsplash.com/photo-1727037347365-2bff295c562b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnZWFyJTIwbG9nb3xlbnwwfHx8fDE3Njg0MTUwNTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gear logo"
-    },
-    {
-      "id": "urbanhandy-gauteng-logo",
-      "description": "Urban-style text logo 'UrbanHandy' in a stencil font.",
-      "imageUrl": "https://images.unsplash.com/photo-1701500096456-28186c4a306d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdGVuY2lsJTIwbG9nb3xlbnwwfHx8fDE3Njg0MTUwNTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "stencil logo"
-    },
-    {
-      "id": "protask-handymen-logo",
-      "description": "Clean logo with a checkmark inside a toolbox icon, text 'ProTask'.",
-      "imageUrl": "https://images.unsplash.com/photo-1753156395373-c6e426b221bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0b29sYm94JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzI0NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "toolbox logo"
     },
     {
       "id": "greenleaf-sandton-landscapes-logo",
@@ -275,6 +179,66 @@
       "description": "Text logo 'SafeGuard' with a padlock icon.",
       "imageUrl": "https://images.unsplash.com/photo-1732118535748-4692e075a04a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwYWRsb2NrJTIwbG9nb3xlbnwwfHx8fDE3NjgzMzU5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "padlock logo"
+    },
+    {
+      "id": "cleardesk-sandton-logo",
+      "description": "Minimalist logo with text 'ClearDesk' and a sparkling icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1533558527255-407147f3ae72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzcGFya2xlJTIwbG9nb3xlbnwwfHx8fDE3NjgzMzI0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sparkle logo"
+    },
+    {
+      "id": "prooffice-clean-pta-logo",
+      "description": "Professional logo with text 'ProOffice' and a shield icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1734562379606-597ecdb9fea5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODQxMjQ3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "skoonworkplace-midrand-logo",
+      "description": "Friendly logo with text 'SkoonWorkplace' in a clean font.",
+      "imageUrl": "https://images.unsplash.com/photo-1747868752289-e74d613cb5ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3NjgzMzU5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "khanya-office-care-logo",
+      "description": "Bright logo with text 'Khanya' and a sun icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1694191610907-d1cdf7efd2f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdW4lMjBsb2dvfGVufDB8fHx8MTc2ODMzMjQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun logo"
+    },
+    {
+      "id": "primespace-cleaning-logo",
+      "description": "Modern logo 'PrimeSpace' with clean, geometric lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1691737832567-73def85e90bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODQxNTA1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "geometric logo"
+    },
+    {
+      "id": "perfectcoat-sandton-logo",
+      "description": "Logo with a paintbrush stroke and text 'PerfectCoat'.",
+      "imageUrl": "https://images.unsplash.com/photo-1701888072113-78eb5006e4bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwYWludGJydXNoJTIwbG9nb3xlbnwwfHx8fDE3Njg0MTI0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paintbrush logo"
+    },
+    {
+      "id": "vividbrush-pta-logo",
+      "description": "Colorful logo with text 'VividBrush' and an abstract brush icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1627873828946-44e8b5261d2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb2xvcmZ1bCUyMGJydXNoJTIwbG9nb3xlbnwwfHx8fDE3Njg0MTI0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "colorful brush logo"
+    },
+    {
+      "id": "khula-paintworks-midrand-logo",
+      "description": "Logo with a house and paint roller icon, text 'Khula PaintWorks'.",
+      "imageUrl": "https://images.unsplash.com/photo-1538332500874-972da2e6b7c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3VzZSUyMHBhaW50JTIwbG9nb3xlbnwwfHx8fDE3Njg0MTI0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "house paint logo"
+    },
+    {
+      "id": "elite-finish-gauteng-logo",
+      "description": "Elegant, text-only logo 'Elite Finish' in a serif font.",
+      "imageUrl": "https://images.unsplash.com/photo-1570566920413-fd6410fec24c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzZXJpZiUyMHRleHQlMjBsb2dvfGVufDB8fHx8MTc2ODQxMjQ3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "serif text logo"
+    },
+    {
+      "id": "smoothwall-services-logo",
+      "description": "Minimalist logo with text 'SmoothWall' and a smooth wave icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1761624159464-686d31623aa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3YXZlJTIwaWNvbiUyMGxvZ298ZW58MHx8fHwxNzY4NDEyNDcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wave icon logo"
     }
   ]
 }

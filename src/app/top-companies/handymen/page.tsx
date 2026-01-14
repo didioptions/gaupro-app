@@ -12,7 +12,7 @@ import { CategoryImages } from '@/lib/category-images';
 export default function TopHandymenPage() {
   const proCategory = 'handymen';
   const pros = allProfessionals[proCategory] || [];
-  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 6);
+  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 5);
 
   const heroImage = CategoryImages.find(p => p.id === 'handyman-image');
 
