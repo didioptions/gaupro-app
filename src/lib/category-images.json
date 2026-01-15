@@ -123,9 +123,9 @@
     },
     {
       "id": "tree-felling-image",
-      "description": "A person with safety gear cutting a tree branch.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/1%20tree%20felling.jpg?alt=media&token=4be03afa-d8a5-4bb0-bc87-7ce535bbf2fd",
-      "imageHint": "tree felling"
+      "description": "An arborist with safety gear high up in a large tree, preparing to cut a branch.",
+      "imageUrl": "https://images.unsplash.com/photo-1621905252472-942224520398?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhcmJvcmlzdHxlbnwwfHx8fDE3NjUzODE1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "arborist tree"
     },
     {
       "id": "carpenters-image",
@@ -369,9 +369,15 @@
     },
     {
       "id": "thatched-roofing-image",
-      "description": "A beautifully thatched roof on a luxury home or lodge.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Thatched%20Roofing%20A.jpg?alt=media&token=b11ab84b-9723-4417-a049-7ba7e3919595",
+      "description": "A beautiful thatched roof on a luxury home or lodge.",
+      "imageUrl": "https://images.unsplash.com/photo-1599557351421-4d3758b68481?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0aGF0Y2hlZCUyMGhvdXNlfGVufDB8fHx8MTc2NTM4MTU3OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "thatched roof"
+    },
+    {
+      "id": "tiling-image",
+      "description": "A professional tiler applying grout to freshly laid floor tiles.",
+      "imageUrl": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0aWxlciUyMHdvcmtlcnxlbnwwfHx8fDE3NjUzODE1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tiling floor"
     },
     {
       "id": "upholsterers-image",
@@ -616,7 +622,7 @@
     {
       "id": "tracing-image",
       "description": "A map with pins and strings, symbolizing the process of tracing someone.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Tracing.jpg?alt=media&token=a38905cd-42a8-461c-899b-c2d109bb8e1a",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Tracing.jpg?alt=media&token=a38905cd-42a8-461c-899b-c2d1d9bb8e1a",
       "imageHint": "tracing map"
     },
     {

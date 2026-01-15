@@ -60,7 +60,7 @@ export default function TopTreeFellingPage() {
                     <ChevronRight className="h-4 w-4" />
                     <span className="font-medium text-foreground">Top Tree Felling Companies</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top 6 Tree Felling Companies</h2>
+                <h2 className="text-3xl mt-1">Top 5 Tree Felling Companies</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
