@@ -404,7 +404,7 @@
     },
     {
       "id": "ecobug-pta-logo",
-      "description": "Eco-friendly logo 'EcoBug' with a leaf and a ladybug.",
+      "description": "Eco-friendly logo 'EcoBug' with a green leaf and a ladybug.",
       "imageUrl": "https://images.unsplash.com/photo-1606255003919-cad45e464e29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsZWFmJTIwbGFkeWJ1Z3xlbnwwfHx8fDE3Njg0MjI3ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leaf ladybug"
     },
@@ -635,6 +635,96 @@
       "description": "Logo 'AquaSun' combining a water wave and a sun.",
       "imageUrl": "https://images.unsplash.com/photo-1679805545911-0a8d65848976?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXZlJTIwc3VufGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wave sun"
+    },
+    {
+      "id": "solarwise-gauteng-logo",
+      "description": "Logo 'SolarWise' with a sun icon that has a brain pattern inside.",
+      "imageUrl": "https://images.unsplash.com/photo-1669286081720-49743b35e882?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW4lMjBicmFpbnxlbnwwfHx8fDE3Njg1MDgwNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun brain"
+    },
+    {
+      "id": "solar-tech-logo",
+      "description": "Logo 'Solar Tech' in a modern, technical font with a circuit board pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1697952431907-8542919a16b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaXJjdWl0JTIwYm9hcmR8ZW58MHx8fHwxNzY4NDUyNTg1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "circuit board"
+    },
+    {
+      "id": "brightgrid-energy-logo",
+      "description": "Logo 'BrightGrid' with a grid of glowing dots.",
+      "imageUrl": "https://images.unsplash.com/photo-1767481626751-1c24afa8f03a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxnbG93aW5nJTIwZ3JpZHxlbnwwfHx8fDE3Njg1MDgwNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "glowing grid"
+    },
+    {
+      "id": "vip-power-solutions-logo",
+      "description": "Elegant logo 'VIP Power' with a crown and a lightning bolt.",
+      "imageUrl": "https://images.unsplash.com/photo-1626983274483-25fdcb5bb4de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcm93biUyMGxpZ2h0bmluZ3xlbnwwfHx8fDE3Njg1MDgwNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crown lightning"
+    },
+    {
+      "id": "sunvolt-projects-logo",
+      "description": "Logo 'SunVolt' with a sun icon and a voltmeter needle.",
+      "imageUrl": "https://images.unsplash.com/photo-1715509654183-b67bb3cdcb63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdW4lMjB2b2x0bWV0ZXJ8ZW58MHx8fHwxNzY4NTA4MDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun voltmeter"
+    },
+    {
+      "id": "bluewave-pool-builders-logo",
+      "description": "Logo 'BlueWave' with a stylized water wave.",
+      "imageUrl": "https://images.unsplash.com/photo-1605345582082-2e001c4cf294?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxibHVlJTIwd2F2ZXxlbnwwfHx8fDE3Njg1MDgwNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "blue wave"
+    },
+    {
+      "id": "aqua-pools-logo",
+      "description": "Simple logo 'Aqua Pools' with a water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1556197908-96ed0fa30b65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YXRlciUyMGRyb3BsZXR8ZW58MHx8fHwxNzY4NDkzMjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water droplet"
+    },
+    {
+      "id": "zaza-pool-creations-logo",
+      "description": "Creative logo 'Zaza Pool Creations' with an abstract, artistic design.",
+      "imageUrl": "https://images.unsplash.com/photo-1636955779321-819753cd1741?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMGRlc2lnbnxlbnwwfHx8fDE3Njg0NjcwNzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract design"
+    },
+    {
+      "id": "ever-clear-pools-gauteng-logo",
+      "description": "Logo 'Ever Clear' with a sparkling water graphic.",
+      "imageUrl": "https://images.unsplash.com/photo-1614713946694-bcbd63bfb094?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGFya2xpbmclMjB3YXRlcnxlbnwwfHx8fDE3Njg0OTQxOTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sparkling water"
+    },
+    {
+      "id": "stones-pool-projects-logo",
+      "description": "Logo 'Stones Pool Projects' with a border made of smooth stones.",
+      "imageUrl": "https://images.unsplash.com/photo-1690983330529-8285e43c2e66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3RvbmUlMjBib3JkZXJ8ZW58MHx8fHwxNzY4NTA4MDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stone border"
+    },
+    {
+      "id": "solidroad-tar-surfacing-logo",
+      "description": "Strong logo 'SolidRoad' with a graphic of a road stretching into the distance.",
+      "imageUrl": "https://images.unsplash.com/photo-1630303437148-7e329b0c61e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyb2FkJTIwcGVyc3BlY3RpdmV8ZW58MHx8fHwxNzY4NTA4MDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "road perspective"
+    },
+    {
+      "id": "mzansi-tarworks-logo",
+      "description": "Logo 'Mzansi TarWorks' with a pattern inspired by a map of South Africa.",
+      "imageUrl": "https://images.unsplash.com/photo-1757820470004-fe7d9f6d57a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYXAlMjBwYXR0ZXJufGVufDB8fHx8MTc2ODUwODA1NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "map pattern"
+    },
+    {
+      "id": "primepave-surfacing-logo",
+      "description": "Logo 'PrimePave' in an elegant, professional font.",
+      "imageUrl": "https://images.unsplash.com/photo-1721491702267-16cf7e0fb2cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlbGVnYW50JTIwZm9udHxlbnwwfHx8fDE3Njg1MDgwNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "elegant font"
+    },
+    {
+      "id": "seal-tar-projects-logo",
+      "description": "Logo 'Seal Tar' with an icon of a road sealer tool.",
+      "imageUrl": "https://images.unsplash.com/photo-1591080954453-2936efa54c5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cm9hZCUyMHNlYWxlcnxlbnwwfHx8fDE3Njg1MDgwNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "road sealer"
+    },
+    {
+      "id": "blacktop-solutions-logo",
+      "description": "Bold, black and yellow logo for 'BlackTop Solutions'.",
+      "imageUrl": "https://images.unsplash.com/photo-1633268783868-1d69c268de41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxib2xkJTIwbG9nb3xlbnwwfHx8fDE3Njg0NDI5NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold logo"
     }
   ]
 }

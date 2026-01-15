@@ -9,12 +9,12 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import ProfessionalCard from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
 
-export default function TopTarSurfacingPage() {
-  const proCategory = 'tar-surfacing';
+export default function TopSolarSystemsPage() {
+  const proCategory = 'solar-systems';
   const pros = allProfessionals[proCategory] || [];
   const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 5);
 
-  const heroImage = CategoryImages.find(p => p.id === 'tar-surfacing-image');
+  const heroImage = CategoryImages.find(p => p.id === 'solar-systems-image');
 
   const benefits = [
     '🛡️ Fully Vetted Companies',
@@ -33,7 +33,7 @@ export default function TopTarSurfacingPage() {
             {heroImage && (
                 <Image
                     src={heroImage.imageUrl}
-                    alt={heroImage.description || "Tar surfacing service background"}
+                    alt={heroImage.description || "Solar systems service background"}
                     fill
                     className="object-cover"
                     priority
@@ -43,9 +43,9 @@ export default function TopTarSurfacingPage() {
              <div className="absolute inset-0 bg-black/60" />
              <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                 <div className="hidden md:block">
-                  <h1 className="text-4xl md:text-5xl font-normal">Top Tar Surfacing Companies</h1>
+                  <h1 className="text-4xl md:text-5xl font-normal">Top Solar System Companies</h1>
                   <p className="mt-4 text-lg text-white/90">
-                      Professional tar and asphalt solutions for driveways, roads, and parking lots.
+                      Complete solar power systems including panels, inverters, and battery storage solutions.
                   </p>
                 </div>
                 <InlineQuoteForm service={proCategory} location="South Africa" />
@@ -58,9 +58,9 @@ export default function TopTarSurfacingPage() {
                 <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Link href="/" className="hover:text-primary">Gaupro</Link>
                     <ChevronRight className="h-4 w-4" />
-                    <span className="font-medium text-foreground">Top Tar Surfacing Companies</span>
+                    <span className="font-medium text-foreground">Top Solar System Companies</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top 5 Tar Surfacing Companies in Gauteng</h2>
+                <h2 className="text-3xl mt-1">Top 5 Solar System Companies in Gauteng</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
@@ -70,12 +70,12 @@ export default function TopTarSurfacingPage() {
                 </div>
                 <aside className="space-y-8">
                     <div className="p-6 border rounded-lg bg-card">
-                        <h3 className="mb-3 font-semibold text-foreground">Need Tar Surfacing?</h3>
+                        <h3 className="mb-3 font-semibold text-foreground">Need a Solar System?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for tar surfacing</li>
-                            <li>{pros.filter(p => p.rating >= 4).length * 15}+ Positive Reviews</li>
+                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for solar systems</li>
+                            <li>{pros.filter(p => p.rating >= 4).length * 40}+ Positive Reviews</li>
                             <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
-                            <li>View Top Tar Surfacing Companies today</li>
+                            <li>View Top Solar System Companies today</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">
