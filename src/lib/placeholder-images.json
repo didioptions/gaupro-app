@@ -7,39 +7,279 @@
       "imageHint": "diverse professionals team"
     },
     {
+      "id": "ac-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1701383281199-d36c55882a3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbm93Zmxha2UlMjBsb2dvfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for CoolBreeze Air",
+      "imageHint": "snowflake logo"
+    },
+    {
+      "id": "ac-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1663620779258-0d48644b5193?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXZlJTIwaWNvbnxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Climate Control",
+      "imageHint": "wave icon"
+    },
+    {
+      "id": "ac-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1747862712508-e1290330085f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Pretoria Air Solutions",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "ac-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1571845398021-becaddc6265e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb3VudGFpbiUyMGxvZ298ZW58MHx8fHwxNzY4NDgyMDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for iKapa Aircon",
+      "imageHint": "mountain logo"
+    },
+    {
+      "id": "ac-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1606248832674-fe3efd660c14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWFmJTIwaWNvbnxlbnwwfHx8fDE3Njg1MTA5Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Umphefumulo Opholile",
+      "imageHint": "leaf icon"
+    },
+    {
+      "id": "alu-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1462430400578-427dee6734d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3aW5kb3clMjBmcmFtZXxlbnwwfHx8fDE3Njg1NDEyMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for AluFrame Gauteng",
+      "imageHint": "window frame"
+    },
+    {
+      "id": "alu-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1658604663578-04634f4cb897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhYnN0cmFjdCUyMGdsYXNzfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Glass & Aluminium",
+      "imageHint": "abstract glass"
+    },
+    {
+      "id": "alu-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1747868752289-e74d613cb5ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Capital Aluminium",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "alu-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1586374579358-9d19d632b6df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzbWlsZXklMjBpY29ufGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Lekker Frames",
+      "imageHint": "smiley icon"
+    },
+    {
+      "id": "alu-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1596213411964-ee96819a396c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGlhbW9uZCUyMHNoYXBlfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Isibuko Aluminium",
+      "imageHint": "diamond shape"
+    },
+    {
+      "id": "awning-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1706694668166-d09c91016064?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdW4lMjBpY29ufGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Shade Solutions",
+      "imageHint": "sun icon"
+    },
+    {
+      "id": "awning-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1767695086479-869f10facf90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODU0MzE0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for SunBlocker PTA",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "awning-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1651304480606-2e040b8f644f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3VzZSUyMG91dGxpbmV8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Outdoor Living",
+      "imageHint": "house outline"
+    },
+    {
+      "id": "awning-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1693801874720-05ae2c89ede1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0cmVlJTIwbG9nb3xlbnwwfHx8fDE3Njg1MjM2Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Mthunzi Awnings",
+      "imageHint": "tree logo"
+    },
+    {
+      "id": "awning-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1693468028442-33f240f13ce0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3cmVuY2glMjBsb2dvfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Regmaker Awnings",
+      "imageHint": "wrench logo"
+    },
+    {
+      "id": "balustrade-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1644318295821-12c4ddf2a36e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhYnN0cmFjdCUyMHNoYXBlfGVufDB8fHx8MTc2ODU3Nzg5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Glass & Steel",
+      "imageHint": "abstract shape"
+    },
+    {
+      "id": "balustrade-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1576020111958-bff2cf17226d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Pretoria Balustrade Kings",
+      "imageHint": "crown logo"
+    },
+    {
+      "id": "balustrade-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1625670413987-0ae649494c61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzaGllbGQlMjBpY29ufGVufDB8fHx8MTc2ODU0NDQxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Safe-Rail",
+      "imageHint": "shield icon"
+    },
+    {
+      "id": "balustrade-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1606300803527-42a8a57eb13a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxleWUlMjBpY29ufGVufDB8fHx8MTc2ODU2MTk4OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Isiboniso Balustrades",
+      "imageHint": "eye icon"
+    },
+    {
+      "id": "balustrade-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1620064798309-5a907c1681e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhbnZpbCUyMGxvZ298ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Stewige Relings",
+      "imageHint": "anvil logo"
+    },
+    {
+      "id": "bath-reno-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1756744130151-2887084fa61d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkcm9wbGV0JTIwaWNvbnxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Bathroom Pros",
+      "imageHint": "droplet icon"
+    },
+    {
+      "id": "bath-reno-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1730835358874-b35398357dae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0aWxlJTIwcGF0dGVybnxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Pretoria Bath & Tile",
+      "imageHint": "tile pattern"
+    },
+    {
+      "id": "bath-reno-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1757329978704-3367675daa8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3YXZlJTIwaWNvbnxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Wet-Works",
+      "imageHint": "wave icon"
+    },
+    {
+      "id": "bath-reno-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1616435577207-ca90abc6b732?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsb3R1cyUyMGZsb3dlcnxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Indawo Enhle Bathrooms",
+      "imageHint": "lotus flower"
+    },
+    {
+      "id": "bath-reno-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1549636367-13c144c47063?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYW1tZXIlMjB3cmVuY2h8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Opknap Badkamers",
+      "imageHint": "hammer wrench"
+    },
+    {
+      "id": "blinds-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1751273296089-4b200c3fb8bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3aW5kb3clMjBpY29ufGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Blinds & Curtains",
+      "imageHint": "window icon"
+    },
+    {
+      "id": "blinds-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1747862712508-e1290330085f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Window Dressings",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "blinds-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1626261684380-94caded3e2d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdW4lMjBsb2dvfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Pretoria Shade Co.",
+      "imageHint": "sun logo"
+    },
+    {
+      "id": "blinds-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1676731820551-4b2988ae4e29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMHNoYXBlfGVufDB8fHx8MTc2ODU3Nzg5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Ikhava Blinds",
+      "imageHint": "abstract shape"
+    },
+    {
+      "id": "blinds-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1649701709128-1732160b1ae5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Goeie Gordyne & Blindings",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "builder-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1650984640679-934423a20e9e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxidWlsZGluZyUyMGxvZ298ZW58MHx8fHwxNzY4NTA4NDU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Master Builders",
+      "imageHint": "building logo"
+    },
+    {
+      "id": "builder-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1613529949597-f2386502dd66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjcmFuZSUyMGxvZ298ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Construction",
+      "imageHint": "crane logo"
+    },
+    {
+      "id": "builder-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1767803311650-13c7b13cb1be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb251bWVudCUyMGxvZ298ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Capital Builders PTA",
+      "imageHint": "monument logo"
+    },
+    {
+      "id": "builder-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1762340273332-89b40f2868ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29tbXVuaXR5JTIwbG9nb3xlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Uyakha Projects",
+      "imageHint": "community logo"
+    },
+    {
+      "id": "builder-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1718752773195-c19c1c329156?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnb2xkJTIwYmFyfGVufDB8fHx8MTc2ODQ2ODIxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Bouers van Goud",
+      "imageHint": "gold bar"
+    },
+    {
+      "id": "burglar-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1734562379606-597ecdb9fea5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODU0MzE0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Secure Bars",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "burglar-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1694787718164-91378257cc64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsaW9uJTIwbG9nb3xlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Steel Defence",
+      "imageHint": "lion logo"
+    },
+    {
+      "id": "burglar-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1745030174513-6b08bc58ca1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkaWFtb25kJTIwaWNvbnxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Capital Clear Bars",
+      "imageHint": "diamond icon"
+    },
+    {
+      "id": "burglar-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1606300780947-39da25191135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxleWUlMjBpY29ufGVufDB8fHx8MTc2ODU2MTk4OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Vikela Windows",
+      "imageHint": "eye icon"
+    },
+    {
+      "id": "burglar-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1701500096456-28186c4a306d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhbnZpbCUyMGxvZ298ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Sterk Tralies",
+      "imageHint": "anvil logo"
+    },
+    {
       "id": "fixall-sandton-handyman-logo",
       "description": "Simple logo with a wrench and hammer crossed, with text 'FixAll'.",
-      "imageUrl": "https://images.unsplash.com/photo-1763076470453-e9cc7528c82b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dG9vbHMlMjBsb2dvfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762330916828-4d3709ee9adb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0b29scyUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tools logo"
     },
     {
       "id": "khaya-handy-services-pta-logo",
       "description": "Logo with text 'Khaya Handy' and a simple house outline.",
-      "imageUrl": "https://images.unsplash.com/photo-1744973042099-b6725f7d6af2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxob3VzZSUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1744973042089-3ce6ca344487?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3VzZSUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "house logo"
     },
     {
       "id": "smartfix-midrand-logo",
       "description": "Modern logo with a gear and wrench icon, text 'SmartFix'.",
-      "imageUrl": "https://images.unsplash.com/photo-1764831748214-679f06a7dce6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnZWFyJTIwbG9nb3xlbnwwfHx8fDE3Njg1NjU1NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1585501955273-d3323c9947fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnZWFyJTIwbG9nb3xlbnwwfHx8fDE3Njg1NjU1NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "gear logo"
     },
     {
       "id": "urbanhandy-gauteng-logo",
       "description": "Urban-style text logo 'UrbanHandy' in a stencil font.",
-      "imageUrl": "https://images.unsplash.com/photo-1599686100490-c386c444baf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdGVuY2lsJTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1570566920413-fd6410fec24c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdGVuY2lsJTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "stencil logo"
     },
     {
       "id": "protask-handymen-logo",
       "description": "Clean logo with a checkmark inside a toolbox icon, text 'ProTask'.",
-      "imageUrl": "https://images.unsplash.com/photo-1563798211121-19d806779c46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0b29sYm94JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1750227070497-ec8a9a9d8d73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0b29sYm94JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "toolbox logo"
     },
     {
       "id": "aquablast-sandton-logo",
       "description": "Text-only logo, 'AquaBlast', with a powerful water splash icon, blue and white",
-      "imageUrl": "https://images.unsplash.com/photo-1739055547885-feefb65249ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3YXRlciUyMHNwbGFzaCUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1611496855342-08e017abe5f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2F0ZXIlMjBzcGxhc2glMjBsb2dvfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "water splash logo"
     },
     {
@@ -51,31 +291,31 @@
     {
       "id": "skoonforce-midrand-logo",
       "description": "Minimal flat logo, initials 'SF', with a simple spray nozzle icon, dark blue",
-      "imageUrl": "https://images.unsplash.com/photo-1606639120863-43eda2dc2e68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxub3p6bGUlMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1661348027215-08382c6628ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxub3p6bGUlMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "nozzle logo"
     },
     {
       "id": "projet-wash-gauteng-logo",
       "description": "Clean wordmark logo, 'ProJet Wash', in a modern, dynamic font, red and black",
-      "imageUrl": "https://images.unsplash.com/photo-1747868752289-e74d613cb5ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1747862712508-e1290330085f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "text logo"
     },
     {
       "id": "tito-power-wash-logo",
       "description": "Text-only logo, 'Tito', with a subtle sparkle or shine icon, bright yellow and grey",
-      "imageUrl": "https://images.unsplash.com/photo-1766068968965-33e34c5e554d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzcGFya2xlJTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1766318981697-629f139c9f0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcGFya2xlJTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sparkle logo"
     },
     {
       "id": "buildright-sandton-logo",
       "description": "Clean wordmark logo, 'BuildRight', with a simple house or roofline icon, blue and grey",
-      "imageUrl": "https://images.unsplash.com/photo-1704823822045-a9071033cf68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxob3VzZSUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1704823821627-ad3eabcaa24c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxob3VzZSUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "house logo"
     },
     {
       "id": "khaya-improve-pta-logo",
       "description": "Friendly text-only logo, 'Khaya Improve', in a warm, approachable font, green and orange",
-      "imageUrl": "https://images.unsplash.com/photo-1747862712521-e4a37b12a039?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGV4dCUyMGxvZ298ZW58MHx8fHwxNzY4NTA1MTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1616943229189-bc60570b4364?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "text logo"
     },
     {
@@ -93,25 +333,25 @@
     {
       "id": "profix-living-logo",
       "description": "Clean wordmark logo, 'ProFix', with a simple tick/checkmark icon, green and grey",
-      "imageUrl": "https://images.unsplash.com/photo-1767695086479-869f10facf90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaGVja21hcmslMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762939079730-23708c0dd337?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaGVja21hcmslMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "checkmark logo"
     },
     {
       "id": "urbannest-sandton-interiors-logo",
       "description": "Elegant text-only logo, 'UrbanNest', in a sophisticated serif font, charcoal and gold",
-      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1747862712508-e1290330085f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "text logo"
     },
     {
       "id": "zola-space-design-pta-logo",
       "description": "Clean wordmark logo, 'Zola Space', with a creative, abstract shape icon, teal and black",
-      "imageUrl": "https://images.unsplash.com/photo-1744390166851-82056c6552d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMGxvZ298ZW58MHx8fHwxNzY4NTE2MTcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1747862712508-e1290330085f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGxvZ298ZW58MHx8fHwxNzY4NTE2MTcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "abstract logo"
     },
     {
       "id": "luxekhaya-midrand-logo",
       "description": "Premium text-only logo, 'LuxeKhaya', in a minimalist, high-fashion font, black on white",
-      "imageUrl": "https://images.unsplash.com/photo-1747862712521-e4a37b12a039?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGV4dCUyMGxvZ298ZW58MHx8fHwxNzY4NTA1MTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1747868752289-e74d613cb5ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "text logo"
     },
     {
@@ -123,31 +363,31 @@
     {
       "id": "forma-interior-studio-logo",
       "description": "Geometric logo with the text 'Forma', using clean lines and shapes, monochrome",
-      "imageUrl": "https://images.unsplash.com/photo-1691737831143-d092198a4354?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODU1MjI1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1691737832938-1dadd305a88e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODU1MjI1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "geometric logo"
     },
     {
       "id": "primecook-sandton-kitchens-logo",
       "description": "Modern kitchen logo with text 'PrimeCook', featuring a chef's hat or whisk icon, black and chrome.",
-      "imageUrl": "https://images.unsplash.com/photo-1708915965975-2a950db0e215?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxraXRjaGVuJTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1605911423367-047d97dc4f23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxraXRjaGVuJTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "kitchen logo"
     },
     {
       "id": "khaya-kitchen-studio-pta-logo",
       "description": "Warm logo 'Khaya Kitchens' with an icon of a house containing a heart, green and brown.",
-      "imageUrl": "https://images.unsplash.com/photo-1675552561434-8403ed83dd2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxob3VzZSUyMGhlYXJ0JTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1657035833978-996b9604a7d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxob3VzZSUyMGhlYXJ0JTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "house heart logo"
     },
     {
       "id": "elite-cabinetry-midrand-logo",
       "description": "Elegant serif font logo 'Elite Cabinetry', with a simple line drawing of a cabinet door.",
-      "imageUrl": "https://images.unsplash.com/photo-1679930961916-70b9acb80b4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FiaW5ldCUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1739994886007-e9e5e069d064?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYWJpbmV0JTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cabinet logo"
     },
     {
       "id": "moderntaste-gauteng-logo",
-      "description": "Minimalist sans-serif logo 'ModernTaste', clean and sharp, perhaps with an abstract kitchen utensil icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1566290165528-9b1e7e58b814?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwa2l0Y2hlbiUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Minimalist sans-serif logo 'ModernTaste', clean and sharp, with an abstract kitchen utensil icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1705948729112-3139fdf1a443?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtaW5pbWFsaXN0JTIwa2l0Y2hlbiUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "minimalist kitchen logo"
     },
     {
@@ -159,193 +399,673 @@
     {
       "id": "floorcraft-sandton-logo",
       "description": "Logo 'FloorCraft' with an icon showing interlocking floor planks, grey and brown.",
-      "imageUrl": "https://images.unsplash.com/photo-1719757166481-b6b946be17f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbG9vcmluZyUyMHBsYW5rJTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1617262869510-3793b141c294?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmbG9vcmluZyUyMHBsYW5rJTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "flooring plank logo"
     },
     {
       "id": "skoonstep-flooring-pta-logo",
       "description": "Text logo 'SkoonStep' in a clean, modern font with a footprint icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1750049790142-2db418e5745c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmb290cHJpbnQlMjBsb2dvfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1723081797549-629f69cbb7cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmb290cHJpbnQlMjBsb2dvfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "footprint logo"
     },
     {
       "id": "timberline-midrand-logo",
       "description": "Rustic logo 'TimberLine' with a wood grain texture in the font.",
-      "imageUrl": "https://images.unsplash.com/photo-1522057306606-8d84daa75e87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b29kJTIwZ3JhaW4lMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1583038115396-79f8806d2242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b29kJTIwZ3JhaW4lMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wood grain logo"
     },
     {
       "id": "urbanplank-gauteng-logo",
       "description": "Logo 'UrbanPlank' in a strong, sans-serif font, with a long plank graphic underneath.",
-      "imageUrl": "https://images.unsplash.com/photo-1604608619736-53e7be31f8d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGxhbmslMjBsb2dvfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1572043394858-11e1d5549f3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbGFuayUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "plank logo"
     },
     {
       "id": "solidstep-floors-logo",
       "description": "Bold logo 'SolidStep' with a shield icon, conveying durability.",
-      "imageUrl": "https://images.unsplash.com/photo-1673909448712-985d7a103d8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODU0MzE0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODU0MzE0OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "shield logo"
     },
     {
       "id": "greenleaf-sandton-landscapes-logo",
       "description": "Elegant logo with a single green leaf and clean text 'GreenLeaf'.",
-      "imageUrl": "https://images.unsplash.com/photo-1730641671612-54ef4f0bceaa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3Njg1NzcxMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1607194402064-d0742de6d17b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3Njg1NzcxMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leaf logo"
     },
     {
-      "id": "vuma-landscapes-pta-logo",
-      "description": "Strong text logo 'Vuma' with a stylized sunrise over a hill.",
+      "id": "vusi-landscapes-pta-logo",
+      "description": "Strong text logo 'Vusi' with a stylized sunrise over a hill.",
       "imageUrl": "https://images.unsplash.com/photo-1635131695955-ce4d071a5211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdW5yaXNlJTIwbG9nb3xlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sunrise logo"
     },
     {
-      "id": "khula-garden-midrand-logo",
-      "description": "Friendly logo with a growing plant icon and 'Khula Garden' text.",
-      "imageUrl": "https://images.unsplash.com/photo-1597643183153-68c0efe5e263?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGxhbnQlMjBsb2dvfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "id": "khu-garden-midrand-logo",
+      "description": "Friendly logo with a growing plant icon and 'Khu Garden' text.",
+      "imageUrl": "https://images.unsplash.com/photo-1724638197379-b5a38b2fffbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwbGFudCUyMGxvZ298ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "plant logo"
     },
     {
       "id": "edenscape-gauteng-logo",
       "description": "Lush, green logo with 'EdenScape' in a flowing script font.",
-      "imageUrl": "https://images.unsplash.com/photo-1653499676737-becf2c9562c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761850957797-7b67b86888ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "script logo"
     },
     {
       "id": "terragrow-projects-logo",
       "description": "Modern, geometric logo representing layers of earth or garden beds with 'TerraGrow' text.",
-      "imageUrl": "https://images.unsplash.com/photo-1691737831160-bf7dcbf5c9e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODU1MjI1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1691737831143-d092198a4354?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODU1MjI1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "geometric logo"
+    },
+    {
+      "id": "freshfold-sandton-logo",
+      "description": "Clean logo with 'FreshFold' text and a stylized folded shirt icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1716951848908-8907bb6c655b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmb2xkZWQlMjBzaGlydHxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "folded shirt"
+    },
+    {
+      "id": "skoonwas-pta-logo",
+      "description": "Simple logo 'SkoonWas' with a water droplet and sparkle.",
+      "imageUrl": "https://images.unsplash.com/photo-1708469196655-728a3be3d69a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXRlciUyMHNwYXJrbGV8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water sparkle"
+    },
+    {
+      "id": "clean-wear-midrand-logo",
+      "description": "Elegant logo 'Clean Wear' in a script font.",
+      "imageUrl": "https://images.unsplash.com/photo-1761850957797-7b67b86888ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "urbanwash-gauteng-logo",
+      "description": "Modern logo 'UrbanWash' with a city skyline inside a washing machine drum.",
+      "imageUrl": "https://images.unsplash.com/photo-1493134799591-2c9eed26201a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaXR5JTIwc2t5bGluZXxlbnwwfHx8fDE3Njg1MjcwOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city skyline"
+    },
+    {
+      "id": "quickspin-laundry-logo",
+      "description": "Logo 'QuickSpin' with a spinning arrow or cycle icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1690711064458-146ddc607578?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzcGluJTIwYXJyb3d8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spin arrow"
     },
     {
       "id": "securekey-sandton-logo",
       "description": "Logo with a key inside a shield and 'SecureKey' text.",
-      "imageUrl": "https://images.unsplash.com/photo-1759141064331-b2d1cdcf37ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxrZXklMjBzaGllbGR8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1567175693298-ab0c4166ad6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxrZXklMjBzaGllbGR8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "key shield"
     },
     {
       "id": "vala-lock-pros-pta-logo",
       "description": "Strong text logo 'Vala Lock Pros' with a vintage lock icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1765623821741-d4a5e82d3868?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx2aW50YWdlJTIwbG9ja3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1768573489886-3980313cba06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx2aW50YWdlJTIwbG9ja3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "vintage lock"
     },
     {
       "id": "fastkey-midrand-logo",
       "description": "Logo with 'FastKey' text and a key with speed lines.",
-      "imageUrl": "https://images.unsplash.com/flagged/photo-1556370079-6a95afb55a6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxrZXklMjBzcGVlZHxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1719502543320-2d90c549e440?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxrZXklMjBzcGVlZHxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "key speed"
     },
     {
       "id": "irongrip-gauteng-logo",
       "description": "Logo with 'IronGrip' in a bold, industrial font.",
-      "imageUrl": "https://images.unsplash.com/photo-1594544426980-f8c139284e1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxpbmR1c3RyaWFsJTIwZm9udHxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1707223078703-9ab8d5b64fe2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxpbmR1c3RyaWFsJTIwZm9udHxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "industrial font"
     },
     {
       "id": "safeguard-locks-logo",
       "description": "Logo with 'SafeGuard' text and a padlock icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1599344941304-e766751011ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwYWRsb2NrJTIwaWNvbnxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1579623828015-bd63cc261a09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwYWRsb2NrJTIwaWNvbnxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "padlock icon"
     },
     {
       "id": "cleardesk-sandton-logo",
       "description": "Minimalist logo with 'ClearDesk' text and a sparkle icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1762430790606-d5ea9860b58a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzcGFya2xlJTIwaWNvbnxlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762632370993-42b67bb53d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzcGFya2xlJTIwaWNvbnxlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sparkle icon"
     },
     {
       "id": "prooffice-clean-pta-logo",
       "description": "Professional logo with 'ProOffice Clean' text and a checkmark.",
-      "imageUrl": "https://images.unsplash.com/photo-1674316476220-79082de85b3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaGVja21hcmslMjBpY29ufGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1633544325196-bcf8bf81ead0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGVja21hcmslMjBpY29ufGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "checkmark icon"
     },
     {
       "id": "skoonworkplace-midrand-logo",
       "description": "Clean logo with 'SkoonWorkplace' text and a leaf icon for eco-friendliness.",
-      "imageUrl": "https://images.unsplash.com/photo-1711715337544-e6c99dbd801a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsZWFmJTIwaWNvbnxlbnwwfHx8fDE3Njg1MTA5Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1719557553376-cb844157294f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsZWFmJTIwaWNvbnxlbnwwfHx8fDE3Njg1MTA5Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leaf icon"
     },
     {
       "id": "khanya-office-care-logo",
       "description": "Logo with 'Khanya Office Care' and a shining sun icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1706694668166-d09c91016064?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdW4lMjBpY29ufGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1552826768-0638caedbd75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW4lMjBpY29ufGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sun icon"
     },
     {
       "id": "primespace-cleaning-logo",
       "description": "Modern logo 'PrimeSpace' with a sweeping line graphic.",
-      "imageUrl": "https://images.unsplash.com/photo-1704006848003-3ecdbb4cd072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzd29vc2glMjBsaW5lfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1737992983677-b4ccfcabfaf5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzd29vc2glMjBsaW5lfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "swoosh line"
     },
     {
       "id": "perfectcoat-sandton-logo",
       "description": "Logo with 'PerfectCoat' text and a paintbrush icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1739055547959-3ced17cfefff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwYWludGJydXNoJTIwbG9nb3xlbnwwfHx8fDE3Njg1MTA5Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1725299249146-ee7e76af658d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwYWludGJydXNoJTIwbG9nb3xlbnwwfHx8fDE3Njg1MTA5Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "paintbrush logo"
     },
     {
       "id": "vividbrush-pta-logo",
       "description": "Logo 'VividBrush' with a colorful paint splash.",
-      "imageUrl": "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYWludCUyMHNwbGFzaHxlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYWludCUyMHNwbGFzaHxlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "paint splash"
     },
     {
       "id": "khula-paintworks-midrand-logo",
       "description": "Friendly text logo 'Khula PaintWorks' with a simple roller icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1614851099518-055a1000e6d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYWludCUyMHJvbGxlciUyMGxvZ298ZW58MHx8fHwxNzY4NTA1MTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1591563727708-e5a8c6e2b245?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwYWludCUyMHJvbGxlciUyMGxvZ298ZW58MHx8fHwxNzY4NTA1MTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "paint roller logo"
     },
     {
       "id": "elite-finish-gauteng-logo",
       "description": "Elegant serif font logo 'Elite Finish'.",
-      "imageUrl": "https://images.unsplash.com/photo-1767802512660-3b4a75fd59f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzZXJpZiUyMGZvbnR8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1619852656746-c73acf44f6e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzZXJpZiUyMGZvbnR8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "serif font"
     },
     {
       "id": "smoothwall-services-logo",
       "description": "Minimalist logo 'SmoothWall' with a clean, smooth line.",
-      "imageUrl": "https://images.unsplash.com/photo-1588043762224-70c541a41aa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzbW9vdGglMjBsaW5lfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1584679109391-04da6972a915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbW9vdGglMjBsaW5lfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "smooth line"
     },
     {
+      "id": "ironshield-sandton-fencing-logo",
+      "description": "Strong shield logo for 'IronShield' with palisade pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1767695086479-869f10facf90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODU0MzE0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "secureline-pta-logo",
+      "description": "Logo 'SecureLine' with a strong continuous line forming a boundary.",
+      "imageUrl": "https://images.unsplash.com/photo-1723537814964-7e8382aaafb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsaW5lJTIwbG9nb3xlbnwwfHx8fDE3Njg1OTMzMzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "line logo"
+    },
+    {
+      "id": "next-gen-fence-midrand-logo",
+      "description": "Modern, tech-inspired logo 'Next Gen Fence'.",
+      "imageUrl": "https://images.unsplash.com/photo-1662052955098-042b46e60c2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWNoJTIwbG9nb3xlbnwwfHx8fDE3Njg1MjY5MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech logo"
+    },
+    {
+      "id": "steelguard-gauteng-logo",
+      "description": "Logo 'SteelGuard' with a powerful, abstract guard-dog or sentinel shape.",
+      "imageUrl": "https://images.unsplash.com/photo-1646627927874-be8c13d0ae1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z3VhcmQlMjBsb2dvfGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "guard logo"
+    },
+    {
+      "id": "probarrier-fencing-logo",
+      "description": "Logo 'ProBarrier' with a clean, impenetrable wall icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1619795372911-6e5964f15d3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3YWxsJTIwaWNvbnxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wall icon"
+    },
+    {
+      "id": "safenest-sandton-logo",
+      "description": "Logo 'SafeNest' with a house inside a protective circle.",
+      "imageUrl": "https://images.unsplash.com/photo-1742238861449-f3e88f6762e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3VzZSUyMGNpcmNsZXxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "house circle"
+    },
+    {
+      "id": "ecobug-pta-logo",
+      "description": "Logo 'EcoBug' with a leaf and a friendly ladybug.",
+      "imageUrl": "https://images.unsplash.com/photo-1665713800092-fdd497294cea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsZWFmJTIwbGFkeWJ1Z3xlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf ladybug"
+    },
+    {
+      "id": "atoz-pestguard-midrand-logo",
+      "description": "Logo 'A to Z PestGuard' with a magnifying glass over a bug.",
+      "imageUrl": "https://images.unsplash.com/photo-1547057740-4b18aac8eed2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtYWduaWZ5aW5nJTIwZ2xhc3N8ZW58MHx8fHwxNzY4NTQyMDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "magnifying glass"
+    },
+    {
+      "id": "rapidshield-gauteng-logo",
+      "description": "Logo 'RapidShield' with a lightning bolt inside a shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1695198803434-6a81a26785ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsaWdodG5pbmclMjBzaGllbGR8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lightning shield"
+    },
+    {
+      "id": "cleanzone-pest-control-logo",
+      "description": "Logo 'CleanZone' with a checkmark and a sparkle.",
+      "imageUrl": "https://images.unsplash.com/photo-1701877339447-019a4fd89d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaGVja21hcmslMjBzcGFya2xlfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "checkmark sparkle"
+    },
+    {
+      "id": "smoothfinish-sandton-logo",
+      "description": "Logo 'SmoothFinish' in an elegant, flowing script.",
+      "imageUrl": "https://images.unsplash.com/photo-1700887938966-01f0450aee8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODUwNTE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "proplaster-pta-logo",
+      "description": "Strong logo 'ProPlaster' with a trowel icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1551307494-4ba4936986d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0cm93ZWwlMjBsb2dvfGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "trowel logo"
+    },
+    {
+      "id": "big-wall-midrand-logo",
+      "description": "Bold, impactful text logo 'B.I.G Wall'.",
+      "imageUrl": "https://images.unsplash.com/photo-1720534256776-4b69ac4c1675?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxib2xkJTIwdGV4dHxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold text"
+    },
+    {
+      "id": "elite-surface-gauteng-logo",
+      "description": "Premium logo 'Elite Surface' in a sophisticated font.",
+      "imageUrl": "https://images.unsplash.com/photo-1576529365111-4f58baa70f7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZXJpZiUyMGZvbnR8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "serif font"
+    },
+    {
+      "id": "evenwall-services-logo",
+      "description": "Logo 'EvenWall' with a level tool icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1760009436767-d154e930e55c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZXZlbCUyMHRvb2x8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "level tool"
+    },
+    {
+      "id": "solidcast-sandton-fencing-logo",
+      "description": "Logo 'SolidCast' with a strong, blocky font.",
+      "imageUrl": "https://images.unsplash.com/photo-1627697342382-1e8719eff3e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxibG9jayUyMGZvbnR8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "block font"
+    },
+    {
+      "id": "preform-pta-logo",
+      "description": "Logo 'PreForm' with an abstract shape representing a wall section.",
+      "imageUrl": "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMHNoYXBlfGVufDB8fHx8MTc2ODU3Nzg5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract shape"
+    },
+    {
+      "id": "stanley-concrete-midrand-logo",
+      "description": "Classic, strong logo 'STANLEY Concrete'.",
+      "imageUrl": "https://images.unsplash.com/photo-1697797224696-713aa0e86b1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjbGFzc2ljJTIwbG9nb3xlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "classic logo"
+    },
+    {
+      "id": "buildsafe-gauteng-logo",
+      "description": "Logo 'BuildSafe' with a hard hat and shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1616421578399-9a17913d0417?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxoYXJkJTIwaGF0JTIwc2hpZWxkfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hard hat shield"
+    },
+    {
+      "id": "urban-systems-logo",
+      "description": "Modern logo 'Urban Systems' with a city grid pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1567446478391-74e49694150b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaXR5JTIwZ3JpZHxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city grid"
+    },
+    {
+      "id": "powerpay-sandton-logo",
+      "description": "Logo 'PowerPay' with a lightning bolt and a coin.",
+      "imageUrl": "https://images.unsplash.com/photo-1668091818168-61a18ea51275?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsaWdodG5pbmclMjBjb2lufGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lightning coin"
+    },
+    {
+      "id": "smartmeter-pta-logo",
+      "description": "Logo 'SmartMeter' with a brain/chip icon inside a meter shape.",
+      "imageUrl": "https://images.unsplash.com/photo-1729333806983-fca7ad85b4e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaGlwJTIwbWV0ZXJ8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chip meter"
+    },
+    {
+      "id": "mid-energy-midrand-logo",
+      "description": "Clean logo 'MID Energy' with a simple power plug icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1658825473738-a56b08976bbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwbHVnJTIwaWNvbnxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "plug icon"
+    },
+    {
+      "id": "easywatt-gauteng-logo",
+      "description": "Friendly logo 'EasyWatt' in a rounded font.",
+      "imageUrl": "https://images.unsplash.com/photo-1767973417889-eaff05e5ebcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyb3VuZGVkJTIwZm9udHxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rounded font"
+    },
+    {
+      "id": "gridpoint-installers-logo",
+      "description": "Logo 'GridPoint' with a grid and a location pin.",
+      "imageUrl": "https://images.unsplash.com/photo-1571165233107-f21e8349ffb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxncmlkJTIwcGlufGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grid pin"
+    },
+    {
+      "id": "strongpeak-sandton-roofing-logo",
+      "description": "Logo 'StrongPeak' with a mountain peak and roofline.",
+      "imageUrl": "https://images.unsplash.com/photo-1667066637530-4956bfb37cce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb3VudGFpbiUyMHJvb2Z8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mountain roof"
+    },
+    {
+      "id": "rrr-roof-works-pta-logo",
+      "description": "Logo with three 'R's forming a roof shape.",
+      "imageUrl": "https://images.unsplash.com/photo-1688028577993-0c6be56deba9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsZXR0ZXIlMjBsb2dvfGVufDB8fHx8MTc2ODU2MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "letter logo"
+    },
+    {
+      "id": "irontop-midrand-logo",
+      "description": "Bold logo 'IronTop' in a strong, metallic font.",
+      "imageUrl": "https://images.unsplash.com/photo-1767481256100-99b99c068281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWV0YWxsaWMlMjBmb250fGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "metallic font"
+    },
+    {
+      "id": "securespan-gauteng-logo",
+      "description": "Logo 'SecureSpan' with an arching line over a house.",
+      "imageUrl": "https://images.unsplash.com/photo-1708536584705-a452a42f640d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhcmNoJTIwaG91c2V8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "arch house"
+    },
+    {
+      "id": "proshield-roofs-logo",
+      "description": "Logo 'ProShield' with a shield over a roof.",
+      "imageUrl": "https://images.unsplash.com/photo-1609588959666-3cb46cabe3f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaGllbGQlMjByb29mfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield roof"
+    },
+    {
+      "id": "sunguard-shadeports-logo",
+      "description": "Logo with a sun and a shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1705520979035-300e88cc791a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdW4lMjBzaGllbGR8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun shield"
+    },
+    {
+      "id": "mzansi-shade-structures-logo",
+      "description": "Logo with South African flag colors in an abstract shadeport shape.",
+      "imageUrl": "https://images.unsplash.com/photo-1635006304757-a02d75887177?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmbGFnJTIwY29sb3JzfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flag colors"
+    },
+    {
+      "id": "urbancover-shadeports-logo",
+      "description": "Modern, architectural logo with clean lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1496112156651-4b238410e15b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjbGVhbiUyMGxpbmVzfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clean lines"
+    },
+    {
+      "id": "bossa-shade-solutions-logo",
+      "description": "Bold, confident logo 'BOSSA'.",
+      "imageUrl": "https://images.unsplash.com/photo-1634302016169-68bcd0306b28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib2xkJTIwdGV4dHxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold text"
+    },
+    {
+      "id": "primeshade-gauteng-logo",
+      "description": "Logo 'PrimeShade' in a strong, reliable font.",
+      "imageUrl": "https://images.unsplash.com/photo-1745832479462-7a57fbc2f532?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdHJvbmclMjBmb250fGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "strong font"
+    },
+    {
+      "id": "crystalflow-shower-doors-logo",
+      "description": "Elegant logo 'CrystalFlow' with a water and crystal icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1675105515552-d4039aeb49d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2F0ZXIlMjBjcnlzdGFsfGVufDB8fHx8MTc2ODUwNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water crystal"
+    },
+    {
+      "id": "clearview-showers-logo",
+      "description": "Minimalist logo 'ClearView' with a simple square frame.",
+      "imageUrl": "https://images.unsplash.com/photo-1649275196010-c1d695fcf39a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzcXVhcmUlMjBmcmFtZXxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "square frame"
+    },
+    {
+      "id": "aquastyle-shower-solutions-logo",
+      "description": "Logo 'AquaStyle' with a stylish water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1556197908-96ed0fa30b65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YXRlciUyMGRyb3BsZXR8ZW58MHx8fHwxNzY4NDkzMjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water droplet"
+    },
+    {
+      "id": "mzansi-glass-showers-logo",
+      "description": "Logo with 'Mzansi' and a simple shower door icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1570753187685-c34510e4bd0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzaG93ZXIlMjBpY29ufGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shower icon"
+    },
+    {
+      "id": "pureline-shower-doors-logo",
+      "description": "Logo 'PureLine' with clean, parallel lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1695390836844-5fca49c7d91e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXJhbGxlbCUyMGxpbmVzfGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "parallel lines"
+    },
+    {
+      "id": "sunheat-solar-geysers-logo",
+      "description": "Logo 'SunHeat' with a sun and a flame.",
+      "imageUrl": "https://images.unsplash.com/photo-1568314554167-51ea965ba2f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdW4lMjBmbGFtZXxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun flame"
+    },
+    {
+      "id": "ecohot-water-systems-logo",
+      "description": "Logo 'EcoHot' with a leaf and a water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1662561017876-d5f07dd3e69d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFmJTIwd2F0ZXJ8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf water"
+    },
+    {
+      "id": "mzansi-solar-geysers-logo",
+      "description": "Logo 'Mzansi Solar' with a sun over a map of SA.",
+      "imageUrl": "https://images.unsplash.com/photo-1716468420596-a4a71f9e7f0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW4lMjBtYXB8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun map"
+    },
+    {
+      "id": "greenflow-solar-heating-logo",
+      "description": "Logo 'GreenFlow' with flowing lines and a leaf.",
+      "imageUrl": "https://images.unsplash.com/photo-1600434722683-8bce92b2dd00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmbG93aW5nJTIwbGluZXN8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flowing lines"
+    },
+    {
+      "id": "aquasun-installations-logo",
+      "description": "Logo 'AquaSun' with a sun and water wave.",
+      "imageUrl": "https://images.unsplash.com/photo-1728758169153-c6c7663f5cfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW4lMjB3YXZlfGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun wave"
+    },
+    {
+      "id": "solarwise-gauteng-logo",
+      "description": "Logo 'SolarWise' with a sun and a brain/chip icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1627009677891-f77960451558?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdW4lMjBjaGlwfGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun chip"
+    },
+    {
+      "id": "solar-tech-logo",
+      "description": "Modern, techy font for 'Solar Tech'.",
+      "imageUrl": "https://images.unsplash.com/photo-1750816204148-5d02aff367cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZWNoJTIwZm9udHxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech font"
+    },
+    {
+      "id": "brightgrid-energy-logo",
+      "description": "Logo 'BrightGrid' with a grid of suns.",
+      "imageUrl": "https://images.unsplash.com/photo-1508053779727-e4b1a45add5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW4lMjBncmlkfGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun grid"
+    },
+    {
+      "id": "vip-power-solutions-logo",
+      "description": "Premium logo 'VIP Power' with a crown and lightning bolt.",
+      "imageUrl": "https://images.unsplash.com/photo-1716993134224-680e3082c8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjcm93biUyMGxpZ2h0bmluZ3xlbnwwfHx8fDE3Njg1MDgwNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crown lightning"
+    },
+    {
+      "id": "sunvolt-projects-logo",
+      "description": "Logo 'SunVolt' with a sun and a battery icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1707396171816-fb12f0ecdec3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdW4lMjBiYXR0ZXJ5fGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun battery"
+    },
+    {
+      "id": "bluewave-pool-builders-logo",
+      "description": "Logo 'BlueWave' with a stylized water wave.",
+      "imageUrl": "https://images.unsplash.com/photo-1517384084767-6bc118943770?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3YXRlciUyMHdhdmV8ZW58MHx8fHwxNzY4NTA1MTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water wave"
+    },
+    {
+      "id": "aqua-pools-logo",
+      "description": "Simple, clean logo 'Aqua Pools' with a water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1622364859318-1d023226eda1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXRlciUyMGRyb3BsZXR8ZW58MHx8fHwxNzY4NDkzMjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water droplet"
+    },
+    {
+      "id": "zaza-pool-creations-logo",
+      "description": "Playful logo 'Zaza Pools' with splashes of water.",
+      "imageUrl": "https://images.unsplash.com/photo-1607224431233-1baa09f6f56d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YXRlciUyMHNwbGFzaHxlbnwwfHx8fDE3Njg0ODk1MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water splash"
+    },
+    {
+      "id": "ever-clear-pools-gauteng-logo",
+      "description": "Logo 'Ever Clear' with a sparkle or shine icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1639918063399-5686d2c8bd10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzcGFya2xlJTIwaWNvbnxlbnwwfHx8fDE3Njg1MDUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sparkle icon"
+    },
+    {
+      "id": "stones-pool-projects-logo",
+      "description": "Strong logo 'Stones Pool Projects' with a stone texture.",
+      "imageUrl": "https://images.unsplash.com/photo-1536566482680-fca31930a0bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdG9uZSUyMHRleHR1cmV8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stone texture"
+    },
+    {
+      "id": "solidroad-tar-surfacing-logo",
+      "description": "Logo 'SolidRoad' with a solid, straight road line.",
+      "imageUrl": "https://images.unsplash.com/photo-1647774660810-ee8eb8c600dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyb2FkJTIwbGluZXxlbnwwfHx8fDE3Njg1OTMzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "road line"
+    },
+    {
+      "id": "mzansi-tarworks-logo",
+      "description": "Logo 'Mzansi TarWorks' with a map of SA outline.",
+      "imageUrl": "https://images.unsplash.com/photo-1710766329848-2122e3b07ce4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYXAlMjBvdXRsaW5lfGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "map outline"
+    },
+    {
+      "id": "primepave-surfacing-logo",
+      "description": "Logo 'PrimePave' in a clean, professional font.",
+      "imageUrl": "https://images.unsplash.com/photo-1653379290958-2fdec15f465c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9mZXNzaW9uYWwlMjBmb250fGVufDB8fHx8MTc2ODU5MzMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional font"
+    },
+    {
+      "id": "seal-tar-projects-logo",
+      "description": "Logo 'Seal Tar' with a water-tight seal icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1588942458058-55beb017132c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzZWFsJTIwaWNvbnxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "seal icon"
+    },
+    {
+      "id": "blacktop-solutions-logo",
+      "description": "Bold, strong logo 'BlackTop Solutions'.",
+      "imageUrl": "https://images.unsplash.com/photo-1767483012930-fe7b34e7d216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym9sZCUyMGZvbnR8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold font"
+    },
+    {
+      "id": "thatchmaster-roofing-logo",
+      "description": "Logo 'ThatchMaster' with a stylized thatch roof.",
+      "imageUrl": "https://images.unsplash.com/photo-1591631444228-c91061df639a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0aGF0Y2glMjByb29mfGVufDB8fHx8MTc2ODUxMDk2OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thatch roof"
+    },
+    {
+      "id": "afrithatch-specialists-logo",
+      "description": "Logo with an African continent shape and thatch pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1626695436755-3e288720849c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhZnJpY2ElMjBtYXB8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "africa map"
+    },
+    {
+      "id": "didi-thatched-roofs-logo",
+      "description": "Friendly, approachable logo 'DIDI Thatched Roofs'.",
+      "imageUrl": "https://images.unsplash.com/photo-1762648603464-390cd0284e76?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnJpZW5kbHklMjBmb250fGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "friendly font"
+    },
+    {
+      "id": "naturalcover-thatching-logo",
+      "description": "Logo 'NaturalCover' with a leaf and thatch texture.",
+      "imageUrl": "https://images.unsplash.com/photo-1533038023143-de7a62a9d779?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFmJTIwdGV4dHVyZXxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf texture"
+    },
+    {
+      "id": "heritage-thatch-projects-logo",
+      "description": "Classic, elegant logo 'Heritage Thatch'.",
+      "imageUrl": "https://images.unsplash.com/photo-1640888608137-66becd96add8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjbGFzc2ljJTIwZm9udHxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "classic font"
+    },
+    {
+      "id": "perfecttile-gauteng-logo",
+      "description": "Logo 'PerfectTile' with a perfectly aligned grid.",
+      "imageUrl": "https://images.unsplash.com/photo-1768330187168-8acee7753983?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z3JpZCUyMHBhdHRlcm58ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grid pattern"
+    },
+    {
+      "id": "ubs-tile-installers-logo",
+      "description": "Modern, bold logo 'UBS'.",
+      "imageUrl": "https://images.unsplash.com/photo-1763939036651-1447f6287ac4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxib2xkJTIwbGV0dGVyc3xlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold letters"
+    },
+    {
+      "id": "taps-tileworks-logo",
+      "description": "Logo 'Taps TileWorks' with a water tap and tile.",
+      "imageUrl": "https://images.unsplash.com/photo-1639997858368-9b490282cda3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGFwJTIwdGlsZXxlbnwwfHx8fDE3Njg1MTA5Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tap tile"
+    },
+    {
+      "id": "proline-tiling-logo",
+      "description": "Logo 'ProLine' with a clean, straight line.",
+      "imageUrl": "https://images.unsplash.com/photo-1582380788521-5be34c20fc67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdHJhaWdodCUyMGxpbmV8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "straight line"
+    },
+    {
+      "id": "smoothset-tilers-logo",
+      "description": "Logo 'SmoothSet' in a flowing script.",
+      "imageUrl": "https://images.unsplash.com/photo-1634337036203-c7d14d275826?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzY3JpcHQlMjBmb250fGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script font"
+    },
+    {
+      "id": "safecut-tree-felling-logo",
+      "description": "Logo 'SafeCut' with a tree inside a shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1761311554801-ddaebf8b420a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0cmVlJTIwc2hpZWxkfGVufDB8fHx8MTc2ODUxMDk2OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tree shield"
+    },
+    {
+      "id": "greendrop-arbor-services-logo",
+      "description": "Logo 'GreenDrop' with a leaf and a water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1724055609938-7734b4e49347?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsZWFmJTIwd2F0ZXJ8ZW58MHx8fHwxNzY4NTkzMzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf water"
+    },
+    {
+      "id": "rand-tree-care-logo",
+      "description": "Logo 'Rand Tree Care' with a coin and a tree.",
+      "imageUrl": "https://images.unsplash.com/photo-1708714290547-6f2db03b7380?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2luJTIwdHJlZXxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coin tree"
+    },
+    {
+      "id": "urbanchop-tree-services-logo",
+      "description": "Urban-style logo 'UrbanChop'.",
+      "imageUrl": "https://images.unsplash.com/photo-1745949447767-a5011b1fe430?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx1cmJhbiUyMGZvbnR8ZW58MHx8fHwxNzY4NTkzMzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "urban font"
+    },
+    {
+      "id": "ecofell-projects-logo",
+      "description": "Logo 'EcoFell' with a recycling symbol around a tree.",
+      "imageUrl": "https://images.unsplash.com/photo-1665904346443-8d20e0364129?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZWN5Y2xpbmclMjB0cmVlfGVufDB8fHx8MTc2ODU5MzMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "recycling tree"
+    },
+    {
       "id": "comfortcraft-upholstery-logo",
-      "description": "Elegant logo 'ComfortCraft' with a needle and thread icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1768339932960-176b68c93f88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bmVlZGxlJTIwdGhyZWFkfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo 'ComfortCraft' with a needle and thread.",
+      "imageUrl": "https://images.unsplash.com/photo-1698766902696-e3c98378d400?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuZWVkbGUlMjB0aHJlYWR8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "needle thread"
     },
     {
       "id": "fast-upholstery-works-logo",
       "description": "Logo 'Fast Upholstery Works' with speed lines.",
-      "imageUrl": "https://images.unsplash.com/photo-1689827022229-f84c24d8c61d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzcGVlZCUyMGxpbmVzfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1506818144585-74b29c980d4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGVlZCUyMGxpbmVzfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "speed lines"
     },
     {
       "id": "urbanfabric-studio-logo",
-      "description": "Modern logo 'UrbanFabric' with a fabric weave pattern.",
+      "description": "Logo 'UrbanFabric' with a fabric weave pattern.",
       "imageUrl": "https://images.unsplash.com/photo-1701964618664-54ccbe61d92c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmYWJyaWMlMjBwYXR0ZXJufGVufDB8fHx8MTc2ODU2MDY0MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fabric pattern"
     },
     {
       "id": "classicseat-upholsterers-logo",
-      "description": "Classic serif font logo 'ClassicSeat Upholsterers'.",
-      "imageUrl": "https://images.unsplash.com/photo-1767802512418-b9677d62e899?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzZXJpZiUyMGZvbnR8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Classic serif font logo 'ClassicSeat'.",
+      "imageUrl": "https://images.unsplash.com/photo-1603131283205-e4b115801f01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzZXJpZiUyMGZvbnR8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "serif font"
     },
     {
       "id": "finefinish-upholstery-logo",
-      "description": "Logo 'FineFinish' in a delicate, elegant script.",
-      "imageUrl": "https://images.unsplash.com/photo-1723083639049-ef4a18a402b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlbGVnYW50JTIwc2NyaXB0fGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo 'FineFinish' in an elegant script.",
+      "imageUrl": "https://images.unsplash.com/photo-1721993914686-70b0a6a5708a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxlbGVnYW50JTIwc2NyaXB0fGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "elegant script"
     },
     {
       "id": "freshseat-upholstery-cleaning-logo",
       "description": "Logo 'FreshSeat' with a water droplet and a leaf.",
-      "imageUrl": "https://images.unsplash.com/photo-1712338481896-a331a0ebb948?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3YXRlciUyMGxlYWZ8ZW58MHx8fHwxNzY4NTU2NDQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1614528155858-0740f7e54f4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3YXRlciUyMGxlYWZ8ZW58MHx8fHwxNzY4NTU2NDQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "water leaf"
     },
     {
       "id": "cleancomfort-services-logo",
-      "description": "Logo 'CleanComfort' with a sparkling clean cushion icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1655149588834-b930be2999ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzcGFya2xlJTIwY3VzaGlvbnxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo 'CleanComfort' with a sparkling cushion icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1698866623451-a7b445185ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGFya2xlJTIwY3VzaGlvbnxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sparkle cushion"
     },
     {
@@ -357,43 +1077,43 @@
     {
       "id": "puretouch-cleaning-logo",
       "description": "Minimalist logo 'PureTouch' with a hand and a sparkle.",
-      "imageUrl": "https://images.unsplash.com/photo-1616004621701-1218cade42cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxoYW5kJTIwc3BhcmtsZXxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758605456822-24b5311e100c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxoYW5kJTIwc3BhcmtsZXxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "hand sparkle"
     },
     {
       "id": "softcare-upholstery-care-logo",
-      "description": "Logo 'SoftCare' with a feather icon to show gentleness.",
-      "imageUrl": "https://images.unsplash.com/photo-1757495152620-76bc71c660e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmZWF0aGVyJTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo 'SoftCare' with a feather icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1649372306972-ffb288a9d681?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmZWF0aGVyJTIwbG9nb3xlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "feather logo"
     },
     {
       "id": "dryshield-waterproofing-logo",
-      "description": "Logo 'DryShield' with a shield protecting a house from rain.",
-      "imageUrl": "https://images.unsplash.com/photo-1668256936728-82db16df01fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzaGllbGQlMjBob3VzZSUyMHJhaW58ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "shield house rain"
+      "description": "Logo 'DryShield' with a shield protecting from rain.",
+      "imageUrl": "https://images.unsplash.com/photo-1758110281538-3a9cf36572fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2hpZWxkJTIwcmFpbnxlbnwwfHx8fDE3Njg1OTMzMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield rain"
     },
     {
       "id": "aquaseal-gauteng-logo",
-      "description": "Logo 'AquaSeal' with a water droplet being contained by a circle.",
-      "imageUrl": "https://images.unsplash.com/photo-1709278752283-c1dd54ee9211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2F0ZXIlMjBjaXJjbGV8ZW58MHx8fHwxNzY4NTg1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo 'AquaSeal' with a water droplet in a circle.",
+      "imageUrl": "https://images.unsplash.com/photo-1526599256864-6bedb9d7dfb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3YXRlciUyMGNpcmNsZXxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "water circle"
     },
     {
       "id": "leakstop-logo",
       "description": "Simple, bold logo 'LeakStop' with a stop sign.",
-      "imageUrl": "https://images.unsplash.com/photo-1579914982709-49bafeafb599?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdG9wJTIwc2lnbnxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1618737739013-aed8938604fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdG9wJTIwc2lnbnxlbnwwfHx8fDE3Njg1ODU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "stop sign"
     },
     {
       "id": "prodry-systems-logo",
       "description": "Modern, technical logo 'ProDry Systems'.",
-      "imageUrl": "https://images.unsplash.com/photo-1662052955098-042b46e60c2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWNoJTIwbG9nb3xlbnwwfHx8fDE3Njg1MjY5MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1662027067763-770376e710f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZWNoJTIwbG9nb3xlbnwwfHx8fDE3Njg1MjY5MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tech logo"
     },
     {
       "id": "sureseal-waterproofing-logo",
-      "description": "Logo 'SureSeal' with a strong checkmark/seal of approval.",
-      "imageUrl": "https://images.unsplash.com/photo-1557005751-271dde34e7c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzZWFsJTIwY2hlY2ttYXJrfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo 'SureSeal' with a checkmark seal.",
+      "imageUrl": "https://images.unsplash.com/photo-1763929272638-3f597ea533dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZWFsJTIwY2hlY2ttYXJrfGVufDB8fHx8MTc2ODU4NTc5MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "seal checkmark"
     }
   ]
