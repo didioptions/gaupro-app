@@ -1,0 +1,23 @@
+
+{
+  "indexes": [
+    {
+      "collectionGroup": "companies",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "searchServices",
+          "order": "ARRAY_CONTAINS"
+        },
+        {
+          "fieldPath": "ratingBucket",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "rating",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}
