@@ -5,18 +5,28 @@
       "collectionGroup": "companies",
       "queryScope": "COLLECTION",
       "fields": [
-        {
-          "fieldPath": "searchServices",
-          "order": "ARRAY_CONTAINS"
-        },
-        {
-          "fieldPath": "ratingBucket",
-          "order": "DESCENDING"
-        },
-        {
-          "fieldPath": "rating",
-          "order": "DESCENDING"
-        }
+        { "fieldPath": "searchServices", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "city", "order": "ASCENDING" },
+        { "fieldPath": "ratingBucket", "order": "DESCENDING" },
+        { "fieldPath": "rating", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "companies",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "searchServices", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "ratingBucket", "order": "DESCENDING" },
+        { "fieldPath": "rating", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "companies",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "searchKeywords", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "ratingBucket", "order": "DESCENDING" },
+        { "fieldPath": "rating", "order": "DESCENDING" }
       ]
     }
   ]
