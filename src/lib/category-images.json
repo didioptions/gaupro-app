@@ -399,7 +399,7 @@
     },
     {
       "id": "tiler-image",
-      "description": "A professional tiler installing large format tiles on a floor.",
+      "description": "A professional tiler installing new floor tiles.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TILLERS.jpg?alt=media&token=ad376bbb-7416-4f93-884c-0304aaff4a2c",
       "imageHint": "tiler floor"
     },
@@ -994,7 +994,7 @@
     {
       "id": "creches-image",
       "description": "Toddlers and babies in a bright and playful creche environment.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Creches.jpg?alt=media&token=e243ab45-2a1b-42e5-aa55-829a8a3902a7",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Creches.jpg?alt=media&token=e243ab45-2a1b-42e5-aa55-829a4a3902a7",
       "imageHint": "creche toddlers"
     },
     {
@@ -1102,7 +1102,7 @@
     {
       "id": "blinds-image",
       "description": "Stylish wooden venetian blinds on a window.",
-      "imageUrl": "https://picsum.photos/seed/blinds/800/600",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/blinds%20A.jpg?alt=media&token=49469ccb-3b17-4ccb-aae2-d92468eb0975",
       "imageHint": "wooden blinds"
     },
     {
