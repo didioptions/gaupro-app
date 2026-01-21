@@ -370,14 +370,14 @@
     {
       "id": "thatched-roofing-image",
       "description": "A beautiful thatched roof on a luxury home or lodge.",
-      "imageUrl": "https://images.unsplash.com/photo-1599557351421-4d3758b68481?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0aGF0Y2hlZCUyMGhvdXNlfGVufDB8fHx8MTc2NTM4MTU3OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Thatched%20Roofing%20A.jpg?alt=media&token=b11ab84b-9723-4417-a049-7ba7e3919595",
       "imageHint": "thatched roof"
     },
     {
       "id": "tiling-image",
-      "description": "A professional tiler applying grout to freshly laid floor tiles.",
-      "imageUrl": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0aWxlciUyMHdvcmtlcnxlbnwwfHx8fDE3NjUzODE1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "tiling floor"
+      "description": "A professional tiler installing new floor tiles.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TILLERS.jpg?alt=media&token=ad376bbb-7416-4f93-884c-0304aaff4a2c",
+      "imageHint": "tiler floor"
     },
     {
       "id": "upholsterers-image",
@@ -401,12 +401,6 @@
       "id": "tiler-image",
       "description": "A professional tiler installing new floor tiles.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TILLERS.jpg?alt=media&token=ad376bbb-7416-4f93-884c-0304aaff4a2c",
-      "imageHint": "tiler floor"
-    },
-    {
-      "id": "tiling-image",
-      "description": "A professional tiler installing new floor tiles.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A-Tiler1024x543.jpg?alt=media&token=df215443-dc72-4559-8020-95d0b820c2e0",
       "imageHint": "tiler floor"
     },
     {
@@ -1155,3 +1149,5 @@
     }
   ]
 }
+
+    
