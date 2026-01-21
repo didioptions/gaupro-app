@@ -64,7 +64,7 @@
     {
       "id": "event-planners-image",
       "description": "A party planner with a clipboard, smiling at a well-organized event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/event%20planner%20c.jpg?alt=media&token=ef2de654-d2a4-4b48-89f5-b3eb2c906227",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/party%20planners%20A.jpg?alt=media&token=37b31f37-e08c-4a9c-bd77-62fc9cf3b66b",
       "imageHint": "party planner"
     },
     {
@@ -1146,6 +1146,12 @@
       "description": "An elegant, modern driveway gate made of wood and steel.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gates.jpg?alt=media&token=1e400b95-6abc-4596-9d64-2a1d355bef7c",
       "imageHint": "driveway gate"
+    },
+    {
+      "id": "window-tinting-image",
+      "description": "A professional applying tint film to a car window.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Window%20Tinting%20A.jpg?alt=media&token=0908d6a7-514b-482a-974c-b8df6f64c92a",
+      "imageHint": "car window tinting"
     }
   ]
 }
