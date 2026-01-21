@@ -1,3 +1,4 @@
+
 {
   "categoryImages": [
     {
@@ -595,7 +596,7 @@
       "imageHint": "security camera"
     },
     {
-      "id": "A Fire-safety-image",
+      "id": "fire-safety-image",
       "description": "A fire extinguisher mounted on a wall, ready for use.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Fire%20Safety.jpg?alt=media&token=99b12200-607b-436b-91ea-bd88e072c921",
       "imageHint": "fire extinguisher"
@@ -1085,12 +1086,6 @@
       "description": "A modern glass balustrade on a staircase.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Balustrades.jpg?alt=media&token=5f94d8ed-5444-4daf-8273-97d016d8fe3b",
       "imageHint": "glass balustrade"
-    },
-    {
-      "id": "blinds-image",
-      "description": "Stylish wooden venetian blinds on a window.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/blinds%20A.jpg?alt=media&token=49469ccb-3b17-4ccb-aae2-d92468eb0975",
-      "imageHint": "wooden blinds"
     },
     {
       "id": "ceiling-installers-image",
