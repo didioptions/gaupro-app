@@ -1,4 +1,3 @@
-
 {
   "categoryImages": [
     {
@@ -742,7 +741,7 @@
     {
       "id": "appliance-repairs-image",
       "description": "A technician repairing a washing machine.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Appliance%20Repairs.jpg?alt=media&token=81e38fe8-149f-48c0-86b9-d179788e2293",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/appliance%20repair%20a.jpg?alt=media&token=529c3409-c19f-43e3-824c-c31cff2b703e",
       "imageHint": "appliance repair"
     },
     {
@@ -1170,6 +1169,12 @@
       "description": "A person receiving a relaxing back massage in a serene spa environment.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Massage%20Therapists.jpg?alt=media&token=038345ff-70d6-45f5-8e4e-5c088bc3e75a",
       "imageHint": "back massage"
+    },
+    {
+      "id": "loans-image",
+      "description": "Symbolic image for loans, like a person receiving keys or signing documents.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/loans.jpg?alt=media&token=f3957b34-defe-4f1e-bfed-f7ae1c9d68cb",
+      "imageHint": "loan agreement"
     }
   ]
 }
