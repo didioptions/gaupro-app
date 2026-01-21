@@ -1,4 +1,5 @@
 
+
 {
   "categoryImages": [
     {
@@ -542,12 +543,6 @@
       "imageHint": "marriage counseling"
     },
     {
-      "id": "A Massage-Therapists-image",
-      "description": "A person receiving a relaxing back massage in a serene spa environment.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Massage%20Therapists.jpg?alt=media&token=038345ff-70d6-45f5-8e4e-5c088bc3e75a",
-      "imageHint": "back massage"
-    },
-    {
       "id": "personal-trainers-image",
       "description": "A personal trainer motivating a client during a workout session in a gym.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Personal%20Trainers.jpg?alt=media&token=0779453a-3390-46c1-8546-e6b733326b3f",
@@ -662,12 +657,6 @@
       "imageHint": "car gearbox"
     },
     {
-      "id": "car-window-tinting-image",
-      "description": "A professional applying tint film to a car window.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/car%20window%20tint.jpg?alt=media&token=63ebd572-0715-4e1a-9da4-3cfa6d1901ac",
-      "imageHint": "car window tinting"
-    },
-    {
       "id": "panel-beaters-image",
       "description": "A panel beater smoothing out a car body panel.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Panel%20Beaters%20AA.jpg?alt=media&token=1ee08f44-af5b-4865-a45e-d661faa57a36",
@@ -736,7 +725,7 @@
     {
       "id": "team-building-image",
       "description": "A diverse team collaborating on a fun team-building activity.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Team%20Building.jpg?alt=media&token=a53a5a7e-b8ae-4b47-abba-fcad4c46919b",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Team%20Building.jpg?alt=media&token=a53a5a7e-b8ae-4b47-abba-fcad4c469efb",
       "imageHint": "team building"
     },
     {
@@ -1152,8 +1141,30 @@
       "description": "A professional applying tint film to a car window.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Window%20Tinting%20A.jpg?alt=media&token=0908d6a7-514b-482a-974c-b8df6f64c92a",
       "imageHint": "car window tinting"
+    },
+    {
+      "id": "party-planners-image",
+      "description": "A party planner with a clipboard, smiling at a well-organized event.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/party%20planners%20A.jpg?alt=media&token=37b31f37-e08c-4a9c-bd77-62fc9cf3b66b",
+      "imageHint": "party planner"
+    },
+    {
+      "id": "debt-collection-image",
+      "description": "A symbolic image representing debt collection, like a gavel or balanced scales.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Debt%20Collection%20A.jpg?alt=media&token=9af40147-350f-4deb-b299-80bfc329271c",
+      "imageHint": "gavel scales"
+    },
+    {
+      "id": "dieticians-image",
+      "description": "A colorful array of healthy fruits and vegetables.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/dentists.jpg?alt=media&token=4d7cb273-1c62-4c49-831e-208ea8193a86",
+      "imageHint": "healthy food"
+    },
+    {
+      "id": "massage-therapists-image",
+      "description": "A person receiving a relaxing back massage in a serene spa environment.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Massage%20Therapists.jpg?alt=media&token=038345ff-70d6-45f5-8e4e-5c088bc3e75a",
+      "imageHint": "back massage"
     }
   ]
 }
-
-    
