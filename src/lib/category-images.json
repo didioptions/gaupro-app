@@ -1,5 +1,4 @@
 
-
 {
   "categoryImages": [
     {
@@ -919,6 +918,12 @@
       "description": "A neatly organized desk with various stationery items like pens, notebooks, and clips.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Stationery.jpg?alt=media&token=7293490e-9ad8-457f-9d09-0ef1e59818dd",
       "imageHint": "stationery desk"
+    },
+    {
+      "id": "swimming-pool-supplies-image",
+      "description": "A variety of swimming pool chemicals and equipment.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Swimming%20Pool%20Supplies.jpg?alt=media&token=69e1ef77-00d9-4062-ad34-65aec8f88a6b",
+      "imageHint": "pool chemicals"
     },
     {
       "id": "agricultural-equipment-image",
