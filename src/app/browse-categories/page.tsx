@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, FormEvent, useEffect } from 'react';
@@ -14,27 +15,26 @@ import { allLocations } from '@/lib/locations';
 import { Autocomplete } from '@/components/ui/autocomplete';
 
 const allCategories = [
-  { category: 'Home, Building & Gardening', services: ['Air Conditioning', 'Aluminium Doors And Windows', 'Awnings', 'Balustrades', 'Bathroom Renovations', 'Blinds', 'Builders', 'Burglar Bars', 'Carpenters', 'Carpeting', 'Carpet Cleaning', 'Carports', 'Ceiling Installers', 'Cleaning Services', 'Concrete Slabs', 'Curtains', 'Demolition', 'Doors', 'Drywalls', 'Electricians', 'Electric Fencing', 'Fencing', 'Flooring', 'Garage Doors', 'Garage Door Motors', 'Gardeners', 'Gas Installers', 'Gates', 'Gate Motors', 'Glass Works', 'Guttering', 'Handymen', 'High Pressure Cleaning', 'Home Improvements', 'Interior Designing', 'Kitchen Renovations', 'Laminate Flooring', 'Landscaping', 'Laundry Services', 'Locksmiths', 'Office Cleaning', 'Painters', 'Palisade Fencing', 'Paving', 'Pest Control', 'Plastering', 'Plumbers', 'Pool Cleaning', 'Precast Fencing', 'Prepaid Electricity Meters', 'Roofing', 'Security Gates', 'Shadeports', 'Shower Doors', 'Solar Geysers', 'Solar Systems', 'Swimming Pool Builders', 'Tar Surfacing', 'Thatched Roofing', 'Tiling', 'Tree Felling', 'Upholsterers', 'Upholstery Cleaning', 'Waterproofing', 'Welders', 'Wendy Houses', 'Window Cleaning', 'Window Tinting', 'Wire Mesh Fencing', 'Wooden Decking'] },
-  { category: 'Weddings, Events & Entertainment', services: ['Djs', 'Event Decorations', 'Event Planners', 'Florists', 'Jumping Castle Hire', 'Party Planners', 'Photographers', 'Tent Hire', 'Toilet Hire', 'Videographers', 'Wedding Photographers'] },
-  { category: 'Business & Finance', services: ['Accounting', 'Auditors', 'Business Consultants', 'Company Registrations', 'Debt Collection', 'Debt Counsellors', 'Financial Advisors', 'Insurance', 'Loans', 'Medical Aid', 'Recruitment Agencies'] },
+  { category: 'Home, Building & Gardening', services: ['Air Conditioning', 'Aluminium Doors And Windows', 'Awnings', 'Balustrades', 'Bathroom Renovations', 'Blinds', 'Builders', 'Building Materials', 'Burglar Bars', 'Carpenters', 'Carpeting', 'Carpet Cleaning', 'Carports', 'Ceiling Installers', 'Cleaning Services', 'Concrete Slabs', 'Curtains', 'Demolition', 'Doors', 'Drywalls', 'Electricians', 'Electric Fencing', 'Fencing', 'Flooring', 'Fridge Repairs', 'Garage Doors', 'Garage Door Motors', 'Gardeners', 'Gas Installers', 'Gas Suppliers', 'Gates', 'Gate Motors', 'Glass Works', 'Guttering', 'Handymen', 'High Pressure Cleaning', 'Home Improvements', 'Interior Designing', 'Irrigation', 'Kitchen Renovations', 'Laminate Flooring', 'Landscaping', 'Laundry Services', 'Locksmiths', 'Office Cleaning', 'Painters', 'Palisade Fencing', 'Paving', 'Pest Control', 'Plastering', 'Plumbers', 'Pool Cleaning', 'Precast Fencing', 'Prepaid Electricity Meters', 'Roofing', 'Rubble Removals', 'Security Gates', 'Shadeports', 'Shower Doors', 'Skip Hire', 'Solar Geysers', 'Solar Systems', 'Swimming Pool Builders', 'Swimming Pool Supplies', 'Tar Surfacing', 'Thatched Roofing', 'Tiling', 'Tree Felling', 'Tv Repairs', 'Upholsterers', 'Upholstery Cleaning', 'Waterproofing', 'Welders', 'Wendy Houses', 'Window Cleaning', 'Window Tinting', 'Wire Mesh Fencing', 'Wooden Decking'] },
+  { category: 'Weddings, Events & Entertainment', services: ['Djs', 'Event Decorations', 'Event Planners', 'Florists', 'Jumping Castle Hire', 'Party Planners', 'Photographers', 'Tent Hire', 'Toilet Hire', 'Videographers', 'Wedding Photographers', 'Venues', 'Wedding Venues'] },
+  { category: 'Business & Finance', services: ['Accounting', 'Auditors', 'Business Consultants', 'Company Registrations', 'Debt Collection', 'Debt Counsellors', 'Financial Advisors', 'Insurance', 'Loans', 'Medical Aid', 'Recruitment Agencies', 'Stationery'] },
   { category: 'Digital Design, Media & Marketing', services: ['Graphic Designers', 'Logo Design', 'Printing', 'Signs', 'Website Designers'] },
   { category: 'Health, Wellness & Beauty', services: ['Beauty Salons', 'Chiropractors', 'Counsellors', 'Dentists', 'Dermatologists', 'Dieticians', 'Gynaecologists', 'Hair Stylists', 'Laser Clinics', 'Make Up Artists', 'Marriage Counsellors', 'Massage Therapists', 'Personal Trainers', 'Physiotherapists', 'Plastic Surgeons', 'Psychologists'] },
-  { category: 'Alarms & Security', services: ['Access Control', 'Alarm Systems', 'Armed Response', 'Car Alarms', 'Car Tracking', 'Cctv', 'Fire Safety', 'Private Investigators', 'Security', 'Tracing'] },
+  { category: 'Alarms & Security', services: ['Access Control', 'Alarm Systems', 'Armed Response', 'Car Alarms', 'Car Tracking', 'Cctv', 'Fire Safety', 'Private Investigators', 'Security', 'Security Training', 'Tracing'] },
   { category: 'Cars & Automotive', services: ['Auto Electricians', 'Auto Glass', 'Batteries', 'Brakes and Clutches', 'Car Aircon Regassing', 'Car Window Tinting', 'Engine Overhauls', 'Fuels', 'Gearboxes', 'Mechanics', 'Panel Beaters', 'Towing', 'Tow Bars'] },
-  { category: 'Lessons & Training', services: ['Computer Courses', 'Driving Schools', 'Firearm Training', 'First Aid', 'Forklift Training', 'Life Coaches', 'Security Training', 'Swimming Lessons', 'Team Building'] },
-  { category: 'Accommodation & Venues', services: ['Holiday Accommodation', 'Venues', 'Wedding Venues'] },
-  { category: 'Home Appliances & Equipment', services: ['Appliance Repairs', 'Dstv Installers', 'Fridge Repairs', 'Tv Installers', 'Tv Repairs'] },
+  { category: 'Lessons & Training', services: ['Computer Courses', 'Driving Schools', 'Firearm Training', 'First Aid', 'Forklift Training', 'Life Coaches', 'Swimming Lessons', 'Team Building'] },
+  { category: 'Accommodation', services: ['Holiday Accommodation'] },
+  { category: 'Home Appliances & Equipment', services: ['Appliance Repairs', 'Dstv Installers', 'Tv Installers'] },
   { category: 'Property & Legal', services: ['Conveyancers', 'Divorce Lawyers', 'Estate Agents', 'Labour Lawyers', 'Lawyers'] },
-  { category: 'Transportation & Logistics', services: ['Couriers', 'Movers', 'Rubble Removals', 'School Transport', 'Shuttle Services', 'Taxis', 'Transportation'] },
+  { category: 'Transportation & Logistics', services: ['Couriers', 'Movers', 'School Transport', 'Shuttle Services', 'Taxis', 'Transportation'] },
   { category: 'Computers & Telecommunications', services: ['Cellphone Repairs', 'Computer Repairs', 'Internet Solutions', 'Laptop Repairs', 'Networking', 'Office Equipment'] },
-  { category: 'Heavy Equipment & Machinery', services: ['Generators', 'Plant Hire', 'Skip Hire', 'Tlb Hire'] },
-  { category: 'Manufacturers & Suppliers', services: ['Building Materials', 'Gas Suppliers', 'Marble and Granite Suppliers', 'Personal Protection Equipment', 'Stationery', 'Swimming Pool Supplies'] },
-  { category: 'Agricultural', services: ['Agricultural Equipment', 'Agricultural Services', 'Irrigation'] },
+  { category: 'Heavy Equipment & Machinery', services: ['Generators', 'Plant Hire', 'Tlb Hire'] },
+  { category: 'Agricultural', services: ['Agricultural Equipment', 'Agricultural Services'] },
   { category: 'Architecture & Engineering', services: ['Architects', 'Borehole Drillers', 'Town Planners'] },
-  { category: 'Family Care', services: ['Baby Sitters', 'Creches', 'Day Care Centres', 'Pre-Schools'] },
-  { category: 'Fashion, Tailors & Outfitters', services: ['Dressmakers', 'Embroidery'] },
+  { category: 'Family Care', services: ['Baby Sitters', 'Creches', 'Day Care Centres', 'Family Care', 'Pre-Schools'] },
+  { category: 'Fashion, Tailors & Outfitters', services: ['Dressmakers', 'Embroidery', 'Fashion', 'Fashion Accessories', 'Fashion Shoes'] },
   { category: 'Food & Beverage', services: ['Cake Shops', 'Caterers'] },
-  { category: 'Pets', services: ['Groomers', 'Pet Sitters'] },
+  { category: 'Pets', services: ['Groomers', 'Pet Sitters', 'Pets'] },
   { category: 'Tourism & Outdoor Activities', services: ['Tour Operators', 'Travel Agents'] },
 ];
 

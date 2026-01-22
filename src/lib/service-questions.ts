@@ -1,5 +1,4 @@
 
-
 export type Question = {
   id: string;
   text: string;
@@ -155,6 +154,7 @@ export const allServices = [
     { value: 'personal-trainers', label: 'Personal Trainers' },
     { value: 'pest-control', label: 'Pest Control' },
     { value: 'pet-sitters', label: 'Pet Sitters' },
+    { value: 'pets', label: 'Pets' },
     { value: 'photographers', label: 'Photographers' },
     { value: 'physiotherapists', label: 'Physiotherapists' },
     { value: 'plant-hire', label: 'Plant Hire' },
@@ -220,7 +220,7 @@ export const allServices = [
     { value: 'window-tinting', label: 'Window Tinting' },
     { value: 'wire-mesh-fencing', label: 'Wire Mesh Fencing' },
     { value: 'wooden-decking', label: 'Wooden Decking' },
-];
+].sort((a, b) => a.label.localeCompare(b.label));
 
 
 const jobDetailsQuestion: Question = {
@@ -2496,6 +2496,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
 ];
+
 
 
 

@@ -9,12 +9,12 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import ProfessionalCard from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
 
-export default function TopDebtCollectionPage() {
-  const proCategory = 'debt-collection';
+export default function TopDayCareCentresPage() {
+  const proCategory = 'day-care-centres';
   const pros = allProfessionals[proCategory] || [];
   const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 5);
 
-  const heroImage = CategoryImages.find(p => p.id === 'debt-collection-image');
+  const heroImage = CategoryImages.find(p => p.id === 'day-care-centres-image');
 
   const benefits = [
     '🛡️ Fully Vetted Companies',
@@ -33,7 +33,7 @@ export default function TopDebtCollectionPage() {
             {heroImage && (
                 <Image
                     src={heroImage.imageUrl}
-                    alt={heroImage.description || "Debt Collection service background"}
+                    alt={heroImage.description || "Day Care Centres service background"}
                     fill
                     className="object-cover"
                     priority
@@ -43,9 +43,9 @@ export default function TopDebtCollectionPage() {
              <div className="absolute inset-0 bg-black/60" />
              <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                 <div className="hidden md:block">
-                  <h1 className="text-4xl md:text-5xl font-normal">Top Debt Collection Agencies</h1>
+                  <h1 className="text-4xl md:text-5xl font-normal">Top Day Care Centres</h1>
                   <p className="mt-4 text-lg text-white/90">
-                      Professional and ethical debt recovery services for businesses.
+                      Safe and stimulating day care for your child's growth and happiness.
                   </p>
                 </div>
                 <InlineQuoteForm service={proCategory} location="South Africa" />
@@ -58,9 +58,9 @@ export default function TopDebtCollectionPage() {
                 <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Link href="/" className="hover:text-primary">Gaupro</Link>
                     <ChevronRight className="h-4 w-4" />
-                    <span className="font-medium text-foreground">Top Debt Collection Agencies</span>
+                    <span className="font-medium text-foreground">Top Day Care Centres</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top Debt Collection Agencies in Gauteng</h2>
+                <h2 className="text-3xl mt-1">Top Day Care Centres in Gauteng</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
@@ -70,12 +70,12 @@ export default function TopDebtCollectionPage() {
                 </div>
                 <aside className="space-y-8">
                     <div className="p-6 border rounded-lg bg-card">
-                        <h3 className="mb-3 font-semibold text-foreground">Need Debt Collection?</h3>
+                        <h3 className="mb-3 font-semibold text-foreground">Looking for Day Care?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + (pro.reviews || 0), 0)}+ Reviews for debt collection</li>
+                            <li>{pros.reduce((acc, pro) => acc + (pro.reviews || 0), 0)}+ Reviews for day care centres</li>
                             <li>{pros.filter(p => p.rating >= 4).length * 10}+ Positive Reviews</li>
-                            <li>Recently hired agencies have been rated 4.9/5 stars by clients</li>
-                            <li>View Top Debt Collection Agencies today</li>
+                            <li>Recently hired centres have been rated 4.9/5 stars by parents</li>
+                            <li>View Top Day Care Centres today</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">
@@ -85,8 +85,8 @@ export default function TopDebtCollectionPage() {
                         </ul>
                     </div>
                     <div className="p-6 border rounded-lg bg-card text-center">
-                      <h3 className="text-lg font-semibold mb-4">Can't find the right agency?</h3>
-                      <p className="text-sm text-muted-foreground mb-4">Post your requirements and get quotes from available professionals in your area.</p>
+                      <h3 className="text-lg font-semibold mb-4">Can't find the right centre?</h3>
+                      <p className="text-sm text-muted-foreground mb-4">Post your requirements and get information from available professionals in your area.</p>
                       <a href={`/post-request?service=${proCategory}`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                         Get Free Quotes
                       </a>
