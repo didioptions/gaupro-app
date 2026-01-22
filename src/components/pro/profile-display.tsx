@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { Badge } from '@/components/ui/badge';
@@ -58,15 +57,32 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                             <h1 className="text-3xl">{professional.name}</h1>
                             <p className="text-muted-foreground">{professional.location}</p>
                             
-                            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground mt-4">
+                            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground mt-4">
+                               {professional.isProVerified && (
+                                    <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                                        <ShieldCheck className="h-4 w-4 mr-1" />
+                                        Verified Pro
+                                    </Badge>
+                                )}
                                 {professional.yearsInBusiness && <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {professional.yearsInBusiness} Years in Business</span>}
                                 {professional.employees && (
                                   <span className="flex items-center gap-1.5">
                                     <Users className="h-4 w-4" /> {professional.employees} Employees
-                                    {professional.isProVerified && <ShieldCheck className="h-4 w-4 text-green-500 ml-1" />}
                                   </span>
                                 )}
                             </div>
+
+                             {professional.services && professional.services.length > 0 && (
+                                <div className="mt-4">
+                                    <h4 className="text-sm font-semibold text-foreground mb-2">Services Offered</h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {professional.services.slice(0, 5).map((service, index) => (
+                                            <Badge key={index} variant="outline">{service}</Badge>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                         </div>
                         <div className="text-center flex-shrink-0">
                             <div className="bg-teal-500 text-white font-bold text-2xl rounded-md w-16 h-16 flex items-center justify-center mx-auto">
