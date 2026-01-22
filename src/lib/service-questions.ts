@@ -1,4 +1,5 @@
 
+
 export type Question = {
   id: string;
   text: string;
@@ -154,7 +155,6 @@ export const allServices = [
     { value: 'personal-trainers', label: 'Personal Trainers' },
     { value: 'pest-control', label: 'Pest Control' },
     { value: 'pet-sitters', label: 'Pet Sitters' },
-    { value: 'pets', label: 'Pets' },
     { value: 'photographers', label: 'Photographers' },
     { value: 'physiotherapists', label: 'Physiotherapists' },
     { value: 'plant-hire', label: 'Plant Hire' },
@@ -636,7 +636,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'collection_delivery', label: 'Collection & Delivery' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -652,7 +652,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'query', label: 'General query or assistance' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -670,7 +670,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'custom', label: 'Custom Design / Not sure' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -688,7 +688,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'other', label: 'Other' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -705,7 +705,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'restoration', label: 'Sanding and Sealing' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -722,7 +722,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'maintenance', label: 'General Maintenance (Brushing, Combing)' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -740,7 +740,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'high_rise', label: 'High-Rise Building' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -758,7 +758,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'repair', label: 'Repair an existing gate' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -2496,6 +2496,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
 ];
+
 
 
 
