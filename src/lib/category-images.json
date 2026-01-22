@@ -1170,6 +1170,12 @@
       "description": "Symbolic image for loans, like a person receiving keys or signing documents.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/loans.jpg?alt=media&token=f3957b34-defe-4f1e-bfed-f7ae1c9d68cb",
       "imageHint": "loan agreement"
+    },
+    {
+      "id": "swimming-pool-supplies-image",
+      "description": "A variety of swimming pool chemicals and equipment.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Swimming%20Pool%20Supplies.jpg?alt=media&token=69e1ef77-00d9-4062-ad34-65aec8f88a6b",
+      "imageHint": "pool chemicals"
     }
   ]
 }
