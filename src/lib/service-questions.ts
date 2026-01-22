@@ -84,6 +84,10 @@ export const allServices = [
     { value: 'estate-agents', label: 'Estate Agents' },
     { value: 'event-decorations', label: 'Event Decorations' },
     { value: 'event-planners', label: 'Event Planners' },
+    { value: 'family-care', label: 'Family Care' },
+    { value: 'fashion', label: 'Fashion' },
+    { value: 'fashion-accessories', label: 'Fashion Accessories' },
+    { value: 'fashion-shoes', label: 'Fashion Shoes' },
     { value: 'fencing', label: 'Fencing' },
     { value: 'financial-advisors', label: 'Financial Advisors' },
     { value: 'fire-safety', label: 'Fire Safety' },
@@ -150,6 +154,7 @@ export const allServices = [
     { value: 'personal-trainers', label: 'Personal Trainers' },
     { value: 'pest-control', label: 'Pest Control' },
     { value: 'pet-sitters', label: 'Pet Sitters' },
+    { value: 'pets', label: 'Pets' },
     { value: 'photographers', label: 'Photographers' },
     { value: 'physiotherapists', label: 'Physiotherapists' },
     { value: 'plant-hire', label: 'Plant Hire' },
@@ -2491,6 +2496,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
 ];
+
 
 
 
