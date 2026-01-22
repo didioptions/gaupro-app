@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState } from 'react';
@@ -7,7 +8,7 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, MessageCircle, Verified } from 'lucide-react';
+import { Star, MessageCircle, Verified, Clock, Users } from 'lucide-react';
 import { CategoryImages } from '@/lib/category-images';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
@@ -93,11 +94,25 @@ export default function ProfessionalCard({ professional, service }: Professional
                     {professional.isProVerified && (
                         <div className="flex items-center gap-1 text-green-600">
                             <Verified className="h-4 w-4" />
-                            <span>Verified</span>
+                            <span>Verified Pro</span>
                         </div>
+                    )}
+                    {professional.yearsInBusiness && <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {professional.yearsInBusiness} Years in Business</span>}
+                    {professional.employees && (
+                      <span className="flex items-center gap-1.5">
+                        <Users className="h-4 w-4" /> {professional.employees} Employees
+                      </span>
                     )}
                 </div>
 
+                {professional.services && professional.services.length > 0 && (
+                  <div className="mt-2">
+                    <p className="text-sm text-foreground">
+                      <span className="font-semibold">Services Offered:</span> {professional.services.slice(0, 3).join(', ')}...
+                    </p>
+                  </div>
+                )}
+                
                 <p className="text-sm mt-2 text-foreground">
                   {renderDescription()}
                 </p>
@@ -105,7 +120,7 @@ export default function ProfessionalCard({ professional, service }: Professional
             </div>
           </div>
           <div className="text-left sm:text-right space-y-2">
-            <RequestQuoteDialog
+             <RequestQuoteDialog
               service={service}
               initialStep={0}
               initialData={{}}
@@ -120,7 +135,7 @@ export default function ProfessionalCard({ professional, service }: Professional
           </div>
         </div>
         {professional.reviewData && professional.reviewData.length > 0 && (
-          <div className="mt-4 pt-4 border-t">
+          <div className="mt-4 pt-4 border-t mx-6 pb-0">
             <div className="flex items-center gap-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -129,8 +144,7 @@ export default function ProfessionalCard({ professional, service }: Professional
               </div>
               <p className="text-sm text-muted-foreground">by {professional.reviewData[0].author}{professional.reviewData[0].phone && `, ${professional.reviewData[0].phone}`}</p>
             </div>
-            <div className="flex items-start gap-3 mt-2">
-                <MessageCircle className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
+            <div className="mt-2">
                 <p className="text-sm text-foreground italic">"{professional.reviewData[0].comment}"</p>
             </div>
           </div>
