@@ -1,4 +1,5 @@
 
+
 export type Question = {
   id: string;
   text: string;
@@ -87,6 +88,7 @@ export const allServices = [
     { value: 'family-care', label: 'Family Care' },
     { value: 'fashion', label: 'Fashion' },
     { value: 'fashion-accessories', label: 'Fashion Accessories' },
+    { value: 'fashion-clothing-stores', label: 'Fashion Clothing Stores' },
     { value: 'fashion-shoes', label: 'Fashion Shoes' },
     { value: 'fencing', label: 'Fencing' },
     { value: 'financial-advisors', label: 'Financial Advisors' },
@@ -951,7 +953,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'other', label: 'Other' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -968,7 +970,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'repair', label: 'Curtain repairs/alterations' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -986,7 +988,7 @@ export const serviceQuestionSets: QuestionSet[] = [
           { value: 'gutters', label: 'Gutters' },
         ],
       },
-      ...commonQuestions
+      ...commonQuestions,
     ],
   },
   {
@@ -2496,6 +2498,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
 ];
+
 
 
 
