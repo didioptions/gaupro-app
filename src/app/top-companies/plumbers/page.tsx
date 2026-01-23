@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/layout/header';
@@ -21,7 +22,7 @@ export default function TopPlumbersPage() {
   const professionalsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
     return query(
-        collection(firestore, 'professionals'),
+        collection(firestore, 'professionalProfiles'),
         where('serviceCategory', '==', proCategory),
         orderBy('rating', 'desc'),
         orderBy('priorityRank', 'desc'),

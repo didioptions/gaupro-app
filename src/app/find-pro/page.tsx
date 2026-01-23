@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -30,7 +31,7 @@ export default function FindProPage() {
   const firestore = useFirestore();
   const allProfessionalsQuery = useMemoFirebase(() => {
       if (!firestore) return null;
-      return collection(firestore, 'professionals');
+      return collection(firestore, 'professionalProfiles');
   }, [firestore]);
   const { data: allProsFromFirestore, isLoading: isLoadingPros } = useCollection<Professional>(allProfessionalsQuery);
 

@@ -1,4 +1,3 @@
-
 /**
  * @fileoverview Firestore Security Rules for Gaupro.
  *
@@ -21,10 +20,9 @@ service cloud.firestore {
       allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == userId;
     }
     
-    // Anyone can read a single professional profile, but a user can only list/query for their own profile.
+    // Anyone can read and list professional profiles. Only owners can write.
     match /professionalProfiles/{professionalProfileId} {
-      allow get: if true;
-      allow list: if isSignedIn() && request.query.where.userId == request.auth.uid;
+      allow get, list: if true;
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;

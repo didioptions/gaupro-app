@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
@@ -47,7 +48,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const professionalsQuery = useMemoFirebase(() => {
         if (!firestore) return null;
         let q: Query<DocumentData> = query(
-            collection(firestore, 'professionals'),
+            collection(firestore, 'professionalProfiles'),
             where('serviceCategory', '==', currentService),
             orderBy('priorityRank', 'desc'),
             limit(20)
