@@ -19,17 +19,36 @@ service cloud.firestore {
       allow read, update, delete: if isSignedIn() && isOwner(userId);
       allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == userId;
     }
-    
-    // Allow public read access to all documents and subcollections within professionalProfiles.
-    match /professionalProfiles/{document=**} {
-      allow read: if true;
+
+    // --- Professional Profiles ---
+    // Anyone can list the collection of profiles.
+    match /professionalProfiles {
+      allow list: if true;
     }
-    
-    // Restrict writes to professional profiles to the profile owner.
+
+    // Rules for individual professional profile documents and their subcollections.
     match /professionalProfiles/{professionalProfileId} {
+      // Anyone can read a single professional's profile.
+      allow get: if true;
+
+      // Only the authenticated owner of the profile can write to it.
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      // Mirror reads for quotes on the professional's profile.
+      match /quotes/{quoteId} {
+          allow read: if isSignedIn() && isOwner(professionalProfileId);
+          allow create: if canCreateQuote(getAfterData(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, quoteId);
+          allow update, delete: if false;
+      }
+
+      // Mirror reads for reviews on the professional's profile.
+      match /reviews/{reviewId} {
+        allow read: if true;
+        allow create: if canCreateReview(getAfterData(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, reviewId);
+        allow update, delete: if false; // Disallow public updates/deletes
+      }
     }
 
     // --- Subcollections ---
@@ -38,34 +57,20 @@ service cloud.firestore {
     match /users/{userId}/serviceRequests/{serviceRequestId} {
       allow read, write: if isSignedIn() && isOwner(userId);
     }
-    
+
     // Quotes can be read by the user who owns the service request or the pro who submitted it.
     match /users/{userId}/serviceRequests/{serviceRequestId}/quotes/{quoteId} {
       allow read: if isSignedIn() && (isOwner(userId) || isQuoteOwner(quoteId));
       allow create: if canCreateQuote(userId, serviceRequestId, quoteId);
       allow update, delete: if false; // Quotes are immutable
     }
-    
+
     // Reviews are publicly readable. A user can create/update a review for their own service request.
     match /users/{userId}/serviceRequests/{serviceRequestId}/reviews/{reviewId} {
       allow read: if true;
       allow create: if canCreateReview(userId, serviceRequestId, reviewId);
       allow update: if isSignedIn() && isOwner(userId) && resource.data.userId == userId;
       allow delete: if isSignedIn() && isOwner(userId);
-    }
-
-    // Mirror reads for quotes on the professional's profile.
-    match /professionalProfiles/{professionalProfileId}/quotes/{quoteId} {
-        allow read: if isSignedIn() && isOwner(professionalProfileId);
-        allow create: if canCreateQuote(getAfterData(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, quoteId);
-        allow update, delete: if false;
-    }
-
-    // Mirror reads for reviews on the professional's profile.
-    match /professionalProfiles/{professionalProfileId}/reviews/{reviewId} {
-      allow read: if true;
-      allow create: if canCreateReview(getAfterData(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, reviewId);
-      allow update, delete: if false; // Disallow public updates/deletes
     }
 
     // --- Helper Functions ---
@@ -81,7 +86,7 @@ service cloud.firestore {
       // In a real app, this would check a custom claim or a role.
       return isSignedIn();
     }
-    
+
     function isQuoteOwner(quoteId) {
         return exists(/databases/$(database)/documents/professionalProfiles/$(request.auth.uid)/quotes/$(quoteId));
     }
@@ -98,12 +103,12 @@ service cloud.firestore {
       // Ensure the other write in the transaction is to the professional's own quote collection
       let otherWritePath = /databases/$(database)/documents/professionalProfiles/$(quoteData.professionalProfileId)/quotes/$(quoteId);
       let otherWriteData = get(/databases/$(database)/documents/$(otherWritePath)).data;
-      
+
       return isPro &&
              isProProfileOwner &&
              serviceRequestExists &&
              // Ensure the mirrored write is valid
-             request.path != otherWritePath && 
+             request.path != otherWritePath &&
              otherWriteData.amount == quoteData.amount &&
              otherWriteData.serviceRequestId == serviceRequestId;
     }
@@ -112,7 +117,7 @@ service cloud.firestore {
     function canCreateReview(userId, serviceRequestId, reviewId) {
       let isRequestOwner = isOwner(userId);
       let reviewData = request.resource.data;
-      
+
       // Ensure the other write is to the professional's review collection
       let otherWritePath = /databases/$(database)/documents/professionalProfiles/$(reviewData.professionalProfileId)/reviews/$(reviewId);
        let otherWriteData = get(/databases/$(database)/documents/$(otherWritePath)).data;
