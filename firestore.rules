@@ -20,21 +20,16 @@ service cloud.firestore {
       allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == userId;
     }
     
-    // Anyone can read and list professional profiles. Only owners can write.
+    // Allow public read access to all documents and subcollections within professionalProfiles.
+    match /professionalProfiles/{document=**} {
+      allow read: if true;
+    }
+    
+    // Restrict writes to professional profiles to the profile owner.
     match /professionalProfiles/{professionalProfileId} {
-      allow get, list: if true;
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
-    }
-    
-    // DEPRECATED: Rules below are for the old professionals collection. The new one is professionalProfiles.
-    match /professionals/{professionalId} {
-       allow get: if true;
-       allow list: if isSignedIn() && request.query.where.userId == request.auth.uid;
-       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
-       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
-       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
     }
 
     // --- Subcollections ---
