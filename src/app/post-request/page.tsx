@@ -1,7 +1,7 @@
-
 'use client';
+export const dynamic = "force-dynamic";
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, X, ThumbsUp, Tag, Star, Clock, Shield } from 'lucide-react';
@@ -37,8 +37,6 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Skeleton } from '@/components/ui/skeleton';
-
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -72,7 +70,7 @@ const whyChooseGaupro = [
     }
 ];
 
-function PostRequestForm() {
+export default function PostRequestPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const serviceQuery = searchParams.get('service') || '';
@@ -88,9 +86,7 @@ function PostRequestForm() {
   const initialLocation = locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const [locationValue, setLocationValue] = useState(initialLocation);
 
-
   useEffect(() => {
-    // If a service is passed in the URL, skip the first step.
     if (serviceQuery) {
       setStep(1);
     }
@@ -98,7 +94,7 @@ function PostRequestForm() {
       const locationLabel = allLocations.find(l => l.value === locationQuery)?.label || initialLocation;
       setLocationValue(locationLabel);
       handleInputChange('suburb', locationLabel);
-      handleInputChange('city', ''); // Assuming suburb implies city for now
+      handleInputChange('city', '');
     }
   }, [serviceQuery, locationQuery]);
 
@@ -107,7 +103,7 @@ function PostRequestForm() {
     serviceQuestionSets.find((qs) => qs.service === 'default');
 
   const questions = questionSet?.questions || [];
-  const totalSteps = (questions?.length || 0) + 1; // +1 for the final details step
+  const totalSteps = (questions?.length || 0) + 1;
   const progress = step > 0 ? ((step - 1) / (totalSteps - 1)) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
@@ -258,8 +254,7 @@ function PostRequestForm() {
       }
 
       const isNextButtonDisabled = () => {
-        if(currentQuestion.type === 'textarea') return false; 
-        if(currentQuestion.type === 'location' && (formData['city'] || formData['suburb'])) return false;
+        if(currentQuestion.type === 'textarea' || currentQuestion.type === 'location') return false; 
 
         const value = formData[currentQuestion.id];
         if (currentQuestion.type === 'checkbox') {
@@ -506,38 +501,15 @@ function PostRequestForm() {
   };
   
   return (
-    <Card className="overflow-hidden">
-      {renderStepContent()}
-    </Card>
-  )
-}
-
-function Loading() {
-  return (
-      <Card className="overflow-hidden">
-           <CardHeader className="p-6">
-               <Skeleton className="h-8 w-3/4 mb-2" />
-               <Skeleton className="h-4 w-1/2" />
-           </CardHeader>
-          <CardContent className="py-8">
-              <Skeleton className="h-12 w-full" />
-          </CardContent>
-      </Card>
-  );
-}
-
-export default function PostRequestPage() {
-  return (
     <>
       <Header />
       <main className="flex-grow bg-secondary/30">
         <div className="container mx-auto px-4 py-12 md:py-16">
             <div className="max-w-2xl mx-auto">
-              <Suspense fallback={<Loading />}>
-                <PostRequestForm />
-              </Suspense>
+              <Card className="overflow-hidden">
+                  {renderStepContent()}
+              </Card>
             </div>
-
             <section className="max-w-4xl mx-auto mt-16">
                 <h2 className="text-2xl text-center mb-8 font-normal">Why choose Gaupro for reliable service?</h2>
                 <div className="grid md:grid-cols-2 gap-8">
