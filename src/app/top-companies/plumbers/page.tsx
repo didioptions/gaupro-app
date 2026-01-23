@@ -1,18 +1,35 @@
+'use client';
 
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { allProfessionals } from '@/lib/professionals-data';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import InlineQuoteForm from '@/components/inline-quote-form';
-import ProfessionalCard from '@/components/services/professional-card';
+import ProfessionalCard, { Professional } from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
+import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { collection, query, where, orderBy, limit } from 'firebase/firestore';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardContent } from '@/components/ui/card';
 
 export default function TopPlumbersPage() {
   const proCategory = 'plumber';
-  const pros = allProfessionals[proCategory] || [];
-  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 6);
+  
+  const firestore = useFirestore();
+
+  const professionalsQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(
+        collection(firestore, 'professionals'),
+        where('serviceCategory', '==', proCategory),
+        orderBy('rating', 'desc'),
+        orderBy('priorityRank', 'desc'),
+        limit(6)
+    );
+  }, [firestore]);
+
+  const { data: topCompanies, isLoading } = useCollection<Professional>(professionalsQuery);
 
   const heroImage = CategoryImages.find(p => p.id === 'plumber-image');
 
@@ -24,6 +41,32 @@ export default function TopPlumbersPage() {
     '✨ Consistent Quality Work',
     '📞 Easy, Safe & Quick Bookings',
   ];
+
+  const ProfessionalList = () => {
+    if (isLoading) {
+      return (
+        <div className="space-y-6">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <Skeleton key={index} className="h-48 w-full" />
+          ))}
+        </div>
+      );
+    }
+
+    if (!topCompanies || topCompanies.length === 0) {
+      return (
+        <Card>
+          <CardContent className="p-6 text-center">
+            <p className="text-lg text-muted-foreground">No top plumbers found.</p>
+          </CardContent>
+        </Card>
+      );
+    }
+    
+    return topCompanies.map((pro) => (
+        <ProfessionalCard key={pro.id} professional={pro} service={proCategory} />
+    ));
+  };
 
   return (
     <>
@@ -64,18 +107,13 @@ export default function TopPlumbersPage() {
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
-                    {topCompanies.map((pro) => (
-                        <ProfessionalCard key={pro.id} professional={pro} service={proCategory} />
-                    ))}
+                    <ProfessionalList />
                 </div>
                 <aside className="space-y-8">
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need a Plumber?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for plumbers</li>
-                            <li>{pros.filter(p => p.rating >= 4).length * 80}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.9/5 stars by customers</li>
-                            <li>View Top Plumbing Companies today</li>
+                            <li>View top rated plumbers today</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">

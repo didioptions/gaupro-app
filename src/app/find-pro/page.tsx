@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -16,17 +15,9 @@ import {
   type MatchServiceRequestsInput,
   type MatchServiceRequestsOutput,
 } from '@/ai/flows/match-service-requests-with-professionals';
-import { allProfessionals } from '@/lib/professionals-data';
-import ProfessionalCard from '@/components/services/professional-card';
-import { Professional } from '@/components/services/professional-card';
-
-// Correctly flatten the allProfessionals object while preserving the category
-const allProsArray = Object.entries(allProfessionals).flatMap(([category, pros]) => 
-  (pros as Professional[]).map(pro => ({
-    ...pro,
-    serviceCategory: category // Attach the category to each pro object
-  }))
-);
+import ProfessionalCard, { Professional } from '@/components/services/professional-card';
+import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { collection } from 'firebase/firestore';
 
 
 export default function FindProPage() {
@@ -35,6 +26,13 @@ export default function FindProPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [matchedPros, setMatchedPros] = useState<MatchServiceRequestsOutput | null>(null);
+
+  const firestore = useFirestore();
+  const allProfessionalsQuery = useMemoFirebase(() => {
+      if (!firestore) return null;
+      return collection(firestore, 'professionals');
+  }, [firestore]);
+  const { data: allProsFromFirestore, isLoading: isLoadingPros } = useCollection<Professional>(allProfessionalsQuery);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,9 +45,9 @@ export default function FindProPage() {
     setError(null);
     setMatchedPros(null);
 
-    const professionalProfilesForAI = allProsArray.map((pro) => ({
+    const professionalProfilesForAI = (allProsFromFirestore || []).map((pro) => ({
       name: pro.name,
-      skills: pro.tags || [pro.serviceCategory], // Use tags if available, otherwise fallback to serviceCategory
+      skills: pro.tags || [pro.serviceCategory],
       location: pro.location,
       availability: 'Available', // Placeholder
     }));
@@ -71,12 +69,11 @@ export default function FindProPage() {
     }
   };
 
-  // Create a map for quick lookup of full professional data
   const proDataMap = useMemo(() => {
     const map = new Map<string, Professional>();
-    allProsArray.forEach(pro => map.set(pro.name, pro));
+    (allProsFromFirestore || []).forEach(pro => map.set(pro.name, pro));
     return map;
-  }, []);
+  }, [allProsFromFirestore]);
 
   return (
     <>
@@ -122,8 +119,8 @@ export default function FindProPage() {
                       <AlertDescription>{error}</AlertDescription>
                     </Alert>
                   )}
-                  <Button type="submit" size="lg" className="w-full text-lg" disabled={isLoading}>
-                    {isLoading ? (
+                  <Button type="submit" size="lg" className="w-full text-lg" disabled={isLoading || isLoadingPros}>
+                    {isLoading || isLoadingPros ? (
                       <>
                         <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                         Finding Matches...

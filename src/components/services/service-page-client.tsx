@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
@@ -14,8 +13,10 @@ import Link from 'next/link';
 import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
-import { allProfessionals } from '@/lib/professionals-data';
-import ProfessionalCard from '@/components/services/professional-card';
+import ProfessionalCard, { Professional } from '@/components/services/professional-card';
+import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { collection, query, where, orderBy, limit, DocumentData } from 'firebase/firestore';
+
 
 interface ServicePageClientProps {
   params: { service: string };
@@ -41,36 +42,32 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
 
+    const firestore = useFirestore();
+
+    const professionalsQuery = useMemoFirebase(() => {
+        if (!firestore) return null;
+        let q: Query<DocumentData> = query(
+            collection(firestore, 'professionals'),
+            where('serviceCategory', '==', currentService),
+            orderBy('priorityRank', 'desc'),
+            limit(20)
+        );
+        return q;
+    }, [firestore, currentService]);
+
+    const { data: professionalsData, isLoading: isLoadingFirestore } = useCollection<Professional>(professionalsQuery);
+
     const professionals = useMemo(() => {
-        // Flatten all professionals into a single array
-        const allPros = Object.values(allProfessionals).flat();
-
-        // Filter by service category, using the URL slug directly
-        let filteredPros = allPros.filter(pro => pro.serviceCategory === currentService);
-
-        // If no professionals are found for the specific slug, try a fallback (e.g. for plurals or variations)
-        if (filteredPros.length === 0) {
-            const singularKey = currentService.endsWith('s') ? currentService.slice(0, -1) : currentService;
-            const pluralKey = !currentService.endsWith('s') ? `${currentService}s` : currentService;
-            
-            filteredPros = allPros.filter(pro => 
-                pro.serviceCategory === singularKey || 
-                pro.serviceCategory === pluralKey ||
-                pro.tags?.includes(serviceLabel)
-            );
+        if (!professionalsData) return [];
+        if (locationQuery && typeof locationQuery === 'string') {
+             const formattedLocationQuery = locationQuery.replace(/-/g, ' ').toLowerCase();
+             return professionalsData.filter(pro => pro.location?.toLowerCase().includes(formattedLocationQuery));
         }
+        return professionalsData;
+    }, [professionalsData, locationQuery]);
 
-        // If there's a location query, filter by that as well
-        if (locationQuery) {
-            return filteredPros.filter((pro: any) => 
-                pro.serviceLocations && pro.serviceLocations.includes(locationQuery)
-            );
-        }
-
-        return filteredPros;
-    }, [currentService, locationQuery, serviceLabel]);
+    const isLoading = isLoadingFirestore || !isClient;
     
-    const isLoading = false;
     const error = null;
     
     if (error) {
@@ -122,7 +119,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     }, [currentService, locationName]);
 
     const ProfessionalList = () => {
-        if (isLoading || !isClient) { // Check for isClient here
+        if (isLoading) {
             return Array.from({ length: 5 }).map((_, index) => (
                 <Card key={index}>
                     <CardContent className="p-6">
