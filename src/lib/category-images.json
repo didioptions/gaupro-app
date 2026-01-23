@@ -10,7 +10,7 @@
     {
       "id": "movers-image",
       "description": "Two professional movers in uniform carrying a couch.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/movers%20good.jpg?alt=media&token=6723d13e-f3d9-4dd7-b64a-3a240a80206b",
+      "imageUrl": "https://picsum.photos/seed/movers-couch/800/600",
       "imageHint": "movers couch"
     },
     {
@@ -802,31 +802,31 @@
     {
       "id": "couriers-image",
       "description": "A courier delivering a package to a customer.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Couriers.jpg?alt=media&token=4a509afd-9ace-45d3-a273-fd958e52090b",
+      "imageUrl": "https://picsum.photos/seed/courier-package/800/600",
       "imageHint": "courier package"
     },
     {
       "id": "school-transport-image",
       "description": "A friendly school bus driver in front of a yellow bus.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/school%20trans.jpg?alt=media&token=59d26202-b352-4695-96aa-e1b30e4762b0",
+      "imageUrl": "https://picsum.photos/seed/school-bus/800/600",
       "imageHint": "school bus"
     },
     {
       "id": "shuttle-services-image",
       "description": "A clean, modern shuttle van waiting for passengers.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Shuttle%20Services.jpg?alt=media&token=258b0e10-4dbb-492f-80c2-dfbc6d5e1f95",
+      "imageUrl": "https://picsum.photos/seed/shuttle-van/800/600",
       "imageHint": "shuttle van"
     },
     {
       "id": "taxis-image",
       "description": "A taxi driving through a city street.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/taxis.jpg?alt=media&token=92c042f2-8f15-4f6d-a4a6-073f8c36d8e4",
+      "imageUrl": "https://picsum.photos/seed/taxi-city/800/600",
       "imageHint": "taxi city"
     },
     {
       "id": "transportation-image",
       "description": "A large truck driving on a highway, symbolizing logistics and transportation.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Transportation.jpg?alt=media&token=1ca7600b-b20e-4328-a092-49fe4152bed8",
+      "imageUrl": "https://picsum.photos/seed/truck-highway/800/600",
       "imageHint": "truck highway"
     },
     {
@@ -1136,7 +1136,7 @@
       "imageHint": "driveway gate"
     },
     {
-      "id": "window-tinting-image",
+      "id": "car-window-tinting-image",
       "description": "A professional applying tint film to a car window.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/car%20window%20tinting.jpg?alt=media&token=5c83dc8c-28ad-4115-bcbc-ba84b296493b",
       "imageHint": "car window tinting"
@@ -1170,12 +1170,6 @@
       "description": "Symbolic image for loans, like a person receiving keys or signing documents.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/loans.jpg?alt=media&token=f3957b34-defe-4f1e-bfed-f7ae1c9d68cb",
       "imageHint": "loan agreement"
-    },
-    {
-      "id": "swimming-pool-supplies-image",
-      "description": "A variety of swimming pool chemicals and equipment.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Swimming%20Pool%20Supplies.jpg?alt=media&token=69e1ef77-00d9-4062-ad34-65aec8f88a6b",
-      "imageHint": "pool chemicals"
     }
   ]
 }
