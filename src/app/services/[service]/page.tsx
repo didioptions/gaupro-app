@@ -18,6 +18,11 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { allProfessionals } from '@/lib/professionals-data';
 import ProfessionalCard from '@/components/services/professional-card';
 
+export async function generateStaticParams() {
+  return allServices.map((service) => ({
+    service: service.value,
+  }));
+}
 
 export default function ServicePage() {
     const params = useParams();
