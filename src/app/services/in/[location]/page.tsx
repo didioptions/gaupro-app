@@ -3,6 +3,13 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
+import { allLocations } from '@/lib/locations';
+
+export async function generateStaticParams() {
+  return allLocations.map((location) => ({
+    location: location.value,
+  }));
+}
 
 export default function ServicesByLocationPage({ params }: { params: { location: string } }) {
   const locationName = params.location.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
