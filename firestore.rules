@@ -21,15 +21,10 @@ service cloud.firestore {
     }
 
     // --- Professional Profiles ---
-    // Anyone can list the collection of profiles.
-    match /professionalProfiles {
-      allow list: if true;
-    }
-
-    // Rules for individual professional profile documents and their subcollections.
+    // This single block now governs the entire /professionalProfiles path.
     match /professionalProfiles/{professionalProfileId} {
-      // Anyone can read a single professional's profile.
-      allow get: if true;
+      // Allow public read access to both the collection (list) and individual documents (get).
+      allow get, list: if true;
 
       // Only the authenticated owner of the profile can write to it.
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
