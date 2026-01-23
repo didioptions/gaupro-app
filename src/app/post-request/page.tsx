@@ -1,7 +1,8 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, X, ThumbsUp, Tag, Star, Clock, Shield } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
@@ -23,7 +24,6 @@ import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { useSearchParams, useRouter } from 'next/navigation';
 import { allLocations } from '@/lib/locations';
 import {
   AlertDialog,
@@ -37,6 +37,8 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Skeleton } from '@/components/ui/skeleton';
+
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -70,7 +72,7 @@ const whyChooseGaupro = [
     }
 ];
 
-export default function PostRequestPage() {
+function PostRequestForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const serviceQuery = searchParams.get('service') || '';
@@ -502,16 +504,38 @@ export default function PostRequestPage() {
     
     return null;
   };
+  
+  return (
+    <Card className="overflow-hidden">
+      {renderStepContent()}
+    </Card>
+  )
+}
 
+function Loading() {
+  return (
+      <Card className="overflow-hidden">
+           <CardHeader className="p-6">
+               <Skeleton className="h-8 w-3/4 mb-2" />
+               <Skeleton className="h-4 w-1/2" />
+           </CardHeader>
+          <CardContent className="py-8">
+              <Skeleton className="h-12 w-full" />
+          </CardContent>
+      </Card>
+  );
+}
+
+export default function PostRequestPage() {
   return (
     <>
       <Header />
       <main className="flex-grow bg-secondary/30">
         <div className="container mx-auto px-4 py-12 md:py-16">
             <div className="max-w-2xl mx-auto">
-                <Card className="overflow-hidden">
-                    {renderStepContent()}
-                </Card>
+              <Suspense fallback={<Loading />}>
+                <PostRequestForm />
+              </Suspense>
             </div>
 
             <section className="max-w-4xl mx-auto mt-16">
