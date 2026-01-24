@@ -75,7 +75,7 @@
     {
       "id": "rubble-removal-image",
       "description": "A large skip bin filled with construction rubble.",
-      "imageUrl": "https://images.unsplash.com/photo-1617873328213-922757c4c11b?w=800&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/7%20rubble%20removal.jpg?alt=media&token=a0b7fb0d-97d6-4c0e-807b-edad1aed6638",
       "imageHint": "skip bin"
     },
     {
@@ -141,7 +141,7 @@
     {
       "id": "debt-counsellors-image",
       "description": "A counsellor talking to a client about their finances.",
-      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Debt%20Collection%20A.jpg?alt=media&token=9af40147-350f-4deb-b299-80bfc329271c",
       "imageHint": "financial counselling"
     },
     {
