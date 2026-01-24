@@ -26,13 +26,15 @@ export default function TopCompaniesPage() {
 
   const professionalsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
+    const serviceForQuery = allServices.find(s => s.value === proCategory)?.label || serviceLabel;
+    
     return query(
         collection(firestore, 'professionalProfiles'),
-        where('serviceCategory', '==', proCategory),
+        where('serviceCategory', '==', serviceForQuery),
         orderBy('rating', 'desc'),
         orderBy('priorityRank', 'desc')
     );
-  }, [firestore]);
+  }, [firestore, proCategory, serviceLabel]);
 
   const { data: topCompanies, isLoading } = useCollection<Professional>(professionalsQuery);
 

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import InlineQuoteForm from '@/components/inline-quote-form';
-import ProfessionalCard, { Professional } from '@/components/services/professional-card';
+import ProfessionalCard, { type Professional } from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
 import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
 import { collection, query, where, orderBy } from 'firebase/firestore';
@@ -26,13 +26,15 @@ export default function TopCompaniesPage() {
 
   const professionalsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
+    const serviceForQuery = allServices.find(s => s.value === proCategory)?.label || serviceLabel;
+
     return query(
         collection(firestore, 'professionalProfiles'),
-        where('serviceCategory', '==', proCategory),
+        where('serviceCategory', '==', serviceForQuery),
         orderBy('rating', 'desc'),
         orderBy('priorityRank', 'desc')
     );
-  }, [firestore]);
+  }, [firestore, proCategory, serviceLabel]);
 
   const { data: topCompanies, isLoading } = useCollection<Professional>(professionalsQuery);
 
