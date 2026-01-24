@@ -1,1175 +1,1282 @@
-
 {
   "categoryImages": [
     {
-      "id": "builders-image",
-      "description": "A professional builder in a hard hat, smiling confidently at a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/builder%20good.jpg?alt=media&token=a71c0461-b5c9-4ee1-9ae3-7ca73c90a0ee",
-      "imageHint": "builder construction"
+      "id": "homepage-hero",
+      "description": "A diverse group of smiling professionals, including a designer, an electrician, and a personal trainer.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/better_imresizer%20(1)%20(1)%20(1)%20(1).png?alt=media&token=8521a4d4-65c0-439e-b42e-0bfc2fedc160",
+      "imageHint": "diverse professionals team"
+    },
+    {
+      "id": "ac-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1671794621037-422d4d96fca9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzbm93Zmxha2UlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for CoolBreeze Air",
+      "imageHint": "snowflake logo"
+    },
+    {
+      "id": "ac-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1663620779258-0d48644b5193?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YXZlJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Climate Control",
+      "imageHint": "wave icon"
+    },
+    {
+      "id": "ac-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1608241611705-fa1853e69b91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg5MDE0NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Pretoria Air Solutions",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "ac-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1618329918461-51bb072e0ea5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for iKapa Aircon",
+      "imageHint": "mountain logo"
+    },
+    {
+      "id": "ac-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1719557553226-fd807bbbaa21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFmJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Umphefumulo Opholile",
+      "imageHint": "leaf icon"
+    },
+    {
+      "id": "alu-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1508413247292-b19a305ff5db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2luZG93JTIwZnJhbWV8ZW58MHx8fHwxNzY4OTkyNDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for AluFrame Gauteng",
+      "imageHint": "window frame"
+    },
+    {
+      "id": "alu-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1683464276767-bfac74dbd6b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMGdsYXNzfGVufDB8fHx8MTc2ODk5MjQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Glass & Aluminium",
+      "imageHint": "abstract glass"
+    },
+    {
+      "id": "alu-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg5MDE0NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Capital Aluminium",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "alu-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1655807286510-a49644c29ef9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbWlsZXklMjBpY29ufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Lekker Frames",
+      "imageHint": "smiley icon"
+    },
+    {
+      "id": "alu-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1711967152696-04e345763e3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWFtb25kJTIwc2hhcGV8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Isibuko Aluminium",
+      "imageHint": "diamond shape"
+    },
+    {
+      "id": "awning-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1601621510822-c1e4bd0690cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3VuJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Shade Solutions",
+      "imageHint": "sun icon"
+    },
+    {
+      "id": "awning-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODk4NjkxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for SunBlocker PTA",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "awning-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1715513008829-2eb86b787ffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxob3VzZSUyMG91dGxpbmV8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Outdoor Living",
+      "imageHint": "house outline"
+    },
+    {
+      "id": "awning-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1704541514651-6e6e3925b601?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0cmVlJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Mthunzi Awnings",
+      "imageHint": "tree logo"
+    },
+    {
+      "id": "awning-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1669387110855-6c974ba1089b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3cmVuY2glMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Regmaker Awnings",
+      "imageHint": "wrench logo"
+    },
+    {
+      "id": "balustrade-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1644224076179-31d622e21511?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHNoYXBlfGVufDB8fHx8MTc2ODk4NzMwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Glass & Steel",
+      "imageHint": "abstract shape"
+    },
+    {
+      "id": "balustrade-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1664157558430-3e4e1a5ac644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjcm93biUyMGxvZ298ZW58MHx8fHwxNzY4OTQ2NDA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Pretoria Balustrade Kings",
+      "imageHint": "crown logo"
+    },
+    {
+      "id": "balustrade-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1701009711394-abd8ff7e8b6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzaGllbGQlMjBpY29ufGVufDB8fHx8MTc2ODkxNzE1NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Safe-Rail",
+      "imageHint": "shield icon"
+    },
+    {
+      "id": "balustrade-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1729132461459-2499978a848a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHhleWUlMjBpY29ufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Isiboniso Balustrades",
+      "imageHint": "eye icon"
+    },
+    {
+      "id": "balustrade-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1761625424632-c6adc86211d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhbnZpbCUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Stewige Relings",
+      "imageHint": "anvil logo"
+    },
+    {
+      "id": "bath-reno-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1719496695844-42c69fb06af6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkcm9wbGV0JTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Bathroom Pros",
+      "imageHint": "droplet icon"
+    },
+    {
+      "id": "bath-reno-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1730835358747-2f4bb6136397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0aWxlJTIwcGF0dGVybnxlbnwwfHx8fDE3Njg5OTI0Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Pretoria Bath & Tile",
+      "imageHint": "tile pattern"
+    },
+    {
+      "id": "bath-reno-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1650294533978-504b5d2af7c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3YXZlJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Wet-Works",
+      "imageHint": "wave icon"
+    },
+    {
+      "id": "bath-reno-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1605799919616-cce57afc06e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsb3R1cyUyMGZsb3dlcnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Indawo Enhle Bathrooms",
+      "imageHint": "lotus flower"
+    },
+    {
+      "id": "bath-reno-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1647586028042-1de4d4a935e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFtbWVyJTIwd3JlbmNofGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Opknap Badkamers",
+      "imageHint": "hammer wrench"
+    },
+    {
+      "id": "blinds-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1504592667779-899d158b68d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3aW5kb3clMjBpY29ufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Blinds & Curtains",
+      "imageHint": "window icon"
+    },
+    {
+      "id": "blinds-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg5MDE0NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Window Dressings",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "blinds-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1590248452227-ff572ebf4afe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW4lMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Pretoria Shade Co.",
+      "imageHint": "sun logo"
+    },
+    {
+      "id": "blinds-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMHNoYXBlfGVufDB8fHx8MTc2ODk4NzMwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Ikhava Blinds",
+      "imageHint": "abstract shape"
+    },
+    {
+      "id": "blinds-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1649701709128-1732160b1ae5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Goeie Gordyne & Blindings",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "builder-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1650984640679-934423a20e9e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxidWlsZGluZyUyMGxvZ298ZW58MHx8fHwxNzY4OTE2OTE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Master Builders",
+      "imageHint": "building logo"
+    },
+    {
+      "id": "builder-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1753012585822-3f0d8461aafb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjcmFuZSUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Construction",
+      "imageHint": "crane logo"
+    },
+    {
+      "id": "builder-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1717435641020-457edd5de718?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb251bWVudCUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Capital Builders PTA",
+      "imageHint": "monument logo"
+    },
+    {
+      "id": "builder-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1762280599914-3b0f50e0517c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb21tdW5pdHklMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Uyakha Projects",
+      "imageHint": "community logo"
+    },
+    {
+      "id": "builder-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1610375461369-d613b564f4c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnb2xkJTIwYmFyfGVufDB8fHx8MTc2ODk5MjQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Bouers van Goud",
+      "imageHint": "gold bar"
+    },
+    {
+      "id": "burglar-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1762857362081-cabed5d9abab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODk4NjkxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Gauteng Secure Bars",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "burglar-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1721629092831-611726529b7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsaW9uJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Jozi Steel Defence",
+      "imageHint": "lion logo"
+    },
+    {
+      "id": "burglar-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1667036679091-6da384768075?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkaWFtb25kJTIwaWNvbnxlbnwwfHx8fDE3Njg5NDk4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Capital Clear Bars",
+      "imageHint": "diamond icon"
+    },
+    {
+      "id": "burglar-logo-4",
+      "imageUrl": "https://images.unsplash.com/photo-1606300780947-39da25191135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHhleWUlMjBpY29ufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Vikela Windows",
+      "imageHint": "eye icon"
+    },
+    {
+      "id": "burglar-logo-5",
+      "imageUrl": "https://images.unsplash.com/photo-1570566920413-fd6410fec24c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhbnZpbCUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Sterk Tralies",
+      "imageHint": "anvil logo"
+    },
+    {
+      "id": "fixall-sandton-handyman-logo",
+      "description": "Simple logo with a wrench and hammer crossed, with text 'FixAll'.",
+      "imageUrl": "https://images.unsplash.com/photo-1762330918172-e19bcb6a7172?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0b29scyUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tools logo"
+    },
+    {
+      "id": "khaya-handy-services-pta-logo",
+      "description": "Logo with text 'Khaya Handy' and a simple house outline.",
+      "imageUrl": "https://images.unsplash.com/photo-1675476366352-879f4dbc8886?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxob3VzZSUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "house logo"
+    },
+    {
+      "id": "smarthaus-midrand-logo",
+      "description": "Modern, geometric logo with a house shape and 'SmartHaus' text.",
+      "imageUrl": "https://images.unsplash.com/photo-1629876060424-7c700725fedc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2VvbWV0cmljJTIwaG91c2V8ZW58MHx8fHwxNzY4OTMxMzM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "geometric house"
+    },
+    {
+      "id": "urbanhandy-gauteng-logo",
+      "description": "Urban-style text logo 'UrbanHandy' in a stencil font.",
+      "imageUrl": "https://images.unsplash.com/photo-1649366911769-44f4c6763479?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3RlbmNpbCUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stencil logo"
+    },
+    {
+      "id": "protask-handymen-logo",
+      "description": "Clean logo with a checkmark inside a toolbox icon, text 'ProTask'.",
+      "imageUrl": "https://images.unsplash.com/photo-1635151947209-b60373e4ccc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0b29sYm94JTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "toolbox logo"
+    },
+    {
+      "id": "aquablast-sandton-logo",
+      "description": "Text-only logo, 'AquaBlast', with a powerful water splash icon, blue and white",
+      "imageUrl": "https://images.unsplash.com/photo-1611496855342-08e017abe5f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YXRlciUyMHNwbGFzaCUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "water splash logo"
+    },
+    {
+      "id": "vuma-pressure-clean-pta-logo",
+      "description": "Strong text-only logo, 'Vuma Clean', in a bold font, green and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1747862712508-e1290330085f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg5MDE0NTd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "skoonforce-midrand-logo",
+      "description": "Minimal flat logo, initials 'SF', with a simple spray nozzle icon, dark blue",
+      "imageUrl": "https://images.unsplash.com/photo-1677273424729-63ae464f13e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxub3p6bGUlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "nozzle logo"
+    },
+    {
+      "id": "projet-wash-gauteng-logo",
+      "description": "Clean wordmark logo, 'ProJet Wash', in a modern, dynamic font, red and black",
+      "imageUrl": "https://images.unsplash.com/photo-1723357646143-68b17c10ee0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg5MDE0NTd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "tito-power-wash-logo",
+      "description": "Text-only logo, 'Tito', with a subtle sparkle or shine icon, bright yellow and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1681876020852-58c3ce267a42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzcGFya2xlJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "sparkle logo"
+    },
+    {
+      "id": "buildright-sandton-logo",
+      "description": "Clean wordmark logo, 'BuildRight', with a simple house or roofline icon, blue and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1704823821726-4d68cc24fa2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxob3VzZSUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "house logo"
+    },
+    {
+      "id": "khaya-improve-pta-logo",
+      "description": "Friendly text-only logo, 'Khaya Improve', in a warm, approachable font, green and orange",
+      "imageUrl": "https://images.unsplash.com/photo-1684976894741-b89706ef32d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg5MDE0NTd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "smarthaus-midrand-logo",
+      "description": "Modern, geometric logo with a house shape and 'SmartHaus' text.",
+      "imageUrl": "https://images.unsplash.com/photo-1629876060424-7c700725fedc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2VvbWV0cmljJTIwaG91c2V8ZW58MHx8fHwxNzY4OTMxMzM2fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "geometric house"
+    },
+    {
+      "id": "mzansi-homeworks-logo",
+      "description": "Text-only logo, 'Mzansi HomeWorks', incorporating a subtle pattern inspired by South African art, black and gold",
+      "imageUrl": "https://images.unsplash.com/photo-1723790011180-73be054b6c31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGF0dGVybiUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pattern logo"
+    },
+    {
+      "id": "profix-living-logo",
+      "description": "Clean wordmark logo, 'ProFix', with a simple tick/checkmark icon, green and grey",
+      "imageUrl": "https://images.unsplash.com/photo-1696041759915-db4e520d542a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2hlY2ttYXJrJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "checkmark logo"
+    },
+    {
+      "id": "urbannest-sandton-interiors-logo",
+      "description": "Elegant text-only logo, 'UrbanNest', in a sophisticated serif font, charcoal and gold",
+      "imageUrl": "https://images.unsplash.com/photo-1747868752289-e74d613cb5ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg5MDE0NTd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "zola-space-design-pta-logo",
+      "description": "Clean wordmark logo, 'Zola Space', with a creative, abstract shape icon, teal and black",
+      "imageUrl": "https://images.unsplash.com/photo-1764601842167-ba701eed47f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWJzdHJhY3QlMjBsb2dvfGVufDB8fHx8MTc2ODkwMDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract logo"
+    },
+    {
+      "id": "luxekhaya-midrand-logo",
+      "description": "Premium text-only logo, 'LuxeKhaya', in a minimalist, high-fashion font, black on white",
+      "imageUrl": "https://images.unsplash.com/photo-1608241611705-fa1853e69b91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZXh0JTIwbG9nb3xlbnwwfHx8fDE3Njg5MDE0NTd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "text logo"
+    },
+    {
+      "id": "elegant-room-gauteng-logo",
+      "description": "Graceful script logo, 'Elegant Room', in a flowing handwriting style, soft grey",
+      "imageUrl": "https://images.unsplash.com/photo-1613191662892-ff0f975fe033?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2NyaXB0JTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "forma-interior-studio-logo",
+      "description": "Geometric logo with the text 'Forma', using clean lines and shapes, monochrome",
+      "imageUrl": "https://images.unsplash.com/photo-1691737832061-90a74aa13f10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "geometric logo"
+    },
+    {
+      "id": "primecook-sandton-kitchens-logo",
+      "description": "Modern kitchen logo with text 'PrimeCook', featuring a chef's hat or whisk icon, black and chrome.",
+      "imageUrl": "https://images.unsplash.com/photo-1563284011-2c0c3a3a7721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8a2l0Y2hlbiUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kitchen logo"
+    },
+    {
+      "id": "khaya-kitchen-studio-pta-logo",
+      "description": "Warm logo 'Khaya Kitchens' with an icon of a house containing a heart, green and brown.",
+      "imageUrl": "https://images.unsplash.com/photo-1674450371215-550d33a2d81e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3VzZSUyMGhlYXJ0JTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "house heart logo"
+    },
+    {
+      "id": "elite-cabinetry-midrand-logo",
+      "description": "Elegant serif font logo 'Elite Cabinetry', with a simple line drawing of a cabinet door.",
+      "imageUrl": "https://images.unsplash.com/photo-1622294172324-5d95fecd7bfc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjYWJpbmV0JTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cabinet logo"
+    },
+    {
+      "id": "moderntaste-gauteng-logo",
+      "description": "Minimalist sans-serif logo 'ModernTaste', clean and sharp, with an abstract kitchen utensil icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1734193259681-1fd359f63205?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtaW5pbWFsaXN0JTIwa2l0Y2hlbiUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "minimalist kitchen logo"
+    },
+    {
+      "id": "saffron-kitchen-co-logo",
+      "description": "Logo 'Saffron Kitchen Co' in a warm, inviting font with a saffron flower or spice icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1726241966334-6e9f1de905d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzcGljZSUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spice logo"
+    },
+    {
+      "id": "floorcraft-sandton-logo",
+      "description": "Logo 'FloorCraft' with an icon showing interlocking floor planks, grey and brown.",
+      "imageUrl": "https://images.unsplash.com/photo-1650831341595-5408b892c486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmbG9vcmluZyUyMHBsYW5rJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flooring plank logo"
+    },
+    {
+      "id": "skoonstep-flooring-pta-logo",
+      "description": "Text logo 'SkoonStep' in a clean, modern font with a footprint icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1669217541257-f46f1d24712a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmb290cHJpbnQlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "footprint logo"
+    },
+    {
+      "id": "timberline-midrand-logo",
+      "description": "Rustic logo 'TimberLine' with a wood grain texture in the font.",
+      "imageUrl": "https://images.unsplash.com/photo-1571205086863-9d186c5cb8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3b29kJTIwZ3JhaW4lMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wood grain logo"
+    },
+    {
+      "id": "urbanplank-gauteng-logo",
+      "description": "Logo 'UrbanPlank' in a strong, sans-serif font, with a long plank graphic underneath.",
+      "imageUrl": "https://images.unsplash.com/photo-1682674396594-0e7f1e43933c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwbGFuayUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "plank logo"
+    },
+    {
+      "id": "solidstep-floors-logo",
+      "description": "Bold logo 'SolidStep' with a shield icon, conveying durability.",
+      "imageUrl": "https://images.unsplash.com/photo-1741088996480-5e4158b56396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODk4NjkxN3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "greenleaf-sandton-landscapes-logo",
+      "description": "Elegant logo with a single green leaf and clean text 'GreenLeaf'.",
+      "imageUrl": "https://images.unsplash.com/photo-1607194402064-d0742de6d17b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsZWFmJTIwbG9nb3xlbnwwfHx8fDE3Njg5NzEwMTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf logo"
+    },
+    {
+      "id": "vuma-landscapes-pta-logo",
+      "description": "Strong text logo 'Vusi' with a stylized sunrise over a hill.",
+      "imageUrl": "https://images.unsplash.com/photo-1605035493783-1f6f531e4981?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW5yaXNlJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sunrise logo"
+    },
+    {
+      "id": "khula-garden-midrand-logo",
+      "description": "Friendly logo with a growing plant icon and 'Khu Garden' text.",
+      "imageUrl": "https://images.unsplash.com/photo-1597328488742-a83643eec6b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwbGFudCUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "plant logo"
+    },
+    {
+      "id": "edenscape-gauteng-logo",
+      "description": "Lush, green logo with 'EdenScape' in a flowing script font.",
+      "imageUrl": "https://images.unsplash.com/photo-1653499676737-becf2c9562c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "terragrow-projects-logo",
+      "description": "Modern, geometric logo representing layers of earth or garden beds with 'TerraGrow' text.",
+      "imageUrl": "https://images.unsplash.com/photo-1560005360-f5df6037001a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnZW9tZXRyaWMlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "geometric logo"
+    },
+    {
+      "id": "freshfold-sandton-logo",
+      "description": "Clean logo with 'FreshFold' text and a stylized folded shirt icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmb2xkZWQlMjBzaGlydHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "folded shirt"
+    },
+    {
+      "id": "skoonwas-pta-logo",
+      "description": "Simple logo 'SkoonWas' with a water droplet and sparkle.",
+      "imageUrl": "https://images.unsplash.com/photo-1669824428398-0aba1ba03321?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3YXRlciUyMHNwYXJrbGV8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water sparkle"
+    },
+    {
+      "id": "clean-wear-midrand-logo",
+      "description": "Elegant logo 'Clean Wear' in a script font.",
+      "imageUrl": "https://images.unsplash.com/photo-1693848197332-ec82270f3ebf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "urbanwash-gauteng-logo",
+      "description": "Modern logo 'UrbanWash' with a city skyline inside a washing machine drum.",
+      "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaXR5JTIwc2t5bGluZXxlbnwwfHx8fDE3Njg5NzUxNzR8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "city skyline"
+    },
+    {
+      "id": "quickspin-laundry-logo",
+      "description": "Logo 'QuickSpin' with a spinning arrow or cycle icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1572473678825-c4d2d35060a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzcGluJTIwYXJyb3d8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spin arrow"
+    },
+    {
+      "id": "securekey-sandton-logo",
+      "description": "Logo with a key inside a shield and 'SecureKey' text.",
+      "imageUrl": "https://images.unsplash.com/photo-1718465388901-9c628510c01e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxrZXklMjBzaGllbGR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "key shield"
+    },
+    {
+      "id": "vala-lock-pros-pta-logo",
+      "description": "Strong text logo 'Vala Lock Pros' with a vintage lock icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1763370356094-5e3c8fa83cf0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx2aW50YWdlJTIwbG9ja3xlbnwwfHx8fDE3Njg5OTI0NDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vintage lock"
+    },
+    {
+      "id": "fastkey-midrand-logo",
+      "description": "Logo with 'FastKey' text and a key with speed lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1566895455004-d00f5f1bea80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxrZXklMjBzcGVlZHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "key speed"
+    },
+    {
+      "id": "irongrip-gauteng-logo",
+      "description": "Logo with 'IronGrip' in a bold, industrial font.",
+      "imageUrl": "https://images.unsplash.com/photo-1637154757530-4c224829c92b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpbmR1c3RyaWFsJTIwZm9udHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial font"
+    },
+    {
+      "id": "safeguard-locks-logo",
+      "description": "Logo with 'SafeGuard' text and a padlock icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1604608619736-53e7be31f8d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYWRsb2NrJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "padlock icon"
+    },
+    {
+      "id": "cleardesk-sandton-logo",
+      "description": "Minimalist logo with 'ClearDesk' text and a sparkle icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1766193232095-fb043b6f9fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzcGFya2xlJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sparkle icon"
+    },
+    {
+      "id": "prooffice-clean-pta-logo",
+      "description": "Professional logo with 'ProOffice Clean' text and a checkmark.",
+      "imageUrl": "https://images.unsplash.com/photo-1689019764328-cb32f5deae89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2hlY2ttYXJrJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "checkmark icon"
+    },
+    {
+      "id": "skoonworkplace-midrand-logo",
+      "description": "Clean logo with 'SkoonWorkplace' text and a leaf icon for eco-friendliness.",
+      "imageUrl": "https://images.unsplash.com/photo-1719557553376-cb844157294f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsZWFmJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf icon"
+    },
+    {
+      "id": "khanya-office-care-logo",
+      "description": "Logo with 'Khanya Office Care' and a shining sun icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1724195329438-e5bf716b37be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdW4lMjBpY29ufGVufDB8fHx8MTc2ODk5MjQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun icon"
+    },
+    {
+      "id": "primespace-cleaning-logo",
+      "description": "Modern logo 'PrimeSpace' with a sweeping line graphic.",
+      "imageUrl": "https://images.unsplash.com/photo-1691061129344-1132de0f0da8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzd29vc2glMjBsaW5lfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "swoosh line"
+    },
+    {
+      "id": "perfectcoat-sandton-logo",
+      "description": "Logo with 'PerfectCoat' text and a paintbrush icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1753453218794-0dcd1e98442d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYWludGJydXNoJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paintbrush logo"
+    },
+    {
+      "id": "vividbrush-pta-logo",
+      "description": "Logo 'VividBrush' with a colorful paint splash.",
+      "imageUrl": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYWludCUyMHNwbGFzaHxlbnwwfHx8fDE3Njg5NjQ3MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paint splash"
+    },
+    {
+      "id": "khula-paintworks-midrand-logo",
+      "description": "Friendly text logo 'Khula PaintWorks' with a simple roller icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1662747097507-374af5d52513?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYWludCUyMHJvbGxlciUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "paint roller logo"
+    },
+    {
+      "id": "elite-finish-gauteng-logo",
+      "description": "Elegant serif font logo 'Elite Finish'.",
+      "imageUrl": "https://images.unsplash.com/photo-1576529365111-4f58baa70f7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZXJpZiUyMGZvbnR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "serif font"
+    },
+    {
+      "id": "smoothwall-services-logo",
+      "description": "Minimalist logo 'SmoothWall' with a clean, smooth line.",
+      "imageUrl": "https://images.unsplash.com/photo-1581023349213-12c93e5a4412?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbW9vdGglMjBsaW5lfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smooth line"
+    },
+    {
+      "id": "stonecraft-sandton-paving-logo",
+      "description": "Logo 'StoneCraft' with an interlocking paver icon, grey and charcoal.",
+      "imageUrl": "https://images.unsplash.com/photo-1728406970272-1b68f161df6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwYXZlciUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paver logo"
+    },
+    {
+      "id": "vuma-pave-pta-logo",
+      "description": "Strong text logo 'Vuma Pave' with a road graphic.",
+      "imageUrl": "https://images.unsplash.com/photo-1615228939096-9ead6c74008e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyb2FkJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "road logo"
+    },
+    {
+      "id": "urbanbrick-midrand-logo",
+      "description": "Modern logo 'UrbanBrick' with a stylized brick pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1672946789196-90f377b2a220?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxicmljayUyMHBhdHRlcm58ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brick pattern"
+    },
+    {
+      "id": "solidway-gauteng-logo",
+      "description": "Bold, industrial font for 'SolidWay' logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1637154757530-4c224829c92b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpbmR1c3RyaWFsJTIwZm9udHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial font"
+    },
+    {
+      "id": "khula-pave-projects-logo",
+      "description": "Logo 'Khula Pave' with a growing plant and a pathway.",
+      "imageUrl": "https://images.unsplash.com/photo-1690180887951-cd2311d76b6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwbGFudCUyMHBhdGh3YXl8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "plant pathway"
+    },
+    {
+      "id": "ironshield-sandton-fencing-logo",
+      "description": "Strong shield logo for 'IronShield' with palisade pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1767695086479-869f10facf90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzaGllbGQlMjBsb2dvfGVufDB8fHx8MTc2ODk4NjkxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield logo"
+    },
+    {
+      "id": "secureline-pta-logo",
+      "description": "Logo 'SecureLine' with a strong continuous line forming a boundary.",
+      "imageUrl": "https://images.unsplash.com/photo-1753596726656-aa2d4eb8c4fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsaW5lJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "line logo"
+    },
+    {
+      "id": "next-gen-fence-midrand-logo",
+      "description": "Modern, tech-inspired logo 'Next Gen Fence'.",
+      "imageUrl": "https://images.unsplash.com/photo-1662027044921-6febc57a0c53?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWNoJTIwbG9nb3xlbnwwfHx8fDE3Njg5ODU2Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech logo"
+    },
+    {
+      "id": "steelguard-gauteng-logo",
+      "description": "Logo 'SteelGuard' with a powerful, abstract guard-dog or sentinel shape.",
+      "imageUrl": "https://images.unsplash.com/photo-1766561993607-58d30bf6b86f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxndWFyZCUyMGxvZ298ZW58MHx8fHwxNzY4OTkyNDQxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "guard logo"
+    },
+    {
+      "id": "probarrier-fencing-logo",
+      "description": "Logo 'ProBarrier' with a clean, impenetrable wall icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1619795372911-6e5964f15d3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3YWxsJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wall icon"
+    },
+    {
+      "id": "safenest-sandton-logo",
+      "description": "Logo 'SafeNest' with a house inside a protective circle.",
+      "imageUrl": "https://images.unsplash.com/photo-1742238861449-f3e88f6762e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxob3VzZSUyMGNpcmNsZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "house circle"
+    },
+    {
+      "id": "ecobug-pta-logo",
+      "description": "Logo 'EcoBug' with a leaf and a friendly ladybug.",
+      "imageUrl": "https://images.unsplash.com/photo-1675619455813-a3c2f20f3aa3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bGVhZiUyMGxhZHlidWd8ZW58MHx8fHwxNzY4OTkyNDQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf ladybug"
+    },
+    {
+      "id": "atoz-pestguard-midrand-logo",
+      "description": "Logo 'A to Z PestGuard' with a magnifying glass over a bug.",
+      "imageUrl": "https://images.unsplash.com/photo-1743796055664-3473eedab36e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYWduaWZ5aW5nJTIwZ2xhc3N8ZW58MHx8fHwxNzY4ODgxOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "magnifying glass"
+    },
+    {
+      "id": "rapidshield-gauteng-logo",
+      "description": "Logo 'RapidShield' with a lightning bolt inside a shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1583265660639-10f52c37c9be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsaWdodG5pbmclMjBzaGllbGR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lightning shield"
+    },
+    {
+      "id": "cleanzone-pest-control-logo",
+      "description": "Logo 'CleanZone' with a checkmark and a sparkle.",
+      "imageUrl": "https://images.unsplash.com/photo-1734486321906-b2214bedb8b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGVja21hcmslMjBzcGFya2xlfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "checkmark sparkle"
+    },
+    {
+      "id": "smoothfinish-sandton-logo",
+      "description": "Logo 'SmoothFinish' in an elegant, flowing script.",
+      "imageUrl": "https://images.unsplash.com/photo-1653499676737-becf2c9562c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzY3JpcHQlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script logo"
+    },
+    {
+      "id": "proplaster-pta-logo",
+      "description": "Strong logo 'ProPlaster' with a trowel icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1628760584600-6c31148991e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0cm93ZWwlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "trowel logo"
+    },
+    {
+      "id": "big-wall-midrand-logo",
+      "description": "Bold, impactful text logo 'B.I.G Wall'.",
+      "imageUrl": "https://images.unsplash.com/photo-1720534256776-4b69ac4c1675?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxib2xkJTIwdGV4dHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold text"
+    },
+    {
+      "id": "elite-surface-gauteng-logo",
+      "description": "Premium logo 'Elite Surface' in a sophisticated font.",
+      "imageUrl": "https://images.unsplash.com/photo-1576529365111-4f58baa70f7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZXJpZiUyMGZvbnR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "serif font"
+    },
+    {
+      "id": "evenwall-services-logo",
+      "description": "Logo 'EvenWall' with a level tool icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1760009436767-d154e930e55c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZXZlbCUyMHRvb2x8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "level tool"
+    },
+    {
+      "id": "solidcast-sandton-fencing-logo",
+      "description": "Logo 'SolidCast' with a strong, blocky font.",
+      "imageUrl": "https://images.unsplash.com/photo-1602067120389-6af881963470?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxibG9jayUyMGZvbnR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "block font"
+    },
+    {
+      "id": "preform-pta-logo",
+      "description": "Logo 'PreForm' with an abstract shape representing a wall section.",
+      "imageUrl": "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMHNoYXBlfGVufDB8fHx8MTc2ODk4NzMwMXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract shape"
+    },
+    {
+      "id": "stanley-concrete-midrand-logo",
+      "description": "Classic, strong logo 'STANLEY Concrete'.",
+      "imageUrl": "https://images.unsplash.com/photo-1697797224696-713aa0e86b1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjbGFzc2ljJTIwbG9nb3xlbnwwfHx8fDE3Njg5NTE1NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "classic logo"
+    },
+    {
+      "id": "buildsafe-gauteng-logo",
+      "description": "Logo 'BuildSafe' with a hard hat and shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1634129003118-37a254f894bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYXJkJTIwaGF0JTIwc2hpZWxkfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "hard hat shield"
+    },
+    {
+      "id": "urban-systems-logo",
+      "description": "Modern logo 'Urban Systems' with a city grid pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1712727435609-e7609b34e6b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaXR5JTIwZ3JpZHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city grid"
+    },
+    {
+      "id": "powerpay-sandton-logo",
+      "description": "Logo 'PowerPay' with a lightning bolt and a coin.",
+      "imageUrl": "https://images.unsplash.com/photo-1668091818168-61a18ea51275?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsaWdodG5pbmclMjBjb2lufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lightning coin"
+    },
+    {
+      "id": "smartmeter-pta-logo",
+      "description": "Logo 'SmartMeter' with a brain/chip icon inside a meter shape.",
+      "imageUrl": "https://images.unsplash.com/photo-1729333806983-fca7ad85b4e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaGlwJTIwbWV0ZXJ8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chip meter"
+    },
+    {
+      "id": "mid-energy-midrand-logo",
+      "description": "Clean logo 'MID Energy' with a simple power plug icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1759711890639-8e2f8c2b7690?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwbHVnJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "plug icon"
+    },
+    {
+      "id": "easywatt-gauteng-logo",
+      "description": "Friendly logo 'EasyWatt' in a rounded font.",
+      "imageUrl": "https://images.unsplash.com/photo-1752061823257-ef7ce04bcbb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cm91bmRlZCUyMGZvbnR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "rounded font"
+    },
+    {
+      "id": "gridpoint-installers-logo",
+      "description": "Logo 'GridPoint' with a grid and a location pin.",
+      "imageUrl": "https://images.unsplash.com/photo-1639086857695-49d3e978a919?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z3JpZCUyMHBpbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grid pin"
+    },
+    {
+      "id": "strongpeak-sandton-roofing-logo",
+      "description": "Logo 'StrongPeak' with a mountain peak and roofline.",
+      "imageUrl": "https://images.unsplash.com/photo-1752252544266-d9cf0f256e35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb3VudGFpbiUyMHJvb2Z8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mountain roof"
+    },
+    {
+      "id": "rrr-roof-works-pta-logo",
+      "description": "Logo with three 'R's forming a roof shape.",
+      "imageUrl": "https://images.unsplash.com/photo-1645337546539-e89bfbd1935f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsZXR0ZXIlMjBsb2dvfGVufDB8fHx8MTc2ODkwMDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "letter logo"
+    },
+    {
+      "id": "irontop-midrand-logo",
+      "description": "Bold logo 'IronTop' in a strong, metallic font.",
+      "imageUrl": "https://images.unsplash.com/photo-1767481256100-99b99c068281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWV0YWxsaWMlMjBmb250fGVufDB8fHx8MTc2ODk5MjQ0MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "metallic font"
+    },
+    {
+      "id": "securespan-gauteng-logo",
+      "description": "Logo 'SecureSpan' with an arching line over a house.",
+      "imageUrl": "https://images.unsplash.com/photo-1662568376957-06b4198e7188?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhcmNoJTIwaG91c2V8ZW58MHx8fHwxNzY4OTkyNDQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "arch house"
+    },
+    {
+      "id": "proshield-roofs-logo",
+      "description": "Logo 'ProShield' with a shield over a roof.",
+      "imageUrl": "https://images.unsplash.com/photo-1609588959666-3cb46cabe3f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaGllbGQlMjByb29mfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield roof"
+    },
+    {
+      "id": "sunguard-shadeports-logo",
+      "description": "Logo with a sun and a shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1740586995847-3a0eb556010a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdW4lMjBzaGllbGR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun shield"
+    },
+    {
+      "id": "mzansi-shade-structures-logo",
+      "description": "Logo with South African flag colors in an abstract shadeport shape.",
+      "imageUrl": "https://images.unsplash.com/photo-1572908375437-35dedf7ad2ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmbGFnJTIwY29sb3JzfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "flag colors"
+    },
+    {
+      "id": "urbancover-shadeports-logo",
+      "description": "Modern, architectural logo with clean lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1560428943-6f268c92cf19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2xlYW4lMjBsaW5lc3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clean lines"
+    },
+    {
+      "id": "bossa-shade-solutions-logo",
+      "description": "Bold, confident logo 'BOSSA'.",
+      "imageUrl": "https://images.unsplash.com/photo-1759067448370-3220d115f130?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxib2xkJTIwdGV4dHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold text"
+    },
+    {
+      "id": "primeshade-gauteng-logo",
+      "description": "Logo 'PrimeShade' in a strong, reliable font.",
+      "imageUrl": "https://images.unsplash.com/photo-1745832479462-7a57fbc2f532?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHJvbmclMjBmb250fGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "strong font"
+    },
+    {
+      "id": "crystalflow-shower-doors-logo",
+      "description": "Elegant logo 'CrystalFlow' with a water and crystal icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1668784319323-2bcd796b3a35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3YXRlciUyMGNyeXN0YWx8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "water crystal"
+    },
+    {
+      "id": "clearview-showers-logo",
+      "description": "Minimalist logo 'ClearView' with a simple square frame.",
+      "imageUrl": "https://images.unsplash.com/photo-1766579696917-5335e0a82962?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcXVhcmUlMjBmcmFtZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "square frame"
+    },
+    {
+      "id": "aquastyle-shower-solutions-logo",
+      "description": "Logo 'AquaStyle' with a stylish water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1535868118629-f37bcd69ff59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3YXRlciUyMGRyb3BsZXR8ZW58MHx8fHwxNzY4OTE4MjA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water droplet"
+    },
+    {
+      "id": "mzansi-glass-showers-logo",
+      "description": "Logo with 'Mzansi' and a simple shower door icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1567286214062-ad7e1cc8e4a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzaG93ZXIlMjBpY29ufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shower icon"
+    },
+    {
+      "id": "pureline-shower-doors-logo",
+      "description": "Logo 'PureLine' with clean, parallel lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1520204871215-20ab878aa1a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwYXJhbGxlbCUyMGxpbmVzfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "parallel lines"
+    },
+    {
+      "id": "sunheat-solar-geysers-logo",
+      "description": "Logo 'SunHeat' with a sun and a flame.",
+      "imageUrl": "https://images.unsplash.com/photo-1569533659138-50982b258c75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdW4lMjBmbGFtZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun flame"
+    },
+    {
+      "id": "ecohot-water-systems-logo",
+      "description": "Logo 'EcoHot' with a leaf and a water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1656252793220-58e3fe34110f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXRlciUyMGxlYWZ8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "water leaf"
+    },
+    {
+      "id": "mzansi-solar-geysers-logo",
+      "description": "Logo 'Mzansi Solar' with a sun over a map of SA.",
+      "imageUrl": "https://images.unsplash.com/photo-1716468420596-a4a71f9e7f0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdW4lMjBtYXB8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun map"
+    },
+    {
+      "id": "greenflow-solar-heating-logo",
+      "description": "Logo 'GreenFlow' with flowing lines and a leaf.",
+      "imageUrl": "https://images.unsplash.com/photo-1600434721944-00114e02e583?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmbG93aW5nJTIwbGluZXN8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flowing lines"
+    },
+    {
+      "id": "aquasun-installations-logo",
+      "description": "Logo 'AquaSun' with a sun and water wave.",
+      "imageUrl": "https://images.unsplash.com/photo-1605177248083-25ddb8d55120?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdW4lMjB3YXZlfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun wave"
+    },
+    {
+      "id": "solarwise-gauteng-logo",
+      "description": "Logo 'SolarWise' with a sun and a brain/chip icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1617460055001-2167c227cb7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdW4lMjBjaGlwfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun chip"
+    },
+    {
+      "id": "solar-tech-logo",
+      "description": "Modern, techy font for 'Solar Tech'.",
+      "imageUrl": "https://images.unsplash.com/photo-1721378466934-68c57d15a6c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZWNoJTIwZm9udHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech font"
+    },
+    {
+      "id": "brightgrid-energy-logo",
+      "description": "Logo 'BrightGrid' with a grid of suns.",
+      "imageUrl": "https://images.unsplash.com/photo-1578003307232-767e7772f38d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdW4lMjBncmlkfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun grid"
+    },
+    {
+      "id": "vip-power-solutions-logo",
+      "description": "Premium logo 'VIP Power' with a crown and lightning bolt.",
+      "imageUrl": "https://images.unsplash.com/photo-1617906024072-b548011be377?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjcm93biUyMGxpZ2h0bmluZ3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crown lightning"
+    },
+    {
+      "id": "sunvolt-projects-logo",
+      "description": "Logo 'SunVolt' with a sun and a battery icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1707396171816-fb12f0ecdec3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdW4lMjBiYXR0ZXJ5fGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun battery"
+    },
+    {
+      "id": "bluewave-pool-builders-logo",
+      "description": "Logo 'BlueWave' with a stylized water wave.",
+      "imageUrl": "https://images.unsplash.com/photo-1559825481-12a05cc00344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YXRlciUyMHdhdmV8ZW58MHx8fHwxNzY4OTkyNDQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water wave"
+    },
+    {
+      "id": "aqua-pools-logo",
+      "description": "Simple, clean logo 'Aqua Pools' with a water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1594486968161-50ef4355ce11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3YXRlciUyMGRyb3BsZXR8ZW58MHx8fHwxNzY4OTE4MjA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water droplet"
+    },
+    {
+      "id": "zaza-pool-creations-logo",
+      "description": "Playful logo 'Zaza Pools' with splashes of water.",
+      "imageUrl": "https://images.unsplash.com/photo-1637905351378-67232a5f0c9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXRlciUyMHNwbGFzaHxlbnwwfHx8fDE3Njg5OTI0NDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water splash"
+    },
+    {
+      "id": "ever-clear-pools-gauteng-logo",
+      "description": "Logo 'Ever Clear' with a sparkle or shine icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1762430790606-d5ea9860b58a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzcGFya2xlJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "sparkle icon"
+    },
+    {
+      "id": "stones-pool-projects-logo",
+      "description": "Strong logo 'Stones Pool Projects' with a stone texture.",
+      "imageUrl": "https://images.unsplash.com/photo-1542732056-648731297c97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdG9uZSUyMHRleHR1cmV8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stone texture"
+    },
+    {
+      "id": "solidroad-tar-surfacing-logo",
+      "description": "Logo 'SolidRoad' with a solid, straight road line.",
+      "imageUrl": "https://images.unsplash.com/photo-1768224278529-1d14f44820a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyb2FkJTIwbGluZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "road line"
+    },
+    {
+      "id": "mzansi-tarworks-logo",
+      "description": "Logo 'Mzansi TarWorks' with a map of SA outline.",
+      "imageUrl": "https://images.unsplash.com/photo-1511526088318-f1a6d7646a05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFwJTIwb3V0bGluZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "map outline"
+    },
+    {
+      "id": "primepave-surfacing-logo",
+      "description": "Logo 'PrimePave' in a clean, professional font.",
+      "imageUrl": "https://images.unsplash.com/photo-1704576146048-c21e5d59764b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmb250fGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional font"
+    },
+    {
+      "id": "seal-tar-projects-logo",
+      "description": "Logo 'Seal Tar' with a water-tight seal icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1587975732799-395778988cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZWFsJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "seal icon"
+    },
+    {
+      "id": "blacktop-solutions-logo",
+      "description": "Bold, strong logo 'BlackTop Solutions'.",
+      "imageUrl": "https://images.unsplash.com/photo-1704576146048-c21e5d59764b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxib2xkJTIwZm9udHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold font"
+    },
+    {
+      "id": "thatchmaster-roofing-logo",
+      "description": "Logo 'ThatchMaster' with a stylized thatch roof.",
+      "imageUrl": "https://images.unsplash.com/photo-1696859664595-dac6ade46a63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0aGF0Y2glMjByb29mfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thatch roof"
+    },
+    {
+      "id": "afrithatch-specialists-logo",
+      "description": "Logo with an African continent shape and thatch pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1655102718200-7230a1be8bfc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhZnJpY2ElMjBtYXB8ZW58MHx8fHwxNzY4OTkwMTk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "africa map"
+    },
+    {
+      "id": "didi-thatched-roofs-logo",
+      "description": "Friendly, approachable logo 'DIDI Thatched Roofs'.",
+      "imageUrl": "https://images.unsplash.com/photo-1695955312518-36ea4443fd0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcmllbmRseSUyMGZvbnR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "friendly font"
+    },
+    {
+      "id": "naturalcover-thatching-logo",
+      "description": "Logo 'NaturalCover' with a leaf and thatch texture.",
+      "imageUrl": "https://images.unsplash.com/photo-1573519716358-1cdc98533bfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWFmJTIwdGV4dHVyZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf texture"
+    },
+    {
+      "id": "heritage-thatch-projects-logo",
+      "description": "Classic, elegant logo 'Heritage Thatch'.",
+      "imageUrl": "https://images.unsplash.com/photo-1665241930248-5a3de85589e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjbGFzc2ljJTIwZm9udHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "classic font"
+    },
+    {
+      "id": "perfecttile-gauteng-logo",
+      "description": "Logo 'PerfectTile' with a perfectly aligned grid.",
+      "imageUrl": "https://images.unsplash.com/photo-1551394834-c6e2702552ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxncmlkJTIwcGF0dGVybnxlbnwwfHx8fDE3Njg5Njc2NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grid pattern"
+    },
+    {
+      "id": "ubs-tile-installers-logo",
+      "description": "Modern, bold logo 'UBS'.",
+      "imageUrl": "https://images.unsplash.com/photo-1763259317735-407d3a8398f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxib2xkJTIwbGV0dGVyc3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold letters"
+    },
+    {
+      "id": "taps-tileworks-logo",
+      "description": "Logo 'Taps TileWorks' with a water tap and tile.",
+      "imageUrl": "https://images.unsplash.com/photo-1639997858368-9b490282cda3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGFwJTIwdGlsZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tap tile"
+    },
+    {
+      "id": "proline-tiling-logo",
+      "description": "Logo 'ProLine' with a clean, straight line.",
+      "imageUrl": "https://images.unsplash.com/photo-1565452618069-0eecd17610d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdHJhaWdodCUyMGxpbmV8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "straight line"
+    },
+    {
+      "id": "smoothset-tilers-logo",
+      "description": "Logo 'SmoothSet' in a flowing script.",
+      "imageUrl": "https://images.unsplash.com/photo-1600201319344-50b65c15ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzY3JpcHQlMjBmb250fGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "script font"
+    },
+    {
+      "id": "safecut-tree-felling-logo",
+      "description": "Logo 'SafeCut' with a tree inside a shield.",
+      "imageUrl": "https://images.unsplash.com/photo-1694195968525-102c87ea0fc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0cmVlJTIwc2hpZWxkfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tree shield"
+    },
+    {
+      "id": "greendrop-arbor-services-logo",
+      "description": "Logo 'GreenDrop' with a leaf and a water droplet.",
+      "imageUrl": "https://images.unsplash.com/photo-1662561017876-d5f07dd3e69d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFmJTIwd2F0ZXJ8ZW58MHx8fHwxNzY4OTkwOTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leaf water"
+    },
+    {
+      "id": "rand-tree-care-logo",
+      "description": "Logo 'Rand Tree Care' with a coin and a tree.",
+      "imageUrl": "https://images.unsplash.com/photo-1708714290547-6f2db03b7380?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2luJTIwdHJlZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coin tree"
+    },
+    {
+      "id": "urbanchop-tree-services-logo",
+      "description": "Urban-style logo 'UrbanChop'.",
+      "imageUrl": "https://images.unsplash.com/photo-1600616048636-32f19e9b1bc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx1cmJhbiUyMGZvbnR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "urban font"
+    },
+    {
+      "id": "ecofell-projects-logo",
+      "description": "Logo 'EcoFell' with a recycling symbol around a tree.",
+      "imageUrl": "https://images.unsplash.com/photo-1665904346443-8d20e0364129?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZWN5Y2xpbmclMjB0cmVlfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "recycling tree"
+    },
+    {
+      "id": "comfortcraft-upholstery-logo",
+      "description": "Logo 'ComfortCraft' with a needle and thread.",
+      "imageUrl": "https://images.unsplash.com/photo-1698766902696-e3c98378d400?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuZWVkbGUlMjB0aHJlYWR8ZW58MHx8fHwxNzY4OTkyNDQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "needle thread"
+    },
+    {
+      "id": "fast-upholstery-works-logo",
+      "description": "Logo 'Fast Upholstery Works' with speed lines.",
+      "imageUrl": "https://images.unsplash.com/photo-1484734278752-212d8c88a568?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcGVlZCUyMGxpbmVzfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "speed lines"
+    },
+    {
+      "id": "urbanfabric-studio-logo",
+      "description": "Logo 'UrbanFabric' with a fabric weave pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1712686422222-b2bdb134000f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmFicmljJTIwcGF0dGVybnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fabric pattern"
+    },
+    {
+      "id": "classicseat-upholsterers-logo",
+      "description": "Classic serif font logo 'ClassicSeat'.",
+      "imageUrl": "https://images.unsplash.com/photo-1603131283205-e4b115801f01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzZXJpZiUyMGZvbnR8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "serif font"
+    },
+    {
+      "id": "finefinish-upholstery-logo",
+      "description": "Logo 'FineFinish' in an elegant script.",
+      "imageUrl": "https://images.unsplash.com/photo-1586539231943-3a4a1cc6f9d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlbGVnYW50JTIwc2NyaXB0fGVufDB8fHx8MTc2ODk4NDYzMnww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "elegant script"
+    },
+    {
+      "id": "freshseat-upholstery-cleaning-logo",
+      "description": "Logo 'FreshSeat' with a water droplet and a leaf.",
+      "imageUrl": "https://images.unsplash.com/photo-1656252793220-58e3fe34110f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXRlciUyMGxlYWZ8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "water leaf"
+    },
+    {
+      "id": "cleancomfort-services-logo",
+      "description": "Logo 'CleanComfort' with a sparkling cushion icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1529139165341-7da95bcbf07d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzcGFya2xlJTIwY3VzaGlvbnxlbnwwfHx8fDE3Njg5OTI0NDF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "sparkle cushion"
+    },
+    {
+      "id": "jozi-fabric-cleaners-logo",
+      "description": "Logo 'Jozi Fabric Cleaners' with the Johannesburg skyline.",
+      "imageUrl": "https://images.unsplash.com/photo-1541423408854-5df732b6f6d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjaXR5JTIwc2t5bGluZXxlbnwwfHx8fDE3Njg5NzUxNzR8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "city skyline"
+    },
+    {
+      "id": "puretouch-cleaning-logo",
+      "description": "Minimalist logo 'PureTouch' with a hand and a sparkle.",
+      "imageUrl": "https://images.unsplash.com/photo-1648844421753-351afd50486a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoYW5kJTIwc3BhcmtsZXxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hand sparkle"
+    },
+    {
+      "id": "softcare-upholstery-care-logo",
+      "description": "Logo 'SoftCare' with a feather icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1757495152620-76bc71c660e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmZWF0aGVyJTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "feather logo"
+    },
+    {
+      "id": "dryshield-waterproofing-logo",
+      "description": "Logo 'DryShield' with a shield protecting from rain.",
+      "imageUrl": "https://images.unsplash.com/photo-1594832741162-d833970c326d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzaGllbGQlMjByYWlufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shield rain"
+    },
+    {
+      "id": "aquaseal-gauteng-logo",
+      "description": "Logo 'AquaSeal' with a water droplet in a circle.",
+      "imageUrl": "https://images.unsplash.com/photo-1713426295873-2946e9252883?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YXRlciUyMGNpcmNsZXxlbnwwfHx8fDE3Njg5OTI0NDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water circle"
+    },
+    {
+      "id": "leakstop-logo",
+      "description": "Simple, bold logo 'LeakStop' with a stop sign.",
+      "imageUrl": "https://images.unsplash.com/photo-1550770203-e14cc04c58fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdG9wJTIwc2lnbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stop sign"
+    },
+    {
+      "id": "prodry-systems-logo",
+      "description": "Modern, technical logo 'ProDry Systems'.",
+      "imageUrl": "https://images.unsplash.com/photo-1662027057465-bac8ada9a86a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNoJTIwbG9nb3xlbnwwfHx8fDE3Njg5ODU2Mjl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech logo"
+    },
+    {
+      "id": "sureseal-waterproofing-logo",
+      "description": "Logo 'SureSeal' with a checkmark seal.",
+      "imageUrl": "https://images.unsplash.com/photo-1635810766767-ca010af2d77b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzZWFsJTIwY2hlY2ttYXJrfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "seal checkmark"
+    },
+    {
+      "id": "debt-logo-1",
+      "description": "Logo for Gauteng Debt Recovery with scales of justice.",
+      "imageUrl": "https://images.unsplash.com/photo-1763336321809-3efd59992de4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzY2FsZXMlMjBqdXN0aWNlfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scales justice"
+    },
+    {
+      "id": "debt-logo-2",
+      "description": "Logo for Jozi Legal Collect with a gavel.",
+      "imageUrl": "https://images.unsplash.com/photo-1657811260747-66024561451f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnYXZlbCUyMGljb258ZW58MHx8fHwxNzY4OTkyNDQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gavel icon"
+    },
+    {
+      "id": "debt-logo-3",
+      "description": "Logo for Capital Debt Solutions with a building icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1669651784799-56c9b761f413?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxidWlsZGluZyUyMGljb258ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "building icon"
+    },
+    {
+      "id": "debt-logo-4",
+      "description": "Logo for Inkokhelo Collectors with a hand receiving a coin.",
+      "imageUrl": "https://images.unsplash.com/photo-1647334359879-f481a5b3c80d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYW5kJTIwY29pbnxlbnwwfHx8fDE3Njg5Nzc5MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hand coin"
+    },
+    {
+      "id": "debt-logo-5",
+      "description": "Logo for Skuldinvorderaars SA with a strong, bold font.",
+      "imageUrl": "https://images.unsplash.com/photo-1767483012542-6cb17d14549c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxib2xkJTIwZm9udHxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bold font"
+    },
+    {
+      "id": "diet-logo-1",
+      "description": "Logo for EatWell Gauteng with an apple and a heart.",
+      "imageUrl": "https://images.unsplash.com/photo-1613403752704-62d72c039a19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhcHBsZSUyMGhlYXJ0fGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "apple heart"
+    },
+    {
+      "id": "diet-logo-2",
+      "description": "Logo for The Nutrition Hub PTA with a fork and leaf.",
+      "imageUrl": "https://images.unsplash.com/photo-1604908816724-0e6894b7ba62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmb3JrJTIwbGVhZnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fork leaf"
+    },
+    {
+      "id": "diet-logo-3",
+      "description": "Logo for HealthyHabit Dieticians with a running figure.",
+      "imageUrl": "https://images.unsplash.com/photo-1660751181830-d92b49e8b67c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxydW5uaW5nJTIwZmlndXJlfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "running figure"
+    },
+    {
+      "id": "diet-logo-4",
+      "description": "Logo for Ukudla Smart with a brain and an apple.",
+      "imageUrl": "https://images.unsplash.com/photo-1606604830353-4da34f5a208a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxicmFpbiUyMGFwcGxlfGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brain apple"
+    },
+    {
+      "id": "diet-logo-5",
+      "description": "Logo for Gebalanseerde Lewe with a yin-yang symbol made of fruit.",
+      "imageUrl": "https://images.unsplash.com/photo-1626352909590-cf8eaa4e7f17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx5aW4teWFuZyUyMGZydWl0fGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yin-yang fruit"
+    },
+    {
+      "id": "massage-logo-1",
+      "description": "Logo for The Relaxation Hub with a lotus flower.",
+      "imageUrl": "https://images.unsplash.com/photo-1534162802244-d6f69e9048da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsb3R1cyUyMGZsb3dlcnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lotus flower"
+    },
+    {
+      "id": "massage-logo-2",
+      "description": "Logo for Jozi Mobile Massage with a car and a hand.",
+      "imageUrl": "https://images.unsplash.com/photo-1610926059064-febfbb10f3fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYXIlMjBoYW5kfGVufDB8fHx8MTc2ODk5MjQ0MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "car hand"
+    },
+    {
+      "id": "massage-logo-3",
+      "description": "Logo for Pretoria Therapeutic Massage with a spine graphic.",
+      "imageUrl": "https://images.unsplash.com/photo-1508387027939-27cccde53673?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzcGluZSUyMGdyYXBoaWN8ZW58MHx8fHwxNzY4OTkyNDQwfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "spine graphic"
+    },
+    {
+      "id": "massage-logo-4",
+      "description": "Logo for Ukuphumla Wellness with an African pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1546050680-d4305dcff705?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZnJpY2FuJTIwcGF0dGVybnxlbnwwfHx8fDE3Njg5MTA5NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "african pattern"
+    },
+    {
+      "id": "massage-logo-5",
+      "description": "Logo for Ontspan & Herstel with two hands in a caring gesture.",
+      "imageUrl": "https://images.unsplash.com/photo-1604937161241-8f666944819d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYXJpbmclMjBoYW5kc3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "caring hands"
     },
     {
       "id": "movers-image",
       "description": "Two professional movers in uniform carrying a couch.",
-      "imageUrl": "https://picsum.photos/seed/movers-couch/800/600",
+      "imageUrl": "https://images.unsplash.com/photo-1587588993803-12797b538749?w=800&q=80",
       "imageHint": "movers couch"
-    },
-    {
-      "id": "handyman-image",
-      "description": "A friendly handyman holding a set of tools.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/handmen%20A.jpg?alt=media&token=8e6b5137-cb89-4bfa-9cdc-bec0ca1859d9",
-      "imageHint": "handyman tools"
-    },
-    {
-      "id": "architects-image",
-      "description": "An architect reviewing blueprints at a desk.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ultra-realistic%20professional%20%20architects.jpg?alt=media&token=8cb2a4b6-5fca-4186-a5cc-d190c377e50e",
-      "imageHint": "architect blueprint"
-    },
-    {
-      "id": "solar-systems-image",
-      "description": "A modern solar panel installation on a residential roof.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/solar.jpg?alt=media&token=d27ccd5e-35f3-46f6-8846-f53d9c2dc505",
-      "imageHint": "solar panels"
-    },
-    {
-      "id": "security-image",
-      "description": "A professional security guard in uniform.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/security%20gaurd.jpg?alt=media&token=ec3d4073-e4d4-45ca-994d-0f0422df4bf9",
-      "imageHint": "security guard"
     },
     {
       "id": "caterers-image",
       "description": "A close-up shot of a gourmet food platter with various appetizers.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/creation_2101454071%20(1).png?alt=media&token=b41a04cd-bb46-49bd-b33a-d1b431f61537",
+      "imageUrl": "https://images.unsplash.com/photo-1542611202-693547844012?w=800&q=80",
       "imageHint": "catering food"
-    },
-    {
-      "id": "painter-image",
-      "description": "A stylish and modern living room with neutral tones, showcasing a freshly painted wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/painter.jpg?alt=media&token=0adb66fd-d203-45eb-b640-202eb28e1da8",
-      "imageHint": "living room"
-    },
-    {
-      "id": "djs-image",
-      "description": "A DJ mixing music on a turntable at a lively event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Djs.jpg?alt=media&token=11c13df6-7dbf-416a-9c07-b7e5ebaf596e",
-      "imageHint": "DJ event"
-    },
-    {
-      "id": "event-decorations-image",
-      "description": "A beautifully decorated table setting for a wedding or event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Deco%20a.jpg?alt=media&token=3af5f208-76d6-442c-b3c0-97d503efa8d0",
-      "imageHint": "event decoration"
-    },
-    {
-      "id": "event-planners-image",
-      "description": "A party planner with a clipboard, smiling at a well-organized event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Event%20Planners%20G.jpg?alt=media&token=1897a04e-59dc-49ef-9419-89cc4cfeed8f",
-      "imageHint": "party planner"
-    },
-    {
-      "id": "tent-hire-image",
-      "description": "A large white event tent set up on a grassy field for a wedding.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/tent%20hire.jpg?alt=media&token=108d3695-7ff7-46f5-aeed-cbbf32ec7e82",
-      "imageHint": "event tent"
-    },
-    {
-      "id": "photographers-image",
-      "description": "A photographer holding a professional camera, ready to shoot.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/photographers%20a.jpg?alt=media&token=f7175381-bca4-4f5a-a953-693cfc1be850",
-      "imageHint": "photographer camera"
-    },
-    {
-      "id": "toilet-hire-image",
-      "description": "A row of clean, modern portable toilets for an outdoor event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/toilet%20h.jpg?alt=media&token=8cf27452-b232-49a0-b47f-290d613f9c94",
-      "imageHint": "portable toilets"
-    },
-    {
-      "id": "videographers-image",
-      "description": "A videographer operating a camera on a tripod during an event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/videographers.jpg?alt=media&token=b47f8f93-fa29-4c46-99db-1de83f52407b",
-      "imageHint": "videographer camera"
-    },
-    {
-      "id": "wedding-photographers-image",
-      "description": "A photographer taking a picture of a newly married couple.",
-      "imageUrl": "https://images.unsplash.com/photo-1611550287705-7ff8b459c8eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaGVyfGVufDB8fHx8MTc2NTMzNzUzMHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wedding photographer"
-    },
-    {
-      "id": "plumber-image",
-      "description": "A plumber working on pipes under a sink.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/plumber%20g.jpg?alt=media&token=665ee90e-ca71-4fe3-8b98-db38c851d916",
-      "imageHint": "plumber working"
-    },
-    {
-      "id": "electrician-image",
-      "description": "An electrician carefully working on a circuit breaker panel.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Electricians%20good%20(1).jpg?alt=media&token=f43a60ef-f674-4eb6-8814-b842742dfe62",
-      "imageHint": "electrician working"
-    },
-    {
-      "id": "gardeners-image",
-      "description": "A lush, green, well-maintained garden with blooming flowers.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gardeners.jpg?alt=media&token=9e3ecea1-ffac-4917-ac52-93aec4e742c0",
-      "imageHint": "garden flowers"
-    },
-    {
-      "id": "pest-control-image",
-      "description": "A pest control professional in uniform inspecting the exterior of a clean house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/pest%20con%20(1).jpg?alt=media&token=3d87bea8-3627-43ca-b292-4324ef4f4cb9",
-      "imageHint": "pest control"
-    },
-    {
-      "id": "tree-felling-image",
-      "description": "An arborist with safety gear high up in a large tree, preparing to cut a branch.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/1%20tree%20felling.jpg?alt=media&token=4be03afa-d8a5-4bb0-bc87-7ce535bbf2fd",
-      "imageHint": "arborist tree"
-    },
-    {
-      "id": "carpenters-image",
-      "description": "A carpenter measuring a piece of wood in a workshop.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpenters.jpg?alt=media&token=fdea5fc5-6adf-43f2-9e74-5e743ae97aa7",
-      "imageHint": "carpenter wood"
-    },
-    {
-      "id": "auditors-image",
-      "description": "A person reviewing financial documents with a calculator.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/auditors%20good%20A.jpg?alt=media&token=fce3ae90-996e-42d5-92a4-16c2a3498662",
-      "imageHint": "auditor documents"
-    },
-    {
-      "id": "accounting-image",
-      "description": "A calculator and pen on top of financial documents.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/accountants.jpg?alt=media&token=a086d1b9-b6c5-4f25-98a8-8e263250a3c5",
-      "imageHint": "accounting finance"
-    },
-    {
-      "id": "debt-counsellors-image",
-      "description": "A supportive handshake over a desk, symbolizing financial help.",
-      "imageUrl": "https://images.unsplash.com/photo-1689903777384-31fd780bef3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBoZWxwfGVufDB8fHx8MTc2NTM4NTk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "financial help"
-    },
-    {
-      "id": "financial-advisors-image",
-      "description": "A financial advisor discussing charts with a client.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/financial%20advisors%20(1).png?alt=media&token=a6cfec82-e30f-45a8-b448-a4f89a4f2a4a",
-      "imageHint": "financial advisor"
-    },
-    {
-      "id": "home-loans-image",
-      "description": "A miniature house model held in hands.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/home%20loan%20good%20(1).png?alt=media&token=cbc9fb90-fe6f-4f94-89f7-d8edfae95e35",
-      "imageHint": "house model"
-    },
-    {
-      "id": "insurance-image",
-      "description": "An umbrella protecting a family, symbolizing insurance coverage.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Insurance%201.png?alt=media&token=2bfd8693-b888-463b-aaad-0f5aa0552b37",
-      "imageHint": "insurance protection"
-    },
-    {
-      "id": "business-consultants-image",
-      "description": "A business consultant presenting a growth strategy on a whiteboard.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Business%20Consultants%20AAC%20(1).jpg?alt=media&token=70d7789f-2a53-4936-9c5d-c790c250aff3",
-      "imageHint": "business strategy"
-    },
-    {
-      "id": "company-registrations-image",
-      "description": "A person signing an official company registration document.",
-      "imageUrl": "https://images.unsplash.com/photo-1758519288480-1489c17b1519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N1bWVudCUyMHNpZ25pbmd8ZW58MHx8fHwxNzY1Mzg1OTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "document signing"
-    },
-    {
-      "id": "electric-fencing-image",
-      "description": "An electric fence installed on top of a wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Electric%20Fencing%20A.jpg?alt=media&token=bb6ff6f9-4bab-4c29-b71e-21c518af3b25",
-      "imageHint": "electric fence"
-    },
-    {
-      "id": "drywalls-image",
-      "description": "A worker installing a drywall panel.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/drywall%20A.jpg?alt=media&token=085ae4ef-a07e-4988-bdf2-11b1263deef0",
-      "imageHint": "drywall installation"
-    },
-    {
-      "id": "demolition-image",
-      "description": "An excavator demolishing a brick wall at a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/demolitions%20A.jpg?alt=media&token=62f34816-e6b7-4b6b-97ca-59d02f182d73",
-      "imageHint": "excavator demolishing"
-    },
-    {
-      "id": "doors-image",
-      "description": "A stylish modern front door on a house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Doors%20A.jpg?alt=media&token=b7b23c1b-607b-41e4-9105-a8a5253c5f27",
-      "imageHint": "modern front door"
-    },
-    {
-      "id": "fencing-image",
-      "description": "A newly installed wooden fence in a suburban backyard.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fencing%20A.jpg?alt=media&token=7c49821c-32cc-4e34-8578-5ff9ed4e07d5",
-      "imageHint": "wooden fence"
-    },
-    {
-      "id": "garage-doors-image",
-      "description": "A modern garage door on a residential house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/garage%20door%20A.jpg?alt=media&token=ccbdf8d2-1dba-4ef4-9015-d0906eaa467d",
-      "imageHint": "garage door"
-    },
-    {
-      "id": "gate-motors-image",
-      "description": "A professional installing or repairing a gate motor.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
-      "imageHint": "gate motor"
-    },
-    {
-      "id": "glass-works-image",
-      "description": "A worker cutting a large sheet of glass.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/glass%20(1).jpg?alt=media&token=b11baa0d-1c01-44f4-b376-5632179cb001",
-      "imageHint": "glass cutting"
-    },
-    {
-      "id": "guttering-image",
-      "description": "A worker installing new gutters on a house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Guttering%20(1)-min.jpg?alt=media&token=07cc330d-0db9-4ff1-aac5-52df94cdf4cf",
-      "imageHint": "gutter installation"
-    },
-    {
-      "id": "high-pressure-cleaning-image",
-      "description": "A high-pressure washer cleaning a dirty patio.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/High%20Pressure%20Cleaning%20A.jpg?alt=media&token=2e0cc3d4-c729-43d2-8e06-223abff0ea83",
-      "imageHint": "pressure washer"
-    },
-    {
-      "id": "home-improvements-image",
-      "description": "A modern kitchen during a renovation, showing progress.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/home%20improvement%20(1).jpg?alt=media&token=671c40d3-8fa5-45e1-8b66-8c8660c8aba4",
-      "imageHint": "kitchen renovation"
-    },
-    {
-      "id": "interior-designing-image",
-      "description": "A stylishly decorated living room with modern furniture and art.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/interior%20designers%20A.jpg?alt=media&token=82ffb0b3-c7ad-4f46-bc0b-00c9cbe86d57",
-      "imageHint": "modern living room"
-    },
-    {
-      "id": "kitchen-renovations-image",
-      "description": "A beautiful, modern kitchen with an island and new appliances.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Kitchen%20Renovations%20%20A.jpg?alt=media&token=50cd41d0-9a09-4e09-8d5c-19703d124f37",
-      "imageHint": "modern kitchen"
-    },
-    {
-      "id": "laminate-flooring-image",
-      "description": "A worker installing new laminate flooring.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Laminate%20Flooring%20(1).jpg?alt=media&token=06104fab-0c19-4a34-b6c8-d89cf8b26996",
-      "imageHint": "laminate flooring"
-    },
-    {
-      "id": "landscaping-image",
-      "description": "A beautifully landscaped garden with a path and various plants.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Landscaping%20%20aa.jpg?alt=media&token=4206fb54-15f5-425b-8096-72477081c464",
-      "imageHint": "garden landscaping"
-    },
-    {
-      "id": "laundry-services-image",
-      "description": "A stack of clean, folded laundry.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Laundry%20Services%20A%20(1).jpg?alt=media&token=7b82785e-6b0f-4fa8-adb0-3e73d9a15c75",
-      "imageHint": "folded laundry"
-    },
-    {
-      "id": "locksmiths-image",
-      "description": "A professional locksmith working on a door lock.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/locksmiths%20(1).jpg?alt=media&token=93b0eeba-8e25-4bda-a68d-a41e6fde34e2",
-      "imageHint": "locksmith door"
-    },
-    {
-      "id": "office-cleaning-image",
-      "description": "A clean and modern office space.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Office%20Cleaning%20A.jpg?alt=media&token=05d38fd2-0fba-4727-a208-f36a8db418d4",
-      "imageHint": "office cleaning"
-    },
-    {
-      "id": "palisade-fencing-image",
-      "description": "Strong palisade fencing securing a property.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Palisade%20Fencing%20(1).jpg?alt=media&token=119c5945-286d-463e-ab5e-b79cfda0f9af",
-      "imageHint": "palisade fence"
-    },
-    {
-      "id": "paving-image",
-      "description": "A newly paved driveway with interlocking bricks.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/paving%20(1).jpg?alt=media&token=b95976e8-f91f-41eb-aef6-01a1106ecda3",
-      "imageHint": "paved driveway"
-    },
-    {
-      "id": "plastering-image",
-      "description": "A worker applying plaster smoothly to a wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/plasterers%20A%20(1).jpg?alt=media&token=02b9828a-30fe-499e-8e57-d3432b970da0",
-      "imageHint": "plastering wall"
-    },
-    {
-      "id": "pool-cleaning-image",
-      "description": "A crystal clear swimming pool sparkling in the sun.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Pool%20Cleaning%20A.jpg?alt=media&token=1e8ffba6-9ca9-461f-aeca-765bd2bd88b5",
-      "imageHint": "clean swimming pool"
-    },
-    {
-      "id": "precast-fencing-image",
-      "description": "A precast concrete fence being installed.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Precast%20Fencing%20A%20(1).jpg?alt=media&token=4a83a66f-39ba-4d10-9914-fc5f08e9118e",
-      "imageHint": "precast fence"
-    },
-    {
-      "id": "prepaid-electricity-meters-image",
-      "description": "A modern prepaid electricity meter on a wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Prepaid%20Electricity%20Meters%20A%20(1).jpg?alt=media&token=761a08f0-23f3-4873-bca5-76a0abdd385a",
-      "imageHint": "prepaid meter"
-    },
-    {
-      "id": "roofing-image",
-      "description": "A team of roofers working on a residential roof.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Roofing%20A.jpg?alt=media&token=9e518fa6-d967-4085-8e2d-c753a338e5df",
-      "imageHint": "roofing work"
-    },
-    {
-      "id": "shower-doors-image",
-      "description": "A frameless glass shower door in a modern bathroom.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Shower%20Doors%20A%20(1).jpg?alt=media&token=9716f9c9-ce85-48ab-a28d-60bd9f7781c5",
-      "imageHint": "glass shower door"
-    },
-    {
-      "id": "shadeports-image",
-      "description": "Multiple shadeport structures providing cover for cars in a parking lot.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Shadeports%20AA.jpg?alt=media&token=f762b8be-6ae4-4eb4-915e-e29272322644",
-      "imageHint": "shadeport parking"
-    },
-    {
-      "id": "security-gates-image",
-      "description": "A robust, decorative security gate at the entrance of a home.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/security%20gates%20A.jpg?alt=media&token=0e6b9eb0-2b27-46e4-8e4f-5b59c52f810c",
-      "imageHint": "security gate"
-    },
-    {
-      "id": "solar-geysers-image",
-      "description": "A solar geyser installed on a roof.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Solar%20Geysers%20A%20(1).jpg?alt=media&token=1bec3dd6-e3ff-4259-8d5d-167ab3838027",
-      "imageHint": "solar geyser"
-    },
-    {
-      "id": "swimming-pool-builders-image",
-      "description": "A newly built swimming pool in a backyard.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/swimming%20pool%20builders%20A.jpg?alt=media&token=b1d0fa19-38b1-429f-9a0c-4ebf2ecba880",
-      "imageHint": "swimming pool"
-    },
-    {
-      "id": "tar-surfacing-image",
-      "description": "A team working on tar surfacing a driveway.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/tar%20surfacing%20AA.jpg?alt=media&token=7376ca16-db34-438a-bcd9-a61de682764e",
-      "imageHint": "tar driveway"
-    },
-    {
-      "id": "thatched-roofing-image",
-      "description": "A beautiful thatched roof on a luxury home or lodge.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Thatched%20Roofing%20A.jpg?alt=media&token=b11ab84b-9723-4417-a049-7ba7e3919595",
-      "imageHint": "thatched roof"
-    },
-    {
-      "id": "tiling-image",
-      "description": "A professional tiler installing new floor tiles.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TILLERS.jpg?alt=media&token=ad376bbb-7416-4f93-884c-0304aaff4a2c",
-      "imageHint": "tiler floor"
-    },
-    {
-      "id": "upholsterers-image",
-      "description": "An upholsterer working on a vintage chair.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/upholsterers%20A.jpg?alt=media&token=63bb06c0-c9bf-4c0c-b765-99c70bb1ac3b",
-      "imageHint": "upholstery chair"
-    },
-    {
-      "id": "upholstery-cleaning-image",
-      "description": "A professional steam cleaning a sofa.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/upholstery%20cleaning%20A.jpg?alt=media&token=4845e2a1-f84a-415a-ba73-10e0d2720b8e",
-      "imageHint": "upholstery cleaning"
-    },
-    {
-      "id": "waterproofing-image",
-      "description": "A worker applying waterproofing membrane to a rooftop.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Waterproofing%20A.jpg?alt=media&token=92dd41f7-2ebf-4dd4-a168-60d74be0e062",
-      "imageHint": "waterproofing roof"
-    },
-    {
-      "id": "tiler-image",
-      "description": "A professional tiler installing new floor tiles.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TILLERS.jpg?alt=media&token=ad376bbb-7416-4f93-884c-0304aaff4a2c",
-      "imageHint": "tiler floor"
-    },
-    {
-      "id": "welders-image",
-      "description": "A welder with a mask on, creating sparks while working on a metal structure.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/welders%20A.jpg?alt=media&token=f1fc2f1a-3bd5-4a23-80af-aed508740861",
-      "imageHint": "welder sparks"
-    },
-    {
-      "id": "jumping-castle-hire-image",
-      "description": "A bright and colorful jumping castle set up for a kids party.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Jumping%20Castle%20Hire%20a.jpg?alt=media&token=0dd3cb9e-c112-4ba5-9b31-c5ccbb5d8dcc",
-      "imageHint": "bouncy castle"
-    },
-    {
-      "id": "bathroom-renovations-image",
-      "description": "A modern, stylish bathroom with a walk-in shower and clean design.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/bathroom%20Reno.jpg?alt=media&token=8fcb33ef-78bd-45ee-9ff1-9a61a06b8b71",
-      "imageHint": "modern bathroom"
-    },
-    {
-      "id": "rubble-removal-image",
-      "description": "A pile of rubble and debris from a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/rubble.jpg?alt=media&token=b931b4ae-a006-4dce-8f87-c81692b97f47",
-      "imageHint": "rubble construction"
-    },
-    {
-      "id": "cleaning-service-image",
-      "description": "A person in blue gloves using a spray bottle to clean a glass surface.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/cleaning%20serv.jpg?alt=media&token=7881f30f-a49c-4a1c-8a0d-0a7a8b4cb8f3",
-      "imageHint": "cleaning service"
-    },
-    {
-      "id": "wendy-houses-image",
-      "description": "A well-built wooden wendy house in a garden.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wendy%20Houses%20A.jpg?alt=media&token=984d3f90-7f74-4876-87dc-4cede3151507",
-      "imageHint": "wendy house"
-    },
-    {
-      "id": "window-cleaning-image",
-      "description": "A professional cleaning a large window with a squeegee.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/window%20cleaning%20A.jpg?alt=media&token=f8eab32a-b5a7-481d-bcbd-915c4e7af768",
-      "imageHint": "window squeegee"
-    },
-    {
-      "id": "wire-mesh-fencing-image",
-      "description": "A durable wire mesh fence enclosing a property.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wire%20Mesh%20Fencing%20A.jpg?alt=media&token=4349d1da-8290-4721-8523-c5e72f0c0ee2",
-      "imageHint": "wire fence"
-    },
-    {
-      "id": "wooden-decking-image",
-      "description": "A beautiful wooden deck in a backyard, perfect for outdoor living.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Wooden%20Decking%20A.jpg?alt=media&token=e589862d-e806-496a-a274-d42ab97407bf",
-      "imageHint": "wooden deck"
-    },
-    {
-      "id": "graphic-designers-image",
-      "description": "A graphic designer working on a tablet with a stylus.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Graphic%20Designers.jpg?alt=media&token=13b219ee-a08c-4e62-9800-ba6e1fa122fe",
-      "imageHint": "graphic designer"
-    },
-    {
-      "id": "logo-design-image",
-      "description": "A collection of modern and creative logo designs on a screen.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/logo%20designers.jpg?alt=media&token=4920b5f2-ade0-45c0-b3cf-04217308d292",
-      "imageHint": "logo design"
-    },
-    {
-      "id": "signs-image",
-      "description": "Various business signs on a street, including a neon sign.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Signs.jpg?alt=media&token=ec4a7179-1124-41df-94d5-57ad2b737056",
-      "imageHint": "business signs"
-    },
-    {
-      "id": "printing-image",
-      "description": "A close-up of a large format printer in action.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Printing.jpg?alt=media&token=582a7326-02a8-4a4b-aae2-71605eb99231",
-      "imageHint": "printing machine"
-    },
-    {
-      "id": "website-designers-image",
-      "description": "A person working on a website layout on a computer.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Website%20Designers.jpg?alt=media&token=4528b2a3-298d-4d7f-aa0d-dcf95c897ac0",
-      "imageHint": "website design"
-    },
-    {
-      "id": "beauty-salons-image",
-      "description": "A serene and modern beauty salon interior.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Beauty%20Salons.jpg?alt=media&token=32716712-af95-43f1-b470-56ebb70e9a84",
-      "imageHint": "beauty salon"
-    },
-    {
-      "id": "chiropractors-image",
-      "description": "A chiropractor adjusting a patient's back.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/chiropractors.jpg?alt=media&token=3f244cf8-c190-4a32-bcc7-83ec061ba141",
-      "imageHint": "chiropractor patient"
-    },
-    {
-      "id": "counsellors-image",
-      "description": "A counsellor listening attentively to a client in a calm setting.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Counsellors.jpg?alt=media&token=a4ff9125-327f-433a-a15f-f8238736f729",
-      "imageHint": "counsellor client"
-    },
-    {
-      "id": "dermatologists-image",
-      "description": "A dermatologist examining a patient's skin with a special tool.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/dermatologists.jpg?alt=media&token=70e1df00-b162-4e10-983b-7af1675b1f32",
-      "imageHint": "dermatologist skin"
-    },
-    {
-      "id": "gynaecologists-image",
-      "description": "A female doctor in scrubs, smiling warmly in a clinical setting.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gynaecologists.jpg?alt=media&token=5ea66d7d-f7c4-45a7-8e98-dec3f3305a43",
-      "imageHint": "doctor smiling"
-    },
-    {
-      "id": "hair-stylists-image",
-      "description": "A hair stylist cutting a client's hair in a modern salon.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Hair%20Stylists.jpg?alt=media&token=193532aa-dec8-42db-a4c1-c98159c245f7",
-      "imageHint": "hair stylist"
-    },
-    {
-      "id": "laser-clinics-image",
-      "description": "A laser hair removal procedure being performed on a leg.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Laser%20Clinics.jpg?alt=media&token=0ed6c07c-9972-4365-83b9-51b3220886fa",
-      "imageHint": "laser treatment"
-    },
-    {
-      "id": "make-up-artists-image",
-      "description": "A makeup artist applying makeup to a client's face.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Make%20Up%20Artists.jpg?alt=media&token=65b3c73d-9bdd-4ccc-b7b1-c2e636f0d4f6",
-      "imageHint": "makeup artist"
-    },
-    {
-      "id": "marriage-counsellors-image",
-      "description": "A supportive and understanding counseling session between a couple and a therapist.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Marriage%20Counsellors.jpg?alt=media&token=423051ba-da6b-4bab-9446-20d7027a11db",
-      "imageHint": "marriage counseling"
-    },
-    {
-      "id": "personal-trainers-image",
-      "description": "A personal trainer motivating a client during a workout session in a gym.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Personal%20Trainers.jpg?alt=media&token=0779453a-3390-46c1-8546-e6b733326b3f",
-      "imageHint": "personal trainer workout"
-    },
-    {
-      "id": "physiotherapists-image",
-      "description": "A physiotherapist helping a patient with rehabilitation exercises.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Physiotherapists.jpg?alt=media&token=0a83250e-b745-47b3-93e6-2be183d6be44",
-      "imageHint": "physiotherapy exercises"
-    },
-    {
-      "id": "plastic-surgeons-image",
-      "description": "A surgeon in a sterile environment, focused and ready for a procedure.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Plastic%20Surgeons.jpg?alt=media&token=8ba765e7-97ba-4d70-9b60-ceb35be169fa",
-      "imageHint": "surgeon sterile"
-    },
-    {
-      "id": "psychologists-image",
-      "description": "A calm and welcoming therapy office with two chairs facing each other.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Psychologists.jpg?alt=media&token=bc1ab515-b81f-46e8-b689-92f60cca3a97",
-      "imageHint": "therapy office"
-    },
-    {
-      "id": "access-control-image",
-      "description": "A person using a fingerprint scanner for access control.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Access%20Control.jpg?alt=media&token=7dec0089-3629-45d8-801a-d80a66510d59",
-      "imageHint": "fingerprint scanner"
-    },
-    {
-      "id": "alarm-systems-image",
-      "description": "A modern home alarm system panel on a wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Alarm%20Systems.jpg?alt=media&token=a76fbaa8-b619-424f-8fe0-891874282b85",
-      "imageHint": "alarm panel"
-    },
-    {
-      "id": "armed-response-image",
-      "description": "An armed response officer standing alert next to a patrol vehicle.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Armed%20Response.jpg?alt=media&token=95418d68-9de5-426b-a369-6a5f0ba6d70e",
-      "imageHint": "armed response"
-    },
-    {
-      "id": "car-tracking-image",
-      "description": "A map interface showing a car's location being tracked in real-time.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Car%20Tracking.jpg?alt=media&token=e782bd83-72d9-4171-94ad-f94ae21ab3f4",
-      "imageHint": "car tracking map"
-    },
-    {
-      "id": "cctv-image",
-      "description": "A modern security camera mounted on an exterior wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/CCTV.jpg?alt=media&token=3a5f33a5-1810-430e-b211-3bc0adfd82f9",
-      "imageHint": "security camera"
-    },
-    {
-      "id": "fire-safety-image",
-      "description": "A fire extinguisher mounted on a wall, ready for use.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Fire%20Safety.jpg?alt=media&token=99b12200-607b-436b-91ea-bd88e072c921",
-      "imageHint": "fire extinguisher"
-    },
-    {
-      "id": "private-investigators-image",
-      "description": "A private investigator looking at evidence with a magnifying glass.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Private%20Investigators.jpg?alt=media&token=b35af51f-60ea-4c75-849c-1b40a6bf350c",
-      "imageHint": "private investigator"
-    },
-    {
-      "id": "tracing-image",
-      "description": "A map with pins and strings, symbolizing the process of tracing someone.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Tracing.jpg?alt=media&token=a38905cd-42a8-461c-899b-c2d1d9bb8e1a",
-      "imageHint": "tracing map"
-    },
-    {
-      "id": "auto-electricians-image",
-      "description": "An auto electrician diagnosing a car's electrical system with a multimeter.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Auto%20Electricians.jpg?alt=media&token=36e4b5bc-61c7-4e0f-9bf1-216eabdae77a",
-      "imageHint": "auto electrician"
-    },
-    {
-      "id": "auto-glass-image",
-      "description": "A technician carefully installing a new windscreen on a car.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Auto%20Glass.jpg?alt=media&token=435feaff-9f4c-4ce6-951c-79f4af37fc51",
-      "imageHint": "windscreen installation"
-    },
-    {
-      "id": "batteries-image",
-      "description": "A car battery being tested with a voltmeter.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Batteries.jpg?alt=media&token=bf0d8e29-1a9d-44f9-80bb-99536e6e2805",
-      "imageHint": "car battery"
-    },
-    {
-      "id": "brakes-and-clutches-image",
-      "description": "A mechanic inspecting the brake disc and caliper of a car on a lift.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Brakes%20and%20Clutches.jpg?alt=media&token=647c9222-2066-4cea-81ee-9cc81eb9262e",
-      "imageHint": "brake inspection"
-    },
-    {
-      "id": "car-aircon-regassing-image",
-      "description": "A technician servicing a car's air conditioning system.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Car%20Aircon%20Regassing.jpg?alt=media&token=76e4cb50-4228-417f-9b40-f55cad82718f",
-      "imageHint": "car aircon"
-    },
-    {
-      "id": "engine-overhauls-image",
-      "description": "A mechanic working on a disassembled car engine.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Engine%20Overhauls.jpg?alt=media&token=15457021-6ee9-4464-8cd1-18b026527198",
-      "imageHint": "engine overhaul"
-    },
-    {
-      "id": "gearboxes-image",
-      "description": "A close-up of a car's gearbox and transmission system.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gearboxes.jpg?alt=media&token=166db1e2-cb85-4e55-9a7e-70ad8ee6386a",
-      "imageHint": "car gearbox"
-    },
-    {
-      "id": "panel-beaters-image",
-      "description": "A panel beater smoothing out a car body panel.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Panel%20Beaters%20AA.jpg?alt=media&token=1ee08f44-af5b-4865-a45e-d661faa57a36",
-      "imageHint": "panel beater"
-    },
-    {
-      "id": "towing-image",
-      "description": "A tow truck pulling a car on a highway.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/towing.jpg?alt=media&token=e1f1f98d-a70d-4a3c-84f7-f1376c0568ef",
-      "imageHint": "tow truck"
-    },
-    {
-      "id": "tow-bars-image",
-      "description": "A close-up of a tow bar installed on the back of an SUV.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/towing%20bars.jpg?alt=media&token=17793672-4d9b-4cfc-96ac-e1a12291e813",
-      "imageHint": "tow bar"
-    },
-    {
-      "id": "computer-courses-image",
-      "description": "A person learning on a computer in a modern classroom setting.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Computer%20Courses.jpg?alt=media&token=4feb4b47-c07e-4582-9884-d46c840583e4",
-      "imageHint": "computer class"
-    },
-    {
-      "id": "firearm-training-image",
-      "description": "A person safely practicing at a shooting range with an instructor.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Firearm%20Training.jpg?alt=media&token=532a4e18-95a9-4b4b-9752-dd5ffb7a310e",
-      "imageHint": "firearm training"
-    },
-    {
-      "id": "first-aid-image",
-      "description": "A first aid training session with a CPR dummy.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/First%20Aid.jpg?alt=media&token=531cca38-e041-4063-ad89-fb5af2760107",
-      "imageHint": "first aid CPR"
-    },
-    {
-      "id": "forklift-training-image",
-      "description": "A person operating a forklift in a warehouse.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Forklift%20Training.jpg?alt=media&token=70ca5fe1-f565-4952-8959-4f1d964c9ef2",
-      "imageHint": "forklift training"
-    },
-    {
-      "id": "life-coaches-image",
-      "description": "A life coach having a motivational session with a client.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Life%20Coaches.jpg?alt=media&token=e6d892f4-2caa-4297-bb8d-5cdd9d603e62",
-      "imageHint": "life coach session"
-    },
-    {
-      "id": "security-training-image",
-      "description": "Security guards in training, practicing drills.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Security%20Training.jpg?alt=media&token=b4ab8c1f-9b72-4306-81c4-a6ee37e4faa4",
-      "imageHint": "security training"
-    },
-    {
-      "id": "swimming-lessons-image",
-      "description": "A child learning to swim with an instructor in a pool.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Swimming%20Lessons%20AA.jpg?alt=media&token=20ad4a1b-53f4-4105-b3af-2a23b64b9c43",
-      "imageHint": "swimming lesson"
-    },
-    {
-      "id": "holiday-accommodation-image",
-      "description": "A beautiful holiday home with a view of the ocean.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Holiday%20Accommodation.jpg?alt=media&token=df71f548-2447-4ca3-9591-e53f0ed52b19",
-      "imageHint": "holiday home ocean"
-    },
-    {
-      "id": "team-building-image",
-      "description": "A diverse team collaborating on a fun team-building activity.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Team%20Building.jpg?alt=media&token=a53a5a7e-b8ae-4b47-abba-fcad4c469efb",
-      "imageHint": "team building"
-    },
-    {
-      "id": "venues-image",
-      "description": "An elegant indoor venue set up for a large event or conference.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Venues.jpg?alt=media&token=d69ca123-233b-4c5c-bad1-be867d70cc05",
-      "imageHint": "event venue"
-    },
-    {
-      "id": "wedding-venues-image",
-      "description": "A beautiful outdoor wedding venue with a floral arch.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/wedding%20venues%20%20A.jpg?alt=media&token=3cb50354-8c74-4f78-9a03-1336d91aa478",
-      "imageHint": "wedding venue"
-    },
-    {
-      "id": "appliance-repairs-image",
-      "description": "A technician repairing a washing machine.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/appliance%20repair%20a.jpg?alt=media&token=529c3409-c19f-43e3-824c-c31cff2b703e",
-      "imageHint": "appliance repair"
-    },
-    {
-      "id": "dstv-installers-image",
-      "description": "A technician installing a satellite dish on a roof.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/DStv%20installers.jpg?alt=media&token=ecda8985-a532-4886-967c-06f4e61c5f9f",
-      "imageHint": "satellite installation"
-    },
-    {
-      "id": "fridge-repairs-image",
-      "description": "A technician inspecting the back of a refrigerator.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Fridge%20Repairs.jpg?alt=media&token=510f94ef-d009-49b1-813f-5b2aac1c7e15",
-      "imageHint": "fridge repair"
-    },
-    {
-      "id": "tv-installers-image",
-      "description": "A person mounting a flat-screen TV on a wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TV%20Installers.jpg?alt=media&token=5f52a671-224f-4335-8c36-9801d39a9533",
-      "imageHint": "tv wall mount"
-    },
-    {
-      "id": "tv-repairs-image",
-      "description": "A technician working on the internal components of a television.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/TV%20Repairs.jpg?alt=media&token=3f146d07-a0ec-4472-8c76-579a42e0cd89",
-      "imageHint": "tv repair"
-    },
-    {
-      "id": "conveyancers-image",
-      "description": "A person signing a property transfer document.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Conveyancers.jpg?alt=media&token=d9559a2a-66e1-4139-9b8c-09740b8225b8",
-      "imageHint": "document signing"
-    },
-    {
-      "id": "divorce-lawyers-image",
-      "description": "A broken wedding ring, symbolizing divorce.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Divorce%20Lawyers.jpg?alt=media&token=4fc3abce-d2bf-48aa-8008-4cca2a5717f9",
-      "imageHint": "broken ring"
-    },
-    {
-      "id": "estate-agents-image",
-      "description": "An estate agent handing over keys to a new homeowner.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Estate%20Agents.jpg?alt=media&token=9238689b-c24f-4988-bdad-584a031a11b4",
-      "imageHint": "handing over keys"
-    },
-    {
-      "id": "labour-lawyers-image",
-      "description": "A handshake over a desk, representing a labour agreement.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Labour%20Lawyers.jpg?alt=media&token=62bd2eaf-8b3d-4cd5-a697-8b5913b860f6",
-      "imageHint": "handshake desk"
-    },
-    {
-      "id": "lawyers-image",
-      "description": "A gavel and law books on a wooden table.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Lawyers.jpg?alt=media&token=fa7591af-5f1b-4933-9c33-e3ee3cea4f76",
-      "imageHint": "gavel books"
     },
     {
       "id": "couriers-image",
       "description": "A courier delivering a package to a customer.",
-      "imageUrl": "https://picsum.photos/seed/courier-package/800/600",
+      "imageUrl": "https://images.unsplash.com/photo-1606822899147-25146b3a3222?w=800&q=80",
       "imageHint": "courier package"
     },
     {
       "id": "school-transport-image",
       "description": "A friendly school bus driver in front of a yellow bus.",
-      "imageUrl": "https://picsum.photos/seed/school-bus/800/600",
+      "imageUrl": "https://images.unsplash.com/photo-1570123984323-9ab1b0a1a015?w=800&q=80",
       "imageHint": "school bus"
     },
     {
       "id": "shuttle-services-image",
       "description": "A clean, modern shuttle van waiting for passengers.",
-      "imageUrl": "https://picsum.photos/seed/shuttle-van/800/600",
+      "imageUrl": "https://images.unsplash.com/photo-1570125909248-397f4de43834?w=800&q=80",
       "imageHint": "shuttle van"
     },
     {
       "id": "taxis-image",
       "description": "A taxi driving through a city street.",
-      "imageUrl": "https://picsum.photos/seed/taxi-city/800/600",
+      "imageUrl": "https://images.unsplash.com/photo-1579581569435-a503f1911963?w=800&q=80",
       "imageHint": "taxi city"
     },
     {
       "id": "transportation-image",
       "description": "A large truck driving on a highway, symbolizing logistics and transportation.",
-      "imageUrl": "https://picsum.photos/seed/truck-highway/800/600",
+      "imageUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
       "imageHint": "truck highway"
-    },
-    {
-      "id": "cellphone-repairs-image",
-      "description": "A technician repairing a smartphone with precision tools.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Cellphone%20Repairs.jpg?alt=media&token=41a8da1d-2677-4662-9b39-8d69dc4f1087",
-      "imageHint": "phone repair"
-    },
-    {
-      "id": "computer-repairs-image",
-      "description": "The inside of a desktop computer with a technician's hands working on it.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Computer%20Repairs.jpg?alt=media&token=a3788a8c-9e00-473a-9e43-6c0ce2fb24c1",
-      "imageHint": "computer repair"
-    },
-    {
-      "id": "internet-solutions-image",
-      "description": "A glowing fibre optic cable, representing fast internet.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Internet%20Solutions.jpg?alt=media&token=a9210646-6aeb-417c-bb9c-26ad286c17a8",
-      "imageHint": "fibre optic"
-    },
-    {
-      "id": "laptop-repairs-image",
-      "description": "A technician opening up a laptop to perform repairs.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Laptop%20Repairs.jpg?alt=media&token=01bb3059-9958-4e93-bdd3-078a382339aa",
-      "imageHint": "laptop repair"
-    },
-    {
-      "id": "networking-image",
-      "description": "A server room with network cables and routers.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Networking.jpg?alt=media&token=21d57ba3-56fe-47c8-a557-879d9971ecd4",
-      "imageHint": "server room"
-    },
-    {
-      "id": "office-equipment-image",
-      "description": "A modern office printer and copier machine.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Office%20Equipment.jpg?alt=media&token=c3be481d-b227-4216-ac36-4b56fda94078",
-      "imageHint": "office printer"
-    },
-    {
-      "id": "generators-image",
-      "description": "A portable diesel generator.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Generators.jpg?alt=media&token=bd67a535-624a-4193-a3fd-da6766c0c0fb",
-      "imageHint": "portable generator"
-    },
-    {
-      "id": "plant-hire-image",
-      "description": "A large yellow excavator at a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Plant%20Hire.jpg?alt=media&token=9ae6c2fb-d6c8-449d-a2a0-21d1d9418cac",
-      "imageHint": "excavator construction"
-    },
-    {
-      "id": "skip-hire-image",
-      "description": "A large yellow skip bin for waste removal.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/good%20skip.jpg?alt=media&token=35b50ee3-cc95-4938-975e-cf40e9f6e404",
-      "imageHint": "skip bin"
-    },
-    {
-      "id": "tlb-hire-image",
-      "description": "A TLB (Tractor-Loader-Backhoe) at a construction site.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/tlb%20hire.jpg?alt=media&token=f89a19bb-7d05-404a-ab73-bc3963f0f0d6",
-      "imageHint": "tlb construction"
-    },
-    {
-      "id": "building-materials-image",
-      "description": "A stack of bricks, cement bags, and other building materials.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Building%20Materials.jpg?alt=media&token=45543c65-3cf9-44bf-bfa8-4d809c2f17c6",
-      "imageHint": "building materials"
-    },
-    {
-      "id": "gas-suppliers-image",
-      "description": "Gas cylinders ready for delivery.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gas%20Suppliers.jpg?alt=media&token=ffb10224-da6f-4fd9-969b-9529c6671483",
-      "imageHint": "gas cylinders"
-    },
-    {
-      "id": "marble-and-granite-suppliers-image",
-      "description": "A beautiful slab of marble with intricate veining.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Marble%20and%20Granite%20Suppliers.jpg?alt=media&token=85aa0dc1-36c6-440f-bad2-4918899ac4f3",
-      "imageHint": "marble slab"
-    },
-    {
-      "id": "personal-protection-equipment-image",
-      "description": "A collection of personal protection equipment including a hard hat, gloves, and safety glasses.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Personal%20Protection%20Equipment.jpg?alt=media&token=e0536448-b317-42ee-b371-e05a40fd8ae8",
-      "imageHint": "safety equipment"
-    },
-    {
-      "id": "stationery-image",
-      "description": "A neatly organized desk with various stationery items like pens, notebooks, and clips.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Stationery.jpg?alt=media&token=7293490e-9ad8-457f-9d09-0ef1e59818dd",
-      "imageHint": "stationery desk"
-    },
-    {
-      "id": "swimming-pool-supplies-image",
-      "description": "A variety of swimming pool chemicals and equipment.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Swimming%20Pool%20Supplies.jpg?alt=media&token=69e1ef77-00d9-4062-ad34-65aec8f88a6b",
-      "imageHint": "pool chemicals"
-    },
-    {
-      "id": "agricultural-equipment-image",
-      "description": "A large green tractor in a field.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Agricultural%20Equipment.jpg?alt=media&token=d0bebae4-138d-420f-a177-d3b5e98b6578",
-      "imageHint": "tractor field"
-    },
-    {
-      "id": "agricultural-services-image",
-      "description": "A farmer inspecting crops in a field.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Agricultural%20Services.jpg?alt=media&token=cf46a592-3e42-4c38-8be2-72e311663594",
-      "imageHint": "farmer crops"
-    },
-    {
-      "id": "irrigation-image",
-      "description": "An irrigation sprinkler watering a green field.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Irrigation.jpg?alt=media&token=a58486fa-73e1-41ad-bcec-c8b6082b3495",
-      "imageHint": "irrigation sprinkler"
-    },
-    {
-      "id": "borehole-drillers-image",
-      "description": "A drilling rig boring a hole into the ground for water.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Borehole%20Drillers.jpg?alt=media&token=3a0502ab-b329-4b43-a4ef-cc7b3da73f0a",
-      "imageHint": "borehole drilling"
-    },
-    {
-      "id": "town-planners-image",
-      "description": "A town planner reviewing city maps and development plans.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Town%20Planners.jpg?alt=media&token=07e3b0ee-3fa8-40d2-a72d-663455a80b08",
-      "imageHint": "town planning map"
-    },
-    {
-      "id": "baby-sitters-image",
-      "description": "A friendly baby sitter playing with a happy toddler.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Baby%20Sitters.jpg?alt=media&token=18994a01-5d3c-4829-b3f2-e0ed1ffee376",
-      "imageHint": "babysitter toddler"
-    },
-    {
-      "id": "pre-schools-image",
-      "description": "Children in a preschool classroom learning and playing.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Pre-Schools.jpg?alt=media&token=5fc8ce8e-4064-4576-b763-5421642e0406",
-      "imageHint": "preschool children"
-    },
-    {
-      "id": "dressmakers-image",
-      "description": "A dressmaker working on a custom gown on a mannequin.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Dressmakers.jpg?alt=media&token=57260fdc-eac7-454f-ac1d-14c10756b28c",
-      "imageHint": "dressmaker mannequin"
-    },
-    {
-      "id": "day-care-centres-image",
-      "description": "Children playing in a colorful and safe day care center.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Day%20Care%20Centres.jpg?alt=media&token=55d832af-dec0-45f1-b146-906c28812320",
-      "imageHint": "daycare children"
-    },
-    {
-      "id": "creches-image",
-      "description": "Toddlers and babies in a bright and playful creche environment.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Creches.jpg?alt=media&token=e243ab45-2a1b-42e5-aa55-829a4a3902a7",
-      "imageHint": "creche toddlers"
-    },
-    {
-      "id": "embroidery-image",
-      "description": "A close-up of a detailed embroidery pattern on fabric.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Embroidery.jpg?alt=media&token=61f37ec0-b774-41b3-8579-e1368ad31ec3",
-      "imageHint": "embroidery fabric"
-    },
-    {
-      "id": "cake-shops-image",
-      "description": "A beautifully decorated cake in a bakery display.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/cake%20shop.jpg?alt=media&token=a69c400d-49b1-45df-acef-94c183e16b1e",
-      "imageHint": "bakery cake"
-    },
-    {
-      "id": "groomers-image",
-      "description": "A dog being groomed by a professional groomer.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Groomers.jpg?alt=media&token=c2a662a4-610f-4eae-a69a-d70b222b309f",
-      "imageHint": "dog grooming"
-    },
-    {
-      "id": "pet-sitters-image",
-      "description": "A person playing with a dog in a park.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Pet%20Sitters.jpg?alt=media&token=e0f076f6-4699-4094-9db5-cbdd2551d3f4",
-      "imageHint": "pet sitter dog"
-    },
-    {
-      "id": "tour-operators-image",
-      "description": "A tour guide with a group of tourists looking at a map.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Tour%20Operators.jpg?alt=media&token=9394b46d-25c0-45f0-81a5-51ac7604b08c",
-      "imageHint": "tour guide"
-    },
-    {
-      "id": "travel-agents-image",
-      "description": "A travel agent at a desk with a globe and brochures.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Travel%20Agents.jpg?alt=media&token=27dfce37-2cce-4266-8028-a543c368c689",
-      "imageHint": "travel agent"
-    },
-    {
-      "id": "driving-schools-image",
-      "description": "A driving instructor in a car with a student.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/driving%20school.jpg?alt=media&token=5bb9c330-7368-434c-834e-124958722fae",
-      "imageHint": "driving lesson"
-    },
-    {
-      "id": "burglar-bars-image",
-      "description": "Strong steel burglar bars installed on a window.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Burglar%20Bars%20A.jpg?alt=media&token=798605b0-c1d0-4c61-9132-42f2a945565b",
-      "imageHint": "burglar bars"
-    },
-    {
-      "id": "fuels-image",
-      "description": "A person refueling a car at a gas station.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/fuels%20c.jpg?alt=media&token=a8f05f54-8079-4c7d-abf1-c557b3aae45d",
-      "imageHint": "gas station"
-    },
-    {
-      "id": "curtains-image",
-      "description": "Elegant curtains hanging in a well-lit living room.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Curtains%20c.jpg?alt=media&token=f76fab69-06e2-422b-80bc-fb96e7b39234",
-      "imageHint": "elegant curtains"
-    },
-    {
-      "id": "car-alarms-image",
-      "description": "A modern car alarm key fob.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/car%20alarm%20c.jpg?alt=media&token=57db81a7-a1d4-4f06-9f02-f71fcef503bd",
-      "imageHint": "car alarm"
-    },
-    {
-      "id": "roofer-image",
-      "description": "A roofer working on a residential roof.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/roofer.jpg?alt=media&token=e015f808-b755-48db-9081-0a793f3f2530",
-      "imageHint": "roofer work"
-    },
-    {
-      "id": "mechanics-image",
-      "description": "A mechanic working under a car on a lift.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/c%20machanics.jpg?alt=media&token=7218c9a6-3ae9-4e7c-94bc-74678485bdea",
-      "imageHint": "mechanic car"
-    },
-    {
-      "id": "air-conditioning-image",
-      "description": "A modern air conditioning unit mounted on a wall.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Air%20Conditioning%20A.jpg?alt=media&token=db0cb32d-5d6d-4fd3-a2c8-94e42416124c",
-      "imageHint": "air conditioner"
-    },
-    {
-      "id": "aluminium-doors-and-windows-image",
-      "description": "Sleek aluminium sliding doors opening to a patio.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/aluminium%20doors%20and%20windows%20A.jpg?alt=media&token=934e91fd-9bc2-4e94-94f2-fdbe3f16970d",
-      "imageHint": "aluminium doors"
-    },
-    {
-      "id": "awnings-image",
-      "description": "A retractable awning providing shade over a sunny patio.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/awnings%20A.jpg?alt=media&token=80bd2543-7b32-47c0-9ef4-0a91dfabf6c9",
-      "imageHint": "patio awning"
-    },
-    {
-      "id": "balustrades-image",
-      "description": "A modern glass balustrade on a staircase.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Balustrades.jpg?alt=media&token=5f94d8ed-5444-4daf-8273-97d016d8fe3b",
-      "imageHint": "glass balustrade"
-    },
-    {
-      "id": "ceiling-installers-image",
-      "description": "A beautifully finished ceiling with downlights.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Ceiling%20Installers.jpg?alt=media&token=230c8dc5-bd1f-4bf7-a83e-a27cc333e12c",
-      "imageHint": "modern ceiling"
-    },
-    {
-      "id": "concrete-slabs-image",
-      "description": "A freshly poured concrete slab for a new house foundation.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Concrete%20Slabs%20A.jpg?alt=media&token=31c8e41e-cf0b-4588-b01f-52ce601815d2",
-      "imageHint": "concrete foundation"
-    },
-    {
-      "id": "garage-door-motors-image",
-      "description": "A professional installing a new garage door motor.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/GARAGE%20MOTOR%20DOORS.jpg?alt=media&token=c509d7ae-d5c3-43e9-8730-4424e792feb9",
-      "imageHint": "garage motor"
-    },
-    {
-      "id": "carpeting-image",
-      "description": "A luxurious, soft carpet in a cozy living room setting.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpenters.jpg?alt=media&token=fdea5fc5-6adf-43f2-9e74-5e743ae97aa7",
-      "imageHint": "plush carpet"
-    },
-    {
-      "id": "carpet-cleaning-image",
-      "description": "A professional using a steam cleaner on a carpet.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpet%20Cleaning%20A%20A.jpg?alt=media&token=fcbe9da6-45aa-465f-816c-69c242e48900",
-      "imageHint": "carpet cleaning"
-    },
-    {
-      "id": "gas-installers-image",
-      "description": "A certified gas installer connecting a gas hob in a modern kitchen.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gas%20Installers%20C.jpg?alt=media&token=b6209aa5-fe1a-42e2-a21a-bd34e302bc2e",
-      "imageHint": "gas installation"
-    },
-    {
-      "id": "carports-image",
-      "description": "A sturdy, modern steel carport providing shelter for two vehicles.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carports%20A.jpg?alt=media&token=8b376726-0c0c-4a45-9833-0fc5c7c9d686",
-      "imageHint": "steel carport"
-    },
-    {
-      "id": "gates-image",
-      "description": "An elegant, modern driveway gate made of wood and steel.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/gates.jpg?alt=media&token=1e400b95-6abc-4596-9d64-2a1d355bef7c",
-      "imageHint": "driveway gate"
-    },
-    {
-      "id": "car-window-tinting-image",
-      "description": "A professional applying tint film to a car window.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/car%20window%20tinting.jpg?alt=media&token=5c83dc8c-28ad-4115-bcbc-ba84b296493b",
-      "imageHint": "car window tinting"
-    },
-    {
-      "id": "party-planners-image",
-      "description": "A party planner with a clipboard, smiling at a well-organized event.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/party%20planners%20A.jpg?alt=media&token=37b31f37-e08c-4a9c-bd77-62fc9cf3b66b",
-      "imageHint": "party planner"
-    },
-    {
-      "id": "debt-collection-image",
-      "description": "A symbolic image representing debt collection, like a gavel or balanced scales.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Debt%20Collection%20A.jpg?alt=media&token=9af40147-350f-4deb-b299-80bfc329271c",
-      "imageHint": "gavel scales"
-    },
-    {
-      "id": "dieticians-image",
-      "description": "A colorful array of healthy fruits and vegetables.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/dentists.jpg?alt=media&token=4d7cb273-1c62-4c49-831e-208ea8193a86",
-      "imageHint": "healthy food"
-    },
-    {
-      "id": "massage-therapists-image",
-      "description": "A person receiving a relaxing back massage in a serene spa environment.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/A%20Massage%20Therapists.jpg?alt=media&token=038345ff-70d6-45f5-8e4e-5c088bc3e75a",
-      "imageHint": "back massage"
-    },
-    {
-      "id": "loans-image",
-      "description": "Symbolic image for loans, like a person receiving keys or signing documents.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/loans.jpg?alt=media&token=f3957b34-defe-4f1e-bfed-f7ae1c9d68cb",
-      "imageHint": "loan agreement"
     }
   ]
 }
