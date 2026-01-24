@@ -93,7 +93,7 @@
     {
       "id": "event-planners-image",
       "description": "An event planner coordinating with staff at a corporate event.",
-      "imageUrl": "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=800&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/party%20planners%20A.jpg?alt=media&token=37b31f37-e08c-4a9c-bd77-62fc9cf3b66b",
       "imageHint": "event planner"
     },
     {
@@ -129,13 +129,13 @@
     {
       "id": "accounting-image",
       "description": "A person using a calculator with financial documents on a desk.",
-      "imageUrl": "https://images.unsplash.com/photo-1554224155-8d04421cd6c3?w=800&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/accountants.jpg?alt=media&token=a086d1b9-b6c5-4f25-98a8-8e263250a3c5",
       "imageHint": "accounting calculator"
     },
     {
       "id": "auditors-image",
       "description": "An auditor reviewing financial statements in an office.",
-      "imageUrl": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=800&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/auditors%20good%20A.jpg?alt=media&token=fce3ae90-996e-42d5-92a4-16c2a3498662",
       "imageHint": "auditor office"
     },
     {
@@ -224,3 +224,4 @@
     }
   ]
 }
+    
