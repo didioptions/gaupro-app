@@ -1,4 +1,3 @@
-
 'use client';
 
 import Header from '@/components/layout/header';
@@ -10,7 +9,7 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import ProfessionalCard, { type Professional } from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
 import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
-import { collection, query, where, orderBy, limit } from 'firebase/firestore';
+import { collection, query, where, limit } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -23,8 +22,6 @@ function TopCakeShopsPageContent() {
     return query(
       collection(firestore, 'professionalProfiles'),
       where('serviceCategory', '==', proCategory),
-      orderBy('rating', 'desc'),
-      orderBy('priorityRank', 'desc'),
       limit(5)
     );
   }, [firestore]);
@@ -57,7 +54,8 @@ function TopCakeShopsPageContent() {
       return (
         <Card>
           <CardContent className="p-6 text-center">
-            <p className="text-lg text-muted-foreground">No top cake shops found.</p>
+            <p className="text-lg text-muted-foreground">No professionals found for "Cake Shops" in South Africa.</p>
+            <p className="mt-2">Try widening your search or check back soon!</p>
           </CardContent>
         </Card>
       );
@@ -103,7 +101,7 @@ function TopCakeShopsPageContent() {
                     <ChevronRight className="h-4 w-4" />
                     <span className="font-medium text-foreground">Top Cake Shops</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top Cake Shops in Gauteng</h2>
+                <h2 className="text-3xl mt-1">Top Cake Shops in South Africa</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">
