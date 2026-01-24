@@ -16,6 +16,7 @@ export type QuestionSet = {
 export const allServices = [
     { value: 'access-control', label: 'Access Control' },
     { value: 'accounting', label: 'Accounting' },
+    { value: 'agricultural', label: 'Agricultural' },
     { value: 'agricultural-equipment', label: 'Agricultural Equipment' },
     { value: 'agricultural-services', label: 'Agricultural Services' },
     { value: 'air-conditioning', label: 'Air Conditioning' },
@@ -2498,6 +2499,7 @@ export const serviceQuestionSets: QuestionSet[] = [
       ],
   },
 ];
+
 
 
 
