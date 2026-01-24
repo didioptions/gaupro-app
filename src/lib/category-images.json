@@ -31,7 +31,7 @@
       "imageHint": "roofer shingles"
     },
     {
-      "id": "cleaner-image",
+      "id": "cleaning-service-image",
       "description": "A person wearing yellow gloves cleaning a window with a squeegee.",
       "imageUrl": "https://images.unsplash.com/photo-1600831885642-d670a463138b?w=800&q=80",
       "imageHint": "cleaning window"
@@ -203,6 +203,24 @@
       "description": "A large truck driving on a highway, symbolizing logistics and transportation.",
       "imageUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
       "imageHint": "truck highway"
+    },
+    {
+      "id": "gardeners-image",
+      "description": "A gardener tending to flowers in a garden.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Gardeners.jpg?alt=media&token=9e3ecea1-ffac-4917-ac52-93aec4e742c0",
+      "imageHint": "gardener flowers"
+    },
+    {
+      "id": "pest-control-image",
+      "description": "A pest control professional spraying a home's exterior.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/pest%20con%20(1).jpg?alt=media&token=3d87bea8-3627-43ca-b292-4324ef4f4cb9",
+      "imageHint": "pest control"
+    },
+    {
+      "id": "carpenters-image",
+      "description": "A carpenter measuring a piece of wood in a workshop.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpenters.jpg?alt=media&token=fdea5fc5-6adf-43f2-9e74-5e743ae97aa7",
+      "imageHint": "carpenter wood"
     }
   ]
 }
