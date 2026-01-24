@@ -16,7 +16,7 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
 import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
-import { collection, query, where, orderBy, limit, DocumentData } from 'firebase/firestore';
+import { collection, query, where, orderBy, limit, DocumentData, Query } from 'firebase/firestore';
 
 
 interface ServicePageClientProps {
@@ -50,7 +50,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         let q: Query<DocumentData> = query(
             collection(firestore, 'professionalProfiles'),
             where('serviceCategory', '==', currentService),
-            orderBy('priorityRank', 'desc'),
             limit(20)
         );
         return q;
