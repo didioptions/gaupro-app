@@ -46,14 +46,13 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
     const professionalsQuery = useMemoFirebase(() => {
         if (!firestore) return null;
-        const serviceForQuery = allServices.find(s => s.value === currentService)?.label || serviceLabel;
         let q: Query<DocumentData> = query(
             collection(firestore, 'professionalProfiles'),
-            where('serviceCategory', '==', serviceForQuery),
+            where('serviceCategory', '==', currentService),
             limit(20)
         );
         return q;
-    }, [firestore, currentService, serviceLabel]);
+    }, [firestore, currentService]);
 
     const { data: professionalsData, isLoading: isLoadingFirestore } = useCollection<Professional>(professionalsQuery);
 
