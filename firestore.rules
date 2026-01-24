@@ -106,7 +106,7 @@ service cloud.firestore {
     // --- Professional Profiles ---
     match /professionalProfiles/{professionalProfileId} {
       // PUBLIC READ: Allows anyone to `get` individual profiles and `list` the collection.
-      allow read: if true;
+      allow get, list: if true;
 
       // WRITE ACCESS: Requires authentication and ownership check.
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
