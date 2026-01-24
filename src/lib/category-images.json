@@ -21,7 +21,7 @@
     {
       "id": "handyman-image",
       "description": "A handyman with a toolbelt looking at the camera.",
-      "imageUrl": "https://images.unsplash.com/photo-1620956942055-6b3a5d85c88b?w=800&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/handmen%20A.jpg?alt=media&token=8e6b5137-cb89-4bfa-9cdc-bec0ca1859d9",
       "imageHint": "handyman tools"
     },
     {
@@ -45,7 +45,7 @@
     {
       "id": "builders-image",
       "description": "A team of construction workers on a building site.",
-      "imageUrl": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/builder%20good.jpg?alt=media&token=a71c0461-b5c9-4ee1-9ae3-7ca73c90a0ee",
       "imageHint": "construction workers site"
     },
     {
@@ -63,7 +63,7 @@
     {
       "id": "solar-systems-image",
       "description": "Solar panels installed on the roof of a modern house.",
-      "imageUrl": "https://images.unsplash.com/photo-1508514177221-188b2cf16e9c?w=800&q=80",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/solar.jpg?alt=media&token=d27ccd5e-35f3-46f6-8846-f53d9c2dc505",
       "imageHint": "solar panels"
     },
     {
