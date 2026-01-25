@@ -1,12 +1,3 @@
-/**
- * @fileoverview Firestore Security Rules for Gaupro.
- *
- * Core Philosophy:
- * This ruleset enforces a strict user-ownership model for user-specific data
- * while allowing public read access to professional profiles. Write access
- * is restricted to authenticated users with appropriate ownership or
- * association with the resources being modified.
- */
 rules_version = '2';
 
 service cloud.firestore {
@@ -22,78 +13,59 @@ service cloud.firestore {
     }
 
     function isProfessional() {
-      // Simple check: requires being signed in for writes/complex actions
       return isSignedIn();
     }
 
     function isQuoteOwner(quoteId) {
-        // Assumes quoteId in the profile subcollection matches the auth UID,
-        // which seems contextually odd but matches your original logic structure.
         return exists(/databases/$(database)/documents/professionalProfiles/$(request.auth.uid)/quotes/$(quoteId));
     }
 
-    // Function to check if a user can create a quote (Ensuring mirrored writes are valid)
     function canCreateQuote(userId, serviceRequestId, quoteId) {
       let isPro = isProfessional();
       let isProProfileOwner = request.resource.data.professionalProfileId == request.auth.uid;
       let serviceRequestPath = /databases/$(database)/documents/users/$(userId)/serviceRequests/$(serviceRequestId);
       let serviceRequestExists = exists(serviceRequestPath);
       let quoteData = request.resource.data;
-
-      // IMPORTANT: We MUST use get() on the *other* path to verify the transaction integrity.
       let otherWritePath = /databases/$(database)/documents/professionalProfiles/$(quoteData.professionalProfileId)/quotes/$(quoteId);
-      // Use getAfter() as we're in a write operation context
       let otherWriteData = getAfter(otherWritePath);
 
       return isPro &&
              isProProfileOwner &&
              serviceRequestExists &&
-             // Ensure the mirrored write is valid
              request.path != otherWritePath &&
              otherWriteData.data.amount == quoteData.amount &&
              otherWriteData.data.serviceRequestId == quoteData.serviceRequestId;
     }
 
-    // Function to check if a user can create a review (Ensuring mirrored writes are valid)
     function canCreateReview(userId, serviceRequestId, reviewId) {
       let isRequestOwner = isOwner(userId);
       let reviewData = request.resource.data;
-
-      // IMPORTANT: We MUST use get() on the *other* path to verify the transaction integrity.
       let otherWritePath = /databases/$(database)/documents/professionalProfiles/$(reviewData.professionalProfileId)/reviews/$(reviewId);
       let otherWriteData = getAfter(otherWritePath);
 
       return isRequestOwner &&
              reviewData.userId == userId &&
              reviewData.serviceRequestId == serviceRequestId &&
-             // Ensure the mirrored write is valid
              request.path != otherWritePath &&
              otherWriteData.data.rating == reviewData.rating &&
              otherWriteData.data.comment == reviewData.comment;
     }
 
-
     // --- Collections ---
 
-    // Users can only read and manage their own user document.
     match /users/{userId} {
       allow read, update, delete: if isSignedIn() && isOwner(userId);
       allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == userId;
 
-      // --- Subcollections ---
-
-      // Users can manage their own service requests.
       match /serviceRequests/{serviceRequestId} {
         allow read, write: if isSignedIn() && isOwner(userId);
 
-        // Quotes can be read by the user who owns the service request or the pro who submitted it.
         match /quotes/{quoteId} {
           allow read: if isSignedIn() && (isOwner(userId) || isQuoteOwner(quoteId));
           allow create: if canCreateQuote(userId, serviceRequestId, quoteId);
-          allow update, delete: if false; // Quotes are immutable
+          allow update, delete: if false; 
         }
 
-        // Reviews are publicly readable. A user can create/update a review for their own service request.
         match /reviews/{reviewId} {
           allow read: if true;
           allow create: if canCreateReview(userId, serviceRequestId, reviewId);
@@ -105,26 +77,23 @@ service cloud.firestore {
 
     // --- Professional Profiles ---
     match /professionalProfiles/{professionalProfileId} {
-      // PUBLIC READ: Allows anyone to `get` individual profiles and `list` the collection.
-      allow read: if true;
+      // FIX: Changed 'read' to 'get, list' to explicitly allow homepage listing
+      allow get, list: if true; 
 
-      // WRITE ACCESS: Requires authentication and ownership check.
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
 
-      // Mirror writes for quotes on the professional's profile.
       match /quotes/{quoteId} {
           allow create: if canCreateQuote(getAfter(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, quoteId);
-          allow read: if isSignedIn() && isOwner(professionalProfileId); // Only the pro can see their quotes here.
+          allow read: if isSignedIn() && isOwner(professionalProfileId); 
           allow update, delete: if false;
       }
 
-      // Mirror writes for reviews on the professional's profile.
       match /reviews/{reviewId} {
         allow create: if canCreateReview(getAfter(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, reviewId);
-        allow read: if true; // Reviews are public.
-        allow update, delete: if false; // Reviews are immutable by pros.
+        allow read: if true; 
+        allow update, delete: if false; 
       }
     }
   }
