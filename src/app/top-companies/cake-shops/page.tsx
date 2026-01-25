@@ -1,4 +1,3 @@
-
 'use client';
 
 import Header from '@/components/layout/header';
@@ -10,7 +9,7 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import ProfessionalCard, { type Professional } from '@/components/services/professional-card';
 import { CategoryImages } from '@/lib/category-images';
 import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
-import { collection, query, where, orderBy } from 'firebase/firestore';
+import { collection, query, where, orderBy, limit } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent } from '@/components/ui/card';
 import { allServices } from '@/lib/service-questions';
@@ -26,15 +25,15 @@ export default function TopCompaniesPage() {
 
   const professionalsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    const serviceForQuery = allServices.find(s => s.value === proCategory)?.label || serviceLabel;
     
     return query(
         collection(firestore, 'professionalProfiles'),
-        where('serviceCategory', '==', serviceForQuery),
+        where('serviceCategory', '==', serviceLabel),
         orderBy('rating', 'desc'),
-        orderBy('priorityRank', 'desc')
+        orderBy('priorityRank', 'desc'),
+        limit(20)
     );
-  }, [firestore, proCategory, serviceLabel]);
+  }, [firestore, serviceLabel]);
 
   const { data: topCompanies, isLoading } = useCollection<Professional>(professionalsQuery);
 

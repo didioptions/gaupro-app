@@ -48,11 +48,13 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         if (!firestore) return null;
         let q: Query<DocumentData> = query(
             collection(firestore, 'professionalProfiles'),
-            where('serviceCategory', '==', currentService),
+            where('serviceCategory', '==', serviceLabel),
+            orderBy('rating', 'desc'),
+            orderBy('priorityRank', 'desc'),
             limit(20)
         );
         return q;
-    }, [firestore, currentService]);
+    }, [firestore, serviceLabel]);
 
     const { data: professionalsData, isLoading: isLoadingFirestore } = useCollection<Professional>(professionalsQuery);
 
