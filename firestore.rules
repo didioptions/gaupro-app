@@ -76,31 +76,29 @@ service cloud.firestore {
     }
 
     // --- Professional Profiles ---
-
-    // This rule allows public read access to all documents and subcollections within professionalProfiles
-    match /professionalProfiles/{document=**} {
-      allow read: if true;
-    }
-
+    
+    // Explicitly allow public 'list' and 'get' operations on the collection and documents
     match /professionalProfiles/{professionalProfileId} {
-      // Read rules are handled above. This block is for write permissions.
+      allow get: if true;
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
 
-      match /quotes/{quoteId} {
-          allow create: if canCreateQuote(getAfter(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, quoteId);
-          allow read: if isSignedIn() && isOwner(professionalProfileId); // More specific read rule can co-exist
-          allow update, delete: if false;
-      }
+    match /professionalProfiles {
+        allow list: if true;
+    }
 
-      match /reviews/{reviewId} {
-        allow create: if canCreateReview(getAfter(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, reviewId);
-        // This subcollection is already readable via the recursive wildcard rule above.
-        // Explicitly stating `allow read: if true;` here is redundant but harmless.
-        allow read: if true; 
-        allow update, delete: if false; 
-      }
+    match /professionalProfiles/{professionalProfileId}/quotes/{quoteId} {
+        allow create: if canCreateQuote(getAfter(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, quoteId);
+        allow read: if isSignedIn() && isOwner(professionalProfileId); 
+        allow update, delete: if false;
+    }
+
+    match /professionalProfiles/{professionalProfileId}/reviews/{reviewId} {
+      allow create: if canCreateReview(getAfter(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, reviewId);
+      allow read: if true; 
+      allow update, delete: if false; 
     }
   }
 }
