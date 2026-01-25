@@ -77,8 +77,7 @@ service cloud.firestore {
 
     // --- Professional Profiles ---
     match /professionalProfiles/{professionalProfileId} {
-      // FIX: Changed 'read' to 'get, list' to explicitly allow homepage listing
-      allow get, list: if true; 
+      allow read: if true; 
 
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
