@@ -38,7 +38,7 @@ export default function ProDashboardPage() {
 
     const fetchProfile = async () => {
       try {
-        const q = query(collection(firestore, "professionals"), where("userId", "==", user.uid));
+        const q = query(collection(firestore, "professionalProfiles"), where("userId", "==", user.uid));
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
           const profileDoc = querySnapshot.docs[0];

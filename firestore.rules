@@ -12,45 +12,6 @@ service cloud.firestore {
       return request.auth.uid == userId;
     }
 
-    function isProfessional() {
-      return isSignedIn();
-    }
-
-    function isQuoteOwner(quoteId) {
-        return exists(/databases/$(database)/documents/professionalProfiles/$(request.auth.uid)/quotes/$(quoteId));
-    }
-
-    function canCreateQuote(userId, serviceRequestId, quoteId) {
-      let isPro = isProfessional();
-      let isProProfileOwner = request.resource.data.professionalProfileId == request.auth.uid;
-      let serviceRequestPath = /databases/$(database)/documents/users/$(userId)/serviceRequests/$(serviceRequestId);
-      let serviceRequestExists = exists(serviceRequestPath);
-      let quoteData = request.resource.data;
-      let otherWritePath = /databases/$(database)/documents/professionalProfiles/$(quoteData.professionalProfileId)/quotes/$(quoteId);
-      let otherWriteData = getAfter(otherWritePath);
-
-      return isPro &&
-             isProProfileOwner &&
-             serviceRequestExists &&
-             request.path != otherWritePath &&
-             otherWriteData.data.amount == quoteData.amount &&
-             otherWriteData.data.serviceRequestId == quoteData.serviceRequestId;
-    }
-
-    function canCreateReview(userId, serviceRequestId, reviewId) {
-      let isRequestOwner = isOwner(userId);
-      let reviewData = request.resource.data;
-      let otherWritePath = /databases/$(database)/documents/professionalProfiles/$(reviewData.professionalProfileId)/reviews/$(reviewId);
-      let otherWriteData = getAfter(otherWritePath);
-
-      return isRequestOwner &&
-             reviewData.userId == userId &&
-             reviewData.serviceRequestId == serviceRequestId &&
-             request.path != otherWritePath &&
-             otherWriteData.data.rating == reviewData.rating &&
-             otherWriteData.data.comment == reviewData.comment;
-    }
-
     // --- Collections ---
 
     match /users/{userId} {
@@ -61,40 +22,34 @@ service cloud.firestore {
         allow read, write: if isSignedIn() && isOwner(userId);
 
         match /quotes/{quoteId} {
-          allow read: if isSignedIn() && (isOwner(userId) || isQuoteOwner(quoteId));
-          allow create: if canCreateQuote(userId, serviceRequestId, quoteId);
-          allow update, delete: if false; 
+          allow read: if isSignedIn();
+          allow create, update, delete: if isSignedIn() && isOwner(userId);
         }
 
         match /reviews/{reviewId} {
           allow read: if true;
-          allow create: if canCreateReview(userId, serviceRequestId, reviewId);
-          allow update: if isSignedIn() && isOwner(userId) && resource.data.userId == userId;
+          allow create, update: if isSignedIn() && isOwner(userId) && request.resource.data.userId == userId;
           allow delete: if isSignedIn() && isOwner(userId);
         }
       }
     }
 
     // --- Professional Profiles ---
+    // This collection is public for reads (listing, getting) but writes are restricted.
     match /professionalProfiles/{professionalProfileId} {
-      // Allow public read for single documents (get) and collection queries (list).
-      allow get, list: if true;
+      allow read: if true;
 
-      // Write operations are restricted to the owner of the profile.
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
-      allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
-      allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow update, delete: if isSignedIn() && resource.data.userId == request.auth.uid;
 
       match /quotes/{quoteId} {
-          allow create: if canCreateQuote(getAfter(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, quoteId);
-          allow read: if isSignedIn() && isOwner(professionalProfileId); 
-          allow update, delete: if false;
+          allow read, write: if isSignedIn() && resource.data.professionalProfileId == request.auth.uid;
       }
 
       match /reviews/{reviewId} {
-        allow create: if canCreateReview(getAfter(/databases/$(database)/documents/users/{userId}/serviceRequests/$(request.resource.data.serviceRequestId)).data.userId, request.resource.data.serviceRequestId, reviewId);
-        allow read: if true; 
-        allow update, delete: if false; 
+        allow read: if true;
+        allow create: if isSignedIn(); // Allow any signed-in user to create a review. Further validation can be added.
+        allow update, delete: if false; // Reviews are generally immutable.
       }
     }
   }

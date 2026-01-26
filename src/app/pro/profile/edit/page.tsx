@@ -52,7 +52,7 @@ export default function EditProfilePage() {
 
     const fetchProfile = async () => {
         try {
-            const q = query(collection(firestore, "professionals"), where("userId", "==", user.uid));
+            const q = query(collection(firestore, "professionalProfiles"), where("userId", "==", user.uid));
             const querySnapshot = await getDocs(q);
             if (!querySnapshot.empty) {
                 const profileDoc = querySnapshot.docs[0];
@@ -107,7 +107,7 @@ export default function EditProfilePage() {
     }
     setIsSaving(true);
     try {
-        const docRef = doc(firestore, 'professionals', profileId);
+        const docRef = doc(firestore, 'professionalProfiles', profileId);
         await updateDoc(docRef, formData);
         setShowSuccessAlert(true);
         setTimeout(() => setShowSuccessAlert(false), 5000);
@@ -155,7 +155,7 @@ export default function EditProfilePage() {
             setFormData((prev: any) => ({ ...prev, photos: photoURLs }));
         }
 
-        const docRef = doc(firestore, 'professionals', profileId);
+        const docRef = doc(firestore, 'professionalProfiles', profileId);
         await updateDoc(docRef, updatedData);
 
         toast({ title: 'Success!', description: 'Your media has been uploaded and saved.' });
