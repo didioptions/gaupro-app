@@ -12,13 +12,24 @@ service cloud.firestore {
       return request.auth.uid == userId;
     }
 
-    // Public read access for professional profiles
-    match /professionalProfiles/{profileId} {
-      allow read: if true;
-      allow create, update, delete: if isSignedIn() && request.auth.uid == request.resource.data.userId;
+    // --- Collections ---
+
+    // This rule allows ANYONE to query the collection of professional profiles.
+    // This is required for the public-facing pages to display lists of pros.
+    match /professionalProfiles {
+      allow list: if true;
     }
 
-    // Users can only access their own data
+    // These rules apply to INDIVIDUAL professional profile documents.
+    match /professionalProfiles/{profileId} {
+      // Allow anyone to GET a single document.
+      allow get: if true;
+
+      // Allow create, update, delete only if the user is signed in and is the owner.
+      allow create, update, delete: if isSignedIn() && request.auth.uid == resource.data.userId;
+    }
+
+    // Users can only access their own data.
     match /users/{userId}/{document=**} {
       allow read, write: if isSignedIn() && isOwner(userId);
     }
