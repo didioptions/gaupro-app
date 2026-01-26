@@ -77,10 +77,10 @@ service cloud.firestore {
 
     // --- Professional Profiles ---
     match /professionalProfiles/{professionalProfileId} {
-      // Allow public read access to all profiles and profile listings
-      allow read: if true; 
+      // Allow public read for single documents (get) and collection queries (list).
+      allow get, list: if true;
 
-      // Allow create, update, delete only for the authenticated owner
+      // Write operations are restricted to the owner of the profile.
       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
       allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
       allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
