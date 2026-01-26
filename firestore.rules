@@ -1,56 +1,8 @@
 rules_version = '2';
-
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // --- Helper Functions ---
-    function isSignedIn() {
-      return request.auth != null;
-    }
-
-    function isOwner(userId) {
-      return request.auth.uid == userId;
-    }
-
-    // --- Collections ---
-
-    match /users/{userId} {
-      allow read, update, delete: if isSignedIn() && isOwner(userId);
-      allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == userId;
-
-      match /serviceRequests/{serviceRequestId} {
-        allow read, write: if isSignedIn() && isOwner(userId);
-
-        match /quotes/{quoteId} {
-          allow read: if isSignedIn();
-          allow create, update, delete: if isSignedIn() && isOwner(userId);
-        }
-
-        match /reviews/{reviewId} {
-          allow read: if true;
-          allow create, update: if isSignedIn() && isOwner(userId) && request.resource.data.userId == userId;
-          allow delete: if isSignedIn() && isOwner(userId);
-        }
-      }
-    }
-
-    // --- Professional Profiles ---
-    // This collection is public for reads (listing, getting) but writes are restricted.
-    match /professionalProfiles/{professionalProfileId} {
-      allow read: if true;
-
-      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if isSignedIn() && resource.data.userId == request.auth.uid;
-
-      match /quotes/{quoteId} {
-          allow read, write: if isSignedIn() && resource.data.professionalProfileId == request.auth.uid;
-      }
-
-      match /reviews/{reviewId} {
-        allow read: if true;
-        allow create: if isSignedIn(); // Allow any signed-in user to create a review. Further validation can be added.
-        allow update, delete: if false; // Reviews are generally immutable.
-      }
+    match /{document=**} {
+      allow read, write: if true;
     }
   }
 }
