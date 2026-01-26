@@ -1,3 +1,4 @@
+
 rules_version = '2';
 
 service cloud.firestore {
@@ -27,6 +28,16 @@ service cloud.firestore {
 
       // Allow create, update, delete only if the user is signed in and is the owner.
       allow create, update, delete: if isSignedIn() && request.auth.uid == resource.data.userId;
+
+       match /quotes/{quoteId} {
+          allow read, write: if isSignedIn() && isOwner(professionalProfileId); 
+      }
+
+      match /reviews/{reviewId} {
+        allow read: if true; 
+        allow create: if isSignedIn();
+        allow update, delete: if false; 
+      }
     }
 
     // Users can only access their own data.

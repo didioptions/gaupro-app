@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
@@ -14,8 +15,7 @@ import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
-import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
-import { collection, query, where, orderBy, limit, DocumentData, Query } from 'firebase/firestore';
+import { allProfessionals } from '@/lib/professionals-data';
 
 
 interface ServicePageClientProps {
@@ -26,9 +26,11 @@ interface ServicePageClientProps {
 export default function ServicePageClient({ params, searchParams }: ServicePageClientProps) {
     const locationQuery = searchParams?.location;
     const [isClient, setIsClient] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsClient(true);
+        setIsLoading(false);
     }, []);
 
     const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
@@ -42,32 +44,15 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
 
-    const firestore = useFirestore();
-
-    const professionalsQuery = useMemoFirebase(() => {
-        if (!firestore) return null;
-        let q: Query<DocumentData> = query(
-            collection(firestore, 'professionalProfiles'),
-            where('serviceCategory', '==', serviceLabel),
-            orderBy('rating', 'desc'),
-            orderBy('priorityRank', 'desc'),
-            limit(20)
-        );
-        return q;
-    }, [firestore, serviceLabel]);
-
-    const { data: professionalsData, isLoading: isLoadingFirestore } = useCollection<Professional>(professionalsQuery);
-
     const professionals = useMemo(() => {
-        if (!professionalsData) return [];
+        const allProsForCategory = allProfessionals[currentService] || [];
         if (locationQuery && typeof locationQuery === 'string') {
              const formattedLocationQuery = locationQuery.replace(/-/g, ' ').toLowerCase();
-             return professionalsData.filter(pro => pro.location?.toLowerCase().includes(formattedLocationQuery));
+             return allProsForCategory.filter(pro => pro.location?.toLowerCase().includes(formattedLocationQuery));
         }
-        return professionalsData;
-    }, [professionalsData, locationQuery]);
+        return allProsForCategory;
+    }, [currentService, locationQuery]);
 
-    const isLoading = isLoadingFirestore || !isClient;
     
     const error = null;
     
@@ -120,7 +105,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     }, [currentService, locationName]);
 
     const ProfessionalList = () => {
-        if (isLoading) {
+        if (isLoading || !isClient) {
             return Array.from({ length: 5 }).map((_, index) => (
                 <Card key={index}>
                     <CardContent className="p-6">
