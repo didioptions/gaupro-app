@@ -1,3 +1,4 @@
+
 {
   "categoryImages": [
     {
@@ -221,6 +222,24 @@
       "description": "A carpenter measuring a piece of wood in a workshop.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpenters.jpg?alt=media&token=fdea5fc5-6adf-43f2-9e74-5e743ae97aa7",
       "imageHint": "carpenter wood"
+    },
+    {
+      "id": "mover-logo-1",
+      "imageUrl": "https://images.unsplash.com/photo-1593078342261-a15f3333367f?w=800&q=80",
+      "description": "Logo for City Logistics Movers with a truck icon",
+      "imageHint": "truck logo"
+    },
+    {
+      "id": "mover-logo-2",
+      "imageUrl": "https://images.unsplash.com/photo-1558444419-543599814421?w=800&q=80",
+      "description": "Logo for Cape Town Relocations with a mountain and road",
+      "imageHint": "mountain road"
+    },
+    {
+      "id": "mover-logo-3",
+      "imageUrl": "https://images.unsplash.com/photo-1526661131150-179354024467?w=800&q=80",
+      "description": "Logo for Durban Express Movers with a cheetah icon",
+      "imageHint": "cheetah logo"
     }
   ]
 }
