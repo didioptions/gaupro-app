@@ -15,8 +15,7 @@ import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
-import { useFirestore, useCollection, useMemoFirebase } from '@/firebase';
-import { collection, query, where, orderBy, limit } from 'firebase/firestore';
+import { allProfessionals } from '@/lib/professionals-data'; // Import local data
 
 
 interface ServicePageClientProps {
@@ -27,18 +26,19 @@ interface ServicePageClientProps {
 export default function ServicePageClient({ params, searchParams }: ServicePageClientProps) {
     const locationQuery = searchParams?.location;
     const [isClient, setIsClient] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsClient(true);
+        // Simulate loading for a moment to prevent flashes of content
+        const timer = setTimeout(() => setIsLoading(false), 200);
+        return () => clearTimeout(timer);
     }, []);
 
     const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
 
     const service = allServices.find(s => s.value === currentService);
     const serviceLabel = service?.label || currentService.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-    
-    // Capitalize first letter to match `serviceCategory` field in Firestore
-    const capitalizedServiceCategory = serviceLabel.charAt(0).toUpperCase() + serviceLabel.slice(1);
 
     const pluralServiceLabel = service?.label || (serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`);
     
@@ -46,19 +46,11 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
 
-    // NEW: Firestore data fetching
-    const firestore = useFirestore();
-    const professionalsQuery = useMemoFirebase(() => {
-        if (!firestore) return null;
-        return query(
-            collection(firestore, 'professionalProfiles'),
-            where('serviceCategory', '==', capitalizedServiceCategory),
-            orderBy('priorityRank', 'desc'),
-            limit(50)
-        );
-    }, [firestore, capitalizedServiceCategory]);
+    // Get professionals from local data
+    const allProsForCategory = useMemo(() => {
+        return allProfessionals[currentService] || [];
+    }, [currentService]);
 
-    const { data: allProsForCategory, isLoading, error } = useCollection<Professional>(professionalsQuery);
 
     const professionals = useMemo(() => {
         if (!allProsForCategory) return [];
@@ -70,24 +62,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     }, [allProsForCategory, locationQuery]);
 
     
-    if (error) {
-        return (
-            <>
-                <Header />
-                <main className="container mx-auto px-4 py-16">
-                    <Card>
-                        <CardContent className="p-6">
-                            <h2 className="text-xl font-normal text-destructive">Error Fetching Data</h2>
-                            <p className="mt-2 text-muted-foreground">There was a problem loading professionals. Please check your connection or try again later.</p>
-                            <pre className="mt-4 text-xs bg-muted p-2 rounded">{error.message}</pre>
-                        </CardContent>
-                    </Card>
-                </main>
-                <Footer />
-            </>
-        )
-    }
-
     const serviceImageId = `${currentService}-image`;
     let heroImage = CategoryImages.find(p => p.id === `real-${serviceImageId}` || p.id === serviceImageId);
     
@@ -198,7 +172,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 <span className="font-medium text-foreground">{pluralServiceLabel}</span>
                             </div>
                              {introText}
-                            <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
+                             <h2 className="text-3xl mt-1">Top {professionals.length > 0 ? professionals.length: ''} {pluralServiceLabel} in {locationName}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
@@ -209,8 +183,8 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                     <CardContent className="p-6">
                                         <h3 className="mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                                            <li>602 Reviews for {pluralServiceLabel.toLowerCase()}</li>
-                                            <li>510 Positive Reviews</li>
+                                            <li>{allProsForCategory.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for {pluralServiceLabel.toLowerCase()}</li>
+                                            <li>{allProsForCategory.filter(p => p.rating >= 4).length * 10}+ Positive Reviews</li>
                                             <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
                                             <li>View {locationName} Pros for {pluralServiceLabel.toLowerCase()} today</li>
                                         </ul>
