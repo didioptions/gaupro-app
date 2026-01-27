@@ -15,19 +15,17 @@ service cloud.firestore {
 
     // --- Collections ---
 
-    // This rule allows ANYONE to query the collection of professional profiles.
-    // This is required for the public-facing pages to display lists of pros.
-    match /professionalProfiles {
-      allow list: if true;
+    // This rule allows ANYONE to read the collection of professional profiles and all documents within it.
+    // The {document=**} wildcard is crucial for allowing both 'list' on the collection
+    // and 'get' on the individual documents returned by a query.
+    match /professionalProfiles/{document=**} {
+      allow read: if true;
     }
 
-    // These rules apply to INDIVIDUAL professional profile documents.
+    // These rules apply to INDIVIDUAL professional profile documents for WRITE operations.
     match /professionalProfiles/{profileId} {
-      // Allow anyone to GET a single document.
-      allow get: if true;
-
       // Allow create, update, delete only if the user is signed in and is the owner.
-      allow create, update, delete: if isSignedIn() && request.auth.uid == resource.data.userId;
+      allow write: if isSignedIn() && request.auth.uid == resource.data.userId;
 
        match /quotes/{quoteId} {
           allow read, write: if isSignedIn() && isOwner(professionalProfileId); 
