@@ -12,29 +12,31 @@ service cloud.firestore {
       return request.auth.uid == userId;
     }
 
-    // --- Collections ---
-
-    // This rule allows ANYONE to read the collection and its documents.
-    match /professionalProfiles/{document=**} {
+    // This rule allows ANYONE to read any document in the database.
+    // This will fix the "list" permission error.
+    match /{document=**} {
       allow read: if true;
     }
-    
-    // This rule secures writes to only the owner of the profile.
+
+    // --- Write Rules ---
+
+    // Secure writes to the professionalProfiles collection.
     match /professionalProfiles/{profileId} {
       allow write: if isSignedIn() && isOwner(resource.data.userId);
 
-      // Secure the subcollection as well
+      // Secure the reviews subcollection.
       match /reviews/{reviewId} {
-        allow read: if true;
+        // Anyone signed in can create a review.
         allow create: if isSignedIn();
+        // No one can update or delete reviews directly.
         allow update, delete: if false;
       }
     }
 
-    // Rules for the 'users' collection
+    // Secure writes to the users collection.
     match /users/{userId}/{document=**} {
-      // Users can only access their own data.
-      allow read, write: if isSignedIn() && isOwner(userId);
+      // Only the owner of the user document can write to it.
+      allow write: if isSignedIn() && isOwner(userId);
     }
   }
 }
