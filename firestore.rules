@@ -1,42 +1,34 @@
-
 rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    function isSignedIn() {
-      return request.auth != null;
+    // Allow anyone to read single professional profiles
+    match /professionalProfiles/{profileId} {
+      allow get: if true;
     }
 
-    function isOwner(userId) {
-      return request.auth.uid == userId;
-    }
-
-    // This rule allows ANYONE to read any document in the database.
-    // This will fix the "list" permission error.
-    match /{document=**} {
-      allow read: if true;
+    // Allow anyone to list the collection of professional profiles for searching/browsing
+    match /professionalProfiles {
+      allow list: if true;
     }
 
     // --- Write Rules ---
 
     // Secure writes to the professionalProfiles collection.
+    // Only the owner of the profile can write to it.
     match /professionalProfiles/{profileId} {
-      allow write: if isSignedIn() && isOwner(resource.data.userId);
-
-      // Secure the reviews subcollection.
-      match /reviews/{reviewId} {
-        // Anyone signed in can create a review.
-        allow create: if isSignedIn();
-        // No one can update or delete reviews directly.
-        allow update, delete: if false;
-      }
+      allow write: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+    
+    // Allow any signed-in user to create a review.
+    match /professionalProfiles/{profileId}/reviews/{reviewId} {
+        allow create: if request.auth != null;
     }
 
-    // Secure writes to the users collection.
+    // Secure the users collection
     match /users/{userId}/{document=**} {
-      // Only the owner of the user document can write to it.
-      allow write: if isSignedIn() && isOwner(userId);
+      allow read, write: if request.auth != null && request.auth.uid == userId;
     }
   }
 }
