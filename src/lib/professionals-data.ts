@@ -67,7 +67,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "serviceCategory": "Air Conditioning",
       "yearsInBusiness": 15,
       "employees": 20,
-      "services": ["Commercial Cooling", "Inverter Technology", "Ducting", "Emergency Repairs"],
+      "services": ["Air Conditioning", "Builders", "Carports", "Doors", "Electricians", "Garage Door Motors", "Garage Doors", "Gate Motors", "Handymen", "Home Improvements", "Painters", "Palisade Fencing", "Refrigeration", "Roofing", "Shutters", "Steel Works", "Tiling", "Welders"],
       "reviewData": [{ "author": "Johan S.", "rating": 5, "comment": "Best price I found for a Daikin inverter unit in Pretoria." }, { "author": "Mpho G.", "rating": 4, "comment": "Very knowledgeable about energy-saving options." }, { "author": "Annatjie B.", "rating": 5, "comment": "The technicians were very respectful and left the site clean." }, { "author": "David K.", "rating": 5, "comment": "Quick turnaround on my commercial office maintenance." }],
       "qa": [
         {

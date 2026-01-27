@@ -77,6 +77,16 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                 )}
                             </div>
 
+                            {professional.services && professional.services.length > 0 && (
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {professional.services.map((service, index) => (
+                                    <Badge key={index} variant="outline" className="font-normal">
+                                        {service}
+                                    </Badge>
+                                    ))}
+                                </div>
+                            )}
+
                         </div>
                         <div className="text-center flex-shrink-0">
                             <div className="bg-teal-500 text-white font-bold text-2xl rounded-md w-16 h-16 flex items-center justify-center mx-auto">
@@ -103,7 +113,7 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                         <TabsTrigger value="overview">Overview</TabsTrigger>
                         <TabsTrigger value="photos">Photos ({professional.photos?.length || 0})</TabsTrigger>
                         <TabsTrigger value="reviews">Reviews ({professional.reviewData?.length || 0})</TabsTrigger>
-                        <TabsTrigger value="qa">Q &amp; A</TabsTrigger>
+                        <TabsTrigger value="qa">Q & A</TabsTrigger>
                     </TabsList>
                     <TabsContent value="overview">
                         <Card>
