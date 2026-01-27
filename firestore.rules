@@ -22,19 +22,17 @@ service cloud.firestore {
       allow read: if true;
     }
 
-    // These rules apply to INDIVIDUAL professional profile documents for WRITE operations.
+    // This separate rule block specifically handles WRITE permissions for individual documents.
+    // This prevents rule conflicts and ensures security.
     match /professionalProfiles/{profileId} {
       // Allow create, update, delete only if the user is signed in and is the owner.
       allow write: if isSignedIn() && request.auth.uid == resource.data.userId;
 
-       match /quotes/{quoteId} {
-          allow read, write: if isSignedIn() && isOwner(professionalProfileId); 
-      }
-
+      // Sub-collections can have their own rules here.
       match /reviews/{reviewId} {
-        allow read: if true; 
+        allow read: if true;
         allow create: if isSignedIn();
-        allow update, delete: if false; 
+        allow update, delete: if false;
       }
     }
 
