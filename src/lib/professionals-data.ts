@@ -593,7 +593,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         "services": ["Garden Refuse", "Recyclable Materials", "Building Rubble"],
         "reviewData": [{ "author": "Samantha K.", "rating": 5, "comment": "I love that they focus on being environmentally friendly. A great company with great service." }]
     }
-],
+  ],
   "aluminium-doors-and-windows": [
     {
       "id": "pro-alu-1",
@@ -672,7 +672,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
       "id": "pro-alu-4",
-      "name": "East Aluminium & Shopfronts",
+      "name": "East  Aluminium & Shopfronts",
       "location": "Boksburg, Ekurhuleni",
       "description": "Trusted providers of aluminium doors and windows for the East Rand community. We specialize in patio enclosures and commercial shopfronts. Our aluminium products are low-maintenance, rust-proof, and designed to enhance the security and value of your property.",
       "rating": 4.6,
@@ -1097,6 +1097,450 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     }
+  ],
+  "balustrades": [
+    {
+      "id": "pro-balustrade-1",
+      "name": "Grace Balustrade & Glass",
+      "location": "Sandton, Johannesburg",
+      "description": "Specialists in modern frameless glass and stainless steel balustrades for staircases, balconies, and pool areas. We provide SANS-compliant safety installations across Gauteng. Our designs prioritize sleek aesthetics and maximum durability, using high-grade materials that enhance property value for both residential and commercial clients.",
+      "rating": 4.9,
+      "reviews": 38,
+      "avatarSeed": "balustrade-logo-1",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 12,
+      "employees": 15,
+      "services": ["Frameless Glass Balustrades", "Stainless Steel Railings", "Pool Fencing", "Staircase Balustrades"],
+      "reviewData": [
+        { "author": "Thabo N.", "rating": 5, "comment": "The frameless glass looks incredible on our balcony." },
+        { "author": "Sarah J.", "rating": 5, "comment": "Professional team and very neat installation." },
+        { "author": "Chris M.", "rating": 4, "comment": "High quality finish, definitely worth the investment." },
+        { "author": "Lindiwe D.", "rating": 5, "comment": "Best balustrade company in Sandton, highly recommended." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-2",
+      "name": "Team Steel & Railing",
+      "location": "Pretoria East, Pretoria",
+      "description": "Premier providers of custom-made steel and wrought iron balustrades in Pretoria. We focus on traditional and contemporary designs that offer superior security and style. From custom gate designs to intricate indoor railings, our Pretoria-based team ensures precision engineering and expert welding for every project.",
+      "rating": 4.7,
+      "reviews": 52,
+      "avatarSeed": "balustrade-logo-2",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 18,
+      "employees": 22,
+      "services": ["Wrought Iron Balustrades", "Custom Railings", "Security Gates", "Industrial Handrails"],
+      "reviewData": [
+        { "author": "Johan S.", "rating": 5, "comment": "Solid craftsmanship and excellent service in Pretoria East." },
+        { "author": "Mpho G.", "rating": 4, "comment": "Beautiful custom design for our internal staircase." },
+        { "author": "Annatjie B.", "rating": 5, "comment": "Sturdy and safe. Great peace of mind for our family." },
+        { "author": "David K.", "rating": 5, "comment": "Very professional from quote to completion." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-3",
+      "name": "Hope Frameless Specialists",
+      "location": "Sandton, Johannesburg",
+      "description": "Luxury frameless glass balustrade installations for high-end properties in Sandton. We specialize in minimalist architectural glass solutions that offer unobstructed views. Our glass is toughened and heat-soaked to meet the highest South African safety standards (AAAMSA), ensuring elegance without compromising safety.",
+      "rating": 4.8,
+      "reviews": 25,
+      "avatarSeed": "balustrade-logo-3",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 7,
+      "employees": 9,
+      "services": ["Architectural Glass", "Glass Balconies", "Pool Enclosures", "Mezzanine Railings"],
+      "reviewData": [
+        { "author": "Bradley T.", "rating": 5, "comment": "The view from our patio is perfect now with the glass railings." },
+        { "author": "Jessica L.", "rating": 5, "comment": "Elite service for a luxury finish. Very impressed." },
+        { "author": "Simon R.", "rating": 4, "comment": "Premium pricing but the quality is unmatched." },
+        { "author": "Nthabiseng M.", "rating": 5, "comment": "Clean, modern, and very safe." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-4",
+      "name": "M & M Railing Pros",
+      "location": "Boksburg, Ekurhuleni",
+      "description": "Affordable balustrade solutions for the East Rand community. We offer a variety of materials including timber, stainless steel, and wire balustrades. Whether you're renovating a home or building a new office, our mobile teams provide fast quotes and reliable installations tailored to your budget.",
+      "rating": 4.6,
+      "reviews": 41,
+      "avatarSeed": "balustrade-logo-4",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 10,
+      "employees": 11,
+      "services": ["Wire Balustrades", "Timber Railings", "Patio Railings", "Home Renovations"],
+      "reviewData": [
+        { "author": "Kevin D.", "rating": 5, "comment": "Great prices for the East Rand. Very happy with the result." },
+        { "author": "Michelle V.", "rating": 4, "comment": "They fixed my old balcony railing quickly and professionally." },
+        { "author": "Gary H.", "rating": 5, "comment": "Honest advice and solid workmanship." },
+        { "author": "Sizwe Z.", "rating": 5, "comment": "Excellent communication and timely delivery." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-5",
+      "name": "Roy Modern Railings",
+      "location": "Roodepoort, Johannesburg",
+      "description": "Leading balustrade and staircase specialists in the West Rand. We offer contemporary designs in powder-coated steel and glass. Our focus is on providing robust, low-maintenance railing systems for residential estates and apartment blocks across Roodepoort and Krugersdorp.",
+      "rating": 4.5,
+      "reviews": 29,
+      "avatarSeed": "balustrade-logo-5",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 6,
+      "employees": 8,
+      "services": ["Powder-Coated Balustrades", "Steel Staircases", "Balcony Fencing", "Estate Solutions"],
+      "reviewData": [
+        { "author": "Charmaine J.", "rating": 5, "comment": "The new railings look so modern. Love the black finish." },
+        { "author": "Andries L.", "rating": 4, "comment": "Professional team and they left everything very clean." },
+        { "author": "Sipho K.", "rating": 5, "comment": "Reliable service and the price was exactly as quoted." },
+        { "author": "Brenda P.", "rating": 4, "comment": "Good quality product and friendly staff." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-6",
+      "name": "Glass & Railing Hub",
+      "location": "Midrand, Johannesburg",
+      "description": "Innovative balustrade designs for the modern architecture of Midrand and Waterfall Estate. We specialize in glass and stainless steel combinations that suit contemporary office parks and smart homes. Our team provides technical drawings and engineering certificates for all large-scale installations.",
+      "rating": 4.7,
+      "reviews": 33,
+      "avatarSeed": "balustrade-logo-6",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 9,
+      "employees": 14,
+      "services": ["Commercial Balustrades", "Glass Handrails", "Engineering Certificates", "Custom Railing"],
+      "reviewData": [
+        { "author": "Alan F.", "rating": 5, "comment": "Highly professional and technical. Great for commercial sites." },
+        { "author": "Lerato S.", "rating": 5, "comment": "Stunning glass work in our Waterfall home." },
+        { "author": "Pieter B.", "rating": 4, "comment": "Good lead times and solid installation team." },
+        { "author": "Thane N.", "rating": 5, "comment": "The best technical balustrade team in Midrand." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-7",
+      "name": "Cena Safety Balustrades",
+      "location": "Centurion, Pretoria",
+      "description": "Family-owned balustrade company serving the Centurion area with a focus on child and pet safety. We provide SABS-approved pool fencing and staircase railings. Our materials are treated to resist rust and weathering, making them ideal for outdoor entertainment areas in Gauteng.",
+      "rating": 4.4,
+      "reviews": 22,
+      "avatarSeed": "balustrade-logo-7",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 11,
+      "employees": 7,
+      "services": ["Safety Balustrades", "Pet Fencing", "Pool Safety Gates", "Patio Railing"],
+      "reviewData": [
+        { "author": "Willem H.", "rating": 5, "comment": "Excellent safety gates for our pool. Very sturdy." },
+        { "author": "Nadia E.", "rating": 4, "comment": "Efficient service and the team was very friendly." },
+        { "author": "Teboho R.", "rating": 5, "comment": "High quality stainless steel. No signs of rust." },
+        { "author": "Dirk V.", "rating": 4, "comment": "Reliable local business in Centurion." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-8",
+      "name": "Stainless Steel Projects",
+      "location": "Vereeniging, Gauteng",
+      "description": "Heavy-duty stainless steel balustrade fabricators for the Vaal Triangle. We provide industrial handrails and residential balcony systems. Using 304 and 316-grade stainless steel, we ensure your balustrades remain pristine even in demanding environments.",
+      "rating": 4.3,
+      "reviews": 45,
+      "avatarSeed": "balustrade-logo-8",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 2,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 20,
+      "employees": 18,
+      "services": ["Industrial Handrails", "Stainless Fabrication", "Balcony Systems", "Marine-Grade Steel"],
+      "reviewData": [
+        { "author": "Ockert R.", "rating": 5, "comment": "Strong, durable work. They know their steel." },
+        { "author": "Mariaan G.", "rating": 4, "comment": "Great service for our river property railings." },
+        { "author": "Thane B.", "rating": 4, "comment": "Reliable and local. Good value for money." },
+        { "author": "Petrus K.", "rating": 5, "comment": "Best steelwork in the Vaal area." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-9",
+      "name": "CBD Balustrade Maintenance",
+      "location": "Johannesburg CBD",
+      "description": "Specialized in the maintenance, repair, and installation of balustrades for high-rise buildings and commercial centers in the Johannesburg CBD. We handle everything from replacing broken glass panels to re-securing loose handrails, ensuring urban properties remain safe and compliant.",
+      "rating": 4.6,
+      "reviews": 19,
+      "avatarSeed": "balustrade-logo-9",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 8,
+      "employees": 12,
+      "services": ["Balustrade Repairs", "Glass Panel Replacement", "Building Maintenance", "Urban Handrails"],
+      "reviewData": [
+        { "author": "Sizwe M.", "rating": 5, "comment": "Fast and efficient repair for our office block." },
+        { "author": "Alan F.", "rating": 5, "comment": "Very professional and followed all safety protocols." },
+        { "author": "Busi P.", "rating": 4, "comment": "Reliable partner for property managers." },
+        { "author": "Daniel S.", "rating": 5, "comment": "Great service in the city center." }
+      ]
+    },
+    {
+      "id": "pro-balustrade-10",
+      "name": "J.J Balustrade Designs",
+      "location": "Alberton, Ekurhuleni",
+      "description": "Bespoke balustrade designs for homeowners in Alberton and the South of Johannesburg. We offer a mix of wood, glass, and steel to create unique staircase and balcony features. Our mission is to combine art with safety, providing custom solutions that fit your home's unique style.",
+      "rating": 4.9,
+      "reviews": 14,
+      "avatarSeed": "balustrade-logo-10",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "serviceCategory": "Balustrades",
+      "yearsInBusiness": 5,
+      "employees": 6,
+      "services": ["Bespoke Designs", "Wood & Steel Railing", "Interior Balustrades", "Modern Glass"],
+      "reviewData": [
+        { "author": "Sonia P.", "rating": 5, "comment": "Beautiful custom staircase. It's the highlight of our home." },
+        { "author": "Jason K.", "rating": 5, "comment": "Friendly team and very creative designs." },
+        { "author": "Fatima H.", "rating": 5, "comment": "The installation was quick and very neat." },
+        { "author": "Neil O.", "rating": 4, "comment": "Good quality and very fair pricing." }
+      ]
+    }
+  ],
+  "bathroom-renovations": [
+    {
+      "id": "pro-bath-reno-1",
+      "name": "Siya Bathroom Remodelers",
+      "location": "Sandton, Johannesburg",
+      "description": "Premier turn-key bathroom renovation services in Johannesburg. We handle everything from demolition and plumbing to tiling and luxury fixture installation. Specializing in modern walk-in showers, freestanding tubs, and custom vanities that transform your bathroom into a private spa.",
+      "rating": 4.9,
+      "reviews": 52,
+      "avatarSeed": "bath-reno-logo-1",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 13,
+      "employees": 15,
+      "services": ["Full Bathroom Remodeling", "Walk-in Showers", "Plumbing", "Custom Tiling"],
+      "reviewData": [
+        { "author": "Amy S.", "rating": 5, "comment": "Transformed my old bathroom into a modern masterpiece." },
+        { "author": "Lerato K.", "rating": 4, "comment": "Professional team, finished exactly on schedule." },
+        { "author": "Mark D.", "rating": 5, "comment": "The quality of the tiling is outstanding." },
+        { "author": "Sarah G.", "rating": 5, "comment": "Highly recommend for anyone in Sandton." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-2",
+      "name": "Pre Elite Bathrooms",
+      "location": "Pretoria East, Pretoria",
+      "description": "High-end bathroom renovations in Pretoria. We focus on luxury finishes, Hansgrohe fittings, and bespoke cabinetry. Our team provides detailed 3D designs before starting work, ensuring your vision comes to life. Expert waterproofing and precision plumbing are the foundation of our work.",
+      "rating": 4.8,
+      "reviews": 38,
+      "avatarSeed": "bath-reno-logo-2",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 10,
+      "employees": 12,
+      "services": ["Luxury Renovations", "Bathroom Design", "Waterproofing", "Cabinetry"],
+      "reviewData": [
+        { "author": "Johan V.", "rating": 5, "comment": "The 3D design helped us visualize the perfect bathroom." },
+        { "author": "Mpho K.", "rating": 5, "comment": "Elite service and the finish is perfect." },
+        { "author": "Annatjie S.", "rating": 4, "comment": "Great attention to detail, very satisfied." },
+        { "author": "David B.", "rating": 5, "comment": "Best bathroom renovators in Pretoria East." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-3",
+      "name": "Sons Designer En-Suites",
+      "location": "Sandton, Johannesburg",
+      "description": "Specializing in boutique en-suite renovations for Sandton's luxury homes. We offer the latest in smart bathroom technology, heated towel rails, and floor heating. Our team prides itself on minimal disruption to your home while delivering world-class results.",
+      "rating": 4.7,
+      "reviews": 29,
+      "avatarSeed": "bath-reno-logo-3",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 8,
+      "employees": 10,
+      "services": ["En-Suite Renovations", "Underfloor Heating", "Smart Bathrooms", "Tiling"],
+      "reviewData": [
+        { "author": "Bradley W.", "rating": 5, "comment": "Professional and discreet. The results are stunning." },
+        { "author": "Jessica R.", "rating": 5, "comment": "The heated floors are a game changer in winter!" },
+        { "author": "Thabo N.", "rating": 4, "comment": "Top-tier service for a top-tier price." },
+        { "author": "Simon V.", "rating": 5, "comment": "Excellent project management from start to finish." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-4",
+      "name": "Mpho Bathroom & Tile",
+      "location": "Boksburg, Ekurhuleni",
+      "description": "Affordable and reliable bathroom renovations in the East Rand. We specialize in converting old baths into modern walk-in showers. Our comprehensive service includes electrical work for lighting and exhaust fans, ensuring a complete upgrade for your family bathroom.",
+      "rating": 4.6,
+      "reviews": 45,
+      "avatarSeed": "bath-reno-logo-4",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 11,
+      "employees": 14,
+      "services": ["Bath-to-Shower Conversions", "Tiling", "Electrical Services", "General Renovations"],
+      "reviewData": [
+        { "author": "Kevin L.", "rating": 5, "comment": "They converted my old bath to a shower in 3 days. Amazing!" },
+        { "author": "Nadine D.", "rating": 4, "comment": "Good local service and very competitive pricing." },
+        { "author": "Sizwe Z.", "rating": 5, "comment": "Reliable guys, they did exactly what they promised." },
+        { "author": "Gary M.", "rating": 4, "comment": "Very happy with the tiling and the new vanity." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-5",
+      "name": "New West Bath Pros",
+      "location": "Roodepoort, Johannesburg",
+      "description": "Family-run bathroom renovation business serving the West Rand. We pride ourselves on personalized service and attention to detail. From small guest bathrooms to large family restrooms, we provide quality workmanship and use the best local materials to ensure longevity.",
+      "rating": 4.5,
+      "reviews": 31,
+      "avatarSeed": "bath-reno-logo-5",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 7,
+      "employees": 8,
+      "services": ["Small Bathroom Specialist", "Family Bathrooms", "Guest Toilets", "Plumbing"],
+      "reviewData": [
+        { "author": "Charmaine B.", "rating": 5, "comment": "Lovely team and they did a great job on our guest toilet." },
+        { "author": "Andries P.", "rating": 4, "comment": "Very happy with the service and the price was fair." },
+        { "author": "Lindiwe S.", "rating": 5, "comment": "Great communication throughout the renovation." },
+        { "author": "Robert H.", "rating": 4, "comment": "Neat work and they finished ahead of schedule." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-6",
+      "name": "Rand Modern Bathrooms",
+      "location": "Midrand, Johannesburg",
+      "description": "Modern bathroom solutions for the growing Midrand area. We focus on water-saving fixtures and eco-friendly designs. Whether it's a sleek minimalist look or a classic aesthetic, our Midrand-based team delivers high-quality bathroom upgrades that last.",
+      "rating": 4.7,
+      "reviews": 22,
+      "avatarSeed": "bath-reno-logo-6",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 6,
+      "employees": 11,
+      "services": ["Eco-Friendly Bathrooms", "Modern Fixtures", "Water Saving Systems", "Tiling"],
+      "reviewData": [
+        { "author": "Zanele T.", "rating": 5, "comment": "Perfect for our new home in Waterfall. Very modern." },
+        { "author": "Chris J.", "rating": 5, "comment": "The eco-friendly fixtures are great and look amazing." },
+        { "author": "Musa W.", "rating": 4, "comment": "Excellent technical knowledge and professional team." },
+        { "author": "Claire V.", "rating": 5, "comment": "Fast and efficient service in Kyalami." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-7",
+      "name": "Cerion Plumbing & Bath Renovators",
+      "location": "Centurion, Pretoria",
+      "description": "Experts in solving plumbing issues while renovating your bathroom in Centurion. We specialize in leak detection, re-piping, and full bathroom overhauls. Our focus is on ensuring the 'behind-the-scenes' plumbing is as perfect as the visible tiles and fixtures.",
+      "rating": 4.4,
+      "reviews": 28,
+      "avatarSeed": "bath-reno-logo-7",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 9,
+      "employees": 9,
+      "services": ["Plumbing-Focused Reno", "Leak Detection", "Re-piping", "Bathroom Overhauls"],
+      "reviewData": [
+        { "author": "Willem D.", "rating": 5, "comment": "They fixed our leaks and gave us a beautiful new bathroom." },
+        { "author": "Nomsa L.", "rating": 4, "comment": "Good turnaround time for the quote and the install." },
+        { "author": "Henk S.", "rating": 5, "comment": "The best value for money I found in Centurion." },
+        { "author": "Teboho M.", "rating": 4, "comment": "Quality workmanship and very professional." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-8",
+      "name": "Vaal Bathroom Concepts",
+      "location": "Vereeniging, Gauteng",
+      "description": "Serving the Vaal Triangle with creative and durable bathroom renovation concepts. We offer a range of styles from industrial to farmhouse. Our team is expert at working with various materials like concrete, stone, and traditional ceramics to create a unique space.",
+      "rating": 4.3,
+      "reviews": 51,
+      "avatarSeed": "bath-reno-logo-8",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 2,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 15,
+      "employees": 18,
+      "services": ["Custom Concepts", "Concrete Bathrooms", "Stone Tiling", "Traditional Styles"],
+      "reviewData": [
+        { "author": "Ockert V.", "rating": 5, "comment": "Excellent service and a very creative design." },
+        { "author": "Maria M.", "rating": 4, "comment": "The team was very helpful and the price was right." },
+        { "author": "Thane B.", "rating": 4, "comment": "Good quality work and professional installation." },
+        { "author": "Petrus S.", "rating": 5, "comment": "Happy with the result. Best bathroom in the Vaal." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-9",
+      "name": "Jozi Luxury Bath & Spa",
+      "location": "Parkhurst, Johannesburg",
+      "description": "Specialized in high-end, spa-like bathroom renovations in Johannesburg's northern suburbs. We focus on relaxation and luxury, incorporating features like steam showers, soaking tubs, and ambient lighting. Our designs are bespoke, ensuring your bathroom is a one-of-a-kind sanctuary.",
+      "rating": 4.9,
+      "reviews": 35,
+      "avatarSeed": "bath-reno-logo-9",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 12,
+      "employees": 10,
+      "services": ["Spa Bathrooms", "Steam Showers", "Soaking Tubs", "Ambient Lighting"],
+      "reviewData": [
+        { "author": "Zanele T.", "rating": 5, "comment": "They created a sanctuary in my home. Simply amazing." },
+        { "author": "Mark D.", "rating": 5, "comment": "The steam shower is incredible. Top class work." },
+        { "author": "Claire S.", "rating": 5, "comment": "Beautiful design and the lighting is perfect." },
+        { "author": "Robert M.", "rating": 4, "comment": "Reliable and very experienced team." }
+      ]
+    },
+    {
+      "id": "pro-bath-reno-10",
+      "name": "Alton Bath & Kitchen Renovators",
+      "location": "Alberton, Ekurhuleni",
+      "description": "Your local experts for bathroom and kitchen renovations in Alberton. We offer combined packages for homeowners looking to upgrade both spaces at once. Our team is known for efficiency, cleanliness, and delivering high-quality results on a budget.",
+      "rating": 4.6,
+      "reviews": 18,
+      "avatarSeed": "bath-reno-logo-10",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "serviceCategory": "Bathroom Renovations",
+      "yearsInBusiness": 5,
+      "employees": 6,
+      "services": ["Combined Renovations", "Kitchen Upgrades", "Bathroom Tiling", "Plumbing"],
+      "reviewData": [
+        { "author": "Sonia P.", "rating": 5, "comment": "Great service and the package deal was excellent." },
+        { "author": "Jason K.", "rating": 5, "comment": "Best prices in Alberton. Very neat workers." },
+        { "author": "Fatima H.", "rating": 4, "comment": "The installation was quick and the quality is good." },
+        { "author": "Neil O.", "rating": 5, "comment": "Highly recommend for anyone on the East/South Rand." }
+      ]
+    }
   ]
 };
 
@@ -1107,5 +1551,3 @@ export const getProfessionalById = (id: string): Professional | null => {
     }
     return null;
 };
-
-    
