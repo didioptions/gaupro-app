@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { Badge } from '@/components/ui/badge';
@@ -118,34 +119,6 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                     <h3 className="font-semibold text-lg mb-2">About Us</h3>
                                     <p>{professional.description}</p>
                                 </div>
-                                
-                                {(professional.services || professional.otherServices) && (
-                                <div className="pt-4 border-t">
-                                    <h3 className="font-semibold text-lg mb-4">Services Offered</h3>
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        {professional.services && professional.services.length > 0 && (
-                                            <div>
-                                                <h4 className="font-medium mb-2">Main Services</h4>
-                                                <ul className="list-disc list-inside text-sm space-y-1">
-                                                    {professional.services.map((service, index) => (
-                                                        <li key={index}>{service}</li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-                                        {professional.otherServices && professional.otherServices.length > 0 && (
-                                             <div>
-                                                <h4 className="font-medium mb-2">Other Services</h4>
-                                                <ul className="list-disc list-inside text-sm space-y-1">
-                                                    {professional.otherServices.map((service, index) => (
-                                                        <li key={index}>{service}</li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                                )}
                                 
                                 {professional.photos && professional.photos.length > 0 &&
                                 <div className="pt-4 border-t">
