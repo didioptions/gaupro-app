@@ -34,6 +34,10 @@ export type Professional = {
     rating: number;
     comment: string;
   }[];
+  qa?: {
+    question: string;
+    answer: string;
+  }[];
 };
 
 interface ProfileDisplayProps {
@@ -73,17 +77,6 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                 )}
                             </div>
 
-                             {professional.services && professional.services.length > 0 && (
-                                <div className="mt-4">
-                                    <h4 className="text-sm font-semibold text-foreground mb-2">Services Offered</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {professional.services.slice(0, 5).map((service, index) => (
-                                            <Badge key={index} variant="outline">{service}</Badge>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
                         </div>
                         <div className="text-center flex-shrink-0">
                             <div className="bg-teal-500 text-white font-bold text-2xl rounded-md w-16 h-16 flex items-center justify-center mx-auto">
@@ -110,7 +103,7 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                         <TabsTrigger value="overview">Overview</TabsTrigger>
                         <TabsTrigger value="photos">Photos ({professional.photos?.length || 0})</TabsTrigger>
                         <TabsTrigger value="reviews">Reviews ({professional.reviewData?.length || 0})</TabsTrigger>
-                        <TabsTrigger value="qa">Q & A</TabsTrigger>
+                        <TabsTrigger value="qa">Q &amp; A</TabsTrigger>
                     </TabsList>
                     <TabsContent value="overview">
                         <Card>
@@ -197,8 +190,17 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                     </TabsContent>
                      <TabsContent value="qa">
                         <Card>
-                            <CardContent className="p-6">
-                            <p>No questions and answers yet.</p>
+                            <CardContent className="p-6 space-y-6">
+                                {professional.qa && professional.qa.length > 0 ? (
+                                    professional.qa.map((item, index) => (
+                                        <div key={index} className="space-y-1">
+                                            <p className="font-semibold text-foreground">{item.question}</p>
+                                            <p className="text-muted-foreground">{item.answer}</p>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p>No questions and answers yet.</p>
+                                )}
                             </CardContent>
                         </Card>
                     </TabsContent>

@@ -15,6 +15,7 @@ type Professional = {
   employees?: number;
   services?: string[];
   reviewData?: { author: string; phone?: string; rating: number; comment: string }[];
+  qa?: { question: string; answer: string }[];
 };
 
 type ProfessionalsByCategory = { [key: string]: Professional[] };
@@ -36,7 +37,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 10,
       "employees": 12,
       "services": ["Aircon Installation", "HVAC Maintenance", "Re-gassing", "Filter Cleaning"],
-      "reviewData": [{ "author": "Thabo M.", "rating": 5, "comment": "Excellent installation of two Samsung units. Clean and professional." }, { "author": "Sarah W.", "rating": 5, "comment": "They fixed my leaking aircon in no time. Highly recommended." }, { "author": "Chris P.", "rating": 4, "comment": "Great service, slightly late but the work was top-notch." }, { "author": "Lindiwe N.", "rating": 5, "comment": "Professional team and very competitive pricing for Sandton area." }]
+      "reviewData": [{ "author": "Thabo M.", "rating": 5, "comment": "Excellent installation of two Samsung units. Clean and professional." }, { "author": "Sarah W.", "rating": 5, "comment": "They fixed my leaking aircon in no time. Highly recommended." }, { "author": "Chris P.", "rating": 4, "comment": "Great service, slightly late but the work was top-notch." }, { "author": "Lindiwe N.", "rating": 5, "comment": "Professional team and very competitive pricing for Sandton area." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-2",

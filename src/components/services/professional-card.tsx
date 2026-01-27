@@ -28,6 +28,10 @@ export type Professional = {
     rating: number;
     comment: string;
   }[];
+   qa?: {
+      question: string;
+      answer: string;
+  }[];
   // Add any other fields that might be passed
   [key: string]: any;
 };
@@ -104,14 +108,6 @@ export default function ProfessionalCard({ professional, service }: Professional
                       </span>
                     )}
                 </div>
-
-                {professional.services && professional.services.length > 0 && (
-                  <div className="mt-2">
-                    <p className="text-sm text-foreground">
-                      <span className="font-semibold">Services Offered:</span> {professional.services.slice(0, 3).join(', ')}...
-                    </p>
-                  </div>
-                )}
                 
                 <p className="text-sm mt-2 text-foreground">
                   {renderDescription()}
