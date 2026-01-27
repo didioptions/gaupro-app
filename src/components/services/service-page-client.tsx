@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
@@ -53,8 +54,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
             collection(firestore, 'professionalProfiles'),
             where('serviceCategory', '==', capitalizedServiceCategory),
             orderBy('priorityRank', 'desc'),
-            orderBy('rating', 'desc'),
-            limit(50) // Add a limit for performance
+            limit(50)
         );
     }, [firestore, capitalizedServiceCategory]);
 

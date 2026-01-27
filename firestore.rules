@@ -1,9 +1,9 @@
+
 rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Helper Functions
     function isSignedIn() {
       return request.auth != null;
     }
@@ -14,26 +14,21 @@ service cloud.firestore {
 
     // --- Collections ---
 
-    // Rules for the 'professionalProfiles' collection
+    // This rule allows ANYONE to read the collection and its documents.
+    match /professionalProfiles/{document=**} {
+      allow read: if true;
+    }
+    
+    // This rule secures writes to only the owner of the profile.
     match /professionalProfiles/{profileId} {
-      // Allow anyone to GET a single professional's profile.
-      allow get: if true;
-
-      // Allow a user to WRITE to their own profile if they are signed in.
       allow write: if isSignedIn() && isOwner(resource.data.userId);
 
-      // Allow public read for reviews subcollection
+      // Secure the subcollection as well
       match /reviews/{reviewId} {
         allow read: if true;
         allow create: if isSignedIn();
         allow update, delete: if false;
       }
-    }
-    
-    // Explicitly allow LISTING the entire professionalProfiles collection for public access.
-    // This is required for the service category pages to work.
-    match /professionalProfiles {
-        allow list: if true;
     }
 
     // Rules for the 'users' collection
