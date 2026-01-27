@@ -458,140 +458,644 @@ export const allProfessionals: ProfessionalsByCategory = {
   ],
   "rubble-removal": [
     {
-      "id": "pro-rubble-1",
-      "name": "Jozi Rubble Kings",
-      "location": "Johannesburg, Gauteng",
-      "description": "Fast and efficient rubble removal for construction sites and home renovations across Johannesburg.",
-      "rating": 4.9,
-      "reviews": 180,
-      "avatarSeed": "rubble-logo-1",
-      "serviceCategory": "Rubble Removal",
+        "id": "pro-rubble-1",
+        "name": "Jozi Rubble Kings",
+        "location": "Johannesburg, Gauteng",
+        "description": "Fast and efficient rubble removal for construction sites and home renovations across Johannesburg.",
+        "rating": 4.9,
+        "reviews": 180,
+        "avatarSeed": "rubble-logo-1",
+        "serviceCategory": "Rubble Removal",
+        "isProVerified": true,
+        "isDemo": true,
+        "priorityRank": 5,
+        "yearsInBusiness": 10,
+        "employees": 15,
+        "services": ["Building Rubble", "Garden Refuse", "Site Clearing"],
+        "reviewData": [{ "author": "David B.", "rating": 5, "comment": "They were on-site within an hour and cleared everything faster than I expected. Great service." }]
+    },
+    {
+        "id": "pro-rubble-2",
+        "name": "PTA Waste Warriors",
+        "location": "Pretoria, Gauteng",
+        "description": "Your go-to for reliable waste management and rubble disposal in Pretoria. We handle everything from garden refuse to demolition waste.",
+        "rating": 4.8,
+        "reviews": 130,
+        "avatarSeed": "rubble-logo-2",
+        "serviceCategory": "Rubble Removal",
+        "isProVerified": true,
+        "isDemo": true,
+        "priorityRank": 4,
+        "yearsInBusiness": 8,
+        "employees": 10,
+        "services": ["Building Rubble", "Household Refuse", "Scrap Metal"],
+        "reviewData": [{ "author": "Lindiwe N.", "rating": 5, "comment": "Professional and friendly team. They left the site spotless." }]
+    },
+    {
+        "id": "pro-rubble-3",
+        "name": "Sandton Site Clearers",
+        "location": "Sandton, Gauteng",
+        "description": "Specializing in quick and discreet rubble removal for upmarket residential and commercial properties in Sandton.",
+        "rating": 4.9,
+        "reviews": 95,
+        "avatarSeed": "rubble-logo-3",
+        "serviceCategory": "Rubble Removal",
+        "isProVerified": true,
+        "isDemo": true,
+        "priorityRank": 5,
+        "yearsInBusiness": 7,
+        "employees": 8,
+        "services": ["Building Rubble", "Old Furniture", "Garden Refuse"],
+        "reviewData": [{ "author": "Chloe V.", "rating": 5, "comment": "Very professional service, perfect for our complex." }]
+    },
+    {
+        "id": "pro-rubble-4",
+        "name": "Randburg Rubble Removers",
+        "location": "Randburg, Gauteng",
+        "description": "Affordable and dependable rubble removal services in the Randburg area. No job is too big or too small.",
+        "rating": 4.7,
+        "reviews": 210,
+        "avatarSeed": "rubble-logo-4",
+        "serviceCategory": "Rubble Removal",
+        "isProVerified": false,
+        "isDemo": true,
+        "priorityRank": 3,
+        "yearsInBusiness": 12,
+        "employees": 18,
+        "services": ["General Waste", "Building Rubble", "Garden Refuse"],
+        "reviewData": [{ "author": "Mark D.", "rating": 4, "comment": "They get the job done at a fair price. Would use them again." }]
+    },
+    {
+        "id": "pro-rubble-5",
+        "name": "Midrand Waste Away",
+        "location": "Midrand, Gauteng",
+        "description": "Your local Midrand experts for all types of waste and rubble removal. We pride ourselves on quick turnaround times.",
+        "rating": 4.8,
+        "reviews": 155,
+        "avatarSeed": "rubble-logo-5",
+        "serviceCategory": "Rubble Removal",
+        "isProVerified": true,
+        "isDemo": true,
+        "priorityRank": 4,
+        "yearsInBusiness": 6,
+        "employees": 7,
+        "services": ["Site Clearing", "Building Rubble", "Scrap Metal"],
+        "reviewData": [{ "author": "Palesa M.", "rating": 5, "comment": "Fast, friendly, and efficient. Exactly what I needed." }]
+    },
+    {
+        "id": "pro-rubble-6",
+        "name": "East Rand Clean-Up Crew",
+        "location": "Boksburg, Gauteng",
+        "description": "Serving the entire East Rand, we offer comprehensive clean-up services for residential, commercial, and industrial sites.",
+        "rating": 4.7,
+        "reviews": 190,
+        "avatarSeed": "rubble-logo-6",
+        "serviceCategory": "Rubble Removal",
+        "isProVerified": true,
+        "isDemo": true,
+        "priorityRank": 3,
+        "yearsInBusiness": 15,
+        "employees": 22,
+        "services": ["Building Rubble", "Industrial Waste", "Garden Refuse"],
+        "reviewData": [{ "author": "Brian P.", "rating": 5, "comment": "A very thorough and professional crew. They handle large jobs with ease." }]
+    },
+    {
+        "id": "pro-rubble-7",
+        "name": "West Rand Disposal",
+        "location": "Roodepoort, Gauteng",
+        "description": "Your trusted partner for responsible waste disposal and rubble removal in the West Rand.",
+        "rating": 4.8,
+        "reviews": 140,
+        "avatarSeed": "rubble-logo-7",
+        "serviceCategory": "Rubble Removal",
+        "isProVerified": true,
+        "isDemo": true,
+        "priorityRank": 4,
+        "yearsInBusiness": 9,
+        "employees": 11,
+        "services": ["Old Furniture", "Appliances", "Building Rubble"],
+        "reviewData": [{ "author": "Fatima A.", "rating": 5, "comment": "So glad I found them. They took away all my old junk without any hassle." }]
+    },
+    {
+        "id": "pro-rubble-8",
+        "name": "Gauteng Green Projects",
+        "location": "Edenvale, Gauteng",
+        "description": "Eco-friendly rubble and garden refuse removal. We recycle and dispose of waste responsibly.",
+        "rating": 4.9,
+        "reviews": 110,
+        "avatarSeed": "rubble-logo-8",
+        "serviceCategory": "Rubble Removal",
+        "isProVerified": true,
+        "isDemo": true,
+        "priorityRank": 5,
+        "yearsInBusiness": 5,
+        "employees": 6,
+        "services": ["Garden Refuse", "Recyclable Materials", "Building Rubble"],
+        "reviewData": [{ "author": "Samantha K.", "rating": 5, "comment": "I love that they focus on being environmentally friendly. A great company with great service." }]
+    }
+],
+  "aluminium-doors-and-windows": [
+    {
+      "id": "pro-alu-1",
+      "name": "Auto Glass & Aluminium Works",
+      "location": "Randburg, Johannesburg",
+      "description": "Premier manufacturers of high-quality aluminium window frames and sliding doors in Gauteng. We specialize in custom-built stack-away doors, shopfronts, and double-glazed windows for improved insulation. Our products are powder-coated to your specifications, ensuring durability and a modern aesthetic for both residential and commercial projects.",
+      "rating": 4.8,
+      "reviews": 64,
+      "avatarSeed": "alu-logo-1",
+      "serviceCategory": "Aluminium Doors And Windows",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 5,
-      "yearsInBusiness": 10,
-      "employees": 15,
-      "services": ["Building Rubble", "Garden Refuse", "Site Clearing"],
-      "reviewData": [{ "author": "David B.", "rating": 5, "comment": "They were on-site within an hour and cleared everything faster than I expected. Great service." }]
+      "yearsInBusiness": 15,
+      "employees": 22,
+      "services": ["Sliding Doors", "Stack Doors", "Aluminium Windows", "Shopfronts"],
+      "reviewData": [
+        { "author": "Pieter H.", "rating": 5, "comment": "Excellent quality stack doors. They transformed my patio." },
+        { "author": "Lerato M.", "rating": 5, "comment": "Professional installation and the team was very neat." },
+        { "author": "Sizwe D.", "rating": 4, "comment": "Great product, lead time was a bit long but worth the wait." },
+        { "author": "Jane S.", "rating": 5, "comment": "Best prices in Randburg for aluminium window replacements." }
+      ],
+      "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
     },
     {
-      "id": "pro-rubble-2",
-      "name": "PTA Waste Warriors",
-      "location": "Pretoria, Gauteng",
-      "description": "Your go-to for reliable waste management and rubble disposal in Pretoria. We handle everything from garden refuse to demolition waste.",
-      "rating": 4.8,
-      "reviews": 130,
-      "avatarSeed": "rubble-logo-2",
-      "serviceCategory": "Rubble Removal",
+      "id": "pro-alu-2",
+      "name": "P Elite Aluminium",
+      "location": "Pretoria East, Pretoria",
+      "description": "Leading specialists in aluminium and glass solutions across Pretoria. From stylish pivot doors to energy-efficient casement windows, we provide end-to-end service from measurement to installation. We use AAAMSA-approved materials to ensure your home security and weatherproofing are never compromised.",
+      "rating": 4.7,
+      "reviews": 41,
+      "avatarSeed": "alu-logo-2",
+      "serviceCategory": "Aluminium Doors And Windows",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 4,
-      "yearsInBusiness": 8,
-      "employees": 10,
-      "services": ["Building Rubble", "Household Refuse", "Scrap Metal"],
-      "reviewData": [{ "author": "Lindiwe N.", "rating": 5, "comment": "Professional and friendly team. They left the site spotless." }]
+      "yearsInBusiness": 10,
+      "employees": 14,
+      "services": ["Pivot Doors", "Casement Windows", "Folding Doors", "Glass Replacement"],
+      "reviewData": [
+        { "author": "Johan V.", "rating": 5, "comment": "The new pivot door looks amazing. Very high-end finish." },
+        { "author": "Mpho K.", "rating": 4, "comment": "Good service, they helped me choose the right glass for heat control." },
+        { "author": "Annatjie S.", "rating": 5, "comment": "Friendly staff and quick installation of my kitchen windows." },
+        { "author": "David B.", "rating": 5, "comment": "Highly recommend for anyone in Pretoria East." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
     },
     {
-      "id": "pro-rubble-3",
-      "name": "Sandton Site Clearers",
-      "location": "Sandton, Gauteng",
-      "description": "Specializing in quick and discreet rubble removal for upmarket residential and commercial properties in Sandton.",
+      "id": "pro-alu-3",
+      "name": "Rossa Premium Frames",
+      "location": "Sandton, Johannesburg",
+      "description": "Luxury aluminium door and window installations for high-end residential estates in Sandton. We focus on slimline profiles and architectural glazing that maximizes natural light. Our team handles complex installations including automated sliding doors and oversized glass panels for modern architectural designs.",
       "rating": 4.9,
-      "reviews": 95,
-      "avatarSeed": "rubble-logo-3",
-      "serviceCategory": "Rubble Removal",
+      "reviews": 28,
+      "avatarSeed": "alu-logo-3",
+      "serviceCategory": "Aluminium Doors And Windows",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 5,
-      "yearsInBusiness": 7,
-      "employees": 8,
-      "services": ["Building Rubble", "Old Furniture", "Garden Refuse"],
-      "reviewData": [{ "author": "Chloe V.", "rating": 5, "comment": "Very professional service, perfect for our complex." }]
+      "yearsInBusiness": 8,
+      "employees": 10,
+      "services": ["Slimline Profiles", "Architectural Glazing", "Automated Doors", "Enclosures"],
+      "reviewData": [
+        { "author": "Bradley W.", "rating": 5, "comment": "Stunning results on our Bryanston renovation." },
+        { "author": "Jessica R.", "rating": 5, "comment": "Professional, punctual, and the quality is unmatched." },
+        { "author": "Thabo N.", "rating": 4, "comment": "Expensive, but you definitely get what you pay for." },
+        { "author": "Sarah G.", "rating": 5, "comment": "The slimline frames look incredible. Very happy." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
     },
     {
-      "id": "pro-rubble-4",
-      "name": "Randburg Rubble Removers",
-      "location": "Randburg, Gauteng",
-      "description": "Affordable and dependable rubble removal services in the Randburg area. No job is too big or too small.",
-      "rating": 4.7,
-      "reviews": 210,
-      "avatarSeed": "rubble-logo-4",
-      "serviceCategory": "Rubble Removal",
-      "isProVerified": false,
+      "id": "pro-alu-4",
+      "name": "East Aluminium & Shopfronts",
+      "location": "Boksburg, Ekurhuleni",
+      "description": "Trusted providers of aluminium doors and windows for the East Rand community. We specialize in patio enclosures and commercial shopfronts. Our aluminium products are low-maintenance, rust-proof, and designed to enhance the security and value of your property.",
+      "rating": 4.6,
+      "reviews": 55,
+      "avatarSeed": "alu-logo-4",
+      "serviceCategory": "Aluminium Doors And Windows",
+      "isProVerified": true,
       "isDemo": true,
       "priorityRank": 3,
       "yearsInBusiness": 12,
       "employees": 18,
-      "services": ["General Waste", "Building Rubble", "Garden Refuse"],
-      "reviewData": [{ "author": "Mark D.", "rating": 4, "comment": "They get the job done at a fair price. Would use them again." }]
+      "services": ["Patio Enclosures", "Commercial Shopfronts", "Sliding Windows", "Security Bars"],
+      "reviewData": [
+        { "author": "Kevin L.", "rating": 5, "comment": "They did a great job on my shopfront in Boksburg." },
+        { "author": "Nadine D.", "rating": 5, "comment": "Our patio enclosure looks like a new room in the house!" },
+        { "author": "Sipho Z.", "rating": 4, "comment": "Reliable service and the quality of the aluminium is top-notch." },
+        { "author": "Gary M.", "rating": 4, "comment": "Good prices and very helpful sales staff." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
     },
     {
-      "id": "pro-rubble-5",
-      "name": "Midrand Waste Away",
-      "location": "Midrand, Gauteng",
-      "description": "Your local Midrand experts for all types of waste and rubble removal. We pride ourselves on quick turnaround times.",
-      "rating": 4.8,
-      "reviews": 155,
-      "avatarSeed": "rubble-logo-5",
-      "serviceCategory": "Rubble Removal",
+      "id": "pro-alu-5",
+      "name": "West Rand Glass & Aluminium Pros",
+      "location": "Roodepoort, Johannesburg",
+      "description": "Family-run business offering affordable aluminium window and door solutions in the West Rand. We offer a wide range of colors and finishes, including wood-look aluminium. Whether you are replacing old steel frames or building a new home, we provide expert advice and precision installation.",
+      "rating": 4.5,
+      "reviews": 33,
+      "avatarSeed": "alu-logo-5",
+      "serviceCategory": "Aluminium Doors And Windows",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 7,
+      "employees": 8,
+      "services": ["Steel-to-Aluminium Conversions", "Wood-look Aluminium", "Folding Doors", "Side-hung Windows"],
+      "reviewData": [
+        { "author": "Charmaine B.", "rating": 5, "comment": "Changed my old steel windows to aluminium. What a difference!" },
+        { "author": "Andries P.", "rating": 4, "comment": "Very happy with the service and the price was very fair." },
+        { "author": "Lindiwe S.", "rating": 5, "comment": "Great communication from the owner. Highly recommended." },
+        { "author": "Robert H.", "rating": 4, "comment": "Neat installation and they cleaned up everything afterwards." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
+    },
+    {
+      "id": "pro-alu-6",
+      "name": "Rand Modern Aluminium",
+      "location": "Midrand, Johannesburg",
+      "description": "Specialists in contemporary aluminium designs for the growing Midrand and Waterfall areas. We offer high-performance sliding systems and custom-shaped windows. Our focus is on sustainable building practices, offering thermal-break aluminium technology to reduce energy costs in your home.",
+      "rating": 4.7,
+      "reviews": 19,
+      "avatarSeed": "alu-logo-6",
+      "serviceCategory": "Aluminium Doors And Windows",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 4,
       "yearsInBusiness": 6,
-      "employees": 7,
-      "services": ["Site Clearing", "Building Rubble", "Scrap Metal"],
-      "reviewData": [{ "author": "Palesa M.", "rating": 5, "comment": "Fast, friendly, and efficient. Exactly what I needed." }]
+      "employees": 12,
+      "services": ["Thermal Break Aluminium", "Custom Windows", "High-Performance Sliders", "Balcony Doors"],
+      "reviewData": [
+        { "author": "Zanele T.", "rating": 5, "comment": "Perfect for our new house in Waterfall. Very modern." },
+        { "author": "Chris J.", "rating": 5, "comment": "The thermal break windows really help with the winter cold." },
+        { "author": "Musa W.", "rating": 4, "comment": "Excellent technical knowledge and professional team." },
+        { "author": "Claire V.", "rating": 5, "comment": "Fast and efficient service in Kyalami." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
     },
     {
-      "id": "pro-rubble-6",
-      "name": "East Rand Clean-Up Crew",
-      "location": "Boksburg, Gauteng",
-      "description": "Serving the entire East Rand, we offer comprehensive clean-up services for residential, commercial, and industrial sites.",
-      "rating": 4.7,
-      "reviews": 190,
-      "avatarSeed": "rubble-logo-6",
-      "serviceCategory": "Rubble Removal",
+      "id": "pro-alu-7",
+      "name": "Jozi Glass & Frame",
+      "location": "Centurion, Pretoria",
+      "description": "Providing comprehensive aluminium and glazing services across Centurion. We focus on residential upgrades, replacing old timber frames with durable, low-maintenance aluminium. We offer a 5-year guarantee on our workmanship and use only the highest quality hardware and rollers for our doors.",
+      "rating": 4.4,
+      "reviews": 27,
+      "avatarSeed": "alu-logo-7",
+      "serviceCategory": "Aluminium Doors And Windows",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 3,
-      "yearsInBusiness": 15,
-      "employees": 22,
-      "services": ["Building Rubble", "Industrial Waste", "Garden Refuse"],
-      "reviewData": [{ "author": "Brian P.", "rating": 5, "comment": "A very thorough and professional crew. They handle large jobs with ease." }]
+      "yearsInBusiness": 9,
+      "employees": 9,
+      "services": ["Window Replacement", "Door Servicing", "Glazing Service", "Sliding Fold Doors"],
+      "reviewData": [
+        { "author": "Willem D.", "rating": 5, "comment": "Reliable and honest company. The sliding doors work perfectly." },
+        { "author": "Nomsa L.", "rating": 4, "comment": "Good turnaround time for the quote and the install." },
+        { "author": "Henk S.", "rating": 5, "comment": "The best value for money I found in Centurion." },
+        { "author": "Teboho M.", "rating": 4, "comment": "Quality workmanship on our bedroom windows." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
     },
     {
-      "id": "pro-rubble-7",
-      "name": "West Rand Disposal",
-      "location": "Roodepoort, Gauteng",
-      "description": "Your trusted partner for responsible waste disposal and rubble removal in the West Rand.",
-      "rating": 4.8,
-      "reviews": 140,
-      "avatarSeed": "rubble-logo-7",
-      "serviceCategory": "Rubble Removal",
+      "id": "pro-alu-8",
+      "name": "Vaal Aluminium Specialists",
+      "location": "Vereeniging, Gauteng",
+      "description": "Expert aluminium fabricators serving the Vaal Triangle and Southern Gauteng. We specialize in industrial-strength aluminium windows, large-scale sliding doors, and specialized glass for factories and residential estates. Our products are designed to withstand the harsh South African climate while looking beautiful.",
+      "rating": 4.3,
+      "reviews": 48,
+      "avatarSeed": "alu-logo-8",
+      "serviceCategory": "Aluminium Doors And Windows",
       "isProVerified": true,
       "isDemo": true,
-      "priorityRank": 4,
-      "yearsInBusiness": 9,
-      "employees": 11,
-      "services": ["Old Furniture", "Appliances", "Building Rubble"],
-      "reviewData": [{ "author": "Fatima A.", "rating": 5, "comment": "So glad I found them. They took away all my old junk without any hassle." }]
+      "priorityRank": 2,
+      "yearsInBusiness": 20,
+      "employees": 25,
+      "services": ["Industrial Windows", "Residential Sliders", "Safety Glass", "Frameless Systems"],
+      "reviewData": [
+        { "author": "Ockert R.", "rating": 5, "comment": "Been using them for years. Always consistent quality." },
+        { "author": "Mariaan G.", "rating": 4, "comment": "Professional service for our home in Vanderbijlpark." },
+        { "author": "Thane B.", "rating": 4, "comment": "Solid products and very good installation team." },
+        { "author": "Petrus K.", "rating": 4, "comment": "Reliable local business with a great reputation." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
     },
     {
-      "id": "pro-rubble-8",
-      "name": "Gauteng Green Projects",
-      "location": "Edenvale, Gauteng",
-      "description": "Eco-friendly rubble and garden refuse removal. We recycle and dispose of waste responsibly.",
+      "id": "pro-alu-9",
+      "name": "Jozi CBD Aluminium & Maintenance",
+      "location": "Johannesburg CBD",
+      "description": "Specialized in commercial aluminium maintenance and new installations in the Johannesburg city center. We handle shopfront repairs, office partitioning, and high-rise window replacements. Our teams are trained for high-access work and adhere to strict safety regulations for urban environments.",
+      "rating": 4.6,
+      "reviews": 21,
+      "avatarSeed": "alu-logo-9",
+      "serviceCategory": "Aluminium Doors And Windows",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 11,
+      "employees": 15,
+      "services": ["Commercial Repairs", "Office Partitions", "High-Access Glazing", "Safety Doors"],
+      "reviewData": [
+        { "author": "Alan F.", "rating": 5, "comment": "Excellent service for our office renovation in Braamfontein." },
+        { "author": "Sizwe M.", "rating": 5, "comment": "They fixed our broken shopfront glass within hours." },
+        { "author": "Busi P.", "rating": 4, "comment": "Very professional and followed all safety protocols." },
+        { "author": "Daniel S.", "rating": 5, "comment": "Great partner for building managers in the CBD." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
+    },
+    {
+      "id": "pro-alu-10",
+      "name": "A TO Z Doors & Windows",
+      "location": "Alberton, Ekurhuleni",
+      "description": "Your local destination for custom aluminium doors and windows in the South of Johannesburg. We pride ourselves on quick turnaround times and affordable pricing. Specializing in folding-stacking doors that create a seamless flow between your indoor and outdoor living areas.",
       "rating": 4.9,
-      "reviews": 110,
-      "avatarSeed": "rubble-logo-8",
-      "serviceCategory": "Rubble Removal",
+      "reviews": 15,
+      "avatarSeed": "alu-logo-10",
+      "serviceCategory": "Aluminium Doors And Windows",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 5,
       "yearsInBusiness": 5,
       "employees": 6,
-      "services": ["Garden Refuse", "Recyclable Materials", "Building Rubble"],
-      "reviewData": [{ "author": "Samantha K.", "rating": 5, "comment": "I love that they focus on being environmentally friendly. A great company with great service." }]
+      "services": ["Custom Aluminium", "Folding-Stacking Doors", "Window Repairs", "Insect Screens"],
+      "reviewData": [
+        { "author": "Sonia P.", "rating": 5, "comment": "Lovely service and beautiful doors. My lounge looks so much bigger." },
+        { "author": "Jason K.", "rating": 5, "comment": "Best prices in Alberton. No hidden costs." },
+        { "author": "Fatima H.", "rating": 5, "comment": "The installation was quick and very neat." },
+        { "author": "Neil O.", "rating": 4, "comment": "Good quality and very friendly team." }
+      ],
+       "qa": [
+        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+      ]
+    }
+  ],
+  "awnings": [
+    {
+      "id": "pro-awning-1",
+      "name": "Abo Shade & Awning",
+      "location": "Sandton, Johannesburg",
+      "description": "Premier providers of patio shade solutions in Gauteng. We offer a wide range of canvas awnings, retractable systems, and fixed polycarbonate covers. Protect your outdoor furniture from the South African sun and rain with our durable, UV-resistant products tailored for residential and commercial properties.",
+      "rating": 4.7,
+      "reviews": 39,
+      "avatarSeed": "awning-logo-1",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 14,
+      "employees": 12,
+      "services": ["Retractable Awnings", "Canvas Awnings", "Patio Covers", "UV Protection"],
+      "reviewData": [
+        { "author": "Mark S.", "rating": 5, "comment": "The retractable awning is perfect for our deck." },
+        { "author": "Lerato N.", "rating": 5, "comment": "Great quality canvas and very professional installation." },
+        { "author": "David L.", "rating": 4, "comment": "Good service, the team arrived on time and finished quickly." },
+        { "author": "Michelle W.", "rating": 4, "comment": "Sturdy products that really help with the afternoon sun." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-2",
+      "name": "Pretoria East Louvre Solutions",
+      "location": "Pretoria East, Pretoria",
+      "description": "Specialists in adjustable louvre awnings and aluminium patio covers in Pretoria. Our adjustable systems allow you to control sunlight and ventilation at the touch of a button or a simple manual crank. Made from high-grade aluminium, our awnings are built to last and require zero maintenance.",
+      "rating": 4.9,
+      "reviews": 24,
+      "avatarSeed": "awning-logo-2",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 9,
+      "employees": 10,
+      "services": ["Adjustable Louvres", "Aluminium Awnings", "Waterproof Covers", "Outdoor Living"],
+      "reviewData": [
+        { "author": "Johan P.", "rating": 5, "comment": "The louvre system is brilliant. Best investment for our patio." },
+        { "author": "Sarah K.", "rating": 5, "comment": "Excellent workmanship and the team was very professional." },
+        { "author": "Andre B.", "rating": 5, "comment": "Really happy with the result. Looks very modern." },
+        { "author": "Mpho G.", "rating": 4, "comment": "Good value for money and reliable service." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-3",
+      "name": "Sandton Sun Control",
+      "location": "Sandton, Johannesburg",
+      "description": "Luxury shading solutions for high-end homes and businesses in Sandton. We specialize in designer folding-arm awnings, motorized shade systems, and elegant window canopies. Our products combine functionality with high-end European aesthetics to complement modern architectural styles.",
+      "rating": 4.8,
+      "reviews": 18,
+      "avatarSeed": "awning-logo-3",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 7,
+      "employees": 8,
+      "services": ["Motorized Awnings", "Folding-Arm Awnings", "Window Canopies", "Designer Shades"],
+      "reviewData": [
+        { "author": "Bradley T.", "rating": 5, "comment": "The motorized system is so convenient. Highly recommend." },
+        { "author": "Jessica M.", "rating": 5, "comment": "Beautiful design that matches our house perfectly." },
+        { "author": "Simon V.", "rating": 4, "comment": "Premium service and product. Very satisfied." },
+        { "author": "Nthabiseng L.", "rating": 5, "comment": "The team was very helpful in choosing the right fabric." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-4",
+      "name": "East Rand Patio & Shade",
+      "location": "Boksburg, Ekurhuleni",
+      "description": "Affordable and reliable awning installations for the East Rand area. We provide everything from traditional dome awnings to modern polycarbonate sheets for carports and patios. Our products are designed to withstand heavy rain and hail, protecting your home and vehicles year-round.",
+      "rating": 4.6,
+      "reviews": 42,
+      "avatarSeed": "awning-logo-4",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 11,
+      "employees": 15,
+      "services": ["Polycarbonate Awnings", "Carports", "Dome Awnings", "Hail Protection"],
+      "reviewData": [
+        { "author": "Kevin D.", "rating": 5, "comment": "Great price for a double carport awning. Very sturdy." },
+        { "author": "Michelle B.", "rating": 5, "comment": "Fixed our leaking patio cover quickly and professionally." },
+        { "author": "Gary H.", "rating": 4, "comment": "Good local service in Benoni. Highly recommended." },
+        { "author": "Sizwe M.", "rating": 4, "comment": "Reliable guys, they did exactly what they promised." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-5",
+      "name": "Centurion All-Weather Awnings",
+      "location": "Centurion, Pretoria",
+      "description": "Dedicated to providing year-round outdoor comfort for Centurion residents. We offer custom-made shade sails, drop-down outdoor blinds, and fixed aluminium awnings. Our 'All-Weather' guarantee means our products are engineered to handle the Gauteng climate, from scorching sun to summer thunderstorms.",
+      "rating": 4.7,
+      "reviews": 31,
+      "avatarSeed": "awning-logo-5",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 6,
+      "employees": 7,
+      "services": ["Shade Sails", "Outdoor Blinds", "Fixed Awnings", "Weatherproofing"],
+      "reviewData": [
+        { "author": "Willem H.", "rating": 5, "comment": "The drop-down blinds have made our patio usable in winter." },
+        { "author": "Nadia E.", "rating": 5, "comment": "Excellent service from start to finish. Very neat." },
+        { "author": "Teboho R.", "rating": 4, "comment": "Good quality shade sail. Professional installation." },
+        { "author": "Dirk V.", "rating": 5, "comment": "Best prices I found for outdoor blinds in Centurion." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-6",
+      "name": "West Rand Shade Masters",
+      "location": "Roodepoort, Johannesburg",
+      "description": "Family-owned business specializing in carports and patio awnings in the West Rand. We offer durable steel and aluminium structures with various roofing options. Our mission is to provide cost-effective shade solutions that enhance the functionality and curb appeal of your home.",
+      "rating": 4.5,
+      "reviews": 28,
+      "avatarSeed": "awning-logo-6",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 13,
+      "employees": 9,
+      "services": ["Steel Carports", "Patio Awnings", "Roofing Sheets", "Maintenance"],
+      "reviewData": [
+        { "author": "Charmaine J.", "rating": 5, "comment": "The new carport looks great and is very solid." },
+        { "author": "Andries L.", "rating": 5, "comment": "Very happy with the patio awning. Great job guys." },
+        { "author": "Sipho K.", "rating": 4, "comment": "Prompt service and fair pricing. Recommended." },
+        { "author": "Brenda P.", "rating": 4, "comment": "Neat work and very friendly staff." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-7",
+      "name": "Fourways Outdoor Blinds & Awnings",
+      "location": "Fourways, Johannesburg",
+      "description": "Boutique awning company serving the northern suburbs of Johannesburg. We focus on stylish, high-quality outdoor blinds and retractable awnings that blend seamlessly with estate living. We offer a wide range of imported fabrics and locally manufactured hardware for the perfect balance of style and durability.",
+      "rating": 5.0,
+      "reviews": 14,
+      "avatarSeed": "awning-logo-7",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 5,
+      "employees": 6,
+      "services": ["Boutique Awnings", "Estate Shades", "Outdoor Blinds", "Custom Designs"],
+      "reviewData": [
+        { "author": "Cameron J.", "rating": 5, "comment": "Fantastic service and a beautiful product. 5 stars." },
+        { "author": "Neo M.", "rating": 5, "comment": "The blinds look amazing on our patio. Very professional." },
+        { "author": "Samantha Q.", "rating": 5, "comment": "Top class service from a top class team." },
+        { "author": "Elias O.", "rating": 5, "comment": "Highly recommend for anyone in Dainfern." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-8",
+      "name": "Midrand Industrial Shade",
+      "location": "Midrand, Johannesburg",
+      "description": "Specialized in large-scale shade solutions for commercial and industrial properties in Midrand. We provide shade ports for corporate parking lots, loading bay covers, and large retractable awnings for restaurants and hotels. Our structures are engineered for maximum durability and safety.",
+      "rating": 4.4,
+      "reviews": 22,
+      "avatarSeed": "awning-logo-8",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 10,
+      "employees": 20,
+      "services": ["Commercial Shade Ports", "Industrial Awnings", "Loading Bay Covers", "Shade Structures"],
+      "reviewData": [
+        { "author": "Alan F.", "rating": 5, "comment": "Great job on our office parking shade ports." },
+        { "author": "Lerato S.", "rating": 4, "comment": "Professional team and they worked around our business hours." },
+        { "author": "Pieter B.", "rating": 4, "comment": "Solid structures and good technical support." },
+        { "author": "Thane N.", "rating": 5, "comment": "The best commercial shade provider in Midrand." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-9",
+      "name": "Jozi Canvas & Shade",
+      "location": "Johannesburg CBD",
+      "description": "Traditional canvas awning specialists in the heart of Johannesburg. We specialize in classic stripe awnings, shopfront canopies, and bespoke canvas covers. Our team is expert at refurbishing old awning frames and providing high-quality replacement covers to give your property a fresh look.",
+      "rating": 4.6,
+      "reviews": 35,
+      "avatarSeed": "awning-logo-9",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 25,
+      "employees": 10,
+      "services": ["Canvas Replacements", "Shop Canopies", "Fixed Canvas Awnings", "Refurbishment"],
+      "reviewData": [
+        { "author": "Zanele T.", "rating": 5, "comment": "They refurbished our old awnings and they look brand new!" },
+        { "author": "Mark D.", "rating": 4, "comment": "Traditional craftsmanship at its best. Great service." },
+        { "author": "Claire S.", "rating": 5, "comment": "Beautiful canvas work for our restaurant in Melville." },
+        { "author": "Robert M.", "rating": 4, "comment": "Reliable and very experienced team." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
+    },
+    {
+      "id": "pro-awning-10",
+      "name": "Vaal Triangle Awning Pros",
+      "location": "Vereeniging, Gauteng",
+      "description": "Providing robust and reliable shade solutions for the Vaal Triangle area. We offer a variety of polycarbonate and metal awnings designed to protect your home from the elements. Whether it's a small window cover or a large entertainment area, we provide customized solutions to fit your needs and budget.",
+      "rating": 4.3,
+      "reviews": 19,
+      "avatarSeed": "awning-logo-10",
+      "serviceCategory": "Awnings",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 2,
+      "yearsInBusiness": 8,
+      "employees": 8,
+      "services": ["Metal Awnings", "Polycarbonate Covers", "Window Protection", "Patio Shades"],
+      "reviewData": [
+        { "author": "Ockert V.", "rating": 5, "comment": "Excellent service and a very sturdy product." },
+        { "author": "Maria M.", "rating": 4, "comment": "The team was very helpful and the price was right." },
+        { "author": "Thabo K.", "rating": 4, "comment": "Good quality awnings and professional installation." },
+        { "author": "Petrus S.", "rating": 4, "comment": "Happy with the result. No more rain on our patio." }
+      ],
+      "qa": [
+        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
+      ]
     }
   ]
 };
@@ -603,3 +1107,5 @@ export const getProfessionalById = (id: string): Professional | null => {
     }
     return null;
 };
+
+    
