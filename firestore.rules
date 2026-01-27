@@ -1,4 +1,3 @@
-
 rules_version = '2';
 
 service cloud.firestore {
@@ -14,34 +13,32 @@ service cloud.firestore {
     }
 
     // --- Collections ---
-    
-    // This is a broad rule to allow public read access to all data,
-    // which is necessary to fix the current "list" permission error.
-    // It restricts all writes to authenticated users as a baseline security measure.
-    // We will refine this after confirming the fix.
-    match /{document=**} {
-      allow read: if true;
-      allow write: if isSignedIn();
-    }
 
-    // The rules below are currently not being used because the broad rule above
-    // takes precedence for read operations. They will be re-enabled and
-    // correctly configured once the main error is resolved.
-
-    // Allow create, update, delete only if the user is signed in and is the owner.
+    // Rules for the 'professionalProfiles' collection
     match /professionalProfiles/{profileId} {
-      allow write: if isSignedIn() && request.auth.uid == resource.data.userId;
+      // Allow anyone to GET a single professional's profile.
+      allow get: if true;
 
-      // Sub-collections can have their own rules here.
+      // Allow a user to WRITE to their own profile if they are signed in.
+      allow write: if isSignedIn() && isOwner(resource.data.userId);
+
+      // Allow public read for reviews subcollection
       match /reviews/{reviewId} {
         allow read: if true;
         allow create: if isSignedIn();
         allow update, delete: if false;
       }
     }
+    
+    // Explicitly allow LISTING the entire professionalProfiles collection for public access.
+    // This is required for the service category pages to work.
+    match /professionalProfiles {
+        allow list: if true;
+    }
 
-    // Users can only access their own data.
+    // Rules for the 'users' collection
     match /users/{userId}/{document=**} {
+      // Users can only access their own data.
       allow read, write: if isSignedIn() && isOwner(userId);
     }
   }
