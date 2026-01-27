@@ -69,7 +69,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 20,
       "services": ["Air Conditioning", "Builders", "Carports", "Doors", "Electricians", "Garage Door Motors", "Garage Doors", "Gate Motors", "Handymen", "Home Improvements", "Painters", "Palisade Fencing", "Refrigeration", "Roofing", "Shutters", "Steel Works", "Tiling", "Welders"],
       "reviewData": [{ "author": "Johan S.", "rating": 5, "comment": "Best price I found for a Daikin inverter unit in Pretoria." }, { "author": "Mpho G.", "rating": 4, "comment": "Very knowledgeable about energy-saving options." }, { "author": "Annatjie B.", "rating": 5, "comment": "The technicians were very respectful and left the site clean." }, { "author": "David K.", "rating": 5, "comment": "Quick turnaround on my commercial office maintenance." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -100,7 +100,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 9,
       "services": ["Luxury Home Cooling", "VRF Systems", "Annual Servicing", "Heating Solutions"],
       "reviewData": [{ "author": "Bradley T.", "rating": 5, "comment": "High-end service for a high-end home. Very happy." }, { "author": "Jessica L.", "rating": 5, "comment": "They understood exactly where to place the units for best airflow." }, { "author": "Simon R.", "rating": 4, "comment": "Premium pricing but you definitely get what you pay for." }, { "author": "Nthabiseng M.", "rating": 5, "comment": "Fast, efficient, and the unit is whisper quiet." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -131,7 +131,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 14,
       "services": ["Chemical Wash", "Gas Refills", "Winter Heating", "Fault Finding"],
       "reviewData": [{ "author": "Kevin D.", "rating": 5, "comment": "Great local service in Benoni. Fixed my old unit quickly." }, { "author": "Sizwe Z.", "rating": 4, "comment": "Honest guys, didn't try to upsell me on a new unit." }, { "author": "Michelle V.", "rating": 5, "comment": "My aircon is ice cold again! Thanks for the regas." }, { "author": "Gary H.", "rating": 4, "comment": "Reliable and affordable compared to the big franchises." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -162,7 +162,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 35,
       "services": ["Industrial Cooling", "Ventilation", "Server Room Cooling", "Maintenance Contracts"],
       "reviewData": [{ "author": "Alan F.", "rating": 5, "comment": "They manage our warehouse cooling perfectly. Very professional." }, { "author": "Lerato S.", "rating": 5, "comment": "Essential service for our server rooms. Highly dependable." }, { "author": "Pieter B.", "rating": 4, "comment": "Good technical knowledge of complex HVAC systems." }, { "author": "Thane N.", "rating": 4, "comment": "Excellent contract rates for corporate clients." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -193,7 +193,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 5,
       "services": ["Residential Aircon", "Relocation Services", "De-installation", "New Sales"],
       "reviewData": [{ "author": "Charmaine J.", "rating": 5, "comment": "Such a lovely team. They were so careful in my house." }, { "author": "Andries L.", "rating": 5, "comment": "Best prices in Roodepoort by far. Workmanship is 10/10." }, { "author": "Sipho K.", "rating": 5, "comment": "Prompt service and great communication throughout." }, { "author": "Brenda P.", "rating": 4, "comment": "Very satisfied with the new unit installation." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -224,7 +224,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 8,
       "services": ["Emergency Repair", "PC Board Fixes", "Compressor Replacement", "Leak Repairs"],
       "reviewData": [{ "author": "Zanele T.", "rating": 5, "comment": "They came out on a Saturday and fixed my unit. Lifesavers!" }, { "author": "Mark D.", "rating": 4, "comment": "Fast diagnostics, had the parts in the van already." }, { "author": "Claire S.", "rating": 5, "comment": "Very impressive speed and technical skill." }, { "author": "Robert M.", "rating": 4, "comment": "A bit pricier for emergency call-outs but worth it." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -255,7 +255,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 7,
       "services": ["Solar Aircon", "Hybrid Systems", "Energy Audits", "Split Unit Installation"],
       "reviewData": [{ "author": "Willem H.", "rating": 5, "comment": "The hybrid solar aircon is a game changer during power cuts." }, { "author": "Nadia E.", "rating": 5, "comment": "Expert advice on saving electricity while staying cool." }, { "author": "Teboho R.", "rating": 4, "comment": "Good installation, waiting to see the savings on my bill!" }, { "author": "Dirk V.", "rating": 5, "comment": "Very neat work and modern technology." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -286,7 +286,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 10,
       "services": ["Cassette Aircons", "Under-ceiling Units", "Shop Cooling", "Maintenance"],
       "reviewData": [{ "author": "Sonia B.", "rating": 5, "comment": "Excellent service for our restaurant. The staff is much happier." }, { "author": "Petrus M.", "rating": 4, "comment": "Reliable and consistent maintenance every year." }, { "author": "Jabulani N.", "rating": 5, "comment": "They fixed a problem three other companies couldn't." }, { "author": "Anthea G.", "rating": 4, "comment": "Good communication and fair pricing." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -317,7 +317,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 6,
       "services": ["Smart Aircon Integration", "Boutique Installations", "Wifi Units", "Servicing"],
       "reviewData": [{ "author": "Cameron J.", "rating": 5, "comment": "The mobile app integration they set up is amazing." }, { "author": "Neo M.", "rating": 5, "comment": "Very modern approach and very clean installation." }, { "author": "Samantha Q.", "rating": 5, "comment": "Best service in Fourways. They really know their tech." }, { "author": "Elias O.", "rating": 5, "comment": "Top class from start to finish. Highly recommended." }],
-      "qa": [
+       "qa": [
         {
           "question": "Describe a recent project that you have completed.",
           "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
@@ -385,23 +385,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         "yearsInBusiness": 8,
         "employees": 5
       }
-  ],
-   "builders": [
-    {
-      "id": "pro-builder-1",
-      "name": "Gauteng Construction",
-      "location": "Pretoria, Gauteng",
-      "description": "From foundations to finishes, we are your trusted partner for new builds and renovations. NHBRC registered.",
-      "rating": 4.8,
-      "reviews": 95,
-      "avatarSeed": "builder-logo-1",
-      "isProVerified": true,
-      "isDemo": true,
-      "priorityRank": 5,
-      "serviceCategory": "Builders",
-      "yearsInBusiness": 20,
-      "employees": 25
-    }
   ],
   "movers": [
     {
@@ -615,9 +598,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Lerato M.", "rating": 5, "comment": "Professional installation and the team was very neat." },
         { "author": "Sizwe D.", "rating": 4, "comment": "Great product, lead time was a bit long but worth the wait." },
         { "author": "Jane S.", "rating": 5, "comment": "Best prices in Randburg for aluminium window replacements." }
-      ],
-      "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     },
     {
@@ -640,9 +620,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Mpho K.", "rating": 4, "comment": "Good service, they helped me choose the right glass for heat control." },
         { "author": "Annatjie S.", "rating": 5, "comment": "Friendly staff and quick installation of my kitchen windows." },
         { "author": "David B.", "rating": 5, "comment": "Highly recommend for anyone in Pretoria East." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     },
     {
@@ -665,9 +642,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Jessica R.", "rating": 5, "comment": "Professional, punctual, and the quality is unmatched." },
         { "author": "Thabo N.", "rating": 4, "comment": "Expensive, but you definitely get what you pay for." },
         { "author": "Sarah G.", "rating": 5, "comment": "The slimline frames look incredible. Very happy." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     },
     {
@@ -690,9 +664,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Nadine D.", "rating": 5, "comment": "Our patio enclosure looks like a new room in the house!" },
         { "author": "Sipho Z.", "rating": 4, "comment": "Reliable service and the quality of the aluminium is top-notch." },
         { "author": "Gary M.", "rating": 4, "comment": "Good prices and very helpful sales staff." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     },
     {
@@ -712,12 +683,9 @@ export const allProfessionals: ProfessionalsByCategory = {
       "services": ["Steel-to-Aluminium Conversions", "Wood-look Aluminium", "Folding Doors", "Side-hung Windows"],
       "reviewData": [
         { "author": "Charmaine B.", "rating": 5, "comment": "Changed my old steel windows to aluminium. What a difference!" },
-        { "author": "Andries P.", "rating": 4, "comment": "Very happy with the service and the price was very fair." },
+        { "author": "Andries P.", "rating": 4, "comment": "Very happy with the service and the price was fair." },
         { "author": "Lindiwe S.", "rating": 5, "comment": "Great communication from the owner. Highly recommended." },
         { "author": "Robert H.", "rating": 4, "comment": "Neat installation and they cleaned up everything afterwards." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     },
     {
@@ -740,9 +708,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Chris J.", "rating": 5, "comment": "The thermal break windows really help with the winter cold." },
         { "author": "Musa W.", "rating": 4, "comment": "Excellent technical knowledge and professional team." },
         { "author": "Claire V.", "rating": 5, "comment": "Fast and efficient service in Kyalami." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     },
     {
@@ -765,9 +730,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Nomsa L.", "rating": 4, "comment": "Good turnaround time for the quote and the install." },
         { "author": "Henk S.", "rating": 5, "comment": "The best value for money I found in Centurion." },
         { "author": "Teboho M.", "rating": 4, "comment": "Quality workmanship on our bedroom windows." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     },
     {
@@ -790,9 +752,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Mariaan G.", "rating": 4, "comment": "Professional service for our home in Vanderbijlpark." },
         { "author": "Thane B.", "rating": 4, "comment": "Solid products and very good installation team." },
         { "author": "Petrus K.", "rating": 4, "comment": "Reliable local business with a great reputation." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     },
     {
@@ -811,13 +770,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "employees": 15,
       "services": ["Commercial Repairs", "Office Partitions", "High-Access Glazing", "Safety Doors"],
       "reviewData": [
-        { "author": "Alan F.", "rating": 5, "comment": "Excellent service for our office renovation in Braamfontein." },
-        { "author": "Sizwe M.", "rating": 5, "comment": "They fixed our broken shopfront glass within hours." },
-        { "author": "Busi P.", "rating": 4, "comment": "Very professional and followed all safety protocols." },
-        { "author": "Daniel S.", "rating": 5, "comment": "Great partner for building managers in the CBD." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
+        { "author": "Sizwe M.", "rating": 5, "comment": "Fast and efficient repair for our office block." },
+        { "author": "Alan F.", "rating": 5, "comment": "Very professional and followed all safety protocols." },
+        { "author": "Busi P.", "rating": 4, "comment": "Reliable partner for property managers." },
+        { "author": "Daniel S.", "rating": 5, "comment": "Great service in the city center." }
       ]
     },
     {
@@ -840,9 +796,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Jason K.", "rating": 5, "comment": "Best prices in Alberton. No hidden costs." },
         { "author": "Fatima H.", "rating": 5, "comment": "The installation was quick and very neat." },
         { "author": "Neil O.", "rating": 4, "comment": "Good quality and very friendly team." }
-      ],
-       "qa": [
-        { "question": "Do you provide a guarantee on your products?", "answer": "Yes, we offer a 10-year guarantee on our aluminium frames and a 2-year guarantee on workmanship." }
       ]
     }
   ],
@@ -867,9 +820,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Lerato N.", "rating": 5, "comment": "Great quality canvas and very professional installation." },
         { "author": "David L.", "rating": 4, "comment": "Good service, the team arrived on time and finished quickly." },
         { "author": "Michelle W.", "rating": 4, "comment": "Sturdy products that really help with the afternoon sun." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -892,9 +842,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Sarah K.", "rating": 5, "comment": "Excellent workmanship and the team was very professional." },
         { "author": "Andre B.", "rating": 5, "comment": "Really happy with the result. Looks very modern." },
         { "author": "Mpho G.", "rating": 4, "comment": "Good value for money and reliable service." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -917,9 +864,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Jessica M.", "rating": 5, "comment": "Beautiful design that matches our house perfectly." },
         { "author": "Simon V.", "rating": 4, "comment": "Premium service and product. Very satisfied." },
         { "author": "Nthabiseng L.", "rating": 5, "comment": "The team was very helpful in choosing the right fabric." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -942,9 +886,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Michelle B.", "rating": 5, "comment": "Fixed our leaking patio cover quickly and professionally." },
         { "author": "Gary H.", "rating": 4, "comment": "Good local service in Benoni. Highly recommended." },
         { "author": "Sizwe M.", "rating": 4, "comment": "Reliable guys, they did exactly what they promised." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -967,9 +908,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Nadia E.", "rating": 5, "comment": "Excellent service from start to finish. Very neat." },
         { "author": "Teboho R.", "rating": 4, "comment": "Good quality shade sail. Professional installation." },
         { "author": "Dirk V.", "rating": 5, "comment": "Best prices I found for outdoor blinds in Centurion." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -992,9 +930,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Andries L.", "rating": 5, "comment": "Very happy with the patio awning. Great job guys." },
         { "author": "Sipho K.", "rating": 4, "comment": "Prompt service and fair pricing. Recommended." },
         { "author": "Brenda P.", "rating": 4, "comment": "Neat work and very friendly staff." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -1002,7 +937,7 @@ export const allProfessionals: ProfessionalsByCategory = {
       "name": "Fourways Outdoor Blinds & Awnings",
       "location": "Fourways, Johannesburg",
       "description": "Boutique awning company serving the northern suburbs of Johannesburg. We focus on stylish, high-quality outdoor blinds and retractable awnings that blend seamlessly with estate living. We offer a wide range of imported fabrics and locally manufactured hardware for the perfect balance of style and durability.",
-      "rating": 5.0,
+      "rating": 5,
       "reviews": 14,
       "avatarSeed": "awning-logo-7",
       "serviceCategory": "Awnings",
@@ -1017,9 +952,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Neo M.", "rating": 5, "comment": "The blinds look amazing on our patio. Very professional." },
         { "author": "Samantha Q.", "rating": 5, "comment": "Top class service from a top class team." },
         { "author": "Elias O.", "rating": 5, "comment": "Highly recommend for anyone in Dainfern." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -1042,9 +974,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Lerato S.", "rating": 4, "comment": "Professional team and they worked around our business hours." },
         { "author": "Pieter B.", "rating": 4, "comment": "Solid structures and good technical support." },
         { "author": "Thane N.", "rating": 5, "comment": "The best commercial shade provider in Midrand." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -1067,9 +996,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Mark D.", "rating": 4, "comment": "Traditional craftsmanship at its best. Great service." },
         { "author": "Claire S.", "rating": 5, "comment": "Beautiful canvas work for our restaurant in Melville." },
         { "author": "Robert M.", "rating": 4, "comment": "Reliable and very experienced team." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     },
     {
@@ -1092,9 +1018,6 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Maria M.", "rating": 4, "comment": "The team was very helpful and the price was right." },
         { "author": "Thabo K.", "rating": 4, "comment": "Good quality awnings and professional installation." },
         { "author": "Petrus S.", "rating": 4, "comment": "Happy with the result. No more rain on our patio." }
-      ],
-      "qa": [
-        { "question": "What is the warranty on your awnings?", "answer": "We offer a 5-year warranty on all our awning structures and a 3-year warranty on the fabric." }
       ]
     }
   ],
@@ -1129,10 +1052,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.7,
       "reviews": 52,
       "avatarSeed": "balustrade-logo-2",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 4,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 18,
       "employees": 22,
       "services": ["Wrought Iron Balustrades", "Custom Railings", "Security Gates", "Industrial Handrails"],
@@ -1151,10 +1074,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.8,
       "reviews": 25,
       "avatarSeed": "balustrade-logo-3",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 5,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 7,
       "employees": 9,
       "services": ["Architectural Glass", "Glass Balconies", "Pool Enclosures", "Mezzanine Railings"],
@@ -1173,10 +1096,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.6,
       "reviews": 41,
       "avatarSeed": "balustrade-logo-4",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 3,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 10,
       "employees": 11,
       "services": ["Wire Balustrades", "Timber Railings", "Patio Railings", "Home Renovations"],
@@ -1195,10 +1118,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.5,
       "reviews": 29,
       "avatarSeed": "balustrade-logo-5",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 3,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 6,
       "employees": 8,
       "services": ["Powder-Coated Balustrades", "Steel Staircases", "Balcony Fencing", "Estate Solutions"],
@@ -1217,10 +1140,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.7,
       "reviews": 33,
       "avatarSeed": "balustrade-logo-6",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 4,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 9,
       "employees": 14,
       "services": ["Commercial Balustrades", "Glass Handrails", "Engineering Certificates", "Custom Railing"],
@@ -1239,10 +1162,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.4,
       "reviews": 22,
       "avatarSeed": "balustrade-logo-7",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 3,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 11,
       "employees": 7,
       "services": ["Safety Balustrades", "Pet Fencing", "Pool Safety Gates", "Patio Railing"],
@@ -1261,10 +1184,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.3,
       "reviews": 45,
       "avatarSeed": "balustrade-logo-8",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 2,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 20,
       "employees": 18,
       "services": ["Industrial Handrails", "Stainless Fabrication", "Balcony Systems", "Marine-Grade Steel"],
@@ -1283,10 +1206,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.6,
       "reviews": 19,
       "avatarSeed": "balustrade-logo-9",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 3,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 8,
       "employees": 12,
       "services": ["Balustrade Repairs", "Glass Panel Replacement", "Building Maintenance", "Urban Handrails"],
@@ -1305,10 +1228,10 @@ export const allProfessionals: ProfessionalsByCategory = {
       "rating": 4.9,
       "reviews": 14,
       "avatarSeed": "balustrade-logo-10",
+      "serviceCategory": "Balustrades",
       "isProVerified": true,
       "isDemo": true,
       "priorityRank": 5,
-      "serviceCategory": "Balustrades",
       "yearsInBusiness": 5,
       "employees": 6,
       "services": ["Bespoke Designs", "Wood & Steel Railing", "Interior Balustrades", "Modern Glass"],
@@ -1540,6 +1463,350 @@ export const allProfessionals: ProfessionalsByCategory = {
         { "author": "Fatima H.", "rating": 4, "comment": "The installation was quick and the quality is good." },
         { "author": "Neil O.", "rating": 5, "comment": "Highly recommend for anyone on the East/South Rand." }
       ]
+    }
+  ],
+  "builders": [
+    {
+      "id": "pro-builder-1",
+      "name": "Eli-con Constructors",
+      "location": "Sandton, Johannesburg",
+      "description": "NHBRC-registered home builders specializing in turnkey residential projects. From luxury mansion construction in Sandton to modern home extensions, we manage the entire building process including architecture, foundations, and final finishes. Our expert team ensures high-quality structural integrity and modern design.",
+      "rating": 4.8,
+      "reviews": 62,
+      "avatarSeed": "builder-logo-1",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 15,
+      "employees": 45,
+      "services": ["New Home Construction", "Home Extensions", "Double Storey Building", "Project Management"],
+      "reviewData": [{ "author": "Thabo M.", "rating": 5, "comment": "Built our dream home from scratch. Professional and transparent." }, { "author": "Sarah K.", "rating": 5, "comment": "The best contractors in Sandton. No hidden costs." }, { "author": "Chris P.", "rating": 4, "comment": "Solid building work, though finishing took a week longer than planned." }, { "author": "Lindiwe N.", "rating": 5, "comment": "Excellent communication throughout the whole build." }]
+    },
+    {
+      "id": "pro-builder-2",
+      "name": "Tshwa Builders",
+      "location": "Pretoria East, Pretoria",
+      "description": "Leading residential and commercial builders in Pretoria. We specialize in contemporary estate homes and office renovations. Our team is known for precision masonry, concrete work, and structural alterations. We pride ourselves on meeting strict deadlines and adhering to all South African building regulations.",
+      "rating": 4.7,
+      "reviews": 45,
+      "avatarSeed": "builder-logo-2",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 12,
+      "employees": 30,
+      "services": ["Estate Home Building", "Commercial Renovations", "Structural Alterations", "Concrete Work"],
+      "reviewData": [{ "author": "Johan V.", "rating": 5, "comment": "Very high standard of work on our new office block." }, { "author": "Mpho G.", "rating": 4, "comment": "Reliable builders, great attention to detail on the brickwork." }, { "author": "Annatjie S.", "rating": 5, "comment": "Transformed our old house with a beautiful new wing." }, { "author": "David B.", "rating": 5, "comment": "Professional, clean site, and very hardworking crew." }]
+    },
+    {
+      "id": "pro-builder-3",
+      "name": "Zambezi Heritage Builders",
+      "location": "Midrand, Johannesburg",
+      "description": "Specialists in high-end residential construction and heritage-style home builds. Serving the Midrand and Waterfall areas, we focus on sustainable building practices and premium finishes. Our services include multi-unit developments and bespoke private residences with a focus on energy efficiency.",
+      "rating": 4.9,
+      "reviews": 28,
+      "avatarSeed": "builder-logo-3",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 9,
+      "employees": 25,
+      "services": ["Bespoke Home Building", "Multi-Unit Development", "Green Building", "Civil Works"],
+      "reviewData": [{ "author": "Bradley W.", "rating": 5, "comment": "World-class service in Waterfall. The finish is impeccable." }, { "author": "Jessica R.", "rating": 5, "comment": "Creative solutions for our eco-friendly home." }, { "author": "Simon V.", "rating": 5, "comment": "Very professional project managers. Highly recommend." }, { "author": "Nthabiseng L.", "rating": 4, "comment": "Excellent quality, though the quote was on the higher side." }]
+    },
+    {
+      "id": "pro-builder-4",
+      "name": "Cit-con Contractors",
+      "location": "Soweto, Johannesburg",
+      "description": "Reliable building contractors serving the south of Johannesburg and the CBD. We specialize in affordable housing projects, boundary walls, and large-scale renovations. Our team is equipped for both small residential fixes and large industrial building maintenance.",
+      "rating": 4.5,
+      "reviews": 89,
+      "avatarSeed": "builder-logo-4",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 20,
+      "employees": 50,
+      "services": ["Affordable Housing", "Boundary Walls", "Industrial Maintenance", "Tiling & Plastering"],
+      "reviewData": [{ "author": "Sizwe Z.", "rating": 5, "comment": "Great team, they built our boundary wall in record time." }, { "author": "Kevin L.", "rating": 4, "comment": "Reliable and honest. Good value for money." }, { "author": "Nomsa D.", "rating": 5, "comment": "They handled our complex renovation with total ease." }, { "author": "Gary M.", "rating": 4, "comment": "Solid workmanship. Will definitely use them again." }]
+    },
+    {
+      "id": "pro-builder-5",
+      "name": "Highveld Structural Pros",
+      "location": "Boksburg, Ekurhuleni",
+      "description": "Expert structural builders focusing on heavy-duty construction and home foundations in the East Rand. We specialize in fixing structural cracks, sub-floor installations, and second-story additions. Our engineering-first approach ensures your building is safe and durable.",
+      "rating": 4.6,
+      "reviews": 17,
+      "avatarSeed": "builder-logo-5",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 14,
+      "employees": 20,
+      "services": ["Foundation Specialist", "Second Story Additions", "Structural Repairs", "Roofing"],
+      "reviewData": [{ "author": "Michelle B.", "rating": 5, "comment": "They fixed our foundation issues perfectly. Very knowledgeable." }, { "author": "Andries L.", "rating": 5, "comment": "Expert advice on our double-story extension." }, { "author": "Sipho K.", "rating": 4, "comment": "Great technical skills. Very professional team." }, { "author": "Robert H.", "rating": 4, "comment": "Good quality work, very thorough with safety." }]
+    },
+    {
+      "id": "pro-builder-6",
+      "name": "First River Construction",
+      "location": "Vereeniging, Gauteng",
+      "description": "The leading construction company in the Vaal Triangle. We specialize in riverside property development, holiday homes, and industrial steel structures. We provide a full range of building services from site clearing to final painting and electrical COC.",
+      "rating": 4.4,
+      "reviews": 24,
+      "avatarSeed": "builder-logo-6",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 22,
+      "employees": 60,
+      "services": ["Steel Structures", "Riverside Homes", "Site Clearing", "Industrial Building"],
+      "reviewData": [{ "author": "Ockert V.", "rating": 5, "comment": "They built our river house. Exceptional service and quality." }, { "author": "Maria M.", "rating": 4, "comment": "Reliable and well-known in the Vaal area." }, { "author": "Thane B.", "rating": 5, "comment": "Very professional handling of our factory extension." }, { "author": "Petrus S.", "rating": 4, "comment": "Good workers, very dedicated and honest." }]
+    },
+    {
+      "id": "pro-builder-7",
+      "name": "Egoli Extension Experts",
+      "location": "Randburg, Johannesburg",
+      "description": "Specialized in residential extensions and cottage building in the Randburg area. We help homeowners maximize their property value by building high-quality granny flats, garden cottages, and extra rooms. We handle all municipal approvals and building plans.",
+      "rating": 4.8,
+      "reviews": 21,
+      "avatarSeed": "builder-logo-7",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 8,
+      "employees": 15,
+      "services": ["Granny Flats", "Garden Cottages", "Municipal Approvals", "Home Improvements"],
+      "reviewData": [{ "author": "Claire S.", "rating": 5, "comment": "Built a beautiful cottage for us. Highly recommended." }, { "author": "Mark D.", "rating": 5, "comment": "They took care of all the paperwork with the council. Stress-free!" }, { "author": "Zanele T.", "rating": 5, "comment": "Fast, clean, and very professional builders." }, { "author": "Robert M.", "rating": 4, "comment": "Great quality work at a very fair price." }]
+    },
+    {
+      "id": "pro-builder-8",
+      "name": "Jacaranda Home Builders",
+      "location": "Pretoria North, Pretoria",
+      "description": "Family-owned building company serving the greater Pretoria North region. We specialize in traditional family homes and outdoor entertainment areas (lapas and braai rooms). Our goal is to provide high-quality building at affordable prices with a personal touch.",
+      "rating": 4.7,
+      "reviews": 13,
+      "avatarSeed": "builder-logo-8",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 11,
+      "employees": 12,
+      "services": ["Residential Building", "Braai Rooms", "Renovations", "Roofing"],
+      "reviewData": [{ "author": "Willem D.", "rating": 5, "comment": "Wonderful team. They made our renovation so easy." }, { "author": "Nomsa L.", "rating": 5, "comment": "The best price and quality in the Moot area." }, { "author": "Henk S.", "rating": 4, "comment": "Reliable and honest builders. Very happy." }, { "author": "Teboho M.", "rating": 5, "comment": "Excellent workmanship on our new entertainment area." }]
+    },
+    {
+      "id": "pro-builder-9",
+      "name": "Wise Masonry & Build",
+      "location": "Roodepoort, Johannesburg",
+      "description": "Brickwork and masonry specialists in the West Rand. We provide high-quality structural building, face-brick finishes, and plastering. Whether you are building a new garage or a complex multi-story home, our master masons ensure a perfect finish every time.",
+      "rating": 4.6,
+      "reviews": 25,
+      "avatarSeed": "builder-logo-9",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 18,
+      "employees": 18,
+      "services": ["Face-brick Specialist", "Masonry Work", "Garage Building", "Plastering"],
+      "reviewData": [{ "author": "Charmaine J.", "rating": 5, "comment": "Their brickwork is an art form. Truly beautiful finish." }, { "author": "Andries P.", "rating": 4, "comment": "Solid builders who really know their craft." }, { "author": "Sipho K.", "rating": 5, "comment": "Professional and punctual. Highly recommend." }, { "author": "Brenda P.", "rating": 4, "comment": "Good quality and very sturdy construction." }]
+    },
+    {
+      "id": "pro-builder-10",
+      "name": "Plat Project Managers",
+      "location": "Fourways, Johannesburg",
+      "description": "High-end building and project management service for luxury estates in Fourways. We bridge the gap between architects and contractors, ensuring that your high-spec home is built to exact standards, on time, and within budget. We specialize in modern, high-tech homes.",
+      "rating": 5,
+      "reviews": 12,
+      "avatarSeed": "builder-logo-10",
+      "serviceCategory": "Builders",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 6,
+      "employees": 10,
+      "services": ["Project Management", "Luxury Home Building", "Contractor Oversight", "High-Spec Finishes"],
+      "reviewData": [{ "author": "Cameron J.", "rating": 5, "comment": "They took the stress out of our build in Dainfern." }, { "author": "Neo M.", "rating": 5, "comment": "Expert management. Everything was perfect." }, { "author": "Samantha Q.", "rating": 5, "comment": "Highly professional and very detailed oriented." }, { "author": "Elias O.", "rating": 5, "comment": "The only company I would trust with a high-end project." }]
+    }
+  ],
+  "building-materials": [
+    {
+      "id": "pro-materials-1",
+      "name": "Sama Brick & Sand Wholesalers",
+      "location": "Randburg, Johannesburg",
+      "description": "Major suppliers of bulk building materials across Johannesburg. We supply cement, plaster sand, river sand, and crushed stone at wholesale prices. With a large fleet of delivery trucks, we ensure your construction site never runs out of the essentials. Perfect for large-scale builders and DIY enthusiasts.",
+      "rating": 4.7,
+      "reviews": 42,
+      "avatarSeed": "materials-logo-1",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 25,
+      "employees": 20,
+      "services": ["Bulk Cement", "River Sand", "Crushed Stone", "Face Bricks"],
+      "reviewData": [{ "author": "Pieter H.", "rating": 5, "comment": "Always on time with deliveries. Best bulk prices." }, { "author": "Lerato M.", "rating": 5, "comment": "Very helpful staff and great quality sand." }, { "author": "Sizwe D.", "rating": 4, "comment": "Reliable supply for my construction projects." }, { "author": "Jane S.", "rating": 5, "comment": "Quick turnaround on a bulk cement order." }]
+    },
+    {
+      "id": "pro-materials-2",
+      "name": "K.K. Hardware Haven",
+      "location": "Pretoria East, Pretoria",
+      "description": "Your one-stop shop for building hardware and materials in Pretoria. We stock everything from power tools and plumbing supplies to roofing sheets and timber. Our expert staff provides technical advice for home renovations and professional building projects alike.",
+      "rating": 4.6,
+      "reviews": 78,
+      "avatarSeed": "materials-logo-2",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 15,
+      "employees": 22,
+      "services": ["Building Hardware", "Power Tools", "Plumbing Supplies", "Timber"],
+      "reviewData": [{ "author": "Johan S.", "rating": 5, "comment": "Huge variety and very knowledgeable staff." }, { "author": "Mpho G.", "rating": 4, "comment": "Good prices on plumbing and electrical hardware." }, { "author": "Annatjie B.", "rating": 5, "comment": "The only place I go for my DIY supplies." }, { "author": "David K.", "rating": 5, "comment": "Excellent service and convenient location." }]
+    },
+    {
+      "id": "pro-materials-3",
+      "name": "Jozi Timber & Truss",
+      "location": "Midrand, Johannesburg",
+      "description": "Specialized suppliers of structural timber and custom roof trusses in Gauteng. We provide high-quality, SABS-approved timber for all building needs. Our engineering team designs and manufactures roof trusses for residential homes and commercial buildings, including delivery and installation support.",
+      "rating": 4.8,
+      "reviews": 23,
+      "avatarSeed": "materials-logo-3",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 20,
+      "employees": 35,
+      "services": ["Structural Timber", "Roof Trusses", "Laminated Beams", "Decking Timber"],
+      "reviewData": [{ "author": "Bradley T.", "rating": 5, "comment": "The trusses were perfectly engineered and delivered on time." }, { "author": "Jessica R.", "rating": 5, "comment": "High-quality timber and great technical support." }, { "author": "Simon V.", "rating": 4, "comment": "Excellent variety of decking options." }, { "author": "Nthabiseng M.", "rating": 5, "comment": "Professional service from a very experienced team." }]
+    },
+    {
+      "id": "pro-materials-4",
+      "name": "Cent Supply Yard",
+      "location": "Centurion, Pretoria",
+      "description": "Providing a comprehensive range of building materials for the Centurion area. We specialize in bricks, blocks, and lintels. Our yard is easily accessible, and we offer a reliable crane-truck delivery service for heavy loads directly onto your site or slab.",
+      "rating": 4.5,
+      "reviews": 32,
+      "avatarSeed": "materials-logo-4",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 10,
+      "employees": 15,
+      "services": ["Cement Blocks", "Stock Bricks", "Lintels", "Crane Delivery"],
+      "reviewData": [{ "author": "Willem H.", "rating": 5, "comment": "The crane delivery was very efficient. Saved us a lot of work." }, { "author": "Nadia E.", "rating": 4, "comment": "Good local supplier with competitive pricing." }, { "author": "Teboho R.", "rating": 5, "comment": "The best place for stock bricks in Centurion." }, { "author": "Dirk V.", "rating": 4, "comment": "Solid service and friendly staff." }]
+    },
+    {
+      "id": "pro-materials-5",
+      "name": "East Bulk Materials",
+      "location": "Boksburg, Ekurhuleni",
+      "description": "Specialized in bulk aggregates and civil construction materials in the East Rand. We supply road-base materials, filling sand, and large-scale concrete stone. Our fleet handles high-volume orders for commercial developments and infrastructure projects across Gauteng.",
+      "rating": 4.4,
+      "reviews": 41,
+      "avatarSeed": "materials-logo-5",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 18,
+      "employees": 28,
+      "services": ["Aggregate Supply", "Filling Sand", "Concrete Stone", "Civil Materials"],
+      "reviewData": [{ "author": "Kevin D.", "rating": 5, "comment": "Reliable partner for our road-building project." }, { "author": "Michelle V.", "rating": 4, "comment": "Great prices on bulk aggregate orders." }, { "author": "Gary H.", "rating": 5, "comment": "Professional team and they handle large volumes easily." }, { "author": "Sizwe Z.", "rating": 4, "comment": "Essential supplier for the East Rand area." }]
+    },
+    {
+      "id": "pro-materials-6",
+      "name": "Tops Cement Hub",
+      "location": "Roodepoort, Johannesburg",
+      "description": "Dedicated cement and concrete product specialists serving the West Rand. We stock all major brands of cement (PPC, Afrisam, Lafarge) and offer ready-mix concrete delivery. Our hub also provides concrete pavers and garden walling solutions for residential landscaping.",
+      "rating": 4.7,
+      "reviews": 56,
+      "avatarSeed": "materials-logo-6",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 12,
+      "employees": 14,
+      "services": ["Cement Sales", "Ready-Mix Concrete", "Concrete Pavers", "Retaining Walls"],
+      "reviewData": [{ "author": "Charmaine J.", "rating": 5, "comment": "Excellent prices on cement. Delivery was very prompt." }, { "author": "Andries L.", "rating": 5, "comment": "The ready-mix was exactly on time and high quality." }, { "author": "Sipho K.", "rating": 4, "comment": "Good advice on the right cement for our project." }, { "author": "Brenda P.", "rating": 5, "comment": "Friendly service and very reliable local supplier." }]
+    },
+    {
+      "id": "pro-materials-7",
+      "name": "Sando Luxury Finishes",
+      "location": "Sandton, Johannesburg",
+      "description": "Boutique supplier of high-end building finishes in Sandton. We specialize in imported tiles, designer taps, luxury flooring, and premium architectural hardware. Our showroom is designed for architects and homeowners looking for the highest quality materials for luxury renovations.",
+      "rating": 4.9,
+      "reviews": 19,
+      "avatarSeed": "materials-logo-7",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 5,
+      "yearsInBusiness": 7,
+      "employees": 10,
+      "services": ["Imported Tiles", "Luxury Flooring", "Architectural Hardware", "Sanitaryware"],
+      "reviewData": [{ "author": "Bradley W.", "rating": 5, "comment": "Stunning selection of tiles. Nothing else like it in Jozi." }, { "author": "Jessica R.", "rating": 5, "comment": "The best finishes for a high-end renovation." }, { "author": "Thabo N.", "rating": 4, "comment": "Expensive but the quality and style are worth it." }, { "author": "Sarah G.", "rating": 5, "comment": "Fantastic service and very exclusive products." }]
+    },
+    {
+      "id": "pro-materials-8",
+      "name": "Grace Construction Supplies",
+      "location": "Midrand, Johannesburg",
+      "description": "Conveniently located to serve the booming Midrand and Waterfall construction sectors. We provide a broad range of site essentials, including scaffolding hire, safety gear (PPE), fencing, and general building materials. We focus on getting supplies to your site fast so you never lose a day of work.",
+      "rating": 4.6,
+      "reviews": 24,
+      "avatarSeed": "materials-logo-8",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 6,
+      "employees": 12,
+      "services": ["Scaffolding Hire", "PPE & Safety Gear", "Temporary Fencing", "Site Essentials"],
+      "reviewData": [{ "author": "Alan F.", "rating": 5, "comment": "Excellent service and very fast delivery to Midrand sites." }, { "author": "Lerato S.", "rating": 5, "comment": "The scaffolding was in great condition and very safe." }, { "author": "Pieter B.", "rating": 4, "comment": "Reliable supplier for all our site safety needs." }, { "author": "Thane N.", "rating": 4, "comment": "Good local hardware and very helpful staff." }]
+    },
+    {
+      "id": "pro-materials-9",
+      "name": "Triangle Building Depot",
+      "location": "Vereeniging, Gauteng",
+      "description": "The largest building material depot in the Vaal Triangle. We supply everything from foundations to roof tiles. Our extensive yard features a wide selection of bricks, cement, sand, and stone, along with a full-service hardware store for all your finishing needs.",
+      "rating": 4.3,
+      "reviews": 42,
+      "avatarSeed": "materials-logo-9",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 3,
+      "yearsInBusiness": 30,
+      "employees": 45,
+      "services": ["Full-Service Depot", "Roof Tiles", "Foundation Materials", "Hardware Store"],
+      "reviewData": [{ "author": "Ockert R.", "rating": 5, "comment": "They have everything you need for a building project." }, { "author": "Mariaan G.", "rating": 4, "comment": "The go-to place in the Vaal for building supplies." }, { "author": "Thane B.", "rating": 4, "comment": "Reliable and well-established with good local prices." }, { "author": "Petrus K.", "rating": 5, "comment": "Always consistent and the delivery drivers are great." }]
+    },
+    {
+      "id": "pro-materials-10",
+      "name": "Alro Aggregate & Stone",
+      "location": "Alberton, Ekurhuleni",
+      "description": "Specialized suppliers of decorative stone, building sand, and gravel in the South of Johannesburg. We provide materials for both construction and landscaping. Whether you need a truckload of building sand or decorative pebbles for a garden, we offer competitive rates and fast local delivery.",
+      "rating": 4.7,
+      "reviews": 35,
+      "avatarSeed": "materials-logo-10",
+      "serviceCategory": "Building Materials",
+      "isProVerified": true,
+      "isDemo": true,
+      "priorityRank": 4,
+      "yearsInBusiness": 9,
+      "employees": 10,
+      "services": ["Decorative Stone", "Building Sand", "Gravel", "Landscaping Materials"],
+      "reviewData": [{ "author": "Sonia P.", "rating": 5, "comment": "Beautiful stone for our garden. Very happy with the service." }, { "author": "Jason K.", "rating": 5, "comment": "Best prices for building sand in Alberton." }, { "author": "Fatima H.", "rating": 4, "comment": "Prompt delivery and very friendly service." }, { "author": "Neil O.", "rating": 5, "comment": "Excellent quality aggregates and very reliable." }]
     }
   ]
 };
