@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
@@ -15,7 +14,8 @@ import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
-import { allProfessionals } from '@/lib/professionals-data';
+import { useFirestore, useCollection, useMemoFirebase } from '@/firebase';
+import { collection, query, where, orderBy, limit } from 'firebase/firestore';
 
 
 interface ServicePageClientProps {
@@ -26,11 +26,9 @@ interface ServicePageClientProps {
 export default function ServicePageClient({ params, searchParams }: ServicePageClientProps) {
     const locationQuery = searchParams?.location;
     const [isClient, setIsClient] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsClient(true);
-        setIsLoading(false);
     }, []);
 
     const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
@@ -38,23 +36,39 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const service = allServices.find(s => s.value === currentService);
     const serviceLabel = service?.label || currentService.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     
+    // Capitalize first letter to match `serviceCategory` field in Firestore
+    const capitalizedServiceCategory = serviceLabel.charAt(0).toUpperCase() + serviceLabel.slice(1);
+
     const pluralServiceLabel = service?.label || (serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`);
     
     const locationName = typeof locationQuery === 'string'
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
 
+    // NEW: Firestore data fetching
+    const firestore = useFirestore();
+    const professionalsQuery = useMemoFirebase(() => {
+        if (!firestore) return null;
+        return query(
+            collection(firestore, 'professionalProfiles'),
+            where('serviceCategory', '==', capitalizedServiceCategory),
+            orderBy('priorityRank', 'desc'),
+            orderBy('rating', 'desc'),
+            limit(50) // Add a limit for performance
+        );
+    }, [firestore, capitalizedServiceCategory]);
+
+    const { data: allProsForCategory, isLoading, error } = useCollection<Professional>(professionalsQuery);
+
     const professionals = useMemo(() => {
-        const allProsForCategory = allProfessionals[currentService] || [];
+        if (!allProsForCategory) return [];
         if (locationQuery && typeof locationQuery === 'string') {
              const formattedLocationQuery = locationQuery.replace(/-/g, ' ').toLowerCase();
              return allProsForCategory.filter(pro => pro.location?.toLowerCase().includes(formattedLocationQuery));
         }
         return allProsForCategory;
-    }, [currentService, locationQuery]);
+    }, [allProsForCategory, locationQuery]);
 
-    
-    const error = null;
     
     if (error) {
         return (
@@ -64,7 +78,8 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                     <Card>
                         <CardContent className="p-6">
                             <h2 className="text-xl font-normal text-destructive">Error Fetching Data</h2>
-                            <p className="mt-2 text-muted-foreground">There was a problem loading professionals for this category.</p>
+                            <p className="mt-2 text-muted-foreground">There was a problem loading professionals. Please check your connection or try again later.</p>
+                            <pre className="mt-4 text-xs bg-muted p-2 rounded">{error.message}</pre>
                         </CardContent>
                     </Card>
                 </main>
@@ -105,8 +120,8 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     }, [currentService, locationName]);
 
     const ProfessionalList = () => {
-        if (isLoading || !isClient) {
-            return Array.from({ length: 5 }).map((_, index) => (
+        if (isLoading || !isClient) { // Check both isLoading and isClient
+            return Array.from({ length: 3 }).map((_, index) => (
                 <Card key={index}>
                     <CardContent className="p-6">
                         <div className="grid sm:grid-cols-4 gap-6">
