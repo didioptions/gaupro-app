@@ -68,7 +68,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 15,
       "employees": 20,
       "services": ["Commercial Cooling", "Inverter Technology", "Ducting", "Emergency Repairs"],
-      "reviewData": [{ "author": "Johan S.", "rating": 5, "comment": "Best price I found for a Daikin inverter unit in Pretoria." }, { "author": "Mpho G.", "rating": 4, "comment": "Very knowledgeable about energy-saving options." }, { "author": "Annatjie B.", "rating": 5, "comment": "The technicians were very respectful and left the site clean." }, { "author": "David K.", "rating": 5, "comment": "Quick turnaround on my commercial office maintenance." }]
+      "reviewData": [{ "author": "Johan S.", "rating": 5, "comment": "Best price I found for a Daikin inverter unit in Pretoria." }, { "author": "Mpho G.", "rating": 4, "comment": "Very knowledgeable about energy-saving options." }, { "author": "Annatjie B.", "rating": 5, "comment": "The technicians were very respectful and left the site clean." }, { "author": "David K.", "rating": 5, "comment": "Quick turnaround on my commercial office maintenance." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-3",
@@ -85,7 +99,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 7,
       "employees": 9,
       "services": ["Luxury Home Cooling", "VRF Systems", "Annual Servicing", "Heating Solutions"],
-      "reviewData": [{ "author": "Bradley T.", "rating": 5, "comment": "High-end service for a high-end home. Very happy." }, { "author": "Jessica L.", "rating": 5, "comment": "They understood exactly where to place the units for best airflow." }, { "author": "Simon R.", "rating": 4, "comment": "Premium pricing but you definitely get what you pay for." }, { "author": "Nthabiseng M.", "rating": 5, "comment": "Fast, efficient, and the unit is whisper quiet." }]
+      "reviewData": [{ "author": "Bradley T.", "rating": 5, "comment": "High-end service for a high-end home. Very happy." }, { "author": "Jessica L.", "rating": 5, "comment": "They understood exactly where to place the units for best airflow." }, { "author": "Simon R.", "rating": 4, "comment": "Premium pricing but you definitely get what you pay for." }, { "author": "Nthabiseng M.", "rating": 5, "comment": "Fast, efficient, and the unit is whisper quiet." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-4",
@@ -102,7 +130,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 12,
       "employees": 14,
       "services": ["Chemical Wash", "Gas Refills", "Winter Heating", "Fault Finding"],
-      "reviewData": [{ "author": "Kevin D.", "rating": 5, "comment": "Great local service in Benoni. Fixed my old unit quickly." }, { "author": "Sizwe Z.", "rating": 4, "comment": "Honest guys, didn't try to upsell me on a new unit." }, { "author": "Michelle V.", "rating": 5, "comment": "My aircon is ice cold again! Thanks for the regas." }, { "author": "Gary H.", "rating": 4, "comment": "Reliable and affordable compared to the big franchises." }]
+      "reviewData": [{ "author": "Kevin D.", "rating": 5, "comment": "Great local service in Benoni. Fixed my old unit quickly." }, { "author": "Sizwe Z.", "rating": 4, "comment": "Honest guys, didn't try to upsell me on a new unit." }, { "author": "Michelle V.", "rating": 5, "comment": "My aircon is ice cold again! Thanks for the regas." }, { "author": "Gary H.", "rating": 4, "comment": "Reliable and affordable compared to the big franchises." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-5",
@@ -119,7 +161,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 20,
       "employees": 35,
       "services": ["Industrial Cooling", "Ventilation", "Server Room Cooling", "Maintenance Contracts"],
-      "reviewData": [{ "author": "Alan F.", "rating": 5, "comment": "They manage our warehouse cooling perfectly. Very professional." }, { "author": "Lerato S.", "rating": 5, "comment": "Essential service for our server rooms. Highly dependable." }, { "author": "Pieter B.", "rating": 4, "comment": "Good technical knowledge of complex HVAC systems." }, { "author": "Thane N.", "rating": 4, "comment": "Excellent contract rates for corporate clients." }]
+      "reviewData": [{ "author": "Alan F.", "rating": 5, "comment": "They manage our warehouse cooling perfectly. Very professional." }, { "author": "Lerato S.", "rating": 5, "comment": "Essential service for our server rooms. Highly dependable." }, { "author": "Pieter B.", "rating": 4, "comment": "Good technical knowledge of complex HVAC systems." }, { "author": "Thane N.", "rating": 4, "comment": "Excellent contract rates for corporate clients." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-6",
@@ -136,7 +192,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 6,
       "employees": 5,
       "services": ["Residential Aircon", "Relocation Services", "De-installation", "New Sales"],
-      "reviewData": [{ "author": "Charmaine J.", "rating": 5, "comment": "Such a lovely team. They were so careful in my house." }, { "author": "Andries L.", "rating": 5, "comment": "Best prices in Roodepoort by far. Workmanship is 10/10." }, { "author": "Sipho K.", "rating": 5, "comment": "Prompt service and great communication throughout." }, { "author": "Brenda P.", "rating": 4, "comment": "Very satisfied with the new unit installation." }]
+      "reviewData": [{ "author": "Charmaine J.", "rating": 5, "comment": "Such a lovely team. They were so careful in my house." }, { "author": "Andries L.", "rating": 5, "comment": "Best prices in Roodepoort by far. Workmanship is 10/10." }, { "author": "Sipho K.", "rating": 5, "comment": "Prompt service and great communication throughout." }, { "author": "Brenda P.", "rating": 4, "comment": "Very satisfied with the new unit installation." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-7",
@@ -153,7 +223,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 9,
       "employees": 8,
       "services": ["Emergency Repair", "PC Board Fixes", "Compressor Replacement", "Leak Repairs"],
-      "reviewData": [{ "author": "Zanele T.", "rating": 5, "comment": "They came out on a Saturday and fixed my unit. Lifesavers!" }, { "author": "Mark D.", "rating": 4, "comment": "Fast diagnostics, had the parts in the van already." }, { "author": "Claire S.", "rating": 5, "comment": "Very impressive speed and technical skill." }, { "author": "Robert M.", "rating": 4, "comment": "A bit pricier for emergency call-outs but worth it." }]
+      "reviewData": [{ "author": "Zanele T.", "rating": 5, "comment": "They came out on a Saturday and fixed my unit. Lifesavers!" }, { "author": "Mark D.", "rating": 4, "comment": "Fast diagnostics, had the parts in the van already." }, { "author": "Claire S.", "rating": 5, "comment": "Very impressive speed and technical skill." }, { "author": "Robert M.", "rating": 4, "comment": "A bit pricier for emergency call-outs but worth it." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-8",
@@ -170,7 +254,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 5,
       "employees": 7,
       "services": ["Solar Aircon", "Hybrid Systems", "Energy Audits", "Split Unit Installation"],
-      "reviewData": [{ "author": "Willem H.", "rating": 5, "comment": "The hybrid solar aircon is a game changer during power cuts." }, { "author": "Nadia E.", "rating": 5, "comment": "Expert advice on saving electricity while staying cool." }, { "author": "Teboho R.", "rating": 4, "comment": "Good installation, waiting to see the savings on my bill!" }, { "author": "Dirk V.", "rating": 5, "comment": "Very neat work and modern technology." }]
+      "reviewData": [{ "author": "Willem H.", "rating": 5, "comment": "The hybrid solar aircon is a game changer during power cuts." }, { "author": "Nadia E.", "rating": 5, "comment": "Expert advice on saving electricity while staying cool." }, { "author": "Teboho R.", "rating": 4, "comment": "Good installation, waiting to see the savings on my bill!" }, { "author": "Dirk V.", "rating": 5, "comment": "Very neat work and modern technology." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-9",
@@ -187,7 +285,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 11,
       "employees": 10,
       "services": ["Cassette Aircons", "Under-ceiling Units", "Shop Cooling", "Maintenance"],
-      "reviewData": [{ "author": "Sonia B.", "rating": 5, "comment": "Excellent service for our restaurant. The staff is much happier." }, { "author": "Petrus M.", "rating": 4, "comment": "Reliable and consistent maintenance every year." }, { "author": "Jabulani N.", "rating": 5, "comment": "They fixed a problem three other companies couldn't." }, { "author": "Anthea G.", "rating": 4, "comment": "Good communication and fair pricing." }]
+      "reviewData": [{ "author": "Sonia B.", "rating": 5, "comment": "Excellent service for our restaurant. The staff is much happier." }, { "author": "Petrus M.", "rating": 4, "comment": "Reliable and consistent maintenance every year." }, { "author": "Jabulani N.", "rating": 5, "comment": "They fixed a problem three other companies couldn't." }, { "author": "Anthea G.", "rating": 4, "comment": "Good communication and fair pricing." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     },
     {
       "id": "pro-ac-10",
@@ -204,7 +316,21 @@ export const allProfessionals: ProfessionalsByCategory = {
       "yearsInBusiness": 4,
       "employees": 6,
       "services": ["Smart Aircon Integration", "Boutique Installations", "Wifi Units", "Servicing"],
-      "reviewData": [{ "author": "Cameron J.", "rating": 5, "comment": "The mobile app integration they set up is amazing." }, { "author": "Neo M.", "rating": 5, "comment": "Very modern approach and very clean installation." }, { "author": "Samantha Q.", "rating": 5, "comment": "Best service in Fourways. They really know their tech." }, { "author": "Elias O.", "rating": 5, "comment": "Top class from start to finish. Highly recommended." }]
+      "reviewData": [{ "author": "Cameron J.", "rating": 5, "comment": "The mobile app integration they set up is amazing." }, { "author": "Neo M.", "rating": 5, "comment": "Very modern approach and very clean installation." }, { "author": "Samantha Q.", "rating": 5, "comment": "Best service in Fourways. They really know their tech." }, { "author": "Elias O.", "rating": 5, "comment": "Top class from start to finish. Highly recommended." }],
+      "qa": [
+        {
+          "question": "Describe a recent project that you have completed.",
+          "answer": "I have recently done an extension on a verandah; we leveled the ground built it up, filled it then cemented it."
+        },
+        {
+          "question": "Who are some of your customers and can you provide traceable references?",
+          "answer": "Sweetmart; Cherry Lane"
+        },
+        {
+          "question": "Do you provide any guarantee of your workmanship and/or services. If yes, please share the details here.",
+          "answer": "We offer a 6 month guarantee on newly installed units."
+        }
+      ]
     }
   ],
   "plumber": [
