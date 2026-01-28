@@ -45,6 +45,15 @@
         { "fieldPath": "rating", "order": "DESCENDING" },
         { "fieldPath": "priorityRank", "order": "DESCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "professionalProfiles",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "serviceCategory", "order": "ASCENDING" },
+        { "fieldPath": "priorityRank", "order": "DESCENDING" },
+        { "fieldPath": "rating", "order": "DESCENDING" }
+      ]
     }
   ]
 }
