@@ -3,17 +3,10 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Allow anyone to read single professional profiles
-    match /professionalProfiles/{profileId} {
-      allow get: if true;
+    // Allow public read access to all professional profiles and their subcollections
+    match /professionalProfiles/{document=**} {
+      allow read: if true;
     }
-
-    // Allow anyone to list the collection of professional profiles for searching/browsing
-    match /professionalProfiles {
-      allow list: if true;
-    }
-
-    // --- Write Rules ---
 
     // Secure writes to the professionalProfiles collection.
     // Only the owner of the profile can write to it.
