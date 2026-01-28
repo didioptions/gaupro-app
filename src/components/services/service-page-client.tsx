@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
@@ -15,7 +14,8 @@ import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
-import { allProfessionals } from '@/lib/professionals-data'; // Import local data
+import { useFirestore, useCollection, useMemoFirebase } from '@/firebase';
+import { collection, query, where, orderBy } from 'firebase/firestore';
 
 
 interface ServicePageClientProps {
@@ -26,13 +26,9 @@ interface ServicePageClientProps {
 export default function ServicePageClient({ params, searchParams }: ServicePageClientProps) {
     const locationQuery = searchParams?.location;
     const [isClient, setIsClient] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsClient(true);
-        // Simulate loading for a moment to prevent flashes of content
-        const timer = setTimeout(() => setIsLoading(false), 200);
-        return () => clearTimeout(timer);
     }, []);
 
     const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
@@ -40,27 +36,40 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const service = allServices.find(s => s.value === currentService);
     const serviceLabel = service?.label || currentService.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
-    const pluralServiceLabel = service?.label || (serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`);
+    const pluralServiceLabel = service?.label.endsWith('s') ? service.label : `${service?.label}s` || (serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`);
     
     const locationName = typeof locationQuery === 'string'
         ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
 
-    // Get professionals from local data
-    const allProsForCategory = useMemo(() => {
-        return allProfessionals[currentService] || [];
-    }, [currentService]);
+    const firestore = useFirestore();
 
+    const professionalsQuery = useMemoFirebase(() => {
+      if (!firestore || !service?.label) return null;
+
+      const baseCollectionRef = collection(firestore, 'professionalProfiles');
+      
+      return query(
+          baseCollectionRef, 
+          where('serviceCategory', '==', service.label),
+          orderBy('priorityRank', 'desc'),
+          orderBy('rating', 'desc')
+      );
+    }, [firestore, service?.label]);
+
+    const { data: allProsFromFirestore, isLoading: professionalsLoading, error } = useCollection<Professional>(professionalsQuery);
 
     const professionals = useMemo(() => {
-        if (!allProsForCategory) return [];
+        if (!allProsFromFirestore) return [];
         if (locationQuery && typeof locationQuery === 'string') {
-             const formattedLocationQuery = locationQuery.replace(/-/g, ' ').toLowerCase();
-             return allProsForCategory.filter(pro => pro.location?.toLowerCase().includes(formattedLocationQuery));
+             const formattedLocationQuery = locationName.toLowerCase();
+             return allProsFromFirestore.filter(pro => 
+                pro.location?.toLowerCase().includes(formattedLocationQuery) || 
+                pro.city?.toLowerCase().includes(formattedLocationQuery)
+             );
         }
-        return allProsForCategory;
-    }, [allProsForCategory, locationQuery]);
-
+        return allProsFromFirestore;
+    }, [allProsFromFirestore, locationQuery, locationName]);
     
     const serviceImageId = `${currentService}-image`;
     let heroImage = CategoryImages.find(p => p.id === `real-${serviceImageId}` || p.id === serviceImageId);
@@ -94,7 +103,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     }, [currentService, locationName]);
 
     const ProfessionalList = () => {
-        if (isLoading || !isClient) { // Check both isLoading and isClient
+        if (!isClient || professionalsLoading) {
             return Array.from({ length: 3 }).map((_, index) => (
                 <Card key={index}>
                     <CardContent className="p-6">
@@ -117,6 +126,17 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                     </CardContent>
                 </Card>
             ));
+        }
+
+        if (error) {
+            return (
+                <Card>
+                    <CardContent className="p-6 text-center text-destructive">
+                        <p className="text-lg">Error loading professionals.</p>
+                        <p className="text-sm mt-2">{error.message}</p>
+                    </CardContent>
+                </Card>
+            )
         }
 
         if (!professionals || professionals.length === 0) {
@@ -183,8 +203,8 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                     <CardContent className="p-6">
                                         <h3 className="mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                                            <li>{allProsForCategory.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for {pluralServiceLabel.toLowerCase()}</li>
-                                            <li>{allProsForCategory.filter(p => p.rating >= 4).length * 10}+ Positive Reviews</li>
+                                            <li>{allProsFromFirestore?.reduce((acc, pro) => acc + (pro.reviews || 0), 0) || 'Many'}+ Reviews for {pluralServiceLabel.toLowerCase()}</li>
+                                            <li>{(allProsFromFirestore?.filter(p => p.rating >= 4).length || 0) * 10}+ Positive Reviews</li>
                                             <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
                                             <li>View {locationName} Pros for {pluralServiceLabel.toLowerCase()} today</li>
                                         </ul>
