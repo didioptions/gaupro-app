@@ -60,7 +60,7 @@ export default function TopAluminiumDoorsAndWindowsPage() {
                     <ChevronRight className="h-4 w-4" />
                     <span className="font-medium text-foreground">Top Aluminium Door & Window Companies</span>
                 </div>
-                <h2 className="text-3xl mt-1">Top 5 Aluminium Door & Window Companies in Gauteng</h2>
+                <h2 className="text-3xl mt-1">Top Aluminium Door & Window Companies in Gauteng</h2>
             </div>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-6">

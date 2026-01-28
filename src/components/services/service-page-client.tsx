@@ -172,7 +172,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 <span className="font-medium text-foreground">{pluralServiceLabel}</span>
                             </div>
                              {introText}
-                             <h2 className="text-3xl mt-1">Top {professionals.length > 0 ? professionals.length: ''} {pluralServiceLabel} in {locationName}</h2>
+                             <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2 space-y-6">
