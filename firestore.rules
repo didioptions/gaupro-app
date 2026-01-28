@@ -3,19 +3,14 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Allow public read access to all professional profiles and their subcollections
-    match /professionalProfiles/{document=**} {
-      allow read: if true;
-    }
-
-    // Secure writes to the professionalProfiles collection.
-    // Only the owner of the profile can write to it.
     match /professionalProfiles/{profileId} {
+      allow read: if true;
       allow write: if request.auth != null && request.auth.uid == resource.data.userId;
     }
     
-    // Allow any signed-in user to create a review.
+    // Allow any signed-in user to create a review, and allow anyone to read them.
     match /professionalProfiles/{profileId}/reviews/{reviewId} {
+        allow read: if true;
         allow create: if request.auth != null;
     }
 
