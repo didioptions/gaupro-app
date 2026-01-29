@@ -3,18 +3,31 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    match /professionalProfiles/{profileId} {
+    // Rule 1: Public Read Access for Professional Profiles and Subcollections
+    // This allows anyone (authenticated or not) to read data from the professionalProfiles
+    // collection and any subcollections within it (like reviews). This is necessary for
+    // public-facing pages that list professionals.
+    match /professionalProfiles/{document=**} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == resource.data.userId;
-    }
-    
-    // Allow any signed-in user to create a review, and allow anyone to read them.
-    match /professionalProfiles/{profileId}/reviews/{reviewId} {
-        allow read: if true;
-        allow create: if request.auth != null;
     }
 
-    // Secure the users collection
+    // Rule 2: Secure Profile Writes
+    // This rule allows a user to create, update, or delete their own professional profile,
+    // but not others'. It checks if the user is authenticated and if their UID matches
+    // the 'userId' field in the document they are trying to write to.
+    match /professionalProfiles/{profileId} {
+      allow write: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+
+    // Rule 3: Secure Review Creation
+    // This rule allows any authenticated user to create a review. The 'read' permission
+    // is already covered by the recursive wildcard rule above.
+    match /professionalProfiles/{profileId}/reviews/{reviewId} {
+      allow create: if request.auth != null;
+    }
+
+    // Rule 4: Secure User Data
+    // This ensures that users can only read and write their own data within the 'users' collection.
     match /users/{userId}/{document=**} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
