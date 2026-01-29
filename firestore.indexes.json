@@ -2,51 +2,6 @@
 {
   "indexes": [
     {
-      "collectionGroup": "companies",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "searchServices", "arrayConfig": "CONTAINS" },
-        { "fieldPath": "city", "order": "ASCENDING" },
-        { "fieldPath": "ratingBucket", "order": "DESCENDING" },
-        { "fieldPath": "rating", "order": "DESCENDING" }
-      ]
-    },
-    {
-      "collectionGroup": "companies",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "searchServices", "arrayConfig": "CONTAINS" },
-        { "fieldPath": "ratingBucket", "order": "DESCENDING" },
-        { "fieldPath": "rating", "order": "DESCENDING" }
-      ]
-    },
-    {
-      "collectionGroup": "companies",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "searchKeywords", "arrayConfig": "CONTAINS" },
-        { "fieldPath": "ratingBucket", "order": "DESCENDING" },
-        { "fieldPath": "rating", "order": "DESCENDING" }
-      ]
-    },
-    {
-      "collectionGroup": "professionalProfiles",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "serviceCategory", "order": "ASCENDING" },
-        { "fieldPath": "priorityRank", "order": "DESCENDING" }
-      ]
-    },
-    {
-      "collectionGroup": "professionalProfiles",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "serviceCategory", "order": "ASCENDING" },
-        { "fieldPath": "rating", "order": "DESCENDING" },
-        { "fieldPath": "priorityRank", "order": "DESCENDING" }
-      ]
-    },
-    {
       "collectionGroup": "professionalProfiles",
       "queryScope": "COLLECTION",
       "fields": [

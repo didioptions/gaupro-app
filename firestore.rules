@@ -3,31 +3,29 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Rule 1: Public Read Access for Professional Profiles and Subcollections
-    // This allows anyone (authenticated or not) to read data from the professionalProfiles
-    // collection and any subcollections within it (like reviews). This is necessary for
-    // public-facing pages that list professionals.
-    match /professionalProfiles/{document=**} {
-      allow read: if true;
+    // Allow anyone to LIST the collection of professionals.
+    // This is required for the main category pages to query all profiles.
+    match /professionalProfiles {
+      allow list: if true;
     }
 
-    // Rule 2: Secure Profile Writes
-    // This rule allows a user to create, update, or delete their own professional profile,
-    // but not others'. It checks if the user is authenticated and if their UID matches
-    // the 'userId' field in the document they are trying to write to.
+    // These rules apply to individual documents within the collection.
     match /professionalProfiles/{profileId} {
+      // Allow anyone to GET a single professional's profile.
+      allow get: if true;
+      
+      // Allow only the owner of a profile to write to it.
       allow write: if request.auth != null && request.auth.uid == resource.data.userId;
+
+      // Allow anyone to read reviews for a professional.
+      match /reviews/{reviewId} {
+        allow get, list: if true;
+        // Allow any authenticated user to create a review.
+        allow create: if request.auth != null;
+      }
     }
 
-    // Rule 3: Secure Review Creation
-    // This rule allows any authenticated user to create a review. The 'read' permission
-    // is already covered by the recursive wildcard rule above.
-    match /professionalProfiles/{profileId}/reviews/{reviewId} {
-      allow create: if request.auth != null;
-    }
-
-    // Rule 4: Secure User Data
-    // This ensures that users can only read and write their own data within the 'users' collection.
+    // Secure user-specific data. Only the authenticated user can access their own documents.
     match /users/{userId}/{document=**} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
