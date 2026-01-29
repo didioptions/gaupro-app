@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // --- Public Access Rules ---
+    // Allow public read access to professional profiles for browsing on category pages.
+    // Allow anyone to read a single profile.
+    match /professionalProfiles/{profileId} {
+      allow read: if true;
+      
+      // --- Write Access Rules ---
+      // Only the authenticated owner of a profile can write to it.
+      allow write: if request.auth != null && request.auth.uid == resource.data.userId;
+
+      // --- Subcollection Rules ---
+      // Allow public read for reviews on a profile.
+      match /reviews/{reviewId} {
+        allow read: if true;
+        // Allow any authenticated user to create a review.
+        allow create: if request.auth != null;
+      }
+    }
+
+    // --- User-Specific Data Rules ---
+    // Secure all documents within a user's private folder.
+    // Only the authenticated user can access their own documents.
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
