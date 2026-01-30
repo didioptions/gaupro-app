@@ -76,9 +76,7 @@ export function useCollection<T = any>(
           operation: 'list',
           path,
         });
-
-        console.error('❌ FIRESTORE ERROR:', contextualError);
-
+        
         setError(contextualError);
         setData(null);
         setIsLoading(false);

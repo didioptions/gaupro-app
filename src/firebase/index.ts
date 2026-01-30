@@ -1,26 +1,26 @@
 'use client';
 
-import { firebaseConfig } from '@/firebase/config';
-import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
+// This file is now a central hub for Firebase utilities,
+// ensuring a single initialization source from './firebase.js'.
+
+import { app, db } from './firebase.js'; // Import the initialized instances
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore'
 
 // IMPORTANT: DO NOT MODIFY THIS FUNCTION
 export function initializeFirebase() {
-  if (!getApps().length) {
-    const firebaseApp = initializeApp(firebaseConfig);
-    return getSdks(firebaseApp);
-  }
-
-  // If already initialized, return the SDKs with the already initialized App
-  return getSdks(getApp());
+  // The app is already initialized in firebase.js, we just re-export the instances.
+  return {
+    firebaseApp: app,
+    auth: getAuth(app),
+    firestore: db,
+  };
 }
 
-export function getSdks(firebaseApp: FirebaseApp) {
+export function getSdks(firebaseApp: any) {
   return {
     firebaseApp,
     auth: getAuth(firebaseApp),
-    firestore: getFirestore(firebaseApp)
+    firestore: db,
   };
 }
 
