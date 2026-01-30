@@ -14,7 +14,7 @@ import { CategoryImages } from '@/lib/category-images';
 import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
-import { useFirestore, useCollection, useMemoFirebase } from '@/firebase';
+import { useFirestore, useCollection, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, where, orderBy } from 'firebase/firestore';
 
 
@@ -26,6 +26,7 @@ interface ServicePageClientProps {
 export default function ServicePageClient({ params, searchParams }: ServicePageClientProps) {
     const locationQuery = searchParams?.location;
     const [isClient, setIsClient] = useState(false);
+    const { isUserLoading } = useUser();
 
     useEffect(() => {
         setIsClient(true);
@@ -45,7 +46,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const firestore = useFirestore();
 
     const professionalsQuery = useMemoFirebase(() => {
-      if (!firestore || !service?.label) return null;
+      if (!firestore || isUserLoading || !service?.label) return null;
 
       const baseCollectionRef = collection(firestore, 'professionalProfiles');
       
@@ -55,7 +56,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
           orderBy('priorityRank', 'desc'),
           orderBy('rating', 'desc')
       );
-    }, [firestore, service?.label]);
+    }, [firestore, isUserLoading, service?.label]);
 
     const { data: allProsFromFirestore, isLoading: professionalsLoading, error } = useCollection<Professional>(professionalsQuery);
 
@@ -103,7 +104,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     }, [currentService, locationName]);
 
     const ProfessionalList = () => {
-        if (!isClient || professionalsLoading) {
+        if (!isClient || professionalsLoading || isUserLoading) {
             return Array.from({ length: 3 }).map((_, index) => (
                 <Card key={index}>
                     <CardContent className="p-6">
@@ -227,3 +228,4 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         </>
     );
 }
+    
