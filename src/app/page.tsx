@@ -1,5 +1,4 @@
 
-import FeaturedProfessionals from '@/components/home/featured-professionals';
 import Hero from '@/components/home/hero';
 import HowItWorks from '@/components/home/how-it-works';
 import PopularCategories from '@/components/home/popular-categories';
@@ -16,7 +15,6 @@ export default function HomePage() {
       <main>
         <Hero />
         <WhyHire />
-        <FeaturedProfessionals />
         <HowItWorks />
         <PopularCategories />
         <Testimonials />
