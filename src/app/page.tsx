@@ -1,55 +1,73 @@
 
-import Hero from '@/components/home/hero';
-import HowItWorks from '@/components/home/how-it-works';
-import PopularCategories from '@/components/home/popular-categories';
-import ProCta from '@/components/home/pro-cta';
-import Testimonials from '@/components/home/testimonials';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
-import GrowClientBaseCta from '@/components/layout/grow-client-base-cta';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import WhyHire from '@/components/home/why-hire';
+"use client";
+import { useState, useEffect } from 'react';
+import { initializeApp, getApps, getApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
+// --- TRUTH DETECTOR CONFIG ---
+const hardcodedConfig = {
+  apiKey: "AIzaSyBMMdB5UEPLP6LrWKHywytJhgUVEY18kdQ",
+  authDomain: "studio-5618869838-18486.firebaseapp.com",
+  projectId: "studio-5618869838-18486",
+  storageBucket: "studio-5618869838-18486.firebasestorage.app",
+  messagingSenderId: "1059962490351",
+  appId: "1:1059962490351:web:6ed75997aad9ad43afba1a"
+};
 
 export default function Home() {
+  const [logs, setLogs] = useState<string[]>([]);
+
+  const addLog = (msg: string) => setLogs(prev => [...prev, msg]);
+
+  useEffect(() => {
+    async function runDiagnostics() {
+      addLog("1. Starting Diagnostics...");
+      
+      try {
+        // Initialize App manually (prevents hot-reload crashes)
+        const app = getApps().length === 0 ? initializeApp(hardcodedConfig) : getApp();
+        addLog(`2. App Initialized. Target Project: ${app.options.projectId}`);
+        
+        // Initialize DB
+        const db = getFirestore(app);
+        
+        // Try to fetch
+        addLog("3. Attempting to fetch 'professionalProfiles'...");
+        const colRef = collection(db, "professionalProfiles");
+        const snapshot = await getDocs(colRef);
+        
+        addLog("------------------------------------------------");
+        addLog(`✅ SUCCESS! Connection Verified.`);
+        addLog(`📄 Found ${snapshot.size} documents.`);
+        
+        if (snapshot.size > 0) {
+           const firstDoc = snapshot.docs[0].data();
+           addLog(`🔎 Sample Data: ${JSON.stringify(firstDoc).slice(0, 100)}...`);
+        } else {
+           addLog("⚠️ Collection exists but is empty.");
+        }
+
+      } catch (error: any) {
+        addLog("------------------------------------------------");
+        addLog(`❌ FAILED: ${error.message}`);
+        
+        if (error.code === 'permission-denied') {
+            addLog("👉 RULES ISSUE: Go to Firebase Console > Firestore > Rules.");
+            addLog("👉 Paste: match /{document=**} { allow read, write: if true; }");
+            addLog("👉 CLICK PUBLISH.");
+        }
+      }
+    }
+
+    runDiagnostics();
+  }, []);
+
   return (
-    <>
-      <Header />
-      <main className="flex-grow">
-        <Hero />
-        <WhyHire />
-        <PopularCategories />
-
-        <section className="py-16 md:py-20 bg-background">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-3xl font-normal mb-6">
-              💼 Grow Your Service Business with Gaupro – South Africa’s Trusted Platform
-            </h2>
-            <div className="text-base text-foreground space-y-4">
-              <p>
-                Looking for steady work and reliable clients? Gaupro connects South Africa’s builders, plumbers, electricians, cleaners, painters, handymen etc directly with customers who are ready to hire.
-              </p>
-              <p>
-                Why join Gaupro? It gives you verified leads from real clients, helping you save time and money while growing your reputation. Showcase your skills, upload photos of your work, and collect reviews that make you stand out. With Gaupro, you choose the jobs that fit your schedule and expertise, giving you control while expanding your reach locally.
-              </p>
-              <p>
-                No more chasing clients or spending on ads — Gaupro delivers qualified job requests straight to you, making it easy to turn leads into loyal customers. Sign up today and start growing your service business with confidence.
-              </p>
-            </div>
-            <div className="mt-8">
-              <Button asChild size="lg">
-                <Link href="/pro/signup">Start getting leads today</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        <HowItWorks />
-        <Testimonials />
-        <ProCta />
-        <GrowClientBaseCta />
-      </main>
-      <Footer />
-    </>
+    <div style={{ padding: 40, fontFamily: 'monospace', background: '#222', color: '#0f0', minHeight: '100vh' }}>
+      <h1>🔥 Truth Detector</h1>
+      <div>
+        {logs.map((log, i) => <div key={i} style={{marginBottom: 10}}>{log}</div>)}
+      </div>
+    </div>
   );
 }
