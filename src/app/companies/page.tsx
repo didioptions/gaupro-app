@@ -1,15 +1,14 @@
-
 'use client';
 
-import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { useCollection, useMemoFirebase } from '@/firebase';
 import { collection, DocumentData } from 'firebase/firestore';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { db as firestore } from '@/firebase/firebase.js';
 
 export default function CompaniesPage() {
-  const firestore = useFirestore();
   
   const companiesQuery = useMemoFirebase(() => {
     if (!firestore) return null;
