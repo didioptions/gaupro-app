@@ -13,11 +13,11 @@ const popularServices = [
   { name: "Builders", value: "builders", imageId: "builders-image" },
   { name: "Movers", value: "movers", imageId: "movers-image" },
   { name: "Caterers", value: "caterers", imageId: "caterers-image" },
-  { name: "Tree Felling", value: "top-companies/tree-felling", imageId: "tree-felling-image" },
+  { name: "Tree Felling", value: "tree-felling", imageId: "tree-felling-image" },
   { name: "Handymen", value: "handyman", imageId: "handyman-image" },
   { name: "Solar Systems", value: "solar-systems", imageId: "solar-systems-image" },
   { name: "Security", value: "security", imageId: "security-image" },
-  { name: "Rubble Removal", value: "top-companies/rubble-removal", imageId: "rubble-removal-image" },
+  { name: "Rubble Removal", value: "rubble-removal", imageId: "rubble-removal-image" },
 ];
 
 const weddingServices = [
@@ -39,7 +39,7 @@ const homeServices = [
   { name: "Gardeners", value: "gardeners", imageId: "gardeners-image" },
   { name: "Pest Control", value: "pest-control", imageId: "pest-control-image" },
   { name: "Tree Felling", value: "tree-felling", imageId: "tree-felling-image" },
-  { name: "Carpenters", value: "carpenter", imageId: "carpenters-image" },
+  { name: "Carpenters", value: "carpenters", imageId: "carpenters-image" },
 ];
 
 const businessServices = [
@@ -55,7 +55,7 @@ const businessServices = [
 
 const CategoryCard = ({ name, value, imageId }: { name: string, value: string, imageId: string }) => {
   const categoryImage = CategoryImages.find(c => c.id === imageId);
-  const href = value.startsWith('top-companies') ? `/${value}` : `/services/${value}`;
+  const href = `/services/${value}`;
   return (
     <Link href={href} className="group">
       <Card className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">
