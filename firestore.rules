@@ -5,13 +5,13 @@ service cloud.firestore {
   match /databases/{database}/documents {
     
     // --- Public Access Rules for 'companies' ---
-    match /companies {
-      // This allows ANYONE to query the list of companies.
-      allow list: if true; 
-    }
     match /companies/{companyId} {
       // This rule allows ANYONE to read a single company's document.
       allow get: if true;
+    }
+    // This allows ANYONE to query the list of companies.
+    match /companies {
+      allow list: if true; 
     }
 
     // --- Public Access Rules for 'professionalProfiles' ---
