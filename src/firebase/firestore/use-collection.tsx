@@ -56,16 +56,11 @@ export function useCollection<T = any>(
         const results: WithId<T>[] = [];
 
         snapshot.docs.forEach((doc) => {
-          // 🔍 DEBUG LOG — SAFE TO REMOVE LATER
-          console.log('🏢 COMPANY FROM FIRESTORE:', doc.id, doc.data());
-
           results.push({
             ...(doc.data() as T),
             id: doc.id,
           });
         });
-
-        console.log('✅ TOTAL COMPANIES:', results.length);
 
         setData(results);
         setIsLoading(false);

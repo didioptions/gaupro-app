@@ -12,7 +12,7 @@ export default function CompaniesPage() {
   
   const companiesQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    // This query is for the 'companies' collection, as per the error log.
+    // This query is for the 'companies' collection.
     return collection(firestore, 'companies');
   }, [firestore]);
   
