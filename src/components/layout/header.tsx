@@ -91,25 +91,19 @@ export default function Header() {
     }
 
     return (
-      <nav className="hidden md:flex items-center gap-2 text-sm">
-        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
-            <Link href="/post-request">Post Request</Link>
-        </Button>
-        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
-          <Link href="/how-it-works">
-            How It Works
-          </Link>
-        </Button>
-        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
-          <Link href="/browse-leads">
-            Browse Leads
-          </Link>
-        </Button>
-        <Button asChild variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground text-foreground/80 font-medium">
-          <Link href="/pro/signup">
-            Join as a Pro
-          </Link>
-        </Button>
+      <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <Link href="/post-request" className="transition-colors hover:text-primary text-foreground/60">
+          Post Request
+        </Link>
+        <Link href="/how-it-works" className="transition-colors hover:text-primary text-foreground/60">
+          How It Works
+        </Link>
+        <Link href="/browse-leads" className="transition-colors hover:text-primary text-foreground/60">
+          Browse Leads
+        </Link>
+        <Link href="/pro/signup" className="transition-colors hover:text-primary text-foreground/60">
+          Join as a Pro
+        </Link>
         <Button asChild>
            <Link href="/pro/login">Login</Link>
         </Button>
