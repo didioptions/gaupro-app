@@ -15,7 +15,7 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
 import { useFirestore, useCollection, useMemoFirebase, useUser } from '@/firebase';
-import { collection, query, where, orderBy } from 'firebase/firestore';
+import { collection, query, orderBy } from 'firebase/firestore';
 
 
 interface ServicePageClientProps {
@@ -46,31 +46,39 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const firestore = useFirestore();
 
     const professionalsQuery = useMemoFirebase(() => {
-      if (!firestore || isUserLoading || !service?.label) return null;
-
-      const baseCollectionRef = collection(firestore, 'professionalProfiles');
-      
-      return query(
-          baseCollectionRef, 
-          where('serviceCategory', '==', service.label),
-          orderBy('priorityRank', 'desc'),
-          orderBy('rating', 'desc')
-      );
-    }, [firestore, isUserLoading, service?.label]);
+      if (!firestore || isUserLoading) return null;
+      // Fetch all professionals. Filtering and sorting will happen on the client.
+      return collection(firestore, 'professionalProfiles');
+    }, [firestore, isUserLoading]);
 
     const { data: allProsFromFirestore, isLoading: professionalsLoading, error } = useCollection<Professional>(professionalsQuery);
 
+    // Filter and sort the results on the client side
     const professionals = useMemo(() => {
-        if (!allProsFromFirestore) return [];
+        if (!allProsFromFirestore || !service?.label) return [];
+
+        // Filter by service category
+        const serviceFiltered = allProsFromFirestore.filter(pro => pro.serviceCategory === service.label);
+
+        // Further filter by location if provided
+        let locationFiltered = serviceFiltered;
         if (locationQuery && typeof locationQuery === 'string') {
              const formattedLocationQuery = locationName.toLowerCase();
-             return allProsFromFirestore.filter(pro => 
+             locationFiltered = serviceFiltered.filter(pro => 
                 pro.location?.toLowerCase().includes(formattedLocationQuery) || 
                 pro.city?.toLowerCase().includes(formattedLocationQuery)
              );
         }
-        return allProsFromFirestore;
-    }, [allProsFromFirestore, locationQuery, locationName]);
+
+        // Sort the final list
+        return locationFiltered.sort((a, b) => {
+            if (a.priorityRank !== b.priorityRank) {
+                return (b.priorityRank || 0) - (a.priorityRank || 0);
+            }
+            return (b.rating || 0) - (a.rating || 0);
+        });
+
+    }, [allProsFromFirestore, service?.label, locationQuery, locationName]);
     
     const serviceImageId = `${currentService}-image`;
     let heroImage = CategoryImages.find(p => p.id === `real-${serviceImageId}` || p.id === serviceImageId);
@@ -134,7 +142,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                 <Card>
                     <CardContent className="p-6 text-center text-destructive">
                         <p className="text-lg">Error loading professionals.</p>
-                        <p className="text-sm mt-2">{error.message}</p>
+                        <p className="text-sm mt-2">{error}</p>
                     </CardContent>
                 </Card>
             )
