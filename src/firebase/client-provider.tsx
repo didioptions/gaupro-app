@@ -26,19 +26,14 @@ export function FirebaseClientProvider({ children }: FirebaseClientProviderProps
     setFirebaseServices(initializeFirebase());
   }, []); // The empty dependency array ensures this runs only once.
 
-  // If Firebase services are not yet initialized, we render nothing.
-  // This prevents child components from trying to access the Firebase context
-  // before it's ready, which would cause an error.
-  if (!firebaseServices) {
-    return null;
-  }
-
-  // Once Firebase is initialized, we provide the services to the rest of the app.
+  // To prevent hydration errors, we always render the provider and its children.
+  // The provider will pass down `null` for services until they are initialized client-side.
+  // The hooks that consume this context are designed to handle this `null` state gracefully.
   return (
     <FirebaseProvider
-      firebaseApp={firebaseServices.firebaseApp}
-      auth={firebaseServices.auth}
-      firestore={firebaseServices.firestore}
+      firebaseApp={firebaseServices?.firebaseApp}
+      auth={firebaseServices?.auth}
+      firestore={firebaseServices?.firestore}
     >
       {children}
     </FirebaseProvider>
