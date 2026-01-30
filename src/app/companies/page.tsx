@@ -1,25 +1,30 @@
+
 'use client';
 
-import { useCollection, useMemoFirebase } from '@/firebase';
+import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, DocumentData } from 'firebase/firestore';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { db as firestore } from '@/firebase/firebase.js';
 
 export default function CompaniesPage() {
+  const firestore = useFirestore();
+  const { isUserLoading } = useUser();
   
   const companiesQuery = useMemoFirebase(() => {
-    if (!firestore) return null;
+    // Wait for both firestore and auth state to be determined before creating the query.
+    if (!firestore || isUserLoading) return null;
     // This query is for the 'companies' collection.
     return collection(firestore, 'companies');
-  }, [firestore]);
+  }, [firestore, isUserLoading]);
   
   const { data: companies, isLoading, error } = useCollection<DocumentData>(companiesQuery);
 
+  const showLoadingSkeleton = isLoading || isUserLoading;
+
   const renderContent = () => {
-    if (isLoading) {
+    if (showLoadingSkeleton) {
       return (
         <div className="space-y-4">
           <Skeleton className="h-10 w-full" />

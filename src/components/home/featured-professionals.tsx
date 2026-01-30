@@ -1,7 +1,8 @@
+
 'use client';
 
 import { useMemo } from 'react';
-import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit } from 'firebase/firestore';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
 import { Card, CardContent } from '@/components/ui/card';
@@ -11,18 +12,22 @@ import Link from 'next/link';
 
 export default function FeaturedProfessionals() {
   const firestore = useFirestore();
+  const { isUserLoading } = useUser();
 
   const professionalsQuery = useMemoFirebase(() => {
-    if (!firestore) return null;
+    // Wait for both firestore and auth state to be determined before creating the query.
+    if (!firestore || isUserLoading) return null;
     return query(
       collection(firestore, 'professionalProfiles'),
       orderBy('rating', 'desc'),
       orderBy('priorityRank', 'desc'),
       limit(4)
     );
-  }, [firestore]);
+  }, [firestore, isUserLoading]);
 
   const { data: professionals, isLoading } = useCollection<Professional>(professionalsQuery);
+
+  const showLoadingSkeleton = isLoading || isUserLoading;
 
   return (
     <section className="py-20 md:py-24 bg-background">
@@ -36,7 +41,7 @@ export default function FeaturedProfessionals() {
           </p>
         </div>
 
-        {isLoading ? (
+        {showLoadingSkeleton ? (
           <div className="grid md:grid-cols-2 gap-8">
             {Array.from({ length: 4 }).map((_, index) => (
                <Card key={index}>

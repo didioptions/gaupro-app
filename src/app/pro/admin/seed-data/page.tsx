@@ -1,6 +1,7 @@
+
 'use client';
 
-import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, DocumentData } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,16 +9,18 @@ import { Table, TableBody, TableCell, TableHeader, TableHead, TableRow } from '@
 
 export default function SeedDataViewerPage() {
   const firestore = useFirestore();
+  const { isUserLoading } = useUser();
   
   const profilesQuery = useMemoFirebase(() => {
-    if (!firestore) return null;
+    if (!firestore || isUserLoading) return null;
     return collection(firestore, 'professionalProfiles');
-  }, [firestore]);
+  }, [firestore, isUserLoading]);
   
   const { data: profiles, isLoading, error } = useCollection<DocumentData>(profilesQuery);
+  const showLoadingSkeleton = isLoading || isUserLoading;
 
   const renderContent = () => {
-    if (isLoading) {
+    if (showLoadingSkeleton) {
       return (
         <div className="space-y-4">
           <Skeleton className="h-10 w-full" />

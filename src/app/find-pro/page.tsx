@@ -17,7 +17,7 @@ import {
   type MatchServiceRequestsOutput,
 } from '@/ai/flows/match-service-requests-with-professionals';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
-import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection } from 'firebase/firestore';
 
 
@@ -29,10 +29,11 @@ export default function FindProPage() {
   const [matchedPros, setMatchedPros] = useState<MatchServiceRequestsOutput | null>(null);
 
   const firestore = useFirestore();
+  const { isUserLoading } = useUser();
   const allProfessionalsQuery = useMemoFirebase(() => {
-      if (!firestore) return null;
+      if (!firestore || isUserLoading) return null;
       return collection(firestore, 'professionalProfiles');
-  }, [firestore]);
+  }, [firestore, isUserLoading]);
   const { data: allProsFromFirestore, isLoading: isLoadingPros } = useCollection<Professional>(allProfessionalsQuery);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -75,6 +76,8 @@ export default function FindProPage() {
     (allProsFromFirestore || []).forEach(pro => map.set(pro.name, pro));
     return map;
   }, [allProsFromFirestore]);
+  
+  const isDataLoading = isLoading || isLoadingPros || isUserLoading;
 
   return (
     <>
@@ -120,8 +123,8 @@ export default function FindProPage() {
                       <AlertDescription>{error}</AlertDescription>
                     </Alert>
                   )}
-                  <Button type="submit" size="lg" className="w-full text-lg" disabled={isLoading || isLoadingPros}>
-                    {isLoading || isLoadingPros ? (
+                  <Button type="submit" size="lg" className="w-full text-lg" disabled={isDataLoading}>
+                    {isDataLoading ? (
                       <>
                         <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                         Finding Matches...
