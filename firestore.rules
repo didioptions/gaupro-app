@@ -1,12 +1,17 @@
+
 rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
     
     // --- Public Access Rules for 'companies' ---
+    match /companies {
+      // This allows ANYONE to query the list of companies.
+      allow list: if true; 
+    }
     match /companies/{companyId} {
-      // This allows public read access for both single documents (get) and queries (list)
-      allow read: if true; 
+      // This rule allows ANYONE to read a single company's document.
+      allow get: if true;
     }
 
     // --- Public Access Rules for 'professionalProfiles' ---
