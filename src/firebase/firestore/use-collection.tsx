@@ -11,6 +11,7 @@ import {
 } from 'firebase/firestore';
 import { errorEmitter } from '@/firebase/error-emitter';
 import { FirestorePermissionError } from '@/firebase/errors';
+import { useUser } from '@/firebase';
 
 /** Utility type to add an 'id' field */
 export type WithId<T> = T & { id: string };
@@ -35,11 +36,19 @@ export function useCollection<T = any>(
     | null
     | undefined,
 ): UseCollectionResult<T> {
+  const { isUserLoading } = useUser();
   const [data, setData] = useState<WithId<T>[] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<FirestoreError | Error | null>(null);
 
   useEffect(() => {
+    // If auth is still loading, wait. isLoading is already true.
+    if (isUserLoading) {
+      setIsLoading(true);
+      return;
+    }
+
+    // If auth is ready, but there's no query, we are not fetching data.
     if (!memoizedTargetRefOrQuery) {
       setData(null);
       setIsLoading(false);
@@ -86,7 +95,7 @@ export function useCollection<T = any>(
     );
 
     return () => unsubscribe();
-  }, [memoizedTargetRefOrQuery]);
+  }, [memoizedTargetRefOrQuery, isUserLoading]);
 
   if (memoizedTargetRefOrQuery && !memoizedTargetRefOrQuery.__memo) {
     throw new Error(
