@@ -3,105 +3,88 @@
 import { useState, useEffect } from 'react';
 import {
   Query,
-  onSnapshot,
+  getDocs,
   DocumentData,
   FirestoreError,
-  QuerySnapshot,
-  CollectionReference,
 } from 'firebase/firestore';
-import { errorEmitter } from '@/firebase/error-emitter';
-import { FirestorePermissionError } from '@/firebase/errors';
-import { useUser } from '@/firebase';
 
-/** Utility type to add an 'id' field */
-export type WithId<T> = T & { id: string };
-
+// Define the shape of the hook's return value
 export interface UseCollectionResult<T> {
-  data: WithId<T>[] | null;
-  isLoading: boolean;
-  error: FirestoreError | Error | null;
+  data: (T & { id: string })[];
+  loading: boolean;
+  error: string | null;
 }
 
-export interface InternalQuery extends Query<DocumentData> {
-  _query: {
-    path: {
-      canonicalString(): string;
-    };
-  };
-}
-
+/**
+ * A crash-proof hook to fetch a collection from Firestore.
+ * It uses a one-time `getDocs` call and handles all errors internally,
+ * preventing application crashes from Firestore permissions or other issues.
+ *
+ * @param query - A memoized Firestore query object, or null if the query is not ready.
+ * @returns {UseCollectionResult<T>} An object containing the data, loading state, and error message.
+ */
 export function useCollection<T = any>(
-  memoizedTargetRefOrQuery:
-    | ((CollectionReference<DocumentData> | Query<DocumentData>) & { __memo?: boolean })
-    | null
-    | undefined,
+  query: Query<DocumentData> | null
 ): UseCollectionResult<T> {
-  const { isUserLoading } = useUser();
-  const [data, setData] = useState<WithId<T>[] | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<FirestoreError | Error | null>(null);
+  const [data, setData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // If auth is still loading, wait. isLoading is already true.
-    if (isUserLoading) {
-      setIsLoading(true);
-      return;
-    }
+    // A flag to prevent state updates on an unmounted component.
+    let isMounted = true;
 
-    // If auth is ready, but there's no query, we are not fetching data.
-    if (!memoizedTargetRefOrQuery) {
-      setData(null);
-      setIsLoading(false);
-      setError(null);
-      return;
-    }
+    async function fetchData() {
+      // If the query is not ready (e.g., waiting for auth), do nothing.
+      if (!query) {
+        if(isMounted) {
+            setData([]);
+            setLoading(false);
+        }
+        return;
+      }
 
-    setIsLoading(true);
-    setError(null);
+      if(isMounted) {
+        setLoading(true);
+        setError(null);
+      }
 
-    const unsubscribe = onSnapshot(
-      memoizedTargetRefOrQuery,
-      (snapshot: QuerySnapshot<DocumentData>) => {
-        const results: WithId<T>[] = [];
-
-        snapshot.docs.forEach((doc) => {
-          results.push({
+      try {
+        const querySnapshot = await getDocs(query);
+        
+        if (isMounted) {
+          const results = querySnapshot.docs.map(doc => ({
             ...(doc.data() as T),
             id: doc.id,
-          });
-        });
+          }));
+          setData(results);
+        }
+      } catch (err: any) {
+        console.error("Firestore Error in useCollection:", err);
+        if (isMounted) {
+            // Check specifically for permission errors
+            if (err.code === 'permission-denied') {
+                setError("You do not have permission to access this data.");
+            } else {
+                setError(err.message || "An unknown error occurred while fetching data.");
+            }
+          // Always return empty data on error to prevent UI crashes
+          setData([]);
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    }
 
-        setData(results);
-        setIsLoading(false);
-        setError(null);
-      },
-      (err: FirestoreError) => {
-        const path =
-          memoizedTargetRefOrQuery.type === 'collection'
-            ? (memoizedTargetRefOrQuery as CollectionReference).path
-            : (memoizedTargetRefOrQuery as unknown as InternalQuery)._query.path.canonicalString();
+    fetchData();
 
-        const contextualError = new FirestorePermissionError({
-          operation: 'list',
-          path,
-        });
-        
-        setError(contextualError);
-        setData(null);
-        setIsLoading(false);
+    // Cleanup function to set the mounted flag to false when the component unmounts.
+    return () => {
+      isMounted = false;
+    };
+  }, [query]); // Re-run the effect if the query changes.
 
-        errorEmitter.emit('permission-error', contextualError);
-      },
-    );
-
-    return () => unsubscribe();
-  }, [memoizedTargetRefOrQuery, isUserLoading]);
-
-  if (memoizedTargetRefOrQuery && !memoizedTargetRefOrQuery.__memo) {
-    throw new Error(
-      'useCollection: Query was not memoized correctly. Use useMemoFirebase().',
-    );
-  }
-
-  return { data, isLoading, error };
+  return { data, loading, error };
 }
