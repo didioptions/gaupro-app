@@ -3,7 +3,13 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // --- Public Access Rules ---
+    // --- Public Access Rules for 'companies' ---
+    match /companies/{companyId} {
+      // This allows public read access for both single documents (get) and queries (list)
+      allow read: if true; 
+    }
+
+    // --- Public Access Rules for 'professionalProfiles' ---
     match /professionalProfiles {
       // This rule allows ANYONE to query the list of professionals.
       // This is required for the category pages to function.
