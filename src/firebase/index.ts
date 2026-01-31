@@ -1,27 +1,44 @@
+
 'use client';
 
-// This file is now a central hub for Firebase utilities,
-// ensuring a single initialization source from './firebase.js'.
+import { initializeApp, getApps, getApp, type FirebaseApp } from 'firebase/app';
+import { getAuth, type Auth } from 'firebase/auth';
+import { getFirestore, type Firestore } from 'firebase/firestore';
 
-import { app, db } from './firebase.js'; // Import the initialized instances
-import { getAuth } from 'firebase/auth';
+// Your web app's Firebase configuration. This is safe to be public.
+const firebaseConfig = {
+  apiKey: "AIzaSyBMMdB5UEPLP6LrWKHywytJhgUVEY18kdQ",
+  authDomain: "studio-5618869838-18486.firebaseapp.com",
+  projectId: "studio-5618869838-18486",
+  storageBucket: "studio-5618869838-18486.firebasestorage.app",
+  messagingSenderId: "1059962490351",
+  appId: "1:1059962490351:web:6ed75997aad9ad43afba1a"
+};
 
-// IMPORTANT: DO NOT MODIFY THIS FUNCTION
-export function initializeFirebase() {
-  // The app is already initialized in firebase.js, we just re-export the instances.
-  return {
-    firebaseApp: app,
-    auth: getAuth(app),
-    firestore: db,
-  };
+interface FirebaseServices {
+  firebaseApp: FirebaseApp;
+  auth: Auth;
+  firestore: Firestore;
 }
 
-export function getSdks(firebaseApp: any) {
-  return {
-    firebaseApp,
-    auth: getAuth(firebaseApp),
-    firestore: db,
-  };
+// A memoized singleton instance of Firebase services to avoid re-initialization.
+let firebaseServices: FirebaseServices | null = null;
+
+/**
+ * Initializes Firebase on the client-side and returns the services.
+ * This function is idempotent, ensuring Firebase is only initialized once.
+ */
+export function initializeFirebase(): FirebaseServices {
+  if (firebaseServices) {
+    return firebaseServices;
+  }
+
+  const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const firestore = getFirestore(app);
+
+  firebaseServices = { firebaseApp: app, auth, firestore };
+  return firebaseServices;
 }
 
 export * from './provider';
