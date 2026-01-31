@@ -9,7 +9,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import SubscriptionForm from '@/components/blog/subscription-form';
-import { useState, useEffect } from 'react';
 
 const blogPosts = [
   {
@@ -75,12 +74,6 @@ const blogPosts = [
 ];
 
 export default function BlogPage() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
     <>
       <Header />
@@ -140,7 +133,7 @@ export default function BlogPage() {
             <div className="container mx-auto px-4 text-center max-w-2xl">
                 <h2 className="text-2xl font-bold mb-2">Stay updated with local trends</h2>
                 <p className="text-muted-foreground mb-6">Join 12,000+ South Africans receiving our weekly advice for homeowners and pros.</p>
-                {isClient && <SubscriptionForm />}
+                <SubscriptionForm />
             </div>
         </section>
 
