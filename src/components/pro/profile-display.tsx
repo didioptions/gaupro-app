@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
 import Link from 'next/link';
 import { allLocations } from '@/lib/locations';
+import { cityExpansionMap } from '@/lib/location-data';
 
 export type Professional = {
   id: string;
@@ -57,14 +58,40 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
     
   const allOfferedServices = Array.from(new Set([...(professional.services || []), ...(professional.tags || [])]));
 
-  const coverageAreas = professional.serviceAreas || professional.locations || (professional.location ? [professional.location] : []);
   const locationLabels = React.useMemo(() => {
-      if (!coverageAreas || !Array.isArray(coverageAreas) || coverageAreas.length === 0) return [];
-      
       const locationMap = new Map(allLocations.map(l => [l.value, l.label]));
+      const allAreaSlugs = new Set<string>();
 
-      return coverageAreas.map(slug => locationMap.get(slug) || slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' '));
-  }, [coverageAreas]);
+      // 1. Expand from the primary location using the map
+      if (professional.location) {
+          const primaryCitySlug = professional.location;
+          const metroKey = Object.keys(cityExpansionMap).find(key => 
+            cityExpansionMap[key].includes(primaryCitySlug)
+          );
+          const expandedAreas = metroKey ? cityExpansionMap[metroKey] : [primaryCitySlug];
+          expandedAreas.forEach(slug => allAreaSlugs.add(slug));
+      }
+
+      // 2. Add areas from `serviceAreas` array
+      if (professional.serviceAreas && Array.isArray(professional.serviceAreas)) {
+          professional.serviceAreas.forEach(slug => allAreaSlugs.add(slug));
+      }
+
+      // 3. Add areas from legacy `locations` array
+      if (professional.locations && Array.isArray(professional.locations)) {
+          professional.locations.forEach(slug => allAreaSlugs.add(slug));
+      }
+
+      if (allAreaSlugs.size === 0) return [];
+
+      // Convert slugs to human-readable labels
+      const areaLabels = Array.from(allAreaSlugs).map(slug => 
+          locationMap.get(slug) || slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')
+      );
+
+      return areaLabels;
+  }, [professional.location, professional.serviceAreas, professional.locations]);
+
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -101,14 +128,14 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                         <h4 className="text-sm font-semibold text-muted-foreground">Covered Areas:</h4>
                                     </div>
                                     <div className="flex flex-wrap gap-2 items-center">
-                                        {locationLabels.slice(0, 3).map((area: string, index: number) => (
+                                        {locationLabels.slice(0, 4).map((area: string, index: number) => (
                                         <Badge key={index} variant="outline" className="font-normal bg-secondary">
                                             {area}
                                         </Badge>
                                         ))}
-                                        {locationLabels.length > 3 && (
+                                        {locationLabels.length > 4 && (
                                             <Badge variant="outline" className="font-normal bg-secondary">
-                                                +{locationLabels.length - 3} more
+                                                +{locationLabels.length - 4} more
                                             </Badge>
                                         )}
                                     </div>
