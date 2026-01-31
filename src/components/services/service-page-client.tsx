@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
@@ -57,16 +58,36 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const professionals = useMemo(() => {
         if (!allProsFromFirestore || !service?.label) return [];
 
-        // Filter by service category
-        const serviceFiltered = allProsFromFirestore.filter(pro => pro.serviceCategory === service.label);
+        const serviceLabelLower = service.label.toLowerCase();
+
+        // Filter by service category or tags/services offered
+        const serviceFiltered = allProsFromFirestore.filter(pro => {
+          // 1. Check primary `serviceCategory` (case-insensitive)
+          if (pro.serviceCategory && pro.serviceCategory.toLowerCase() === serviceLabelLower) {
+            return true;
+          }
+          
+          // 2. Check arrays for the service (case-insensitive)
+          const offeredServices = [
+            ...(pro.services || []),
+            ...(pro.tags || []),
+            ...(pro.servicesOffered || [])
+          ].map(s => s.toLowerCase());
+
+          if (offeredServices.includes(serviceLabelLower)) {
+            return true;
+          }
+
+          return false;
+        });
 
         // Further filter by location if provided
         let locationFiltered = serviceFiltered;
         if (locationQuery && typeof locationQuery === 'string') {
              const formattedLocationQuery = locationName.toLowerCase();
              locationFiltered = serviceFiltered.filter(pro => 
-                pro.location?.toLowerCase().includes(formattedLocationQuery) || 
-                pro.city?.toLowerCase().includes(formattedLocationQuery)
+                (pro.location?.toLowerCase().includes(formattedLocationQuery) || 
+                pro.city?.toLowerCase().includes(formattedLocationQuery))
              );
         }
 
@@ -142,7 +163,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                 <Card>
                     <CardContent className="p-6 text-center text-destructive">
                         <p className="text-lg">Error loading professionals.</p>
-                        <p className="text-sm mt-2">{error}</p>
+                        <p className="text-sm mt-2">{error.message}</p>
                     </CardContent>
                 </Card>
             )
@@ -236,4 +257,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         </>
     );
 }
+    
+
     
