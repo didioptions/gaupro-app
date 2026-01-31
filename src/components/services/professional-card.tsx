@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { useState } from 'react';
@@ -17,7 +16,8 @@ import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 export type Professional = {
   id: string;
   name: string;
-  locations: string[];
+  location?: string; // Handle old string format
+  locations?: string[]; // Handle new array format
   description: string;
   rating: number;
   reviews: number;
@@ -76,6 +76,10 @@ export default function ProfessionalCard({ professional, service }: Professional
     );
   };
 
+  const locationText = Array.isArray(professional.locations)
+    ? professional.locations.join(', ')
+    : professional.location || '';
+
   return (
     <Card className="bg-card hover:shadow-lg transition-shadow">
       <CardContent className="p-6">
@@ -87,7 +91,7 @@ export default function ProfessionalCard({ professional, service }: Professional
                 <Link href={`/pro/${professional.id}?service=${service}`} className="hover:underline">
                   <h3 className="text-xl text-foreground">{professional.name}</h3>
                 </Link>
-                <p className="text-sm text-muted-foreground">{professional.locations.join(', ')}</p>
+                <p className="text-sm text-muted-foreground">{locationText}</p>
 
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm mt-2 text-muted-foreground">
                     <div className="flex items-center gap-1">
