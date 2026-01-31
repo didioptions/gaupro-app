@@ -1,7 +1,6 @@
-
-
 'use client';
 
+import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,12 +9,14 @@ import { Star, ShieldCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, Ma
 import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
 import Link from 'next/link';
+import { allLocations } from '@/lib/locations';
 
 export type Professional = {
   id: string;
   name: string;
   location?: string;
   locations?: string[];
+  serviceAreas?: string[];
   description: string;
   rating: number;
   reviews: number;
@@ -50,9 +51,18 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/120/120`;
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
-  const locationText = Array.isArray(professional.locations)
+  const locationText = Array.isArray(professional.locations) && professional.locations.length > 0
     ? professional.locations.join(', ')
     : professional.location || '';
+
+  const coverageAreas = professional.serviceAreas || professional.locations;
+  const locationLabels = React.useMemo(() => {
+      if (!coverageAreas || !Array.isArray(coverageAreas) || coverageAreas.length === 0) return [];
+      
+      const locationMap = new Map(allLocations.map(l => [l.value, l.label]));
+
+      return coverageAreas.map(slug => locationMap.get(slug) || slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' '));
+  }, [coverageAreas]);
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -82,13 +92,21 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                 )}
                             </div>
 
-                            {professional.services && professional.services.length > 0 && (
-                                <div className="mt-4 flex flex-wrap gap-2">
-                                    {professional.services.map((service, index) => (
-                                    <Badge key={index} variant="outline" className="font-normal">
-                                        {service}
-                                    </Badge>
-                                    ))}
+                            {locationLabels && locationLabels.length > 0 && (
+                                <div className="mt-4">
+                                    <h4 className="text-sm font-semibold text-muted-foreground mb-2">Service Areas</h4>
+                                    <div className="flex flex-wrap gap-2 items-center">
+                                        {locationLabels.slice(0, 3).map((area: string, index: number) => (
+                                        <Badge key={index} variant="outline" className="font-normal">
+                                            {area}
+                                        </Badge>
+                                        ))}
+                                        {locationLabels.length > 3 && (
+                                            <Badge variant="outline" className="font-normal bg-secondary">
+                                                +{locationLabels.length - 3} more
+                                            </Badge>
+                                        )}
+                                    </div>
                                 </div>
                             )}
 
