@@ -25,7 +25,6 @@ export const allProfessionals: ProfessionalsByCategory = {
     {
         "id": "pro-comprepair-1",
         "name": "Midrand PC & Mac Repairs",
-        "location": "midrand",
         "locations": ["midrand", "centurion", "sunninghill"],
         "serviceAreas": ["midrand", "centurion", "sunninghill", "pretoria", "johannesburg"],
         "description": "Expert repairs for all brands of laptops and desktops, including Apple MacBooks. We handle everything from screen replacements and battery issues to software troubleshooting and data recovery. Fast, reliable service in the Midrand area.",
