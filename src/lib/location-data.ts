@@ -1,7 +1,7 @@
 
 export const cityExpansionMap: Record<string, string[]> = {
   johannesburg: ['johannesburg', 'sandton', 'randburg', 'roodepoort', 'midrand', 'soweto', 'alberton', 'boksburg', 'benoni', 'germiston', 'kempton-park', 'edenvale', 'bryanston', 'fourways', 'rosebank', 'vereeniging', 'vanderbijlpark', 'meyerton'],
-  pretoria: ['pretoria', 'centurion', 'akasia', 'bronkhorstspruit', 'tembisa'],
+  pretoria: ['pretoria', 'centurion', 'akasia', 'bronkhorstspruit', 'tembisa', 'midrand'],
   'cape-town': ['cape-town', 'bellville', 'durbanville', 'mitchells-plain', 'goodwood', 'blackheath', 'atlantis', 'kraaifontein', 'kuils-river', 'table-view', 'stellenbosch', 'paarl', 'somerset-west'],
   durban: ['durban', 'amanzimtoti', 'ballito', 'chatsworth', 'hillcrest', 'kloof', 'phoenix', 'pinetown', 'umhlanga', 'umlazi'],
   'port-elizabeth': ['port-elizabeth', 'despatch'],

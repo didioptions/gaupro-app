@@ -83,13 +83,12 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
              locationFiltered = serviceFiltered.filter(pro => {
                 const proLocationLower = pro.location?.toLowerCase();
                 if (!proLocationLower) return false;
-
-                // Check if any of the pro's listed locations are in the search areas
-                const proLocations = proLocationLower.split(',').map(s => s.trim().replace(/-/g, ' '));
                 
-                return searchAreas.some(searchArea => 
-                    proLocations.some(pl => pl.includes(searchArea.replace(/-/g, ' ')))
-                );
+                // Get the primary city/suburb slug from the professional's location string
+                const proPrimaryCitySlug = proLocationLower.split(',')[0].trim().replace(/\s+/g, '-');
+
+                // A pro should appear if their primary city is in the metro area of the searched city.
+                return searchAreas.includes(proPrimaryCitySlug);
              });
         }
 
