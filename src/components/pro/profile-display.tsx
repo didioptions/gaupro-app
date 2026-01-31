@@ -54,8 +54,10 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   const locationText = Array.isArray(professional.locations) && professional.locations.length > 0
     ? professional.locations.join(', ')
     : professional.location || '';
+    
+  const allOfferedServices = Array.from(new Set([...(professional.services || []), ...(professional.tags || [])]));
 
-  const coverageAreas = professional.serviceAreas || professional.locations;
+  const coverageAreas = professional.serviceAreas || professional.locations || (professional.location ? [professional.location] : []);
   const locationLabels = React.useMemo(() => {
       if (!coverageAreas || !Array.isArray(coverageAreas) || coverageAreas.length === 0) return [];
       
@@ -148,6 +150,17 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                     <h3 className="font-semibold text-lg mb-2">About Us</h3>
                                     <p>{professional.description}</p>
                                 </div>
+                                
+                                {allOfferedServices.length > 0 && (
+                                    <div className="pt-6 border-t">
+                                        <h3 className="font-semibold text-lg mb-2">Services Offered</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {allOfferedServices.map((service, index) => (
+                                                <Badge key={index} variant="secondary">{service}</Badge>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                                 
                                 {professional.photos && professional.photos.length > 0 &&
                                 <div className="pt-4 border-t">
