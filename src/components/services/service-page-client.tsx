@@ -17,6 +17,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
 import { useFirestore, useCollection, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy } from 'firebase/firestore';
+import { cityExpansionMap } from '@/lib/location-data';
 
 
 interface ServicePageClientProps {
@@ -62,36 +63,36 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
         // Filter by service category or tags/services offered
         const serviceFiltered = allProsFromFirestore.filter(pro => {
-          // 1. Check primary `serviceCategory` (case-insensitive)
           if (pro.serviceCategory && pro.serviceCategory.toLowerCase() === serviceLabelLower) {
             return true;
           }
-          
-          // 2. Check arrays for the service (case-insensitive)
           const offeredServices = [
             ...(pro.services || []),
             ...(pro.tags || []),
             ...(pro.servicesOffered || [])
           ].map(s => s.toLowerCase());
 
-          if (offeredServices.includes(serviceLabelLower)) {
-            return true;
-          }
-
-          return false;
+          return offeredServices.some(s => s.includes(serviceLabelLower));
         });
 
-        // Further filter by location if provided
         let locationFiltered = serviceFiltered;
         if (locationQuery && typeof locationQuery === 'string') {
-             const formattedLocationQuery = locationName.toLowerCase();
-             locationFiltered = serviceFiltered.filter(pro => 
-                (pro.location?.toLowerCase().includes(formattedLocationQuery) || 
-                pro.city?.toLowerCase().includes(formattedLocationQuery))
-             );
+             const metroKey = Object.keys(cityExpansionMap).find(key => cityExpansionMap[key].includes(locationQuery as string));
+             const searchAreas = metroKey ? cityExpansionMap[metroKey] : [locationQuery];
+
+             locationFiltered = serviceFiltered.filter(pro => {
+                const proLocationLower = pro.location?.toLowerCase();
+                if (!proLocationLower) return false;
+
+                // Check if any of the pro's listed locations are in the search areas
+                const proLocations = proLocationLower.split(',').map(s => s.trim().replace(/-/g, ' '));
+                
+                return searchAreas.some(searchArea => 
+                    proLocations.some(pl => pl.includes(searchArea.replace(/-/g, ' ')))
+                );
+             });
         }
 
-        // Sort the final list
         return locationFiltered.sort((a, b) => {
             if (a.priorityRank !== b.priorityRank) {
                 return (b.priorityRank || 0) - (a.priorityRank || 0);
@@ -99,7 +100,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
             return (b.rating || 0) - (a.rating || 0);
         });
 
-    }, [allProsFromFirestore, service?.label, locationQuery, locationName]);
+    }, [allProsFromFirestore, service?.label, locationQuery]);
     
     const serviceImageId = `${currentService}-image`;
     let heroImage = CategoryImages.find(p => p.id === `real-${serviceImageId}` || p.id === serviceImageId);
@@ -257,6 +258,3 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         </>
     );
 }
-    
-
-    
