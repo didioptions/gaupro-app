@@ -17,7 +17,7 @@ import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 export type Professional = {
   id: string;
   name: string;
-  location: string;
+  locations: string[];
   description: string;
   rating: number;
   reviews: number;
@@ -87,7 +87,7 @@ export default function ProfessionalCard({ professional, service }: Professional
                 <Link href={`/pro/${professional.id}?service=${service}`} className="hover:underline">
                   <h3 className="text-xl text-foreground">{professional.name}</h3>
                 </Link>
-                <p className="text-sm text-muted-foreground">{professional.location}</p>
+                <p className="text-sm text-muted-foreground">{professional.locations.join(', ')}</p>
 
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm mt-2 text-muted-foreground">
                     <div className="flex items-center gap-1">

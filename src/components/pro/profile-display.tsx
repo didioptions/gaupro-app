@@ -14,7 +14,7 @@ import Link from 'next/link';
 export type Professional = {
   id: string;
   name: string;
-  location: string;
+  locations: string[];
   description: string;
   rating: number;
   reviews: number;
@@ -60,7 +60,7 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                         <Image src={imageUrl} alt={professional.name} width={120} height={120} className="rounded-md border mx-auto sm:mx-0" data-ai-hint={imageHint} />
                         <div className="flex-grow">
                             <h1 className="text-3xl">{professional.name}</h1>
-                            <p className="text-muted-foreground">{professional.location}</p>
+                            <p className="text-muted-foreground">{professional.locations.join(', ')}</p>
                             
                             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground mt-4">
                                {professional.isProVerified && (
