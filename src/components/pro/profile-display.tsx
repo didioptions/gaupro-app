@@ -93,11 +93,14 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                             </div>
 
                             {locationLabels && locationLabels.length > 0 && (
-                                <div className="mt-4">
-                                    <h4 className="text-sm font-semibold text-muted-foreground mb-2">Service Areas</h4>
+                                <div className="mt-4 flex items-start gap-2 flex-wrap">
+                                    <div className="flex items-center gap-1.5 pt-1">
+                                        <MapPin className="h-4 w-4 text-muted-foreground" />
+                                        <h4 className="text-sm font-semibold text-muted-foreground">Covered Areas:</h4>
+                                    </div>
                                     <div className="flex flex-wrap gap-2 items-center">
                                         {locationLabels.slice(0, 3).map((area: string, index: number) => (
-                                        <Badge key={index} variant="outline" className="font-normal">
+                                        <Badge key={index} variant="outline" className="font-normal bg-secondary">
                                             {area}
                                         </Badge>
                                         ))}
