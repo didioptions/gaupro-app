@@ -61,7 +61,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
         const serviceLabelLower = service.label.toLowerCase();
 
-        // Filter by service category or tags/services offered
+        // 1. Filter by service
         const serviceFiltered = allProsFromFirestore.filter(pro => {
           if (pro.serviceCategory && pro.serviceCategory.toLowerCase() === serviceLabelLower) {
             return true;
@@ -74,24 +74,41 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
           return offeredServices.some(s => s.includes(serviceLabelLower));
         });
-
-        let locationFiltered = serviceFiltered;
-        if (locationQuery && typeof locationQuery === 'string') {
-             locationFiltered = serviceFiltered.filter(pro => {
-                // New Logic: Check if the pro's serviceAreas array includes the searched location.
-                if (pro.serviceAreas && Array.isArray(pro.serviceAreas)) {
-                    return pro.serviceAreas.includes(locationQuery as string);
-                }
-
-                // Fallback Logic (original implementation)
-                const metroKey = Object.keys(cityExpansionMap).find(key => cityExpansionMap[key].includes(locationQuery as string));
-                const searchAreas = metroKey ? cityExpansionMap[metroKey] : [locationQuery];
-                const proLocationLower = pro.location?.toLowerCase();
-                if (!proLocationLower) return false;
-                const proPrimaryCitySlug = proLocationLower.split(',')[0].trim().replace(/\s+/g, '-');
-                return searchAreas.includes(proPrimaryCitySlug);
-             });
+        
+        // 2. If no location query, return all sorted
+        if (!locationQuery || typeof locationQuery !== 'string') {
+          return serviceFiltered.sort((a, b) => {
+             if (a.priorityRank !== b.priorityRank) {
+                return (b.priorityRank || 0) - (a.priorityRank || 0);
+            }
+            return (b.rating || 0) - (a.rating || 0);
+          });
         }
+        
+        // 3. Filter by location
+        const locationFiltered = serviceFiltered.filter(pro => {
+            // Determine the full service area for the professional by expanding their locations
+            const proFullCoverage = new Set<string>();
+            const initialProLocations = new Set<string>();
+            if (pro.location) initialProLocations.add(pro.location);
+            if (pro.serviceAreas) pro.serviceAreas.forEach(loc => initialProLocations.add(loc));
+            
+            if (initialProLocations.size === 0) return false; // Pro has no location data
+
+            initialProLocations.forEach(slug => {
+              const metroKey = Object.keys(cityExpansionMap).find(key => 
+                cityExpansionMap[key].includes(slug)
+              );
+              if (metroKey) {
+                  cityExpansionMap[metroKey].forEach(metroSlug => proFullCoverage.add(metroSlug));
+              } else {
+                  proFullCoverage.add(slug); // Add slug itself if not in a metro
+              }
+            });
+            
+            // Check if the user's searched location is in the pro's full coverage area
+            return proFullCoverage.has(locationQuery);
+        });
 
         return locationFiltered.sort((a, b) => {
             if (a.priorityRank !== b.priorityRank) {

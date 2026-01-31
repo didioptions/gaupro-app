@@ -52,44 +52,46 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/120/120`;
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
-  const locationText = Array.isArray(professional.locations) && professional.locations.length > 0
-    ? professional.locations.join(', ')
-    : professional.location || '';
+  const locationText = professional.location ? (allLocations.find(l => l.value === professional.location)?.label || professional.location) : (Array.isArray(professional.locations) && professional.locations.length > 0 ? professional.locations.join(', ') : '');
     
   const allOfferedServices = Array.from(new Set([...(professional.services || []), ...(professional.tags || [])]));
 
   const locationLabels = React.useMemo(() => {
-      const locationMap = new Map(allLocations.map(l => [l.value, l.label]));
-      const allAreaSlugs = new Set<string>();
+    const locationMap = new Map(allLocations.map(l => [l.value, l.label]));
+    const initialSlugs = new Set<string>();
 
-      // 1. Expand from the primary location using the map
-      if (professional.location) {
-          const primaryCitySlug = professional.location;
-          const metroKey = Object.keys(cityExpansionMap).find(key => 
-            cityExpansionMap[key].includes(primaryCitySlug)
-          );
-          const expandedAreas = metroKey ? cityExpansionMap[metroKey] : [primaryCitySlug];
-          expandedAreas.forEach(slug => allAreaSlugs.add(slug));
-      }
+    // Gather all known slugs from all possible fields
+    if (professional.location) {
+        initialSlugs.add(professional.location);
+    }
+    if (professional.locations && Array.isArray(professional.locations)) {
+        professional.locations.forEach(slug => initialSlugs.add(slug));
+    }
+    if (professional.serviceAreas && Array.isArray(professional.serviceAreas)) {
+        professional.serviceAreas.forEach(slug => initialSlugs.add(slug));
+    }
 
-      // 2. Add areas from `serviceAreas` array
-      if (professional.serviceAreas && Array.isArray(professional.serviceAreas)) {
-          professional.serviceAreas.forEach(slug => allAreaSlugs.add(slug));
-      }
+    // If there are no slugs at all, we can't do anything.
+    if (initialSlugs.size === 0) return [];
+    
+    const expandedSlugs = new Set<string>(initialSlugs);
 
-      // 3. Add areas from legacy `locations` array
-      if (professional.locations && Array.isArray(professional.locations)) {
-          professional.locations.forEach(slug => allAreaSlugs.add(slug));
-      }
+    // For every slug we found, expand it to its full metro area
+    initialSlugs.forEach(slug => {
+        const metroKey = Object.keys(cityExpansionMap).find(key => 
+          cityExpansionMap[key].includes(slug)
+        );
+        if (metroKey) {
+            cityExpansionMap[metroKey].forEach(metroSlug => expandedSlugs.add(metroSlug));
+        }
+    });
+    
+    // Convert slugs to human-readable labels and remove duplicates implicitly with Set
+    const areaLabels = Array.from(expandedSlugs).map(slug => 
+        locationMap.get(slug) || slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')
+    );
 
-      if (allAreaSlugs.size === 0) return [];
-
-      // Convert slugs to human-readable labels
-      const areaLabels = Array.from(allAreaSlugs).map(slug => 
-          locationMap.get(slug) || slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')
-      );
-
-      return areaLabels;
+    return areaLabels;
   }, [professional.location, professional.serviceAreas, professional.locations]);
 
 
