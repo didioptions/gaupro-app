@@ -21,6 +21,33 @@ type Professional = {
 type ProfessionalsByCategory = { [key: string]: Professional[] };
 
 export const allProfessionals: ProfessionalsByCategory = {
+  "computer-repairs": [
+    {
+        "id": "pro-comprepair-1",
+        "name": "Midrand PC & Mac Repairs",
+        "location": "midrand",
+        "locations": ["midrand", "centurion", "sunninghill"],
+        "serviceAreas": ["midrand", "centurion", "sunninghill", "pretoria", "johannesburg"],
+        "description": "Expert repairs for all brands of laptops and desktops, including Apple MacBooks. We handle everything from screen replacements and battery issues to software troubleshooting and data recovery. Fast, reliable service in the Midrand area.",
+        "rating": 4.8,
+        "reviews": 34,
+        "avatarSeed": "comp-repair-logo-1",
+        "serviceCategory": "Computer Repairs",
+        "isProVerified": true,
+        "isDemo": true,
+        "priorityRank": 5,
+        "yearsInBusiness": 7,
+        "employees": 4,
+        "services": ["Laptop Repair", "Desktop Repair", "MacBook Repair", "Screen Replacement", "Data Recovery"],
+        "reviewData": [
+            { "author": "Liam S.", "rating": 5, "comment": "Fixed my MacBook screen in a few hours. Great service!" },
+            { "author": "Thando K.", "rating": 5, "comment": "They recovered all my data from a dead hard drive. Lifesavers!" }
+        ],
+        "qa": [
+            { "question": "Do you fix liquid damage?", "answer": "Yes, we have a high success rate with liquid damage repairs, but it depends on the extent of the damage." }
+        ]
+    }
+  ],
   "doors": [
     {
         "id": "pro-door-1",
@@ -398,7 +425,7 @@ export const allProfessionals: ProfessionalsByCategory = {
         "yearsInBusiness": 11,
         "employees": 10,
         "services": ["Outdoor Patio Blinds", "Moisture-Resistant Blinds", "River-Facing Solutions", "Sun Protection"],
-        "reviewData": [{ "author": "Ockert R.", "rating": 5, "comment": "The patio blinds are perfect for summer. Very strong." }, { "author": "Mariaan G.", "rating": 4, "comment": "Good local service and very reliable team." }, { "author": "Thane B.", "rating": 5, "comment": "Finally have privacy on our deck! Great job." }, { "author": "Petrus S.", "rating": 4, "comment": "Reliable and the price was fair." }]
+        "reviewData": [{ "author": "Ockert R.", "rating": 5, "comment": "The patio blinds are perfect for summer. Very strong." }, { "author": "Mariaan G.", "rating": 4, "comment": "Good local service and very reliable team." }, { "author": "Thane B.", "rating": 5, "comment": "Finally have privacy on our deck! Great job." }, { "author": "Petrus K.", "rating": 4, "comment": "Reliable and the price was fair." }]
     },
     {
         "id": "pro-blinds-10",

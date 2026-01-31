@@ -7,6 +7,12 @@
       "imageHint": "diverse professionals team"
     },
     {
+      "id": "comp-repair-logo-1",
+      "description": "Logo for Midrand PC & Mac Repairs with a computer chip icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1758640266061-c9ad88491fec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wdXRlciUyMGNoaXAlMjBsb2dvfGVufDB8fHx8MTc2OTkwMTQ4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "computer chip logo"
+    },
+    {
       "id": "ac-logo-1",
       "imageUrl": "https://images.unsplash.com/photo-1671794621037-422d4d96fca9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzbm93Zmxha2UlMjBsb2dvfGVufDB8fHx8MTc2ODk5MjQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
       "description": "Logo for CoolBreeze Air",
@@ -56,7 +62,7 @@
     },
     {
       "id": "alu-logo-4",
-      "imageUrl": "https://images.unsplash.com/photo-1655807286510-a49644c29ef9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbWlsZXklMjBpY29ufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1655807286510-a49644c29ef9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzTWlsZXklMjBpY29ufGVufDB8fHx8MTc2ODk5MjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "description": "Logo for Lekker Frames",
       "imageHint": "smiley icon"
     },
@@ -375,7 +381,7 @@
     {
       "id": "khaya-kitchen-studio-pta-logo",
       "description": "Warm logo 'Khaya Kitchens' with an icon of a house containing a heart, green and brown.",
-      "imageUrl": "https://images.unsplash.com/photo-1674450371215-550d33a2d81e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3VzZSUyMGhlYXJ0JTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1675476366352-879f4dbc8886?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3VzZSUyMGhlYXJ0JTIwbG9nb3xlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "house heart logo"
     },
     {
@@ -519,7 +525,7 @@
     {
       "id": "cleardesk-sandton-logo",
       "description": "Minimalist logo with 'ClearDesk' text and a sparkle icon.",
-      "imageUrl": "https://images.unsplash.com/photo-1766193232095-fb043b6f9fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzcGFya2xlJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1766561969627-0c9f1a233b2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGFya2xlJTIwaWNvbnxlbnwwfHx8fDE3Njg5OTI0NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sparkle icon"
     },
     {
@@ -855,7 +861,7 @@
     {
       "id": "ecohot-water-systems-logo",
       "description": "Logo 'EcoHot' with a leaf and a water droplet.",
-      "imageUrl": "https://images.unsplash.com/photo-1651157465305-f1f5ec7b4623?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsZWFmJTIwd2F0ZXJ8ZW58MHx8fHwxNzY4OTkwOTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1662561017876-d5f07dd3e69d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFmJTIwd2F0ZXJ8ZW58MHx8fHwxNzY4OTkwOTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leaf water"
     },
     {
