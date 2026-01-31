@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -27,6 +26,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Skeleton } from '@/components/ui/skeleton';
+import { cityExpansionMap } from '@/lib/location-data';
 
 export default function EditProfilePage() {
   const { user, isUserLoading } = useUser();
@@ -57,7 +57,12 @@ export default function EditProfilePage() {
             if (!querySnapshot.empty) {
                 const profileDoc = querySnapshot.docs[0];
                 setProfileId(profileDoc.id);
-                setFormData(profileDoc.data());
+                const data = profileDoc.data();
+                // Ensure serviceAreas is an array
+                if (!data.serviceAreas || !Array.isArray(data.serviceAreas)) {
+                    data.serviceAreas = data.location ? [data.location] : [];
+                }
+                setFormData(data);
             } else {
                 toast({ variant: 'destructive', title: 'Error', description: 'No professional profile found for your user account.' });
             }
@@ -71,6 +76,27 @@ export default function EditProfilePage() {
 
     fetchProfile();
   }, [user, isUserLoading, firestore, toast]);
+
+  // Auto-suggest service areas when primary city changes
+  useEffect(() => {
+    const primaryCitySlug = formData.location;
+    if (!primaryCitySlug) return;
+    
+    const currentAreas = new Set(formData.serviceAreas || []);
+
+    // Only update if the primary city isn't already covered by the existing areas
+    if (!currentAreas.has(primaryCitySlug)) {
+        const metro = Object.keys(cityExpansionMap).find(key => 
+          cityExpansionMap[key].includes(primaryCitySlug)
+        );
+        const suggestions = metro ? cityExpansionMap[metro] : [primaryCitySlug];
+        
+        // Use a Set to merge existing areas with new suggestions without duplicates
+        const newServiceAreas = new Set([...(formData.serviceAreas || []), ...suggestions]);
+        
+        setFormData((prev: any) => ({ ...prev, serviceAreas: Array.from(newServiceAreas) }));
+    }
+  }, [formData.location]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -98,6 +124,16 @@ export default function EditProfilePage() {
 
   const removeKeyword = (keywordToRemove: string) => {
     setFormData((prev: any) => ({ ...prev, tags: prev.tags.filter((k: string) => k !== keywordToRemove) }));
+  };
+
+  const handleServiceAreaAdd = (citySlug: string) => {
+    if (citySlug && !(formData.serviceAreas || []).includes(citySlug)) {
+        setFormData((prev: any) => ({ ...prev, serviceAreas: [...(prev.serviceAreas || []), citySlug] }));
+    }
+  };
+
+  const handleServiceAreaRemove = (cityToRemove: string) => {
+    setFormData((prev: any) => ({ ...prev, serviceAreas: prev.serviceAreas.filter((city: string) => city !== cityToRemove) }));
   };
 
   const handleSave = async () => {
@@ -139,7 +175,7 @@ export default function EditProfilePage() {
             const storageRef = ref(storage, `profiles/${profileId}/logo/${file.name}`);
             await uploadBytes(storageRef, file);
             const downloadURL = await getDownloadURL(storageRef);
-            updatedData.avatarSeed = downloadURL; // Assuming avatarSeed stores the logo URL
+            updatedData.avatarSeed = downloadURL;
             setFormData((prev: any) => ({ ...prev, avatarSeed: downloadURL }));
         }
 
@@ -191,7 +227,7 @@ export default function EditProfilePage() {
         <div className="mb-4">
           <p className="text-muted-foreground">Edit Business Profile for</p>
           <h1 className="text-2xl md:text-3xl font-normal">
-            {formData.name || 'Your Business'} <span className="font-normal text-muted-foreground">{formData.location || 'Your Location'}</span>
+            {formData.name || 'Your Business'} <span className="font-normal text-muted-foreground">{formData.location ? (allLocations.find(l => l.value === formData.location)?.label || formData.location) : 'Your Location'}</span>
           </h1>
         </div>
 
@@ -399,14 +435,14 @@ export default function EditProfilePage() {
                 <div>
                   <h2 className="text-xl font-normal mb-6">Address</h2>
                   <div className="space-y-2 mb-6">
-                    <Label htmlFor="area">Area</Label>
+                    <Label htmlFor="area">Primary City / Area</Label>
                     <Autocomplete
                         options={allLocations}
                         value={formData.location || ''}
                         onValueChange={(value) => handleAutocompleteChange('location', value)}
-                        placeholder="Type in the first three letters of the area..."
+                        placeholder="Type to select your primary city..."
                     />
-                    <p className="text-xs text-muted-foreground">Type in the first three letters of the area your business is located and select the correct area from the list that appears.</p>
+                    <p className="text-xs text-muted-foreground">This is the main city your business is based in.</p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="space-y-2">
@@ -422,6 +458,46 @@ export default function EditProfilePage() {
                         <Input id="postalCode" name="postalCode" value={formData.postalCode || ''} onChange={handleInputChange} />
                     </div>
                   </div>
+                </div>
+
+                <Separator />
+
+                <div>
+                    <h2 className="text-xl font-normal">Service Coverage Areas</h2>
+                    <p className="text-sm text-muted-foreground mt-1 mb-4">Suggested based on proximity to primary city. Add or remove locations you serve.</p>
+                    <div className="p-4 border rounded-lg bg-secondary/30 min-h-[80px]">
+                        <div className="flex flex-wrap gap-2">
+                          {(formData.serviceAreas || []).map((area: string) => {
+                              const locationLabel = allLocations.find(l => l.value === area)?.label || area;
+                              return (
+                                  <Badge key={area} variant="secondary" className="pl-3 pr-1 py-1 text-sm bg-blue-100 text-blue-800 border-blue-300">
+                                    {locationLabel}
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="h-5 w-5 ml-1"
+                                      onClick={() => handleServiceAreaRemove(area)}
+                                    >
+                                      <X className="h-3 w-3" />
+                                    </Button>
+                                  </Badge>
+                              )
+                          })}
+                        </div>
+                    </div>
+                    <div className="mt-4">
+                        <Label htmlFor="add-coverage-area">Add another service area</Label>
+                        <Autocomplete
+                            options={allLocations.filter(l => !(formData.serviceAreas || []).includes(l.value))}
+                            value={''}
+                            onValueChange={(value) => {
+                                if (value) {
+                                    handleServiceAreaAdd(value);
+                                }
+                            }}
+                            placeholder="Type to add a city or suburb..."
+                        />
+                    </div>
                 </div>
 
                 <Separator />
@@ -443,7 +519,7 @@ export default function EditProfilePage() {
                                 <SelectItem value="200">200+ KM</SelectItem>
                             </SelectContent>
                         </Select>
-                        <Input value={formData.location || ''} readOnly className="w-[200px] bg-secondary" />
+                        <Input value={allLocations.find(l => l.value === formData.location)?.label || formData.location || ''} readOnly className="w-[200px] bg-secondary" />
                      </div>
                 </div>
 

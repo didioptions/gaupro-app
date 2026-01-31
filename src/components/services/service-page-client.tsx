@@ -77,17 +77,18 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
         let locationFiltered = serviceFiltered;
         if (locationQuery && typeof locationQuery === 'string') {
-             const metroKey = Object.keys(cityExpansionMap).find(key => cityExpansionMap[key].includes(locationQuery as string));
-             const searchAreas = metroKey ? cityExpansionMap[metroKey] : [locationQuery];
-
              locationFiltered = serviceFiltered.filter(pro => {
+                // New Logic: Check if the pro's serviceAreas array includes the searched location.
+                if (pro.serviceAreas && Array.isArray(pro.serviceAreas)) {
+                    return pro.serviceAreas.includes(locationQuery as string);
+                }
+
+                // Fallback Logic (original implementation)
+                const metroKey = Object.keys(cityExpansionMap).find(key => cityExpansionMap[key].includes(locationQuery as string));
+                const searchAreas = metroKey ? cityExpansionMap[metroKey] : [locationQuery];
                 const proLocationLower = pro.location?.toLowerCase();
                 if (!proLocationLower) return false;
-                
-                // Get the primary city/suburb slug from the professional's location string
                 const proPrimaryCitySlug = proLocationLower.split(',')[0].trim().replace(/\s+/g, '-');
-
-                // A pro should appear if their primary city is in the metro area of the searched city.
                 return searchAreas.includes(proPrimaryCitySlug);
              });
         }
