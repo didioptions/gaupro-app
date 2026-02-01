@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useMemo } from 'react';
@@ -10,7 +11,6 @@ import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
 import Link from 'next/link';
 import { allLocations } from '@/lib/locations';
-import { cityExpansionMap } from '@/lib/location-data';
 
 export type Professional = {
   id: string;
@@ -52,48 +52,9 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/120/120`;
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
-  const locationText = professional.location ? (allLocations.find(l => l.value === professional.location)?.label || professional.location) : (Array.isArray(professional.locations) && professional.locations.length > 0 ? professional.locations.join(', ') : '');
+  const locationText = professional.location ? (allLocations.find(l => l.value === professional.location)?.label || professional.location) : (Array.isArray(professional.locations) && professional.locations.length > 0 ? professional.locations.map(loc => allLocations.find(l => l.value === loc)?.label || loc).join(', ') : '');
     
   const allOfferedServices = Array.from(new Set([...(professional.services || []), ...(professional.tags || [])]));
-
-  const locationLabels = React.useMemo(() => {
-    const locationMap = new Map(allLocations.map(l => [l.value, l.label]));
-    const initialSlugs = new Set<string>();
-
-    // Gather all known slugs from all possible fields
-    if (professional.location) {
-        initialSlugs.add(professional.location);
-    }
-    if (professional.locations && Array.isArray(professional.locations)) {
-        professional.locations.forEach(slug => initialSlugs.add(slug));
-    }
-    if (professional.serviceAreas && Array.isArray(professional.serviceAreas)) {
-        professional.serviceAreas.forEach(slug => initialSlugs.add(slug));
-    }
-
-    // If there are no slugs at all, we can't do anything.
-    if (initialSlugs.size === 0) return [];
-    
-    const expandedSlugs = new Set<string>(initialSlugs);
-
-    // For every slug we found, expand it to its full metro area
-    initialSlugs.forEach(slug => {
-        const metroKey = Object.keys(cityExpansionMap).find(key => 
-          cityExpansionMap[key].includes(slug)
-        );
-        if (metroKey) {
-            cityExpansionMap[metroKey].forEach(metroSlug => expandedSlugs.add(metroSlug));
-        }
-    });
-    
-    // Convert slugs to human-readable labels and remove duplicates implicitly with Set
-    const areaLabels = Array.from(expandedSlugs).map(slug => 
-        locationMap.get(slug) || slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')
-    );
-
-    return areaLabels;
-  }, [professional.location, professional.serviceAreas, professional.locations]);
-
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -123,26 +84,17 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                 )}
                             </div>
 
-                            {locationLabels && locationLabels.length > 0 && (
-                                <div className="mt-4 flex items-start gap-2 flex-wrap">
-                                    <div className="flex items-center gap-1.5 pt-1">
-                                        <MapPin className="h-4 w-4 text-muted-foreground" />
-                                        <h4 className="text-sm font-semibold text-muted-foreground">Covered Areas:</h4>
-                                    </div>
-                                    <div className="flex flex-wrap gap-2 items-center">
-                                        {locationLabels.slice(0, 4).map((area: string, index: number) => (
-                                        <Badge key={index} variant="outline" className="font-normal bg-secondary">
-                                            {area}
-                                        </Badge>
-                                        ))}
-                                        {locationLabels.length > 4 && (
-                                            <Badge variant="outline" className="font-normal bg-secondary">
-                                                +{locationLabels.length - 4} more
-                                            </Badge>
-                                        )}
-                                    </div>
-                                </div>
-                            )}
+                            <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
+                              <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0"/>
+                              <span className="font-medium">Covered Areas:</span>
+                              {professional.locations && professional.locations.length > 0 ? (
+                                <span className="text-foreground">
+                                  {professional.locations.map(loc => allLocations.find(l => l.value === loc)?.label || loc.charAt(0).toUpperCase() + loc.slice(1)).join(", ")}
+                                </span>
+                              ) : (
+                                <span className="text-foreground">{professional.location}</span> // fallback (optional)
+                              )}
+                            </div>
 
                         </div>
                         <div className="text-center flex-shrink-0">
