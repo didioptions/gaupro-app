@@ -6,12 +6,12 @@ import { getFirestore, type Firestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration. This is safe to be public.
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+  apiKey: "AIzaSyBMMdB5UEPLP6LrWKHywytJhgUVEY18kdQ",
+  authDomain: "studio-5618869838-18486.firebaseapp.com",
+  projectId: "studio-5618869838-18486",
+  storageBucket: "studio-5618869838-18486.firebasestorage.app",
+  messagingSenderId: "1059962490351",
+  appId: "1:1059962490351:web:6ed75997aad9ad43afba1a"
 };
 
 interface FirebaseServices {
