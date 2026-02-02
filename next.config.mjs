@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
@@ -8,11 +9,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'picsum.photos',
+        hostname: 'images.unsplash.com',
       },
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'picsum.photos',
       },
       {
         protocol: 'https',
@@ -21,7 +22,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'developer.apple.com',
-      },
+      }
     ],
   },
 };

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import ClientLayout from '@/components/layout/client-layout';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
   title: 'Gaupro | Find Trusted Pros for Any Project',
@@ -28,7 +30,11 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body bg-background text-foreground antialiased flex flex-col min-h-screen">
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout>
+          <Header />
+          {children}
+          <Footer />
+        </ClientLayout>
       </body>
     </html>
   );
