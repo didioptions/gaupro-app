@@ -20,8 +20,6 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { useAuth } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -82,81 +80,77 @@ export default function ProLoginPage() {
   }
 
   return (
-    <>
-      <Header />
-      <main className="flex-grow">
-        <div className="min-h-[calc(100vh-180px)] flex items-center justify-center bg-secondary/50 py-12 px-4">
-          <div className="w-full max-w-md">
-            <Card className="p-8 shadow-lg">
-              <div className="text-center mb-8">
-                <h1 className="text-2xl font-bold text-foreground">Pro Login</h1>
-                <p className="text-muted-foreground">Access your dashboard</p>
-              </div>
+    <main className="flex-grow">
+      <div className="min-h-[calc(100vh-180px)] flex items-center justify-center bg-secondary/50 py-12 px-4">
+        <div className="w-full max-w-md">
+          <Card className="p-8 shadow-lg">
+            <div className="text-center mb-8">
+              <h1 className="text-2xl font-bold text-foreground">Pro Login</h1>
+              <p className="text-muted-foreground">Access your dashboard</p>
+            </div>
 
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="you@example.com" {...field} className="h-12"/>
-                        </FormControl>
-                        <FormMessage />
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email Address</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="you@example.com" {...field} className="h-12"/>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Password</FormLabel>
+                      <FormControl>
+                        <Input type="password" placeholder="••••••••" {...field} className="h-12"/>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="rememberMe"
+                  render={({ field }) => (
+                      <FormItem className="flex items-center space-x-2">
+                         <FormControl>
+                           <Checkbox
+                              id="remember-me"
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                         </FormControl>
+                         <Label htmlFor="remember-me" className="font-normal text-sm text-muted-foreground">Remember me</Label>
                       </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Password</FormLabel>
-                        <FormControl>
-                          <Input type="password" placeholder="••••••••" {...field} className="h-12"/>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="rememberMe"
-                    render={({ field }) => (
-                        <FormItem className="flex items-center space-x-2">
-                           <FormControl>
-                             <Checkbox
-                                id="remember-me"
-                                checked={field.value}
-                                onCheckedChange={field.onChange}
-                              />
-                           </FormControl>
-                           <Label htmlFor="remember-me" className="font-normal text-sm text-muted-foreground">Remember me</Label>
-                        </FormItem>
-                    )}
-                   />
+                  )}
+                 />
 
-                  <Button type="submit" className="w-full h-12 text-base" size="lg" disabled={isLoading}>
-                    {isLoading ? 'Logging in...' : 'Login'}
-                  </Button>
-                </form>
-              </Form>
+                <Button type="submit" className="w-full h-12 text-base" size="lg" disabled={isLoading}>
+                  {isLoading ? 'Logging in...' : 'Login'}
+                </Button>
+              </form>
+            </Form>
 
-              <div className="text-center mt-6">
-                <p className="text-sm text-muted-foreground">
-                  Don't have an account?{' '}
-                  <Link href="/pro/register" className="text-primary font-medium hover:underline">
-                    Sign up here
-                  </Link>
-                </p>
-              </div>
-            </Card>
-          </div>
+            <div className="text-center mt-6">
+              <p className="text-sm text-muted-foreground">
+                Don't have an account?{' '}
+                <Link href="/pro/register" className="text-primary font-medium hover:underline">
+                  Sign up here
+                </Link>
+              </p>
+            </div>
+          </Card>
         </div>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </main>
   );
 }
