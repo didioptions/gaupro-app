@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Briefcase, Verified, Star, BarChart, CheckCircle, Wallet, Map, Tag, Info } from 'lucide-react';
+import { Briefcase, BadgeCheck, Star, BarChart, CheckCircle, Wallet, Map, Tag, Info } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const steps = [
@@ -19,7 +19,7 @@ const steps = [
     tip: "Complete your profile 100% to boost your ranking in Gaupro search results."
   },
   {
-    icon: <Verified className="h-10 w-10 text-primary" />,
+    icon: <BadgeCheck className="h-10 w-10 text-primary" />,
     title: "Step 2: Get Verified Leads in Real Time",
     description: "Once your profile is live, Gaupro connects you with real customers posting jobs in your area. You’ll receive instant notifications for new job requests that match your skills.",
     details: [

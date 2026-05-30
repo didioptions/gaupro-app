@@ -1,4 +1,3 @@
-import { WhatsApp, Facebook, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 
 const WhatsAppIcon = () => (
