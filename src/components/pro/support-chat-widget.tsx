@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -71,8 +70,8 @@ export function SupportChatWidget() {
     }
   }, [messages, isLoading]);
 
-  const handleSendMessage = async (e: React.FormEvent, text?: string) => {
-    e.preventDefault();
+  const handleSendMessage = async (e?: React.FormEvent, text?: string) => {
+    if (e) e.preventDefault();
     const messageText = (text || newMessage).trim();
     if (messageText === '') return;
 
@@ -81,9 +80,9 @@ export function SupportChatWidget() {
         return;
     }
 
-    const userMessage = {
+    const userMessage: Message = {
       id: messages.length + 1,
-      sender: 'user' as const,
+      sender: 'user',
       text: messageText,
     };
     
@@ -93,17 +92,17 @@ export function SupportChatWidget() {
 
     try {
       const aiResponse = await getSupportResponse(messageText);
-      const botMessage = {
+      const botMessage: Message = {
         id: messages.length + 2,
-        sender: 'bot' as const,
+        sender: 'bot',
         text: aiResponse,
       };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('AI response error:', error);
-      const errorMessage = {
+      const errorMessage: Message = {
         id: messages.length + 2,
-        sender: 'bot' as const,
+        sender: 'bot',
         text: "Sorry, I'm having a little trouble connecting. Please try again in a moment.",
       };
        setMessages(prev => [...prev, errorMessage]);
@@ -150,7 +149,7 @@ export function SupportChatWidget() {
       <PopoverContent
         side="top"
         align="end"
-        className="w-80 md:w-96 h-[70vh] max-h-[600px] rounded-lg shadow-xl p-0 border-0 flex flex-col"
+        className="w-80 md:w-96 h-[70vh] max-h-[500px] rounded-lg shadow-xl p-0 border-0 flex flex-col"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
           <CardHeader className="flex flex-row items-center justify-between bg-primary text-primary-foreground p-4 rounded-t-lg">
@@ -198,7 +197,7 @@ export function SupportChatWidget() {
                                     key={i}
                                     variant="outline"
                                     className="w-full justify-start h-auto py-2"
-                                    onClick={(e) => handleSendMessage(e, topic.text)}
+                                    onClick={() => handleSendMessage(undefined, topic.text)}
                                 >
                                     {topic.icon}
                                     <span className="ml-2">{topic.text}</span>
@@ -212,7 +211,7 @@ export function SupportChatWidget() {
                      <p className="text-xs text-muted-foreground">Quick Actions</p>
                      <div className="flex flex-wrap gap-2">
                         {quickActions.map(action => (
-                             <Button key={action} variant="outline" size="sm" className="text-xs h-auto py-1" onClick={(e) => handleSendMessage(e, action)}>{action}</Button>
+                             <Button key={action} variant="outline" size="sm" className="text-xs h-auto py-1" onClick={() => handleSendMessage(undefined, action)}>{action}</Button>
                         ))}
                      </div>
                  </div>

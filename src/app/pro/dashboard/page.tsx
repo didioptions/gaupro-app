@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
@@ -23,15 +22,25 @@ import { jobRequests } from '@/lib/job-requests-data';
 import { Badge } from '@/components/ui/badge';
 import { allServices } from '@/lib/service-questions';
 
+interface ProfessionalProfile {
+  name?: string;
+  location?: string;
+  avatarSeed?: string;
+  rating?: number;
+  reviews?: number;
+  tags?: string[];
+  serviceCategory?: string;
+}
+
 export default function ProDashboardPage() {
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
-  const [profileData, setProfileData] = useState<any>(null);
+  const [profileData, setProfileData] = useState<ProfessionalProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (isUserLoading) return;
-    if (!user) {
+    if (!user || !firestore) {
       setIsLoading(false);
       return;
     }
@@ -42,7 +51,7 @@ export default function ProDashboardPage() {
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
           const profileDoc = querySnapshot.docs[0];
-          setProfileData(profileDoc.data());
+          setProfileData(profileDoc.data() as ProfessionalProfile);
         }
       } catch (error) {
         console.error("Error fetching profile:", error);
@@ -55,14 +64,13 @@ export default function ProDashboardPage() {
   }, [user, isUserLoading, firestore]);
 
   const relevantLeads = useMemo(() => {
-    if (!profileData || (!profileData.tags && !profileData.serviceCategory)) {
-      return [];
-    }
-    const proServices = profileData.tags || [allServices.find(s => s.value === profileData.serviceCategory)?.label];
+    if (!profileData) return [];
+    
+    const proServices = profileData.tags || [allServices.find(s => s.value === profileData.serviceCategory)?.label || ''];
     
     return jobRequests.filter(job => 
-      proServices.some((service: string) => job.category.toLowerCase().includes(service.toLowerCase()))
-    ).slice(0, 3); // Limit to 3 for the dashboard view
+      proServices.some((service: string) => service && job.category.toLowerCase().includes(service.toLowerCase()))
+    ).slice(0, 3);
 
   }, [profileData]);
 

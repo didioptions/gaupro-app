@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useEffect } from 'react';
 import { initializeApp, getApps, getApp } from 'firebase/app';

@@ -8,7 +8,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCircleIcon, Loader2, Info, Star, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCircleIcon, Loader2, Info, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 import { Input } from '../ui/input';
 import { usePathname } from 'next/navigation';
@@ -76,7 +76,7 @@ export default function PublicChatWidget() {
   }
 
   const handleSendMessage = async (e: React.FormEvent, text?: string) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const messageText = (text || newMessage).trim();
     if (messageText === '') return;
     
@@ -86,9 +86,9 @@ export default function PublicChatWidget() {
     }
 
 
-    const userMessage = {
+    const userMessage: Message = {
       id: messages.length + 1,
-      sender: 'user' as const,
+      sender: 'user',
       text: messageText,
     };
 
@@ -98,17 +98,17 @@ export default function PublicChatWidget() {
 
     try {
       const aiResponse = await getSupportResponse(messageText);
-      const botMessage = {
+      const botMessage: Message = {
         id: messages.length + 2,
-        sender: 'bot' as const,
+        sender: 'bot',
         text: aiResponse,
       };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('AI response error:', error);
-      const errorMessage = {
+      const errorMessage: Message = {
         id: messages.length + 2,
-        sender: 'bot' as const,
+        sender: 'bot',
         text: "Sorry, I'm having a little trouble connecting. Please try again in a moment.",
       };
       setMessages(prev => [...prev, errorMessage]);

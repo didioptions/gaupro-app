@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -12,21 +12,44 @@ import { allServices } from '@/lib/service-questions';
 import { Textarea } from '@/components/ui/textarea';
 import { Autocomplete } from '@/components/ui/autocomplete';
 import { Badge } from '@/components/ui/badge';
-import { X, Image as ImageIcon } from 'lucide-react';
+import { X } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import Link from 'next/link';
 import { RequestReviewDialog } from '@/components/pro/request-review-dialog';
 import { FileUpload } from '@/components/ui/file-upload';
 import { useUser, useFirestore } from '@/firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { useToast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cityExpansionMap } from '@/lib/location-data';
+
+interface ProfileData {
+  name?: string;
+  location?: string;
+  firstName?: string;
+  lastName?: string;
+  businessPhone?: string;
+  phone?: string;
+  email?: string;
+  website?: string;
+  yearsInBusiness?: string;
+  employees?: string;
+  vatNumber?: string;
+  regId?: string;
+  businessHours?: string;
+  tags?: string[];
+  tagline?: string;
+  description?: string;
+  building?: string;
+  address?: string;
+  postalCode?: string;
+  serviceAreas?: string[];
+  radius?: string;
+  avatarSeed?: string;
+  photos?: string[];
+}
 
 export default function EditProfilePage() {
   const { user, isUserLoading } = useUser();
@@ -34,7 +57,7 @@ export default function EditProfilePage() {
   const { toast } = useToast();
 
   const [profileId, setProfileId] = useState<string | null>(null);
-  const [formData, setFormData] = useState<any>({});
+  const [formData, setFormData] = useState<ProfileData>({});
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   
@@ -45,7 +68,7 @@ export default function EditProfilePage() {
   // Fetch profile data
   useEffect(() => {
     if (isUserLoading) return;
-    if (!user) {
+    if (!user || !firestore) {
         setIsLoading(false);
         return;
     }
@@ -57,7 +80,7 @@ export default function EditProfilePage() {
             if (!querySnapshot.empty) {
                 const profileDoc = querySnapshot.docs[0];
                 setProfileId(profileDoc.id);
-                const data = profileDoc.data();
+                const data = profileDoc.data() as ProfileData;
                 // Ensure serviceAreas is an array
                 if (!data.serviceAreas || !Array.isArray(data.serviceAreas)) {
                     data.serviceAreas = data.location ? [data.location] : [];
@@ -84,67 +107,64 @@ export default function EditProfilePage() {
     
     const currentAreas = new Set(formData.serviceAreas || []);
 
-    // Only update if the primary city isn't already covered by the existing areas
     if (!currentAreas.has(primaryCitySlug)) {
         const metro = Object.keys(cityExpansionMap).find(key => 
-          cityExpansionMap[key].includes(primaryCitySlug)
+          cityExpansionMap[key].includes(primaryCitySlug!)
         );
         const suggestions = metro ? cityExpansionMap[metro] : [primaryCitySlug];
-        
-        // Use a Set to merge existing areas with new suggestions without duplicates
         const newServiceAreas = new Set([...(formData.serviceAreas || []), ...suggestions]);
         
-        setFormData((prev: any) => ({ ...prev, serviceAreas: Array.from(newServiceAreas) }));
+        setFormData((prev) => ({ ...prev, serviceAreas: Array.from(newServiceAreas) }));
     }
   }, [formData.location]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: any) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleAutocompleteChange = (name: string, value: string) => {
-    setFormData((prev: any) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev: any) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   }
   
   const handleRadioChange = (name: string, value: string) => {
-    setFormData((prev: any) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
   const handleKeywordSelect = (value: string) => {
     const service = allServices.find((s) => s.value === value);
     if (service && !(formData.tags || []).includes(service.label) && (formData.tags || []).length < 30) {
-      setFormData((prev: any) => ({ ...prev, tags: [...(prev.tags || []), service.label] }));
+      setFormData((prev) => ({ ...prev, tags: [...(prev.tags || []), service.label] }));
     }
   };
 
   const removeKeyword = (keywordToRemove: string) => {
-    setFormData((prev: any) => ({ ...prev, tags: prev.tags.filter((k: string) => k !== keywordToRemove) }));
+    setFormData((prev) => ({ ...prev, tags: prev.tags?.filter((k: string) => k !== keywordToRemove) || [] }));
   };
 
   const handleServiceAreaAdd = (citySlug: string) => {
     if (citySlug && !(formData.serviceAreas || []).includes(citySlug)) {
-        setFormData((prev: any) => ({ ...prev, serviceAreas: [...(prev.serviceAreas || []), citySlug] }));
+        setFormData((prev) => ({ ...prev, serviceAreas: [...(prev.serviceAreas || []), citySlug] }));
     }
   };
 
   const handleServiceAreaRemove = (cityToRemove: string) => {
-    setFormData((prev: any) => ({ ...prev, serviceAreas: prev.serviceAreas.filter((city: string) => city !== cityToRemove) }));
+    setFormData((prev) => ({ ...prev, serviceAreas: prev.serviceAreas?.filter((city: string) => city !== cityToRemove) || [] }));
   };
 
   const handleSave = async () => {
-    if (!profileId) {
+    if (!profileId || !firestore) {
         toast({ variant: 'destructive', title: 'Error', description: 'Profile not loaded. Cannot save.' });
         return;
     }
     setIsSaving(true);
     try {
         const docRef = doc(firestore, 'professionalProfiles', profileId);
-        await updateDoc(docRef, formData);
+        await updateDoc(docRef, formData as any);
         setShowSuccessAlert(true);
         setTimeout(() => setShowSuccessAlert(false), 5000);
     } catch (error) {
@@ -167,7 +187,7 @@ export default function EditProfilePage() {
 
     setIsSaving(true);
     const storage = getStorage();
-    let updatedData: any = {};
+    let updatedData: Partial<ProfileData> = {};
 
     try {
         if (logoFile.length > 0) {
@@ -176,7 +196,7 @@ export default function EditProfilePage() {
             await uploadBytes(storageRef, file);
             const downloadURL = await getDownloadURL(storageRef);
             updatedData.avatarSeed = downloadURL;
-            setFormData((prev: any) => ({ ...prev, avatarSeed: downloadURL }));
+            setFormData((prev) => ({ ...prev, avatarSeed: downloadURL }));
         }
 
         if (photoFiles.length > 0) {
@@ -188,11 +208,13 @@ export default function EditProfilePage() {
                 photoURLs.push(downloadURL);
             }
             updatedData.photos = photoURLs;
-            setFormData((prev: any) => ({ ...prev, photos: photoURLs }));
+            setFormData((prev) => ({ ...prev, photos: photoURLs }));
         }
 
-        const docRef = doc(firestore, 'professionalProfiles', profileId);
-        await updateDoc(docRef, updatedData);
+        if (firestore) {
+            const docRef = doc(firestore, 'professionalProfiles', profileId);
+            await updateDoc(docRef, updatedData as any);
+        }
 
         toast({ title: 'Success!', description: 'Your media has been uploaded and saved.' });
         setLogoFile([]);
@@ -359,14 +381,12 @@ export default function EditProfilePage() {
                               {(formData.tags || []).map((kw: string) => (
                                 <Badge key={kw} variant="secondary" className="pl-3 pr-1 py-1 text-sm">
                                   {kw}
-                                  <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="h-5 w-5 ml-1"
+                                  <button
+                                    className="h-5 w-5 ml-1 flex items-center justify-center hover:bg-muted rounded-full"
                                     onClick={() => removeKeyword(kw)}
                                   >
                                     <X className="h-3 w-3" />
-                                  </Button>
+                                  </button>
                                 </Badge>
                               ))}
                             </div>
@@ -472,14 +492,12 @@ export default function EditProfilePage() {
                               return (
                                   <Badge key={area} variant="secondary" className="pl-3 pr-1 py-1 text-sm bg-blue-100 text-blue-800 border-blue-300">
                                     {locationLabel}
-                                    <Button
-                                      variant="ghost"
-                                      size="icon"
-                                      className="h-5 w-5 ml-1"
+                                    <button
+                                      className="h-5 w-5 ml-1 flex items-center justify-center hover:bg-blue-200 rounded-full"
                                       onClick={() => handleServiceAreaRemove(area)}
                                     >
                                       <X className="h-3 w-3" />
-                                    </Button>
+                                    </button>
                                   </Badge>
                               )
                           })}
