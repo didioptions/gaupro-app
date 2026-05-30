@@ -1,15 +1,9 @@
-
-
 'use client';
 
 import { useState, FormEvent, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
-import { Input } from '@/components/ui/input';
-import { Search, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { allLocations } from '@/lib/locations';
 import { Autocomplete } from '@/components/ui/autocomplete';
@@ -94,40 +88,36 @@ export default function AllCategoriesPage() {
   }, []);
 
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-background">
-        <div className="container mx-auto px-4 py-12 md:py-16">
-          <header className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-normal tracking-tight">All Service Categories</h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Find trusted professionals for any service you need in South Africa.
-            </p>
-            {isClient && <ClientSearchForm />}
-          </header>
-          <div className="max-w-5xl mx-auto">
-            <div className="space-y-12">
-                {allCategories.map((group) => (
-                <div key={group.category}>
-                    <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
-                    {group.services.map((serviceName) => {
-                        const service = allServices.find(s => s.label.toLowerCase() === serviceName.toLowerCase());
-                        const href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
-                        return (
-                        <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
-                            {serviceName}
-                        </Link>
-                        );
-                    })}
-                    </div>
-                </div>
-                ))}
-            </div>
+    <main className="flex-grow bg-background">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <header className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-normal tracking-tight">All Service Categories</h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Find trusted professionals for any service you need in South Africa.
+          </p>
+          {isClient && <ClientSearchForm />}
+        </header>
+        <div className="max-w-5xl mx-auto">
+          <div className="space-y-12">
+              {allCategories.map((group) => (
+              <div key={group.category}>
+                  <h2 className="text-2xl font-normal mb-4 border-b pb-2">{group.category}</h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
+                  {group.services.map((serviceName) => {
+                      const service = allServices.find(s => s.label.toLowerCase() === serviceName.toLowerCase());
+                      const href = service ? `/services/${service.value}` : `/post-request?service=${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
+                      return (
+                      <Link key={serviceName} href={href} className="text-foreground hover:text-primary transition-colors">
+                          {serviceName}
+                      </Link>
+                      );
+                  })}
+                  </div>
+              </div>
+              ))}
           </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </main>
   );
 }

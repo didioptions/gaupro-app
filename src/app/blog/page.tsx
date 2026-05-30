@@ -1,10 +1,7 @@
-
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -75,70 +72,66 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-background">
-        <section className="bg-primary text-primary-foreground py-16 md:py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold">
-              Gaupro Community Blog
-            </h1>
-            <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-              Insights, advice, and stories from South Africa's professional marketplace.
-            </p>
-          </div>
-        </section>
+    <main className="flex-grow bg-background">
+      <section className="bg-primary text-primary-foreground py-16 md:py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold">
+            Gaupro Community Blog
+          </h1>
+          <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+            Insights, advice, and stories from South Africa's professional marketplace.
+          </p>
+        </div>
+      </section>
 
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
-                <Link href={post.href} key={post.title} className="group">
-                  <Card className="overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg rounded-lg">
-                    <div className="relative aspect-video">
-                      <Image
-                        src={post.imageUrl}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={post.imageHint}
-                      />
-                       <Badge className="absolute top-3 left-3">{post.category}</Badge>
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post) => (
+              <Link href={post.href} key={post.title} className="group">
+                <Card className="overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg rounded-lg">
+                  <div className="relative aspect-video">
+                    <Image
+                      src={post.imageUrl}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={post.imageHint}
+                    />
+                     <Badge className="absolute top-3 left-3">{post.category}</Badge>
+                  </div>
+                  <CardContent className="p-6 flex flex-col flex-grow">
+                    <div className="text-sm text-muted-foreground mb-3 flex items-center gap-4">
+                      <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /> {post.date}</span>
+                      <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {post.readTime}</span>
                     </div>
-                    <CardContent className="p-6 flex flex-col flex-grow">
-                      <div className="text-sm text-muted-foreground mb-3 flex items-center gap-4">
-                        <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /> {post.date}</span>
-                        <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {post.readTime}</span>
-                      </div>
-                      <h2 className="text-lg font-bold text-foreground mb-2 flex-grow">
-                        {post.title}
-                      </h2>
-                      <p className="text-muted-foreground text-sm mb-4">
-                        {post.description}
-                      </p>
-                      <div className="mt-auto">
-                        <span className="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                          Read Article <ArrowRight className="h-4 w-4" />
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
+                    <h2 className="text-lg font-bold text-foreground mb-2 flex-grow">
+                      {post.title}
+                    </h2>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      {post.description}
+                    </p>
+                    <div className="mt-auto">
+                      <span className="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Read Article <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
-        </section>
-        
-        <section className="py-16 md:py-20 bg-secondary/50">
-            <div className="container mx-auto px-4 text-center max-w-2xl">
-                <h2 className="text-2xl font-bold mb-2">Stay updated with local trends</h2>
-                <p className="text-muted-foreground mb-6">Join 12,000+ South Africans receiving our weekly advice for homeowners and pros.</p>
-                <SubscriptionForm />
-            </div>
-        </section>
+        </div>
+      </section>
+      
+      <section className="py-16 md:py-20 bg-secondary/50">
+          <div className="container mx-auto px-4 text-center max-w-2xl">
+              <h2 className="text-2xl font-bold mb-2">Stay updated with local trends</h2>
+              <p className="text-muted-foreground mb-6">Join 12,000+ South Africans receiving our weekly advice for homeowners and pros.</p>
+              <SubscriptionForm />
+          </div>
+      </section>
 
-      </main>
-      <Footer />
-    </>
+    </main>
   );
 }

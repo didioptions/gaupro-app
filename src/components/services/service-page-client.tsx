@@ -1,12 +1,9 @@
-
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronRight } from 'lucide-react';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { allServices } from '@/lib/service-questions';
@@ -204,74 +201,70 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     };
     
     return (
-        <>
-            <Header />
-            <main>
-                <section className="relative min-h-[500px] flex items-center justify-center text-center text-white">
-                    {heroImage && (
-                        <Image
-                            src={heroImage.imageUrl}
-                            alt={heroImage.description || "Service background image"}
-                            fill
-                            className="object-cover"
-                            priority
-                            data-ai-hint={heroImage.imageHint}
-                        />
-                    )}
-                     <div className="absolute inset-0 bg-black/60" />
-                     <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
-                        <div className="hidden md:block">
-                          <h1 className="text-4xl md:text-5xl font-normal">{pluralServiceLabel}</h1>
-                          <p className="mt-4 text-lg text-white/90">
-                              Get matched with top-rated, verified professionals in your area.
-                          </p>
-                        </div>
-                        <InlineQuoteForm service={currentService} location={locationName} />
-                     </div>
-                </section>
-
-                <section className="py-16 bg-background">
-                    <div className="container mx-auto px-4">
-                         <div className="text-center md:text-left mb-8">
-                            <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                                <Link href="/" className="hover:text-primary">Gaupro</Link>
-                                <ChevronRight className="h-4 w-4" />
-                                {locationQuery && <><Link href={`/services/in/${locationQuery}`} className="hover:text-primary">{locationName}</Link><ChevronRight className="h-4 w-4" /></>}
-                                <span className="font-medium text-foreground">{pluralServiceLabel}</span>
-                            </div>
-                             {introText}
-                             <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
-                        </div>
-                        <div className="grid lg:grid-cols-3 gap-12">
-                            <div className="lg:col-span-2 space-y-6">
-                                <ProfessionalList />
-                            </div>
-                            <aside className="space-y-8">
-                                <Card className="bg-card">
-                                    <CardContent className="p-6">
-                                        <h3 className="mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
-                                        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                                            <li>{allProsFromFirestore?.reduce((acc, pro) => acc + (pro.reviews || 0), 0) || 'Many'}+ Reviews for {pluralServiceLabel.toLowerCase()}</li>
-                                            <li>{(allProsFromFirestore?.filter(p => p.rating >= 4).length || 0) * 10}+ Positive Reviews</li>
-                                            <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
-                                            <li>View {locationName} Pros for {pluralServiceLabel.toLowerCase()} today</li>
-                                        </ul>
-                                    </CardContent>
-                                </Card>
-                                <Card className="bg-card">
-                                    <CardContent className="p-6">
-                                        <h3 className="mb-3 text-foreground">Why Use Gaupro?</h3>
-                                        <ul className="text-sm text-muted-foreground space-y-2">
-                                            {benefits.map(benefit => <li key={benefit}>{benefit}</li>)}
-                                        </ul>
-                                    </CardContent>
-                                </Card>
-                            </aside>
-                        </div>
+        <main>
+            <section className="relative min-h-[500px] flex items-center justify-center text-center text-white">
+                {heroImage && (
+                    <Image
+                        src={heroImage.imageUrl}
+                        alt={heroImage.description || "Service background image"}
+                        fill
+                        className="object-cover"
+                        priority
+                        data-ai-hint={heroImage.imageHint}
+                    />
+                )}
+                 <div className="absolute inset-0 bg-black/60" />
+                 <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
+                    <div className="hidden md:block">
+                      <h1 className="text-4xl md:text-5xl font-normal">{pluralServiceLabel}</h1>
+                      <p className="mt-4 text-lg text-white/90">
+                          Get matched with top-rated, verified professionals in your area.
+                      </p>
                     </div>
-                </section>
-            </main>
-            <Footer />
-        </>
+                    <InlineQuoteForm service={currentService} location={locationName} />
+                 </div>
+            </section>
+
+            <section className="py-16 bg-background">
+                <div className="container mx-auto px-4">
+                     <div className="text-center md:text-left mb-8">
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                            <Link href="/" className="hover:text-primary">Gaupro</Link>
+                            <ChevronRight className="h-4 w-4" />
+                            {locationQuery && <><Link href={`/services/in/${locationQuery}`} className="hover:text-primary">{locationName}</Link><ChevronRight className="h-4 w-4" /></>}
+                            <span className="font-medium text-foreground">{pluralServiceLabel}</span>
+                        </div>
+                         {introText}
+                         <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
+                    </div>
+                    <div className="grid lg:grid-cols-3 gap-12">
+                        <div className="lg:col-span-2 space-y-6">
+                            <ProfessionalList />
+                        </div>
+                        <aside className="space-y-8">
+                            <Card className="bg-card">
+                                <CardContent className="p-6">
+                                    <h3 className="mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
+                                    <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                                        <li>{allProsFromFirestore?.reduce((acc, pro) => acc + (pro.reviews || 0), 0) || 'Many'}+ Reviews for {pluralServiceLabel.toLowerCase()}</li>
+                                        <li>{(allProsFromFirestore?.filter(p => p.rating >= 4).length || 0) * 10}+ Positive Reviews</li>
+                                        <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
+                                        <li>View {locationName} Pros for {pluralServiceLabel.toLowerCase()} today</li>
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                            <Card className="bg-card">
+                                <CardContent className="p-6">
+                                    <h3 className="mb-3 text-foreground">Why Use Gaupro?</h3>
+                                    <ul className="text-sm text-muted-foreground space-y-2">
+                                        {benefits.map(benefit => <li key={benefit}>{benefit}</li>)}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+        </main>
     );
 }

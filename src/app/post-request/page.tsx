@@ -21,8 +21,6 @@ import { Autocomplete } from '@/components/ui/autocomplete';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { allLocations } from '@/lib/locations';
 import {
@@ -96,7 +94,7 @@ export default function PostRequestPage() {
       handleInputChange('suburb', locationLabel);
       handleInputChange('city', '');
     }
-  }, [serviceQuery, locationQuery]);
+  }, [serviceQuery, locationQuery, initialLocation]);
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === selectedService) ||
@@ -501,32 +499,28 @@ export default function PostRequestPage() {
   };
   
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-secondary/30">
-        <div className="container mx-auto px-4 py-12 md:py-16">
-            <div className="max-w-2xl mx-auto">
-              <Card className="overflow-hidden">
-                  {renderStepContent()}
-              </Card>
-            </div>
-            <section className="max-w-4xl mx-auto mt-16">
-                <h2 className="text-2xl text-center mb-8 font-normal">Why choose Gaupro for reliable service?</h2>
-                <div className="grid md:grid-cols-2 gap-8">
-                    {whyChooseGaupro.map(item => (
-                        <div key={item.title} className="flex items-start gap-4">
-                            <div className="text-3xl">{item.icon}</div>
-                            <div>
-                                <h3 className="font-semibold text-lg">{item.title}</h3>
-                                <p className="text-muted-foreground">{item.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <main className="flex-grow bg-secondary/30">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+          <div className="max-w-2xl mx-auto">
+            <Card className="overflow-hidden">
+                {renderStepContent()}
+            </Card>
+          </div>
+          <section className="max-w-4xl mx-auto mt-16">
+              <h2 className="text-2xl text-center mb-8 font-normal">Why choose Gaupro for reliable service?</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                  {whyChooseGaupro.map(item => (
+                      <div key={item.title} className="flex items-start gap-4">
+                          <div className="text-3xl">{item.icon}</div>
+                          <div>
+                              <h3 className="font-semibold text-lg">{item.title}</h3>
+                              <p className="text-muted-foreground">{item.description}</p>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </section>
+      </div>
+    </main>
   );
 }
