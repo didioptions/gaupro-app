@@ -3,12 +3,10 @@ import { useState, useEffect } from 'react';
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-// --- TRUTH DETECTOR CONFIG ---
-// We are hardcoding this to bypass any broken file imports
 const hardcodedConfig = {
   apiKey: "AIzaSyBMMdB5UEPLP6LrWKHywytJhgUVEY18kdQ",
   authDomain: "studio-5618869838-18486.firebaseapp.com",
-  projectId: "studio-5618869838-18486", // <--- THIS IS THE TARGET
+  projectId: "studio-5618869838-18486",
   storageBucket: "studio-5618869838-18486.firebasestorage.app",
   messagingSenderId: "1059962490351",
   appId: "1:1059962490351:web:6ed75997aad9ad43afba1a"
@@ -24,14 +22,11 @@ export default function DebugPage() {
       addLog("1. Starting Diagnostics...");
       
       try {
-        // Initialize App manually
         const app = getApps().length === 0 ? initializeApp(hardcodedConfig) : getApp();
         addLog(`2. App Initialized. Target Project: ${app.options.projectId}`);
         
-        // Initialize DB
         const db = getFirestore(app);
         
-        // Try to fetch
         addLog("3. Attempting to fetch 'professionalProfiles'...");
         const colRef = collection(db, "professionalProfiles");
         const snapshot = await getDocs(colRef);

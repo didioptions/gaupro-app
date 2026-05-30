@@ -1,4 +1,3 @@
-
 'use client';
 
 import * as React from 'react';
@@ -75,7 +74,7 @@ export function Autocomplete({
           />
         </div>
       </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0" onOpenAutoFocus={(e) => e.preventDefault()}>
+      <PopoverContent className="w-[--radix-popover-trigger-width] p-0" onOpenAutoFocus={(e: Event) => e.preventDefault()}>
         <Command
           filter={(value, search) => {
             if (value.toLowerCase().includes(search.toLowerCase())) return 1;

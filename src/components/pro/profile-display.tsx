@@ -1,12 +1,11 @@
-
 'use client';
 
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Star, ShieldCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, AlertTriangle } from 'lucide-react';
+import { Star, BadgeCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, AlertTriangle } from 'lucide-react';
 import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
 import Link from 'next/link';
@@ -24,8 +23,8 @@ export type Professional = {
   avatarSeed: string;
   tags?: string[];
   isProVerified?: boolean;
-  yearsInBusiness?: number;
-  employees?: number;
+  yearsInBusiness?: string | number;
+  employees?: string | number;
   address?: string;
   photos?: string[];
   businessHours?: string;
@@ -72,7 +71,7 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground mt-4">
                                {professional.isProVerified && (
                                     <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
-                                        <ShieldCheck className="h-4 w-4 mr-1" />
+                                        <BadgeCheck className="h-4 w-4 mr-1" />
                                         Verified Pro
                                     </Badge>
                                 )}
@@ -92,16 +91,16 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                   {professional.locations.map(loc => allLocations.find(l => l.value === loc)?.label || loc.charAt(0).toUpperCase() + loc.slice(1)).join(", ")}
                                 </span>
                               ) : (
-                                <span className="text-foreground">{professional.location}</span> // fallback (optional)
+                                <span className="text-foreground">{professional.location}</span>
                               )}
                             </div>
 
                         </div>
                         <div className="text-center flex-shrink-0">
                             <div className="bg-teal-500 text-white font-bold text-2xl rounded-md w-16 h-16 flex items-center justify-center mx-auto">
-                                {professional.rating.toFixed(1)}
+                                {(professional.rating || 0).toFixed(1)}
                             </div>
-                            <p className="text-xs text-muted-foreground mt-1">{professional.reviews} reviews</p>
+                            <p className="text-xs text-muted-foreground mt-1">{professional.reviews || 0} reviews</p>
                         </div>
                     </div>
                     <div className="mt-6 pt-6 border-t flex flex-wrap gap-2">

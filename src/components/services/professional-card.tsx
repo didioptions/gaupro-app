@@ -1,23 +1,19 @@
-
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, MessageCircle, Verified, Clock, Users } from 'lucide-react';
+import { Star, BadgeCheck, Clock, Users } from 'lucide-react';
 import { CategoryImages } from '@/lib/category-images';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 
-// Define the type for a professional object
-// This should match the structure in professionals-data.ts
 export type Professional = {
   id: string;
   name: string;
-  location?: string; // Handle old string format
-  locations?: string[]; // Handle new array format
+  location?: string;
+  locations?: string[];
   description: string;
   rating: number;
   reviews: number;
@@ -32,13 +28,12 @@ export type Professional = {
       question: string;
       answer: string;
   }[];
-  // Add any other fields that might be passed
   [key: string]: any;
 };
 
 interface ProfessionalCardProps {
   professional: Professional;
-  service: string; // The current service, e.g., 'painter'
+  service: string;
 }
 
 export default function ProfessionalCard({ professional, service }: ProfessionalCardProps) {
@@ -49,7 +44,7 @@ export default function ProfessionalCard({ professional, service }: Professional
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
   const singularOrPluralLowercase = service.endsWith('s') ? service.toLowerCase() : `${service.toLowerCase()}s`;
-  const description = professional.description.replace('{service}', singularOrPluralLowercase);
+  const description = (professional.description || '').replace('{service}', singularOrPluralLowercase);
 
   const toggleDescription = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -101,7 +96,7 @@ export default function ProfessionalCard({ professional, service }: Professional
                     </div>
                     {professional.isProVerified && (
                         <div className="flex items-center gap-1 text-green-600">
-                            <Verified className="h-4 w-4" />
+                            <BadgeCheck className="h-4 w-4" />
                             <span>Verified Pro</span>
                         </div>
                     )}

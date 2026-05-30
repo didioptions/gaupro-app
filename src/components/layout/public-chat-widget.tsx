@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { CardContent, CardHeader, CardTitle } from '../ui/card';
 import { MessageSquare, Send, X, FileText, Briefcase, MessageCircle as MessageCircleIcon, Loader2, Info, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 import { Input } from '../ui/input';
@@ -54,7 +54,6 @@ export default function PublicChatWidget() {
 
   useEffect(() => {
     if (isOpen) {
-      // Reset chat when opening
       setMessages(initialMessages);
       setShowClosingScreen(false);
       setRating(0);
@@ -70,12 +69,11 @@ export default function PublicChatWidget() {
     }
   }, [messages, isLoading]);
 
-  // Don't render the widget on pro-specific pages or on the server
   if (pathname.startsWith('/pro/') || !isClient) {
     return null;
   }
 
-  const handleSendMessage = async (e: React.FormEvent, text?: string) => {
+  const handleSendMessage = async (e: React.FormEvent | undefined, text?: string) => {
     if (e) e.preventDefault();
     const messageText = (text || newMessage).trim();
     if (messageText === '') return;
@@ -196,7 +194,7 @@ export default function PublicChatWidget() {
                         </div>
                       </div>
                     )}
-                    {messages.length === 1 && ( // Only show topics initially
+                    {messages.length === 1 && (
                          <div className="space-y-2 pt-2">
                             {topicOptions.map((topic, i) => (
                                 <Button

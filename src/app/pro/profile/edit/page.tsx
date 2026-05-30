@@ -65,7 +65,6 @@ export default function EditProfilePage() {
   const [photoFiles, setPhotoFiles] = useState<File[]>([]);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
-  // Fetch profile data
   useEffect(() => {
     if (isUserLoading) return;
     if (!user || !firestore) {
@@ -81,7 +80,6 @@ export default function EditProfilePage() {
                 const profileDoc = querySnapshot.docs[0];
                 setProfileId(profileDoc.id);
                 const data = profileDoc.data() as ProfileData;
-                // Ensure serviceAreas is an array
                 if (!data.serviceAreas || !Array.isArray(data.serviceAreas)) {
                     data.serviceAreas = data.location ? [data.location] : [];
                 }
@@ -100,7 +98,6 @@ export default function EditProfilePage() {
     fetchProfile();
   }, [user, isUserLoading, firestore, toast]);
 
-  // Auto-suggest service areas when primary city changes
   useEffect(() => {
     const primaryCitySlug = formData.location;
     if (!primaryCitySlug) return;
@@ -116,7 +113,7 @@ export default function EditProfilePage() {
         
         setFormData((prev) => ({ ...prev, serviceAreas: Array.from(newServiceAreas) }));
     }
-  }, [formData.location]);
+  }, [formData.location, formData.serviceAreas]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -373,7 +370,7 @@ export default function EditProfilePage() {
                         <div className="mt-4">
                             <Autocomplete
                                 options={allServices}
-                                value={''} // Keep it empty to allow new selections
+                                value={''} 
                                 onValueChange={handleKeywordSelect}
                                 placeholder="Type in the first 3 letters of the keyword and select one that appears from the list."
                             />

@@ -14,7 +14,6 @@ export default function FeaturedProfessionals() {
   const { isUserLoading } = useUser();
 
   const professionalsQuery = useMemoFirebase(() => {
-    // Wait for both firestore and auth state to be determined before creating the query.
     if (!firestore || isUserLoading) return null;
     return query(
       collection(firestore, 'professionalProfiles'),
@@ -24,9 +23,9 @@ export default function FeaturedProfessionals() {
     );
   }, [firestore, isUserLoading]);
 
-  const { data: professionals, loading: isLoading } = useCollection<Professional>(professionalsQuery);
+  const { data: professionals, loading } = useCollection<Professional>(professionalsQuery);
 
-  const showLoadingSkeleton = isLoading || isUserLoading;
+  const showLoadingSkeleton = loading || isUserLoading;
 
   return (
     <section className="py-20 md:py-24 bg-background">
@@ -68,7 +67,7 @@ export default function FeaturedProfessionals() {
         ) : (
           <div className="grid md:grid-cols-2 gap-8">
             {professionals?.map((pro) => (
-              <ProfessionalCard key={pro.id} professional={pro} service={pro.serviceCategory} />
+              <ProfessionalCard key={pro.id} professional={pro} service={pro.serviceCategory || 'general'} />
             ))}
           </div>
         )}

@@ -15,8 +15,8 @@ export default function SeedDataViewerPage() {
     return collection(firestore, 'professionalProfiles');
   }, [firestore, isUserLoading]);
   
-  const { data: profiles, loading: isLoading, error } = useCollection<DocumentData>(profilesQuery);
-  const showLoadingSkeleton = isLoading || isUserLoading;
+  const { data: profiles, loading, error } = useCollection<DocumentData>(profilesQuery);
+  const showLoadingSkeleton = loading || isUserLoading;
 
   const renderContent = () => {
     if (showLoadingSkeleton) {

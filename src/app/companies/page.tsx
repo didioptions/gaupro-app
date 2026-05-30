@@ -10,15 +10,13 @@ export default function CompaniesPage() {
   const { isUserLoading } = useUser();
   
   const companiesQuery = useMemoFirebase(() => {
-    // Wait for both firestore and auth state to be determined before creating the query.
     if (!firestore || isUserLoading) return null;
-    // This query is for the 'companies' collection.
     return collection(firestore, 'companies');
   }, [firestore, isUserLoading]);
   
-  const { data: companies, loading: isLoading, error } = useCollection<DocumentData>(companiesQuery);
+  const { data: companies, loading, error } = useCollection<DocumentData>(companiesQuery);
 
-  const showLoadingSkeleton = isLoading || isUserLoading;
+  const showLoadingSkeleton = loading || isUserLoading;
 
   const renderContent = () => {
     if (showLoadingSkeleton) {
@@ -32,10 +30,9 @@ export default function CompaniesPage() {
     }
 
     if (error) {
-      // The useCollection hook now returns a string error.
       return (
         <div className="text-destructive-foreground bg-destructive p-4 rounded-md">
-          <p>An error occurred while fetching data. The permission error has been logged to the console and should now be resolved.</p>
+          <p>An error occurred while fetching data: {error}</p>
         </div>
       );
     }

@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { CardContent, CardHeader, CardTitle } from '../ui/card';
 import { MessageSquare, Send, X, KeyRound, CreditCard, User, FileQuestion, HelpCircle, Loader2, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 import { Input } from '../ui/input';
@@ -54,7 +54,6 @@ export function SupportChatWidget() {
 
   useEffect(() => {
     if (isOpen) {
-      // Reset chat when opening
       setMessages(initialMessages);
       setShowClosingScreen(false);
       setRating(0);
@@ -189,7 +188,7 @@ export function SupportChatWidget() {
                         </div>
                       </div>
                     )}
-                     {messages.length === 1 && ( // Only show topics initially
+                     {messages.length === 1 && (
                          <div className="space-y-2 pt-2">
                             <p className="text-sm text-muted-foreground">Choose a topic below or just type your message:</p>
                             {topicOptions.map((topic, i) => (
@@ -216,7 +215,7 @@ export function SupportChatWidget() {
                      </div>
                  </div>
                 <div className="p-3 border-t bg-background">
-                  <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+                  <form onSubmit={(e) => handleSendMessage(e)} className="flex items-center gap-2">
                     <Input
                       value={newMessage}
                       onChange={(e) => setNewMessage(e.target.value)}

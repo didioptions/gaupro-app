@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
@@ -13,7 +12,7 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
 import { useFirestore, useCollection, useMemoFirebase, useUser } from '@/firebase';
-import { collection, query, orderBy } from 'firebase/firestore';
+import { collection } from 'firebase/firestore';
 import { cityExpansionMap } from '@/lib/location-data';
 
 
@@ -46,19 +45,16 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
     const professionalsQuery = useMemoFirebase(() => {
       if (!firestore || isUserLoading) return null;
-      // Fetch all professionals. Filtering and sorting will happen on the client.
       return collection(firestore, 'professionalProfiles');
     }, [firestore, isUserLoading]);
 
-    const { data: allProsFromFirestore, loading: professionalsLoading, error } = useCollection<Professional>(professionalsQuery);
+    const { data: allProsFromFirestore, loading, error } = useCollection<Professional>(professionalsQuery);
 
-    // Filter and sort the results on the client side
     const professionals = useMemo(() => {
         if (!allProsFromFirestore || !service?.label) return [];
 
         const serviceLabelLower = service.label.toLowerCase();
 
-        // 1. Filter by service
         const serviceFiltered = allProsFromFirestore.filter(pro => {
           if (pro.serviceCategory && pro.serviceCategory.toLowerCase() === serviceLabelLower) {
             return true;
@@ -72,7 +68,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
           return offeredServices.some(s => s.includes(serviceLabelLower));
         });
         
-        // 2. If no location query, return all sorted
         if (!locationQuery || typeof locationQuery !== 'string') {
           return serviceFiltered.sort((a, b) => {
              if (a.priorityRank !== b.priorityRank) {
@@ -82,15 +77,13 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
           });
         }
         
-        // 3. Filter by location
         const locationFiltered = serviceFiltered.filter(pro => {
-            // Determine the full service area for the professional by expanding their locations
             const proFullCoverage = new Set<string>();
             const initialProLocations = new Set<string>();
             if (pro.location) initialProLocations.add(pro.location);
             if (pro.serviceAreas) pro.serviceAreas.forEach(loc => initialProLocations.add(loc));
             
-            if (initialProLocations.size === 0) return false; // Pro has no location data
+            if (initialProLocations.size === 0) return false;
 
             initialProLocations.forEach(slug => {
               const metroKey = Object.keys(cityExpansionMap).find(key => 
@@ -99,11 +92,10 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
               if (metroKey) {
                   cityExpansionMap[metroKey].forEach(metroSlug => proFullCoverage.add(metroSlug));
               } else {
-                  proFullCoverage.add(slug); // Add slug itself if not in a metro
+                  proFullCoverage.add(slug);
               }
             });
             
-            // Check if the user's searched location is in the pro's full coverage area
             return proFullCoverage.has(locationQuery);
         });
 
@@ -148,7 +140,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     }, [currentService, locationName]);
 
     const ProfessionalList = () => {
-        if (!isClient || professionalsLoading || isUserLoading) {
+        if (!isClient || loading || isUserLoading) {
             return Array.from({ length: 3 }).map((_, index) => (
                 <Card key={index}>
                     <CardContent className="p-6">
