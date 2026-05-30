@@ -22,10 +22,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'developer.apple.com',
       },
-      {
-        protocol: 'https',
-        hostname: 'lh3.googleusercontent.com',
-      }
     ],
   },
 };
