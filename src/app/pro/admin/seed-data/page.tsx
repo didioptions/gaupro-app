@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
@@ -16,7 +15,7 @@ export default function SeedDataViewerPage() {
     return collection(firestore, 'professionalProfiles');
   }, [firestore, isUserLoading]);
   
-  const { data: profiles, isLoading, error } = useCollection<DocumentData>(profilesQuery);
+  const { data: profiles, loading: isLoading, error } = useCollection<DocumentData>(profilesQuery);
   const showLoadingSkeleton = isLoading || isUserLoading;
 
   const renderContent = () => {
@@ -34,7 +33,7 @@ export default function SeedDataViewerPage() {
     if (error) {
       return (
         <div className="text-destructive-foreground bg-destructive p-4 rounded-md">
-          <p>Error loading data: {error.message}</p>
+          <p>Error loading data: {error}</p>
         </div>
       );
     }

@@ -50,7 +50,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
       return collection(firestore, 'professionalProfiles');
     }, [firestore, isUserLoading]);
 
-    const { data: allProsFromFirestore, isLoading: professionalsLoading, error } = useCollection<Professional>(professionalsQuery);
+    const { data: allProsFromFirestore, loading: professionalsLoading, error } = useCollection<Professional>(professionalsQuery);
 
     // Filter and sort the results on the client side
     const professionals = useMemo(() => {
@@ -178,7 +178,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                 <Card>
                     <CardContent className="p-6 text-center text-destructive">
                         <p className="text-lg">Error loading professionals.</p>
-                        <p className="text-sm mt-2">{error.message}</p>
+                        <p className="text-sm mt-2">{error}</p>
                     </CardContent>
                 </Card>
             )

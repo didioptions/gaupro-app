@@ -16,7 +16,7 @@ export default function CompaniesPage() {
     return collection(firestore, 'companies');
   }, [firestore, isUserLoading]);
   
-  const { data: companies, isLoading, error } = useCollection<DocumentData>(companiesQuery);
+  const { data: companies, loading: isLoading, error } = useCollection<DocumentData>(companiesQuery);
 
   const showLoadingSkeleton = isLoading || isUserLoading;
 
@@ -32,8 +32,7 @@ export default function CompaniesPage() {
     }
 
     if (error) {
-      // The useCollection hook now throws the error, which is caught by Next.js error boundaries.
-      // This is for graceful UI feedback if needed.
+      // The useCollection hook now returns a string error.
       return (
         <div className="text-destructive-foreground bg-destructive p-4 rounded-md">
           <p>An error occurred while fetching data. The permission error has been logged to the console and should now be resolved.</p>

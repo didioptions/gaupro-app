@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useMemo } from 'react';
@@ -25,7 +24,7 @@ export default function FeaturedProfessionals() {
     );
   }, [firestore, isUserLoading]);
 
-  const { data: professionals, isLoading } = useCollection<Professional>(professionalsQuery);
+  const { data: professionals, loading: isLoading } = useCollection<Professional>(professionalsQuery);
 
   const showLoadingSkeleton = isLoading || isUserLoading;
 

@@ -31,7 +31,7 @@ export default function FindProPage() {
       if (!firestore || isUserLoading) return null;
       return collection(firestore, 'professionalProfiles');
   }, [firestore, isUserLoading]);
-  const { data: allProsFromFirestore, isLoading: isLoadingPros } = useCollection<Professional>(allProfessionalsQuery);
+  const { data: allProsFromFirestore, loading: isLoadingPros } = useCollection<Professional>(allProfessionalsQuery);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
