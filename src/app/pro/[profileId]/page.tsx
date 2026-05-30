@@ -7,8 +7,6 @@ import { useMemo } from 'react';
 
 import ProfileDisplay from '@/components/pro/profile-display';
 import type { Professional } from '@/components/pro/profile-display';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent } from '@/components/ui/card';
 import { notFound } from 'next/navigation';
@@ -31,55 +29,47 @@ export default function ProfessionalProfilePage() {
   
   if (isLoading) {
     return (
-      <>
-        <Header />
-        <main className="bg-secondary/50 py-12">
-          <div className="container mx-auto px-4">
-             <div className="grid lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2 space-y-6">
-                    <Card>
-                        <CardContent className="p-6">
-                           <div className="flex flex-col sm:flex-row gap-6">
-                                <Skeleton className="h-28 w-28 rounded-md" />
-                                <div className="space-y-3 flex-grow">
-                                    <Skeleton className="h-8 w-3/4" />
-                                    <Skeleton className="h-5 w-1/4" />
-                                    <Skeleton className="h-5 w-full" />
-                                </div>
-                                <div className="space-y-3 text-center">
-                                     <Skeleton className="h-16 w-16 mx-auto" />
-                                     <Skeleton className="h-4 w-20 mx-auto" />
-                                </div>
-                           </div>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardContent className="p-6">
-                             <Skeleton className="h-40 w-full" />
-                        </CardContent>
-                    </Card>
-                </div>
-                <div className="space-y-6">
-                    <Card><CardContent className="p-6"><Skeleton className="h-24 w-full" /></CardContent></Card>
-                    <Card><CardContent className="p-6"><Skeleton className="h-24 w-full" /></CardContent></Card>
-                </div>
-            </div>
+      <main className="bg-secondary/50 py-12">
+        <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-6">
+                  <Card>
+                      <CardContent className="p-6">
+                          <div className="flex flex-col sm:flex-row gap-6">
+                              <Skeleton className="h-28 w-28 rounded-md" />
+                              <div className="space-y-3 flex-grow">
+                                  <Skeleton className="h-8 w-3/4" />
+                                  <Skeleton className="h-5 w-1/4" />
+                                  <Skeleton className="h-5 w-full" />
+                              </div>
+                              <div className="space-y-3 text-center">
+                                    <Skeleton className="h-16 w-16 mx-auto" />
+                                    <Skeleton className="h-4 w-20 mx-auto" />
+                              </div>
+                          </div>
+                      </CardContent>
+                  </Card>
+                  <Card>
+                      <CardContent className="p-6">
+                            <Skeleton className="h-40 w-full" />
+                      </CardContent>
+                  </Card>
+              </div>
+              <div className="space-y-6">
+                  <Card><CardContent className="p-6"><Skeleton className="h-24 w-full" /></CardContent></Card>
+                  <Card><CardContent className="p-6"><Skeleton className="h-24 w-full" /></CardContent></Card>
+              </div>
           </div>
-        </main>
-        <Footer />
-      </>
+        </div>
+      </main>
     );
   }
 
   if (error) {
      return (
-        <>
-            <Header />
-            <main className="bg-secondary/50 py-12 text-center">
-                <p className="text-destructive">Error loading profile: {error.message}</p>
-            </main>
-            <Footer />
-        </>
+        <main className="bg-secondary/50 py-12 text-center">
+            <p className="text-destructive">Error loading profile: {error.message}</p>
+        </main>
      )
   }
 
@@ -96,12 +86,8 @@ export default function ProfessionalProfilePage() {
   };
 
   return (
-    <>
-      <Header />
-      <main className="bg-secondary/50">
-        <ProfileDisplay professional={processedProfessional} />
-      </main>
-      <Footer />
-    </>
+    <main className="bg-secondary/50">
+      <ProfileDisplay professional={processedProfessional} />
+    </main>
   );
 }

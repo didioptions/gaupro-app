@@ -1,4 +1,3 @@
-
 'use client';
 
 import {
@@ -7,8 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import Footer from '@/components/layout/footer';
-import Header from '@/components/layout/header';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -170,63 +167,59 @@ const faqSections = [
 
 export default function FAQPage() {
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-background">
-        <div className="container mx-auto px-4 py-12 md:py-16">
-          <header className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-normal tracking-tight">
-              Frequently Asked Questions
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Find answers to common questions about using Gaupro, whether you're
-              a customer or a service professional.
-            </p>
-          </header>
+    <main className="flex-grow bg-background">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <header className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-normal tracking-tight">
+            Frequently Asked Questions
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Find answers to common questions about using Gaupro, whether you're
+            a customer or a service professional.
+          </p>
+        </header>
 
-          <div className="max-w-3xl mx-auto">
-            <Tabs defaultValue="customers" className="w-full">
-              <div className="flex justify-center border-b">
-                <TabsList className="bg-transparent p-0 h-auto">
-                  <TabsTrigger
-                    value="customers"
-                    className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-destructive data-[state=active]:text-destructive"
-                  >
-                    For Customers
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="pros"
-                    className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-foreground data-[state=active]:text-foreground"
-                  >
-                    For Pros
-                  </TabsTrigger>
-                </TabsList>
-              </div>
-              {faqSections.map((section) => (
-                <TabsContent value={section.value} key={section.value} className="mt-8">
-                  <Accordion type="single" collapsible className="w-full">
-                    {section.faqs.map((faq, index) => (
-                      <AccordionItem value={`item-${section.value}-${index}`} key={index}>
-                        <AccordionTrigger>{faq.q}</AccordionTrigger>
-                        <AccordionContent className="whitespace-pre-wrap">{faq.a}</AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </TabsContent>
-              ))}
-            </Tabs>
-
-            <div className="text-center border-t pt-12 mt-12">
-              <h3 className="text-xl font-semibold">Still have questions?</h3>
-              <p className="text-muted-foreground mt-2 mb-6">Our support team is here to help.</p>
-              <Button asChild>
-                <Link href="/contact">Contact Support</Link>
-              </Button>
+        <div className="max-w-3xl mx-auto">
+          <Tabs defaultValue="customers" className="w-full">
+            <div className="flex justify-center border-b">
+              <TabsList className="bg-transparent p-0 h-auto">
+                <TabsTrigger
+                  value="customers"
+                  className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-destructive data-[state=active]:text-destructive"
+                >
+                  For Customers
+                </TabsTrigger>
+                <TabsTrigger
+                  value="pros"
+                  className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none text-base text-foreground data-[state=active]:text-foreground"
+                >
+                  For Pros
+                </TabsTrigger>
+              </TabsList>
             </div>
+            {faqSections.map((section) => (
+              <TabsContent value={section.value} key={section.value} className="mt-8">
+                <Accordion type="single" collapsible className="w-full">
+                  {section.faqs.map((faq, index) => (
+                    <AccordionItem value={`item-${section.value}-${index}`} key={index}>
+                      <AccordionTrigger>{faq.q}</AccordionTrigger>
+                      <AccordionContent className="whitespace-pre-wrap">{faq.a}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </TabsContent>
+            ))}
+          </Tabs>
+
+          <div className="text-center border-t pt-12 mt-12">
+            <h3 className="text-xl font-semibold">Still have questions?</h3>
+            <p className="text-muted-foreground mt-2 mb-6">Our support team is here to help.</p>
+            <Button asChild>
+              <Link href="/contact">Contact Support</Link>
+            </Button>
           </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </main>
   );
 }

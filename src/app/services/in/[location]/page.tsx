@@ -1,6 +1,3 @@
-
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { allLocations } from '@/lib/locations';
@@ -21,9 +18,7 @@ export default function ServicesByLocationPage({ params }: { params: { location:
   const sortedServices = uniqueServiceLabels.sort((a, b) => a.localeCompare(b));
 
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-background">
+    <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
             <header className="mb-10">
                 <h1 className="text-3xl font-normal mb-2">Find Trusted Service Professionals in {locationName}</h1>
@@ -45,8 +40,6 @@ export default function ServicesByLocationPage({ params }: { params: { location:
                 </div>
             </div>
         </div>
-      </main>
-      <Footer />
-    </>
+    </main>
   );
 }

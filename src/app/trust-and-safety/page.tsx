@@ -1,9 +1,6 @@
-
 import { Button } from '@/components/ui/button';
-import Footer from '@/components/layout/footer';
-import Header from '@/components/layout/header';
 import Link from 'next/link';
-import { ShieldCheck, UserCheck, Lock, CreditCard, Star, AlertTriangle, ListChecks, FileText, Handshake } from 'lucide-react';
+import { UserCheck, Lock, CreditCard, Star, AlertTriangle, ListChecks, FileText, Handshake } from 'lucide-react';
 import Image from 'next/image';
 
 const safetyFeatures = [
@@ -51,67 +48,63 @@ const safetyFeatures = [
 
 export default function TrustAndSafetyPage() {
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-background">
-        <section className="relative min-h-[400px] flex items-center justify-center text-center text-white">
-           <Image
-                src="https://picsum.photos/seed/trust-hero/1920/500"
-                alt="Professional shaking hands with a client"
-                fill
-                className="object-cover"
-                priority
-                data-ai-hint="professional handshake"
-            />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="relative container mx-auto px-4 py-16">
-            <h1 className="text-3xl md:text-5xl font-extrabold">Your Safety is Our Priority</h1>
-            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90">
-             Gaupro ensures verified professionals, secure payments, and protected communication so you can connect with confidence.
-            </p>
-          </div>
-        </section>
-
-        <div className="container mx-auto px-4 py-12 md:py-20">
-          <div className="max-w-4xl mx-auto space-y-16">
-            
-            <section>
-                <div className="grid md:grid-cols-2 gap-8">
-                    {safetyFeatures.map(item => (
-                        <div key={item.title} className="flex items-start gap-6 p-6 border rounded-lg bg-card">
-                            <div className="flex-shrink-0 mt-1">{item.icon}</div>
-                            <div>
-                                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                                <p className="text-foreground">{item.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section className="text-center bg-primary text-primary-foreground p-10 rounded-lg">
-                <div className="relative max-w-3xl mx-auto">
-                    <Image 
-                        src="https://picsum.photos/seed/trust-cta/1200/400"
-                        alt="Happy professional and client completing a job"
-                        width={1200}
-                        height={400}
-                        className="rounded-lg mb-8"
-                        data-ai-hint="happy client job"
-                    />
-                    <h2 className="text-3xl font-bold">Join Gaupro and Connect with Confidence</h2>
-                    <div className="mt-8">
-                        <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                            <Link href="/pro/signup">Join as a Pro</Link>
-                        </Button>
-                    </div>
-                </div>
-            </section>
-
-          </div>
+    <main className="flex-grow bg-background">
+      <section className="relative min-h-[400px] flex items-center justify-center text-center text-white">
+          <Image
+              src="https://picsum.photos/seed/trust-hero/1920/500"
+              alt="Professional shaking hands with a client"
+              fill
+              className="object-cover"
+              priority
+              data-ai-hint="professional handshake"
+          />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative container mx-auto px-4 py-16">
+          <h1 className="text-3xl md:text-5xl font-extrabold">Your Safety is Our Priority</h1>
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90">
+            Gaupro ensures verified professionals, secure payments, and protected communication so you can connect with confidence.
+          </p>
         </div>
-      </main>
-      <Footer />
-    </>
+      </section>
+
+      <div className="container mx-auto px-4 py-12 md:py-20">
+        <div className="max-w-4xl mx-auto space-y-16">
+          
+          <section>
+              <div className="grid md:grid-cols-2 gap-8">
+                  {safetyFeatures.map(item => (
+                      <div key={item.title} className="flex items-start gap-6 p-6 border rounded-lg bg-card">
+                          <div className="flex-shrink-0 mt-1">{item.icon}</div>
+                          <div>
+                              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                              <p className="text-foreground">{item.description}</p>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </section>
+
+          <section className="text-center bg-primary text-primary-foreground p-10 rounded-lg">
+              <div className="relative max-w-3xl mx-auto">
+                  <Image 
+                      src="https://picsum.photos/seed/trust-cta/1200/400"
+                      alt="Happy professional and client completing a job"
+                      width={1200}
+                      height={400}
+                      className="rounded-lg mb-8"
+                      data-ai-hint="happy client job"
+                  />
+                  <h2 className="text-3xl font-bold">Join Gaupro and Connect with Confidence</h2>
+                  <div className="mt-8">
+                      <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                          <Link href="/pro/signup">Join as a Pro</Link>
+                      </Button>
+                  </div>
+              </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
   );
 }

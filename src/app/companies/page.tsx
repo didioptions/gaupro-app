@@ -1,10 +1,7 @@
-
 'use client';
 
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, DocumentData } from 'firebase/firestore';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -61,21 +58,17 @@ export default function CompaniesPage() {
   };
 
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-background">
-        <div className="container mx-auto px-4 py-12 md:py-16">
-          <Card>
-            <CardHeader>
-              <CardTitle>Companies from Firestore</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {renderContent()}
-            </CardContent>
-          </Card>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <main className="flex-grow bg-background">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <Card>
+          <CardHeader>
+            <CardTitle>Companies from Firestore</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {renderContent()}
+          </CardContent>
+        </Card>
+      </div>
+    </main>
   );
 }

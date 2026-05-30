@@ -1,14 +1,11 @@
-
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { getProfessionalById } from '@/lib/professionals-data';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -260,16 +257,12 @@ const LoadingSkeleton = () => (
 
 export default function WriteReviewPage() {
   return (
-    <>
-      <Header />
-      <main className="flex-grow bg-secondary/50 py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <Suspense fallback={<LoadingSkeleton />}>
-            <WriteReviewContent />
-          </Suspense>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <main className="flex-grow bg-secondary/50 py-12 md:py-16">
+      <div className="container mx-auto px-4">
+        <Suspense fallback={<LoadingSkeleton />}>
+          <WriteReviewContent />
+        </Suspense>
+      </div>
+    </main>
   );
 }
