@@ -1,10 +1,9 @@
-
 'use client';
 
-import { Check, Clock, DollarSign, MapPin, Verified } from "lucide-react";
+import { Check, Clock, DollarSign, MapPin, BadgeCheck } from "lucide-react";
 
 const benefits = [
-    { icon: <Verified className="h-5 w-5 text-primary" />, text: 'Verified Experts' },
+    { icon: <BadgeCheck className="h-5 w-5 text-primary" />, text: 'Verified Experts' },
     { icon: <Clock className="h-5 w-5 text-primary" />, text: 'Save Time' },
     { icon: <DollarSign className="h-5 w-5 text-primary" />, text: 'Compare Quotes' },
     { icon: <MapPin className="h-5 w-5 text-primary" />, text: 'Nearby Services' },
