@@ -16,9 +16,9 @@ const hardcodedConfig = {
 };
 
 export default function DebugPage() {
-  const [logs, setLogs] = useState([]);
+  const [logs, setLogs] = useState<string[]>([]);
 
-  const addLog = (msg) => setLogs(prev => [...prev, msg]);
+  const addLog = (msg: string) => setLogs(prev => [...prev, msg]);
 
   useEffect(() => {
     async function runDiagnostics() {
@@ -48,7 +48,7 @@ export default function DebugPage() {
            addLog("⚠️ Collection exists but is empty.");
         }
 
-      } catch (error) {
+      } catch (error: any) {
         addLog("------------------------------------------------");
         addLog(`❌ FAILED: ${error.message}`);
         addLog(`🛑 Code: ${error.code}`);
@@ -73,3 +73,4 @@ export default function DebugPage() {
     </div>
   );
 }
+Fix TypeScript typing in debug page
