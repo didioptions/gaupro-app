@@ -73,4 +73,3 @@ export default function DebugPage() {
     </div>
   );
 }
-Fix TypeScript typing in debug page
