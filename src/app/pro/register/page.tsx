@@ -66,7 +66,15 @@ export default function ProRegisterPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+      if (!auth) {
+        throw new Error('Authentication is not initialized');
+      }
+  
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
       // After creating the user, update their profile with the full name
       await updateProfile(userCredential.user, {
         displayName: values.fullName
