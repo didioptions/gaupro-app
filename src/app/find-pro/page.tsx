@@ -47,8 +47,8 @@ export default function FindProPage() {
     const professionalProfilesForAI = (allProsFromFirestore || []).map((pro) => ({
       name: pro.name,
       skills: pro.tags || [pro.serviceCategory],
-      location: pro.location,
-      availability: 'Available', // Placeholder
+      location: pro.location ?? '',
+      availability: 'Available',
     }));
 
     const input: MatchServiceRequestsInput = {
