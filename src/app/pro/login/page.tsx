@@ -53,6 +53,10 @@ export default function ProLoginPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     try {
+      if (!auth) {
+        throw new Error('Authentication is not initialized');
+      }
+      
       await signInWithEmailAndPassword(auth, values.email, values.password);
       router.push('/pro/dashboard');
     } catch (error: any) {
