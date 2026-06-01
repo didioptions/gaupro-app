@@ -79,7 +79,7 @@ export default function ProfessionalProfilePage() {
 
   const singularOrPluralLowercase = serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`;
   const processedProfessional: Professional = {
-    ...(professionalData as Omit<Professional, 'id'>),
+    ...(professionalData as unknown as Omit<Professional, 'id'>),
     id: profileId,
     description: (professionalData.description || '').replace('{service}', singularOrPluralLowercase),
     tags: professionalData.tags || [singularOrPluralLowercase],
