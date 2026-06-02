@@ -51,7 +51,7 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/120/120`;
   const imageHint = proImage ? proImage.imageHint : "company logo";
   
-  const locationText = professional.location ? (allLocations.find(l => l.value === professional.location)?.label || professional.location) : (Array.isArray(professional.locations) && professional.locations.length > 0 ? professional.locations.map(loc => allLocations.find(l => l.value === loc)?.label || loc).join(', ') : '');
+  const locationText = professional.location ? (allLocations.find(l => l.value === professional.location)?.label || professional.location) : (Array.isArray(professional.locations) && professional.locations.length > 0 ? professional.locations.map((loc: string) => allLocations.find(l => l.value === loc)?.label || loc).join(', ') : '');
     
   const allOfferedServices = Array.from(new Set([...(professional.services || []), ...(professional.tags || [])]));
 
@@ -88,7 +88,7 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                               <span className="font-medium">Covered Areas:</span>
                               {professional.locations && professional.locations.length > 0 ? (
                                 <span className="text-foreground">
-                                  {professional.locations.map(loc => allLocations.find(l => l.value === loc)?.label || loc.charAt(0).toUpperCase() + loc.slice(1)).join(", ")}
+                                  {professional.locations.map((loc: string) => allLocations.find(l => l.value === loc)?.label || loc.charAt(0).toUpperCase() + loc.slice(1)).join(", ")}
                                 </span>
                               ) : (
                                 <span className="text-foreground">{professional.location}</span>

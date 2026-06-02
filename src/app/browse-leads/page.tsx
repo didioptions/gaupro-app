@@ -18,12 +18,14 @@ import {
 
 const MAX_QUOTES_ALLOWED = 5;
 
+type JobRequest = typeof jobRequests[0];
+
 export default function BrowseLeadsPage() {
   const [serviceQuery, setServiceQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
   
   const filteredJobs = useMemo(() => {
-    return jobRequests.filter(job => {
+    return jobRequests.filter((job: JobRequest) => {
       const serviceMatch = !serviceQuery || 
         job.title.toLowerCase().includes(serviceQuery.toLowerCase()) || 
         job.category.toLowerCase().includes(serviceQuery.toLowerCase());

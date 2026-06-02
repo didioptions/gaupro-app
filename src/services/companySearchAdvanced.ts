@@ -1,4 +1,3 @@
-
 'use client';
 
 import {
@@ -9,8 +8,7 @@ import {
   orderBy,
   limit,
   getDocs,
-  Query,
-  DocumentData,
+  QueryDocumentSnapshot,
   Timestamp,
 } from 'firebase/firestore';
 
@@ -67,7 +65,7 @@ export async function searchCompaniesAdvanced(
   let querySnapshot = await getDocs(queryLevel1);
   if (!querySnapshot.empty) {
     return querySnapshot.docs.map(
-      (doc) => ({ id: doc.id, ...doc.data() } as Company)
+      (doc: QueryDocumentSnapshot) => ({ id: doc.id, ...doc.data() } as Company)
     );
   }
 
@@ -81,7 +79,7 @@ export async function searchCompaniesAdvanced(
   querySnapshot = await getDocs(queryLevel2);
   if (!querySnapshot.empty) {
     return querySnapshot.docs.map(
-      (doc) => ({ id: doc.id, ...doc.data() } as Company)
+      (doc: QueryDocumentSnapshot) => ({ id: doc.id, ...doc.data() } as Company)
     );
   }
 
@@ -94,6 +92,6 @@ export async function searchCompaniesAdvanced(
   
   querySnapshot = await getDocs(queryLevel3);
   return querySnapshot.docs.map(
-    (doc) => ({ id: doc.id, ...doc.data() } as Company)
+    (doc: QueryDocumentSnapshot) => ({ id: doc.id, ...doc.data() } as Company)
   );
 }

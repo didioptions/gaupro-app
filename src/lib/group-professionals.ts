@@ -1,10 +1,9 @@
-
 import {
   getFirestore,
   collection,
   getDocs,
   query,
-  type DocumentData,
+  type QueryDocumentSnapshot,
   type Firestore,
 } from 'firebase/firestore';
 
@@ -49,7 +48,7 @@ export async function groupProfessionalsByServiceAndCity(db: Firestore): Promise
     }
 
     // Use reduce to group the documents into the desired nested structure
-    const groupedData = querySnapshot.docs.reduce((acc, doc) => {
+    const groupedData = querySnapshot.docs.reduce((acc: GroupedProfessionals, doc: QueryDocumentSnapshot) => {
       const professional = { id: doc.id, ...doc.data() } as Professional;
       
       const serviceCategory = professional.serviceCategory;

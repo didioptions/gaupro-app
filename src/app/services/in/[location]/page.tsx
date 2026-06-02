@@ -9,7 +9,7 @@ export async function generateStaticParams() {
 }
 
 export default function ServicesByLocationPage({ params }: { params: { location: string } }) {
-  const locationName = params.location.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const locationName = params.location.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
   // Create a Set to store unique labels, then convert back to an array
   const uniqueServiceLabels = Array.from(new Set(allServices.map(s => s.label)));

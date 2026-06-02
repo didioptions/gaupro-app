@@ -12,7 +12,7 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
 import { useFirestore, useCollection, useMemoFirebase, useUser } from '@/firebase';
-import { collection } from 'firebase/firestore';
+import { collection, DocumentData } from 'firebase/firestore';
 import { cityExpansionMap } from '@/lib/location-data';
 
 
@@ -33,12 +33,12 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
 
     const service = allServices.find(s => s.value === currentService);
-    const serviceLabel = service?.label || currentService.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const serviceLabel = service?.label || currentService.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
 
     const pluralServiceLabel = service?.label.endsWith('s') ? service.label : `${service?.label}s` || (serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`);
     
     const locationName = typeof locationQuery === 'string'
-        ? locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        ? locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : "South Africa";
 
     const firestore = useFirestore();
@@ -55,7 +55,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
         const serviceLabelLower = service.label.toLowerCase();
 
-        const serviceFiltered = allProsFromFirestore.filter(pro => {
+        const serviceFiltered = allProsFromFirestore.filter((pro: Professional) => {
           if (pro.serviceCategory && pro.serviceCategory.toLowerCase() === serviceLabelLower) {
             return true;
           }
@@ -63,9 +63,9 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
             ...(pro.services || []),
             ...(pro.tags || []),
             ...(pro.servicesOffered || [])
-          ].map(s => s.toLowerCase());
+          ].map((s: string) => s.toLowerCase());
 
-          return offeredServices.some(s => s.includes(serviceLabelLower));
+          return offeredServices.some((s: string) => s.includes(serviceLabelLower));
         });
         
         if (!locationQuery || typeof locationQuery !== 'string') {
@@ -77,20 +77,20 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
           });
         }
         
-        const locationFiltered = serviceFiltered.filter(pro => {
+        const locationFiltered = serviceFiltered.filter((pro: Professional) => {
             const proFullCoverage = new Set<string>();
             const initialProLocations = new Set<string>();
             if (pro.location) initialProLocations.add(pro.location);
-            if (pro.serviceAreas) pro.serviceAreas.forEach(loc => initialProLocations.add(loc));
+            if (pro.serviceAreas) pro.serviceAreas.forEach((loc: string) => initialProLocations.add(loc));
             
             if (initialProLocations.size === 0) return false;
 
-            initialProLocations.forEach(slug => {
-              const metroKey = Object.keys(cityExpansionMap).find(key => 
+            initialProLocations.forEach((slug: string) => {
+              const metroKey = Object.keys(cityExpansionMap).find((key: string) => 
                 cityExpansionMap[key].includes(slug)
               );
               if (metroKey) {
-                  cityExpansionMap[metroKey].forEach(metroSlug => proFullCoverage.add(metroSlug));
+                  cityExpansionMap[metroKey].forEach((metroSlug: string) => proFullCoverage.add(metroSlug));
               } else {
                   proFullCoverage.add(slug);
               }
@@ -187,7 +187,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
             );
         }
         
-        return professionals.map((pro: any) => (
+        return professionals.map((pro: Professional) => (
             <ProfessionalCard key={pro.id} professional={pro} service={currentService} />
         ));
     };
@@ -239,7 +239,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                     <h3 className="mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
                                     <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                                         <li>{allProsFromFirestore?.reduce((acc, pro) => acc + (pro.reviews || 0), 0) || 'Many'}+ Reviews for {pluralServiceLabel.toLowerCase()}</li>
-                                        <li>{(allProsFromFirestore?.filter(p => p.rating >= 4).length || 0) * 10}+ Positive Reviews</li>
+                                        <li>{(allProsFromFirestore?.filter((p: Professional) => p.rating >= 4).length || 0) * 10}+ Positive Reviews</li>
                                         <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
                                         <li>View {locationName} Pros for {pluralServiceLabel.toLowerCase()} today</li>
                                     </ul>
@@ -249,7 +249,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 <CardContent className="p-6">
                                     <h3 className="mb-3 text-foreground">Why Use Gaupro?</h3>
                                     <ul className="text-sm text-muted-foreground space-y-2">
-                                        {benefits.map(benefit => <li key={benefit}>{benefit}</li>)}
+                                        {benefits.map((benefit: string) => <li key={benefit}>{benefit}</li>)}
                                     </ul>
                                 </CardContent>
                             </Card>

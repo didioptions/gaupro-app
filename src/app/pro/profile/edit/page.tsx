@@ -95,7 +95,7 @@ export default function EditProfilePage() {
         }
     };
 
-    fetchProfile();
+    const unsubscribe = fetchProfile();
   }, [user, isUserLoading, firestore, toast]);
 
   useEffect(() => {
@@ -105,7 +105,7 @@ export default function EditProfilePage() {
     const currentAreas = new Set(formData.serviceAreas || []);
 
     if (!currentAreas.has(primaryCitySlug)) {
-        const metro = Object.keys(cityExpansionMap).find(key => 
+        const metro = Object.keys(cityExpansionMap).find((key: string) => 
           cityExpansionMap[key].includes(primaryCitySlug!)
         );
         const suggestions = metro ? cityExpansionMap[metro] : [primaryCitySlug];
@@ -337,7 +337,7 @@ export default function EditProfilePage() {
 
                 <div>
                   <h2 className="text-xl font-normal mb-4">Business Hours</h2>
-                  <RadioGroup value={formData.businessHours || 'no_hours'} onValueChange={(value) => handleRadioChange('businessHours', value)} className="flex flex-col md:flex-row gap-4 md:gap-8">
+                  <RadioGroup value={formData.businessHours || 'no_hours'} onValueChange={(value: string) => handleRadioChange('businessHours', value)} className="flex flex-col md:flex-row gap-4 md:gap-8">
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="has_hours" id="has_hours" />
                       <Label htmlFor="has_hours" className="font-normal">Has business hours</Label>
@@ -456,7 +456,7 @@ export default function EditProfilePage() {
                     <Autocomplete
                         options={allLocations}
                         value={formData.location || ''}
-                        onValueChange={(value) => handleAutocompleteChange('location', value)}
+                        onValueChange={(value: string) => handleAutocompleteChange('location', value)}
                         placeholder="Type to select your primary city..."
                     />
                     <p className="text-xs text-muted-foreground">This is the main city your business is based in.</p>
@@ -505,7 +505,7 @@ export default function EditProfilePage() {
                         <Autocomplete
                             options={allLocations.filter(l => !(formData.serviceAreas || []).includes(l.value))}
                             value={''}
-                            onValueChange={(value) => {
+                            onValueChange={(value: string) => {
                                 if (value) {
                                     handleServiceAreaAdd(value);
                                 }
@@ -521,7 +521,7 @@ export default function EditProfilePage() {
                     <h2 className="text-xl font-normal mb-4">Radius for Service Area</h2>
                      <p className="text-sm text-muted-foreground mb-4">Set the radius from your City which covers your service area, we'll only send you customer requests within this coverage.</p>
                      <div className="flex items-center gap-4">
-                        <Select value={formData.radius || '50'} onValueChange={(value) => handleSelectChange('radius', value)}>
+                        <Select value={formData.radius || '50'} onValueChange={(value: string) => handleSelectChange('radius', value)}>
                             <SelectTrigger className="w-[120px]">
                                 <SelectValue />
                             </SelectTrigger>

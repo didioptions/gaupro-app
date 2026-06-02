@@ -81,7 +81,7 @@ export default function PostRequestPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   
-  const initialLocation = locationQuery.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const initialLocation = locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const [locationValue, setLocationValue] = useState(initialLocation);
 
   useEffect(() => {
@@ -139,7 +139,7 @@ export default function PostRequestPage() {
     if (checked) {
         handleInputChange(questionId, [...currentValues, optionValue]);
     } else {
-        handleInputChange(questionId, currentValues.filter((v) => v !== optionValue));
+        handleInputChange(questionId, currentValues.filter((v: string) => v !== optionValue));
     }
   };
 
@@ -203,7 +203,7 @@ export default function PostRequestPage() {
             <Autocomplete
               options={allServices}
               value={selectedService}
-              onValueChange={(value) => {
+              onValueChange={(value: string) => {
                 const serviceExists = allServices.some(s => s.value === value);
                 setSelectedService(value);
                 if (serviceExists) {
@@ -293,7 +293,7 @@ export default function PostRequestPage() {
             <h3 className="mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
               <RadioGroup
-                onValueChange={(value) => handleInputChange(currentQuestion.id, value)}
+                onValueChange={(value: string) => handleInputChange(currentQuestion.id, value)}
                 value={formData[currentQuestion.id] as string | undefined}
               >
                 <div className="space-y-3">
@@ -354,7 +354,7 @@ export default function PostRequestPage() {
                         <Autocomplete
                             options={allLocations}
                             value={formData['suburb'] as string || ''}
-                            onValueChange={(value) => {
+                            onValueChange={(value: string) => {
                                 const location = allLocations.find(l => l.value === value);
                                 handleInputChange('suburb', location?.label || value);
                             }}
@@ -459,7 +459,7 @@ export default function PostRequestPage() {
                     />
                 </div>
                  <div className="space-y-2">
-                    <Select onValueChange={(value) => handleInputChange('contactTime', value)} defaultValue="anytime">
+                    <Select onValueChange={(value: string) => handleInputChange('contactTime', value)} defaultValue="anytime">
                       <SelectTrigger>
                         <SelectValue placeholder="Contact me..." />
                       </SelectTrigger>
@@ -509,7 +509,7 @@ export default function PostRequestPage() {
           <section className="max-w-4xl mx-auto mt-16">
               <h2 className="text-2xl text-center mb-8 font-normal">Why choose Gaupro for reliable service?</h2>
               <div className="grid md:grid-cols-2 gap-8">
-                  {whyChooseGaupro.map(item => (
+                  {whyChooseGaupro.map((item) => (
                       <div key={item.title} className="flex items-start gap-4">
                           <div className="text-3xl">{item.icon}</div>
                           <div>
