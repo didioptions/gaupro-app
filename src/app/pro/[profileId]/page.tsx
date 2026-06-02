@@ -1,4 +1,5 @@
 'use client';
+export const dynamic = "force-dynamic";
 
 import { useParams, useSearchParams } from 'next/navigation';
 import { useDoc, useFirestore } from '@/firebase';
@@ -66,9 +67,10 @@ export default function ProfessionalProfilePage() {
   }
 
   if (error) {
+     const errorMessage = error instanceof Error ? error.message : String(error);
      return (
         <main className="bg-secondary/50 py-12 text-center">
-            <p className="text-destructive">Error loading profile: {error.message}</p>
+            <p className="text-destructive">Error loading profile: {errorMessage}</p>
         </main>
      )
   }
