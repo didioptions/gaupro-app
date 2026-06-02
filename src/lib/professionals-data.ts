@@ -24,6 +24,7 @@ export const allProfessionals: ProfessionalsByCategory = {
   "computer-repairs": [
     {
         "id": "pro-comprepair-1",
+        "name": "Midrand PC & Mac Repairs",
         "locations": ["midrand", "centurion", "sunninghill"],
         "description": "Expert repairs for all brands of laptops and desktops, including Apple MacBooks. We handle everything from screen replacements and battery issues to software troubleshooting and data recovery. Fast, reliable service in the Midrand area.",
         "rating": 4.8,
@@ -48,6 +49,7 @@ export const allProfessionals: ProfessionalsByCategory = {
   "doors": [
     {
         "id": "pro-door-1",
+        "name": "Pretoria Door & Lock",
         "locations": ["menlyn", "pretoria east", "waterkloof"],
         "description": "Specialists in solid wood and hollow core door installations for residential homes in Pretoria East. We handle everything from trimming to hanging and lock installation. Whether you are replacing old doors or finishing a new build, our carpentry team ensures a perfect close every time.",
         "rating": 4.7,
@@ -64,6 +66,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-door-2",
+        "name": "Sandton Modern Doors",
         "locations": ["sandton", "rosebank", "bryanston"],
         "description": "We focus on high-end pivot doors and aluminium stacking doors for modern homes and offices. Our team is experienced in handling heavy, expensive door systems that require precision alignment. We also offer automated door solutions for commercial properties.",
         "rating": 4.9,
@@ -80,6 +83,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-door-3",
+        "name": "West Rand Door Fitters",
         "locations": ["roodepoort", "florida", "weltevredenpark"],
         "description": "Your local West Rand experts for internal door replacement and garage door motor repairs. We offer budget-friendly packages for landlords and homeowners looking to spruce up their properties. We supply and fit standard doors quickly.",
         "rating": 4.5,
@@ -96,6 +100,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-door-4",
+        "name": "East Rand Fire & Security Doors",
         "locations": ["boksburg", "benoni", "kempton park"],
         "description": "Servicing the industrial and residential hubs of the East Rand. We specialize in fire doors for businesses and sturdy external doors for homes. We ensure all installations meet safety regulations and provide robust security.",
         "rating": 4.6,
@@ -112,6 +117,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-door-5",
+        "name": "Midrand Custom Doors",
         "locations": ["midrand", "centurion", "sunninghill"],
         "description": "Strategically located to serve both JHB and Pretoria. We are experts in custom-sized doors and weird angles. If you have a door opening that isn't standard, we can modify the door or the frame to fit perfectly without drafts.",
         "rating": 4.8,
@@ -128,6 +134,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-door-6",
+        "name": "Jozi Vintage Door Restorations",
         "locations": ["johannesburg cbd", "braamfontein", "newtown"],
         "description": "Specializing in renovation projects in older Johannesburg homes. We restore vintage doors and install new hardware on antique frames. We also handle modern apartment door replacements for body corporates.",
         "rating": 4.9,
@@ -144,6 +151,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-door-7",
+        "name": "Soweto Security & Wood Doors",
         "locations": ["soweto", "orlando", "diepkloof"],
         "description": "Providing affordable and durable door solutions for the South. We combine carpentry with steelwork to install strong wooden doors reinforced with security gates. We prioritize safety and longevity in all our installs.",
         "rating": 4.6,
@@ -162,6 +170,7 @@ export const allProfessionals: ProfessionalsByCategory = {
   "drywalls": [
     {
         "id": "pro-drywall-1",
+        "name": "Centurion Office Partitions",
         "locations": ["centurion", "pretoria", "midrand"],
         "description": "We transform open-plan offices into productive workspaces. Specializing in glass and aluminum drywall systems as well as standard gypsum board partitioning. We offer painting and skirting as part of a turnkey solution for businesses.",
         "rating": 4.8,
@@ -178,6 +187,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-drywall-2",
+        "name": "Randburg Residential Drywall",
         "locations": ["randburg", "ferndale", "cresta"],
         "description": "Need a wall up fast? We specialize in residential dry walling for creating extra bedrooms, en-suites, or walk-in closets. Our team is known for \"dust-free\" sanding techniques and seamless joining.",
         "rating": 4.7,
@@ -194,6 +204,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-drywall-3",
+        "name": "Pretoria North Shopfitters",
         "locations": ["pretoria north", "akasia", "montana"],
         "description": "Servicing the Northern suburbs with industrial and residential ceiling and partitioning solutions. We handle high-volume jobs for shops and warehouses, as well as intricate bulkheads for home cinemas and lounges.",
         "rating": 4.5,
@@ -210,6 +221,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-drywall-4",
+        "name": "Edenvale Ceiling & Drywall",
         "locations": ["edenvale", "bedfordview", "greenstone"],
         "description": "Experts in moisture-resistant dry walling for bathrooms and kitchens. We also specialize in repairing water-damaged ceilings and partitions. We use top-quality rhinolite for a glass-smooth finish.",
         "rating": 4.9,
@@ -226,6 +238,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-drywall-5",
+        "name": "Sandton Architectural Drywall",
         "locations": ["sandton", "rosebank", "bryanston"],
         "description": "Premium dry walling services for luxury homes and corporate HQs. We focus on aesthetic designs, including curved walls, shadow-line cornices, and recessed lighting features. We bring architectural drawings to life.",
         "rating": 4.8,
@@ -242,6 +255,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-drywall-6",
+        "name": "Vaal Industrial Drywall",
         "locations": ["vereeniging", "vanderbijlpark", "meyerton"],
         "description": "Covering the southern tip of Gauteng. We provide robust dry walling solutions for factories and affordable room divisions for residential properties. No job is too small or too big for our mobile team.",
         "rating": 4.6,
@@ -260,6 +274,7 @@ export const allProfessionals: ProfessionalsByCategory = {
   "blinds": [
     {
         "id": "pro-blinds-1",
+        "name": "Aura Luxury Blinds",
         "locations": ["sandton", "rosebank", "bryanston"],
         "description": "Luxury window treatment specialists offering bespoke fabric blinds and automated shading. We specialize in sophisticated textures and high-end motorization for Sandton’s premier homes. Our collection includes exclusive imported fabrics for Roman and Roller blinds that combine elegance with smart-home connectivity.",
         "rating": 4.9,
@@ -276,6 +291,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-2",
+        "name": "Pretoria Value Blinds",
         "locations": ["pretoria east", "menlyn", "faerie glen"],
         "description": "The go-to supplier for durable and affordable window blinds in the Pretoria area. We offer bulk discounts for office blocks and competitive pricing for residential homes. Our range features heavy-duty aluminium venetians and easy-to-clean PVC shutters designed for the busy South African lifestyle.",
         "rating": 4.6,
@@ -292,6 +308,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-3",
+        "name": "Midrand Vision Blinds",
         "locations": ["midrand", "centurion", "sunninghill"],
         "description": "Specialized in large-scale window solutions for the modern estates of Midrand. We focus on \"Vision\" zebra blinds and sun-filtering rollers that protect your furniture from UV damage without losing your view. Our expert consultants help you choose the perfect density and style for your north-facing rooms.",
         "rating": 4.8,
@@ -308,6 +325,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-4",
+        "name": "Randburg Contemporary Blinds",
         "locations": ["randburg", "ferndale", "cresta"],
         "description": "Contemporary blinds for trendy Johannesburg homes. We offer a curated selection of minimalist bamboo and wooden venetians. Our studio specializes in custom-colored blinds that match your interior paint exactly. We are the preferred choice for decorators and architects in the Randburg area.",
         "rating": 4.7,
@@ -324,6 +342,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-5",
+        "name": "East Rand Blind Manufacturers",
         "locations": ["boksburg", "benoni", "kempton park"],
         "description": "Serving the East Rand for over two decades with quality window coverings. We manufacture our own vertical and roller blinds locally, ensuring the highest quality control and the best prices in Ekurhuleni. We offer a 24-month warranty on all mechanisms and fabrics.",
         "rating": 4.5,
@@ -340,6 +359,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-6",
+        "name": "Fourways Security Shutters",
         "locations": ["fourways", "sandton", "lonehill"],
         "description": "Premium security shutters and elegant blinds for the Fourways area. We specialize in aluminium security shutters that act as both a window covering and a burglar bar. Our high-end finish and seamless integration make us the top choice for secure estate living in Gauteng.",
         "rating": 4.9,
@@ -356,6 +376,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-7",
+        "name": "West Rand Eco Blinds",
         "locations": ["roodepoort", "florida", "weltevredenpark"],
         "description": "Environmentally conscious window solutions in the West Rand. We offer solar-reflective blinds and recycled fabric rollers that help insulate your home. Our mission is to reduce your energy bills while providing stylish, sustainable window decor for the modern eco-friendly home.",
         "rating": 4.6,
@@ -372,6 +393,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-8",
+        "name": "Centurion Mobile Blinds",
         "locations": ["centurion", "pretoria", "midrand"],
         "description": "Personalized window styling in Centurion. We offer an exclusive range of Roman and Honeycomb blinds. Our \"Mobile Showroom\" comes to your home or office, allowing you to see samples in your own lighting. We pride ourselves on boutique service and expert craftsmanship.",
         "rating": 4.8,
@@ -388,6 +410,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-9",
+        "name": "Vaal Outdoor Blinds",
         "locations": ["vereeniging", "vanderbijlpark", "meyerton"],
         "description": "The Vaal Triangle's experts in outdoor and indoor shading. We specialize in heavy-duty outdoor roller blinds for patios and moisture-resistant blinds for river-facing homes. Our products are built to handle the humidity and sun of the Vaal area while looking stylish and modern.",
         "rating": 4.4,
@@ -404,6 +427,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-blinds-10",
+        "name": "Alberton Window Decor",
         "locations": ["alberton", "germiston", "boksburg"],
         "description": "Your local window treatment experts in the South. We specialize in a combination of custom blinds and curtains, allowing you to create the perfect layered look for your windows. Our team is known for efficiency and professional advice, ensuring you get the best look for your budget.",
         "rating": 5.0,
@@ -422,6 +446,7 @@ export const allProfessionals: ProfessionalsByCategory = {
   "curtains": [
     {
         "id": "pro-curtains-1",
+        "name": "Sandton Luxury Drapes",
         "locations": ["sandton", "rosebank", "bryanston"],
         "description": "Premier suppliers of luxury custom-made curtains and high-end linens in Sandton. We specialize in sophisticated window treatments, including ripple fold, eyelet, and pleated styles. Our professional team provides expert on-site measurements and installation, ensuring a perfect fit for luxury residential homes and corporate boardrooms.",
         "rating": 4.9,
@@ -438,6 +463,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-2",
+        "name": "Pretoria East Window Art",
         "locations": ["pretoria east", "menlyn", "faerie glen"],
         "description": "Leading window decor specialists in Pretoria East. We offer a vast range of local and imported fabrics for custom curtain manufacturing. From classic drapes to modern sheer curtains, we provide comprehensive solutions including rods, tracks, and motorized curtain systems for smart homes.",
         "rating": 4.7,
@@ -454,6 +480,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-3",
+        "name": "Randburg Bespoke Curtains",
         "locations": ["randburg", "ferndale", "cresta"],
         "description": "Specialized workshop offering bespoke curtain making and upholstery services in Randburg. We work closely with interior designers and homeowners to create unique window treatments. Our services include valances, pelmets, and tie-backs, all handcrafted to the highest standards.",
         "rating": 4.8,
@@ -470,6 +497,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-4",
+        "name": "East Rand Affordable Curtains",
         "locations": ["boksburg", "benoni", "kempton park"],
         "description": "Your local destination for affordable curtains and hardware in the East Rand. We supply and fit a wide range of ready-made and custom curtains, along with high-quality steel and wooden curtain rods. We pride ourselves on fast turnaround times and budget-friendly pricing for families in Ekurhuleni.",
         "rating": 4.6,
@@ -486,6 +514,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-5",
+        "name": "Midrand Smart Curtains",
         "locations": ["midrand", "centurion", "sunninghill"],
         "description": "Specialized in high-tech window treatments for the modern Midrand market. We focus on automated and motorized curtain tracks that can be controlled via smartphone or remote. Our expert technicians ensure seamless integration with your home security and lighting systems.",
         "rating": 4.9,
@@ -502,6 +531,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-6",
+        "name": "West Rand Soft Furnishings",
         "locations": ["roodepoort", "florida", "weltevredenpark"],
         "description": "Family-owned business providing custom curtains and soft furnishings in the West Rand. We offer a curated collection of local textiles and designer fabrics. Our mission is to provide personalized service and high-quality workmanship to enhance the beauty and comfort of your home.",
         "rating": 4.5,
@@ -518,6 +548,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-7",
+        "name": "Centurion Elegant Windows",
         "locations": ["centurion", "pretoria", "midrand"],
         "description": "Dedicated to providing elegant window solutions for Centurion residents. We specialize in classic blackout curtains, lace sheers, and heavy winter drapes. Our focus is on providing functional and stylish window coverings that provide privacy and temperature control for your home.",
         "rating": 4.4,
@@ -534,6 +565,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-8",
+        "name": "Jozi Creative Fabrics",
         "locations": ["johannesburg cbd", "braamfontein", "newtown"],
         "description": "A creative hub for fabrics and curtains in the heart of Johannesburg. We offer an eclectic mix of designer fabrics and artisanal curtain making services. We cater to the trendy suburbs of Jozi, providing bold and unique window treatments for homes, cafes, and creative studios.",
         "rating": 4.8,
@@ -550,6 +582,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-9",
+        "name": "Vaal Triangle Drapes",
         "locations": ["vereeniging", "vanderbijlpark", "meyerton"],
         "description": "Providing the Vaal Triangle with affordable and stylish curtain solutions. We offer a full range of window treatments, from simple rods to complex pleated drapes. We are known for our friendly service and for being the go-to supplier for large residential projects in the Vaal area.",
         "rating": 4.3,
@@ -566,6 +599,7 @@ export const allProfessionals: ProfessionalsByCategory = {
     },
     {
         "id": "pro-curtains-10",
+        "name": "South Rand Curtain & Blind",
         "locations": ["alberton", "germiston", "boksburg"],
         "description": "Your local window treatment experts in the South. We offer a combined service of custom blinds and curtains, allowing you to create the perfect layered look for your windows. Our team is known for efficiency and professional advice, ensuring you get the best look for your budget.",
         "rating": 4.6,
