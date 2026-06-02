@@ -21,9 +21,11 @@ export default function ProNav() {
   const router = useRouter();
 
   const handleLogout = () => {
-    signOut(auth).then(() => {
-      router.push('/pro/login');
-    });
+    if (auth) {
+      signOut(auth).then(() => {
+        router.push('/pro/login');
+      });
+    }
   };
 
   const navLinks = [
