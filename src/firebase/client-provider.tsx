@@ -31,9 +31,9 @@ export function FirebaseClientProvider({ children }: FirebaseClientProviderProps
   // The hooks that consume this context are designed to handle this `null` state gracefully.
   return (
     <FirebaseProvider
-      firebaseApp={firebaseServices?.firebaseApp}
-      auth={firebaseServices?.auth}
-      firestore={firebaseServices?.firestore}
+      firebaseApp={firebaseServices?.firebaseApp ?? null}
+      auth={firebaseServices?.auth ?? null}
+      firestore={firebaseServices?.firestore ?? null}
     >
       {children}
     </FirebaseProvider>

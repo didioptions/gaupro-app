@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -38,10 +37,8 @@ import Link from 'next/link';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Card, CardContent } from '@/components/ui/card';
 import { Autocomplete } from './ui/autocomplete';
 import { allLocations } from '@/lib/locations';
-import { ScrollArea } from './ui/scroll-area';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 
 type FormData = {
@@ -111,7 +108,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     if (checked) {
         handleInputChange(questionId, [...currentValues, optionValue]);
     } else {
-        handleInputChange(questionId, currentValues.filter((v) => v !== optionValue));
+        handleInputChange(questionId, currentValues.filter((v: string) => v !== optionValue));
     }
   };
 
@@ -147,6 +144,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
             <ol className="list-decimal list-inside space-y-2">
                 <li>Receive quotes from qualified service providers — usually in less than 20 minutes.</li>
                 <li>Compare prices, view profiles, and read verified customer reviews.</li>
+                <li>Chat or call the pros directly to discuss your needs or ask questions.</li>
                 <li>Hire your favorite pro, agree on the details, and get your project done!</li>
             </ol>
           </div>
@@ -272,7 +270,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                                 <Autocomplete
                                     options={allLocations}
                                     value={locationValue}
-                                    onValueChange={(value) => {
+                                    onValueChange={(value: string) => {
                                         setLocationValue(value);
                                         handleInputChange('suburb', value);
                                     }}
@@ -378,7 +376,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                     />
                 </div>
                  <div className="space-y-2">
-                    <Select onValueChange={(value) => handleInputChange('contactTime', value)} defaultValue="anytime">
+                    <Select onValueChange={(value: string) => handleInputChange('contactTime', value)} defaultValue="anytime">
                       <SelectTrigger>
                         <SelectValue placeholder="Contact me..." />
                       </SelectTrigger>
