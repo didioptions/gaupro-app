@@ -78,7 +78,7 @@ function WriteReviewContent() {
         <CardTitle className="text-xl md:text-2xl text-center font-normal">
           Write a Review for {professional.name}
           <span className="block text-base font-normal text-muted-foreground mt-1">
-            {professional.location}
+          {professional.locations?.join(', ') || 'Location not specified'}
           </span>
         </CardTitle>
       </CardHeader>
