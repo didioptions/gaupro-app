@@ -22,7 +22,7 @@
     {
       "id": "handyman-image",
       "description": "A handyman with a toolbelt looking at the camera.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/handmen%20A.jpg?alt=media&token=8e6b5137-cb89-4bfa-9cdc-bec0ca1859d9",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2Fhandmen.webp?alt=media&token=c1050adc-6b73-4abd-ac08-dc37034bd757",
       "imageHint": "handyman tools"
     },
     {
@@ -173,7 +173,7 @@
       "id": "company-registrations-image",
       "description": "A person filling out official company registration forms.",
       "imageUrl": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80",
-      "imageHint": "registration forms"
+      "imageHint": "registration照 forms"
     },
     {
       "id": "couriers-image",
