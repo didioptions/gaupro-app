@@ -63,9 +63,9 @@
     },
     {
       "id": "solar-systems-image",
-      "description": "Solar panels installed on the roof of a modern house.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/solar.jpg?alt=media&token=d27ccd5e-35f3-46f6-8846-f53d9c2dc505",
-      "imageHint": "solar panels"
+      "description": "Professional installers fitting solar panels on a residential roof.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2Fsolar.webp?alt=media&token=4a4da186-f7ae-423c-aff1-f1f190379f2d",
+      "imageHint": "solar installation"
     },
     {
       "id": "security-image",
@@ -88,7 +88,7 @@
     {
       "id": "event-decorations-image",
       "description": "Beautifully decorated tables set up for an outdoor wedding reception.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/event%20planner%20c.jpg?alt=media&token=ef2de654-d2a4-4b48-89f5-b3eb2c906227",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/event%20planner%20c.jpg?alt=media&token=ef2de654-d2a4-4b48-89f5-b3eb2206227",
       "imageHint": "wedding reception"
     },
     {
