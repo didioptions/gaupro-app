@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "homepage-hero",
-      "description": "A diverse group of smiling professionals, including a designer, an electrician, and a personal trainer.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/better_imresizer%20(1)%20(1)%20(1)%20(1).png?alt=media&token=8521a4d4-65c0-439e-b42e-0bfc2fedc160",
-      "imageHint": "diverse professionals team"
+      "description": "A diverse group of smiling professionals, representing the Gaupro community.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro.webp?alt=media&token=4d1888fc-9075-4b71-b319-15b8bd279ec1",
+      "imageHint": "diverse professionals"
     },
     {
       "id": "hero-background-image",
