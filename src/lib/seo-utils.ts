@@ -1,4 +1,3 @@
-
 import { allServices } from './service-questions';
 import { cityExpansionMap } from './location-data';
 import { allLocations } from './locations';
@@ -23,6 +22,22 @@ export function generateServiceStats(professionalsCount: number, reviewsTotal: n
     cities: 24,
     completed: Math.floor(Math.random() * 500) + 200
   };
+}
+
+export function generateNearbyAreasIntro(service: string, location: string) {
+  const s = getServiceLabel(service);
+  const l = getLocationLabel(location);
+  return `Looking for ${s.toLowerCase()} services near ${l}? GauPro connects thousands of customers with trusted ${s.toLowerCase()} professionals every month. Our network extends beyond the city center, covering a wide radius of residential estates, business hubs, and suburban neighborhoods to ensure you get a rapid response no matter where you are located. Below are some of the nearby areas where our verified ${s.toLowerCase()} teams are currently active and ready to quote.`;
+}
+
+export function generatePopularServicesIntro(location: string) {
+  const l = getLocationLabel(location);
+  return `Homeowners and business managers in ${l} often require a combination of services to maintain their properties. Whether you are moving into a new office in the CBD or renovating a home in the suburbs, these are the most frequently requested professional services in ${l}. GauPro makes it simple to manage multiple projects by connecting you with top-rated local experts across all these essential categories.`;
+}
+
+export function generateRelatedServicesIntro(service: string) {
+  const s = getServiceLabel(service);
+  return `Depending on the specific requirements of your ${s.toLowerCase()} project, you may also need assistance from specialists in complementary fields. We find that customers booking ${s.toLowerCase()} often look for these related services to ensure a comprehensive solution. By hiring verified pros from these categories, you can streamline your workflow and ensure consistent quality across every aspect of your home or business improvement task.`;
 }
 
 export function generateAboutContent(service: string, location: string) {

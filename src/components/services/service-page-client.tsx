@@ -1,9 +1,8 @@
-
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ChevronRight, Star, Users, MapPin, CheckCircle2, TrendingUp, Info } from 'lucide-react';
+import { ChevronRight, Star, Users, MapPin, CheckCircle2, TrendingUp, Info, LayoutGrid } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { allServices } from '@/lib/service-questions';
@@ -15,7 +14,16 @@ import ProfessionalCard, { Professional } from '@/components/services/profession
 import { useFirestore, useCollection, useMemoFirebase, useUser } from '@/firebase';
 import { collection } from 'firebase/firestore';
 import { cityExpansionMap } from '@/lib/location-data';
-import { getServiceLabel, getLocationLabel, generateAboutContent, generateFAQs, generateServiceStats } from '@/lib/seo-utils';
+import { 
+    getServiceLabel, 
+    getLocationLabel, 
+    generateAboutContent, 
+    generateFAQs, 
+    generateServiceStats,
+    generateNearbyAreasIntro,
+    generatePopularServicesIntro,
+    generateRelatedServicesIntro
+} from '@/lib/seo-utils';
 import { jobRequests } from '@/lib/job-requests-data';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
@@ -78,11 +86,17 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const nearbyAreas = useMemo(() => {
         if (!locationQuery) return [];
         const metro = Object.keys(cityExpansionMap).find(k => cityExpansionMap[k].includes(locationQuery));
-        return metro ? cityExpansionMap[metro].filter(c => c !== locationQuery).slice(0, 6) : [];
+        return metro ? cityExpansionMap[metro].filter(c => c !== locationQuery).slice(0, 12) : [];
     }, [locationQuery]);
 
+    const popularServicesInCity = useMemo(() => {
+        return ['plumber', 'electrician', 'cleaning-service', 'painters', 'movers', 'handyman', 'gardeners'].filter(s => s !== params.service).slice(0, 8);
+    }, [params.service]);
+
     const relatedServices = useMemo(() => {
-        return allServices.filter(s => s.value !== params.service).slice(0, 6);
+        // Logic to find logically related services
+        const currentService = allServices.find(s => s.value === params.service);
+        return allServices.filter(s => s.value !== params.service).slice(0, 10);
     }, [params.service]);
 
     const serviceImageId = `${params.service}-image`;
@@ -106,7 +120,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                     <div className="hidden md:block">
                       <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{pluralServiceLabel} in {locationName}</h1>
                       <p className="mt-4 text-lg text-white/90 max-w-lg">
-                          Compare the best local ${serviceLabel.toLowerCase()} experts. Get free quotes, view verified profiles, and hire with confidence.
+                          Compare the best local {serviceLabel.toLowerCase()} experts. Get free quotes, view verified profiles, and hire with confidence.
                       </p>
                     </div>
                     <InlineQuoteForm service={params.service} location={locationName} />
@@ -139,7 +153,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
             <section className="py-16">
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-3 gap-12">
-                        <div className="lg:col-span-2 space-y-8">
+                        <div className="lg:col-span-2 space-y-12">
                             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                                 <Link href="/" className="hover:text-primary">GauPro</Link>
                                 <ChevronRight className="h-4 w-4" />
@@ -169,6 +183,26 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 )}
                             </div>
 
+                            {/* Popular Services in City SEO Block */}
+                            {locationQuery && (
+                                <section className="pt-8">
+                                    <h2 className="text-2xl font-bold mb-4">Popular Services in {locationName}</h2>
+                                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                                        {generatePopularServicesIntro(locationQuery)}
+                                    </p>
+                                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                        {popularServicesInCity.map(slug => {
+                                            const s = allServices.find(as => as.value === slug);
+                                            return s ? (
+                                                <Link key={slug} href={`/services/${slug}?location=${locationQuery}`} className="p-3 border rounded-lg hover:bg-secondary transition-colors text-center text-sm font-medium">
+                                                    {s.label}
+                                                </Link>
+                                            ) : null;
+                                        })}
+                                    </div>
+                                </section>
+                            )}
+
                             <div className="pt-12 border-t mt-12 prose prose-blue max-w-none prose-headings:font-normal" dangerouslySetInnerHTML={{ __html: aboutHtml }} />
 
                             <div className="pt-16 border-t">
@@ -186,7 +220,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                             </div>
                         </div>
 
-                        <aside className="space-y-8">
+                        <aside className="space-y-12">
                             <Card>
                                 <CardHeader>
                                     <CardTitle className="text-xl">Recently Requested</CardTitle>
@@ -203,22 +237,35 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 </CardContent>
                             </Card>
 
-                            <Card className="bg-primary text-primary-foreground">
-                                <CardContent className="p-6 text-center space-y-4">
-                                    <TrendingUp className="h-10 w-10 mx-auto" />
-                                    <h3 className="text-xl font-bold">Are you a Professional?</h3>
-                                    <p className="text-sm opacity-90">Join {stats.professionals}+ businesses getting leads in {locationName}.</p>
-                                    <Button asChild variant="secondary" className="w-full font-bold">
-                                        <Link href="/pro/signup">Grow My Business</Link>
-                                    </Button>
-                                </CardContent>
-                            </Card>
+                            {/* Related Services SEO Block */}
+                            <section>
+                                <div className="flex items-center gap-2 mb-4">
+                                    <LayoutGrid className="h-5 w-5 text-primary" />
+                                    <h2 className="text-xl font-bold">Related Services</h2>
+                                </div>
+                                <p className="text-sm text-muted-foreground mb-4 italic">
+                                    {generateRelatedServicesIntro(params.service)}
+                                </p>
+                                <div className="grid grid-cols-1 gap-2">
+                                    {relatedServices.map(rel => (
+                                        <Link 
+                                            key={rel.value} 
+                                            href={`/services/${rel.value}${locationQuery ? `?location=${locationQuery}` : ''}`}
+                                            className="text-sm text-muted-foreground hover:text-primary flex items-center gap-2 py-1"
+                                        >
+                                            <CheckCircle2 className="h-3 w-3" /> {rel.label}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </section>
 
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="text-xl">Nearby Areas</CardTitle>
-                                </CardHeader>
-                                <CardContent>
+                            {/* Nearby Areas SEO Block */}
+                            {locationQuery && (
+                                <section>
+                                    <h2 className="text-xl font-bold mb-4">Nearby {pluralServiceLabel} Areas</h2>
+                                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                                        {generateNearbyAreasIntro(params.service, locationQuery)}
+                                    </p>
                                     <div className="grid grid-cols-1 gap-2">
                                         {nearbyAreas.map(area => (
                                             <Link 
@@ -230,25 +277,17 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                             </Link>
                                         ))}
                                     </div>
-                                </CardContent>
-                            </Card>
+                                </section>
+                            )}
 
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="text-xl">Related Services</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="grid grid-cols-1 gap-2">
-                                        {relatedServices.map(rel => (
-                                            <Link 
-                                                key={rel.value} 
-                                                href={`/services/${rel.value}${locationQuery ? `?location=${locationQuery}` : ''}`}
-                                                className="text-sm text-muted-foreground hover:text-primary flex items-center gap-2"
-                                            >
-                                                <CheckCircle2 className="h-3 w-3" /> {rel.label}
-                                            </Link>
-                                        ))}
-                                    </div>
+                            <Card className="bg-primary text-primary-foreground">
+                                <CardContent className="p-6 text-center space-y-4">
+                                    <TrendingUp className="h-10 w-10 mx-auto" />
+                                    <h3 className="text-xl font-bold">Are you a Professional?</h3>
+                                    <p className="text-sm opacity-90">Join {stats.professionals}+ businesses getting leads in {locationName}.</p>
+                                    <Button asChild variant="secondary" className="w-full font-bold">
+                                        <Link href="/pro/signup">Grow My Business</Link>
+                                    </Button>
                                 </CardContent>
                             </Card>
                         </aside>
