@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -23,7 +22,8 @@ import {
     ShieldCheck,
     Globe,
     TrendingUp,
-    Star
+    Star,
+    Users
 } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -56,7 +56,7 @@ const tradeSolutions = [
     { 
         icon: <Brush className="h-6 w-6" />, 
         title: "Painters", 
-        description: "Grow your painting business with interior and exterior project leads. Our review system helps professional painters stand out from unverified competition." 
+        description: "Grow your painting business with painting leads for interior, exterior, and roof painting projects. Our review system helps professional painters stand out from unverified competition." 
     },
     { 
         icon: <CheckCircle className="h-6 w-6" />, 
@@ -394,5 +394,3 @@ export default function ProCentrePage() {
         </main>
     );
 }
-
-    
