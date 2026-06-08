@@ -1,8 +1,9 @@
+
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { ChevronRight } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ChevronRight, Star, Users, MapPin, CheckCircle2, TrendingUp, Info } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { allServices } from '@/lib/service-questions';
@@ -12,9 +13,12 @@ import InlineQuoteForm from '@/components/inline-quote-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import ProfessionalCard, { Professional } from '@/components/services/professional-card';
 import { useFirestore, useCollection, useMemoFirebase, useUser } from '@/firebase';
-import { collection, DocumentData } from 'firebase/firestore';
+import { collection } from 'firebase/firestore';
 import { cityExpansionMap } from '@/lib/location-data';
-
+import { getServiceLabel, getLocationLabel, generateAboutContent, generateFAQs, generateServiceStats } from '@/lib/seo-utils';
+import { jobRequests } from '@/lib/job-requests-data';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
 
 interface ServicePageClientProps {
   params: { service: string };
@@ -22,7 +26,7 @@ interface ServicePageClientProps {
 }
 
 export default function ServicePageClient({ params, searchParams }: ServicePageClientProps) {
-    const locationQuery = searchParams?.location;
+    const locationQuery = searchParams?.location as string;
     const [isClient, setIsClient] = useState(false);
     const { isUserLoading } = useUser();
 
@@ -30,19 +34,11 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
         setIsClient(true);
     }, []);
 
-    const currentService = Array.isArray(params.service) ? params.service[0] : params.service;
-
-    const service = allServices.find(s => s.value === currentService);
-    const serviceLabel = service?.label || currentService.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
-
-    const pluralServiceLabel = service?.label.endsWith('s') ? service.label : `${service?.label}s` || (serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`);
+    const serviceLabel = getServiceLabel(params.service);
+    const locationName = getLocationLabel(locationQuery);
+    const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
     
-    const locationName = typeof locationQuery === 'string'
-        ? locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-        : "South Africa";
-
     const firestore = useFirestore();
-
     const professionalsQuery = useMemoFirebase(() => {
       if (!firestore || isUserLoading) return null;
       return collection(firestore, 'professionalProfiles');
@@ -50,155 +46,55 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
     const { data: allProsFromFirestore, loading, error } = useCollection<Professional>(professionalsQuery);
 
-    const professionals = useMemo(() => {
-        if (!allProsFromFirestore || !service?.label) return [];
-
-        const serviceLabelLower = service.label.toLowerCase();
-
-        const serviceFiltered = allProsFromFirestore.filter((pro: Professional) => {
-          if (pro.serviceCategory && pro.serviceCategory.toLowerCase() === serviceLabelLower) {
-            return true;
-          }
-          const offeredServices = [
-            ...(pro.services || []),
-            ...(pro.tags || []),
-            ...(pro.servicesOffered || [])
-          ].map((s: string) => s.toLowerCase());
-
-          return offeredServices.some((s: string) => s.includes(serviceLabelLower));
+    const filteredProfessionals = useMemo(() => {
+        if (!allProsFromFirestore) return [];
+        const labelLower = serviceLabel.toLowerCase();
+        
+        let filtered = allProsFromFirestore.filter((pro) => {
+          const tags = [...(pro.tags || []), pro.serviceCategory || ''].map(t => t.toLowerCase());
+          return tags.some(t => t.includes(labelLower));
         });
-        
-        if (!locationQuery || typeof locationQuery !== 'string') {
-          return serviceFiltered.sort((a, b) => {
-             if (a.priorityRank !== b.priorityRank) {
-                return (b.priorityRank || 0) - (a.priorityRank || 0);
-            }
-            return (b.rating || 0) - (a.rating || 0);
-          });
-        }
-        
-        const locationFiltered = serviceFiltered.filter((pro: Professional) => {
-            const proFullCoverage = new Set<string>();
-            const initialProLocations = new Set<string>();
-            if (pro.location) initialProLocations.add(pro.location);
-            if (pro.serviceAreas) pro.serviceAreas.forEach((loc: string) => initialProLocations.add(loc));
-            
-            if (initialProLocations.size === 0) return false;
 
-            initialProLocations.forEach((slug: string) => {
-              const metroKey = Object.keys(cityExpansionMap).find((key: string) => 
-                cityExpansionMap[key].includes(slug)
-              );
-              if (metroKey) {
-                  cityExpansionMap[metroKey].forEach((metroSlug: string) => proFullCoverage.add(metroSlug));
-              } else {
-                  proFullCoverage.add(slug);
-              }
+        if (locationQuery) {
+            filtered = filtered.filter(pro => {
+                const areas = new Set([pro.location, ...(pro.serviceAreas || [])]);
+                return Array.from(areas).some(area => area === locationQuery);
             });
-            
-            return proFullCoverage.has(locationQuery);
-        });
-
-        return locationFiltered.sort((a, b) => {
-            if (a.priorityRank !== b.priorityRank) {
-                return (b.priorityRank || 0) - (a.priorityRank || 0);
-            }
-            return (b.rating || 0) - (a.rating || 0);
-        });
-
-    }, [allProsFromFirestore, service?.label, locationQuery]);
-    
-    const serviceImageId = `${currentService}-image`;
-    let heroImage = CategoryImages.find(p => p.id === `real-${serviceImageId}` || p.id === serviceImageId);
-    
-    if (!heroImage) {
-        heroImage = PlaceHolderImages.find(p => p.id === 'hero-background-image');
-    }
-    
-    const benefits = [
-      '🛡️ Fully Vetted Companies',
-      '📈 High Customer Ratings',
-      '🤲 Service You Can Trust',
-      '📍 Local & Reliable',
-      '✨ Consistent Quality Work',
-      '📞 Easy, Safe & Quick Bookings',
-    ];
-
-    const introText = useMemo(() => {
-        const texts: { [key: string]: JSX.Element } = {
-            builders: (
-                <div className="my-8 text-foreground prose prose-lg max-w-none space-y-4">
-                    <h2 className="text-2xl font-normal">Building Dreams Across {locationName} with Trusted Building Contractors</h2>
-                    <p>Building your dream home or renovating a property takes time, dedication, and a reliable team. In {locationName}, homeowners and businesses can choose from hundreds of professional building contractors — but finding the right one makes all the difference.</p>
-                    <div className="mb-4" /> 
-                    <p>At GauPro, we connect you with verified builders and construction experts who deliver quality workmanship, honest communication, and attention to detail. Whether you need a small repair, home extension, or complete building project, our contractors are ready to bring your vision to life.</p>
-                    <p>Many also provide finishing and interior services, such as tiling, plastering, and painting, to give your kitchen, bathroom, or office space the perfect final touch.</p>
-                </div>
-            )
-        };
-        return texts[currentService] || null;
-    }, [currentService, locationName]);
-
-    const ProfessionalList = () => {
-        if (!isClient || loading || isUserLoading) {
-            return Array.from({ length: 3 }).map((_, index) => (
-                <Card key={index}>
-                    <CardContent className="p-6">
-                        <div className="grid sm:grid-cols-4 gap-6">
-                            <div className="sm:col-span-3 flex items-start gap-4">
-                                <Skeleton className="h-20 w-20 rounded-md" />
-                                <div className="space-y-2 flex-grow">
-                                    <Skeleton className="h-6 w-3/4" />
-                                    <Skeleton className="h-4 w-1/4" />
-                                    <Skeleton className="h-4 w-full" />
-                                    <Skeleton className="h-4 w-5/6" />
-                                </div>
-                            </div>
-                            <div className="space-y-2 text-left sm:text-right">
-                                <Skeleton className="h-6 w-16 ml-auto" />
-                                <Skeleton className="h-4 w-20 ml-auto" />
-                                <Skeleton className="h-10 w-32 mt-4 ml-auto" />
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            ));
         }
 
-        if (error) {
-            return (
-                <Card>
-                    <CardContent className="p-6 text-center text-destructive">
-                        <p className="text-lg">Error loading professionals.</p>
-                        <p className="text-sm mt-2">{error}</p>
-                    </CardContent>
-                </Card>
-            )
-        }
+        return filtered.sort((a, b) => (b.priorityRank || 0) - (a.priorityRank || 0) || (b.rating || 0) - (a.rating || 0));
+    }, [allProsFromFirestore, serviceLabel, locationQuery]);
 
-        if (!professionals || professionals.length === 0) {
-            return (
-                <Card>
-                    <CardContent className="p-6 text-center">
-                        <p className="text-lg text-muted-foreground">No professionals found for "{pluralServiceLabel}" in {locationName}.</p>
-                        <p className="mt-2">Try widening your search or check back soon!</p>
-                    </CardContent>
-                </Card>
-            );
-        }
-        
-        return professionals.map((pro: Professional) => (
-            <ProfessionalCard key={pro.id} professional={pro} service={currentService} />
-        ));
-    };
-    
+    const stats = generateServiceStats(filteredProfessionals.length, filteredProfessionals.reduce((a, b) => a + (b.reviews || 0), 0), locationName);
+    const aboutHtml = generateAboutContent(params.service, locationQuery);
+    const faqs = generateFAQs(params.service, locationQuery);
+
+    const recentJobs = useMemo(() => {
+        return jobRequests
+            .filter(j => j.category.toLowerCase().includes(serviceLabel.toLowerCase()))
+            .slice(0, 3);
+    }, [serviceLabel]);
+
+    const nearbyAreas = useMemo(() => {
+        if (!locationQuery) return [];
+        const metro = Object.keys(cityExpansionMap).find(k => cityExpansionMap[k].includes(locationQuery));
+        return metro ? cityExpansionMap[metro].filter(c => c !== locationQuery).slice(0, 6) : [];
+    }, [locationQuery]);
+
+    const relatedServices = useMemo(() => {
+        return allServices.filter(s => s.value !== params.service).slice(0, 6);
+    }, [params.service]);
+
+    const serviceImageId = `${params.service}-image`;
+    const heroImage = CategoryImages.find(p => p.id === serviceImageId) || PlaceHolderImages.find(p => p.id === 'hero-background-image');
+
     return (
-        <main>
+        <main className="bg-background">
             <section className="relative min-h-[500px] flex items-center justify-center text-center text-white">
                 {heroImage && (
                     <Image
                         src={heroImage.imageUrl}
-                        alt={heroImage.description || "Service background image"}
+                        alt={heroImage.description || `${serviceLabel} background`}
                         fill
                         className="object-cover"
                         priority
@@ -208,49 +104,151 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                  <div className="absolute inset-0 bg-black/60" />
                  <div className="relative container mx-auto px-4 grid md:grid-cols-2 items-center gap-8 text-left">
                     <div className="hidden md:block">
-                      <h1 className="text-4xl md:text-5xl font-normal">{pluralServiceLabel}</h1>
-                      <p className="mt-4 text-lg text-white/90">
-                          Get matched with top-rated, verified professionals in your area.
+                      <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{pluralServiceLabel} in {locationName}</h1>
+                      <p className="mt-4 text-lg text-white/90 max-w-lg">
+                          Compare the best local ${serviceLabel.toLowerCase()} experts. Get free quotes, view verified profiles, and hire with confidence.
                       </p>
                     </div>
-                    <InlineQuoteForm service={currentService} location={locationName} />
+                    <InlineQuoteForm service={params.service} location={locationName} />
                  </div>
             </section>
 
-            <section className="py-16 bg-background">
+            <section className="py-12 border-b bg-secondary/20">
                 <div className="container mx-auto px-4">
-                     <div className="text-center md:text-left mb-8">
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                            <Link href="/" className="hover:text-primary">Gaupro</Link>
-                            <ChevronRight className="h-4 w-4" />
-                            {locationQuery && <><Link href={`/services/in/${locationQuery}`} className="hover:text-primary">{locationName}</Link><ChevronRight className="h-4 w-4" /></>}
-                            <span className="font-medium text-foreground">{pluralServiceLabel}</span>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <p className="text-3xl font-bold text-primary">{stats.professionals}+</p>
+                            <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Verified Pros</p>
                         </div>
-                         {introText}
-                         <h2 className="text-3xl mt-1">Top {pluralServiceLabel} in {locationName}</h2>
+                        <div>
+                            <p className="text-3xl font-bold text-primary">{stats.reviews}+</p>
+                            <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Customer Reviews</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-bold text-primary">{stats.cities}</p>
+                            <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Suburbs Covered</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-bold text-primary">{stats.completed}+</p>
+                            <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Jobs This Month</p>
+                        </div>
                     </div>
+                </div>
+            </section>
+
+            <section className="py-16">
+                <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-3 gap-12">
-                        <div className="lg:col-span-2 space-y-6">
-                            <ProfessionalList />
+                        <div className="lg:col-span-2 space-y-8">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                                <Link href="/" className="hover:text-primary">GauPro</Link>
+                                <ChevronRight className="h-4 w-4" />
+                                <span className="text-foreground font-medium">{pluralServiceLabel} in {locationName}</span>
+                            </div>
+
+                            <div className="space-y-6">
+                                {loading ? (
+                                    Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className="h-48 w-full" />)
+                                ) : filteredProfessionals.length > 0 ? (
+                                    filteredProfessionals.map(pro => (
+                                        <ProfessionalCard key={pro.id} professional={pro} service={params.service} />
+                                    ))
+                                ) : (
+                                    <Card className="bg-blue-50 border-blue-200">
+                                        <CardContent className="p-10 text-center space-y-4">
+                                            <Info className="h-12 w-12 text-blue-600 mx-auto" />
+                                            <h3 className="text-xl font-bold text-blue-900">We are expanding our network!</h3>
+                                            <p className="text-blue-800 max-w-md mx-auto">
+                                                We currently have high demand for {pluralServiceLabel.toLowerCase()} in {locationName}. Submit your request and we'll help connect you with available providers from nearby areas or notify you as new pros join.
+                                            </p>
+                                            <Button asChild size="lg">
+                                                <Link href={`/post-request?service=${params.service}&location=${locationQuery}`}>Post a Job for Free</Link>
+                                            </Button>
+                                        </CardContent>
+                                    </Card>
+                                )}
+                            </div>
+
+                            <div className="pt-12 border-t mt-12 prose prose-blue max-w-none prose-headings:font-normal" dangerouslySetInnerHTML={{ __html: aboutHtml }} />
+
+                            <div className="pt-16 border-t">
+                                <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+                                <Accordion type="single" collapsible className="w-full">
+                                    {faqs.map((faq, i) => (
+                                        <AccordionItem key={i} value={`faq-${i}`}>
+                                            <AccordionTrigger className="text-left text-lg font-medium">{faq.q}</AccordionTrigger>
+                                            <AccordionContent className="text-muted-foreground text-base leading-relaxed whitespace-pre-wrap">
+                                                {faq.a}
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            </div>
                         </div>
+
                         <aside className="space-y-8">
-                            <Card className="bg-card">
-                                <CardContent className="p-6">
-                                    <h3 className="mb-3 text-foreground">Need {pluralServiceLabel} in {locationName}?</h3>
-                                    <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                                        <li>{allProsFromFirestore?.reduce((acc, pro) => acc + (pro.reviews || 0), 0) || 'Many'}+ Reviews for {pluralServiceLabel.toLowerCase()}</li>
-                                        <li>{(allProsFromFirestore?.filter((p: Professional) => p.rating >= 4).length || 0) * 10}+ Positive Reviews</li>
-                                        <li>Recently hired Pros have been rated 4.6/5 stars by customers</li>
-                                        <li>View {locationName} Pros for {pluralServiceLabel.toLowerCase()} today</li>
-                                    </ul>
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="text-xl">Recently Requested</CardTitle>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                    {recentJobs.length > 0 ? recentJobs.map(job => (
+                                        <div key={job.id} className="pb-4 border-b last:border-0 last:pb-0">
+                                            <p className="font-semibold text-sm">{job.title}</p>
+                                            <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                                                <MapPin className="h-3 w-3" /> {job.location} • {job.posted}
+                                            </p>
+                                        </div>
+                                    )) : <p className="text-sm text-muted-foreground italic">New requests coming in daily.</p>}
                                 </CardContent>
                             </Card>
-                            <Card className="bg-card">
-                                <CardContent className="p-6">
-                                    <h3 className="mb-3 text-foreground">Why Use Gaupro?</h3>
-                                    <ul className="text-sm text-muted-foreground space-y-2">
-                                        {benefits.map((benefit: string) => <li key={benefit}>{benefit}</li>)}
-                                    </ul>
+
+                            <Card className="bg-primary text-primary-foreground">
+                                <CardContent className="p-6 text-center space-y-4">
+                                    <TrendingUp className="h-10 w-10 mx-auto" />
+                                    <h3 className="text-xl font-bold">Are you a Professional?</h3>
+                                    <p className="text-sm opacity-90">Join {stats.professionals}+ businesses getting leads in {locationName}.</p>
+                                    <Button asChild variant="secondary" className="w-full font-bold">
+                                        <Link href="/pro/signup">Grow My Business</Link>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="text-xl">Nearby Areas</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="grid grid-cols-1 gap-2">
+                                        {nearbyAreas.map(area => (
+                                            <Link 
+                                                key={area} 
+                                                href={`/services/${params.service}?location=${area}`}
+                                                className="text-sm text-muted-foreground hover:text-primary flex items-center gap-2"
+                                            >
+                                                <ChevronRight className="h-3 w-3" /> {getLocationLabel(area)}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="text-xl">Related Services</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="grid grid-cols-1 gap-2">
+                                        {relatedServices.map(rel => (
+                                            <Link 
+                                                key={rel.value} 
+                                                href={`/services/${rel.value}${locationQuery ? `?location=${locationQuery}` : ''}`}
+                                                className="text-sm text-muted-foreground hover:text-primary flex items-center gap-2"
+                                            >
+                                                <CheckCircle2 className="h-3 w-3" /> {rel.label}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </CardContent>
                             </Card>
                         </aside>
