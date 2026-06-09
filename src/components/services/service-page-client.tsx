@@ -37,9 +37,12 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const locationQuery = searchParams?.location as string;
     const [isClient, setIsClient] = useState(false);
     const { isUserLoading } = useUser();
+    const [completedCount, setCompletedCount] = useState<number | null>(null);
 
     useEffect(() => {
         setIsClient(true);
+        // Generate random part only on client to avoid hydration mismatch
+        setCompletedCount(Math.floor(Math.random() * 500) + 200);
     }, []);
 
     const serviceLabel = getServiceLabel(params.service);
@@ -52,7 +55,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
       return collection(firestore, 'professionalProfiles');
     }, [firestore, isUserLoading]);
 
-    const { data: allProsFromFirestore, loading, error } = useCollection<Professional>(professionalsQuery);
+    const { data: allProsFromFirestore, loading: isLoadingPros } = useCollection<Professional>(professionalsQuery);
 
     const filteredProfessionals = useMemo(() => {
         if (!allProsFromFirestore) return [];
@@ -94,7 +97,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     }, [params.service]);
 
     const relatedServices = useMemo(() => {
-        // Logic to find logically related services
         const currentService = allServices.find(s => s.value === params.service);
         return allServices.filter(s => s.value !== params.service).slice(0, 10);
     }, [params.service]);
@@ -143,7 +145,9 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                             <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Suburbs Covered</p>
                         </div>
                         <div>
-                            <p className="text-3xl font-bold text-primary">{stats.completed}+</p>
+                            <p className="text-3xl font-bold text-primary">
+                                {completedCount !== null ? `${completedCount}+` : '...'}
+                            </p>
                             <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Jobs This Month</p>
                         </div>
                     </div>
@@ -161,7 +165,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                             </div>
 
                             <div className="space-y-6">
-                                {loading ? (
+                                {(isLoadingPros || isUserLoading) ? (
                                     Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className="h-48 w-full" />)
                                 ) : filteredProfessionals.length > 0 ? (
                                     filteredProfessionals.map(pro => (
@@ -183,7 +187,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 )}
                             </div>
 
-                            {/* Popular Services in City SEO Block */}
                             {locationQuery && (
                                 <section className="pt-8">
                                     <h2 className="text-2xl font-bold mb-4">Popular Services in {locationName}</h2>
@@ -237,7 +240,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 </CardContent>
                             </Card>
 
-                            {/* Related Services SEO Block */}
                             <section>
                                 <div className="flex items-center gap-2 mb-4">
                                     <LayoutGrid className="h-5 w-5 text-primary" />
@@ -259,7 +261,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 </div>
                             </section>
 
-                            {/* Nearby Areas SEO Block */}
                             {locationQuery && (
                                 <section>
                                     <h2 className="text-xl font-bold mb-4">Nearby {pluralServiceLabel} Areas</h2>

@@ -20,7 +20,8 @@ export function generateServiceStats(professionalsCount: number, reviewsTotal: n
     professionals: professionalsCount > 0 ? professionalsCount : 12,
     reviews: reviewsTotal > 0 ? reviewsTotal : 150,
     cities: 24,
-    completed: Math.floor(Math.random() * 500) + 200
+    // Base value to avoid hydration mismatch; random part added on client
+    completedBase: 200
   };
 }
 
