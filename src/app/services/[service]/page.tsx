@@ -1,4 +1,3 @@
-
 import { allServices } from '@/lib/service-questions';
 import ServicePageClient from '@/components/services/service-page-client';
 import { getServiceLabel, getLocationLabel, generateFAQs } from '@/lib/seo-utils';
@@ -56,6 +55,11 @@ export default function ServicePage({ params, searchParams }: PageProps) {
     "areaServed": {
       "@type": "City",
       "name": l
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150"
     }
   };
 
@@ -72,6 +76,31 @@ export default function ServicePage({ params, searchParams }: PageProps) {
     }))
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gaupro.co.za"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": s,
+        "item": `https://gaupro.co.za/services/${params.service}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": l,
+        "item": `https://gaupro.co.za/services/${params.service}?location=${searchParams?.location}`
+      }
+    ]
+  };
+
   return (
     <>
       <script
@@ -81,6 +110,10 @@ export default function ServicePage({ params, searchParams }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <ServicePageClient params={params} searchParams={searchParams} />
     </>

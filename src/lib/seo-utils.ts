@@ -55,12 +55,18 @@ export function generateAboutContent(service: string, location: string) {
       </section>
 
       <section>
+        <h3 class="text-xl font-semibold mb-3">Average Cost of ${s} in ${l}</h3>
+        <p>When budgeting for ${s.toLowerCase()} in ${l}, it's important to understand the local market rates. While small call-outs and minor repairs might range between R450 and R900, complex installations or large-scale projects are quoted on a per-job basis. Factors such as material costs, travel distance within ${l}, and the urgency of the work all play a role in the final price. We recommend requesting at least three quotes through our platform to ensure you are receiving a fair and competitive market rate from verified local experts.</p>
+      </section>
+
+      <section>
         <h3 class="text-xl font-semibold mb-3">Common Tasks Handled by ${plural} in ${l}</h3>
         <p>Our network of professionals handles a wide variety of requests tailored to the specific needs of ${l}. Some of the most common jobs include:</p>
         <ul class="list-disc list-inside mt-2 space-y-2">
           <li><strong>Emergency Repairs:</strong> Rapid response for critical issues that cannot wait, ensuring safety and preventing further damage to your property.</li>
           <li><strong>New Installations:</strong> Professional fitting of ${s.toLowerCase()} systems using industry-standard materials and modern techniques.</li>
           <li><strong>Routine Maintenance:</strong> Regular check-ups and servicing to extend the lifespan of your equipment and keep things running smoothly.</li>
+          <li><strong>Consultations & Quotes:</strong> Expert assessment of your ${l} property to provide accurate, transparent project estimates.</li>
           <li><strong>Custom Projects:</strong> Bespoke solutions designed to match your unique requirements and aesthetic preferences in ${l}.</li>
         </ul>
       </section>
@@ -87,23 +93,31 @@ export function generateFAQs(service: string, location: string) {
   return [
     {
       q: `How much does ${s.toLowerCase()} cost in ${l}?`,
-      a: `The cost of ${s.toLowerCase()} in ${l} varies significantly based on the complexity of the task, the materials required, and the experience level of the professional. On average, smaller jobs or call-outs might start from R450 to R800, while larger installations or projects can range into the thousands. We highly recommend requesting at least 3 quotes through GauPro to compare current market rates in your specific suburb of ${l}, as prices can differ between areas like Sandton, Pretoria East, or the Atlantic Seaboard.`
+      a: `The cost of ${s.toLowerCase()} in ${l} varies significantly based on the complexity of the task, the materials required, and the experience level of the professional. On average, smaller jobs or call-outs might start from R450 to R850, while larger installations or projects can range into the thousands. We highly recommend requesting at least 3 quotes through GauPro to compare current market rates in your specific suburb of ${l}, as prices can differ between areas like Sandton, Pretoria East, or the Atlantic Seaboard. Always ensure your quote includes VAT and a breakdown of parts and labor.`
     },
     {
-      q: `How quickly can I get a ${s.toLowerCase()} professional to my property?`,
-      a: `In major hubs like ${l}, many of our professionals offer same-day or next-day service, especially for urgent or emergency requests. When you post your job on GauPro, you can specify your urgency. Most users receive their first response within 20 to 60 minutes. For complex projects, it’s best to schedule a consultation a few days in advance to ensure the pro has sufficient time to assess the site and prepare a detailed estimate.`
+      q: `How quickly can I get a ${s.toLowerCase()} professional to my property in ${l}?`,
+      a: `In major hubs like ${l}, many of our professionals offer same-day or next-day service, especially for urgent or emergency requests. When you post your job on GauPro, you can specify your urgency. Most users receive their first response within 20 to 60 minutes. For complex projects, it’s best to schedule a consultation a few days in advance to ensure the pro has sufficient time to assess the site and prepare a detailed estimate. Our system prioritizes local pros closest to your address to ensure the fastest response time possible.`
     },
     {
-      q: `Are the ${s.toLowerCase()} providers in ${l} verified?`,
-      a: `Yes, GauPro takes security seriously. We have a multi-step verification process for our service providers in ${l}. This includes identity verification, checking business registrations where applicable, and reviewing past work history. Look for the "Verified Pro" badge on a professional's profile for added peace of mind. We also encourage users to read the latest customer reviews to get a sense of the provider's recent performance and reliability.`
+      q: `Are the ${s.toLowerCase()} providers in ${l} verified and insured?`,
+      a: `Yes, GauPro takes security seriously. We have a multi-step verification process for our service providers in ${l}. This includes identity verification, checking business registrations where applicable, and reviewing past work history. Look for the "Verified Pro" badge on a professional's profile for added peace of mind. While we verify credentials, we also recommend asking your chosen pro about their specific public liability insurance coverage for your particular project before work commences.`
     },
     {
       q: `Do I need to provide materials for the ${s.toLowerCase()} job?`,
-      a: `In most cases, professionals in ${l} prefer to supply their own materials to ensure quality and compatibility with their workmanship. However, you are always welcome to discuss this with your chosen pro. If you have already purchased specific fixtures or materials, mention this in your GauPro request so providers can adjust their quotes to include labor only. Note that many pros may not offer a warranty on work if client-supplied materials are used.`
+      a: `In most cases, professionals in ${l} prefer to supply their own materials to ensure quality and compatibility with their workmanship. This also usually allows the professional to offer a warranty on both the parts and the labor. However, you are always welcome to discuss this with your chosen pro. If you have already purchased specific fixtures or materials, mention this in your GauPro request so providers can adjust their quotes to include labor only. Note that many pros may not offer a guarantee if client-supplied materials are used.`
     },
     {
-      q: `What happens if I'm not happy with the ${s.toLowerCase()} service?`,
-      a: `GauPro is a connection platform, but we care deeply about quality. We always recommend having a clear, written agreement with your professional before work begins. If a dispute arises in ${l}, our support team can provide guidance on resolution steps. The most powerful tool you have is our review system—honest feedback helps maintain high standards across our community and informs other users about which pros are delivering the best results.`
+      q: `What should I look for when comparing ${s.toLowerCase()} quotes in ${l}?`,
+      a: `When you receive multiple quotes on GauPro, look beyond just the final price. Compare the professional's rating, read their recent reviews from other ${l} residents, and look at their portfolio of completed work. A detailed quote should include a clear scope of work, estimated timelines, and payment terms. Choosing a pro with specific experience in your type of project often leads to a better long-term result, even if their initial quote is not the lowest.`
+    },
+    {
+      q: `Can I get emergency ${s.toLowerCase()} help after hours in ${l}?`,
+      a: `Many of the service providers in our ${l} network offer 24/7 emergency support for critical trades like plumbing, electrical, and security. When posting your request, select the 'ASAP' urgency. Pros who offer after-hours service will be notified immediately. Keep in mind that emergency call-out fees in ${l} are typically higher than standard daytime rates, but they provide the essential peace of mind that a professional is on the way to resolve your crisis.`
+    },
+    {
+      q: `What happens if I'm not happy with the ${s.toLowerCase()} service provided?`,
+      a: `GauPro is a connection platform, but we care deeply about quality. We always recommend having a clear, written agreement with your professional before work begins. If a dispute arises in ${l}, our support team can provide guidance on resolution steps. The most powerful tool you have is our review system—honest feedback helps maintain high standards across our community and informs other users about which pros are delivering the best results in your city.`
     }
   ];
 }

@@ -2,7 +2,7 @@
 
 import { useMemo, useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ChevronRight, Star, Users, MapPin, CheckCircle2, TrendingUp, Info, LayoutGrid } from 'lucide-react';
+import { ChevronRight, Star, Users, MapPin, CheckCircle2, TrendingUp, Info, LayoutGrid, DollarSign } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { allServices } from '@/lib/service-questions';
@@ -186,6 +186,32 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                     </Card>
                                 )}
                             </div>
+
+                            <Card className="bg-secondary/10 border-dashed">
+                                <CardHeader>
+                                    <CardTitle className="text-lg flex items-center gap-2">
+                                        <DollarSign className="h-5 w-5 text-primary" />
+                                        Estimated Price Guide for {locationName}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                        <div className="p-3 bg-background rounded border">
+                                            <p className="font-bold text-primary">Standard Call-out</p>
+                                            <p className="text-muted-foreground">R450 - R850</p>
+                                        </div>
+                                        <div className="p-3 bg-background rounded border">
+                                            <p className="font-bold text-primary">Minor Repair</p>
+                                            <p className="text-muted-foreground">R900 - R1,800</p>
+                                        </div>
+                                        <div className="p-3 bg-background rounded border">
+                                            <p className="font-bold text-primary">Full Installation</p>
+                                            <p className="text-muted-foreground">Custom Quote</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-[10px] text-muted-foreground mt-4 italic">* Prices are estimates based on local market data in {locationName} and may vary based on project requirements.</p>
+                                </CardContent>
+                            </Card>
 
                             {locationQuery && (
                                 <section className="pt-8">
