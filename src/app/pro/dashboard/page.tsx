@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Database } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Database, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -222,6 +222,25 @@ export default function ProDashboardPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                    <Activity className="h-6 w-6 text-primary" />
+                    Platform Health
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center text-center">
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Monitor provider density, category voids, and recruitment impact in real-time.
+                  </p>
+                  <Button asChild variant="secondary" className="w-full">
+                    <Link href="/pro/admin/marketplace-health">
+                      View Health Report
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-lg font-normal">
                     <ImageIcon className="h-6 w-6 text-primary" />
                     Media Manager
                   </CardTitle>
@@ -233,25 +252,6 @@ export default function ProDashboardPage() {
                   <Button asChild variant="secondary" className="w-full">
                     <Link href="/pro/admin/media-manager">
                       Open Media Manager
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-lg font-normal">
-                    <Database className="h-6 w-6 text-primary" />
-                    Firestore Data
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col items-center text-center">
-                  <p className="text-sm text-muted-foreground mb-4">
-                    View the raw data from your 'professionalProfiles' collection to verify your seed data.
-                  </p>
-                  <Button asChild variant="secondary" className="w-full">
-                    <Link href="/pro/admin/seed-data">
-                      Open Data Viewer
                     </Link>
                   </Button>
                 </CardContent>
