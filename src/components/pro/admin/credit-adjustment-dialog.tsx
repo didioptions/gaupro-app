@@ -18,12 +18,10 @@ import {
   doc, 
   runTransaction, 
   collection, 
-  serverTimestamp,
-  addDoc 
+  serverTimestamp
 } from 'firebase/firestore';
 import { useUser } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
-import { logAdminAction } from '@/firebase/admin-logs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Wallet, Plus, Minus, RotateCcw, Gift, Loader2 } from 'lucide-react';
 
@@ -69,7 +67,7 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
 
         if (newBalance < 0) throw new Error("Insufficient balance for this deduction.");
 
-        // 1. Update Profile
+        // 1. Update Profile Balance
         transaction.update(proRef, { creditBalance: newBalance });
 
         // 2. Create Transaction Record
@@ -83,7 +81,7 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
             timestamp: new Date().toISOString()
         });
 
-        // 3. Create Notification
+        // 3. Create Notification for the Professional
         const notifRef = doc(notificationRef);
         transaction.set(notifRef, {
             title: 'Account Credits Adjusted',
@@ -92,14 +90,22 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
             status: 'unread',
             createdAt: serverTimestamp()
         });
-      });
 
-      // 4. Audit Log
-      await logAdminAction('ADJUST_CREDITS', {
-        proUid: professional.userId,
-        type,
-        amount: finalAdjustment,
-        reason
+        // 4. Create Atomic Audit Log Entry (Harden Security)
+        const logRef = doc(collection(db, 'admin_logs'));
+        transaction.set(logRef, {
+            adminUid: adminUser.uid,
+            adminEmail: adminUser.email,
+            action: 'ADJUST_CREDITS',
+            metadata: {
+                proUid: professional.userId,
+                type,
+                amount: finalAdjustment,
+                reason
+            },
+            timestamp: serverTimestamp(),
+            path: window.location.pathname,
+        });
       });
 
       toast({ title: 'Success', description: `Balance adjusted by ${finalAdjustment} credits.` });

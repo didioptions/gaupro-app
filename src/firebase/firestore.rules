@@ -20,13 +20,14 @@ service cloud.firestore {
       return isSignedIn() && getUserData().role == 'super_admin';
     }
 
-    // --- Admin Only Collections ---
+    // --- Admin Only Collections (Immutable) ---
+    // Rules strictly allow creation and viewing, but deny modification or deletion of history.
     match /admin_logs/{logId} {
-      allow read, write: if isAdmin();
+      allow get, list, create: if isAdmin();
     }
     
     match /transactions/{txId} {
-      allow read, write: if isAdmin();
+      allow get, list, create: if isAdmin();
     }
     
     match /verifications/{userId} {
