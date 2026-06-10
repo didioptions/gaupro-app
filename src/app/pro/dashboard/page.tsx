@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity, ShieldCheck, FileCheck, Wallet, MessageSquare } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity, ShieldCheck, FileCheck, Wallet, MessageSquare, Users, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -257,8 +257,65 @@ export default function ProDashboardPage() {
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                        <Users className="h-6 w-6 text-primary" />
+                        Customers
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Manage user accounts, view histories, and handle support.
+                      </p>
+                      <Button asChild variant="secondary" className="w-full">
+                        <Link href="/pro/admin/customers">
+                          CRM Center
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                        <Briefcase className="h-6 w-6 text-primary" />
+                        Leads & Quality
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Oversight of job requests and automated quality scoring.
+                      </p>
+                      <Button asChild variant="secondary" className="w-full">
+                        <Link href="/pro/admin/leads">
+                          Manage Flow
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                        <Activity className="h-6 w-6 text-primary" />
+                        Live Operations
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Real-time heartbeat of all marketplace activity.
+                      </p>
+                      <Button asChild variant="secondary" className="w-full">
+                        <Link href="/pro/admin/operations">
+                          Pulse Feed
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
                         <FileCheck className="h-6 w-6 text-primary" />
-                        Verification Queue
+                        Verifications
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -267,7 +324,7 @@ export default function ProDashboardPage() {
                       </p>
                       <Button asChild variant="secondary" className="w-full">
                         <Link href="/pro/admin/verifications">
-                          Manage Requests
+                          Review Queue
                         </Link>
                       </Button>
                     </CardContent>
@@ -277,16 +334,16 @@ export default function ProDashboardPage() {
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2 text-lg font-normal">
                         <MessageSquare className="h-6 w-6 text-primary" />
-                        Review Moderation
+                        Moderation
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Approve, reject, or flag reviews and resolve disputes.
+                        Manage reviews, fraud scores, and dispute resolutions.
                       </p>
                       <Button asChild variant="secondary" className="w-full">
                         <Link href="/pro/admin/reviews">
-                          Moderation Hub
+                          Trust Hub
                         </Link>
                       </Button>
                     </CardContent>
@@ -296,16 +353,16 @@ export default function ProDashboardPage() {
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2 text-lg font-normal">
                         <Wallet className="h-6 w-6 text-primary" />
-                        Credit Manager
+                        Credits
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Adjust professional balances and view transaction history.
+                        Adjust professional balances and view history.
                       </p>
                       <Button asChild variant="secondary" className="w-full">
                         <Link href="/pro/admin/credits">
-                          Financial Tools
+                          Financials
                         </Link>
                       </Button>
                     </CardContent>

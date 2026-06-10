@@ -35,6 +35,16 @@ service cloud.firestore {
       allow get, list, create: if isAdmin();
       allow update, delete: if false;
     }
+
+    match /marketplace_audit_logs/{logId} {
+      allow get, list, create: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /fraud_alerts/{alertId} {
+      allow get, list, create, update: if isAdmin();
+      allow delete: if isSuperAdmin();
+    }
     
     match /verifications/{userId} {
       allow read: if isAdmin() || request.auth.uid == userId;
@@ -95,11 +105,8 @@ service cloud.firestore {
 
         match /reviews/{reviewId} {
           allow read: if true;
-          // Customers can only create reviews in 'pending' status
           allow create: if isSignedIn() && request.resource.data.status == 'pending';
-          // Only admins can moderate
           allow update: if isAdmin();
-          // Neither customers nor pros can delete approved reviews
           allow delete: if isAdmin();
         }
       }
@@ -110,9 +117,14 @@ service cloud.firestore {
       allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
     }
 
-    // Support collection group queries for moderation
+    // --- Collection Group Access ---
     match /{path=**}/reviews/{reviewId} {
       allow list: if isAdmin();
+    }
+    
+    match /{path=**}/serviceRequests/{requestId} {
+      allow list: if isAdmin();
+      allow read: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
     }
   }
 }
