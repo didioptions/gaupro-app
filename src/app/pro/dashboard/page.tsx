@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Database, Activity } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -33,10 +33,12 @@ interface ProfessionalProfile {
 }
 
 export default function ProDashboardPage() {
-  const { user, isUserLoading } = useUser();
+  const { user, profile, isUserLoading } = useUser();
   const firestore = useFirestore();
   const [profileData, setProfileData] = useState<ProfessionalProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
 
   useEffect(() => {
     if (isUserLoading) return;
@@ -74,7 +76,7 @@ export default function ProDashboardPage() {
 
   }, [profileData]);
 
-  if (isLoading) {
+  if (isLoading || isUserLoading) {
     return (
       <div className="py-12 md:py-16">
         <div className="container mx-auto px-4 space-y-8">
@@ -83,9 +85,6 @@ export default function ProDashboardPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Skeleton className="h-48 lg:col-span-2" />
             <Skeleton className="h-48" />
-            <Skeleton className="h-32" />
-            <Skeleton className="h-32" />
-            <Skeleton className="h-32" />
           </div>
         </div>
       </div>
@@ -109,7 +108,7 @@ export default function ProDashboardPage() {
                 <AlertDescription className="text-red-700">
                   Your account has limited access. Before we activate your
                   account, we need you to verify your profile to maintain a
-                  trusted workplace. We need your identification such as ID or Passport  Drivers licence or Utility bills.
+                  trusted workplace. We need your identification such as ID or Passport.
                 </AlertDescription>
                 <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
                   <Link href="/pro/verify">Verify your ID</Link>
@@ -160,12 +159,6 @@ export default function ProDashboardPage() {
                       </div>
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">{profileData?.reviews || 0} reviews</p>
-                     <Link
-                        href="#"
-                        className="text-primary text-sm font-medium hover:underline mt-1 inline-block"
-                      >
-                        Get Customer Reviews
-                      </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -173,9 +166,8 @@ export default function ProDashboardPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg font-normal">
-                    Customer Requests Summary
+                    Quote Status
                   </CardTitle>
-                  <CardDescription>Last 30 Days</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-around text-center">
@@ -192,7 +184,7 @@ export default function ProDashboardPage() {
                     href="/browse-quotes"
                     className="text-primary text-sm font-medium hover:underline mt-4 block text-center"
                   >
-                    View your Latest Customer Requests
+                    View your Latest Requests
                   </Link>
                 </CardContent>
               </Card>
@@ -200,7 +192,7 @@ export default function ProDashboardPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg text-center font-normal">
-                    Credits Available
+                    Credits
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
@@ -219,43 +211,48 @@ export default function ProDashboardPage() {
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-lg font-normal">
-                    <Activity className="h-6 w-6 text-primary" />
-                    Platform Health
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col items-center text-center">
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Monitor provider density, category voids, and recruitment impact in real-time.
-                  </p>
-                  <Button asChild variant="secondary" className="w-full">
-                    <Link href="/pro/admin/marketplace-health">
-                      View Health Report
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
+              {/* Admin Only Tools */}
+              {isAdmin && (
+                <>
+                  <Card className="border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                        <Activity className="h-6 w-6 text-primary" />
+                        Marketplace Health
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Monitor provider liquidity and category coverage.
+                      </p>
+                      <Button asChild variant="secondary" className="w-full">
+                        <Link href="/pro/admin/marketplace-health">
+                          Admin Analytics
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-lg font-normal">
-                    <ImageIcon className="h-6 w-6 text-primary" />
-                    Media Manager
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col items-center text-center">
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Upload new images for your site and get their URLs here. This is your personal tool to manage all media assets.
-                  </p>
-                  <Button asChild variant="secondary" className="w-full">
-                    <Link href="/pro/admin/media-manager">
-                      Open Media Manager
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                  <Card className="border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                        <ImageIcon className="h-6 w-6 text-primary" />
+                        Media Manager
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Manage global platform assets and image URLs.
+                      </p>
+                      <Button asChild variant="secondary" className="w-full">
+                        <Link href="/pro/admin/media-manager">
+                          Assets Tool
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </>
+              )}
               
             </div>
 
@@ -264,7 +261,7 @@ export default function ProDashboardPage() {
                 <div className="flex justify-between items-center">
                   <CardTitle className="flex items-center gap-2 text-lg font-normal">
                     <Briefcase className="h-6 w-6 text-primary" />
-                    Leads for your services
+                    New Leads
                   </CardTitle>
                   <Button variant="secondary" asChild>
                     <Link href="/browse-quotes">View all leads</Link>
@@ -285,7 +282,7 @@ export default function ProDashboardPage() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-center py-4">No new leads matching your services right now. Check back later!</p>
+                  <p className="text-muted-foreground text-center py-4">No new leads right now.</p>
                 )}
               </CardContent>
             </Card>

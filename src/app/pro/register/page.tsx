@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -8,8 +7,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
-import { useAuth } from '@/firebase';
+import { useAuth, useFirestore } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
+import { doc, setDoc } from 'firebase/firestore';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -23,7 +23,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Logo } from '@/components/logo';
 
 const formSchema = z.object({
@@ -48,6 +48,7 @@ const formSchema = z.object({
 export default function ProRegisterPage() {
   const router = useRouter();
   const auth = useAuth();
+  const firestore = useFirestore();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   
@@ -66,8 +67,8 @@ export default function ProRegisterPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     try {
-      if (!auth) {
-        throw new Error('Authentication is not initialized');
+      if (!auth || !firestore) {
+        throw new Error('Firebase services are not initialized');
       }
   
       const userCredential = await createUserWithEmailAndPassword(
@@ -75,10 +76,42 @@ export default function ProRegisterPage() {
         values.email,
         values.password
       );
-      // After creating the user, update their profile with the full name
-      await updateProfile(userCredential.user, {
+
+      const user = userCredential.user;
+
+      // 1. Update Auth Profile
+      await updateProfile(user, {
         displayName: values.fullName
       });
+
+      // 2. Create User Role document in Firestore
+      await setDoc(doc(firestore, 'users', user.uid), {
+        uid: user.uid,
+        email: values.email,
+        fullName: values.fullName,
+        phone: values.phoneNumber,
+        role: 'pro',
+        createdAt: new Date().toISOString(),
+      });
+
+      // 3. Create initial empty professional profile
+      await setDoc(doc(firestore, 'professionalProfiles', user.uid), {
+        userId: user.uid,
+        name: values.fullName,
+        email: values.email,
+        phone: values.phoneNumber,
+        rating: 0,
+        reviews: 0,
+        isProVerified: false,
+        priorityRank: 0,
+        createdAt: new Date().toISOString(),
+      });
+
+      toast({
+        title: "Account Created",
+        description: "Welcome to Gaupro! Let's complete your business profile.",
+      });
+
       router.push('/pro/dashboard');
     } catch (error: any) {
       console.error("Registration failed:", error);
@@ -122,7 +155,7 @@ export default function ProRegisterPage() {
                           <Input placeholder="Your Cell Phone Number" {...field} className="h-12"/>
                         </FormControl>
                         <FormDescription className="text-xs">
-                          We'll send you a SMS with a 4-digit confirmation code.
+                          We'll use this to send you lead notifications.
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
