@@ -44,8 +44,38 @@ service cloud.firestore {
       
       match /{profileId} {
         allow get: if true;
-        allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId;
-        allow update, delete: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userId);
+        
+        // Prevent users from creating a "verified" or "funded" profile via self-registration
+        allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId
+                      && request.resource.data.get('isProVerified', false) == false
+                      && request.resource.data.get('rating', 0) == 0
+                      && request.resource.data.get('reviews', 0) == 0
+                      && request.resource.data.get('creditBalance', 0) == 0
+                      && request.resource.data.get('priorityRank', 0) == 0;
+        
+        // Field-level security for updates: Owners can only edit content fields
+        allow update: if isAdmin() || (
+          isSignedIn() && request.auth.uid == resource.data.userId 
+          && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+            'isProVerified', 
+            'verificationStatus', 
+            'verifiedAt', 
+            'verifiedBy', 
+            'rating', 
+            'reviews',
+            'reviewCount', 
+            'totalReviews', 
+            'creditBalance', 
+            'featuredStatus', 
+            'moderationFlags',
+            'priorityRank',
+            'userId',
+            'email',
+            'createdAt'
+          ])
+        );
+
+        allow delete: if isAdmin();
 
         match /reviews/{reviewId} {
           allow read: if true;
