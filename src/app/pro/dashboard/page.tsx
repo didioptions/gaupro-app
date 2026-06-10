@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity, ShieldCheck, FileCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -15,7 +15,7 @@ import Link from 'next/link';
 import { useUser, useFirestore } from '@/firebase';
 import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
 import { SupportChatWidget } from '@/components/pro/support-chat-widget';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs, limit, orderBy } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
 import { jobRequests } from '@/lib/job-requests-data';
@@ -30,12 +30,14 @@ interface ProfessionalProfile {
   reviews?: number;
   tags?: string[];
   serviceCategory?: string;
+  isProVerified?: boolean;
 }
 
 export default function ProDashboardPage() {
   const { user, profile, isUserLoading } = useUser();
   const firestore = useFirestore();
   const [profileData, setProfileData] = useState<ProfessionalProfile | null>(null);
+  const [notifications, setNotifications] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
@@ -47,22 +49,33 @@ export default function ProDashboardPage() {
       return;
     }
 
-    const fetchProfile = async () => {
+    const fetchData = async () => {
       try {
+        // Fetch Profile
         const q = query(collection(firestore, "professionalProfiles"), where("userId", "==", user.uid));
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
           const profileDoc = querySnapshot.docs[0];
           setProfileData(profileDoc.data() as ProfessionalProfile);
         }
+
+        // Fetch Notifications
+        const nQ = query(
+          collection(firestore, 'users', user.uid, 'notifications'),
+          orderBy('createdAt', 'desc'),
+          limit(3)
+        );
+        const nSnap = await getDocs(nQ);
+        setNotifications(nSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+
       } catch (error) {
-        console.error("Error fetching profile:", error);
+        console.error("Error fetching dashboard data:", error);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchProfile();
+    fetchData();
   }, [user, isUserLoading, firestore]);
 
   const relevantLeads = useMemo(() => {
@@ -95,26 +108,53 @@ export default function ProDashboardPage() {
     <>
       <div className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-normal mb-8">Dashboard</h1>
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl md:text-4xl font-normal">Dashboard</h1>
+            {profileData?.isProVerified && (
+               <Badge className="bg-green-100 text-green-800 hover:bg-green-100 px-3 py-1 flex items-center gap-1.5 border-green-200">
+                  <ShieldCheck className="h-4 w-4" />
+                  GauPro Verified
+               </Badge>
+            )}
+          </div>
 
           <div className="space-y-8">
-            <Alert
-              variant="destructive"
-              className="bg-red-100 border-red-500 text-red-800"
-            >
-              <AlertCircle className="h-4 w-4 !text-red-800" />
-              <AlertTitle className="font-normal">Action Required</AlertTitle>
-              <div className="flex justify-between items-center">
-                <AlertDescription className="text-red-700">
-                  Your account has limited access. Before we activate your
-                  account, we need you to verify your profile to maintain a
-                  trusted workplace. We need your identification such as ID or Passport.
-                </AlertDescription>
-                <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
-                  <Link href="/pro/verify">Verify your ID</Link>
-                </Button>
-              </div>
-            </Alert>
+            {!profileData?.isProVerified && (
+              <Alert
+                variant="destructive"
+                className="bg-red-100 border-red-500 text-red-800"
+              >
+                <AlertCircle className="h-4 w-4 !text-red-800" />
+                <AlertTitle className="font-normal">Action Required</AlertTitle>
+                <div className="flex justify-between items-center">
+                  <AlertDescription className="text-red-700">
+                    Your account has limited access. Before we activate your
+                    account, we need you to verify your profile to maintain a
+                    trusted marketplace. We need your identification such as ID or Passport.
+                  </AlertDescription>
+                  <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
+                    <Link href="/pro/verify">Verify your ID</Link>
+                  </Button>
+                </div>
+              </Alert>
+            )}
+
+            {notifications.length > 0 && (
+               <div className="space-y-3">
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Recent Notifications</p>
+                  {notifications.map(n => (
+                    <Card key={n.id} className="border-l-4 border-l-primary">
+                      <CardContent className="p-4 flex justify-between items-center">
+                        <div>
+                          <p className="font-bold text-sm">{n.title}</p>
+                          <p className="text-xs text-muted-foreground">{n.message}</p>
+                        </div>
+                        <Badge variant="outline" className="text-[10px]">{new Date(n.createdAt?.seconds * 1000).toLocaleDateString()}</Badge>
+                      </CardContent>
+                    </Card>
+                  ))}
+               </div>
+            )}
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card className="lg:col-span-2">
@@ -151,10 +191,10 @@ export default function ProDashboardPage() {
                         {profileData?.rating?.toFixed(1) || '0.0'}
                       </div>
                       <div className="flex items-center gap-1 text-gray-400">
-                        <Star className="w-4 h-4" />
-                        <Star className="w-4 h-4" />
-                        <Star className="w-4 h-4" />
-                        <Star className="w-4 h-4" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
                         <Star className="w-4 h-4" />
                       </div>
                     </div>
@@ -217,6 +257,25 @@ export default function ProDashboardPage() {
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                        <FileCheck className="h-6 w-6 text-primary" />
+                        Verification Queue
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Review identity documents and approve verified pros.
+                      </p>
+                      <Button asChild variant="secondary" className="w-full">
+                        <Link href="/pro/admin/verifications">
+                          Manage Requests
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
                         <Activity className="h-6 w-6 text-primary" />
                         Marketplace Health
                       </CardTitle>
@@ -228,25 +287,6 @@ export default function ProDashboardPage() {
                       <Button asChild variant="secondary" className="w-full">
                         <Link href="/pro/admin/marketplace-health">
                           Admin Analytics
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-primary/50 bg-primary/5">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
-                        <ImageIcon className="h-6 w-6 text-primary" />
-                        Media Manager
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Manage global platform assets and image URLs.
-                      </p>
-                      <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/media-manager">
-                          Assets Tool
                         </Link>
                       </Button>
                     </CardContent>
