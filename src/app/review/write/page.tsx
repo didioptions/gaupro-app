@@ -12,10 +12,11 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Star } from 'lucide-react';
+import { Star, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { getFirestore, collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 const reviewSchema = z.object({
   rating: z.number().min(1, 'Please select a rating'),
@@ -34,7 +35,9 @@ function WriteReviewContent() {
   const professional = proId ? getProfessionalById(proId) : null;
   
   const [hoverRating, setHoverRating] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const db = getFirestore();
 
   const form = useForm<z.infer<typeof reviewSchema>>({
     resolver: zodResolver(reviewSchema),
@@ -49,13 +52,54 @@ function WriteReviewContent() {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof reviewSchema>) => {
-    console.log('Review submitted:', values);
-    toast({
-      title: 'Review Submitted!',
-      description: 'Thank you for your feedback.',
-    });
-    router.push(`/pro/${proId}`);
+  const calculateFraudScore = (comment: string) => {
+      let score = 0;
+      const spamKeywords = ['crypto', 'invest', 'earn', 'money', 'scam', 'fake'];
+      const words = comment.toLowerCase().split(' ');
+      
+      // Basic checks
+      if (words.length < 5) score += 30; // Too short
+      spamKeywords.forEach(keyword => {
+          if (words.includes(keyword)) score += 20;
+      });
+      
+      return Math.min(score, 100);
+  };
+
+  const onSubmit = async (values: z.infer<typeof reviewSchema>) => {
+    if (!proId || !professional) return;
+    
+    setIsSubmitting(true);
+    try {
+        const reviewId = Math.random().toString(36).substring(7);
+        const reviewRef = doc(db, 'professionalProfiles', proId, 'reviews', reviewId);
+        
+        const fraudScore = calculateFraudScore(values.comment);
+
+        await setDoc(reviewRef, {
+            author: values.name,
+            phone: values.phone || '',
+            rating: values.rating,
+            comment: values.comment,
+            proUid: proId,
+            proName: professional.name,
+            status: fraudScore > 70 ? 'flagged' : 'pending',
+            fraudScore,
+            dateCreated: new Date().toISOString(),
+            createdAt: serverTimestamp()
+        });
+
+        toast({
+          title: 'Review Submitted!',
+          description: 'Thank you! Your review is pending moderation and will be visible shortly.',
+        });
+        router.push(`/pro/${proId}`);
+    } catch (error) {
+        console.error("Submission failed:", error);
+        toast({ variant: 'destructive', title: 'Error', description: 'Failed to submit review. Please try again.' });
+    } finally {
+        setIsSubmitting(false);
+    }
   };
   
   if (!professional) {
@@ -215,10 +259,11 @@ function WriteReviewContent() {
             </div>
 
             <div className="flex justify-end items-center gap-4 pt-4">
-              <Button type="button" variant="outline" onClick={() => router.back()}>
+              <Button type="button" variant="outline" onClick={() => router.back()} disabled={isSubmitting}>
                 Cancel
               </Button>
-              <Button type="submit" className="bg-red-600 hover:bg-red-700">
+              <Button type="submit" className="bg-red-600 hover:bg-red-700 min-w-[120px]" disabled={isSubmitting}>
+                {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
                 Submit
               </Button>
             </div>

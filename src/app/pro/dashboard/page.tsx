@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity, ShieldCheck, FileCheck, Wallet } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity, ShieldCheck, FileCheck, Wallet, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -238,7 +238,6 @@ export default function ProDashboardPage() {
                 <CardContent className="text-center">
                   <p className="text-5xl font-extrabold text-primary">25</p>
                 </CardContent>
-              </Card>
 
               <Card>
                 <CardContent className="p-6">
@@ -249,7 +248,6 @@ export default function ProDashboardPage() {
                     </Button>
                   </InviteFriendsDialog>
                 </CardContent>
-              </Card>
 
               {/* Admin Only Tools */}
               {isAdmin && (
@@ -276,6 +274,25 @@ export default function ProDashboardPage() {
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                        <MessageSquare className="h-6 w-6 text-primary" />
+                        Review Moderation
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Approve, reject, or flag reviews and resolve disputes.
+                      </p>
+                      <Button asChild variant="secondary" className="w-full">
+                        <Link href="/pro/admin/reviews">
+                          Moderation Hub
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
                         <Wallet className="h-6 w-6 text-primary" />
                         Credit Manager
                       </CardTitle>
@@ -287,25 +304,6 @@ export default function ProDashboardPage() {
                       <Button asChild variant="secondary" className="w-full">
                         <Link href="/pro/admin/credits">
                           Financial Tools
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-primary/50 bg-primary/5">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
-                        <Activity className="h-6 w-6 text-primary" />
-                        Marketplace Health
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Monitor provider liquidity and category coverage.
-                      </p>
-                      <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/marketplace-health">
-                          Admin Analytics
                         </Link>
                       </Button>
                     </CardContent>

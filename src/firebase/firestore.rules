@@ -21,19 +21,32 @@ service cloud.firestore {
     }
 
     // --- Admin Only Collections (Immutable) ---
-    // Rules strictly allow creation and viewing, but deny modification or deletion of history.
     match /admin_logs/{logId} {
       allow get, list, create: if isAdmin();
+      allow update, delete: if false;
     }
     
     match /transactions/{txId} {
       allow get, list, create: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /review_actions/{actionId} {
+      allow get, list, create: if isAdmin();
+      allow update, delete: if false;
     }
     
     match /verifications/{userId} {
       allow read: if isAdmin() || request.auth.uid == userId;
       allow create: if isSignedIn() && request.auth.uid == userId;
       allow update, delete: if isAdmin();
+    }
+
+    match /review_disputes/{disputeId} {
+      allow get, list: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
+      allow create: if isSignedIn();
+      allow update: if isAdmin();
+      allow delete: if false;
     }
 
     // --- User Profiles ---
@@ -50,7 +63,6 @@ service cloud.firestore {
       match /{profileId} {
         allow get: if true;
         
-        // Prevent users from creating a "verified" or "funded" profile via self-registration
         allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId
                       && request.resource.data.get('isProVerified', false) == false
                       && request.resource.data.get('rating', 0) == 0
@@ -58,7 +70,6 @@ service cloud.firestore {
                       && request.resource.data.get('creditBalance', 0) == 0
                       && request.resource.data.get('priorityRank', 0) == 0;
         
-        // Field-level security for updates: Owners can only edit content fields
         allow update: if isAdmin() || (
           isSignedIn() && request.auth.uid == resource.data.userId 
           && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
@@ -84,8 +95,12 @@ service cloud.firestore {
 
         match /reviews/{reviewId} {
           allow read: if true;
-          allow create: if isSignedIn();
-          allow delete: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userId);
+          // Customers can only create reviews in 'pending' status
+          allow create: if isSignedIn() && request.resource.data.status == 'pending';
+          // Only admins can moderate
+          allow update: if isAdmin();
+          // Neither customers nor pros can delete approved reviews
+          allow delete: if isAdmin();
         }
       }
     }
@@ -93,6 +108,11 @@ service cloud.firestore {
     // --- User-Specific Data Rules ---
     match /users/{userId}/{document=**} {
       allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
+    }
+
+    // Support collection group queries for moderation
+    match /{path=**}/reviews/{reviewId} {
+      allow list: if isAdmin();
     }
   }
 }
