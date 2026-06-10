@@ -238,6 +238,7 @@ export default function ProDashboardPage() {
                 <CardContent className="text-center">
                   <p className="text-5xl font-extrabold text-primary">25</p>
                 </CardContent>
+              </Card>
 
               <Card>
                 <CardContent className="p-6">
@@ -248,6 +249,7 @@ export default function ProDashboardPage() {
                     </Button>
                   </InviteFriendsDialog>
                 </CardContent>
+              </Card>
 
               {/* Admin Only Tools */}
               {isAdmin && (
