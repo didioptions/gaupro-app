@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Star, Phone, ShieldCheck, Zap, TrendingUp, Clock, DollarSign, UserPlus, CheckCircle2, MessageSquare, BadgeCheck } from 'lucide-react';
+import { Star, Phone, ShieldCheck, Zap, TrendingUp, Clock, DollarSign, UserPlus, CheckCircle, MessageSquare, BadgeCheck } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';

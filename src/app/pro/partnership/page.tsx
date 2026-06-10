@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { BadgeCheck, CheckCircle2, ShieldCheck, Star } from 'lucide-react';
+import { BadgeCheck, CheckCircle, ShieldCheck, Star } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -46,7 +46,7 @@ export default function ProPartnershipPage() {
                   "No monthly fees - pay only for the leads you want"
                 ].map((benefit, i) => (
                   <li key={i} className="flex items-start gap-4">
-                    <CheckCircle2 className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                     <span className="text-lg font-medium text-foreground/90">{benefit}</span>
                   </li>
                 ))}

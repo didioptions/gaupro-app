@@ -1,10 +1,10 @@
 'use client';
 export const dynamic = "force-dynamic";
 
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-// import { FileUpload } from '@/components/ui/file-upload'; // Temporarily disabled
+import { FileUpload } from '@/components/ui/file-upload';
 import { useUser } from '@/firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useToast } from '@/hooks/use-toast';
@@ -47,8 +47,7 @@ export default function MediaManagerPage() {
     const newUploadedFiles: UploadedFile[] = [];
 
     for (const file of filesToUpload) {
-      // Create a storage reference with a path like 'uploads/filename.jpg'
-      const storageRef = ref(storage, `uploads/${file.name}`);
+      const storageRef = ref(storage, `uploads/${Date.now()}-${file.name}`);
       try {
         const snapshot = await uploadBytes(storageRef, file);
         const downloadURL = await getDownloadURL(snapshot.ref);
@@ -64,7 +63,7 @@ export default function MediaManagerPage() {
     }
 
     setUploadedFiles((prev) => [...newUploadedFiles, ...prev]);
-    setFilesToUpload([]); // Clear the selection
+    setFilesToUpload([]); 
     setIsUploading(false);
 
     if (newUploadedFiles.length > 0) {
@@ -93,9 +92,8 @@ export default function MediaManagerPage() {
             <CardTitle>Upload New Media</CardTitle>
           </CardHeader>
           <CardContent>
-            {/* <FileUpload multiple onFilesChange={setFilesToUpload} /> */}
-            <p className="text-sm text-muted-foreground text-center p-4 border rounded-md">File upload is temporarily disabled to resolve a build issue. Please check back later.</p>
-            <Button onClick={handleUpload} disabled={true || isUploading || filesToUpload.length === 0} className="mt-4 w-full">
+            <FileUpload multiple onFilesChange={setFilesToUpload} />
+            <Button onClick={handleUpload} disabled={isUploading || filesToUpload.length === 0} className="mt-4 w-full">
               {isUploading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

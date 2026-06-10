@@ -11,8 +11,8 @@ import {
   MapPin, 
   LayoutGrid, 
   TrendingUp, 
-  AlertTriangle, 
-  CheckCircle2, 
+  TriangleAlert, 
+  CircleCheck, 
   Activity,
   ArrowUpRight,
   Copy,
@@ -23,6 +23,7 @@ import { allProfessionals } from '@/lib/professionals-data';
 import { allServices } from '@/lib/service-questions';
 import { allLocations } from '@/lib/locations';
 import { useToast } from '@/hooks/use-toast';
+import Link from 'next/link';
 
 export default function MarketplaceHealthPage() {
   const { toast } = useToast();
@@ -34,7 +35,6 @@ export default function MarketplaceHealthPage() {
   // 2. Providers per Category
   const categoriesWithProviders = Object.keys(allProfessionals).length;
   const totalCategories = allServices.length;
-  const categoryCoveragePercent = (categoriesWithProviders / totalCategories) * 100;
 
   // 3. Providers per City
   const citiesWithProviders = useMemo(() => {
@@ -45,7 +45,6 @@ export default function MarketplaceHealthPage() {
     return cities.size;
   }, []);
   const totalCities = allLocations.length;
-  const cityCoveragePercent = (citiesWithProviders / totalCities) * 100;
 
   const recruitmentRankings = [
     { category: 'Plumbers', impact: 'Very High', reason: 'Highest emergency volume' },
@@ -244,16 +243,16 @@ The GauPro Team`;
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border border-red-100">
-                  <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5" />
+                  <TriangleAlert className="h-5 w-5 text-red-600 mt-0.5" />
                   <div>
                     <p className="text-sm font-bold text-red-800">No Plumbing Supply</p>
                     <p className="text-xs text-red-700">Highest search volume category with 0 providers in 80% of areas.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5" />
+                  <CircleCheck className="h-5 w-5 text-blue-600 mt-0.5" />
                   <div>
-                    <p className="text-sm font-bold text-blue-800">Healthy: Blinds/Curtains</p>
+                    <p className="text-sm font-bold text-red-800">Healthy: Blinds/Curtains</p>
                     <p className="text-xs text-blue-700">Satisfactory liquidity in JHB. Ready for scaled SEO traffic.</p>
                   </div>
                 </div>
