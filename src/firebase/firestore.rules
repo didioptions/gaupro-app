@@ -25,6 +25,10 @@ service cloud.firestore {
       allow read, write: if isAdmin();
     }
     
+    match /transactions/{txId} {
+      allow read, write: if isAdmin();
+    }
+    
     match /verifications/{userId} {
       allow read: if isAdmin() || request.auth.uid == userId;
       allow create: if isSignedIn() && request.auth.uid == userId;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity, ShieldCheck, FileCheck } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity, ShieldCheck, FileCheck, Wallet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -268,6 +268,25 @@ export default function ProDashboardPage() {
                       <Button asChild variant="secondary" className="w-full">
                         <Link href="/pro/admin/verifications">
                           Manage Requests
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
+                        <Wallet className="h-6 w-6 text-primary" />
+                        Credit Manager
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Adjust professional balances and view transaction history.
+                      </p>
+                      <Button asChild variant="secondary" className="w-full">
+                        <Link href="/pro/admin/credits">
+                          Financial Tools
                         </Link>
                       </Button>
                     </CardContent>
