@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users, ShieldAlert } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -50,7 +50,6 @@ export default function ProDashboardPage() {
 
     const fetchData = async () => {
       try {
-        // Fetch Profile
         const q = query(collection(firestore, "professionalProfiles"), where("userId", "==", user.uid));
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
@@ -58,7 +57,6 @@ export default function ProDashboardPage() {
           setProfileData(profileDoc.data() as ProfessionalProfile);
         }
 
-        // Fetch Notifications
         const nQ = query(
           collection(firestore, 'users', user.uid, 'notifications'),
           orderBy('createdAt', 'desc'),
@@ -79,13 +77,10 @@ export default function ProDashboardPage() {
 
   const relevantLeads = useMemo(() => {
     if (!profileData) return [];
-    
     const proServices = profileData.tags || (profileData.serviceCategory ? [allServices.find(s => s.value === profileData.serviceCategory)?.label || ''] : []);
-    
     return jobRequests.filter(job => 
       proServices.some((service: string) => service && job.category.toLowerCase().includes(service.toLowerCase()))
     ).slice(0, 3);
-
   }, [profileData]);
 
   if (isLoading || isUserLoading) {
@@ -119,17 +114,13 @@ export default function ProDashboardPage() {
 
           <div className="space-y-8">
             {!profileData?.isProVerified && (
-              <Alert
-                variant="destructive"
-                className="bg-red-100 border-red-500 text-red-800"
-              >
+              <Alert variant="destructive" className="bg-red-100 border-red-500 text-red-800">
                 <AlertCircle className="h-4 w-4 !text-red-800" />
                 <AlertTitle className="font-normal">Action Required</AlertTitle>
                 <div className="flex justify-between items-center">
                   <AlertDescription className="text-red-700">
                     Your account has limited access. Before we activate your
-                    account, we need you to verify your profile to maintain a
-                    trusted marketplace. We need your identification such as ID or Passport.
+                    account, we need you to verify your profile.
                   </AlertDescription>
                   <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0 ml-4">
                     <Link href="/pro/verify">Verify your ID</Link>
@@ -176,10 +167,7 @@ export default function ProDashboardPage() {
                         </span>
                       </h2>
                       <p className="text-sm text-muted-foreground">{profileData?.location || 'Your Location'}</p>
-                      <Link
-                        href="/pro/profile/edit"
-                        className="text-primary text-sm font-medium hover:underline mt-1 inline-block"
-                      >
+                      <Link href="/pro/profile/edit" className="text-primary text-sm font-medium hover:underline mt-1 inline-block">
                         Improve your business profile
                       </Link>
                     </div>
@@ -204,9 +192,7 @@ export default function ProDashboardPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg font-normal">
-                    Quote Status
-                  </CardTitle>
+                  <CardTitle className="text-lg font-normal">Quote Status</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-around text-center">
@@ -219,24 +205,15 @@ export default function ProDashboardPage() {
                       <p className="text-sm text-muted-foreground">Purchased</p>
                     </div>
                   </div>
-                  <Link
-                    href="/browse-quotes"
-                    className="text-primary text-sm font-medium hover:underline mt-4 block text-center"
-                  >
+                  <Link href="/browse-quotes" className="text-primary text-sm font-medium hover:underline mt-4 block text-center">
                     View your Latest Requests
                   </Link>
                 </CardContent>
               </Card>
 
               <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg text-center font-normal">
-                    Credits
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-5xl font-extrabold text-primary">25</p>
-                </CardContent>
+                <CardHeader><CardTitle className="text-lg text-center font-normal">Credits</CardTitle></CardHeader>
+                <CardContent className="text-center"><p className="text-5xl font-extrabold text-primary">25</p></CardContent>
               </Card>
 
               <Card>
@@ -250,9 +227,25 @@ export default function ProDashboardPage() {
                 </CardContent>
               </Card>
 
-              {/* Admin Only Tools */}
               {isAdmin && (
                 <>
+                  <Card className="border-red-200 bg-red-50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-lg font-bold text-red-800">
+                        <ShieldAlert className="h-6 w-6 text-red-600" />
+                        Risk Center
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-xs text-red-700 mb-4">
+                        Review identity fraud alerts and behavior flags.
+                      </p>
+                      <Button asChild variant="destructive" className="w-full">
+                        <Link href="/pro/admin/fraud">View Alerts</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2 text-lg font-normal">
@@ -265,9 +258,7 @@ export default function ProDashboardPage() {
                         Manage user accounts, view histories, and handle support.
                       </p>
                       <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/customers">
-                          CRM Center
-                        </Link>
+                        <Link href="/pro/admin/customers">CRM Center</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -284,9 +275,7 @@ export default function ProDashboardPage() {
                         Oversight of job requests and automated quality scoring.
                       </p>
                       <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/leads">
-                          Manage Flow
-                        </Link>
+                        <Link href="/pro/admin/leads">Manage Flow</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -303,9 +292,7 @@ export default function ProDashboardPage() {
                         Real-time heartbeat of all marketplace activity.
                       </p>
                       <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/operations">
-                          Pulse Feed
-                        </Link>
+                        <Link href="/pro/admin/operations">Pulse Feed</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -322,9 +309,7 @@ export default function ProDashboardPage() {
                         Review identity documents and approve verified pros.
                       </p>
                       <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/verifications">
-                          Review Queue
-                        </Link>
+                        <Link href="/pro/admin/verifications">Review Queue</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -341,9 +326,7 @@ export default function ProDashboardPage() {
                         Manage reviews, fraud scores, and dispute resolutions.
                       </p>
                       <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/reviews">
-                          Trust Hub
-                        </Link>
+                        <Link href="/pro/admin/reviews">Trust Hub</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -360,15 +343,12 @@ export default function ProDashboardPage() {
                         Adjust professional balances and view history.
                       </p>
                       <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/credits">
-                          Financials
-                        </Link>
+                        <Link href="/pro/admin/credits">Financials</Link>
                       </Button>
                     </CardContent>
                   </Card>
                 </>
               )}
-              
             </div>
 
             <Card>
@@ -401,7 +381,6 @@ export default function ProDashboardPage() {
                 )}
               </CardContent>
             </Card>
-
           </div>
         </div>
       </div>

@@ -19,7 +19,8 @@ import {
     MapPin,
     Mail,
     Phone,
-    ShieldAlert
+    ShieldAlert,
+    ChevronDown
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
@@ -36,14 +37,15 @@ export default function CustomerManagementPage() {
   const { user: adminUser, isUserLoading } = useUser();
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState('');
+  const [pageSize, setPageSize] = useState(25);
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [actionType, setActionType] = useState<'suspend' | 'reactivate' | null>(null);
   const [notes, setAdminNotes] = useState('');
 
   const usersQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
-    return query(collection(firestore, 'users'), orderBy('createdAt', 'desc'), limit(100));
-  }, [firestore, isUserLoading]);
+    return query(collection(firestore, 'users'), orderBy('createdAt', 'desc'), limit(pageSize));
+  }, [firestore, isUserLoading, pageSize]);
 
   const { data: users, loading } = useCollection<DocumentData>(usersQuery);
 
@@ -56,16 +58,19 @@ export default function CustomerManagementPage() {
       total: users.length,
       active: users.filter(u => u.status !== 'suspended').length,
       suspended: users.filter(u => u.status === 'suspended').length,
-      newThisMonth: users.filter(u => u.createdAt && new Date(u.createdAt) >= startOfMonth).length
+      newThisMonth: users.filter(u => {
+        const d = u.createdAt?.seconds ? new Date(u.createdAt.seconds * 1000) : new Date(u.createdAt);
+        return d >= startOfMonth;
+      }).length
     };
   }, [users]);
 
   const filteredUsers = useMemo(() => {
     if (!users) return [];
     return users.filter(u => 
-      u.fullName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      u.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      u.phone?.includes(searchQuery)
+      (u.fullName || u.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (u.email || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (u.phone || '').includes(searchQuery)
     );
   }, [users, searchQuery]);
 
@@ -117,7 +122,7 @@ export default function CustomerManagementPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <Users className="h-5 w-5 text-primary" />
-                <Badge variant="secondary">Total</Badge>
+                <Badge variant="secondary">In View</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.total}</p>
             </CardContent>
@@ -144,10 +149,10 @@ export default function CustomerManagementPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <History className="h-5 w-5 opacity-80" />
-                <Badge variant="outline" className="text-white border-white/30">Growth</Badge>
+                <Badge variant="outline" className="text-white border-white/30">Recent</Badge>
               </div>
               <p className="text-2xl font-bold">+{stats.newThisMonth}</p>
-              <p className="text-[10px] uppercase font-bold opacity-70">New This Month</p>
+              <p className="text-[10px] uppercase font-bold opacity-70">New This Page</p>
             </CardContent>
           </Card>
         </div>
@@ -156,14 +161,16 @@ export default function CustomerManagementPage() {
           <CardHeader className="border-b">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <CardTitle className="text-xl">User Directory</CardTitle>
-              <div className="relative w-full md:w-72">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  placeholder="Name, Email, or Phone..." 
-                  className="pl-9 h-9"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
+              <div className="flex gap-2 w-full md:w-auto">
+                  <div className="relative flex-grow md:w-72">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input 
+                      placeholder="Name, Email, or Phone..." 
+                      className="pl-9 h-9"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </div>
               </div>
             </div>
           </CardHeader>
@@ -237,6 +244,13 @@ export default function CustomerManagementPage() {
                 ))}
               </TableBody>
             </Table>
+            {users && users.length >= pageSize && (
+                <div className="p-4 border-t flex justify-center">
+                    <Button variant="ghost" size="sm" onClick={() => setPageSize(prev => prev + 25)} className="text-xs gap-2">
+                        <ChevronDown className="h-4 w-4" /> Load More Users
+                    </Button>
+                </div>
+            )}
           </CardContent>
         </Card>
       </div>
