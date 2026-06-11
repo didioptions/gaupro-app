@@ -11,8 +11,8 @@ import {
   MapPin, 
   LayoutGrid, 
   TrendingUp, 
-  TriangleAlert, 
-  CircleCheck, 
+  AlertTriangle, 
+  CheckCircle2, 
   Activity,
   ArrowUpRight,
   Copy,
@@ -243,14 +243,14 @@ The GauPro Team`;
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border border-red-100">
-                  <TriangleAlert className="h-5 w-5 text-red-600 mt-0.5" />
+                  <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5" />
                   <div>
                     <p className="text-sm font-bold text-red-800">No Plumbing Supply</p>
                     <p className="text-xs text-red-700">Highest search volume category with 0 providers in 80% of areas.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                  <CircleCheck className="h-5 w-5 text-blue-600 mt-0.5" />
+                  <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5" />
                   <div>
                     <p className="text-sm font-bold text-red-800">Healthy: Blinds/Curtains</p>
                     <p className="text-xs text-blue-700">Satisfactory liquidity in JHB. Ready for scaled SEO traffic.</p>

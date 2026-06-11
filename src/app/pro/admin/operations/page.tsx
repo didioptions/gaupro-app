@@ -31,6 +31,7 @@ export default function MarketplaceOperationsPage() {
   const { data: events, loading } = useCollection<DocumentData>(eventsQuery);
 
   const getEventIcon = (action: string) => {
+    if (!action) return <Activity className="h-4 w-4 text-gray-500" />;
     if (action.includes('USER_REGISTER')) return <UserPlus className="h-4 w-4 text-blue-500" />;
     if (action.includes('LEAD_CREATE')) return <PlusCircle className="h-4 w-4 text-green-500" />;
     if (action.includes('LEAD_PURCHASE')) return <ShoppingBag className="h-4 w-4 text-orange-500" />;
@@ -79,7 +80,7 @@ export default function MarketplaceOperationsPage() {
                        </div>
                        <div className="flex-grow">
                           <div className="flex justify-between items-start">
-                             <h4 className="font-bold text-sm capitalize">{event.action.replace(/_/g, ' ')}</h4>
+                             <h4 className="font-bold text-sm capitalize">{event.action?.replace(/_/g, ' ') || 'Marketplace Activity'}</h4>
                              <span className="text-[10px] text-muted-foreground flex items-center gap-1">
                                 <Clock className="h-3 w-3" />
                                 {event.timestamp?.seconds ? new Date(event.timestamp.seconds * 1000).toLocaleTimeString() : 'Just now'}

@@ -69,12 +69,12 @@ export default function LeadOversightPage() {
   };
 
   const handleAction = async (lead: any, action: string) => {
-    if (!adminUser) return;
+    if (!adminUser || !lead || !firestore) return;
     try {
-      const leadRef = doc(firestore!, lead.userId, 'serviceRequests', lead.id);
+      const leadRef = doc(firestore, 'users', lead.userId, 'serviceRequests', lead.id);
       await updateDoc(leadRef, { status: action, updatedAt: serverTimestamp() });
       
-      await addDoc(collection(firestore!, 'marketplace_audit_logs'), {
+      await addDoc(collection(firestore, 'marketplace_audit_logs'), {
         adminUid: adminUser.uid,
         action: `LEAD_${action.toUpperCase()}`,
         targetId: lead.id,
@@ -126,7 +126,6 @@ export default function LeadOversightPage() {
               <p className="text-2xl font-bold">{stats.quoted}</p>
               <p className="text-xs text-muted-foreground">Quoted Requests</p>
             </CardContent>
-          </Card>
           <Card className="bg-primary text-primary-foreground border-0">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
@@ -136,6 +135,7 @@ export default function LeadOversightPage() {
               <p className="text-2xl font-bold">{stats.quality}%</p>
               <p className="text-[10px] uppercase font-bold opacity-70">Avg Lead Score</p>
             </CardContent>
+          </Card>
           </Card>
         </div>
 
@@ -206,7 +206,7 @@ export default function LeadOversightPage() {
       <Dialog open={!!viewLead} onOpenChange={() => setViewLead(null)}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Lead Details: {viewLead?.id.substring(0,8)}</DialogTitle>
+            <DialogTitle>Lead Details: {viewLead?.id?.substring(0,8)}</DialogTitle>
           </DialogHeader>
           <div className="py-4 space-y-6">
             <div className="p-4 bg-secondary/30 rounded-lg">
