@@ -1,14 +1,13 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, Image as ImageIcon, Briefcase, Activity, ShieldCheck, FileCheck, Wallet, MessageSquare, Users, Settings } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
@@ -81,7 +80,7 @@ export default function ProDashboardPage() {
   const relevantLeads = useMemo(() => {
     if (!profileData) return [];
     
-    const proServices = profileData.tags || [allServices.find(s => s.value === profileData.serviceCategory)?.label || ''];
+    const proServices = profileData.tags || (profileData.serviceCategory ? [allServices.find(s => s.value === profileData.serviceCategory)?.label || ''] : []);
     
     return jobRequests.filter(job => 
       proServices.some((service: string) => service && job.category.toLowerCase().includes(service.toLowerCase()))
@@ -149,7 +148,7 @@ export default function ProDashboardPage() {
                           <p className="font-bold text-sm">{n.title}</p>
                           <p className="text-xs text-muted-foreground">{n.message}</p>
                         </div>
-                        <Badge variant="outline" className="text-[10px]">{new Date(n.createdAt?.seconds * 1000).toLocaleDateString()}</Badge>
+                        <Badge variant="outline" className="text-[10px]">{n.createdAt?.seconds ? new Date(n.createdAt.seconds * 1000).toLocaleDateString() : 'Recently'}</Badge>
                       </CardContent>
                     </Card>
                   ))}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit, DocumentData } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -39,6 +39,12 @@ export default function MarketplaceOperationsPage() {
     if (action.includes('VERIFICATION')) return <ShieldCheck className="h-4 w-4 text-purple-500" />;
     if (action.includes('CREDIT')) return <Wallet className="h-4 w-4 text-teal-500" />;
     return <Activity className="h-4 w-4 text-gray-500" />;
+  };
+
+  const getFormattedTime = (timestamp: any) => {
+    if (!timestamp) return 'Just now';
+    if (timestamp.seconds) return new Date(timestamp.seconds * 1000).toLocaleTimeString();
+    return new Date(timestamp).toLocaleTimeString();
   };
 
   return (
@@ -83,7 +89,7 @@ export default function MarketplaceOperationsPage() {
                              <h4 className="font-bold text-sm capitalize">{event.action?.replace(/_/g, ' ') || 'Marketplace Activity'}</h4>
                              <span className="text-[10px] text-muted-foreground flex items-center gap-1">
                                 <Clock className="h-3 w-3" />
-                                {event.timestamp?.seconds ? new Date(event.timestamp.seconds * 1000).toLocaleTimeString() : 'Just now'}
+                                {getFormattedTime(event.timestamp)}
                              </span>
                           </div>
                           <p className="text-xs text-muted-foreground mt-1">

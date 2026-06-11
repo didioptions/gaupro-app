@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from 'react';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collectionGroup, query, orderBy, limit, DocumentData, doc, updateDoc, serverTimestamp, addDoc, collection } from 'firebase/firestore';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -15,7 +15,6 @@ import {
     Zap, 
     AlertTriangle, 
     CheckCircle2, 
-    Clock,
     Eye,
     TrendingUp
 } from 'lucide-react';
@@ -69,7 +68,7 @@ export default function LeadOversightPage() {
   };
 
   const handleAction = async (lead: any, action: string) => {
-    if (!adminUser || !lead || !firestore) return;
+    if (!adminUser || !lead || !firestore || !lead.userId) return;
     try {
       const leadRef = doc(firestore, 'users', lead.userId, 'serviceRequests', lead.id);
       await updateDoc(leadRef, { status: action, updatedAt: serverTimestamp() });
@@ -126,6 +125,7 @@ export default function LeadOversightPage() {
               <p className="text-2xl font-bold">{stats.quoted}</p>
               <p className="text-xs text-muted-foreground">Quoted Requests</p>
             </CardContent>
+          </Card>
           <Card className="bg-primary text-primary-foreground border-0">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
@@ -135,7 +135,6 @@ export default function LeadOversightPage() {
               <p className="text-2xl font-bold">{stats.quality}%</p>
               <p className="text-[10px] uppercase font-bold opacity-70">Avg Lead Score</p>
             </CardContent>
-          </Card>
           </Card>
         </div>
 
@@ -206,7 +205,7 @@ export default function LeadOversightPage() {
       <Dialog open={!!viewLead} onOpenChange={() => setViewLead(null)}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Lead Details: {viewLead?.id?.substring(0,8)}</DialogTitle>
+            <DialogTitle>Lead Details: {viewLead?.id?.substring(0,8) || 'Unknown'}</DialogTitle>
           </DialogHeader>
           <div className="py-4 space-y-6">
             <div className="p-4 bg-secondary/30 rounded-lg">

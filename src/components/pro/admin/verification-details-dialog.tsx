@@ -235,7 +235,7 @@ export function VerificationDetailsDialog({ verification, children }: Verificati
                 <p className="text-sm font-bold">Review History</p>
                 <div className="text-xs space-y-1">
                   <p><span className="text-muted-foreground">Reviewed By:</span> {verification.reviewedBy}</p>
-                  <p><span className="text-muted-foreground">Reviewed At:</span> {new Date(verification.reviewedAt).toLocaleString()}</p>
+                  <p><span className="text-muted-foreground">Reviewed At:</span> {verification.reviewedAt ? new Date(verification.reviewedAt).toLocaleString() : 'N/A'}</p>
                   {verification.rejectionReason && (
                     <p><span className="text-red-600 font-bold">Reason:</span> {verification.rejectionReason}</p>
                   )}

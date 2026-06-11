@@ -2,8 +2,8 @@
 
 import React, { useMemo, useState } from 'react';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collectionGroup, query, orderBy, limit, DocumentData, collection } from 'firebase/firestore';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { collectionGroup, query, orderBy, limit, DocumentData } from 'firebase/firestore';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
@@ -14,13 +14,7 @@ import {
   Star, 
   Search, 
   ShieldAlert, 
-  CheckCircle2, 
-  XCircle, 
-  MessageSquare, 
-  Filter,
   BarChart3,
-  AlertTriangle,
-  History
 } from 'lucide-react';
 import {
   PieChart,
@@ -32,7 +26,6 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend
 } from 'recharts';
 import { ReviewModerationDialog } from '@/components/pro/admin/review-moderation-dialog';
 
@@ -212,7 +205,7 @@ export default function ReviewModerationPage() {
                         <TableRow key={review.id}>
                           <TableCell>
                             <p className="font-medium">{review.author}</p>
-                            <p className="text-[10px] text-muted-foreground uppercase">{new Date(review.dateCreated).toLocaleDateString()}</p>
+                            <p className="text-[10px] text-muted-foreground uppercase">{review.dateCreated ? new Date(review.dateCreated).toLocaleDateString() : 'N/A'}</p>
                           </TableCell>
                           <TableCell>
                             <div className="flex items-center gap-1">
@@ -227,7 +220,7 @@ export default function ReviewModerationPage() {
                              <p className="text-xs font-semibold">{review.proName || 'Unknown Pro'}</p>
                           </TableCell>
                           <TableCell>
-                            <Badge variant={review.fraudScore > 70 ? 'destructive' : review.fraudScore > 40 ? 'secondary' : 'outline'} className="text-[10px]">
+                            <Badge variant={(review.fraudScore || 0) > 70 ? 'destructive' : (review.fraudScore || 0) > 40 ? 'secondary' : 'outline'} className="text-[10px]">
                                {review.fraudScore || 0}%
                             </Badge>
                           </TableCell>

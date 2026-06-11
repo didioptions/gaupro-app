@@ -46,7 +46,7 @@ export default function FindProPage() {
 
     const professionalProfilesForAI = (allProsFromFirestore || []).map((pro) => ({
       name: pro.name,
-      skills: pro.tags || [pro.serviceCategory],
+      skills: pro.tags || (pro.serviceCategory ? [pro.serviceCategory] : []),
       location: pro.location ?? '',
       availability: 'Available',
     }));
@@ -79,7 +79,7 @@ export default function FindProPage() {
   return (
     <main className="flex-grow bg-secondary/50">
       <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl auto">
           <Card className="shadow-lg">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl md:text-3xl font-normal">

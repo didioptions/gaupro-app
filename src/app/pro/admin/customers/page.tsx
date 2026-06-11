@@ -2,13 +2,14 @@
 
 import React, { useMemo, useState } from 'react';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collection, query, orderBy, limit, DocumentData, where, doc, updateDoc, serverTimestamp, addDoc } from 'firebase/firestore';
+import { collection, query, orderBy, limit, DocumentData, doc, updateDoc, serverTimestamp, addDoc } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { 
     Search, 
     Users, 
@@ -55,7 +56,7 @@ export default function CustomerManagementPage() {
       total: users.length,
       active: users.filter(u => u.status !== 'suspended').length,
       suspended: users.filter(u => u.status === 'suspended').length,
-      newThisMonth: users.filter(u => new Date(u.createdAt) >= startOfMonth).length
+      newThisMonth: users.filter(u => u.createdAt && new Date(u.createdAt) >= startOfMonth).length
     };
   }, [users]);
 
@@ -95,6 +96,12 @@ export default function CustomerManagementPage() {
     } catch (error: any) {
       toast({ variant: 'destructive', title: 'Error', description: error.message });
     }
+  };
+
+  const getFormattedDate = (date: any) => {
+    if (!date) return 'N/A';
+    if (date.seconds) return new Date(date.seconds * 1000).toLocaleDateString();
+    return new Date(date).toLocaleDateString();
   };
 
   return (
@@ -198,7 +205,7 @@ export default function CustomerManagementPage() {
                       </div>
                     </TableCell>
                     <TableCell className="text-xs text-muted-foreground">
-                      {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A'}
+                      {getFormattedDate(user.createdAt)}
                     </TableCell>
                     <TableCell>
                       <Badge variant={user.status === 'suspended' ? 'destructive' : 'secondary'}>
