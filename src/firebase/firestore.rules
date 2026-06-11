@@ -61,7 +61,7 @@ service cloud.firestore {
 
     // --- User Profiles ---
     match /users/{userId} {
-      allow read: if isSignedIn();
+      allow read: if request.auth.uid == userId || isAdmin();
       allow create: if isSignedIn() && request.auth.uid == userId;
       allow update: if isAdmin() || (request.auth.uid == userId && request.resource.data.role == resource.data.role);
     }
