@@ -16,7 +16,8 @@ import {
     AlertTriangle, 
     CheckCircle2, 
     Eye,
-    TrendingUp
+    TrendingUp,
+    ChevronDown
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
@@ -32,13 +33,14 @@ export default function LeadOversightPage() {
   const { user: adminUser, isUserLoading } = useUser();
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState('');
+  const [pageSize, setPageSize] = useState(25);
   const [viewLead, setViewLead] = useState<any>(null);
 
   // Fetch all service requests using Collection Group Query
   const leadsQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
-    return query(collectionGroup(firestore, 'serviceRequests'), orderBy('dateNeeded', 'desc'), limit(100));
-  }, [firestore, isUserLoading]);
+    return query(collectionGroup(firestore, 'serviceRequests'), orderBy('dateNeeded', 'desc'), limit(pageSize));
+  }, [firestore, isUserLoading, pageSize]);
 
   const { data: leads, loading } = useCollection<DocumentData>(leadsQuery);
 
@@ -125,7 +127,6 @@ export default function LeadOversightPage() {
               <p className="text-2xl font-bold">{stats.quoted}</p>
               <p className="text-xs text-muted-foreground">Quoted Requests</p>
             </CardContent>
-          </Card>
           <Card className="bg-primary text-primary-foreground border-0">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
@@ -198,6 +199,13 @@ export default function LeadOversightPage() {
                 ))}
               </TableBody>
             </Table>
+            {leads && leads.length >= pageSize && (
+                <div className="p-4 border-t flex justify-center">
+                    <Button variant="ghost" size="sm" onClick={() => setPageSize(prev => prev + 25)} className="text-xs gap-2">
+                        <ChevronDown className="h-4 w-4" /> Load More Leads
+                    </Button>
+                </div>
+            )}
           </CardContent>
         </Card>
       </div>

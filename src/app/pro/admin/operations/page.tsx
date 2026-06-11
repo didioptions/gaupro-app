@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit, DocumentData } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -14,19 +14,22 @@ import {
     UserPlus, 
     ShieldCheck, 
     Wallet,
-    Clock
+    Clock,
+    ChevronDown
 } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Button } from '@/components/ui/button';
 
 export default function MarketplaceOperationsPage() {
   const firestore = useFirestore();
   const { isUserLoading } = useUser();
+  const [pageSize, setPageSize] = useState(50);
 
   // Unified stream of audit logs
   const eventsQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
-    return query(collection(firestore, 'marketplace_audit_logs'), orderBy('timestamp', 'desc'), limit(50));
-  }, [firestore, isUserLoading]);
+    return query(collection(firestore, 'marketplace_audit_logs'), orderBy('timestamp', 'desc'), limit(pageSize));
+  }, [firestore, isUserLoading, pageSize]);
 
   const { data: events, loading } = useCollection<DocumentData>(eventsQuery);
 
@@ -67,7 +70,7 @@ export default function MarketplaceOperationsPage() {
           <CardContent>
             <ScrollArea className="h-[600px] pr-4">
               <div className="space-y-4">
-                {loading ? (
+                {loading && events?.length === 0 ? (
                   Array.from({ length: 8 }).map((_, i) => (
                     <div key={i} className="flex gap-4 p-4 border rounded-lg bg-card">
                       <Skeleton className="h-8 w-8 rounded-full" />
@@ -78,30 +81,39 @@ export default function MarketplaceOperationsPage() {
                     </div>
                   ))
                 ) : events?.length > 0 ? (
-                  events.map((event) => (
-                    <div key={event.id} className="flex gap-4 p-4 border rounded-lg bg-card hover:shadow-md transition-shadow relative overflow-hidden">
-                       <div className="absolute top-0 left-0 w-1 h-full bg-primary/20" />
-                       <div className="flex-shrink-0 p-2 bg-secondary rounded-full h-fit mt-1">
-                          {getEventIcon(event.action)}
-                       </div>
-                       <div className="flex-grow">
-                          <div className="flex justify-between items-start">
-                             <h4 className="font-bold text-sm capitalize">{event.action?.replace(/_/g, ' ') || 'Marketplace Activity'}</h4>
-                             <span className="text-[10px] text-muted-foreground flex items-center gap-1">
-                                <Clock className="h-3 w-3" />
-                                {getFormattedTime(event.timestamp)}
-                             </span>
-                          </div>
-                          <p className="text-xs text-muted-foreground mt-1">
-                             Target ID: <span className="font-mono text-primary">{event.targetId || 'SYSTEM'}</span> 
-                             {event.notes && ` • ${event.notes}`}
-                          </p>
-                          <div className="mt-2 flex items-center gap-2">
-                             <Badge variant="outline" className="text-[10px] py-0">Admin: {event.adminUid?.substring(0,8) || 'AUTO'}</Badge>
-                          </div>
-                       </div>
-                    </div>
-                  ))
+                  <>
+                    {events.map((event) => (
+                      <div key={event.id} className="flex gap-4 p-4 border rounded-lg bg-card hover:shadow-md transition-shadow relative overflow-hidden">
+                         <div className="absolute top-0 left-0 w-1 h-full bg-primary/20" />
+                         <div className="flex-shrink-0 p-2 bg-secondary rounded-full h-fit mt-1">
+                            {getEventIcon(event.action)}
+                         </div>
+                         <div className="flex-grow">
+                            <div className="flex justify-between items-start">
+                               <h4 className="font-bold text-sm capitalize">{event.action?.replace(/_/g, ' ') || 'Marketplace Activity'}</h4>
+                               <span className="text-[10px] text-muted-foreground flex items-center gap-1">
+                                  <Clock className="h-3 w-3" />
+                                  {getFormattedTime(event.timestamp)}
+                               </span>
+                            </div>
+                            <p className="text-xs text-muted-foreground mt-1">
+                               Target ID: <span className="font-mono text-primary">{event.targetId || 'SYSTEM'}</span> 
+                               {event.notes && ` • ${event.notes}`}
+                            </p>
+                            <div className="mt-2 flex items-center gap-2">
+                               <Badge variant="outline" className="text-[10px] py-0">Admin: {event.adminUid?.substring(0,8) || 'AUTO'}</Badge>
+                            </div>
+                         </div>
+                      </div>
+                    ))}
+                    {events.length >= pageSize && (
+                      <div className="pt-4 flex justify-center">
+                        <Button variant="ghost" size="sm" onClick={() => setPageSize(prev => prev + 50)} className="text-xs gap-2">
+                          <ChevronDown className="h-4 w-4" /> Load More History
+                        </Button>
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <div className="text-center py-20 text-muted-foreground italic">
                      Waiting for marketplace activity...
