@@ -127,6 +127,7 @@ export default function LeadOversightPage() {
               <p className="text-2xl font-bold">{stats.quoted}</p>
               <p className="text-xs text-muted-foreground">Quoted Requests</p>
             </CardContent>
+          </Card>
           <Card className="bg-primary text-primary-foreground border-0">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
