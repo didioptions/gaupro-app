@@ -60,7 +60,7 @@ export default function CustomerManagementPage() {
       suspended: users.filter(u => u.status === 'suspended').length,
       newThisMonth: users.filter(u => {
         const d = u.createdAt?.seconds ? new Date(u.createdAt.seconds * 1000) : new Date(u.createdAt);
-        return d >= startOfMonth;
+        return !isNaN(d.getTime()) && d >= startOfMonth;
       }).length
     };
   }, [users]);
@@ -106,7 +106,8 @@ export default function CustomerManagementPage() {
   const getFormattedDate = (date: any) => {
     if (!date) return 'N/A';
     if (date.seconds) return new Date(date.seconds * 1000).toLocaleDateString();
-    return new Date(date).toLocaleDateString();
+    const d = new Date(date);
+    return isNaN(d.getTime()) ? 'N/A' : d.toLocaleDateString();
   };
 
   return (
@@ -152,7 +153,7 @@ export default function CustomerManagementPage() {
                 <Badge variant="outline" className="text-white border-white/30">Recent</Badge>
               </div>
               <p className="text-2xl font-bold">+{stats.newThisMonth}</p>
-              <p className="text-[10px] uppercase font-bold opacity-70">New This Page</p>
+              <p className="text-[10px] uppercase font-bold opacity-70">New This Month</p>
             </CardContent>
           </Card>
         </div>

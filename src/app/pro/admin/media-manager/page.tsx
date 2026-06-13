@@ -1,5 +1,4 @@
 'use client';
-export const dynamic = "force-dynamic";
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -123,6 +122,7 @@ export default function MediaManagerPage() {
                       width={64}
                       height={64}
                       className="object-cover rounded-md h-16 w-16"
+                      unoptimized
                     />
                     <div className="flex-grow space-y-1">
                       <p className="text-sm font-medium truncate">{file.name}</p>

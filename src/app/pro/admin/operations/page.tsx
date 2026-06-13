@@ -47,7 +47,8 @@ export default function MarketplaceOperationsPage() {
   const getFormattedTime = (timestamp: any) => {
     if (!timestamp) return 'Just now';
     if (timestamp.seconds) return new Date(timestamp.seconds * 1000).toLocaleTimeString();
-    return new Date(timestamp).toLocaleTimeString();
+    const d = new Date(timestamp);
+    return isNaN(d.getTime()) ? 'Just now' : d.toLocaleTimeString();
   };
 
   return (
@@ -70,7 +71,7 @@ export default function MarketplaceOperationsPage() {
           <CardContent>
             <ScrollArea className="h-[600px] pr-4">
               <div className="space-y-4">
-                {loading && events?.length === 0 ? (
+                {loading && (!events || events.length === 0) ? (
                   Array.from({ length: 8 }).map((_, i) => (
                     <div key={i} className="flex gap-4 p-4 border rounded-lg bg-card">
                       <Skeleton className="h-8 w-8 rounded-full" />
@@ -94,14 +95,14 @@ export default function MarketplaceOperationsPage() {
                                <span className="text-[10px] text-muted-foreground flex items-center gap-1">
                                   <Clock className="h-3 w-3" />
                                   {getFormattedTime(event.timestamp)}
-                               </span>
+                                </span>
                             </div>
                             <p className="text-xs text-muted-foreground mt-1">
-                               Target ID: <span className="font-mono text-primary">{event.targetId || 'SYSTEM'}</span> 
+                               Target ID: <span className="font-mono text-primary">{(event.targetId || 'SYSTEM').substring(0, 12)}</span> 
                                {event.notes && ` • ${event.notes}`}
                             </p>
                             <div className="mt-2 flex items-center gap-2">
-                               <Badge variant="outline" className="text-[10px] py-0">Admin: {event.adminUid?.substring(0,8) || 'AUTO'}</Badge>
+                               <Badge variant="outline" className="text-[10px] py-0">Admin: {(event.adminUid || 'AUTO').substring(0, 8)}</Badge>
                             </div>
                          </div>
                       </div>
