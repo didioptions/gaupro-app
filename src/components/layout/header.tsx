@@ -35,9 +35,11 @@ const proNavLinks = [
 
 export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const { user, isUserLoading } = useUser();
+  const { user, profile, isUserLoading } = useUser();
   const auth = useAuth();
   const router = useRouter();
+
+  const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
 
   const closeSheet = () => setIsSheetOpen(false);
 
@@ -94,6 +96,11 @@ export default function Header() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem onClick={() => router.push('/pro/dashboard')}>Dashboard</DropdownMenuItem>
+                  {isAdmin && (
+                    <DropdownMenuItem onClick={() => router.push('/pro/admin')} className="font-bold text-primary">
+                      Admin Hub
+                    </DropdownMenuItem>
+                  )}
                   <DropdownMenuItem onClick={() => router.push('/contact')}>Support</DropdownMenuItem>
                   <DropdownMenuItem onClick={() => router.push('/pro/account-settings')}>Settings</DropdownMenuItem>
                   <DropdownMenuItem onSelect={handleLogout}>Logout</DropdownMenuItem>
@@ -134,6 +141,11 @@ export default function Header() {
                     <Link href="/pro/dashboard" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
                         Dashboard
                     </Link>
+                    {isAdmin && (
+                      <Link href="/pro/admin" className="transition-colors hover:text-primary font-bold" onClick={closeSheet}>
+                        Admin Hub
+                      </Link>
+                    )}
                     {proNavLinks.map(link => (
                         <Link key={link.href} href={link.href} className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
                             {link.label}
