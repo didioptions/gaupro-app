@@ -87,11 +87,14 @@ export default function ProDashboardPage() {
     ).slice(0, 3);
   }, [profileData]);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if (auth) {
-      signOut(auth).then(() => {
-        router.push('/');
-      });
+      try {
+        await signOut(auth);
+        window.location.href = '/';
+      } catch (error) {
+        console.error("Logout error:", error);
+      }
     }
   };
 

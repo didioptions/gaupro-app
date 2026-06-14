@@ -42,11 +42,15 @@ export default function Header() {
 
   const closeSheet = () => setIsSheetOpen(false);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if (auth) {
-      signOut(auth).then(() => {
-        router.push('/');
-      });
+      try {
+        await signOut(auth);
+        // Force a hard reload to the home page to clear all memory state
+        window.location.href = '/';
+      } catch (error) {
+        console.error("Logout error:", error);
+      }
     }
   };
 
@@ -102,7 +106,7 @@ export default function Header() {
                   )}
                   <DropdownMenuItem onClick={() => router.push('/contact')}>Support</DropdownMenuItem>
                   <DropdownMenuItem onClick={() => router.push('/pro/account-settings')}>Settings</DropdownMenuItem>
-                  <DropdownMenuItem onSelect={handleLogout}>Logout</DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </>
@@ -150,9 +154,9 @@ export default function Header() {
                             {link.label}
                         </Link>
                     ))}
-                    <Link href="#" className="transition-colors hover:text-primary text-foreground/60" onClick={() => { handleLogout(); closeSheet(); }}>
+                    <button className="text-left transition-colors hover:text-primary text-foreground/60" onClick={() => { handleLogout(); closeSheet(); }}>
                         Logout
-                    </Link>
+                    </button>
                   </>
                 )}
                 {!isUserLoading && !user && (

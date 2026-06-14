@@ -20,11 +20,14 @@ export default function ProNav() {
   const auth = useAuth();
   const router = useRouter();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if (auth) {
-      signOut(auth).then(() => {
-        router.push('/pro/login');
-      });
+      try {
+        await signOut(auth);
+        window.location.href = '/pro/login';
+      } catch (error) {
+        console.error("Logout error:", error);
+      }
     }
   };
 
@@ -82,7 +85,7 @@ export default function ProNav() {
                 <DropdownMenuItem onClick={() => router.push('/contact')}>
                   Support
                 </DropdownMenuItem>
-                <DropdownMenuItem onSelect={handleLogout}>
+                <DropdownMenuItem onClick={handleLogout}>
                   Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>
