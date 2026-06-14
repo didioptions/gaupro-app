@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -11,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Menu, User, ChevronDown, Bell } from 'lucide-react';
+import { Menu, User, ChevronDown, Bell, LayoutDashboard } from 'lucide-react';
 import { useState } from 'react';
 import { useUser, useAuth } from '@/firebase';
 import { signOut } from 'firebase/auth';
@@ -94,11 +93,11 @@ export default function Header() {
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
+                <DropdownMenuContent align="end" className="w-56">
                   <DropdownMenuItem onClick={() => router.push('/pro/dashboard')}>Dashboard</DropdownMenuItem>
                   {isAdmin && (
-                    <DropdownMenuItem onClick={() => router.push('/pro/admin')} className="font-bold text-primary">
-                      Admin Hub
+                    <DropdownMenuItem onClick={() => router.push('/pro/admin')} className="font-bold text-primary flex items-center gap-2">
+                      <LayoutDashboard className="h-4 w-4" /> Admin Hub
                     </DropdownMenuItem>
                   )}
                   <DropdownMenuItem onClick={() => router.push('/contact')}>Support</DropdownMenuItem>
@@ -142,8 +141,8 @@ export default function Header() {
                         Dashboard
                     </Link>
                     {isAdmin && (
-                      <Link href="/pro/admin" className="transition-colors hover:text-primary font-bold" onClick={closeSheet}>
-                        Admin Hub
+                      <Link href="/pro/admin" className="transition-colors hover:text-primary font-bold flex items-center gap-2" onClick={closeSheet}>
+                        <LayoutDashboard className="h-4 w-4" /> Admin Hub
                       </Link>
                     )}
                     {proNavLinks.map(link => (

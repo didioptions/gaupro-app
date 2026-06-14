@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users, ShieldAlert, LayoutDashboard, ExternalLink } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users, ShieldAlert, LayoutDashboard, ExternalLink, RefreshCcw, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
-import { useUser, useFirestore } from '@/firebase';
+import { useUser, useFirestore, useAuth } from '@/firebase';
 import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
 import { SupportChatWidget } from '@/components/pro/support-chat-widget';
 import { collection, query, where, getDocs, limit, orderBy } from 'firebase/firestore';
@@ -20,6 +20,8 @@ import Image from 'next/image';
 import { jobRequests } from '@/lib/job-requests-data';
 import { Badge } from '@/components/ui/badge';
 import { allServices } from '@/lib/service-questions';
+import { signOut } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
 
 interface ProfessionalProfile {
   name?: string;
@@ -35,6 +37,8 @@ interface ProfessionalProfile {
 export default function ProDashboardPage() {
   const { user, profile, isUserLoading } = useUser();
   const firestore = useFirestore();
+  const auth = useAuth();
+  const router = useRouter();
   const [profileData, setProfileData] = useState<ProfessionalProfile | null>(null);
   const [notifications, setNotifications] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -82,6 +86,14 @@ export default function ProDashboardPage() {
       proServices.some((service: string) => service && job.category.toLowerCase().includes(service.toLowerCase()))
     ).slice(0, 3);
   }, [profileData]);
+
+  const handleLogout = () => {
+    if (auth) {
+      signOut(auth).then(() => {
+        router.push('/');
+      });
+    }
+  };
 
   if (isLoading || isUserLoading) {
     return (
@@ -385,6 +397,43 @@ export default function ProDashboardPage() {
                   <p className="text-muted-foreground text-center py-4">No new leads right now.</p>
                 )}
               </CardContent>
+            </Card>
+            
+            {/* Diagnostic Card for "Lost" users */}
+            <Card className="bg-yellow-50 border-yellow-200">
+                <CardHeader>
+                    <CardTitle className="text-sm font-bold text-yellow-800 uppercase tracking-widest flex items-center gap-2">
+                        <RefreshCcw className="h-4 w-4" /> Admin Access Diagnostic
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div className="p-3 bg-white rounded border">
+                            <p className="text-xs text-muted-foreground uppercase font-bold">Your Auth UID</p>
+                            <p className="font-mono text-xs break-all mt-1">{user?.uid}</p>
+                            <p className="text-[10px] text-blue-600 mt-1 italic">Make sure this matches the Document ID in your 'users' collection exactly.</p>
+                        </div>
+                        <div className="p-3 bg-white rounded border">
+                            <p className="text-xs text-muted-foreground uppercase font-bold">Role Found</p>
+                            <p className="font-bold text-foreground mt-1 capitalize">{profile?.role || 'None Found'}</p>
+                            <p className="text-[10px] text-blue-600 mt-1 italic">If this says 'None', the app can't see your admin document.</p>
+                        </div>
+                    </div>
+                    
+                    {!isAdmin && (
+                        <div className="p-4 bg-white rounded border border-yellow-300 text-sm text-yellow-900">
+                            <p className="font-bold mb-2">Still can't see the Admin Hub?</p>
+                            <ol className="list-decimal list-inside space-y-1">
+                                <li>Check that the collection is named <b>users</b> (lowercase, with an 's').</li>
+                                <li>Verify your UID above exactly matches the Document ID in Firestore.</li>
+                                <li>If you just added it, click the button below to force a refresh.</li>
+                            </ol>
+                            <Button variant="outline" className="mt-4 w-full gap-2 border-yellow-400 text-yellow-900 hover:bg-yellow-100" onClick={handleLogout}>
+                                <LogOut className="h-4 w-4" /> Force Refresh (Sign Out)
+                            </Button>
+                        </div>
+                    )}
+                </CardContent>
             </Card>
           </div>
         </div>
