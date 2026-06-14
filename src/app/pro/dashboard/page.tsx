@@ -35,7 +35,7 @@ interface ProfessionalProfile {
 }
 
 export default function ProDashboardPage() {
-  const { user, profile, isUserLoading } = useUser();
+  const { user, profile, isUserLoading, userError } = useUser();
   const firestore = useFirestore();
   const auth = useAuth();
   const router = useRouter();
@@ -325,7 +325,7 @@ export default function ProDashboardPage() {
                       <p className="text-sm text-muted-foreground mb-4">
                         Real-time heartbeat of all marketplace activity.
                       </p>
-                      <Button asChild variant="secondary" className="full">
+                      <Button asChild variant="secondary" className="w-full">
                         <Link href="/pro/admin/operations">Pulse Feed</Link>
                       </Button>
                     </CardContent>
@@ -399,7 +399,6 @@ export default function ProDashboardPage() {
               </CardContent>
             </Card>
             
-            {/* Diagnostic Card for "Lost" users */}
             <Card className="bg-yellow-50 border-yellow-200">
                 <CardHeader>
                     <CardTitle className="text-sm font-bold text-yellow-800 uppercase tracking-widest flex items-center gap-2">
@@ -416,6 +415,7 @@ export default function ProDashboardPage() {
                         <div className="p-3 bg-white rounded border">
                             <p className="text-xs text-muted-foreground uppercase font-bold">Role Found</p>
                             <p className="font-bold text-foreground mt-1 capitalize">{profile?.role || 'None Found'}</p>
+                            {userError && <p className="text-xs text-red-600 mt-1 font-bold">Error: {userError.message}</p>}
                             <p className="text-[10px] text-blue-600 mt-1 italic">If this says 'None', the app can't see your admin document.</p>
                         </div>
                     </div>
@@ -426,6 +426,7 @@ export default function ProDashboardPage() {
                             <ol className="list-decimal list-inside space-y-1">
                                 <li>Check that the collection is named <b>users</b> (lowercase, with an 's').</li>
                                 <li>Verify your UID above exactly matches the Document ID in Firestore.</li>
+                                <li>Make sure the `users` folder is at the <b>TOP LEVEL</b> of your database.</li>
                                 <li>If you just added it, click the button below to force a refresh.</li>
                             </ol>
                             <Button variant="outline" className="mt-4 w-full gap-2 border-yellow-400 text-yellow-900 hover:bg-yellow-100" onClick={handleLogout}>
