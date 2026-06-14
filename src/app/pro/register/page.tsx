@@ -6,8 +6,8 @@ import * as z from 'zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { useState } from 'react';
-import { useAuth, useFirestore } from '@/firebase';
+import { useState, useEffect } from 'react';
+import { useAuth, useFirestore, useUser } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import { doc, setDoc } from 'firebase/firestore';
 
@@ -25,6 +25,7 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card } from '@/components/ui/card';
 import { Logo } from '@/components/logo';
+import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
   phoneNumber: z.string().min(10, {
@@ -49,9 +50,16 @@ export default function ProRegisterPage() {
   const router = useRouter();
   const auth = useAuth();
   const firestore = useFirestore();
+  const { user, isUserLoading } = useUser();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   
+  useEffect(() => {
+    if (!isUserLoading && user) {
+      router.push('/pro/dashboard');
+    }
+  }, [user, isUserLoading, router]);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -123,6 +131,18 @@ export default function ProRegisterPage() {
     } finally {
       setIsLoading(false);
     }
+  }
+
+  if (isUserLoading) {
+    return (
+      <div className="min-h-[calc(100vh-180px)] flex items-center justify-center bg-secondary/50">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (user) {
+    return null;
   }
 
   return (

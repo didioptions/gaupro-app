@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { useUser } from '@/firebase';
 
 const whyJoinItems = [
   {
@@ -102,6 +103,7 @@ const faqs = [
 ];
 
 export default function ProSignupPage() {
+  const { user } = useUser();
   const heroImage = PlaceHolderImages.find(p => p.id === 'pro-signup-hero');
   
   const faqSchema = {
@@ -135,7 +137,9 @@ export default function ProSignupPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild size="lg" variant="secondary" className="px-10 py-7 text-xl font-bold">
-              <Link href="/pro/register">Create Free Account</Link>
+              <Link href={user ? "/pro/dashboard" : "/pro/register"}>
+                {user ? "Go to Dashboard" : "Create Free Account"}
+              </Link>
             </Button>
           </div>
         </div>
@@ -174,7 +178,9 @@ export default function ProSignupPage() {
                       <h3 className="text-xl font-bold mb-2">Ready to Scale?</h3>
                       <p className="text-sm text-muted-foreground mb-6">Join 15,000+ pros winning work every day.</p>
                       <Button asChild>
-                          <Link href="/pro/register">Join Now</Link>
+                          <Link href={user ? "/pro/dashboard" : "/pro/register"}>
+                            {user ? "Go to Dashboard" : "Join Now"}
+                          </Link>
                       </Button>
                   </Card>
               </div>
@@ -298,7 +304,9 @@ export default function ProSignupPage() {
               </p>
               <div className="space-y-4">
                   <Button asChild size="lg" variant="secondary" className="px-12 py-8 text-2xl font-bold shadow-2xl hover:scale-105 transition-transform">
-                      <Link href="/pro/register">Join Now - It's Free</Link>
+                      <Link href={user ? "/pro/dashboard" : "/pro/register"}>
+                        {user ? "Go to Dashboard" : "Join Now - It's Free"}
+                      </Link>
                   </Button>
                   <p className="text-sm opacity-70">🔒 No credit card required. No monthly fees.</p>
               </div>
