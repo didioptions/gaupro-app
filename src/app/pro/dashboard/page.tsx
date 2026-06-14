@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users, ShieldAlert } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users, ShieldAlert, LayoutDashboard, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -229,6 +229,28 @@ export default function ProDashboardPage() {
 
               {isAdmin && (
                 <>
+                  <Card className="lg:col-span-3 border-primary/50 bg-primary/5 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-6 opacity-5">
+                       <LayoutDashboard className="h-32 w-32" />
+                    </div>
+                    <CardHeader className="flex flex-row items-center justify-between">
+                      <div>
+                        <CardTitle className="flex items-center gap-2 text-2xl font-bold text-primary">
+                          <ShieldCheck className="h-6 w-6" />
+                          Admin command center
+                        </CardTitle>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Consolidated oversight for marketplace operations and risk management.
+                        </p>
+                      </div>
+                      <Button asChild size="lg">
+                        <Link href="/pro/admin">
+                          Open Admin Hub <ExternalLink className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </CardHeader>
+                  </Card>
+
                   <Card className="border-red-200 bg-red-50">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2 text-lg font-bold text-red-800">
@@ -291,7 +313,7 @@ export default function ProDashboardPage() {
                       <p className="text-sm text-muted-foreground mb-4">
                         Real-time heartbeat of all marketplace activity.
                       </p>
-                      <Button asChild variant="secondary" className="w-full">
+                      <Button asChild variant="secondary" className="full">
                         <Link href="/pro/admin/operations">Pulse Feed</Link>
                       </Button>
                     </CardContent>
@@ -327,23 +349,6 @@ export default function ProDashboardPage() {
                       </p>
                       <Button asChild variant="secondary" className="w-full">
                         <Link href="/pro/admin/reviews">Trust Hub</Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-primary/50 bg-primary/5">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2 text-lg font-normal">
-                        <Wallet className="h-6 w-6 text-primary" />
-                        Credits
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Adjust professional balances and view history.
-                      </p>
-                      <Button asChild variant="secondary" className="w-full">
-                        <Link href="/pro/admin/credits">Financials</Link>
                       </Button>
                     </CardContent>
                   </Card>
