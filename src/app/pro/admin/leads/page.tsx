@@ -33,14 +33,14 @@ export default function LeadOversightPage() {
   const { user: adminUser, isUserLoading } = useUser();
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState('');
-  const [pageSize, setPageSize] = useState(25);
+  const [displayLimit, setDisplayLimit] = useState(25);
   const [viewLead, setViewLead] = useState<any>(null);
 
   // Fetch all service requests using Collection Group Query
   const leadsQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
-    return query(collectionGroup(firestore, 'serviceRequests'), orderBy('dateNeeded', 'desc'), limit(pageSize));
-  }, [firestore, isUserLoading, pageSize]);
+    return query(collectionGroup(firestore, 'serviceRequests'), orderBy('dateNeeded', 'desc'), limit(displayLimit));
+  }, [firestore, isUserLoading, displayLimit]);
 
   const { data: leads, loading } = useCollection<DocumentData>(leadsQuery);
 
@@ -167,7 +167,7 @@ export default function LeadOversightPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {loading ? (
+                {loading && leads.length === 0 ? (
                    Array.from({ length: 5 }).map((_, i) => (
                     <TableRow key={i}>
                       <TableCell><Skeleton className="h-4 w-40" /></TableCell>
@@ -200,9 +200,9 @@ export default function LeadOversightPage() {
                 ))}
               </TableBody>
             </Table>
-            {leads && leads.length >= pageSize && (
+            {leads && leads.length >= displayLimit && (
                 <div className="p-4 border-t flex justify-center">
-                    <Button variant="ghost" size="sm" onClick={() => setPageSize(prev => prev + 25)} className="text-xs gap-2">
+                    <Button variant="ghost" size="sm" onClick={() => setDisplayLimit(prev => prev + 25)} className="text-xs gap-2">
                         <ChevronDown className="h-4 w-4" /> Load More Leads
                     </Button>
                 </div>

@@ -13,8 +13,8 @@ import { Label } from '@/components/ui/label';
 import { 
     Search, 
     Users, 
-    UserMinus, 
     UserCheck, 
+    UserMinus, 
     History,
     MapPin,
     Mail,
@@ -37,15 +37,16 @@ export default function CustomerManagementPage() {
   const { user: adminUser, isUserLoading } = useUser();
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState('');
-  const [pageSize, setPageSize] = useState(25);
+  const [displayLimit, setDisplayLimit] = useState(25);
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [actionType, setActionType] = useState<'suspend' | 'reactivate' | null>(null);
   const [notes, setAdminNotes] = useState('');
 
+  // Fetch users with an increasing limit (simple pagination for initial scale)
   const usersQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
-    return query(collection(firestore, 'users'), orderBy('createdAt', 'desc'), limit(pageSize));
-  }, [firestore, isUserLoading, pageSize]);
+    return query(collection(firestore, 'users'), orderBy('createdAt', 'desc'), limit(displayLimit));
+  }, [firestore, isUserLoading, displayLimit]);
 
   const { data: users, loading } = useCollection<DocumentData>(usersQuery);
 
@@ -187,7 +188,7 @@ export default function CustomerManagementPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {loading ? (
+                {loading && users.length === 0 ? (
                   Array.from({ length: 5 }).map((_, i) => (
                     <TableRow key={i}>
                       <TableCell><Skeleton className="h-4 w-32" /></TableCell>
@@ -245,9 +246,9 @@ export default function CustomerManagementPage() {
                 ))}
               </TableBody>
             </Table>
-            {users && users.length >= pageSize && (
+            {users && users.length >= displayLimit && (
                 <div className="p-4 border-t flex justify-center">
-                    <Button variant="ghost" size="sm" onClick={() => setPageSize(prev => prev + 25)} className="text-xs gap-2">
+                    <Button variant="ghost" size="sm" onClick={() => setDisplayLimit(prev => prev + 25)} className="text-xs gap-2">
                         <ChevronDown className="h-4 w-4" /> Load More Users
                     </Button>
                 </div>
