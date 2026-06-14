@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -8,6 +7,7 @@ import * as z from 'zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Eye, EyeOff } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -40,6 +40,7 @@ export default function ProLoginPage() {
   const auth = useAuth();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -115,7 +116,25 @@ export default function ProLoginPage() {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="••••••••" {...field} className="h-12"/>
+                        <div className="relative">
+                          <Input 
+                            type={showPassword ? 'text' : 'password'} 
+                            placeholder="••••••••" 
+                            {...field} 
+                            className="h-12 pr-10"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground focus:outline-none"
+                          >
+                            {showPassword ? (
+                              <EyeOff className="h-5 w-5" />
+                            ) : (
+                              <Eye className="h-5 w-5" />
+                            )}
+                          </button>
+                        </div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
