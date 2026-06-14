@@ -1,8 +1,21 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
-import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collection, query, orderBy, limit, DocumentData, doc, updateDoc, serverTimestamp, addDoc } from 'firebase/firestore';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import { useFirestore, useUser } from '@/firebase';
+import { 
+    collection, 
+    query, 
+    orderBy, 
+    limit, 
+    DocumentData, 
+    doc, 
+    updateDoc, 
+    serverTimestamp, 
+    addDoc, 
+    getDocs, 
+    startAfter,
+    QueryDocumentSnapshot
+} from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
@@ -20,7 +33,8 @@ import {
     Mail,
     Phone,
     ShieldAlert,
-    ChevronDown
+    ChevronDown,
+    Loader2
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
@@ -32,31 +46,74 @@ import {
   DialogDescription
 } from '@/components/ui/dialog';
 
+const PAGE_SIZE = 25;
+
 export default function CustomerManagementPage() {
   const firestore = useFirestore();
   const { user: adminUser, isUserLoading } = useUser();
   const { toast } = useToast();
+  
+  const [users, setUsers] = useState<any[]>([]);
+  const [lastDoc, setLastDoc] = useState<QueryDocumentSnapshot | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  
   const [searchQuery, setSearchQuery] = useState('');
-  const [displayLimit, setDisplayLimit] = useState(25);
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [actionType, setActionType] = useState<'suspend' | 'reactivate' | null>(null);
   const [notes, setAdminNotes] = useState('');
 
-  // Fetch users with an increasing limit (simple pagination for initial scale)
-  const usersQuery = useMemoFirebase(() => {
-    if (!firestore || isUserLoading) return null;
-    return query(collection(firestore, 'users'), orderBy('createdAt', 'desc'), limit(displayLimit));
-  }, [firestore, isUserLoading, displayLimit]);
+  // 1. Initial Load
+  const fetchUsers = useCallback(async (isInitial = true) => {
+    if (!firestore || isUserLoading) return;
+    
+    if (isInitial) {
+        setLoading(true);
+    } else {
+        setLoadingMore(true);
+    }
 
-  const { data: users, loading } = useCollection<DocumentData>(usersQuery);
+    try {
+        const baseQuery = query(
+            collection(firestore, 'users'), 
+            orderBy('createdAt', 'desc'), 
+            limit(PAGE_SIZE)
+        );
+
+        const finalQuery = isInitial ? baseQuery : query(baseQuery, startAfter(lastDoc));
+        const snapshot = await getDocs(finalQuery);
+        
+        const newUsers = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        
+        if (isInitial) {
+            setUsers(newUsers);
+        } else {
+            setUsers(prev => [...prev, ...newUsers]);
+        }
+
+        setLastDoc(snapshot.docs[snapshot.docs.length - 1] || null);
+        setHasMore(snapshot.docs.length === PAGE_SIZE);
+    } catch (error: any) {
+        console.error("Fetch users error:", error);
+        toast({ variant: 'destructive', title: 'Fetch Error', description: error.message });
+    } finally {
+        setLoading(false);
+        setLoadingMore(false);
+    }
+  }, [firestore, isUserLoading, lastDoc, toast]);
+
+  useEffect(() => {
+    fetchUsers(true);
+  }, [firestore, isUserLoading]);
 
   const stats = useMemo(() => {
-    if (!users) return { total: 0, active: 0, suspended: 0, newThisMonth: 0 };
+    if (!users.length) return { total: 0, active: 0, suspended: 0, newThisMonth: 0 };
     const now = new Date();
     const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     
     return {
-      total: users.length,
+      total: users.length, // Note: This only counts loaded users
       active: users.filter(u => u.status !== 'suspended').length,
       suspended: users.filter(u => u.status === 'suspended').length,
       newThisMonth: users.filter(u => {
@@ -67,7 +124,6 @@ export default function CustomerManagementPage() {
   }, [users]);
 
   const filteredUsers = useMemo(() => {
-    if (!users) return [];
     return users.filter(u => 
       (u.fullName || u.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
       (u.email || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -95,6 +151,9 @@ export default function CustomerManagementPage() {
         notes,
         timestamp: serverTimestamp()
       });
+
+      // Update local state to reflect change
+      setUsers(prev => prev.map(u => u.id === selectedUser.id ? { ...u, status: newStatus } : u));
 
       toast({ title: 'Success', description: `User account ${newStatus}.` });
       setSelectedUser(null);
@@ -124,7 +183,7 @@ export default function CustomerManagementPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <Users className="h-5 w-5 text-primary" />
-                <Badge variant="secondary">In View</Badge>
+                <Badge variant="secondary">Loaded</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.total}</p>
             </CardContent>
@@ -154,7 +213,7 @@ export default function CustomerManagementPage() {
                 <Badge variant="outline" className="text-white border-white/30">Recent</Badge>
               </div>
               <p className="text-2xl font-bold">+{stats.newThisMonth}</p>
-              <p className="text-[10px] uppercase font-bold opacity-70">New This Month</p>
+              <p className="text-[10px] uppercase font-bold opacity-70">New (Loaded)</p>
             </CardContent>
           </Card>
         </div>
@@ -167,7 +226,7 @@ export default function CustomerManagementPage() {
                   <div className="relative flex-grow md:w-72">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input 
-                      placeholder="Name, Email, or Phone..." 
+                      placeholder="Search loaded users..." 
                       className="pl-9 h-9"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
@@ -188,7 +247,7 @@ export default function CustomerManagementPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {loading && users.length === 0 ? (
+                {loading ? (
                   Array.from({ length: 5 }).map((_, i) => (
                     <TableRow key={i}>
                       <TableCell><Skeleton className="h-4 w-32" /></TableCell>
@@ -246,10 +305,18 @@ export default function CustomerManagementPage() {
                 ))}
               </TableBody>
             </Table>
-            {users && users.length >= displayLimit && (
+            
+            {hasMore && (
                 <div className="p-4 border-t flex justify-center">
-                    <Button variant="ghost" size="sm" onClick={() => setDisplayLimit(prev => prev + 25)} className="text-xs gap-2">
-                        <ChevronDown className="h-4 w-4" /> Load More Users
+                    <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => fetchUsers(false)} 
+                        disabled={loadingMore}
+                        className="text-xs gap-2"
+                    >
+                        {loadingMore ? <Loader2 className="h-4 w-4 animate-spin" /> : <ChevronDown className="h-4 w-4" />}
+                        Load More Users
                     </Button>
                 </div>
             )}

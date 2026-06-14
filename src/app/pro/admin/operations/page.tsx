@@ -1,8 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collection, query, orderBy, limit, DocumentData } from 'firebase/firestore';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useFirestore, useUser } from '@/firebase';
+import { 
+    collection, 
+    query, 
+    orderBy, 
+    limit, 
+    DocumentData,
+    getDocs,
+    startAfter,
+    QueryDocumentSnapshot
+} from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -15,23 +24,61 @@ import {
     ShieldCheck, 
     Wallet,
     Clock,
-    ChevronDown
+    ChevronDown,
+    Loader2
 } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
 
+const PAGE_SIZE = 50;
+
 export default function MarketplaceOperationsPage() {
   const firestore = useFirestore();
   const { isUserLoading } = useUser();
-  const [pageSize, setPageSize] = useState(50);
+  
+  const [events, setEvents] = useState<any[]>([]);
+  const [lastDoc, setLastDoc] = useState<QueryDocumentSnapshot | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
-  // Unified stream of audit logs
-  const eventsQuery = useMemoFirebase(() => {
-    if (!firestore || isUserLoading) return null;
-    return query(collection(firestore, 'marketplace_audit_logs'), orderBy('timestamp', 'desc'), limit(pageSize));
-  }, [firestore, isUserLoading, pageSize]);
+  const fetchEvents = useCallback(async (isInitial = true) => {
+    if (!firestore || isUserLoading) return;
+    
+    if (isInitial) setLoading(true);
+    else setLoadingMore(true);
 
-  const { data: events, loading } = useCollection<DocumentData>(eventsQuery);
+    try {
+        const baseQuery = query(
+            collection(firestore, 'marketplace_audit_logs'),
+            orderBy('timestamp', 'desc'),
+            limit(PAGE_SIZE)
+        );
+
+        const finalQuery = isInitial ? baseQuery : query(baseQuery, startAfter(lastDoc));
+        const snapshot = await getDocs(finalQuery);
+        
+        const newEvents = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        
+        if (isInitial) {
+            setEvents(newEvents);
+        } else {
+            setEvents(prev => [...prev, ...newEvents]);
+        }
+
+        setLastDoc(snapshot.docs[snapshot.docs.length - 1] || null);
+        setHasMore(snapshot.docs.length === PAGE_SIZE);
+    } catch (e: any) {
+        console.error("Fetch operations error:", e);
+    } finally {
+        setLoading(false);
+        setLoadingMore(false);
+    }
+  }, [firestore, isUserLoading, lastDoc]);
+
+  useEffect(() => {
+    fetchEvents(true);
+  }, [firestore, isUserLoading]);
 
   const getEventIcon = (action: string) => {
     if (!action) return <Activity className="h-4 w-4 text-gray-500" />;
@@ -71,7 +118,7 @@ export default function MarketplaceOperationsPage() {
           <CardContent>
             <ScrollArea className="h-[600px] pr-4">
               <div className="space-y-4">
-                {loading && (!events || events.length === 0) ? (
+                {loading && events.length === 0 ? (
                   Array.from({ length: 8 }).map((_, i) => (
                     <div key={i} className="flex gap-4 p-4 border rounded-lg bg-card">
                       <Skeleton className="h-8 w-8 rounded-full" />
@@ -81,7 +128,7 @@ export default function MarketplaceOperationsPage() {
                       </div>
                     </div>
                   ))
-                ) : events?.length > 0 ? (
+                ) : events.length > 0 ? (
                   <>
                     {events.map((event) => (
                       <div key={event.id} className="flex gap-4 p-4 border rounded-lg bg-card hover:shadow-md transition-shadow relative overflow-hidden">
@@ -107,12 +154,20 @@ export default function MarketplaceOperationsPage() {
                          </div>
                       </div>
                     ))}
-                    {events.length >= pageSize && (
-                      <div className="pt-4 flex justify-center">
-                        <Button variant="ghost" size="sm" onClick={() => setPageSize(prev => prev + 50)} className="text-xs gap-2">
-                          <ChevronDown className="h-4 w-4" /> Load More History
-                        </Button>
-                      </div>
+                    
+                    {hasMore && (
+                        <div className="pt-4 flex justify-center">
+                            <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                onClick={() => fetchEvents(false)} 
+                                disabled={loadingMore}
+                                className="text-xs gap-2"
+                            >
+                                {loadingMore ? <Loader2 className="h-4 w-4 animate-spin" /> : <ChevronDown className="h-4 w-4" />}
+                                Load More History
+                            </Button>
+                        </div>
                     )}
                   </>
                 ) : (

@@ -1,8 +1,22 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
-import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collectionGroup, query, orderBy, limit, DocumentData, doc, updateDoc, serverTimestamp, addDoc, collection } from 'firebase/firestore';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import { useFirestore, useUser } from '@/firebase';
+import { 
+    collectionGroup, 
+    query, 
+    orderBy, 
+    limit, 
+    DocumentData, 
+    doc, 
+    updateDoc, 
+    serverTimestamp, 
+    addDoc, 
+    collection,
+    getDocs,
+    startAfter,
+    QueryDocumentSnapshot
+} from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
@@ -17,7 +31,8 @@ import {
     CheckCircle2, 
     Eye,
     TrendingUp,
-    ChevronDown
+    ChevronDown,
+    Loader2
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
@@ -28,24 +43,63 @@ import {
   DialogFooter
 } from '@/components/ui/dialog';
 
+const PAGE_SIZE = 25;
+
 export default function LeadOversightPage() {
   const firestore = useFirestore();
   const { user: adminUser, isUserLoading } = useUser();
   const { toast } = useToast();
+
+  const [leads, setLeads] = useState<any[]>([]);
+  const [lastDoc, setLastDoc] = useState<QueryDocumentSnapshot | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [displayLimit, setDisplayLimit] = useState(25);
   const [viewLead, setViewLead] = useState<any>(null);
 
-  // Fetch all service requests using Collection Group Query
-  const leadsQuery = useMemoFirebase(() => {
-    if (!firestore || isUserLoading) return null;
-    return query(collectionGroup(firestore, 'serviceRequests'), orderBy('dateNeeded', 'desc'), limit(displayLimit));
-  }, [firestore, isUserLoading, displayLimit]);
+  const fetchLeads = useCallback(async (isInitial = true) => {
+    if (!firestore || isUserLoading) return;
+    
+    if (isInitial) setLoading(true);
+    else setLoadingMore(true);
 
-  const { data: leads, loading } = useCollection<DocumentData>(leadsQuery);
+    try {
+        const baseQuery = query(
+            collectionGroup(firestore, 'serviceRequests'),
+            orderBy('dateNeeded', 'desc'),
+            limit(PAGE_SIZE)
+        );
+
+        const finalQuery = isInitial ? baseQuery : query(baseQuery, startAfter(lastDoc));
+        const snapshot = await getDocs(finalQuery);
+        
+        const newLeads = snapshot.docs.map(d => ({ id: d.id, userId: d.ref.parent.parent?.id, ...d.data() }));
+        
+        if (isInitial) {
+            setLeads(newLeads);
+        } else {
+            setLeads(prev => [...prev, ...newLeads]);
+        }
+
+        setLastDoc(snapshot.docs[snapshot.docs.length - 1] || null);
+        setHasMore(snapshot.docs.length === PAGE_SIZE);
+    } catch (e: any) {
+        console.error("Fetch leads error:", e);
+        toast({ variant: 'destructive', title: 'Error', description: e.message });
+    } finally {
+        setLoading(false);
+        setLoadingMore(false);
+    }
+  }, [firestore, isUserLoading, lastDoc, toast]);
+
+  useEffect(() => {
+    fetchLeads(true);
+  }, [firestore, isUserLoading]);
 
   const stats = useMemo(() => {
-    if (!leads) return { total: 0, open: 0, quoted: 0, quality: 0 };
+    if (!leads.length) return { total: 0, open: 0, quoted: 0, quality: 0 };
     return {
       total: leads.length,
       open: leads.filter(l => l.status === 'Open').length,
@@ -55,7 +109,6 @@ export default function LeadOversightPage() {
   }, [leads]);
 
   const filteredLeads = useMemo(() => {
-    if (!leads) return [];
     return leads.filter(l => 
       l.category?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       l.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -83,7 +136,10 @@ export default function LeadOversightPage() {
         timestamp: serverTimestamp()
       });
 
+      setLeads(prev => prev.map(l => l.id === lead.id ? { ...l, status: action } : l));
+
       toast({ title: 'Lead Updated', description: `Lead status set to ${action}.` });
+      setViewLead(null);
     } catch (e: any) {
       toast({ variant: 'destructive', title: 'Error', description: e.message });
     }
@@ -102,10 +158,9 @@ export default function LeadOversightPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <Briefcase className="h-5 w-5 text-primary" />
-                <Badge variant="secondary">Volume</Badge>
+                <Badge variant="secondary">Loaded</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.total}</p>
-              <p className="text-xs text-muted-foreground">Total Requests</p>
             </CardContent>
           </Card>
           <Card>
@@ -115,7 +170,6 @@ export default function LeadOversightPage() {
                 <Badge variant="secondary" className="bg-orange-100 text-orange-700">Live</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.open}</p>
-              <p className="text-xs text-muted-foreground">Open Requests</p>
             </CardContent>
           </Card>
           <Card>
@@ -125,7 +179,6 @@ export default function LeadOversightPage() {
                 <Badge variant="secondary" className="bg-green-100 text-green-700">Converted</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.quoted}</p>
-              <p className="text-xs text-muted-foreground">Quoted Requests</p>
             </CardContent>
           </Card>
           <Card className="bg-primary text-primary-foreground border-0">
@@ -135,7 +188,7 @@ export default function LeadOversightPage() {
                 <Badge variant="outline" className="text-white border-white/30">Quality</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.quality}%</p>
-              <p className="text-[10px] uppercase font-bold opacity-70">Avg Lead Score</p>
+              <p className="text-[10px] uppercase font-bold opacity-70">Avg Score (Loaded)</p>
             </CardContent>
           </Card>
         </div>
@@ -147,7 +200,7 @@ export default function LeadOversightPage() {
               <div className="relative w-full md:w-72">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input 
-                  placeholder="Search categories or cities..." 
+                  placeholder="Search loaded leads..." 
                   className="pl-9 h-9"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -167,7 +220,7 @@ export default function LeadOversightPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {loading && leads.length === 0 ? (
+                {loading ? (
                    Array.from({ length: 5 }).map((_, i) => (
                     <TableRow key={i}>
                       <TableCell><Skeleton className="h-4 w-40" /></TableCell>
@@ -193,17 +246,25 @@ export default function LeadOversightPage() {
                       {lead.quotesCount || 0}
                     </TableCell>
                     <TableCell className="text-right space-x-1">
-                      <Button size="sm" variant="ghost" onClick={() => setViewLead(lead)}><Eye className="h-4 w-4" /></Button>
-                      <Button size="sm" variant="outline" className="text-red-600" onClick={() => handleAction(lead, 'Flagged')}><AlertTriangle className="h-4 w-4" /></Button>
+                      <button className="p-2 hover:bg-secondary rounded-full text-muted-foreground" onClick={() => setViewLead(lead)}><Eye className="h-4 w-4" /></button>
+                      <button className="p-2 hover:bg-red-50 rounded-full text-red-600" onClick={() => handleAction(lead, 'Flagged')}><AlertTriangle className="h-4 w-4" /></button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
-            {leads && leads.length >= displayLimit && (
+            
+            {hasMore && (
                 <div className="p-4 border-t flex justify-center">
-                    <Button variant="ghost" size="sm" onClick={() => setDisplayLimit(prev => prev + 25)} className="text-xs gap-2">
-                        <ChevronDown className="h-4 w-4" /> Load More Leads
+                    <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => fetchLeads(false)} 
+                        disabled={loadingMore}
+                        className="text-xs gap-2"
+                    >
+                        {loadingMore ? <Loader2 className="h-4 w-4 animate-spin" /> : <ChevronDown className="h-4 w-4" />}
+                        Load More Leads
                     </Button>
                 </div>
             )}
