@@ -34,8 +34,8 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { useUser } from '@/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { useUser, useFirestore } from '@/firebase';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -73,7 +73,7 @@ function PostRequestContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { user } = useUser();
-  const db = getFirestore();
+  const db = useFirestore();
   
   const serviceQuery = searchParams.get('service') || '';
   const locationQuery = searchParams.get('location') || '';
@@ -161,6 +161,8 @@ function PostRequestContent() {
         return;
     }
 
+    if (!db) return;
+
     setIsSubmitting(true);
 
     const leadData = {
@@ -185,9 +187,9 @@ function PostRequestContent() {
         const leadsRef = collection(db, parentPath, 'serviceRequests');
         await addDoc(leadsRef, leadData);
         setIsSubmitted(true);
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error saving lead:', error);
-        alert("There was an error submitting your request. Please try again.");
+        alert("There was an error submitting your request: " + error.message);
     } finally {
         setIsSubmitting(false);
     }

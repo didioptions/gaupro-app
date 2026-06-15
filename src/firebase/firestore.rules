@@ -113,6 +113,13 @@ service cloud.firestore {
     }
 
     // --- User-Specific Data Rules ---
+    match /users/{userId}/serviceRequests/{requestId} {
+      // Allow guests and users to post jobs
+      allow create: if true;
+      // Secure reading/editing
+      allow read, update, delete: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
+    }
+
     match /users/{userId}/{document=**} {
       allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
     }
