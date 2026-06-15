@@ -1,4 +1,3 @@
-
 rules_version = '2';
 
 service cloud.firestore {
@@ -67,6 +66,16 @@ service cloud.firestore {
       allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId && request.resource.data.role == resource.data.role);
     }
 
+    // --- Service Requests (Top-Level) ---
+    match /serviceRequests/{requestId} {
+      // Allow ANYONE (including guests) to post a job
+      allow create: if true;
+      // Restricted reading to Admins or the owner (if logged in)
+      allow read, get, list: if isAdmin() || (isSignedIn() && resource.data.userId == request.auth.uid);
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
     // --- Public Access Rules ---
     match /professionalProfiles {
       allow list: if true;
@@ -102,31 +111,14 @@ service cloud.firestore {
         match /reviews/{reviewId} {
           allow read: if true;
           // Allow anyone to create a review, but it must be pending
-          allow create: if request.resource.data.status == 'pending' || request.resource.data.status == 'flagged';
+          allow create: if request.resource.data.status == 'pending';
           allow update, delete: if isAdmin();
         }
       }
     }
 
-    // --- Job Requests ---
-    match /users/{userId}/serviceRequests/{requestId} {
-      // Allow ANYONE (even guests) to create a job request
-      allow create: if true;
-      // Secure reading/editing
-      allow read, update, delete: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
-    }
-
-    // --- Catch-all for user data ---
-    match /users/{userId}/{document=**} {
-      allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
-    }
-
     // --- Collection Group Access ---
     match /{path=**}/reviews/{reviewId} {
-      allow list: if isAdmin();
-    }
-    
-    match /{path=**}/serviceRequests/{requestId} {
       allow list: if isAdmin();
     }
   }

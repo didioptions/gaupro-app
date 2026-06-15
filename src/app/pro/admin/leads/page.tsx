@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
@@ -73,7 +72,7 @@ export default function LeadOversightPage() {
     else setLoadingMore(true);
 
     try {
-        // MOVE: Feting from top-level collection instead of collectionGroup
+        // Querying the NEW top-level collection
         const baseQuery = query(
             collection(firestore, 'serviceRequests'),
             orderBy('createdAt', 'desc'),
@@ -98,7 +97,7 @@ export default function LeadOversightPage() {
         setHasMore(snapshot.docs.length === PAGE_SIZE);
     } catch (e: any) {
         console.error("Fetch leads error:", e);
-        toast({ variant: 'destructive', title: 'Error', description: "Failed to load leads." });
+        toast({ variant: 'destructive', title: 'Error', description: "Failed to load leads from the serviceRequests collection." });
     } finally {
         setLoading(false);
         setLoadingMore(false);

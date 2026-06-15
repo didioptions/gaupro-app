@@ -105,7 +105,7 @@
         },
         "userId": {
           "type": "string",
-          "description": "Reference to User. (Relationship: User 1:N ServiceRequest)"
+          "description": "Reference to User. (Guest ID or Auth UID)"
         },
         "category": {
           "type": "string",
@@ -126,7 +126,7 @@
         },
         "status": {
           "type": "string",
-          "description": "The current status of the service request (e.g., Open, Quoted, In Progress, Completed)."
+          "description": "The current status (Open, Quoted, In Progress, Completed)."
         }
       },
       "required": [
@@ -143,7 +143,7 @@
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "Quote",
       "type": "object",
-      "description": "Represents a quote provided by a professional for a service request.",
+      "description": "Represents a quote provided by a professional.",
       "properties": {
         "id": {
           "type": "string",
@@ -151,19 +151,19 @@
         },
         "serviceRequestId": {
           "type": "string",
-          "description": "Reference to ServiceRequest. (Relationship: ServiceRequest 1:N Quote)"
+          "description": "Reference to ServiceRequest."
         },
         "professionalProfileId": {
           "type": "string",
-          "description": "Reference to ProfessionalProfile. (Relationship: ProfessionalProfile 1:N Quote)"
+          "description": "Reference to ProfessionalProfile."
         },
         "amount": {
           "type": "number",
-          "description": "The quoted amount for the service."
+          "description": "The quoted amount."
         },
         "description": {
           "type": "string",
-          "description": "A description of the quote, including what is included."
+          "description": "Quote details."
         },
         "dateCreated": {
           "type": "string",
@@ -177,52 +177,6 @@
         "professionalProfileId",
         "amount",
         "description",
-        "dateCreated"
-      ]
-    },
-    "Review": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Review",
-      "type": "object",
-      "description": "Represents a review of a professional's service by a user.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the review."
-        },
-        "serviceRequestId": {
-          "type": "string",
-          "description": "Reference to ServiceRequest. (Relationship: ServiceRequest 1:N Review)"
-        },
-        "userId": {
-          "type": "string",
-          "description": "Reference to User. (Relationship: User 1:N Review)"
-        },
-        "professionalProfileId": {
-          "type": "string",
-          "description": "Reference to ProfessionalProfile. (Relationship: ProfessionalProfile 1:N Review)"
-        },
-        "rating": {
-          "type": "number",
-          "description": "The rating given by the user (e.g., 1-5 stars)."
-        },
-        "comment": {
-          "type": "string",
-          "description": "The user's comments about the service."
-        },
-        "dateCreated": {
-          "type": "string",
-          "description": "The date the review was created.",
-          "format": "date-time"
-        }
-      },
-      "required": [
-        "id",
-        "serviceRequestId",
-        "userId",
-        "professionalProfileId",
-        "rating",
-        "comment",
         "dateCreated"
       ]
     }
@@ -239,161 +193,24 @@
         "path": "/users/{userId}",
         "definition": {
           "entityName": "User",
-          "schema": {
-            "$ref": "#/backend/entities/User"
-          },
-          "description": "Stores user profiles.  Uses path-based ownership.  `userId` corresponds to `request.auth.uid`.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier of the user, matching the Firebase Authentication UID."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/professionals/{professionalId}",
-        "definition": {
-          "entityName": "ProfessionalProfile",
-          "schema": {
-            "$ref": "#/backend/entities/ProfessionalProfile"
-          },
-          "description": "Stores all professional profiles. This is the main collection for publicly listed professionals.",
-          "params": [
-            {
-              "name": "professionalId",
-              "description": "The unique identifier of the professional profile."
-            }
-          ]
+          "description": "Stores user profiles."
         }
       },
       {
         "path": "/professionalProfiles/{professionalProfileId}",
         "definition": {
           "entityName": "ProfessionalProfile",
-          "schema": {
-            "$ref": "#/backend/entities/ProfessionalProfile"
-          },
-          "description": "Stores professional profiles.  Allows public listing and details retrieval.",
-          "params": [
-            {
-              "name": "professionalProfileId",
-              "description": "The unique identifier of the professional profile."
-            }
-          ]
+          "description": "Stores professional profiles. Allows public listing."
         }
       },
       {
-        "path": "/users/{userId}/serviceRequests/{serviceRequestId}",
+        "path": "/serviceRequests/{serviceRequestId}",
         "definition": {
           "entityName": "ServiceRequest",
-          "schema": {
-            "$ref": "#/backend/entities/ServiceRequest"
-          },
-          "description": "Stores service requests submitted by users. Uses path-based ownership. `userId` corresponds to `request.auth.uid`.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier of the user, matching the Firebase Authentication UID."
-            },
-            {
-              "name": "serviceRequestId",
-              "description": "The unique identifier of the service request."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/professionalProfiles/{professionalProfileId}/quotes/{quoteId}",
-        "definition": {
-          "entityName": "Quote",
-          "schema": {
-            "$ref": "#/backend/entities/Quote"
-          },
-          "description": "Stores quotes provided by professionals for service requests. Enables filtering by professional.",
-          "params": [
-            {
-              "name": "professionalProfileId",
-              "description": "The unique identifier of the professional profile."
-            },
-            {
-              "name": "quoteId",
-              "description": "The unique identifier of the quote."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/users/{userId}/serviceRequests/{serviceRequestId}/quotes/{quoteId}",
-        "definition": {
-          "entityName": "Quote",
-          "schema": {
-            "$ref": "#/backend/entities/Quote"
-          },
-          "description": "Stores quotes provided by professionals for service requests. Enables filtering by service request. `userId` corresponds to `request.auth.uid`.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier of the user, matching the Firebase Authentication UID."
-            },
-            {
-              "name": "serviceRequestId",
-              "description": "The unique identifier of the service request."
-            },
-            {
-              "name": "quoteId",
-              "description": "The unique identifier of the quote."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/users/{userId}/serviceRequests/{serviceRequestId}/reviews/{reviewId}",
-        "definition": {
-          "entityName": "Review",
-          "schema": {
-            "$ref": "#/backend/entities/Review"
-          },
-          "description": "Stores reviews for a given service request.  `userId` corresponds to `request.auth.uid`.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier of the user, matching the Firebase Authentication UID."
-            },
-            {
-              "name": "serviceRequestId",
-              "description": "The unique identifier of the service request."
-            },
-            {
-              "name": "reviewId",
-              "description": "The unique identifier of the review."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/professionalProfiles/{professionalProfileId}/reviews/{reviewId}",
-        "definition": {
-          "entityName": "Review",
-          "schema": {
-            "$ref": "#/backend/entities/Review"
-          },
-          "description": "Stores reviews of a professional profile.",
-          "params": [
-            {
-              "name": "professionalProfileId",
-              "description": "The unique identifier of the professional profile."
-            },
-            {
-              "name": "reviewId",
-              "description": "The unique identifier of the review."
-            }
-          ]
+          "description": "Top-level collection for all job requests. Enables global search and lead distribution."
         }
       }
     ],
-    "reasoning": "The Firestore structure is designed to support the Gaupro application's core features, including user profiles, professional profiles, service requests, quotes, and reviews, while prioritizing security and scalability. It implements Authorization Independence by denormalizing authorization data where necessary, ensuring that rules can be evaluated without complex `get()` operations. Structural Segregation is used to maintain a homogeneous security posture within each collection. Access Modeling follows consistent patterns, leveraging path-based ownership and membership maps for collaborative data.\n\nUsers and Professional Profiles are stored in separate collections to allow for distinct security rules and scalability. Service Requests are stored as subcollections of Users, enabling easy retrieval of a user's requests. Quotes are nested under Service Requests and professional profile, allowing filtering by professional or by service request. Reviews are also stored as subcollections of both Service Requests and Professional Profiles enabling easy aggregation and filtering for reviews.\n\nThe design ensures QAPs by:\n\n*   Segregating user-owned data (Service Requests) under `/users/{userId}`.\n*   Using path-based ownership for user data.\n*   Storing Professional Profiles separately to allow public listing while maintaining secure access to profile details."
+    "reasoning": "Moved ServiceRequest to a top-level collection to allow public writes for guest users without interacting with the strictly-protected /users hierarchy. This ensures better scalability for lead distribution and oversight."
   }
 }
-
-    
