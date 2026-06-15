@@ -64,6 +64,8 @@ service cloud.firestore {
       allow read: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
       allow create: if isSignedIn() && request.auth.uid == userId;
       allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId && request.resource.data.role == resource.data.role);
+      
+      // Legacy path removed.
     }
 
     // --- Service Requests (Top-Level) ---
