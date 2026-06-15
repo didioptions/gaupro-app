@@ -48,16 +48,23 @@ service cloud.firestore {
     }
     
     match /verifications/{userId} {
-      allow read: if isAdmin() || request.auth.uid == userId;
+      allow read: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
       allow create: if isSignedIn() && request.auth.uid == userId;
       allow update, delete: if isAdmin();
     }
 
+    match /review_disputes/{disputeId} {
+      allow get, list: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
+      allow create: if isSignedIn();
+      allow update: if isAdmin();
+      allow delete: if false;
+    }
+
     // --- User Profiles ---
     match /users/{userId} {
-      allow read: if request.auth.uid == userId || isAdmin();
+      allow read: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
       allow create: if isSignedIn() && request.auth.uid == userId;
-      allow update: if isAdmin() || (request.auth.uid == userId && request.resource.data.role == resource.data.role);
+      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId && request.resource.data.role == resource.data.role);
     }
 
     // --- Public Access Rules ---
@@ -67,34 +74,54 @@ service cloud.firestore {
       match /{profileId} {
         allow get: if true;
         
-        // Allow professionals to update their own profiles
-        allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId;
-        allow update: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userId);
+        allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId
+                      && request.resource.data.get('isProVerified', false) == false
+                      && request.resource.data.get('rating', 0) == 0;
+        
+        allow update: if isAdmin() || (
+          isSignedIn() && request.auth.uid == resource.data.userId 
+          && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+            'isProVerified', 
+            'verificationStatus', 
+            'verifiedAt', 
+            'verifiedBy', 
+            'rating', 
+            'reviewCount', 
+            'totalReviews', 
+            'featuredStatus', 
+            'moderationFlags',
+            'priorityRank',
+            'userId',
+            'email',
+            'createdAt'
+          ])
+        );
+
         allow delete: if isAdmin();
 
         match /reviews/{reviewId} {
           allow read: if true;
-          allow create: if isSignedIn();
-          allow update: if isAdmin();
-          allow delete: if isAdmin();
+          // Allow anyone to create a review, but it must be pending
+          allow create: if request.resource.data.status == 'pending' || request.resource.data.status == 'flagged';
+          allow update, delete: if isAdmin();
         }
       }
     }
 
-    // --- Job Requests (The fix for your error) ---
+    // --- Job Requests ---
     match /users/{userId}/serviceRequests/{requestId} {
       // Allow ANYONE (even guests) to create a job request
       allow create: if true;
-      // Only the owner or Admin can read/delete them
+      // Secure reading/editing
       allow read, update, delete: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
     }
 
-    // --- Catch-all for other user data ---
+    // --- Catch-all for user data ---
     match /users/{userId}/{document=**} {
       allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
     }
 
-    // --- Collection Group Access (For Admin Oversight) ---
+    // --- Collection Group Access ---
     match /{path=**}/reviews/{reviewId} {
       allow list: if isAdmin();
     }

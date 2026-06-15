@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
@@ -97,8 +98,7 @@ function PostRequestContent() {
      if (locationQuery) {
       const locationLabel = allLocations.find(l => l.value === locationQuery)?.label || initialLocation;
       setLocationValue(locationLabel);
-      handleInputChange('suburb', locationLabel);
-      handleInputChange('city', '');
+      setFormData(prev => ({ ...prev, suburb: locationLabel, city: '' }));
     }
   }, [serviceQuery, locationQuery, initialLocation]);
 
@@ -173,16 +173,14 @@ function PostRequestContent() {
         status: 'Open',
         budget: (formData.budget as string) || "Quote Required",
         customerName: `${formData.firstName} ${formData.lastName}`,
-        customerEmail: formData.email,
-        customerPhone: formData.phoneNumber,
+        customerEmail: formData.email || '',
+        customerPhone: formData.phoneNumber || '',
         contactTime: formData.contactTime || 'anytime',
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest'
     };
 
     try {
-        // Save to users/{id}/serviceRequests so collectionGroup can find it
-        // If guest, we save to a special 'guest' user path
         const parentPath = user ? `users/${user.uid}` : `users/GUEST_${Date.now()}`;
         const leadsRef = collection(db, parentPath, 'serviceRequests');
         await addDoc(leadsRef, leadData);
