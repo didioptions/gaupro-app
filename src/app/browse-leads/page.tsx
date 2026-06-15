@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -6,8 +7,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus, Search } from 'lucide-react';
 import Link from 'next/link';
-import { jobRequests } from '@/lib/job-requests-data';
+import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
+import { collection, query, orderBy, limit } from 'firebase/firestore';
 import { Input } from '@/components/ui/input';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Select,
   SelectContent,
@@ -18,22 +21,43 @@ import {
 
 const MAX_QUOTES_ALLOWED = 5;
 
-type JobRequest = typeof jobRequests[0];
-
 export default function BrowseLeadsPage() {
   const [serviceQuery, setServiceQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
+  const firestore = useFirestore();
+  const { isUserLoading } = useUser();
+
+  const leadsQuery = useMemoFirebase(() => {
+    if (!firestore || isUserLoading) return null;
+    return query(
+        collection(firestore, 'serviceRequests'),
+        orderBy('createdAt', 'desc'),
+        limit(50)
+    );
+  }, [firestore, isUserLoading]);
+
+  const { data: leads, loading, error } = useCollection(leadsQuery);
   
   const filteredJobs = useMemo(() => {
-    return jobRequests.filter((job: JobRequest) => {
+    if (!leads) return [];
+    return leads.filter((job) => {
       const serviceMatch = !serviceQuery || 
-        job.title.toLowerCase().includes(serviceQuery.toLowerCase()) || 
-        job.category.toLowerCase().includes(serviceQuery.toLowerCase());
+        job.category.toLowerCase().includes(serviceQuery.toLowerCase()) ||
+        job.description.toLowerCase().includes(serviceQuery.toLowerCase());
       const locationMatch = !locationQuery || 
         job.location.toLowerCase().includes(locationQuery.toLowerCase());
       return serviceMatch && locationMatch;
     });
-  }, [serviceQuery, locationQuery]);
+  }, [leads, serviceQuery, locationQuery]);
+
+  const getPostedTime = (createdAt: any) => {
+    if (!createdAt) return 'Recently';
+    const date = createdAt.seconds ? new Date(createdAt.seconds * 1000) : new Date(createdAt);
+    const diffInHours = Math.floor((new Date().getTime() - date.getTime()) / (1000 * 60 * 60));
+    if (diffInHours < 1) return 'Just now';
+    if (diffInHours < 24) return `${diffInHours}h ago`;
+    return `${Math.floor(diffInHours / 24)}d ago`;
+  };
 
   return (
     <main className="flex-grow">
@@ -92,10 +116,14 @@ export default function BrowseLeadsPage() {
               </div>
             </div>
 
-
             <div className="space-y-6 max-w-3xl mx-auto">
-              {filteredJobs.length > 0 ? filteredJobs.map((job) => {
-                const isClosed = job.quotes >= MAX_QUOTES_ALLOWED;
+              {loading ? (
+                  Array.from({ length: 3 }).map((_, i) => (
+                      <Card key={i}><CardContent className="p-6 space-y-4"><Skeleton className="h-6 w-1/3" /><Skeleton className="h-20 w-full" /></CardContent></Card>
+                  ))
+              ) : filteredJobs.length > 0 ? filteredJobs.map((job) => {
+                const quoteCount = job.quoteCount || 0;
+                const isClosed = quoteCount >= MAX_QUOTES_ALLOWED;
 
                 return (
                   <Card key={job.id} className="bg-card hover:shadow-md transition-shadow">
@@ -107,26 +135,14 @@ export default function BrowseLeadsPage() {
                             <MapPin className="h-4 w-4" />
                             <span>{job.location}</span>
                           </div>
-                          <h2 className="text-xl font-semibold mb-2 text-foreground">{job.title}</h2>
-                          <p className="text-muted-foreground text-sm mb-4">{job.description}</p>
-
-                          {job.questionsAndAnswers && job.questionsAndAnswers.length > 0 && (
-                              <div className="mt-4 pt-4 border-t space-y-2 text-sm">
-                                  {job.questionsAndAnswers.map((qa, index) => (
-                                      <div key={index}>
-                                          <p className="font-semibold text-foreground">{qa.question}</p>
-                                          <p className="text-muted-foreground">{qa.answer}</p>
-                                      </div>
-                                  ))}
-                              </div>
-                          )}
-
+                          <h2 className="text-xl font-semibold mb-2 text-foreground">Request for {job.category}</h2>
+                          <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{job.description}</p>
                         </div>
                         <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-muted-foreground">
-                          <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {job.posted}</span></div>
-                          <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.needed}</span></div>
-                          <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>
-                          <div className="flex items-center gap-2"><Users className="h-4 w-4" /> <span>{job.quotes} quotes submitted</span></div>
+                          <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {getPostedTime(job.createdAt)}</span></div>
+                          <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.dateNeeded}</span></div>
+                          <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget || 'Quote required'}</span></div>
+                          <div className="flex items-center gap-2"><Users className="h-4 w-4" /> <span>{quoteCount} quotes submitted</span></div>
                         </div>
                       </div>
                       <div className="mt-4 pt-4 border-t">
@@ -144,7 +160,7 @@ export default function BrowseLeadsPage() {
               }) : (
                 <Card>
                   <CardContent className="p-10 text-center text-muted-foreground">
-                    No job requests found matching your criteria.
+                    {error ? `Error loading leads: ${error}` : 'No job requests found matching your criteria.'}
                   </CardContent>
                 </Card>
               )}

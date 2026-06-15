@@ -1,36 +1,49 @@
+
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, CreditCard } from 'lucide-react';
 import Link from 'next/link';
-import { useUser } from '@/firebase';
+import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
+import { collection, query, orderBy, limit } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { QuoteDialog } from '@/components/pro/quote-dialog';
-import { jobRequests } from '@/lib/job-requests-data';
-
-type Job = typeof jobRequests[0];
+import { Skeleton } from '@/components/ui/skeleton';
 
 const MAX_QUOTES_ALLOWED = 5;
 
 export default function BrowseQuotesPage() {
   const [creditBalance, setCreditBalance] = useState(25);
-  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
-  const { user } = useUser();
+  const [selectedJob, setSelectedJob] = useState<any>(null);
+  const { user, isUserLoading } = useUser();
+  const firestore = useFirestore();
   const router = useRouter();
   const { toast } = useToast();
 
-  const handleUnlockClick = (job: Job) => {
+  const leadsQuery = useMemoFirebase(() => {
+    if (!firestore || isUserLoading) return null;
+    return query(
+        collection(firestore, 'serviceRequests'),
+        orderBy('createdAt', 'desc'),
+        limit(50)
+    );
+  }, [firestore, isUserLoading]);
+
+  const { data: leads, loading, error } = useCollection(leadsQuery);
+
+  const handleUnlockClick = (job: any) => {
     if (!user) {
       router.push('/pro/login');
       return;
     }
-    if (creditBalance >= job.credits) {
-      setCreditBalance(prevBalance => prevBalance - job.credits);
+    const cost = job.credits || 3;
+    if (creditBalance >= cost) {
+      setCreditBalance(prevBalance => prevBalance - cost);
       setSelectedJob(job);
     } else {
       toast({
@@ -39,6 +52,15 @@ export default function BrowseQuotesPage() {
         description: 'You do not have enough credits to unlock this job. Please buy more credits.',
       });
     }
+  };
+
+  const getPostedTime = (createdAt: any) => {
+    if (!createdAt) return 'Recently';
+    const date = createdAt.seconds ? new Date(createdAt.seconds * 1000) : new Date(createdAt);
+    const diffInHours = Math.floor((new Date().getTime() - date.getTime()) / (1000 * 60 * 60));
+    if (diffInHours < 1) return 'Just now';
+    if (diffInHours < 24) return `${diffInHours}h ago`;
+    return `${Math.floor(diffInHours / 24)}d ago`;
   };
 
   return (
@@ -71,7 +93,7 @@ export default function BrowseQuotesPage() {
                 </Card>
               )}
 
-              <form className="flex gap-2">
+              <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
                 <Input
                   type="search"
                   placeholder="Search for job titles or categories..."
@@ -85,8 +107,14 @@ export default function BrowseQuotesPage() {
             </div>
 
             <div className="space-y-6 max-w-3xl mx-auto">
-              {jobRequests.map((job) => {
-                const isClosed = job.quotes >= MAX_QUOTES_ALLOWED;
+              {loading ? (
+                   Array.from({ length: 3 }).map((_, i) => (
+                    <Card key={i}><CardContent className="p-6 space-y-4"><Skeleton className="h-6 w-1/3" /><Skeleton className="h-20 w-full" /></CardContent></Card>
+                ))
+              ) : leads && leads.length > 0 ? leads.map((job) => {
+                const quoteCount = job.quoteCount || 0;
+                const isClosed = quoteCount >= MAX_QUOTES_ALLOWED;
+                const cost = job.credits || 3;
 
                 return (
                   <Card key={job.id} className="bg-card hover:shadow-md transition-shadow">
@@ -98,14 +126,14 @@ export default function BrowseQuotesPage() {
                             <MapPin className="h-4 w-4" />
                             <span>{job.location}</span>
                           </div>
-                          <h2 className="text-xl font-bold mb-2 text-foreground">{job.title}</h2>
-                          <p className="text-muted-foreground text-sm mb-4">{job.description}</p>
+                          <h2 className="text-xl font-bold mb-2 text-foreground">Request for {job.category}</h2>
+                          <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{job.description}</p>
                         </div>
                         <div className="flex-shrink-0 w-full sm:w-56 text-sm space-y-2 text-muted-foreground">
-                          <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {job.posted}</span></div>
-                          <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.needed}</span></div>
-                          <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>
-                          <div className="flex items-center gap-2"><Users className="h-4 w-4" /> <span>{job.quotes} quotes submitted</span></div>
+                          <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> <span>Posted {getPostedTime(job.createdAt)}</span></div>
+                          <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> <span>Needed: {job.dateNeeded}</span></div>
+                          <div className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget || 'Quote required'}</span></div>
+                          <div className="flex items-center gap-2"><Users className="h-4 w-4" /> <span>{quoteCount} quotes submitted</span></div>
                         </div>
                       </div>
                       <div className="mt-4 pt-4 border-t">
@@ -117,14 +145,20 @@ export default function BrowseQuotesPage() {
                             onClick={() => handleUnlockClick(job)}
                           >
                             <Lock className="mr-2 h-4 w-4" />
-                            Unlock & Quote ({job.credits} Credits)
+                            Unlock & Quote ({cost} Credits)
                           </Button>
                         )}
                       </div>
                     </CardContent>
                   </Card>
                 );
-              })}
+              }) : (
+                <Card>
+                    <CardContent className="p-10 text-center text-muted-foreground">
+                        {error ? `Error: ${error}` : 'No active job requests found.'}
+                    </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         </section>

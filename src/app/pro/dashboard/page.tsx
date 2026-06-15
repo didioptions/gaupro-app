@@ -1,7 +1,8 @@
+
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users, ShieldAlert, LayoutDashboard, ExternalLink, RefreshCcw, LogOut } from 'lucide-react';
+import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users, ShieldAlert, LayoutDashboard, ExternalLink, RefreshCcw, LogOut, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -11,13 +12,12 @@ import {
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
-import { useUser, useFirestore, useAuth } from '@/firebase';
+import { useUser, useFirestore, useAuth, useCollection, useMemoFirebase } from '@/firebase';
 import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
 import { SupportChatWidget } from '@/components/pro/support-chat-widget';
 import { collection, query, where, getDocs, limit, orderBy } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
-import { jobRequests } from '@/lib/job-requests-data';
 import { Badge } from '@/components/ui/badge';
 import { allServices } from '@/lib/service-questions';
 import { signOut } from 'firebase/auth';
@@ -79,13 +79,25 @@ export default function ProDashboardPage() {
     fetchData();
   }, [user, isUserLoading, firestore]);
 
+  const leadsQuery = useMemoFirebase(() => {
+      if (!firestore || isUserLoading) return null;
+      return query(
+          collection(firestore, 'serviceRequests'),
+          orderBy('createdAt', 'desc'),
+          limit(10)
+      );
+  }, [firestore, isUserLoading]);
+
+  const { data: allLeads, loading: loadingLeads } = useCollection(leadsQuery);
+
   const relevantLeads = useMemo(() => {
-    if (!profileData) return [];
-    const proServices = profileData.tags || (profileData.serviceCategory ? [allServices.find(s => s.value === profileData.serviceCategory)?.label || ''] : []);
-    return jobRequests.filter(job => 
-      proServices.some((service: string) => service && job.category.toLowerCase().includes(service.toLowerCase()))
+    if (!profileData || !allLeads) return [];
+    const proServices = (profileData.tags || (profileData.serviceCategory ? [allServices.find(s => s.value === profileData.serviceCategory)?.label || ''] : [])).map(s => s.toLowerCase());
+    
+    return allLeads.filter(job => 
+      proServices.some((service: string) => service && job.category.toLowerCase().includes(service))
     ).slice(0, 3);
-  }, [profileData]);
+  }, [profileData, allLeads]);
 
   const handleLogout = async () => {
     if (auth) {
@@ -96,6 +108,15 @@ export default function ProDashboardPage() {
         console.error("Logout error:", error);
       }
     }
+  };
+
+  const getPostedTime = (createdAt: any) => {
+    if (!createdAt) return 'Recently';
+    const date = createdAt.seconds ? new Date(createdAt.seconds * 1000) : new Date(createdAt);
+    const diffInHours = Math.floor((new Date().getTime() - date.getTime()) / (1000 * 60 * 60));
+    if (diffInHours < 1) return 'Just now';
+    if (diffInHours < 24) return `${diffInHours}h ago`;
+    return `${Math.floor(diffInHours / 24)}d ago`;
   };
 
   if (isLoading || isUserLoading) {
@@ -376,7 +397,7 @@ export default function ProDashboardPage() {
                 <div className="flex justify-between items-center">
                   <CardTitle className="flex items-center gap-2 text-lg font-normal">
                     <Briefcase className="h-6 w-6 text-primary" />
-                    New Leads
+                    New Leads Matching Your Profile
                   </CardTitle>
                   <Button variant="secondary" asChild>
                     <Link href="/browse-quotes">View all leads</Link>
@@ -384,20 +405,30 @@ export default function ProDashboardPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                {relevantLeads.length > 0 ? (
+                {loadingLeads ? (
+                    <div className="space-y-4">
+                        <Skeleton className="h-16 w-full" />
+                        <Skeleton className="h-16 w-full" />
+                    </div>
+                ) : relevantLeads.length > 0 ? (
                   <div className="space-y-4">
                     {relevantLeads.map(job => (
-                      <div key={job.id} className="p-3 border rounded-md flex justify-between items-center">
+                      <div key={job.id} className="p-3 border rounded-md flex justify-between items-center hover:bg-secondary/50 transition-colors">
                         <div>
-                          <p className="font-semibold">{job.title}</p>
-                          <p className="text-sm text-muted-foreground">{job.location} &bull; {job.posted}</p>
+                          <p className="font-semibold">Request for {job.category}</p>
+                          <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
+                              <MapPin className="h-3 w-3" /> {job.location} • <Clock className="h-3 w-3 ml-1" /> {getPostedTime(job.createdAt)}
+                          </p>
                         </div>
                         <Badge variant="outline">{job.category}</Badge>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-center py-4">No new leads right now.</p>
+                  <div className="text-center py-8">
+                      <p className="text-muted-foreground">No new matching leads found.</p>
+                      <p className="text-xs text-muted-foreground mt-1">Try adding more service keywords to your profile to see more leads.</p>
+                  </div>
                 )}
               </CardContent>
             </Card>
