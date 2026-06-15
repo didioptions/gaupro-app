@@ -28,7 +28,6 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -181,8 +180,8 @@ function PostRequestContent() {
     };
 
     try {
-        const parentPath = user ? `users/${user.uid}` : `users/GUEST_${Date.now()}`;
-        const leadsRef = collection(db, parentPath, 'serviceRequests');
+        // MOVE: Writing to top-level collection instead of nested under /users/
+        const leadsRef = collection(db, 'serviceRequests');
         await addDoc(leadsRef, leadData);
         setIsSubmitted(true);
     } catch (error: any) {

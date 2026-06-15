@@ -1,9 +1,9 @@
+
 'use client';
 
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import { useFirestore, useUser } from '@/firebase';
 import { 
-    collectionGroup, 
     query, 
     orderBy, 
     limit, 
@@ -73,8 +73,9 @@ export default function LeadOversightPage() {
     else setLoadingMore(true);
 
     try {
+        // MOVE: Feting from top-level collection instead of collectionGroup
         const baseQuery = query(
-            collectionGroup(firestore, 'serviceRequests'),
+            collection(firestore, 'serviceRequests'),
             orderBy('createdAt', 'desc'),
             limit(PAGE_SIZE)
         );
@@ -84,7 +85,6 @@ export default function LeadOversightPage() {
         
         const newLeads = snapshot.docs.map(d => ({ 
             id: d.id, 
-            userId: d.ref.parent.parent?.id || 'guest', 
             ...d.data() 
         }));
         
@@ -98,7 +98,7 @@ export default function LeadOversightPage() {
         setHasMore(snapshot.docs.length === PAGE_SIZE);
     } catch (e: any) {
         console.error("Fetch leads error:", e);
-        toast({ variant: 'destructive', title: 'Error', description: "Failed to load leads. Make sure you have the collection group index for 'serviceRequests' (createdAt descending) active." });
+        toast({ variant: 'destructive', title: 'Error', description: "Failed to load leads." });
     } finally {
         setLoading(false);
         setLoadingMore(false);
@@ -135,12 +135,9 @@ export default function LeadOversightPage() {
   };
 
   const handleAction = async (lead: any, action: string) => {
-    if (!adminUser || !lead || !firestore || !lead.userId || lead.userId === 'guest') {
-        toast({ title: 'Action restricted', description: "Cannot update status for guest leads yet." });
-        return;
-    }
+    if (!adminUser || !lead || !firestore) return;
     try {
-      const leadRef = doc(firestore, 'users', lead.userId, 'serviceRequests', lead.id);
+      const leadRef = doc(firestore, 'serviceRequests', lead.id);
       await updateDoc(leadRef, { status: action, updatedAt: serverTimestamp() });
       
       await addDoc(collection(firestore, 'marketplace_audit_logs'), {
@@ -322,9 +319,7 @@ export default function LeadOversightPage() {
           </div>
           <DialogFooter>
              <Button variant="outline" onClick={() => setViewLead(null)}>Close</Button>
-             {viewLead?.userId !== 'guest' && (
-                <Button variant="destructive" onClick={() => handleAction(viewLead, 'Closed')}>Close Lead</Button>
-             )}
+             <Button variant="destructive" onClick={() => handleAction(viewLead, 'Closed')}>Close Lead</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
