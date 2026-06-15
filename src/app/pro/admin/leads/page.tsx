@@ -37,7 +37,8 @@ import {
     DollarSign,
     Phone,
     Mail,
-    User
+    User,
+    MapPin
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
