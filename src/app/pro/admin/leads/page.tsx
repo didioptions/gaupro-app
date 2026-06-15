@@ -32,7 +32,12 @@ import {
     Eye,
     TrendingUp,
     ChevronDown,
-    Loader2
+    Loader2,
+    Calendar,
+    DollarSign,
+    Phone,
+    Mail,
+    User
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
@@ -40,7 +45,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogFooter
+  DialogFooter,
+  DialogDescription
 } from '@/components/ui/dialog';
 
 const PAGE_SIZE = 25;
@@ -68,14 +74,18 @@ export default function LeadOversightPage() {
     try {
         const baseQuery = query(
             collectionGroup(firestore, 'serviceRequests'),
-            orderBy('dateNeeded', 'desc'),
+            orderBy('createdAt', 'desc'),
             limit(PAGE_SIZE)
         );
 
         const finalQuery = isInitial ? baseQuery : query(baseQuery, startAfter(lastDoc));
         const snapshot = await getDocs(finalQuery);
         
-        const newLeads = snapshot.docs.map(d => ({ id: d.id, userId: d.ref.parent.parent?.id, ...d.data() }));
+        const newLeads = snapshot.docs.map(d => ({ 
+            id: d.id, 
+            userId: d.ref.parent.parent?.id || 'guest', 
+            ...d.data() 
+        }));
         
         if (isInitial) {
             setLeads(newLeads);
@@ -87,7 +97,7 @@ export default function LeadOversightPage() {
         setHasMore(snapshot.docs.length === PAGE_SIZE);
     } catch (e: any) {
         console.error("Fetch leads error:", e);
-        toast({ variant: 'destructive', title: 'Error', description: e.message });
+        toast({ variant: 'destructive', title: 'Error', description: "Failed to load leads. Make sure you have the collection group index for 'serviceRequests' (createdAt descending) active." });
     } finally {
         setLoading(false);
         setLoadingMore(false);
@@ -112,7 +122,8 @@ export default function LeadOversightPage() {
     return leads.filter(l => 
       l.category?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       l.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      l.location?.toLowerCase().includes(searchQuery.toLowerCase())
+      l.location?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      l.customerName?.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [leads, searchQuery]);
 
@@ -123,7 +134,10 @@ export default function LeadOversightPage() {
   };
 
   const handleAction = async (lead: any, action: string) => {
-    if (!adminUser || !lead || !firestore || !lead.userId) return;
+    if (!adminUser || !lead || !firestore || !lead.userId || lead.userId === 'guest') {
+        toast({ title: 'Action restricted', description: "Cannot update status for guest leads yet." });
+        return;
+    }
     try {
       const leadRef = doc(firestore, 'users', lead.userId, 'serviceRequests', lead.id);
       await updateDoc(leadRef, { status: action, updatedAt: serverTimestamp() });
@@ -213,9 +227,9 @@ export default function LeadOversightPage() {
               <TableHeader>
                 <TableRow>
                   <TableHead>Category / City</TableHead>
+                  <TableHead>Customer</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Quality</TableHead>
-                  <TableHead>Quotes</TableHead>
                   <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
@@ -224,9 +238,9 @@ export default function LeadOversightPage() {
                    Array.from({ length: 5 }).map((_, i) => (
                     <TableRow key={i}>
                       <TableCell><Skeleton className="h-4 w-40" /></TableCell>
+                      <TableCell><Skeleton className="h-4 w-32" /></TableCell>
                       <TableCell><Skeleton className="h-4 w-16" /></TableCell>
                       <TableCell><Skeleton className="h-4 w-12" /></TableCell>
-                      <TableCell><Skeleton className="h-4 w-8" /></TableCell>
                       <TableCell className="text-right"><Skeleton className="h-8 w-24 ml-auto" /></TableCell>
                     </TableRow>
                   ))
@@ -237,13 +251,14 @@ export default function LeadOversightPage() {
                       <p className="text-xs text-muted-foreground">{lead.location}</p>
                     </TableCell>
                     <TableCell>
+                        <p className="text-sm font-medium">{lead.customerName || 'Anonymous'}</p>
+                        <p className="text-[10px] text-muted-foreground">{lead.customerEmail || 'No email'}</p>
+                    </TableCell>
+                    <TableCell>
                       <Badge variant={lead.status === 'Open' ? 'secondary' : 'default'}>{lead.status}</Badge>
                     </TableCell>
                     <TableCell>
                       {getQualityBadge(lead.leadQualityScore || 70)}
-                    </TableCell>
-                    <TableCell className="text-center font-mono">
-                      {lead.quotesCount || 0}
                     </TableCell>
                     <TableCell className="text-right space-x-1">
                       <button className="p-2 hover:bg-secondary rounded-full text-muted-foreground" onClick={() => setViewLead(lead)}><Eye className="h-4 w-4" /></button>
@@ -276,22 +291,39 @@ export default function LeadOversightPage() {
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>Lead Details: {viewLead?.id?.substring(0,8) || 'Unknown'}</DialogTitle>
+            <DialogDescription>Full data for this marketplace request.</DialogDescription>
           </DialogHeader>
           <div className="py-4 space-y-6">
             <div className="p-4 bg-secondary/30 rounded-lg">
-              <h3 className="font-bold text-sm text-primary mb-2">Project Description</h3>
+              <h3 className="font-bold text-sm text-primary mb-2 uppercase tracking-widest">Project Description</h3>
               <p className="text-sm leading-relaxed">{viewLead?.description}</p>
             </div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
-               <div><p className="text-muted-foreground">Category</p><p className="font-bold">{viewLead?.category}</p></div>
-               <div><p className="text-muted-foreground">City</p><p className="font-bold">{viewLead?.location}</p></div>
-               <div><p className="text-muted-foreground">Urgency</p><p className="font-bold">{viewLead?.urgency || 'Flexible'}</p></div>
-               <div><p className="text-muted-foreground">Budget</p><p className="font-bold">{viewLead?.budget || 'Quote Required'}</p></div>
+            
+            <div className="grid grid-cols-2 gap-8">
+                <div className="space-y-4">
+                    <h4 className="text-xs font-bold text-muted-foreground uppercase">Project Info</h4>
+                    <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm"><Briefcase className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.category}</span></div>
+                        <div className="flex items-center gap-2 text-sm"><MapPin className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.location}</span></div>
+                        <div className="flex items-center gap-2 text-sm"><Calendar className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.dateNeeded}</span></div>
+                        <div className="flex items-center gap-2 text-sm"><DollarSign className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.budget}</span></div>
+                    </div>
+                </div>
+                <div className="space-y-4">
+                    <h4 className="text-xs font-bold text-muted-foreground uppercase">Customer Contact</h4>
+                    <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm"><User className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerName}</span></div>
+                        <div className="flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerPhone}</span></div>
+                        <div className="flex items-center gap-2 text-sm"><Mail className="h-4 w-4 text-muted-foreground" /> <span className="truncate">{viewLead?.customerEmail}</span></div>
+                    </div>
+                </div>
             </div>
           </div>
           <DialogFooter>
              <Button variant="outline" onClick={() => setViewLead(null)}>Close</Button>
-             <Button variant="destructive" onClick={() => handleAction(viewLead, 'Closed')}>Close Lead</Button>
+             {viewLead?.userId !== 'guest' && (
+                <Button variant="destructive" onClick={() => handleAction(viewLead, 'Closed')}>Close Lead</Button>
+             )}
           </DialogFooter>
         </DialogContent>
       </Dialog>

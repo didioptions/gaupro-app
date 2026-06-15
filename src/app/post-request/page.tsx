@@ -3,7 +3,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, X } from 'lucide-react';
+import { ArrowLeft, X, Loader2 } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from '@/components/ui/progress';
 import { Label } from '@/components/ui/label';
@@ -34,6 +34,8 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { useUser } from '@/firebase';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -70,6 +72,9 @@ const whyChooseGaupro = [
 function PostRequestContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { user } = useUser();
+  const db = getFirestore();
+  
   const serviceQuery = searchParams.get('service') || '';
   const locationQuery = searchParams.get('location') || '';
 
@@ -78,6 +83,7 @@ function PostRequestContent() {
   const [formData, setFormData] = useState<FormData>({});
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   
   const initialLocation = locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -148,14 +154,43 @@ function PostRequestContent() {
     handleInputChange('urgency_date', selectedDate);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreedToTerms) {
         alert("You must agree to the Terms of Service and Privacy Policy.");
         return;
     }
-    console.log('Final Form Data:', { service: selectedService, ...formData });
-    setIsSubmitted(true);
+
+    setIsSubmitting(true);
+
+    const leadData = {
+        category: allServices.find(s => s.value === selectedService)?.label || selectedService,
+        description: (formData.job_details as string) || "No description provided",
+        location: (formData.suburb as string) || (formData.city as string) || locationValue || "Unknown",
+        dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
+        status: 'Open',
+        budget: (formData.budget as string) || "Quote Required",
+        customerName: `${formData.firstName} ${formData.lastName}`,
+        customerEmail: formData.email,
+        customerPhone: formData.phoneNumber,
+        contactTime: formData.contactTime || 'anytime',
+        createdAt: serverTimestamp(),
+        userId: user?.uid || 'guest'
+    };
+
+    try {
+        // Save to users/{id}/serviceRequests so collectionGroup can find it
+        // If guest, we save to a special 'guest' user path
+        const parentPath = user ? `users/${user.uid}` : `users/GUEST_${Date.now()}`;
+        const leadsRef = collection(db, parentPath, 'serviceRequests');
+        await addDoc(leadsRef, leadData);
+        setIsSubmitted(true);
+    } catch (error) {
+        console.error('Error saving lead:', error);
+        alert("There was an error submitting your request. Please try again.");
+    } finally {
+        setIsSubmitting(false);
+    }
   };
 
   const renderStepContent = () => {
@@ -163,7 +198,7 @@ function PostRequestContent() {
 
     if (isSubmitted) {
       return (
-        <div className="text-center py-8">
+        <div className="text-center py-8 px-6">
           <h2 className="text-2xl mb-4">✅ Your Request Has Been Received</h2>
           <div className="text-foreground space-y-4 text-left">
             <p>
@@ -179,11 +214,8 @@ function PostRequestContent() {
                 <li>Chat or call the pros directly to discuss your needs or ask questions.</li>
                 <li>Hire your favorite pro, agree on the details, and get your project done!</li>
             </ol>
-            <p>
-                With over 500 service categories, Gaupro connects you to the right expert for any job — from home repairs to creative projects. Let’s make your next project a success 🚀
-            </p>
           </div>
-          <Button asChild className="mt-8">
+          <Button asChild className="mt-8 w-full sm:w-auto">
               <Link href="/">Done</Link>
           </Button>
         </div>
@@ -487,8 +519,9 @@ function PostRequestContent() {
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700" disabled={!agreedToTerms}>
-              Get Quotes
+            <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700" disabled={!agreedToTerms || isSubmitting}>
+               {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+               {isSubmitting ? 'Submitting...' : 'Get Quotes'}
             </Button>
           </div>
         </form>
