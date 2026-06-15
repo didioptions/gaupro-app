@@ -4,46 +4,103 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // --- Public Access Rules for 'companies' ---
-    match /companies/{companyId} {
-      // This rule allows ANYONE to read a single company's document.
-      allow get: if true;
+    // --- Helper Functions ---
+    function isSignedIn() {
+      return request.auth != null;
     }
-    // This allows ANYONE to query the list of companies.
-    match /companies {
-      allow list: if true; 
+    
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
     }
 
-    // --- Public Access Rules for 'professionalProfiles' ---
+    function isAdmin() {
+      return isSignedIn() && (getUserData().role == 'admin' || getUserData().role == 'super_admin');
+    }
+    
+    function isSuperAdmin() {
+      return isSignedIn() && getUserData().role == 'super_admin';
+    }
+
+    // --- Admin Only Collections (Immutable) ---
+    match /admin_logs/{logId} {
+      allow get, list, create: if isAdmin();
+      allow update, delete: if false;
+    }
+    
+    match /transactions/{txId} {
+      allow get, list, create: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /review_actions/{actionId} {
+      allow get, list, create: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /marketplace_audit_logs/{logId} {
+      allow get, list, create: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /fraud_alerts/{alertId} {
+      allow get, list, create, update: if isAdmin();
+      allow delete: if isSuperAdmin();
+    }
+    
+    match /verifications/{userId} {
+      allow read: if isAdmin() || request.auth.uid == userId;
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      allow update, delete: if isAdmin();
+    }
+
+    // --- User Profiles ---
+    match /users/{userId} {
+      allow read: if request.auth.uid == userId || isAdmin();
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      allow update: if isAdmin() || (request.auth.uid == userId && request.resource.data.role == resource.data.role);
+    }
+
+    // --- Public Access Rules ---
     match /professionalProfiles {
-      // This rule allows ANYONE to query the list of professionals.
-      // This is required for the category pages to function.
       allow list: if true;
       
-      // These rules apply to INDIVIDUAL documents within the collection
       match /{profileId} {
-        // This rule allows ANYONE to read a single professional's profile.
         allow get: if true;
         
-        // --- Write Access Rules ---
-        // Only the authenticated owner of a profile can write to it.
-        allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
-        allow update, delete: if request.auth != null && request.auth.uid == resource.data.userId;
+        // Allow professionals to update their own profiles
+        allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId;
+        allow update: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userId);
+        allow delete: if isAdmin();
 
-        // --- Subcollection Rules ---
         match /reviews/{reviewId} {
           allow read: if true;
-          // Allow any authenticated user to create or delete their own review.
-          allow create: if request.auth != null;
-          allow delete: if request.auth != null && request.auth.uid == resource.data.userId;
+          allow create: if isSignedIn();
+          allow update: if isAdmin();
+          allow delete: if isAdmin();
         }
       }
     }
 
-    // --- User-Specific Data Rules ---
-    // Secure all documents within a user's private folder.
+    // --- Job Requests (The fix for your error) ---
+    match /users/{userId}/serviceRequests/{requestId} {
+      // Allow ANYONE (even guests) to create a job request
+      allow create: if true;
+      // Only the owner or Admin can read/delete them
+      allow read, update, delete: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
+    }
+
+    // --- Catch-all for other user data ---
     match /users/{userId}/{document=**} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
+    }
+
+    // --- Collection Group Access (For Admin Oversight) ---
+    match /{path=**}/reviews/{reviewId} {
+      allow list: if isAdmin();
+    }
+    
+    match /{path=**}/serviceRequests/{requestId} {
+      allow list: if isAdmin();
     }
   }
 }
