@@ -21,10 +21,6 @@ service cloud.firestore {
       return isSignedIn() && getUserData().role == 'super_admin';
     }
 
-    function isPro() {
-      return isSignedIn() && getUserData().role == 'pro';
-    }
-
     // --- Admin Only Collections (Immutable) ---
     match /admin_logs/{logId} {
       allow get, list, create: if isAdmin();
@@ -73,16 +69,9 @@ service cloud.firestore {
 
     // --- Service Requests (Top-Level) ---
     match /serviceRequests/{requestId} {
-      // Allow ANYONE (including guests) to post a job
       allow create: if true;
-      
-      // Allow Professionals to see the list of leads
-      allow list: if isAdmin() || isPro();
-      
-      // Full details read restricted to Admins or the owner
-      // NOTE: Pros get access to specific fields via the 'unlock' logic (handled by credits update)
-      allow get: if isAdmin() || (isSignedIn() && resource.data.userId == request.auth.uid);
-      
+      allow list: if isAdmin() || (isSignedIn() && getUserData().role == 'pro');
+      allow get: if isAdmin() || (isSignedIn() && (resource.data.userId == request.auth.uid || getUserData().role == 'pro'));
       allow update: if isAdmin();
       allow delete: if isAdmin();
     }
@@ -94,9 +83,11 @@ service cloud.firestore {
       match /{profileId} {
         allow get: if true;
         
-        allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId
-                      && request.resource.data.get('isProVerified', false) == false
-                      && request.resource.data.get('rating', 0) == 0;
+        allow create: if isAdmin() || (
+          isSignedIn() && request.auth.uid == request.resource.data.userId
+          && request.resource.data.get('isProVerified', false) == false
+          && request.resource.data.get('rating', 0) == 0
+        );
         
         allow update: if isAdmin() || (
           isSignedIn() && request.auth.uid == resource.data.userId 
@@ -113,7 +104,8 @@ service cloud.firestore {
             'priorityRank',
             'userId',
             'email',
-            'createdAt'
+            'createdAt',
+            'source'
           ])
         );
 
@@ -121,7 +113,6 @@ service cloud.firestore {
 
         match /reviews/{reviewId} {
           allow read: if true;
-          // Allow anyone to create a review, but it must be pending
           allow create: if request.resource.data.status == 'pending';
           allow update, delete: if isAdmin();
         }
