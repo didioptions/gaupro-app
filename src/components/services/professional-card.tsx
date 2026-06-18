@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -6,10 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Star, BadgeCheck, Clock, Users, ShieldAlert, Building2 } from 'lucide-react';
+import { Star, BadgeCheck, Clock, Users, ShieldAlert, Building2, MapPin } from 'lucide-react';
 import { CategoryImages } from '@/lib/category-images';
 import { RequestQuoteDialog } from '@/components/request-quote-dialog';
 import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
 
 export type Professional = {
   id: string;
