@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
@@ -28,6 +27,7 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
+  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -180,7 +180,6 @@ function PostRequestContent() {
     };
 
     try {
-        // MOVE: Writing to top-level collection instead of nested under /users/
         const leadsRef = collection(db, 'serviceRequests');
         await addDoc(leadsRef, leadData);
         setIsSubmitted(true);
