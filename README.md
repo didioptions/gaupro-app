@@ -6,16 +6,20 @@ GauPro is built with Next.js, Tailwind CSS, and Firebase. It is optimized for de
 
 Since GauPro is hosted on Firebase (not Vercel), follow these steps to link your domain:
 
-### 1. In the Firebase Console
+### 1. Upgrade to the Blaze Plan
+Firebase App Hosting requires the **Blaze (Pay-as-you-go) Plan**. 
 1. Go to the [Firebase Console](https://console.firebase.google.com/).
-2. Select your project.
-3. In the left sidebar, navigate to **Build > App Hosting**.
-4. Select your active backend.
-5. Click on the **Settings** tab and find **Custom Domains**.
-6. Click **Add Domain** and enter your domain name (e.g., `gaupro.co.za`).
-7. Firebase will provide you with **DNS Records** (typically two `A` records and a `TXT` record for verification).
+2. Click **Upgrade** at the bottom left.
+3. Select the **Blaze Plan**. (Note: Cloud Run has a large free tier, so costs are typically R0 for low-traffic sites).
 
-### 2. In your HostAfrica Client Area
+### 2. In the Firebase Console
+1. Navigate to **Build > App Hosting**.
+2. Select your active backend.
+3. Click on the **Settings** tab and find **Custom Domains**.
+4. Click **Add Domain** and enter your domain name (e.g., `gaupro.co.za`).
+5. Firebase will provide you with **DNS Records** (typically two `A` records and a `TXT` record for verification).
+
+### 3. In your HostAfrica Client Area
 1. Log in to your [HostAfrica account](https://my.hostafrica.co.za/).
 2. Go to **Services > My Domains**.
 3. Click on your domain and find **DNS Management** or **Manage Nameservers**.
