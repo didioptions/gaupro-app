@@ -72,7 +72,9 @@ export default function SeedProsPage() {
           reviews: 0,
           reviewCount: 0,
           totalReviews: 0,
-          leadCount: 0
+          leadCount: 0,
+          creditBalance: 0,
+          isProVerified: false
         }, { merge: true });
         
         successCount++;
@@ -190,7 +192,7 @@ export default function SeedProsPage() {
                 >
                   {isSeeding ? (
                     <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                       Deploying Verified Inventory...
                     </>
                   ) : (

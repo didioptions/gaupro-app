@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useParams, useSearchParams } from 'next/navigation';
+import { useParams, useSearchParams, notFound } from 'next/navigation';
 import { useDoc, useFirestore } from '@/firebase';
 import { doc, DocumentData } from 'firebase/firestore';
 import { useMemo, Suspense } from 'react';
@@ -10,7 +10,7 @@ import ProfileDisplay from '@/components/pro/profile-display';
 import type { Professional } from '@/components/pro/profile-display';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent } from '@/components/ui/card';
-import { notFound } from 'next/navigation';
+import Head from 'next/head';
 
 function ProfilePageContent() {
   const params = useParams();
@@ -91,10 +91,22 @@ function ProfilePageContent() {
     tags: professionalData.tags || [singularOrPluralLowercase],
   };
 
+  const canonicalUrl = `https://gaupro.co.za/pro/${profileId}`;
+  const pageTitle = `${processedProfessional.name} | ${processedProfessional.serviceCategory} in ${processedProfessional.location || 'South Africa'} | GauPro`;
+  const metaDescription = `Contact ${processedProfessional.name} for professional ${processedProfessional.serviceCategory.toLowerCase()} services. Read verified customer reviews and get free quotes on GauPro.`;
+
   return (
     <>
-      <title>{`${processedProfessional.name} | ${processedProfessional.serviceCategory} in ${processedProfessional.location || 'South Africa'} | GauPro`}</title>
-      <meta name="description" content={`Contact ${processedProfessional.name} for professional ${processedProfessional.serviceCategory.toLowerCase()} services. Read verified customer reviews and get free quotes on GauPro.`} />
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={metaDescription} />
+      </Head>
       <ProfileDisplay professional={processedProfessional} />
     </>
   );
