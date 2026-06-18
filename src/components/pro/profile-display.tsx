@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Star, BadgeCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, AlertTriangle, Building2, ShieldAlert } from 'lucide-react';
+import { Star, BadgeCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, AlertTriangle, Building2, ShieldAlert, Info } from 'lucide-react';
 import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
 import Link from 'next/link';
@@ -109,6 +109,13 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                                   </span>
                                 )}
                             </div>
+
+                            {professional.isUnclaimed && (
+                               <div className="mt-4 p-3 bg-secondary/20 rounded-md border flex gap-2 text-xs text-muted-foreground italic">
+                                  <Info className="h-4 w-4 shrink-0 text-primary" />
+                                  <p>This profile was created from publicly available business information and may be claimed by the business owner.</p>
+                               </div>
+                            )}
 
                             <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
                               <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0"/>
@@ -312,7 +319,7 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
                        <p className="text-xs text-muted-foreground uppercase font-bold tracking-widest">Telephone</p>
                        <p className="flex items-start gap-2 font-mono text-lg font-bold">
                           <Phone className="h-4 w-4 mt-1.5 flex-shrink-0 text-muted-foreground"/>
-                          {professional.isUnclaimed ? '011 *** ****' : '011 442 1211'}
+                          {professional.isUnclaimed ? (professional.phone ? `${professional.phone.substring(0, 7)} ***` : '011 *** ****') : (professional.phone || '011 442 1211')}
                        </p>
                        {professional.isUnclaimed && <p className="text-[10px] text-amber-600 bg-amber-50 p-2 rounded mt-1 border border-amber-100">Contact restricted. Request a quote to connect with this service provider.</p>}
                     </div>
