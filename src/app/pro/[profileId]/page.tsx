@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useParams, useSearchParams } from 'next/navigation';
@@ -66,8 +67,9 @@ function ProfilePageContent() {
   if (error) {
      const errorMessage = error instanceof Error ? error.message : String(error);
      return (
-        <div className="text-center">
-            <p className="text-destructive">Error loading profile: {errorMessage}</p>
+        <div className="text-center py-20">
+            <p className="text-destructive font-bold">Error loading profile</p>
+            <p className="text-sm text-muted-foreground mt-2">{errorMessage}</p>
         </div>
      )
   }
@@ -77,19 +79,30 @@ function ProfilePageContent() {
   }
 
   const singularOrPluralLowercase = serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`;
+  
+  // Transform and sanitize description to ensure SEO quality
+  let description = professionalData.description || '';
+  description = description.replace('{service}', singularOrPluralLowercase);
+
   const processedProfessional: Professional = {
     ...(professionalData as unknown as Omit<Professional, 'id'>),
     id: profileId,
-    description: (professionalData.description || '').replace('{service}', singularOrPluralLowercase),
+    description: description,
     tags: professionalData.tags || [singularOrPluralLowercase],
   };
 
-  return <ProfileDisplay professional={processedProfessional} />;
+  return (
+    <>
+      <title>{`${processedProfessional.name} | ${processedProfessional.serviceCategory} in ${processedProfessional.location || 'South Africa'} | GauPro`}</title>
+      <meta name="description" content={`Contact ${processedProfessional.name} for professional ${processedProfessional.serviceCategory.toLowerCase()} services. Read verified customer reviews and get free quotes on GauPro.`} />
+      <ProfileDisplay professional={processedProfessional} />
+    </>
+  );
 }
 
 export default function ProfessionalProfilePage() {
   return (
-    <main className="bg-secondary/50 py-12">
+    <main className="bg-secondary/50 py-12 min-h-screen">
       <Suspense fallback={<div className="container mx-auto px-4"><Skeleton className="h-96 w-full" /></div>}>
         <ProfilePageContent />
       </Suspense>
