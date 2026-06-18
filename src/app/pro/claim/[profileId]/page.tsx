@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -101,8 +101,4 @@ export default function ClaimBusinessPage() {
       </div>
     </main>
   );
-}
-
-function useMemo(factory: () => any, deps: any[]) {
-    return React.useMemo(factory, deps);
 }

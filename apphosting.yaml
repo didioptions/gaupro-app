@@ -2,6 +2,15 @@
 # https://firebase.google.com/docs/app-hosting/configure
 
 runConfig:
+  # Minimum instances set to 0 to keep costs at zero when idle.
+  minInstances: 0
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
-  maxInstances: 1
+  maxInstances: 2
+  # Set memory to 512Mi for efficient handling of Genkit/Next.js
+  memory: 512Mi
+
+# Environment variables for production
+env:
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: studio-5618869838-18486
