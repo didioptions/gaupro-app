@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -6,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Star, BadgeCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, AlertTriangle, Building2, ShieldAlert, Info, Globe, ShieldCheck } from 'lucide-react';
+import { Star, BadgeCheck, Clock, Users, Mail, Pencil, MessageSquare, Phone, MapPin, AlertTriangle, Building2, ShieldAlert, Info, Globe, ShieldCheck, LayoutGrid } from 'lucide-react';
 import Image from 'next/image';
 import { CategoryImages } from '@/lib/category-images';
 import Link from 'next/link';
