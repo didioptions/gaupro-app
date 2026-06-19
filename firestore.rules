@@ -10,15 +10,16 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+      let path = /databases/$(database)/documents/users/$(request.auth.uid);
+      return exists(path) ? get(path).data : {};
     }
 
     function isAdmin() {
-      return isSignedIn() && (getUserData().role == 'admin' || getUserData().role == 'super_admin');
+      return isSignedIn() && (getUserData().get('role', 'user') == 'admin' || getUserData().get('role', 'user') == 'super_admin');
     }
     
     function isSuperAdmin() {
-      return isSignedIn() && getUserData().role == 'super_admin';
+      return isSignedIn() && getUserData().get('role', 'user') == 'super_admin';
     }
 
     // --- Admin Only Collections (Immutable) ---
@@ -69,9 +70,21 @@ service cloud.firestore {
 
     // --- Service Requests (Top-Level) ---
     match /serviceRequests/{requestId} {
-      allow create: if true;
-      allow list: if isAdmin() || (isSignedIn() && getUserData().role == 'pro');
-      allow get: if isAdmin() || (isSignedIn() && (resource.data.userId == request.auth.uid || getUserData().role == 'pro'));
+      // 1. Any visitor (Guest or User) can create a request.
+      // We enforce that they cannot set it to 'approved' immediately.
+      allow create: if request.resource.data.status == 'pending_review';
+      
+      // 2. Professionals can only LIST approved requests.
+      // Admins can list all.
+      allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro' && request.query.limit <= 50);
+      
+      // 3. GETting a specific lead:
+      // Allowed for Admins, the original requester, or Pros viewing an approved lead.
+      allow get: if isAdmin() || 
+                 (isSignedIn() && resource.data.userId == request.auth.uid) ||
+                 (isSignedIn() && getUserData().get('role', 'user') == 'pro' && resource.data.status == 'approved');
+      
+      // 4. Only Admins can modify status, quality score, or credits.
       allow update: if isAdmin();
       allow delete: if isAdmin();
     }

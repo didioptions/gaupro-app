@@ -1,3 +1,4 @@
+
 rules_version = '2';
 
 service cloud.firestore {
@@ -9,15 +10,16 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+      let path = /databases/$(database)/documents/users/$(request.auth.uid);
+      return exists(path) ? get(path).data : {};
     }
 
     function isAdmin() {
-      return isSignedIn() && (getUserData().role == 'admin' || getUserData().role == 'super_admin');
+      return isSignedIn() && (getUserData().get('role', 'user') == 'admin' || getUserData().get('role', 'user') == 'super_admin');
     }
     
     function isSuperAdmin() {
-      return isSignedIn() && getUserData().role == 'super_admin';
+      return isSignedIn() && getUserData().get('role', 'user') == 'super_admin';
     }
 
     // --- Admin Only Collections (Immutable) ---
@@ -47,16 +49,16 @@ service cloud.firestore {
     }
     
     match /verifications/{userId} {
-      allow read: if isAdmin() || request.auth.uid == userId;
+      allow read: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
       allow create: if isSignedIn() && request.auth.uid == userId;
       allow update, delete: if isAdmin();
     }
 
     // --- User Profiles ---
     match /users/{userId} {
-      allow read: if request.auth.uid == userId || isAdmin();
+      allow read: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
       allow create: if isSignedIn() && request.auth.uid == userId;
-      allow update: if isAdmin() || (request.auth.uid == userId && request.resource.data.role == resource.data.role);
+      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId && request.resource.data.role == resource.data.role);
     }
 
     // --- Public Access Rules ---
@@ -66,9 +68,11 @@ service cloud.firestore {
       match /{profileId} {
         allow get: if true;
         
-        allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId
-                      && request.resource.data.get('isProVerified', false) == false
-                      && request.resource.data.get('rating', 0) == 0;
+        allow create: if isAdmin() || (
+          isSignedIn() && request.auth.uid == request.resource.data.userId
+          && request.resource.data.get('isProVerified', false) == false
+          && request.resource.data.get('rating', 0) == 0
+        );
         
         allow update: if isAdmin() || (
           isSignedIn() && request.auth.uid == resource.data.userId 
