@@ -52,6 +52,7 @@ import {
   DialogDescription
 } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 const PAGE_SIZE = 25;
 

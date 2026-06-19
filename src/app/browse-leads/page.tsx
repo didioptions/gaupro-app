@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus, Search } from 'lucide-react';
+import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus, Search, Briefcase } from 'lucide-react';
 import Link from 'next/link';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit, where } from 'firebase/firestore';
