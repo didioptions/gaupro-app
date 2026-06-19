@@ -169,14 +169,16 @@ function PostRequestContent() {
         description: (formData.job_details as string) || "No description provided",
         location: (formData.suburb as string) || (formData.city as string) || locationValue || "Unknown",
         dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
-        status: 'Open',
+        status: 'pending_review',
         budget: (formData.budget as string) || "Quote Required",
         customerName: `${formData.firstName} ${formData.lastName}`,
         customerEmail: formData.email || '',
         customerPhone: formData.phoneNumber || '',
         contactTime: formData.contactTime || 'anytime',
         createdAt: serverTimestamp(),
-        userId: user?.uid || 'guest'
+        userId: user?.uid || 'guest',
+        qualityScore: 0,
+        credits: 3 // Default, admin will refine
     };
 
     try {
@@ -196,25 +198,23 @@ function PostRequestContent() {
 
     if (isSubmitted) {
       return (
-        <div className="text-center py-8 px-6">
-          <h2 className="text-2xl mb-4">✅ Your Request Has Been Received</h2>
-          <div className="text-foreground space-y-4 text-left">
+        <div className="text-center py-12 px-6">
+          <h2 className="text-2xl font-bold mb-4 text-primary">✅ Request Submitted for Review</h2>
+          <div className="text-foreground space-y-4 text-left bg-secondary/20 p-6 rounded-lg">
             <p>
-              Thanks for posting your job on Gaupro — we’re already matching you with trusted local professionals.
+              Your request for <strong>{serviceLabel}</strong> has been received and is being verified by our quality control team.
             </p>
             <p>
-              To make sure you get the most accurate quotes, our support team may reach out to confirm your details — so please keep your phone nearby 📞.
+              <strong>What's next?</strong>
             </p>
-            <p className="font-semibold pt-2">Here’s What Happens Next:</p>
-            <ol className="list-decimal list-inside space-y-2">
-                <li>Receive quotes from qualified service providers — usually in less than 20 minutes.</li>
-                <li>Compare prices, view profiles, and read verified customer reviews.</li>
-                <li>Chat or call the pros directly to discuss your needs or ask questions.</li>
-                <li>Hire your favorite pro, agree on the details, and get your project done!</li>
+            <ol className="list-decimal list-inside space-y-3">
+                <li>We'll verify your requirements to ensure you get the best matches.</li>
+                <li>Once approved (usually within 15 mins), local pros will receive your request.</li>
+                <li>You'll start receiving quotes via email and WhatsApp.</li>
             </ol>
           </div>
-          <Button asChild className="mt-8 w-full sm:w-auto">
-              <Link href="/">Done</Link>
+          <Button asChild className="mt-8 w-full sm:w-auto" size="lg">
+              <Link href="/">Back to Home</Link>
           </Button>
         </div>
       );

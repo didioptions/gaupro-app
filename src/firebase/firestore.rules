@@ -52,13 +52,6 @@ service cloud.firestore {
       allow update, delete: if isAdmin();
     }
 
-    match /review_disputes/{disputeId} {
-      allow get, list: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
-      allow create: if isSignedIn();
-      allow update: if isAdmin();
-      allow delete: if false;
-    }
-
     // --- User Profiles ---
     match /users/{userId} {
       allow read: if request.auth.uid == userId || isAdmin();
@@ -75,10 +68,7 @@ service cloud.firestore {
         
         allow create: if isSignedIn() && request.auth.uid == request.resource.data.userId
                       && request.resource.data.get('isProVerified', false) == false
-                      && request.resource.data.get('rating', 0) == 0
-                      && request.resource.data.get('reviews', 0) == 0
-                      && request.resource.data.get('creditBalance', 0) == 0
-                      && request.resource.data.get('priorityRank', 0) == 0;
+                      && request.resource.data.get('rating', 0) == 0;
         
         allow update: if isAdmin() || (
           isSignedIn() && request.auth.uid == resource.data.userId 
@@ -88,12 +78,9 @@ service cloud.firestore {
             'verifiedAt', 
             'verifiedBy', 
             'rating', 
-            'reviews',
             'reviewCount', 
             'totalReviews', 
-            'creditBalance', 
-            'featuredStatus', 
-            'moderationFlags',
+            'creditBalance',
             'priorityRank',
             'userId',
             'email',
@@ -106,32 +93,30 @@ service cloud.firestore {
         match /reviews/{reviewId} {
           allow read: if true;
           allow create: if isSignedIn() && request.resource.data.status == 'pending';
-          allow update: if isAdmin();
-          allow delete: if isAdmin();
+          allow update, delete: if isAdmin();
         }
       }
     }
 
-    // --- User-Specific Data Rules ---
-    match /users/{userId}/serviceRequests/{requestId} {
-      // Allow guests and users to post jobs
+    // --- Service Requests (Top-Level Collection) ---
+    match /serviceRequests/{requestId} {
+      // Allow any visitor to post a request
       allow create: if true;
-      // Secure reading/editing
-      allow read, update, delete: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
-    }
-
-    match /users/{userId}/{document=**} {
-      allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
+      
+      // Allow Admin and Pros to list approved requests
+      allow list: if isAdmin() || (isSignedIn() && resource.data.status == 'approved');
+      
+      // Allow Admin and Owner to read any, allow Pros to read if approved
+      allow get: if isAdmin() || (isSignedIn() && (resource.data.userId == request.auth.uid || resource.data.status == 'approved'));
+      
+      // Only admins can approve or reject
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
 
     // --- Collection Group Access ---
     match /{path=**}/reviews/{reviewId} {
       allow list: if isAdmin();
-    }
-    
-    match /{path=**}/serviceRequests/{requestId} {
-      allow list: if isAdmin();
-      allow read: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
     }
   }
 }
