@@ -12,7 +12,8 @@ service cloud.firestore {
     function getUserData() {
       // Safely check for user document existence before attempting to get it.
       // This prevents runtime errors for unauthenticated users.
-      return (request.auth != null && exists(/databases/$(database)/documents/users/$(request.auth.uid))) 
+      // We avoid path construction for null auth to ensure evaluator safety.
+      return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
     }
