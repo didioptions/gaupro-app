@@ -10,8 +10,9 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      let path = /databases/$(database)/documents/users/$(request.auth.uid);
-      return exists(path) ? get(path).data : {};
+      return (request.auth != null && exists(/databases/$(database)/documents/users/$(request.auth.uid))) 
+        ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
+        : {};
     }
 
     function isAdmin() {
@@ -71,7 +72,7 @@ service cloud.firestore {
     // --- Service Requests (Top-Level) ---
     match /serviceRequests/{requestId} {
       // 1. Any visitor (Guest or User) can create a request.
-      // We enforce that they cannot set it to 'approved' immediately.
+      // We enforce that they must set it to 'pending_review'.
       allow create: if request.resource.data.status == 'pending_review';
       
       // 2. Professionals can only LIST approved requests.
