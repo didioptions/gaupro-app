@@ -10,6 +10,8 @@ service cloud.firestore {
     }
     
     function getUserData() {
+      // Safely check for user document existence before attempting to get it.
+      // This prevents runtime errors for unauthenticated users.
       return (request.auth != null && exists(/databases/$(database)/documents/users/$(request.auth.uid))) 
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
@@ -72,20 +74,20 @@ service cloud.firestore {
     // --- Service Requests (Top-Level) ---
     match /serviceRequests/{requestId} {
       // 1. Any visitor (Guest or User) can create a request.
-      // We enforce that they must set it to 'pending_review'.
+      // We enforce that they must set it to 'pending_review' for safety.
       allow create: if request.resource.data.status == 'pending_review';
       
-      // 2. Professionals can only LIST approved requests.
-      // Admins can list all.
+      // 2. Visibility
+      // Admins: everything
+      // Professionals: only approved leads
+      // Requesters: their own leads
       allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro' && request.query.limit <= 50);
       
-      // 3. GETting a specific lead:
-      // Allowed for Admins, the original requester, or Pros viewing an approved lead.
       allow get: if isAdmin() || 
                  (isSignedIn() && resource.data.userId == request.auth.uid) ||
-                 (isSignedIn() && getUserData().get('role', 'user') == 'pro' && resource.data.status == 'approved');
+                 (resource.data.status == 'approved');
       
-      // 4. Only Admins can modify status, quality score, or credits.
+      // 3. Modification: Only Admins can modify status, quality score, or credits.
       allow update: if isAdmin();
       allow delete: if isAdmin();
     }
@@ -127,7 +129,7 @@ service cloud.firestore {
 
         match /reviews/{reviewId} {
           allow read: if true;
-          allow create: if request.resource.data.status == 'pending';
+          allow create: if isSignedIn() && request.resource.data.status == 'pending';
           allow update, delete: if isAdmin();
         }
       }
