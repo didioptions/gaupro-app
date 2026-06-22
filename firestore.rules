@@ -12,7 +12,7 @@ service cloud.firestore {
     function getUserData() {
       // Safely check for user document existence before attempting to get it.
       // This prevents runtime errors for unauthenticated users.
-      // We avoid path construction for null auth to ensure evaluator safety.
+      // We use isSignedIn() to short-circuit the path construction.
       return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
@@ -56,13 +56,6 @@ service cloud.firestore {
       allow read: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
       allow create: if isSignedIn() && request.auth.uid == userId;
       allow update, delete: if isAdmin();
-    }
-
-    match /review_disputes/{disputeId} {
-      allow get, list: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
-      allow create: if isSignedIn();
-      allow update: if isAdmin();
-      allow delete: if false;
     }
 
     // --- User Profiles ---
