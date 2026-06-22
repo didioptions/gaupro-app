@@ -1,4 +1,3 @@
-
 rules_version = '2';
 
 service cloud.firestore {
@@ -10,8 +9,10 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      let path = /databases/$(database)/documents/users/$(request.auth.uid);
-      return exists(path) ? get(path).data : {};
+      // Hardened to prevent null reference errors on unauthenticated requests
+      return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
+        : {};
     }
 
     function isAdmin() {
@@ -58,7 +59,7 @@ service cloud.firestore {
     match /users/{userId} {
       allow read: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
       allow create: if isSignedIn() && request.auth.uid == userId;
-      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId && request.resource.data.role == resource.data.role);
+      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId && request.resource.data.get('role', 'user') == resource.data.get('role', 'user'));
     }
 
     // --- Public Access Rules ---
@@ -84,11 +85,13 @@ service cloud.firestore {
             'rating', 
             'reviewCount', 
             'totalReviews', 
-            'creditBalance',
+            'featuredStatus', 
+            'moderationFlags',
             'priorityRank',
             'userId',
             'email',
-            'createdAt'
+            'createdAt',
+            'source'
           ])
         );
 
@@ -105,13 +108,15 @@ service cloud.firestore {
     // --- Service Requests (Top-Level Collection) ---
     match /serviceRequests/{requestId} {
       // Allow any visitor to post a request
-      allow create: if true;
+      allow create: if request.resource.data.status == 'pending_review';
       
       // Allow Admin and Pros to list approved requests
-      allow list: if isAdmin() || (isSignedIn() && resource.data.status == 'approved');
+      allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro' && request.query.limit <= 50);
       
       // Allow Admin and Owner to read any, allow Pros to read if approved
-      allow get: if isAdmin() || (isSignedIn() && (resource.data.userId == request.auth.uid || resource.data.status == 'approved'));
+      allow get: if isAdmin() || 
+                 (isSignedIn() && (resource.data.userId == request.auth.uid || resource.data.status == 'approved')) ||
+                 (resource.data.status == 'approved');
       
       // Only admins can approve or reject
       allow update: if isAdmin();

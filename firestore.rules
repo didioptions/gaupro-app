@@ -10,13 +10,15 @@ service cloud.firestore {
     
     function getUserData() {
       // Safely check for user document existence before attempting to get it.
-      // This prevents runtime errors for unauthenticated users.
+      // This prevents runtime errors for unauthenticated users by ensuring
+      // the path is only constructed if request.auth is not null.
       return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
     }
 
     function isAdmin() {
+      // Use .get() with fallback to safely check roles without crashing if fields are missing
       return isSignedIn() && (getUserData().get('role', 'user') == 'admin' || getUserData().get('role', 'user') == 'super_admin');
     }
     
@@ -60,7 +62,7 @@ service cloud.firestore {
     match /users/{userId} {
       allow read: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
       allow create: if isSignedIn() && request.auth.uid == userId;
-      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId && request.resource.data.role == resource.data.role);
+      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId && request.resource.data.get('role', 'user') == resource.data.get('role', 'user'));
     }
 
     // --- Service Requests (Top-Level) ---
