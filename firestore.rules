@@ -9,15 +9,14 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      // Safely check for user document existence before attempting to get it.
-      // We return an empty map if not signed in or document doesn't exist to prevent engine crashes.
+      // Hardened to prevent runtime errors for Guest users
       return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
     }
 
     function isAdmin() {
-      // Safely retrieve the role with a fallback to prevent runtime errors
+      // Safely check role after ensuring auth exists
       return isSignedIn() && (getUserData().get('role', 'user') == 'admin' || getUserData().get('role', 'user') == 'super_admin');
     }
 
@@ -33,7 +32,7 @@ service cloud.firestore {
                  (isSignedIn() && resource.data.userId == request.auth.uid) ||
                  (resource.data.status == 'approved');
                  
-      allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro' && request.query.limit <= 50);
+      allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro');
 
       // Only admins can approve/reject/delete leads
       allow update, delete: if isAdmin();
