@@ -9,7 +9,7 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      // Hardened to prevent runtime errors for Guest users
+      // Safely retrieve user data, returning empty map if not signed in or doc missing
       return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
@@ -17,7 +17,8 @@ service cloud.firestore {
 
     function isAdmin() {
       // Safely check role after ensuring auth exists
-      return isSignedIn() && (getUserData().get('role', 'user') == 'admin' || getUserData().get('role', 'user') == 'super_admin');
+      let data = getUserData();
+      return isSignedIn() && (data.get('role', 'user') == 'admin' || data.get('role', 'user') == 'super_admin');
     }
 
     // --- Service Requests ---
@@ -89,6 +90,11 @@ service cloud.firestore {
     
     match /admin_logs/{id} {
         allow read, create: if isAdmin();
+    }
+
+    // Fallback: Deny everything else unless user is admin
+    match /{document=**} {
+      allow read, write: if isAdmin();
     }
   }
 }
