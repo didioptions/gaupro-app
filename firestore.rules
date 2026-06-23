@@ -9,45 +9,41 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      // Safely retrieve user data, returning empty map if not signed in or doc missing
-      return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
-        ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
-        : {};
+      // CEL-safe ternary to avoid accessing auth.uid if auth is null
+      return request.auth == null ? {} : 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid))
+          ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
+          : {};
     }
 
     function isAdmin() {
-      // Safely check role after ensuring auth exists
       let data = getUserData();
       return isSignedIn() && (data.get('role', 'user') == 'admin' || data.get('role', 'user') == 'super_admin');
     }
 
     // --- Service Requests ---
     match /serviceRequests/{requestId} {
-      // Allow anyone (Guests or Authenticated Users) to create a request
-      // We enforce the 'pending_review' status for quality control
+      // Explicitly allow anyone to create with a pending status
       allow create: if request.resource.data.status == 'pending_review';
       
-      // Allow users to see their own requests, and Pros to see approved leads
-      // Admins can see everything
+      // Pros can list approved leads, Customers can see their own
       allow get: if isAdmin() || 
                  (isSignedIn() && resource.data.userId == request.auth.uid) ||
                  (resource.data.status == 'approved');
                  
       allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro');
 
-      // Only admins can approve/reject/delete leads
+      // Restrict status updates to admins
       allow update, delete: if isAdmin();
     }
 
     // --- Professional Profiles ---
     match /professionalProfiles/{profileId} {
-      allow read: if true; // Publicly viewable
+      allow read: if true;
       
-      // Only the owner or an admin can create/update their profile
       allow create: if isAdmin() || (
         isSignedIn() && request.auth.uid == request.resource.data.userId
         && request.resource.data.get('isProVerified', false) == false
-        && request.resource.data.get('rating', 0) == 0
       );
       
       allow update: if isAdmin() || (
@@ -59,7 +55,7 @@ service cloud.firestore {
 
       match /reviews/{reviewId} {
         allow read: if true;
-        allow create: if isSignedIn() && request.resource.data.status == 'pending';
+        allow create: if isSignedIn();
         allow update, delete: if isAdmin();
       }
     }
@@ -69,20 +65,13 @@ service cloud.firestore {
       allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
       allow create: if isSignedIn() && request.auth.uid == userId;
       
-      // Critical: Users cannot change their own 'role' field
       allow update: if isAdmin() || (
         isSignedIn() && request.auth.uid == userId 
         && request.resource.data.role == resource.data.role
       );
     }
 
-    // --- Admin-Only Collections ---
-    match /marketplace_audit_logs/{logId} {
-      allow get, list, create: if isAdmin();
-      allow update, delete: if false;
-    }
-
-    // --- Transactions & Logs ---
+    // --- Transactions & Admin Logs ---
     match /transactions/{id} {
         allow read: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
         allow create: if isAdmin();
@@ -92,7 +81,11 @@ service cloud.firestore {
         allow read, create: if isAdmin();
     }
 
-    // Fallback: Deny everything else unless user is admin
+    match /marketplace_audit_logs/{logId} {
+      allow get, list, create: if isAdmin();
+    }
+
+    // Final Catch-all (Recursive)
     match /{document=**} {
       allow read, write: if isAdmin();
     }
