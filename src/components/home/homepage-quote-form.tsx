@@ -13,23 +13,26 @@ import { allLocations } from '@/lib/locations';
 export default function HomepageQuoteForm() {
   const [serviceValue, setServiceValue] = useState('');
   const [locationValue, setLocationValue] = useState('');
+  // Track raw input to support users who type and press search without clicking a suggestion
+  const [rawServiceInput, setRawServiceInput] = useState('');
+  const [rawLocationInput, setRawLocationInput] = useState('');
   const router = useRouter();
 
   const handleSearch = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     
-    // Use the values from state. Autocomplete component is expected to sync with these.
-    if (!serviceValue) {
+    // Determine the service slug: Use selected value first, then try to match raw input, finally use raw input slugified
+    const finalService = serviceValue || allServices.find(s => s.label.toLowerCase() === rawServiceInput.toLowerCase())?.value || rawServiceInput.toLowerCase().replace(/\s+/g, '-');
+    const finalLocation = locationValue || allLocations.find(l => l.label.toLowerCase() === rawLocationInput.toLowerCase())?.value || rawLocationInput.toLowerCase().replace(/\s+/g, '-');
+
+    if (!finalService || finalService === '-') {
       router.push('/browse-categories');
       return;
     }
     
-    const serviceSlug = serviceValue;
-    const locationSlug = locationValue;
-    
-    let href = `/services/${serviceSlug}`;
-    if (locationSlug) {
-        href += `?location=${locationSlug}`;
+    let href = `/services/${finalService}`;
+    if (finalLocation && finalLocation !== '-') {
+        href += `?location=${finalLocation}`;
     }
       
     router.push(href);
@@ -46,6 +49,12 @@ export default function HomepageQuoteForm() {
             onValueChange={setServiceValue}
             placeholder="What service do you need?"
             inputClassName="h-12 pl-10 border-0 focus-visible:ring-0 shadow-none text-base text-gray-700 bg-transparent w-full"
+          />
+          {/* Transparent hidden input to catch raw typing if the user doesn't use the Autocomplete list */}
+          <input 
+            type="hidden" 
+            value={rawServiceInput} 
+            onChange={(e) => setRawServiceInput(e.target.value)} 
           />
         </div>
         <Separator orientation="vertical" className="hidden md:block h-6 bg-gray-300" />
