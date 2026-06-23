@@ -21,7 +21,7 @@ import {
 } from '@/components/ui/alert-dialog';
 
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, X } from 'lucide-react';
+import { ArrowLeft, X, Loader2 } from 'lucide-react';
 import { allServices, serviceQuestionSets } from '@/lib/service-questions';
 import { Progress } from '@/components/ui/progress';
 import { Label } from '@/components/ui/label';
@@ -40,6 +40,8 @@ import { cn } from '@/lib/utils';
 import { Autocomplete } from './ui/autocomplete';
 import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { useUser, useFirestore } from '@/firebase';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -59,8 +61,12 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   const [formData, setFormData] = useState<FormData>(initialData);
   const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [locationValue, setLocationValue] = useState('');
+
+  const { user } = useUser();
+  const db = useFirestore();
 
   useEffect(() => {
     // When the dialog opens, reset to the initial state
@@ -69,6 +75,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       setSelectedService(service);
       setFormData(initialData);
       setIsSubmitted(false);
+      setIsSubmitting(false);
       setAgreedToTerms(false);
       setLocationValue('');
     }
@@ -117,14 +124,55 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     handleInputChange('urgency_date', selectedDate);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreedToTerms) {
         alert("You must agree to the Terms of Service and Privacy Policy.");
         return;
     }
-    console.log('Final Form Data:', { service: selectedService, ...formData });
-    setIsSubmitted(true);
+
+    if (!db) return;
+
+    setIsSubmitting(true);
+
+    // Build the consolidated description from questions
+    let fullDescription = (formData.job_details as string) || "";
+    if (!fullDescription) {
+        // Fallback to summarizing answers if job_details wasn't a specific question
+        const answers = Object.entries(formData)
+            .filter(([key]) => !['firstName', 'lastName', 'email', 'phoneNumber', 'contactTime', 'suburb', 'city', 'urgency', 'urgency_date', 'budget'].includes(key))
+            .map(([key, val]) => `${key.replace(/_/g, ' ')}: ${Array.isArray(val) ? val.join(', ') : val}`)
+            .join('\n');
+        fullDescription = answers || "No description provided";
+    }
+
+    const leadData = {
+        category: allServices.find(s => s.value === selectedService)?.label || selectedService,
+        description: fullDescription,
+        location: (formData.suburb as string) || (formData.city as string) || locationValue || "Unknown",
+        dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
+        status: 'pending_review',
+        budget: (formData.budget as string) || "Quote Required",
+        customerName: `${formData.firstName} ${formData.lastName}`,
+        customerEmail: formData.email || '',
+        customerPhone: formData.phoneNumber || '',
+        contactTime: formData.contactTime || 'anytime',
+        createdAt: serverTimestamp(),
+        userId: user?.uid || 'guest',
+        qualityScore: 0,
+        credits: 3 // Default, admin will refine
+    };
+
+    try {
+        const leadsRef = collection(db, 'serviceRequests');
+        await addDoc(leadsRef, leadData);
+        setIsSubmitted(true);
+    } catch (error: any) {
+        console.error('Error saving lead:', error);
+        alert("There was an error submitting your request: " + error.message);
+    } finally {
+        setIsSubmitting(false);
+    }
   };
 
   const renderStepContent = () => {
@@ -404,8 +452,9 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
             <Button type="button" variant="ghost" onClick={handleBack}>
               Back
             </Button>
-            <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700" disabled={!agreedToTerms}>
-              Get Quotes
+            <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700" disabled={!agreedToTerms || isSubmitting}>
+              {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+              {isSubmitting ? 'Submitting...' : 'Get Quotes'}
             </Button>
           </div>
         </form>
@@ -421,7 +470,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       <DialogContent className="sm:max-w-lg p-0 border-0 flex flex-col h-[90vh] max-h-[700px]">
         <AlertDialog>
           <AlertDialogTrigger asChild>
-             <button className="absolute right-4 top-3 z-10 p-2 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+             <button className="absolute right-4 top-3 z-10 p-2 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
                 <X className="h-4 w-4" />
                 <span className="sr-only">Close</span>
              </button>
