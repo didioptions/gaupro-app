@@ -1,3 +1,14 @@
-// This file is a duplicate of the root firestore.rules.
-// To avoid deployment confusion, please use the firestore.rules file located at the project root.
-// This file is being cleared to prevent shadow deployment issues.
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // IMPORTANT: This file is a shadow copy. 
+    // Please use the firestore.rules file located at the PROJECT ROOT for deployments.
+    // The Firebase CLI is configured via firebase.json to target the root file.
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

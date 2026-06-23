@@ -9,11 +9,11 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      // CEL-safe ternary to avoid accessing auth.uid if auth is null
-      return request.auth == null ? {} : 
-        exists(/databases/$(database)/documents/users/$(request.auth.uid))
-          ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
-          : {};
+      // CEL-safe check to prevent crashing on unauthenticated requests
+      let uid = request.auth != null ? request.auth.uid : null;
+      return uid != null && exists(/databases/$(database)/documents/users/$(uid))
+        ? get(/databases/$(database)/documents/users/$(uid)).data 
+        : {};
     }
 
     function isAdmin() {
@@ -23,17 +23,18 @@ service cloud.firestore {
 
     // --- Service Requests ---
     match /serviceRequests/{requestId} {
-      // Explicitly allow anyone to create with a pending status
+      // Explicitly allow anyone (Guests and Registered Users) to create a lead with pending status
       allow create: if request.resource.data.status == 'pending_review';
       
-      // Pros can list approved leads, Customers can see their own
+      // Get: Admins see all; Users see their own; Pros see approved leads
       allow get: if isAdmin() || 
                  (isSignedIn() && resource.data.userId == request.auth.uid) ||
                  (resource.data.status == 'approved');
                  
+      // List: Admins see all; Pros can browse the approved lead pool
       allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro');
 
-      // Restrict status updates to admins
+      // Update/Delete: Restricted to Admins for moderation
       allow update, delete: if isAdmin();
     }
 
@@ -71,7 +72,11 @@ service cloud.firestore {
       );
     }
 
-    // --- Transactions & Admin Logs ---
+    // --- Marketplace Admin Collections ---
+    match /marketplace_audit_logs/{logId} {
+      allow get, list, create: if isAdmin();
+    }
+
     match /transactions/{id} {
         allow read: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
         allow create: if isAdmin();
@@ -79,10 +84,6 @@ service cloud.firestore {
     
     match /admin_logs/{id} {
         allow read, create: if isAdmin();
-    }
-
-    match /marketplace_audit_logs/{logId} {
-      allow get, list, create: if isAdmin();
     }
 
     // Final Catch-all (Recursive)
