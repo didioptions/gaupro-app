@@ -10,22 +10,25 @@ service cloud.firestore {
     
     function getUserData() {
       // Safely check for user document existence before attempting to get it.
+      // We return an empty map if not signed in or document doesn't exist to prevent engine crashes.
       return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
     }
 
     function isAdmin() {
+      // Safely retrieve the role with a fallback to prevent runtime errors
       return isSignedIn() && (getUserData().get('role', 'user') == 'admin' || getUserData().get('role', 'user') == 'super_admin');
     }
 
-    // --- Service Requests (The Fix for your 403 Error) ---
+    // --- Service Requests ---
     match /serviceRequests/{requestId} {
-      // Allow anyone (even guests) to create a request
-      // We enforce the 'pending_review' status for safety
+      // Allow anyone (Guests or Authenticated Users) to create a request
+      // We enforce the 'pending_review' status for quality control
       allow create: if request.resource.data.status == 'pending_review';
       
       // Allow users to see their own requests, and Pros to see approved leads
+      // Admins can see everything
       allow get: if isAdmin() || 
                  (isSignedIn() && resource.data.userId == request.auth.uid) ||
                  (resource.data.status == 'approved');
@@ -40,8 +43,7 @@ service cloud.firestore {
     match /professionalProfiles/{profileId} {
       allow read: if true; // Publicly viewable
       
-      // Only the owner can create/update their profile
-      // We prevent them from verifying themselves or setting their own rating
+      // Only the owner or an admin can create/update their profile
       allow create: if isAdmin() || (
         isSignedIn() && request.auth.uid == request.resource.data.userId
         && request.resource.data.get('isProVerified', false) == false
@@ -78,6 +80,16 @@ service cloud.firestore {
     match /marketplace_audit_logs/{logId} {
       allow get, list, create: if isAdmin();
       allow update, delete: if false;
+    }
+
+    // --- Transactions & Logs ---
+    match /transactions/{id} {
+        allow read: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
+        allow create: if isAdmin();
+    }
+    
+    match /admin_logs/{id} {
+        allow read, create: if isAdmin();
     }
   }
 }

@@ -9,33 +9,42 @@ service cloud.firestore {
     }
     
     function getUserData() {
+      // Safely check for user document existence before attempting to get it.
+      // We return an empty map if not signed in or document doesn't exist to prevent engine crashes.
       return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
     }
 
     function isAdmin() {
+      // Safely retrieve the role with a fallback to prevent runtime errors
       return isSignedIn() && (getUserData().get('role', 'user') == 'admin' || getUserData().get('role', 'user') == 'super_admin');
     }
 
     // --- Service Requests ---
     match /serviceRequests/{requestId} {
+      // Allow anyone (Guests or Authenticated Users) to create a request
       allow create: if request.resource.data.status == 'pending_review';
+      
       allow get: if isAdmin() || 
                  (isSignedIn() && resource.data.userId == request.auth.uid) ||
                  (resource.data.status == 'approved');
+                 
       allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro' && request.query.limit <= 50);
+
       allow update, delete: if isAdmin();
     }
 
-    // --- Public Access Rules ---
+    // --- Professional Profiles ---
     match /professionalProfiles/{profileId} {
       allow read: if true;
+      
       allow create: if isAdmin() || (
         isSignedIn() && request.auth.uid == request.resource.data.userId
         && request.resource.data.get('isProVerified', false) == false
         && request.resource.data.get('rating', 0) == 0
       );
+      
       allow update: if isAdmin() || (
         isSignedIn() && request.auth.uid == resource.data.userId 
         && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
@@ -50,9 +59,9 @@ service cloud.firestore {
       }
     }
 
-    // --- User Profiles ---
+    // --- User Documents ---
     match /users/{userId} {
-      allow read: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
       allow create: if isSignedIn() && request.auth.uid == userId;
       allow update: if isAdmin() || (
         isSignedIn() && request.auth.uid == userId 
