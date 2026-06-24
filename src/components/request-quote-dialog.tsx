@@ -40,7 +40,7 @@ import { cn } from '@/lib/utils';
 import { Autocomplete } from './ui/autocomplete';
 import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { useUser, useFirestore } from '@/firebase';
 
 type FormData = {
@@ -69,7 +69,6 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   const db = useFirestore();
 
   useEffect(() => {
-    // When the dialog opens, reset to the initial state
     if (open) {
       setStep(initialStep);
       setSelectedService(service);
@@ -86,7 +85,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     serviceQuestionSets.find((qs) => qs.service === 'default');
 
   const questions = questionSet?.questions || [];
-  const totalSteps = (questions?.length || 0); // Total steps doesn't include service selection
+  const totalSteps = (questions?.length || 0);
   const progress = step > 0 ? ((step) / (totalSteps)) * 100 : 0;
 
   const serviceImage = CategoryImages.find(
@@ -135,10 +134,10 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
 
     setIsSubmitting(true);
 
-    // Build the consolidated description from questions
+    const leadId = Math.random().toString(36).substring(7);
+    
     let fullDescription = (formData.job_details as string) || "";
     if (!fullDescription) {
-        // Fallback to summarizing answers if job_details wasn't a specific question
         const answers = Object.entries(formData)
             .filter(([key]) => !['firstName', 'lastName', 'email', 'phoneNumber', 'contactTime', 'suburb', 'city', 'urgency', 'urgency_date', 'budget'].includes(key))
             .map(([key, val]) => `${key.replace(/_/g, ' ')}: ${Array.isArray(val) ? val.join(', ') : val}`)
@@ -146,26 +145,30 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
         fullDescription = answers || "No description provided";
     }
 
-    const leadData = {
+    const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: fullDescription,
         location: (formData.suburb as string) || (formData.city as string) || locationValue || "Unknown",
         dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
         status: 'pending_review',
         budget: (formData.budget as string) || "Quote Required",
+        createdAt: serverTimestamp(),
+        userId: user?.uid || 'guest',
+        credits: 3
+    };
+
+    const privateData = {
         customerName: `${formData.firstName} ${formData.lastName}`,
         customerEmail: formData.email || '',
         customerPhone: formData.phoneNumber || '',
         contactTime: formData.contactTime || 'anytime',
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest',
-        qualityScore: 0,
-        credits: 3 // Default, admin will refine
     };
 
     try {
-        const leadsRef = collection(db, 'serviceRequests');
-        await addDoc(leadsRef, leadData);
+        await setDoc(doc(db, 'leads_public', leadId), publicData);
+        await setDoc(doc(db, 'leads_private', leadId), privateData);
         setIsSubmitted(true);
     } catch (error: any) {
         console.error('Error saving lead:', error);
@@ -205,7 +208,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       );
     }
 
-    const questionStepIndex = step; // step 0 is the first question
+    const questionStepIndex = step;
     const isQuestionStep = questionStepIndex >= 0 && questionStepIndex < questions.length;
     const isFinalStep = step === totalSteps;
     
@@ -217,7 +220,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       }
 
       const isNextButtonDisabled = () => {
-        if (currentQuestion.type === 'textarea' || currentQuestion.type === 'location') return false; // allow empty textarea/location
+        if (currentQuestion.type === 'textarea' || currentQuestion.type === 'location') return false;
         const value = formData[currentQuestion.id];
         if (currentQuestion.type === 'checkbox') {
           return !value || (Array.isArray(value) && value.length === 0);
@@ -249,7 +252,6 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                           alt={serviceImage.description || ''}
                           fill
                           className="object-cover rounded-t-lg"
-                          data-ai-hint={serviceImage.imageHint}
                         />
                       </div>
                     )}

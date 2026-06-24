@@ -24,7 +24,7 @@ service cloud.firestore {
       // Anyone can see approved lead previews
       allow read: if resource.data.status == 'approved' || isAdmin();
       
-      // Only the submission system (or admins) can create/update
+      // Anyone can create a lead if they set status to pending_review
       allow create: if request.resource.data.status == 'pending_review';
       allow update, delete: if isAdmin();
     }
@@ -59,11 +59,9 @@ service cloud.firestore {
       }
     }
 
-    // --- Legacy / Compatibility Support ---
+    // --- Legacy Support ---
     match /serviceRequests/{requestId} {
-      allow create: if request.resource.data.status == 'pending_review';
-      allow read: if (resource.data.status == 'approved') || (isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin()));
-      allow update, delete: if isAdmin();
+      allow read, write: if isAdmin();
     }
 
     // Final Catch-all
