@@ -9,37 +9,31 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      // Safely retrieve user data, returning empty map if not signed in or doc missing
-      let uid = request.auth != null ? request.auth.uid : null;
-      return uid != null && exists(/databases/$(database)/documents/users/$(uid))
-        ? get(/databases/$(database)/documents/users/$(uid)).data 
-        : {};
+      // Safely retrieve user data, returning empty map if not signed in
+      return isSignedIn() ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data : {};
     }
 
     function isAdmin() {
-      // Safely check role after ensuring auth exists
+      // Check if user is an admin
       let data = getUserData();
       return isSignedIn() && (data.get('role', 'user') == 'admin' || data.get('role', 'user') == 'super_admin');
     }
 
     // --- Service Requests ---
     match /serviceRequests/{requestId} {
-      // Allow anyone (Guests and Registered Users) to create a lead with pending status
+      // Allow anyone to create a lead with 'pending_review' status
       allow create: if request.resource.data.status == 'pending_review';
       
-      // Get: Admins see all; Users see their own; Anyone can see approved leads
-      allow get: if isAdmin() || 
-                 (isSignedIn() && resource.data.userId == request.auth.uid) ||
-                 (resource.data.status == 'approved');
+      // Allow public access to read individual approved leads
+      // Admins and owners can see any status
+      allow get: if (resource.data.status == 'approved') || 
+                 (isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin()));
                  
-      // List: Allow public listing of approved leads. 
-      // Admins and Pros can also list approved pools.
-      // Crucial: Guests can list ONLY if they filter by status == 'approved'
-      allow list: if isAdmin() || 
-                  (isSignedIn() && getUserData().get('role', 'user') == 'pro') || 
-                  (request.query.filters.status == 'approved');
+      // Allow public listing of leads ONLY if the 'approved' status filter is applied
+      // This is what powers the 'Browse Leads' page for Guests and Pros
+      allow list: if (request.query.filters.status == 'approved') || isAdmin();
 
-      // Update/Delete: Restricted to Admins for moderation
+      // Only admins can update or delete leads (for moderation)
       allow update, delete: if isAdmin();
     }
 
@@ -77,7 +71,7 @@ service cloud.firestore {
       );
     }
 
-    // --- Marketplace Admin Collections ---
+    // --- Marketplace Audit Logs & Transactions ---
     match /marketplace_audit_logs/{logId} {
       allow get, list, create: if isAdmin();
     }
@@ -91,7 +85,7 @@ service cloud.firestore {
         allow read, create: if isAdmin();
     }
 
-    // Final Catch-all (Recursive)
+    // Final Catch-all
     match /{document=**} {
       allow read, write: if isAdmin();
     }
