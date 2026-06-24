@@ -12,6 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock } from 'lucide-react';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
