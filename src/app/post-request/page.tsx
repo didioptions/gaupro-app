@@ -34,7 +34,7 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { useUser, useFirestore } from '@/firebase';
 
 type FormData = {
@@ -50,22 +50,12 @@ const whyChooseGaupro = [
     {
         icon: '📊',
         title: 'Compare quotes',
-        description: 'Receive multiple estimates from qualified professionals so you can easily compare prices and choose the option that fits your budget. Know exactly what your project will cost before you hire anyone.'
+        description: 'Receive multiple estimates from qualified professionals so you can easily compare prices and choose the option that fits your budget.'
     },
     {
         icon: '👍',
         title: 'Trusted hiring',
-        description: 'Hire with confidence! Every professional on Gaupro has ratings, reviews, photos, and a record of completed jobs. You can see their work history and make an informed choice, ensuring quality and reliability every time.'
-    },
-    {
-        icon: '✨',
-        title: 'Save time and effort',
-        description: 'No more endlessly searching for service providers or cold-calling companies. Gaupro connects you directly to trusted professionals in your area, making the process fast and stress-free.'
-    },
-    {
-        icon: '🔒',
-        title: 'Safe and reliable',
-        description: 'All professionals are verified and vetted, so you can trust that your project is in capable hands.'
+        description: 'Hire with confidence! Every professional on Gaupro has ratings, reviews, photos, and a record of completed jobs.'
     }
 ];
 
@@ -164,26 +154,36 @@ function PostRequestContent() {
 
     setIsSubmitting(true);
 
-    const leadData = {
+    const leadId = Math.random().toString(36).substring(7);
+    
+    // PUBLIC DATA (SEO Safe)
+    const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: (formData.job_details as string) || "No description provided",
         location: (formData.suburb as string) || (formData.city as string) || locationValue || "Unknown",
         dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
         status: 'pending_review',
         budget: (formData.budget as string) || "Quote Required",
+        createdAt: serverTimestamp(),
+        userId: user?.uid || 'guest',
+        credits: 3
+    };
+
+    // PRIVATE DATA (Restricted)
+    const privateData = {
         customerName: `${formData.firstName} ${formData.lastName}`,
         customerEmail: formData.email || '',
         customerPhone: formData.phoneNumber || '',
+        streetAddress: formData.address || '',
         contactTime: formData.contactTime || 'anytime',
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest',
-        qualityScore: 0,
-        credits: 3 // Default, admin will refine
     };
 
     try {
-        const leadsRef = collection(db, 'serviceRequests');
-        await addDoc(leadsRef, leadData);
+        // Write to both collections using the same ID
+        await setDoc(doc(db, 'leads_public', leadId), publicData);
+        await setDoc(doc(db, 'leads_private', leadId), privateData);
         setIsSubmitted(true);
     } catch (error: any) {
         console.error('Error saving lead:', error);
@@ -202,14 +202,14 @@ function PostRequestContent() {
           <h2 className="text-2xl font-bold mb-4 text-primary">✅ Request Submitted for Review</h2>
           <div className="text-foreground space-y-4 text-left bg-secondary/20 p-6 rounded-lg">
             <p>
-              Your request for <strong>{serviceLabel}</strong> has been received and is being verified by our quality control team.
+              Your request for <strong>{serviceLabel}</strong> has been received and is being verified.
             </p>
             <p>
               <strong>What's next?</strong>
             </p>
             <ol className="list-decimal list-inside space-y-3">
                 <li>We'll verify your requirements to ensure you get the best matches.</li>
-                <li>Once approved (usually within 15 mins), local pros will receive your request.</li>
+                <li>Once approved, local pros will receive your request.</li>
                 <li>You'll start receiving quotes via email and WhatsApp.</li>
             </ol>
           </div>
@@ -263,11 +263,11 @@ function PostRequestContent() {
           <AlertDialogHeader>
             <AlertDialogTitle>Are you sure you want to cancel?</AlertDialogTitle>
             <AlertDialogDescription>
-              You're about {Math.round(progress)}% done. If you cancel now, your progress will be lost.
+              Your progress will be lost.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Continue Request</AlertDialogCancel>
+            <AlertDialogCancel>Continue</AlertDialogCancel>
             <AlertDialogAction onClick={handleClose}>Cancel Request</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -283,7 +283,6 @@ function PostRequestContent() {
 
       const isNextButtonDisabled = () => {
         if(currentQuestion.type === 'textarea' || currentQuestion.type === 'location') return false; 
-
         const value = formData[currentQuestion.id];
         if (currentQuestion.type === 'checkbox') {
           return !value || (Array.isArray(value) && value.length === 0);
@@ -307,18 +306,6 @@ function PostRequestContent() {
               <Progress value={progress} className="h-2" />
             </CardHeader>
 
-            {serviceImage && questionStepIndex === 0 && (
-              <div className="relative h-32 w-full">
-                <Image
-                  src={serviceImage.imageUrl}
-                  alt={serviceImage.description || ''}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={serviceImage.imageHint}
-                />
-              </div>
-            )}
-            
           <CardContent className="py-8 min-h-[300px]">
             <h3 className="mb-4 text-lg">{currentQuestion.text}</h3>
             {currentQuestion.type === 'radio' && (
@@ -393,26 +380,6 @@ function PostRequestContent() {
                     </div>
                 </div>
              )}
-            {currentQuestion.id === 'urgency' && formData['urgency'] === 'specific_date' && (
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    type="button"
-                    variant={'outline'}
-                    className={cn(
-                      'w-full justify-start text-left font-normal mt-4',
-                      !date && 'text-muted-foreground'
-                    )}
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {date ? format(date, 'PPP') : <span>Pick a date</span>}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                  <Calendar mode="single" selected={date} onSelect={handleDateSelect} initialFocus />
-                </PopoverContent>
-              </Popover>
-            )}
             {currentQuestion.type === 'textarea' && (
               <Textarea
                 placeholder={currentQuestion.placeholder}
@@ -444,7 +411,7 @@ function PostRequestContent() {
                 <ArrowLeft />
               </Button>
               <div>
-                <h2 className="text-xl">We're almost done, we just need your details.</h2>
+                <h2 className="text-xl">Almost done, we just need your details.</h2>
                  <p className="text-muted-foreground">Step {step} of {totalSteps}</p>
               </div>
             </div>
@@ -509,7 +476,7 @@ function PostRequestContent() {
                     onCheckedChange={(checked) => setAgreedToTerms(!!checked)}
                 />
                 <Label htmlFor="terms" className="text-xs text-muted-foreground font-normal">
-                    I agree to Gaupro’s <Link href="/terms" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
+                    I agree to the <Link href="/terms" className="underline">Terms</Link> and <Link href="/privacy" className="underline">Privacy Policy</Link>.
                 </Label>
             </div>
           </CardContent>
@@ -534,22 +501,6 @@ function PostRequestContent() {
       <Card className="overflow-hidden">
           {renderStepContent()}
       </Card>
-      {!isSubmitted && (
-        <section className="max-w-4xl mx-auto mt-16">
-            <h2 className="text-2xl text-center mb-8 font-normal">Why choose Gaupro for reliable service?</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-                {whyChooseGaupro.map((item) => (
-                    <div key={item.title} className="flex items-start gap-4">
-                        <div className="text-3xl">{item.icon}</div>
-                        <div>
-                            <h3 className="font-semibold text-lg">{item.title}</h3>
-                            <p className="text-muted-foreground">{item.description}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </section>
-      )}
     </div>
   );
 }

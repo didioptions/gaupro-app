@@ -27,7 +27,7 @@ export default function BrowseQuotesPage() {
   const leadsQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
     return query(
-        collection(firestore, 'serviceRequests'),
+        collection(firestore, 'leads_public'),
         where('status', '==', 'approved'),
         orderBy('createdAt', 'desc'),
         limit(50)
@@ -69,9 +69,9 @@ export default function BrowseQuotesPage() {
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">Latest Job Requests</h1>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">Marketplace Dashboard</h1>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Browse verified opportunities from real customers. Unlock leads to access contact details and send your quote.
+                Unlock verified leads to access direct customer contact details and send your quote.
               </p>
             </div>
 
@@ -131,11 +131,10 @@ export default function BrowseQuotesPage() {
                           <h2 className="text-xl font-bold mb-3 text-foreground">Need {job.category} Professional</h2>
                           <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">{job.description}</p>
                           <div className="flex gap-3">
-                              <Badge variant="outline" className="text-[10px] font-bold">QUALITY: {job.qualityScore || 80}%</Badge>
                               <Badge variant="outline" className="text-[10px] font-bold">VERIFIED LEAD</Badge>
                           </div>
                         </div>
-                        <div className="flex-shrink-0 w-full sm:w-52 text-sm space-y-3 bg-secondary/10 p-4 rounded-lg">
+                        <div className="flex-shrink-0 w-full sm:w-52 text-sm space-y-3 bg-secondary/10 p-4 rounded-lg border">
                           <div className="flex items-center gap-2 text-muted-foreground"><Clock className="h-4 w-4" /> <span>{getPostedTime(job.createdAt)}</span></div>
                           <div className="flex items-center gap-2 text-muted-foreground"><Calendar className="h-4 w-4" /> <span>Req. {job.dateNeeded}</span></div>
                           <div className="flex items-center gap-2 text-muted-foreground"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>

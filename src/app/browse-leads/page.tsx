@@ -3,26 +3,33 @@
 import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { MapPin, Clock, Search, Loader2, User, ChevronRight } from 'lucide-react';
+import { MapPin, Clock, Search, Loader2, User, Lock, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit, where } from 'firebase/firestore';
 import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 export default function BrowseLeadsPage() {
   const [serviceQuery, setServiceQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
+  const [showLoginModal, setShowLoginModal] = useState(false);
   const firestore = useFirestore();
   const { user } = useUser();
 
   const leadsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    // Strictly filter by status='approved' for public access
     return query(
-        collection(firestore, 'serviceRequests'),
+        collection(firestore, 'leads_public'),
         where('status', '==', 'approved'),
         orderBy('createdAt', 'desc'),
         limit(50)
@@ -54,13 +61,11 @@ export default function BrowseLeadsPage() {
     return `${Math.floor(diffInHours / 24)} days ago`;
   };
 
-  const getInitials = (name: string) => {
-    return name
-      .split(' ')
-      .map((n) => n[0])
-      .join('')
-      .toUpperCase()
-      .substring(0, 2);
+  const handleViewDetails = (e: React.MouseEvent) => {
+    if (!user) {
+      e.preventDefault();
+      setShowLoginModal(true);
+    }
   };
 
   const isLoggedIn = !!user;
@@ -97,9 +102,10 @@ export default function BrowseLeadsPage() {
 
           {error && (
             <Alert variant="destructive" className="mb-8">
-              <AlertTitle>Connection Error</AlertTitle>
+              <AlertCircle className="h-4 w-4" />
+              <AlertTitle>Public Marketplace Error</AlertTitle>
               <AlertDescription>
-                We encountered an error loading the leads. Please ensure your Firestore Rules are deployed.
+                Ensure your Firestore Rules for 'leads_public' are deployed.
               </AlertDescription>
             </Alert>
           )}
@@ -108,7 +114,7 @@ export default function BrowseLeadsPage() {
             {loading ? (
                 <div className="flex flex-col items-center justify-center py-20 space-y-4">
                     <Loader2 className="h-10 w-10 text-primary animate-spin" />
-                    <p className="text-muted-foreground font-medium italic">Finding the latest requests...</p>
+                    <p className="text-muted-foreground font-medium italic">Scanning for new leads...</p>
                 </div>
             ) : filteredJobs.length > 0 ? (
               filteredJobs.map((job) => (
@@ -117,33 +123,33 @@ export default function BrowseLeadsPage() {
                     <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center gap-3">
                             <Avatar className="h-10 w-10 bg-orange-500 text-white font-bold">
-                                <AvatarFallback className="bg-orange-500">{getInitials(job.customerName || 'Customer')}</AvatarFallback>
+                                <AvatarFallback className="bg-orange-500 text-xs">PREVIEW</AvatarFallback>
                             </Avatar>
                             <div>
-                                <p className="font-semibold text-foreground">{job.customerName || 'Anonymous'}</p>
+                                <p className="font-bold text-foreground">Customer in {job.location}</p>
                             </div>
                         </div>
                         <p className="text-xs text-muted-foreground font-medium">{getPostedTime(job.createdAt)}</p>
                     </div>
 
-                    <div className="pl-13 space-y-4 ml-13">
-                        <h2 className="text-xl font-medium text-foreground">{job.category}</h2>
+                    <div className="pl-0 md:pl-13 space-y-4">
+                        <h2 className="text-xl font-bold text-foreground">{job.category}</h2>
                         
-                        <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                            <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4 text-muted-foreground" /> {job.location}</span>
-                            <span className="flex items-center gap-1.5"><Clock className="h-4 w-4 text-muted-foreground" /> {job.dateNeeded}</span>
+                        <div className="flex items-center gap-6 text-sm text-muted-foreground font-medium">
+                            <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4" /> {job.location}</span>
+                            <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {job.dateNeeded}</span>
                         </div>
 
-                        <div className="text-sm text-foreground/80 leading-relaxed max-w-2xl">
-                           <p className={!isLoggedIn ? 'line-clamp-2' : ''}>
-                               Request for {job.category}. - {job.description}
+                        <div className="text-sm text-foreground/80 leading-relaxed max-w-2xl bg-secondary/20 p-4 rounded-lg border border-dashed border-muted-foreground/30">
+                           <p className="line-clamp-3">
+                               {job.description}
                            </p>
                         </div>
 
                         <div className="flex justify-end pt-2">
-                             <Button asChild variant="outline" className="font-bold border-gray-300">
-                                <Link href={isLoggedIn ? "/browse-quotes" : "/pro/login"}>
-                                    View Details
+                             <Button asChild onClick={handleViewDetails} className="font-bold bg-primary hover:bg-primary/90 h-11 px-8">
+                                <Link href={isLoggedIn ? "/browse-quotes" : "#"}>
+                                    {isLoggedIn ? "View Full Details" : "Login to View Details"}
                                 </Link>
                              </Button>
                         </div>
@@ -155,14 +161,36 @@ export default function BrowseLeadsPage() {
               <Card className="border-dashed border-2 py-20 bg-secondary/5">
                 <CardContent className="text-center">
                   <User className="h-16 w-16 text-muted-foreground mx-auto mb-4 opacity-10" />
-                  <h3 className="text-xl font-bold text-foreground mb-1">No active requests matching your search</h3>
-                  <p className="text-muted-foreground">Try adjusting your filters or check back later.</p>
+                  <h3 className="text-xl font-bold text-foreground mb-1">No active leads found</h3>
+                  <p className="text-muted-foreground">Try adjusting your filters.</p>
                 </CardContent>
               </Card>
             )}
           </div>
         </div>
       </div>
+
+      <Dialog open={showLoginModal} onOpenChange={setShowLoginModal}>
+        <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+                <DialogTitle className="text-2xl text-center font-bold">Protected Information</DialogTitle>
+                <DialogDescription className="text-center pt-2 text-lg">
+                    Create a free account or sign in to view customer contact details and respond to this lead.
+                </DialogDescription>
+            </DialogHeader>
+            <div className="flex flex-col gap-3 py-6">
+                <Button asChild size="lg" className="h-14 font-bold text-lg">
+                    <Link href="/pro/signup">Create Free Account</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="h-14 font-bold text-lg">
+                    <Link href="/pro/login">Sign In</Link>
+                </Button>
+            </div>
+            <DialogFooter className="sm:justify-center text-xs text-muted-foreground">
+                <Lock className="h-3 w-3 mr-1" /> Secure login via Gaupro Professional
+            </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </main>
   );
 }
