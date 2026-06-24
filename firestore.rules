@@ -21,21 +21,23 @@ service cloud.firestore {
 
     // --- Marketplace: Public Leads (SEO & Previews) ---
     match /leads_public/{leadId} {
-      // Anyone can see approved lead previews
+      // Anyone can see approved lead previews for SEO
       allow read: if resource.data.status == 'approved' || isAdmin();
       
-      // Anyone can create a lead if they set status to pending_review
+      // Anyone (Guest or User) can submit a lead with status 'pending_review'
       allow create: if request.resource.data.status == 'pending_review';
+      
       allow update, delete: if isAdmin();
     }
 
     // --- Marketplace: Private Contact Details ---
     match /leads_private/{leadId} {
-      // ONLY logged in users can access contact details
+      // ONLY logged in users or admins can access contact details
       allow read: if isSignedIn() || isAdmin();
       
-      // Create allowed during lead submission
+      // Allow creation during the dual-write submission process
       allow create: if true; 
+      
       allow update, delete: if isAdmin();
     }
 
@@ -59,12 +61,16 @@ service cloud.firestore {
       }
     }
 
-    // --- Legacy Support ---
-    match /serviceRequests/{requestId} {
-      allow read, write: if isAdmin();
+    // --- Audit Logs (Admin Only) ---
+    match /marketplace_audit_logs/{id} {
+        allow read, write: if isAdmin();
+    }
+    
+    match /admin_logs/{id} {
+        allow read, write: if isAdmin();
     }
 
-    // Final Catch-all
+    // Final Catch-all (Admin Restricted)
     match /{document=**} {
       allow read, write: if isAdmin();
     }
