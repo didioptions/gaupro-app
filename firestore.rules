@@ -8,50 +8,34 @@ service cloud.firestore {
       return request.auth != null;
     }
     
-    function getUserData() {
-      // Safely retrieve user data, returning empty map if not signed in
-      return isSignedIn() ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data : {};
-    }
-
     function isAdmin() {
-      // Check if user is an admin
-      let data = getUserData();
-      return isSignedIn() && (data.get('role', 'user') == 'admin' || data.get('role', 'user') == 'super_admin');
+      // Safely check if user is admin without crashing for guests
+      return isSignedIn() && 
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
     }
 
     // --- Service Requests ---
     match /serviceRequests/{requestId} {
-      // Allow anyone to create a lead with 'pending_review' status
+      // Allow anyone (including guests) to create leads with 'pending_review'
       allow create: if request.resource.data.status == 'pending_review';
       
-      // Allow public access to read individual approved leads
-      // Admins and owners can see any status
+      // Allow anyone to read approved leads
       allow get: if (resource.data.status == 'approved') || 
                  (isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin()));
                  
       // Allow public listing of leads ONLY if the 'approved' status filter is applied
-      // This is what powers the 'Browse Leads' page for Guests and Pros
       allow list: if (request.query.filters.status == 'approved') || isAdmin();
 
-      // Only admins can update or delete leads (for moderation)
+      // Only admins can update or delete leads
       allow update, delete: if isAdmin();
     }
 
     // --- Professional Profiles ---
     match /professionalProfiles/{profileId} {
       allow read: if true;
-      
-      allow create: if isAdmin() || (
-        isSignedIn() && request.auth.uid == request.resource.data.userId
-        && request.resource.data.get('isProVerified', false) == false
-      );
-      
-      allow update: if isAdmin() || (
-        isSignedIn() && request.auth.uid == resource.data.userId 
-        && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
-          'isProVerified', 'rating', 'reviewCount', 'priorityRank'
-        ])
-      );
+      allow create: if isSignedIn();
+      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userId);
 
       match /reviews/{reviewId} {
         allow read: if true;
@@ -64,25 +48,7 @@ service cloud.firestore {
     match /users/{userId} {
       allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
       allow create: if isSignedIn() && request.auth.uid == userId;
-      
-      allow update: if isAdmin() || (
-        isSignedIn() && request.auth.uid == userId 
-        && request.resource.data.role == resource.data.role
-      );
-    }
-
-    // --- Marketplace Audit Logs & Transactions ---
-    match /marketplace_audit_logs/{logId} {
-      allow get, list, create: if isAdmin();
-    }
-
-    match /transactions/{id} {
-        allow read: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
-        allow create: if isAdmin();
-    }
-    
-    match /admin_logs/{id} {
-        allow read, create: if isAdmin();
+      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
     }
 
     // Final Catch-all
