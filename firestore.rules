@@ -9,7 +9,7 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      // CEL-safe check to prevent crashing on unauthenticated requests
+      // Safely retrieve user data, returning empty map if not signed in or doc missing
       let uid = request.auth != null ? request.auth.uid : null;
       return uid != null && exists(/databases/$(database)/documents/users/$(uid))
         ? get(/databases/$(database)/documents/users/$(uid)).data 
@@ -17,6 +17,7 @@ service cloud.firestore {
     }
 
     function isAdmin() {
+      // Safely check role after ensuring auth exists
       let data = getUserData();
       return isSignedIn() && (data.get('role', 'user') == 'admin' || data.get('role', 'user') == 'super_admin');
     }
@@ -26,13 +27,16 @@ service cloud.firestore {
       // Explicitly allow anyone (Guests and Registered Users) to create a lead with pending status
       allow create: if request.resource.data.status == 'pending_review';
       
-      // Get: Admins see all; Users see their own; Pros see approved leads
+      // Get: Admins see all; Users see their own; Anyone can see approved leads
       allow get: if isAdmin() || 
                  (isSignedIn() && resource.data.userId == request.auth.uid) ||
                  (resource.data.status == 'approved');
                  
-      // List: Admins see all; Pros can browse the approved lead pool
-      allow list: if isAdmin() || (isSignedIn() && getUserData().get('role', 'user') == 'pro');
+      // List: Allow public listing of approved leads. 
+      // Admins and Pros can also list approved pools.
+      allow list: if isAdmin() || 
+                  (isSignedIn() && getUserData().get('role', 'user') == 'pro') || 
+                  (request.query.filters.status == 'approved');
 
       // Update/Delete: Restricted to Admins for moderation
       allow update, delete: if isAdmin();

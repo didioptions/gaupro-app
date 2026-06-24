@@ -4,19 +4,12 @@ import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus, Search, Briefcase } from 'lucide-react';
+import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus, Search, Briefcase, Lock } from 'lucide-react';
 import Link from 'next/link';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit, where } from 'firebase/firestore';
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 
 const MAX_QUOTES_ALLOWED = 5;
 
@@ -24,17 +17,18 @@ export default function BrowseLeadsPage() {
   const [serviceQuery, setServiceQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
   const firestore = useFirestore();
-  const { isUserLoading } = useUser();
+  const { user, isUserLoading } = useUser();
 
   const leadsQuery = useMemoFirebase(() => {
-    if (!firestore || isUserLoading) return null;
+    if (!firestore) return null;
+    // Removed dependency on isUserLoading to allow guest browsing immediately
     return query(
         collection(firestore, 'serviceRequests'),
         where('status', '==', 'approved'),
         orderBy('createdAt', 'desc'),
         limit(50)
     );
-  }, [firestore, isUserLoading]);
+  }, [firestore]);
 
   const { data: leads, loading, error } = useCollection(leadsQuery);
   
@@ -59,6 +53,8 @@ export default function BrowseLeadsPage() {
     return `${Math.floor(diffInHours / 24)}d ago`;
   };
 
+  const isLoggedIn = !!user;
+
   return (
     <main className="flex-grow">
       <div className="bg-secondary/30">
@@ -69,12 +65,14 @@ export default function BrowseLeadsPage() {
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                 These are verified, active job requests from customers across South Africa. Join our network to start quoting.
               </p>
-              <Button asChild size="lg" className="mt-6 h-14 px-8 text-lg shadow-lg">
-                  <Link href="/pro/register">
-                      <UserPlus className="mr-2 h-5 w-5" />
-                      Create My Free Pro Profile
-                  </Link>
-              </Button>
+              {!isLoggedIn && (
+                <Button asChild size="lg" className="mt-6 h-14 px-8 text-lg shadow-lg">
+                    <Link href="/pro/register">
+                        <UserPlus className="mr-2 h-5 w-5" />
+                        Create My Free Pro Profile
+                    </Link>
+                </Button>
+              )}
             </div>
 
             <div className="max-w-4xl mx-auto mb-10">
@@ -122,7 +120,21 @@ export default function BrowseLeadsPage() {
                             <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {job.location}</span>
                           </div>
                           <h2 className="text-xl font-bold mb-3 text-foreground">Need {job.category} Specialist</h2>
-                          <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">{job.description}</p>
+                          
+                          <div className="relative">
+                            <p className={`text-muted-foreground text-sm mb-4 leading-relaxed ${!isLoggedIn ? 'line-clamp-2 blur-[2px] select-none' : ''}`}>
+                                {job.description}
+                            </p>
+                            {!isLoggedIn && (
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="bg-white/90 px-4 py-2 rounded-lg shadow-sm border border-primary/20 flex items-center gap-2">
+                                        <Lock className="h-4 w-4 text-primary" />
+                                        <Link href="/pro/login" className="text-xs font-bold text-primary hover:underline">Login to see full details</Link>
+                                    </div>
+                                </div>
+                            )}
+                          </div>
+
                           <div className="flex gap-4">
                              <div className="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">Quality Score: {job.qualityScore || 85}%</div>
                           </div>
@@ -139,7 +151,9 @@ export default function BrowseLeadsPage() {
                           <Badge variant="destructive" className="px-4 py-1">Job Capacity Reached</Badge>
                         ) : (
                           <Button asChild className="w-full sm:w-auto font-bold h-11 px-8">
-                              <Link href="/pro/register">Send Quote for {job.credits || 3} CR</Link>
+                              <Link href={isLoggedIn ? "/browse-quotes" : "/pro/register"}>
+                                {isLoggedIn ? 'Unlock & Quote' : `Join to Quote for ${job.credits || 3} CR`}
+                              </Link>
                           </Button>
                         )}
                         <p className="text-[10px] text-muted-foreground uppercase font-bold hidden sm:block">Ref: {job.id.substring(0,6)}</p>
