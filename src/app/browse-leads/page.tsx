@@ -4,12 +4,13 @@ import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus, Search, Briefcase, Lock } from 'lucide-react';
+import { MapPin, Calendar, DollarSign, Users, Clock, UserPlus, Search, Briefcase, Lock, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit, where } from 'firebase/firestore';
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const MAX_QUOTES_ALLOWED = 5;
 
@@ -17,11 +18,10 @@ export default function BrowseLeadsPage() {
   const [serviceQuery, setServiceQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
   const firestore = useFirestore();
-  const { user, isUserLoading } = useUser();
+  const { user } = useUser();
 
   const leadsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    // Removed dependency on isUserLoading to allow guest browsing immediately
     return query(
         collection(firestore, 'serviceRequests'),
         where('status', '==', 'approved'),
@@ -76,7 +76,7 @@ export default function BrowseLeadsPage() {
             </div>
 
             <div className="max-w-4xl mx-auto mb-10">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-2 bg-white p-3 rounded-xl shadow-sm border">
+              <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 md:grid-cols-4 gap-2 bg-white p-3 rounded-xl shadow-sm border">
                   <div className="relative md:col-span-2">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                       <Input
@@ -97,9 +97,23 @@ export default function BrowseLeadsPage() {
                           onChange={(e) => setLocationQuery(e.target.value)}
                       />
                   </div>
-                  <Button className="h-12 w-full" size="lg">Filter</Button>
-              </div>
+                  <Button type="button" className="h-12 w-full" size="lg">Filter</Button>
+              </form>
             </div>
+
+            {error && (
+              <div className="max-w-3xl mx-auto mb-8">
+                <Alert variant="destructive">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertTitle>System Alert</AlertTitle>
+                  <AlertDescription>
+                    {error.includes('permission-denied') 
+                      ? "The security rules are blocking the request. Please deploy the updated firestore.rules." 
+                      : "We encountered an error loading the leads. Please try refreshing."}
+                  </AlertDescription>
+                </Alert>
+              </div>
+            )}
 
             <div className="space-y-6 max-w-3xl mx-auto">
               {loading ? (
@@ -111,7 +125,7 @@ export default function BrowseLeadsPage() {
                 const isClosed = quoteCount >= MAX_QUOTES_ALLOWED;
 
                 return (
-                  <Card key={job.id} className="bg-card hover:shadow-md transition-shadow border-l-4 border-l-primary">
+                  <Card key={job.id} className="bg-card hover:shadow-md transition-shadow border-l-4 border-l-primary animate-in fade-in slide-in-from-bottom-2 duration-300">
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row gap-6">
                         <div className="flex-grow">
@@ -165,7 +179,8 @@ export default function BrowseLeadsPage() {
                 <Card className="border-dashed">
                   <CardContent className="p-16 text-center">
                     <Briefcase className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
-                    <p className="text-muted-foreground">No active job requests match your current filters.</p>
+                    <p className="text-muted-foreground">No active job requests found.</p>
+                    <p className="text-xs text-muted-foreground mt-2">Try adjusting your filters or check back later.</p>
                   </CardContent>
                 </Card>
               )}
