@@ -9,14 +9,12 @@ service cloud.firestore {
     }
     
     function getUserData() {
-      // Safely retrieve user data, returning empty map if not signed in or doc missing
       return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data 
         : {};
     }
 
     function isAdmin() {
-      // Safely check role after ensuring auth exists
       let data = getUserData();
       return isSignedIn() && (data.get('role', 'user') == 'admin' || data.get('role', 'user') == 'super_admin');
     }
