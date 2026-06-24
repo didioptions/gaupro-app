@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, CreditCard, Briefcase } from 'lucide-react';
+import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, CreditCard, Briefcase, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
 import { collection, query, orderBy, limit, where } from 'firebase/firestore';
@@ -17,12 +17,17 @@ import { Skeleton } from '@/components/ui/skeleton';
 const MAX_QUOTES_ALLOWED = 5;
 
 export default function BrowseQuotesPage() {
+  const [mounted, setMounted] = useState(false);
   const [creditBalance, setCreditBalance] = useState(25);
   const [selectedJob, setSelectedJob] = useState<any>(null);
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
   const router = useRouter();
   const { toast } = useToast();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const leadsQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
@@ -63,9 +68,20 @@ export default function BrowseQuotesPage() {
     return `${Math.floor(diffInHours / 24)}d ago`;
   };
 
+  if (!mounted) {
+    return (
+        <main className="flex-grow bg-secondary/30 min-h-screen">
+            <div className="container mx-auto px-4 py-20 flex flex-col items-center justify-center">
+                <Loader2 className="h-10 w-10 text-primary animate-spin mb-4" />
+                <p className="text-muted-foreground font-medium">Preparing Marketplace...</p>
+            </div>
+        </main>
+    );
+  }
+
   return (
     <main className="flex-grow">
-      <div className="bg-secondary/30">
+      <div className="bg-secondary/30 min-h-screen">
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">

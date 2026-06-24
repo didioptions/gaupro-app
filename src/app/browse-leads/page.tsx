@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Clock, Search, Loader2, User, Lock, AlertCircle } from 'lucide-react';
@@ -20,11 +20,16 @@ import {
 } from "@/components/ui/dialog";
 
 export default function BrowseLeadsPage() {
+  const [mounted, setMounted] = useState(false);
   const [serviceQuery, setServiceQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
   const [showLoginModal, setShowLoginModal] = useState(false);
   const firestore = useFirestore();
   const { user } = useUser();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const leadsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -67,6 +72,16 @@ export default function BrowseLeadsPage() {
       setShowLoginModal(true);
     }
   };
+
+  if (!mounted) {
+    return (
+        <main className="flex-grow bg-secondary/10 min-h-screen">
+            <div className="container mx-auto px-4 py-20 flex justify-center">
+                <Loader2 className="h-10 w-10 text-primary animate-spin" />
+            </div>
+        </main>
+    );
+  }
 
   const isLoggedIn = !!user;
 
