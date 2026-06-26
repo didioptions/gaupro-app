@@ -173,7 +173,7 @@
       "id": "company-registrations-image",
       "description": "A person filling out official company registration forms.",
       "imageUrl": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80",
-      "imageHint": "registration照 forms"
+      "imageHint": "registration forms"
     },
     {
       "id": "couriers-image",
@@ -220,7 +220,7 @@
     {
       "id": "carpenters-image",
       "description": "A carpenter measuring a piece of wood in a workshop.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Carpenters.jpg?alt=media&token=fdea5fc5-6adf-43f2-9e74-5e743ae97aa7",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FCarpenters.webp?alt=media&token=1538e839-7805-423b-981c-2f8af02e4aa6",
       "imageHint": "carpenter wood"
     }
   ]
