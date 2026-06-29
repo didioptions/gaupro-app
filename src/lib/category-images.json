@@ -81,63 +81,63 @@
     },
     {
       "id": "djs-image",
-      "description": "A DJ mixing music on a turntable at a party.",
+      "description": "A DJ mixing music on a turntable.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FDJs.webp?alt=media&token=a11f2f8d-04d4-4fc1-a9c8-bf228afad217",
       "imageHint": "dj mixing"
     },
     {
       "id": "event-decorations-image",
-      "description": "Beautifully decorated tables set up for an outdoor wedding reception.",
+      "description": "Elegant table settings for a wedding or event.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FEvent%20Decorations.webp?alt=media&token=325e81e5-df6c-422e-85b2-864f636ef883",
-      "imageHint": "wedding reception"
+      "imageHint": "event decor"
     },
     {
       "id": "party-planners-image",
-      "description": "An event planner coordinating with staff at a corporate event.",
+      "description": "Professional event planning and coordination.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FParty%20Planners.webp?alt=media&token=588ce798-1bc8-401a-ab31-2ae7b9c590e6",
-      "imageHint": "event planner"
+      "imageHint": "event planning"
     },
     {
       "id": "tent-hire-image",
-      "description": "A large white marquee tent set up for an event in a garden.",
+      "description": "White marquee and stretch tents for hire.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FTent%20Hire.webp?alt=media&token=16a2f213-ce6f-457d-8fd7-2bceea731d98",
-      "imageHint": "marquee tent"
+      "imageHint": "tent hire"
     },
     {
       "id": "jumping-castle-hire-image",
-      "description": "Children playing on a colorful jumping castle at a birthday party.",
+      "description": "Colorful jumping castles for kids parties.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FJumping%20Castle%20Hire.webp?alt=media&token=a77ce69e-0735-4f2d-ad7b-b8d4bc57c03e",
       "imageHint": "jumping castle"
     },
     {
       "id": "toilet-hire-image",
-      "description": "A row of clean portable toilets at an outdoor event.",
+      "description": "Portable toilet rentals for events.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2Ftoilet%20hire.webp?alt=media&token=d9665581-5d86-42ad-9904-5fb65ad306f5",
-      "imageHint": "portable toilets"
+      "imageHint": "toilet hire"
     },
     {
       "id": "videographers-image",
-      "description": "A videographer filming a wedding ceremony.",
+      "description": "Professional video recording services.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2Fvideographers.webp?alt=media&token=ff1e300f-13ee-49e3-9564-4812ebda8442",
-      "imageHint": "videographer filming"
+      "imageHint": "video production"
     },
     {
       "id": "wedding-photographers-image",
-      "description": "A photographer taking a picture of a bride and groom.",
+      "description": "Capturing special wedding moments.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FWedding%20Photographers.webp?alt=media&token=0ecbf50f-5613-433f-baa5-ff748bf9d79a",
-      "imageHint": "wedding photographer"
+      "imageHint": "wedding photo"
     },
     {
       "id": "accounting-image",
-      "description": "A person using a calculator with financial documents on a desk.",
+      "description": "Professional accounting and tax services.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FAccounting.webp?alt=media&token=0f7a4c5e-9f88-47d4-9c24-e079bd2c719a",
-      "imageHint": "accounting calculator"
+      "imageHint": "accounting finance"
     },
     {
       "id": "auditors-image",
-      "description": "An auditor reviewing financial statements in an office.",
+      "description": "Independent auditing and financial review.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2Fauditors.webp?alt=media&token=b145e0c3-0503-4861-9793-9eb3f4e65ad6",
-      "imageHint": "auditor office"
+      "imageHint": "auditor audit"
     },
     {
       "id": "gardeners-image",
@@ -159,15 +159,15 @@
     },
     {
       "id": "financial-advisors-image",
-      "description": "A financial advisor presenting a chart to a client.",
+      "description": "Professional financial planning and advice.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FFinancial%20Advisors.webp?alt=media&token=06561937-702f-44ff-ab36-bb647f167306",
       "imageHint": "financial advisor"
     },
     {
       "id": "debt-counsellors-image",
-      "description": "A professional counselor assisting a client with debt management.",
-      "imageUrl": "https://images.unsplash.com/photo-1554224155-169641357599?w=800&q=80",
-      "imageHint": "consultation meeting"
+      "description": "Professional debt counseling and management.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FDebt%20Counsellors.webp?alt=media&token=3ff53de2-9e18-4735-ab80-d5add4cd9dcd",
+      "imageHint": "debt relief"
     },
     {
       "id": "home-loans-image",
