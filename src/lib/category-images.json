@@ -92,7 +92,7 @@
       "imageHint": "wedding reception"
     },
     {
-      "id": "event-planners-image",
+      "id": "party-planners-image",
       "description": "An event planner coordinating with staff at a corporate event.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FParty%20Planners.webp?alt=media&token=588ce798-1bc8-401a-ab31-2ae7b9c590e6",
       "imageHint": "event planner"
@@ -162,6 +162,36 @@
       "description": "A financial advisor presenting a chart to a client.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FFinancial%20Advisors.webp?alt=media&token=06561937-702f-44ff-ab36-bb647f167306",
       "imageHint": "financial advisor"
+    },
+    {
+      "id": "debt-counsellors-image",
+      "description": "A professional counselor assisting a client with debt management.",
+      "imageUrl": "https://images.unsplash.com/photo-1554224155-169641357599?w=800&q=80",
+      "imageHint": "consultation meeting"
+    },
+    {
+      "id": "home-loans-image",
+      "description": "A small model house and keys on a table.",
+      "imageUrl": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+      "imageHint": "house keys"
+    },
+    {
+      "id": "insurance-image",
+      "description": "A professional explaining insurance options to a customer.",
+      "imageUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
+      "imageHint": "insurance contract"
+    },
+    {
+      "id": "business-consultants-image",
+      "description": "A group of professionals in a business strategy meeting.",
+      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+      "imageHint": "business meeting"
+    },
+    {
+      "id": "company-registrations-image",
+      "description": "An office environment where business registrations are processed.",
+      "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+      "imageHint": "modern office"
     }
   ]
 }
