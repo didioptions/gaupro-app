@@ -140,72 +140,6 @@
       "imageHint": "auditor office"
     },
     {
-      "id": "debt-counsellors-image",
-      "description": "A counsellor talking to a client about their finances.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-5618869838-18486.firebasestorage.app/o/Debt%20Collection%20A.jpg?alt=media&token=9af40147-350f-4deb-b299-80bfc329271c",
-      "imageHint": "financial counselling"
-    },
-    {
-      "id": "financial-advisors-image",
-      "description": "A financial advisor presenting a chart to a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1604071358245-20706782404e?w=800&q=80",
-      "imageHint": "financial advisor chart"
-    },
-    {
-      "id": "home-loans-image",
-      "description": "A couple signing documents with a real estate agent.",
-      "imageUrl": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
-      "imageHint": "signing documents"
-    },
-    {
-      "id": "insurance-image",
-      "description": "An insurance agent discussing a policy with a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1556740772-1a741367b93e?w=800&q=80",
-      "imageHint": "insurance agent"
-    },
-    {
-      "id": "business-consultants-image",
-      "description": "A business consultant leading a meeting with a team.",
-      "imageUrl": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&q=80",
-      "imageHint": "business meeting"
-    },
-    {
-      "id": "company-registrations-image",
-      "description": "A person filling out official company registration forms.",
-      "imageUrl": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80",
-      "imageHint": "registration forms"
-    },
-    {
-      "id": "couriers-image",
-      "description": "A courier delivering a package to a customer.",
-      "imageUrl": "https://images.unsplash.com/photo-1606822899147-25146b3a3222?w=800&q=80",
-      "imageHint": "courier package"
-    },
-    {
-      "id": "school-transport-image",
-      "description": "A friendly school bus driver in front of a yellow bus.",
-      "imageUrl": "https://images.unsplash.com/photo-1570123984323-9ab1b0a1a015?w=800&q=80",
-      "imageHint": "school bus"
-    },
-    {
-      "id": "shuttle-services-image",
-      "description": "A clean, modern shuttle van waiting for passengers.",
-      "imageUrl": "https://images.unsplash.com/photo-1570125909248-397f4de43834?w=800&q=80",
-      "imageHint": "shuttle van"
-    },
-    {
-      "id": "taxis-image",
-      "description": "A taxi driving through a city street.",
-      "imageUrl": "https://images.unsplash.com/photo-1579581569435-a503f1911963?w=800&q=80",
-      "imageHint": "taxi city"
-    },
-    {
-      "id": "transportation-image",
-      "description": "A large truck driving on a highway, symbolizing logistics and transportation.",
-      "imageUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
-      "imageHint": "truck highway"
-    },
-    {
       "id": "gardeners-image",
       "description": "A gardener tending to flowers in a garden.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FGardeners.webp?alt=media&token=89605ea3-6262-4225-8d5f-9a6bfafb3b85",
@@ -222,6 +156,12 @@
       "description": "A carpenter measuring a piece of wood in a workshop.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FCarpenters.webp?alt=media&token=1538e839-7805-423b-981c-2f8af02e4aa6",
       "imageHint": "carpenter wood"
+    },
+    {
+      "id": "financial-advisors-image",
+      "description": "A financial advisor presenting a chart to a client.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2FFinancial%20Advisors.webp?alt=media&token=06561937-702f-44ff-ab36-bb647f167306",
+      "imageHint": "financial advisor"
     }
   ]
 }
