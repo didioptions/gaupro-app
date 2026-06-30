@@ -33,6 +33,7 @@ export default function BrowseQuotesPage() {
 
   useEffect(() => {
     if (!user || !firestore) return;
+    // Real-time listener for credit balance
     const unsubscribe = onSnapshot(doc(firestore, 'professionalProfiles', user.uid), (docSnap) => {
       if (docSnap.exists()) {
         setCreditBalance(docSnap.data().creditBalance || 0);
@@ -87,10 +88,12 @@ export default function BrowseQuotesPage() {
         const balance = proDoc.data().creditBalance || 0;
         if (balance < cost) throw "Insufficient credits";
 
+        const currentLeadCount = proDoc.data().leadCount || 0;
+
         // 1. Deduct Credits & Increment Purchased Count
         transaction.update(proRef, {
           creditBalance: balance - cost,
-          leadCount: (proDoc.data().leadCount || 0) + 1
+          leadCount: currentLeadCount + 1
         });
 
         // 2. Increment lead's quote count
@@ -98,7 +101,7 @@ export default function BrowseQuotesPage() {
           quoteCount: (job.quoteCount || 0) + 1
         });
 
-        // 3. Log the purchase
+        // 3. Log the purchase for audit trail
         transaction.set(auditRef, {
           action: 'LEAD_PURCHASE',
           proUid: user.uid,
@@ -112,13 +115,15 @@ export default function BrowseQuotesPage() {
         title: 'Lead Unlocked!',
         description: 'Customer contact details are now available.',
       });
+      
+      // Setting selectedJob opens the dialog which fetches the private data
       setSelectedJob(job);
     } catch (err: any) {
       console.error("Unlock failed:", err);
       toast({
         variant: 'destructive',
         title: 'Transaction Failed',
-        description: 'Could not unlock lead. Please try again.',
+        description: typeof err === 'string' ? err : 'Could not unlock lead. Please try again.',
       });
     } finally {
       setIsUnlocking(false);
