@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { useUser, useFirestore, useAuth, useCollection, useMemoFirebase } from '@/firebase';
 import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
 import { SupportChatWidget } from '@/components/pro/support-chat-widget';
-import { collection, query, where, getDocs, limit, orderBy } from 'firebase/firestore';
+import { collection, query, where, getDocs, limit, orderBy, onSnapshot } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
@@ -31,6 +31,7 @@ interface ProfessionalProfile {
   tags?: string[];
   serviceCategory?: string;
   isProVerified?: boolean;
+  creditBalance?: number;
 }
 
 export default function ProDashboardPage() {
@@ -51,31 +52,38 @@ export default function ProDashboardPage() {
       return;
     }
 
-    const fetchData = async () => {
-      try {
-        const q = query(collection(firestore, "professionalProfiles"), where("userId", "==", user.uid));
-        const querySnapshot = await getDocs(q);
-        if (!querySnapshot.empty) {
-          const profileDoc = querySnapshot.docs[0];
-          setProfileData(profileDoc.data() as ProfessionalProfile);
-        }
-
-        const nQ = query(
-          collection(firestore, 'users', user.uid, 'notifications'),
-          orderBy('createdAt', 'desc'),
-          limit(3)
-        );
-        const nSnap = await getDocs(nQ);
-        setNotifications(nSnap.docs.map(d => ({ id: d.id, ...d.data() })));
-
-      } catch (error) {
-        console.error("Error fetching dashboard data:", error);
-      } finally {
-        setIsLoading(false);
+    // 1. Real-time Profile Listener (Credits, Rating, Verification)
+    const profileQuery = query(collection(firestore, "professionalProfiles"), where("userId", "==", user.uid));
+    const unsubscribeProfile = onSnapshot(profileQuery, (snapshot) => {
+      if (!snapshot.empty) {
+        setProfileData(snapshot.docs[0].data() as ProfessionalProfile);
       }
+      setIsLoading(false);
+    }, (error) => {
+      console.error("Profile listener error:", error);
+      setIsLoading(false);
+    });
+
+    // 2. Notifications fetch
+    const fetchNotifications = async () => {
+        try {
+            const nQ = query(
+                collection(firestore, 'users', user.uid, 'notifications'),
+                orderBy('createdAt', 'desc'),
+                limit(3)
+            );
+            const nSnap = await getDocs(nQ);
+            setNotifications(nSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+        } catch (e) {
+            console.error("Notifications fetch error:", e);
+        }
     };
 
-    fetchData();
+    fetchNotifications();
+
+    return () => {
+        unsubscribeProfile();
+    };
   }, [user, isUserLoading, firestore]);
 
   const leadsQuery = useMemoFirebase(() => {
@@ -249,7 +257,11 @@ export default function ProDashboardPage() {
 
               <Card>
                 <CardHeader><CardTitle className="text-lg text-center font-normal">Credits</CardTitle></CardHeader>
-                <CardContent className="text-center"><p className="text-5xl font-extrabold text-primary">25</p></CardContent>
+                <CardContent className="text-center">
+                    <p className="text-5xl font-extrabold text-primary">
+                        {profileData?.creditBalance ?? 0}
+                    </p>
+                </CardContent>
               </Card>
 
               <Card>
