@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -22,6 +22,8 @@ export default function BrowseQuotesPage() {
   const [creditBalance, setCreditBalance] = useState<number | null>(null);
   const [selectedJob, setSelectedJob] = useState<any>(null);
   const [isUnlocking, setIsUnlocking] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
   const router = useRouter();
@@ -55,6 +57,15 @@ export default function BrowseQuotesPage() {
   }, [firestore, isUserLoading]);
 
   const { data: leads, loading, error } = useCollection(leadsQuery);
+
+  const filteredLeads = useMemo(() => {
+    if (!leads) return [];
+    return leads.filter(lead => 
+        lead.category?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        lead.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        lead.location?.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [leads, searchTerm]);
 
   const handleUnlockClick = async (job: any) => {
     if (!user || !firestore) {
@@ -92,9 +103,10 @@ export default function BrowseQuotesPage() {
         if (balance < cost) throw "Insufficient credits";
 
         const currentLeadCount = proDoc.data().leadCount || 0;
-        const purchasers = leadDoc.data().purchasers || [];
+        const currentPurchasers = leadDoc.data().purchasers || [];
+        const currentQuoteCount = leadDoc.data().quoteCount || 0;
 
-        if (purchasers.includes(user.uid)) throw "You have already unlocked this lead.";
+        if (currentPurchasers.includes(user.uid)) throw "You have already unlocked this lead.";
 
         // 1. Deduct Credits & Increment Purchased Count
         transaction.update(proRef, {
@@ -104,7 +116,7 @@ export default function BrowseQuotesPage() {
 
         // 2. Increment lead's quote count and add pro to purchasers array
         transaction.update(leadRef, {
-          quoteCount: (job.quoteCount || 0) + 1,
+          quoteCount: currentQuoteCount + 1,
           purchasers: arrayUnion(user.uid)
         });
 
@@ -197,6 +209,8 @@ export default function BrowseQuotesPage() {
                   type="search"
                   placeholder="Filter by category (e.g. Plumbing)..."
                   className="h-12 flex-grow text-base border-0 focus-visible:ring-0 shadow-none"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <Button type="submit" size="lg" className="h-12 px-6">
                   <Search className="h-5 w-5" />
@@ -209,7 +223,7 @@ export default function BrowseQuotesPage() {
                    Array.from({ length: 3 }).map((_, i) => (
                     <Card key={i}><CardContent className="p-6 space-y-4"><Skeleton className="h-6 w-1/3" /><Skeleton className="h-20 w-full" /></CardContent></Card>
                 ))
-              ) : leads && leads.length > 0 ? leads.map((job) => {
+              ) : filteredLeads.length > 0 ? filteredLeads.map((job) => {
                 const quoteCount = job.quoteCount || 0;
                 const isClosed = quoteCount >= MAX_QUOTES_ALLOWED;
                 const cost = job.credits || 3;
@@ -266,7 +280,7 @@ export default function BrowseQuotesPage() {
                 <Card className="border-dashed">
                     <CardContent className="p-16 text-center">
                         <Briefcase className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-10" />
-                        <p className="text-muted-foreground">There are currently no job requests waiting for quotes.</p>
+                        <p className="text-muted-foreground">There are currently no job requests matching your search.</p>
                     </CardContent>
                 </Card>
               )}

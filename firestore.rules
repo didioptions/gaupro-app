@@ -84,9 +84,11 @@ service cloud.firestore {
       }
     }
 
-    // --- Audit Logs (Admin Only) ---
+    // --- Audit Logs ---
     match /marketplace_audit_logs/{id} {
-        allow read, write: if isAdmin();
+        allow read: if isAdmin();
+        allow create: if isSignedIn();
+        allow update, delete: if isAdmin();
     }
     
     match /admin_logs/{id} {
