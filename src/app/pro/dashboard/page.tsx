@@ -1,8 +1,25 @@
-
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { AlertCircle, Star, UserPlus, ShieldCheck, Briefcase, Activity, FileCheck, Wallet, MessageSquare, Users, ShieldAlert, LayoutDashboard, ExternalLink, RefreshCcw, LogOut, MapPin, Clock } from 'lucide-react';
+import { 
+  AlertCircle, 
+  Star, 
+  UserPlus, 
+  ShieldCheck, 
+  Briefcase, 
+  Activity, 
+  FileCheck, 
+  Wallet, 
+  MessageSquare, 
+  Users, 
+  ShieldAlert, 
+  LayoutDashboard, 
+  ExternalLink, 
+  RefreshCcw, 
+  LogOut, 
+  MapPin, 
+  Clock 
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -13,7 +30,7 @@ import {
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
 import { useUser, useFirestore, useAuth, useCollection, useMemoFirebase } from '@/firebase';
-import { collection, query, where, getDocs, limit, orderBy, onSnapshot, doc } from 'firebase/firestore';
+import { collection, query, where, limit, orderBy, onSnapshot, doc } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
@@ -43,6 +60,7 @@ export default function ProDashboardPage() {
   const firestore = useFirestore();
   const auth = useAuth();
   const router = useRouter();
+  
   const [profileData, setProfileData] = useState<ProfessionalProfile | null>(null);
   const [notifications, setNotifications] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +74,6 @@ export default function ProDashboardPage() {
       return;
     }
 
-    // 1. Real-time Profile Listener (Credits, Rating, Verification, Purchased Leads)
     const profileDocRef = doc(firestore, "professionalProfiles", user.uid);
     const unsubscribeProfile = onSnapshot(profileDocRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -68,7 +85,6 @@ export default function ProDashboardPage() {
       setIsLoading(false);
     });
 
-    // 2. Real-time Notifications listener
     const nQ = query(
         collection(firestore, 'users', user.uid, 'notifications'),
         orderBy('createdAt', 'desc'),
@@ -100,10 +116,13 @@ export default function ProDashboardPage() {
 
   const matchingLeads = useMemo(() => {
     if (!profileData || !allLeads) return [];
-    const proServices = (profileData.tags || (profileData.serviceCategory ? [allServices.find(s => s.value === profileData.serviceCategory)?.label || ''] : [])).map(s => s.toLowerCase());
+    const categoryLabel = allServices.find(s => s.value === profileData.serviceCategory)?.label || '';
+    const proServices = [...(profileData.tags || []), categoryLabel].filter(Boolean).map(s => s.toLowerCase());
     
+    if (proServices.length === 0) return [];
+
     return allLeads.filter(job => 
-      proServices.some((service: string) => service && job.category.toLowerCase().includes(service))
+      proServices.some((service: string) => job.category.toLowerCase().includes(service))
     );
   }, [profileData, allLeads]);
 
@@ -133,7 +152,7 @@ export default function ProDashboardPage() {
     return (
       <div className="py-12 md:py-16">
         <div className="container mx-auto px-4 space-y-8">
-          <Skeleton className="h-10 w-1/3" />
+          <Skeleton className="h-10 w-1/4" />
           <Skeleton className="h-24 w-full" />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Skeleton className="h-48 lg:col-span-2" />
@@ -148,7 +167,7 @@ export default function ProDashboardPage() {
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-normal">Dashboard</h1>
+          <h1 className="text-3xl md:text-4xl font-normal text-foreground">Dashboard</h1>
           {profileData?.isProVerified && (
              <Badge className="bg-green-100 text-green-800 hover:bg-green-100 px-3 py-1 flex items-center gap-1.5 border-green-200">
                 <ShieldCheck className="h-4 w-4" />
@@ -263,6 +282,7 @@ export default function ProDashboardPage() {
                       {profileData?.creditBalance ?? 0}
                   </p>
               </CardContent>
+            </Card>
 
             <Card>
               <CardContent className="p-6">
@@ -376,7 +396,7 @@ export default function ProDashboardPage() {
                   {relevantLeads.map(job => (
                     <div key={job.id} className="p-3 border rounded-md flex justify-between items-center hover:bg-secondary/50 transition-colors">
                       <div>
-                        <p className="font-semibold">Request for {job.category}</p>
+                        <p className="font-semibold text-foreground">Request for {job.category}</p>
                         <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
                             <MapPin className="h-3 w-3" /> {job.location} • <Clock className="h-3 w-3 ml-1" /> {getPostedTime(job.createdAt)}
                         </p>
