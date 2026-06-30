@@ -1,4 +1,3 @@
-
 {
   "entities": {
     "User": {
@@ -94,92 +93,20 @@
         "description"
       ]
     },
-    "ServiceRequest": {
+    "LeadPublic": {
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "ServiceRequest",
+      "title": "LeadPublic",
       "type": "object",
-      "description": "Represents a service request submitted by a user.",
+      "description": "Public metadata for a service request.",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the service request."
-        },
-        "userId": {
-          "type": "string",
-          "description": "Reference to User. (Guest ID or Auth UID)"
-        },
-        "category": {
-          "type": "string",
-          "description": "The category of service requested (e.g., Plumbing, Electrical)."
-        },
-        "description": {
-          "type": "string",
-          "description": "A detailed description of the service needed."
-        },
-        "location": {
-          "type": "string",
-          "description": "The location where the service is needed."
-        },
-        "dateNeeded": {
-          "type": "string",
-          "description": "The date the service is needed.",
-          "format": "date-time"
-        },
-        "status": {
-          "type": "string",
-          "description": "The current status (Open, Quoted, In Progress, Completed)."
-        }
-      },
-      "required": [
-        "id",
-        "userId",
-        "category",
-        "description",
-        "location",
-        "dateNeeded",
-        "status"
-      ]
-    },
-    "Quote": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Quote",
-      "type": "object",
-      "description": "Represents a quote provided by a professional.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the quote."
-        },
-        "serviceRequestId": {
-          "type": "string",
-          "description": "Reference to ServiceRequest."
-        },
-        "professionalProfileId": {
-          "type": "string",
-          "description": "Reference to ProfessionalProfile."
-        },
-        "amount": {
-          "type": "number",
-          "description": "The quoted amount."
-        },
-        "description": {
-          "type": "string",
-          "description": "Quote details."
-        },
-        "dateCreated": {
-          "type": "string",
-          "description": "The date the quote was created.",
-          "format": "date-time"
-        }
-      },
-      "required": [
-        "id",
-        "serviceRequestId",
-        "professionalProfileId",
-        "amount",
-        "description",
-        "dateCreated"
-      ]
+        "id": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "location": { "type": "string" },
+        "dateNeeded": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending_review", "approved", "rejected"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
     }
   },
   "auth": {
@@ -205,13 +132,20 @@
         }
       },
       {
-        "path": "/serviceRequests/{serviceRequestId}",
+        "path": "/leads_public/{leadId}",
         "definition": {
-          "entityName": "ServiceRequest",
-          "description": "Top-level collection for all job requests. Enables global search and lead distribution."
+          "entityName": "LeadPublic",
+          "description": "Top-level collection for project metadata. Accessible to guest users for SEO."
+        }
+      },
+      {
+        "path": "/leads_private/{leadId}",
+        "definition": {
+          "entityName": "LeadPrivate",
+          "description": "Restricted collection containing customer PII, only readable by authenticated users."
         }
       }
     ],
-    "reasoning": "Moved ServiceRequest to a top-level collection to allow public writes for guest users without interacting with the strictly-protected /users hierarchy. This ensures better scalability for lead distribution and oversight."
+    "reasoning": "Standardized on the Lead-Metadata split pattern to ensure high performance SEO indexing while maintaining strict protection of customer contact details."
   }
 }

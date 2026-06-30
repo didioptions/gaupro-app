@@ -29,7 +29,7 @@ Firebase App Hosting requires the **Blaze (Pay-as-you-go) Plan** to enable Cloud
 
 - **Admin Hub**: Access at `/pro/admin` (Requires `role: "admin"` in your user document).
 - **Marketplace Seeding**: Go to `/pro/admin/seed-pros` to deploy real business inventory.
-- **Service Requests**: Top-level collection `/serviceRequests` for maximum scalability.
+- **Service Requests**: Handled via dual-write collections `/leads_public` (metadata) and `/leads_private` (PII) for maximum security and SEO.
 
 ---
 © 2025 Gaupro (Pty) Ltd. All rights reserved.
