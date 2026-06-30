@@ -10,6 +10,14 @@
       ]
     },
     {
+      "collectionGroup": "professionalProfiles",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "rating", "order": "DESCENDING" },
+        { "fieldPath": "priorityRank", "order": "DESCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "leads_public",
       "queryScope": "COLLECTION",
       "fields": [
