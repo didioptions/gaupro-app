@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { useUser, useFirestore, useAuth, useCollection, useMemoFirebase } from '@/firebase';
 import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
 import { SupportChatWidget } from '@/components/pro/support-chat-widget';
-import { collection, query, where, getDocs, limit, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, query, where, getDocs, limit, orderBy, onSnapshot, doc } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
@@ -32,6 +32,8 @@ interface ProfessionalProfile {
   serviceCategory?: string;
   isProVerified?: boolean;
   creditBalance?: number;
+  leadCount?: number;
+  userId?: string;
 }
 
 export default function ProDashboardPage() {
@@ -52,11 +54,11 @@ export default function ProDashboardPage() {
       return;
     }
 
-    // 1. Real-time Profile Listener (Credits, Rating, Verification)
-    const profileQuery = query(collection(firestore, "professionalProfiles"), where("userId", "==", user.uid));
-    const unsubscribeProfile = onSnapshot(profileQuery, (snapshot) => {
-      if (!snapshot.empty) {
-        setProfileData(snapshot.docs[0].data() as ProfessionalProfile);
+    // 1. Real-time Profile Listener (Credits, Rating, Verification, Purchased Leads)
+    const profileDocRef = doc(firestore, "professionalProfiles", user.uid);
+    const unsubscribeProfile = onSnapshot(profileDocRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setProfileData({ id: snapshot.id, ...snapshot.data() } as ProfessionalProfile);
       }
       setIsLoading(false);
     }, (error) => {
@@ -92,20 +94,22 @@ export default function ProDashboardPage() {
           collection(firestore, 'leads_public'),
           where('status', '==', 'approved'),
           orderBy('createdAt', 'desc'),
-          limit(10)
+          limit(50) // Increased limit to get a better "Received" count
       );
   }, [firestore, isUserLoading]);
 
   const { data: allLeads, loading: loadingLeads } = useCollection(leadsQuery);
 
-  const relevantLeads = useMemo(() => {
+  const matchingLeads = useMemo(() => {
     if (!profileData || !allLeads) return [];
     const proServices = (profileData.tags || (profileData.serviceCategory ? [allServices.find(s => s.value === profileData.serviceCategory)?.label || ''] : [])).map(s => s.toLowerCase());
     
     return allLeads.filter(job => 
       proServices.some((service: string) => service && job.category.toLowerCase().includes(service))
-    ).slice(0, 3);
+    );
   }, [profileData, allLeads]);
+
+  const relevantLeads = useMemo(() => matchingLeads.slice(0, 3), [matchingLeads]);
 
   const handleLogout = async () => {
     if (auth) {
@@ -241,11 +245,11 @@ export default function ProDashboardPage() {
                 <CardContent>
                   <div className="flex justify-around text-center">
                     <div>
-                      <p className="text-3xl font-bold text-primary">88</p>
+                      <p className="text-3xl font-bold text-primary">{matchingLeads.length}</p>
                       <p className="text-sm text-muted-foreground">Received</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-primary">0</p>
+                      <p className="text-3xl font-bold text-primary">{profileData?.leadCount || 0}</p>
                       <p className="text-sm text-muted-foreground">Purchased</p>
                     </div>
                   </div>
