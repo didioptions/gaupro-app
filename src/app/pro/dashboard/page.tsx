@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
@@ -82,7 +81,8 @@ export default function ProDashboardPage() {
   const leadsQuery = useMemoFirebase(() => {
       if (!firestore || isUserLoading) return null;
       return query(
-          collection(firestore, 'serviceRequests'),
+          collection(firestore, 'leads_public'),
+          where('status', '==', 'approved'),
           orderBy('createdAt', 'desc'),
           limit(10)
       );
@@ -261,7 +261,6 @@ export default function ProDashboardPage() {
                     </Button>
                   </InviteFriendsDialog>
                 </CardContent>
-              </Card>
 
               {isAdmin && (
                 <>
@@ -302,7 +301,6 @@ export default function ProDashboardPage() {
                         <Link href="/pro/admin/fraud">View Alerts</Link>
                       </Button>
                     </CardContent>
-                  </Card>
 
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
@@ -319,7 +317,6 @@ export default function ProDashboardPage() {
                         <Link href="/pro/admin/customers">CRM Center</Link>
                       </Button>
                     </CardContent>
-                  </Card>
 
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
@@ -336,7 +333,6 @@ export default function ProDashboardPage() {
                         <Link href="/pro/admin/leads">Manage Flow</Link>
                       </Button>
                     </CardContent>
-                  </Card>
 
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
@@ -353,7 +349,6 @@ export default function ProDashboardPage() {
                         <Link href="/pro/admin/operations">Pulse Feed</Link>
                       </Button>
                     </CardContent>
-                  </Card>
 
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
@@ -370,7 +365,6 @@ export default function ProDashboardPage() {
                         <Link href="/pro/admin/verifications">Review Queue</Link>
                       </Button>
                     </CardContent>
-                  </Card>
 
                   <Card className="border-primary/50 bg-primary/5">
                     <CardHeader>
@@ -387,7 +381,6 @@ export default function ProDashboardPage() {
                         <Link href="/pro/admin/reviews">Trust Hub</Link>
                       </Button>
                     </CardContent>
-                  </Card>
                 </>
               )}
             </div>

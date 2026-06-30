@@ -81,7 +81,7 @@ export default function LeadOversightPage() {
 
     try {
         const baseQuery = query(
-            collection(firestore, 'serviceRequests'),
+            collection(firestore, 'leads_public'),
             orderBy('createdAt', 'desc'),
             limit(PAGE_SIZE)
         );
@@ -137,7 +137,7 @@ export default function LeadOversightPage() {
   const handleAction = async (leadId: string, action: 'approved' | 'rejected' | 'needs_info' | 'flagged', extraData = {}) => {
     if (!adminUser || !firestore) return;
     try {
-      const leadRef = doc(firestore, 'serviceRequests', leadId);
+      const leadRef = doc(firestore, 'leads_public', leadId);
       const updateObj = { 
         status: action, 
         updatedAt: serverTimestamp(),
