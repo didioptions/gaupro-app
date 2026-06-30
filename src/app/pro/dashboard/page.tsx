@@ -68,25 +68,21 @@ export default function ProDashboardPage() {
       setIsLoading(false);
     });
 
-    // 2. Notifications fetch
-    const fetchNotifications = async () => {
-        try {
-            const nQ = query(
-                collection(firestore, 'users', user.uid, 'notifications'),
-                orderBy('createdAt', 'desc'),
-                limit(3)
-            );
-            const nSnap = await getDocs(nQ);
-            setNotifications(nSnap.docs.map(d => ({ id: d.id, ...d.data() })));
-        } catch (e) {
-            console.error("Notifications fetch error:", e);
-        }
-    };
-
-    fetchNotifications();
+    // 2. Real-time Notifications listener
+    const nQ = query(
+        collection(firestore, 'users', user.uid, 'notifications'),
+        orderBy('createdAt', 'desc'),
+        limit(3)
+    );
+    const unsubscribeNotifications = onSnapshot(nQ, (snapshot) => {
+        setNotifications(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
+    }, (error) => {
+        console.error("Notifications listener error:", error);
+    });
 
     return () => {
         unsubscribeProfile();
+        unsubscribeNotifications();
     };
   }, [user, isUserLoading, firestore]);
 
@@ -267,7 +263,6 @@ export default function ProDashboardPage() {
                       {profileData?.creditBalance ?? 0}
                   </p>
               </CardContent>
-            </Card>
 
             <Card>
               <CardContent className="p-6">

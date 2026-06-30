@@ -17,7 +17,7 @@ service cloud.firestore {
 
     function isAdmin() {
       let data = getUserData();
-      return isSignedIn() && (data.get('role', 'user') == 'admin' || data.get('role', 'user') == 'super_admin');
+      return isSignedIn() && (data.get('role', 'admin') || data.get('role', 'super_admin'));
     }
 
     // --- Marketplace: Public Leads (SEO & Previews) ---
@@ -28,7 +28,7 @@ service cloud.firestore {
       // Anyone (Guest or User) can submit a lead with status 'pending_review'
       allow create: if request.resource.data.status == 'pending_review' || isAdmin();
       
-      // Allow updates for 'quoteCount' and the 'purchasers' tracking array
+      // Allow updates for 'quoteCount' and the 'purchasers' tracking array during purchases
       allow update: if isAdmin() || (isSignedIn() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quoteCount', 'purchasers']));
       allow delete: if isAdmin();
     }
@@ -87,6 +87,7 @@ service cloud.firestore {
     // --- Audit Logs ---
     match /marketplace_audit_logs/{id} {
         allow read: if isAdmin();
+        // Professionals must be able to log their own lead purchases
         allow create: if isSignedIn();
         allow update, delete: if isAdmin();
     }
