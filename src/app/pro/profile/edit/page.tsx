@@ -14,7 +14,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Autocomplete } from '@/components/ui/autocomplete';
 import { Badge } from '@/components/ui/badge';
 import { X, Loader2 } from 'lucide-react';
-import { Alert, AlertDescription } from '@/components/alert';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RequestReviewDialog } from '@/components/pro/request-review-dialog';
@@ -25,6 +25,7 @@ import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/fire
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cityExpansionMap } from '@/lib/location-data';
+import Image from 'next/image';
 
 interface ProfileData {
   name?: string;
