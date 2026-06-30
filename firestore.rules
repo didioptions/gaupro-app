@@ -51,6 +51,12 @@ service cloud.firestore {
         isSignedIn() && request.auth.uid == userId 
         && request.resource.data.role == resource.data.role
       );
+
+      // Sub-collection for notifications
+      match /notifications/{notificationId} {
+        allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+        allow write: if isAdmin();
+      }
     }
 
     // --- Professional Profiles ---
