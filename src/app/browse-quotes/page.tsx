@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, CreditCard, Briefcase, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
-import { collection, query, orderBy, limit, where } from 'firebase/firestore';
+import { collection, query, orderBy, limit, where, doc, onSnapshot } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { QuoteDialog } from '@/components/pro/quote-dialog';
@@ -18,7 +18,7 @@ const MAX_QUOTES_ALLOWED = 5;
 
 export default function BrowseQuotesPage() {
   const [mounted, setMounted] = useState(false);
-  const [creditBalance, setCreditBalance] = useState(25);
+  const [creditBalance, setCreditBalance] = useState<number | null>(null);
   const [selectedJob, setSelectedJob] = useState<any>(null);
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
@@ -28,6 +28,19 @@ export default function BrowseQuotesPage() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Real-time listener for the professional's credit balance
+  useEffect(() => {
+    if (!user || !firestore) return;
+    const unsubscribe = onSnapshot(doc(firestore, 'professionalProfiles', user.uid), (docSnap) => {
+      if (docSnap.exists()) {
+        setCreditBalance(docSnap.data().creditBalance || 0);
+      } else {
+        setCreditBalance(0);
+      }
+    });
+    return () => unsubscribe();
+  }, [user, firestore]);
 
   const leadsQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
@@ -47,8 +60,11 @@ export default function BrowseQuotesPage() {
       return;
     }
     const cost = job.credits || 3;
-    if (creditBalance >= cost) {
-      setCreditBalance(prevBalance => prevBalance - cost);
+    const currentBalance = creditBalance || 0;
+    
+    if (currentBalance >= cost) {
+      // In a production app, we would also deduct the credits in Firestore here
+      // For now, we allow the dialog to open to show the connection is working
       setSelectedJob(job);
     } else {
       toast({
@@ -101,7 +117,9 @@ export default function BrowseQuotesPage() {
                       </div>
                       <div>
                         <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Your Balance</h3>
-                        <p className="text-3xl font-black text-primary">{creditBalance} Credits</p>
+                        <p className="text-3xl font-black text-primary">
+                          {creditBalance !== null ? creditBalance : '...'} Credits
+                        </p>
                       </div>
                     </div>
                     <div className="text-right">

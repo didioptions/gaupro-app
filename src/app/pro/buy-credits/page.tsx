@@ -1,7 +1,6 @@
-
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -15,6 +14,8 @@ import {
   DialogFooter,
   DialogClose,
 } from '@/components/ui/dialog';
+import { useUser, useFirestore } from '@/firebase';
+import { doc, onSnapshot } from 'firebase/firestore';
 
 const creditPacks = [
   { id: '10', credits: 10, price: 300, pricePerCredit: 30, discount: null, save: null },
@@ -36,10 +37,25 @@ const paymentMethods = [
 ];
 
 export default function BuyCreditsPage() {
+  const { user } = useUser();
+  const firestore = useFirestore();
+  const [creditBalance, setCreditBalance] = useState<number | null>(null);
   const [selectedPack, setSelectedPack] = useState<string | null>(null);
   const [includeAddon, setIncludeAddon] = useState(false);
   const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!user || !firestore) return;
+    const unsubscribe = onSnapshot(doc(firestore, 'professionalProfiles', user.uid), (docSnap) => {
+      if (docSnap.exists()) {
+        setCreditBalance(docSnap.data().creditBalance || 0);
+      } else {
+        setCreditBalance(0);
+      }
+    });
+    return () => unsubscribe();
+  }, [user, firestore]);
 
   const transactionTotal = useMemo(() => {
     const packPrice = creditPacks.find(p => p.id === selectedPack)?.price || 0;
@@ -66,7 +82,9 @@ export default function BuyCreditsPage() {
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-normal">Buy Credits</h1>
             <p className="text-xl text-muted-foreground mt-2">
-              Your current balance is <span className="font-normal text-red-600">25</span> Credits
+              Your current balance is <span className="font-bold text-red-600">
+                {creditBalance !== null ? creditBalance : '...'}
+              </span> Credits
             </p>
           </div>
 
