@@ -145,6 +145,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
         fullDescription = answers || "No description provided";
     }
 
+    // PUBLIC DATA (SEO Safe)
     const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: fullDescription,
@@ -154,9 +155,12 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
         budget: (formData.budget as string) || "Quote Required",
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest',
-        credits: 3
+        credits: 3,
+        purchasers: [], // Initialize array for security rules
+        quoteCount: 0
     };
 
+    // PRIVATE DATA (Restricted PII)
     const privateData = {
         customerName: `${formData.firstName} ${formData.lastName}`,
         customerEmail: formData.email || '',
