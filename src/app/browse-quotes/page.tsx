@@ -1,6 +1,7 @@
+
 'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -8,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, CreditCard, Briefcase, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
-import { collection, query, orderBy, limit, where, doc, onSnapshot } from 'firebase/firestore';
+import { collection, query, orderBy, limit, where, doc, onSnapshot, runTransaction, serverTimestamp } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { QuoteDialog } from '@/components/pro/quote-dialog';
@@ -20,6 +21,7 @@ export default function BrowseQuotesPage() {
   const [mounted, setMounted] = useState(false);
   const [creditBalance, setCreditBalance] = useState<number | null>(null);
   const [selectedJob, setSelectedJob] = useState<any>(null);
+  const [isUnlocking, setIsUnlocking] = useState(false);
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
   const router = useRouter();
@@ -29,7 +31,6 @@ export default function BrowseQuotesPage() {
     setMounted(true);
   }, []);
 
-  // Real-time listener for the professional's credit balance
   useEffect(() => {
     if (!user || !firestore) return;
     const unsubscribe = onSnapshot(doc(firestore, 'professionalProfiles', user.uid), (docSnap) => {
@@ -54,24 +55,73 @@ export default function BrowseQuotesPage() {
 
   const { data: leads, loading, error } = useCollection(leadsQuery);
 
-  const handleUnlockClick = (job: any) => {
-    if (!user) {
+  const handleUnlockClick = async (job: any) => {
+    if (!user || !firestore) {
       router.push('/pro/login');
       return;
     }
+
     const cost = job.credits || 3;
     const currentBalance = creditBalance || 0;
     
-    if (currentBalance >= cost) {
-      // In a production app, we would also deduct the credits in Firestore here
-      // For now, we allow the dialog to open to show the connection is working
-      setSelectedJob(job);
-    } else {
+    if (currentBalance < cost) {
       toast({
         variant: 'destructive',
         title: 'Insufficient Credits',
-        description: 'You do not have enough credits to unlock this job. Please buy more credits.',
+        description: 'Please top up your account to unlock this lead.',
       });
+      return;
+    }
+
+    setIsUnlocking(true);
+
+    try {
+      const proRef = doc(firestore, 'professionalProfiles', user.uid);
+      const leadRef = doc(firestore, 'leads_public', job.id);
+      const auditRef = doc(collection(firestore, 'marketplace_audit_logs'));
+
+      await runTransaction(firestore, async (transaction) => {
+        const proDoc = await transaction.get(proRef);
+        if (!proDoc.exists()) throw "Profile missing";
+
+        const balance = proDoc.data().creditBalance || 0;
+        if (balance < cost) throw "Insufficient credits";
+
+        // 1. Deduct Credits & Increment Purchased Count
+        transaction.update(proRef, {
+          creditBalance: balance - cost,
+          leadCount: (proDoc.data().leadCount || 0) + 1
+        });
+
+        // 2. Increment lead's quote count
+        transaction.update(leadRef, {
+          quoteCount: (job.quoteCount || 0) + 1
+        });
+
+        // 3. Log the purchase
+        transaction.set(auditRef, {
+          action: 'LEAD_PURCHASE',
+          proUid: user.uid,
+          targetId: job.id,
+          creditsSpent: cost,
+          timestamp: serverTimestamp()
+        });
+      });
+
+      toast({
+        title: 'Lead Unlocked!',
+        description: 'Customer contact details are now available.',
+      });
+      setSelectedJob(job);
+    } catch (err: any) {
+      console.error("Unlock failed:", err);
+      toast({
+        variant: 'destructive',
+        title: 'Transaction Failed',
+        description: 'Could not unlock lead. Please try again.',
+      });
+    } finally {
+      setIsUnlocking(false);
     }
   };
 
@@ -182,8 +232,9 @@ export default function BrowseQuotesPage() {
                           <Button
                             className="w-full sm:w-auto h-12 px-10 font-bold"
                             onClick={() => handleUnlockClick(job)}
+                            disabled={isUnlocking}
                           >
-                            <Lock className="mr-2 h-4 w-4" />
+                            {isUnlocking ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Lock className="mr-2 h-4 w-4" />}
                             Unlock Contact Details ({cost} Credits)
                           </Button>
                         )}

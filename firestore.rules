@@ -1,3 +1,4 @@
+
 rules_version = '2';
 
 service cloud.firestore {
@@ -27,7 +28,9 @@ service cloud.firestore {
       // Anyone (Guest or User) can submit a lead with status 'pending_review'
       allow create: if request.resource.data.status == 'pending_review';
       
-      allow update, delete: if isAdmin();
+      // Only admins or automated transactions can update lead metadata (like quoteCount)
+      allow update: if isAdmin() || (isSignedIn() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quoteCount']));
+      allow delete: if isAdmin();
     }
 
     // --- Marketplace: Private Contact Details ---
@@ -63,7 +66,13 @@ service cloud.firestore {
     match /professionalProfiles/{profileId} {
       allow read: if true;
       allow create: if isSignedIn();
-      allow update: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userId);
+      
+      // CRITICAL: Prevent users from manually increasing their own credits or leadCount
+      allow update: if isAdmin() || (
+        isSignedIn() && request.auth.uid == resource.data.userId
+        && request.resource.data.creditBalance <= resource.data.creditBalance
+        && request.resource.data.leadCount >= resource.data.leadCount
+      );
 
       match /reviews/{reviewId} {
         allow read: if true;
@@ -74,7 +83,7 @@ service cloud.firestore {
 
     // --- Audit Logs (Admin Only) ---
     match /marketplace_audit_logs/{id} {
-        allow read, write: if isAdmin();
+        allow read, write: if isAdmin() || isSignedIn();
     }
     
     match /admin_logs/{id} {
