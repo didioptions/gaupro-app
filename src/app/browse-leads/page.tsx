@@ -47,6 +47,7 @@ export default function BrowseLeadsPage() {
       );
     }
 
+    // Public view only shows approved leads
     return query(
         collection(firestore, 'leads_public'),
         where('status', '==', 'approved'),
@@ -136,8 +137,11 @@ export default function BrowseLeadsPage() {
             <Alert variant="destructive" className="mb-8">
               <AlertCircle className="h-4 w-4" />
               <AlertTitle>Marketplace Connection Error</AlertTitle>
-              <AlertDescription>
-                We're having trouble reaching the database. {isAdmin ? "Check your Firestore logs for permission errors." : "Please try again later."}
+              <AlertDescription className="font-mono text-xs mt-2">
+                {error}
+                <p className="mt-2 font-sans text-sm italic">
+                  Note: If this is an index error, please click the link in your browser console to create it.
+                </p>
               </AlertDescription>
             </Alert>
           )}
@@ -162,15 +166,13 @@ export default function BrowseLeadsPage() {
                             </Avatar>
                             <div>
                                 <p className="font-bold text-foreground">Customer in {job.location}</p>
-                                {isAdmin && (
-                                    <div className="flex items-center gap-2 mt-1">
-                                        {job.status === 'approved' ? (
-                                            <Badge variant="outline" className="text-[10px] text-green-600 border-green-200 bg-green-50"><CheckCircle2 className="h-2 w-2 mr-1" /> Approved</Badge>
-                                        ) : (
-                                            <Badge variant="outline" className="text-[10px] text-yellow-600 border-yellow-200 bg-yellow-50"><Hourglass className="h-2 w-2 mr-1" /> {job.status?.replace('_', ' ')}</Badge>
-                                        )}
-                                    </div>
-                                )}
+                                <div className="flex items-center gap-2 mt-1">
+                                    {job.status === 'approved' ? (
+                                        <Badge variant="outline" className="text-[10px] text-green-600 border-green-200 bg-green-50"><CheckCircle2 className="h-2 w-2 mr-1" /> Approved</Badge>
+                                    ) : (
+                                        <Badge variant="outline" className="text-[10px] text-yellow-600 border-yellow-200 bg-yellow-50"><Hourglass className="h-2 w-2 mr-1" /> Pending Approval</Badge>
+                                    )}
+                                </div>
                             </div>
                         </div>
                         <p className="text-xs text-muted-foreground font-medium">{getPostedTime(job.createdAt)}</p>
@@ -206,7 +208,7 @@ export default function BrowseLeadsPage() {
                 <CardContent className="text-center">
                   <User className="h-16 w-16 text-muted-foreground mx-auto mb-4 opacity-10" />
                   <h3 className="text-xl font-bold text-foreground mb-1">No active leads found</h3>
-                  <p className="text-muted-foreground">Try adjusting your filters or checking the Admin Queue if you just posted a test lead.</p>
+                  <p className="text-muted-foreground">Try adjusting your filters or checking back soon.</p>
                 </CardContent>
               </Card>
             )}

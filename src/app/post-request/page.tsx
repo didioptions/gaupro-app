@@ -62,7 +62,7 @@ const whyChooseGaupro = [
 function PostRequestContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { user } = useUser();
+  const { user, profile } = useUser();
   const db = useFirestore();
   
   const serviceQuery = searchParams.get('service') || '';
@@ -155,6 +155,7 @@ function PostRequestContent() {
     setIsSubmitting(true);
 
     const leadId = Math.random().toString(36).substring(7);
+    const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
     
     // PUBLIC DATA (SEO Safe)
     const publicData = {
@@ -162,7 +163,7 @@ function PostRequestContent() {
         description: (formData.job_details as string) || "No description provided",
         location: (formData.suburb as string) || (formData.city as string) || locationValue || "Unknown",
         dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
-        status: 'pending_review',
+        status: isAdmin ? 'approved' : 'pending_review', // Auto-approve if admin
         budget: (formData.budget as string) || "Quote Required",
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest',
@@ -199,18 +200,18 @@ function PostRequestContent() {
     if (isSubmitted) {
       return (
         <div className="text-center py-12 px-6">
-          <h2 className="text-2xl font-bold mb-4 text-primary">✅ Request Submitted for Review</h2>
+          <h2 className="text-2xl font-bold mb-4 text-primary">✅ Request Submitted Successfully</h2>
           <div className="text-foreground space-y-4 text-left bg-secondary/20 p-6 rounded-lg">
             <p>
-              Your request for <strong>{serviceLabel}</strong> has been received and is being verified.
+              Your request for <strong>{serviceLabel}</strong> has been received.
             </p>
             <p>
               <strong>What's next?</strong>
             </p>
             <ol className="list-decimal list-inside space-y-3">
-                <li>We'll verify your requirements to ensure you get the best matches.</li>
-                <li>Once approved, local pros will receive your request.</li>
+                <li>Local pros will receive your request.</li>
                 <li>You'll start receiving quotes via email and WhatsApp.</li>
+                <li>Compare reviews and hire with confidence!</li>
             </ol>
           </div>
           <Button asChild className="mt-8 w-full sm:w-auto" size="lg">
