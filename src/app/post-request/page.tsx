@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
@@ -167,7 +168,8 @@ function PostRequestContent() {
         budget: (formData.budget as string) || "Quote Required",
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest',
-        credits: 3
+        credits: 3,
+        purchasers: [] // Initialize empty purchasers array for security rules
     };
 
     // PRIVATE DATA (Restricted)

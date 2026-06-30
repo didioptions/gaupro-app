@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, CreditCard, Briefcase, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
-import { collection, query, orderBy, limit, where, doc, onSnapshot, runTransaction, serverTimestamp } from 'firebase/firestore';
+import { collection, query, orderBy, limit, where, doc, onSnapshot, runTransaction, serverTimestamp, arrayUnion } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { QuoteDialog } from '@/components/pro/quote-dialog';
@@ -83,12 +83,18 @@ export default function BrowseQuotesPage() {
 
       await runTransaction(firestore, async (transaction) => {
         const proDoc = await transaction.get(proRef);
+        const leadDoc = await transaction.get(leadRef);
+
         if (!proDoc.exists()) throw "Profile missing";
+        if (!leadDoc.exists()) throw "Lead missing";
 
         const balance = proDoc.data().creditBalance || 0;
         if (balance < cost) throw "Insufficient credits";
 
         const currentLeadCount = proDoc.data().leadCount || 0;
+        const purchasers = leadDoc.data().purchasers || [];
+
+        if (purchasers.includes(user.uid)) throw "You have already unlocked this lead.";
 
         // 1. Deduct Credits & Increment Purchased Count
         transaction.update(proRef, {
@@ -96,9 +102,10 @@ export default function BrowseQuotesPage() {
           leadCount: currentLeadCount + 1
         });
 
-        // 2. Increment lead's quote count
+        // 2. Increment lead's quote count and add pro to purchasers array
         transaction.update(leadRef, {
-          quoteCount: (job.quoteCount || 0) + 1
+          quoteCount: (job.quoteCount || 0) + 1,
+          purchasers: arrayUnion(user.uid)
         });
 
         // 3. Log the purchase for audit trail
@@ -116,7 +123,6 @@ export default function BrowseQuotesPage() {
         description: 'Customer contact details are now available.',
       });
       
-      // Setting selectedJob opens the dialog which fetches the private data
       setSelectedJob(job);
     } catch (err: any) {
       console.error("Unlock failed:", err);
@@ -207,6 +213,7 @@ export default function BrowseQuotesPage() {
                 const quoteCount = job.quoteCount || 0;
                 const isClosed = quoteCount >= MAX_QUOTES_ALLOWED;
                 const cost = job.credits || 3;
+                const isUnlocked = user && job.purchasers?.includes(user.uid);
 
                 return (
                   <Card key={job.id} className="bg-card hover:shadow-md transition-shadow">
@@ -221,6 +228,7 @@ export default function BrowseQuotesPage() {
                           <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">{job.description}</p>
                           <div className="flex gap-3">
                               <Badge variant="outline" className="text-[10px] font-bold">VERIFIED LEAD</Badge>
+                              {isUnlocked && <Badge className="text-[10px] bg-green-100 text-green-700 border-green-200">UNLOCKED</Badge>}
                           </div>
                         </div>
                         <div className="flex-shrink-0 w-full sm:w-52 text-sm space-y-3 bg-secondary/10 p-4 rounded-lg border">
@@ -231,7 +239,14 @@ export default function BrowseQuotesPage() {
                         </div>
                       </div>
                       <div className="mt-6 pt-4 border-t">
-                        {isClosed ? (
+                        {isUnlocked ? (
+                           <Button
+                           className="w-full sm:w-auto h-12 px-10 font-bold bg-green-600 hover:bg-green-700"
+                           onClick={() => setSelectedJob(job)}
+                         >
+                           View Customer Details
+                         </Button>
+                        ) : isClosed ? (
                           <Badge variant="destructive" className="px-6 py-2">Lead Closed</Badge>
                         ) : (
                           <Button
