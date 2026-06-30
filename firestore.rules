@@ -17,34 +17,25 @@ service cloud.firestore {
 
     function isAdmin() {
       let data = getUserData();
-      return isSignedIn() && (data.get('role', 'admin') || data.get('role', 'super_admin'));
+      return isSignedIn() && (data.get('role', 'admin') == 'admin' || data.get('role', 'admin') == 'super_admin');
     }
 
     // --- Marketplace: Public Leads (SEO & Previews) ---
     match /leads_public/{leadId} {
-      // Anyone can see approved lead previews for SEO
       allow read: if resource.data.status == 'approved' || isAdmin();
-      
-      // Anyone (Guest or User) can submit a lead with status 'pending_review'
       allow create: if request.resource.data.status == 'pending_review' || isAdmin();
-      
-      // Allow updates for 'quoteCount' and the 'purchasers' tracking array during purchases
       allow update: if isAdmin() || (isSignedIn() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quoteCount', 'purchasers']));
       allow delete: if isAdmin();
     }
 
     // --- Marketplace: Private Contact Details ---
     match /leads_private/{leadId} {
-      // CRITICAL: Only allow reading if user is an admin OR has paid to unlock this specific lead
       allow read: if isAdmin() || (
         isSignedIn() && 
         exists(/databases/$(database)/documents/leads_public/$(leadId)) &&
         request.auth.uid in get(/databases/$(database)/documents/leads_public/$(leadId)).data.get('purchasers', [])
       );
-      
-      // Allow creation during the dual-write submission process
       allow create: if true; 
-      
       allow update, delete: if isAdmin();
     }
 
@@ -52,8 +43,6 @@ service cloud.firestore {
     match /users/{userId} {
       allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
       allow create: if isSignedIn() && request.auth.uid == userId;
-      
-      // Users cannot change their own 'role' field
       allow update: if isAdmin() || (
         isSignedIn() && request.auth.uid == userId 
         && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['role']))
@@ -71,10 +60,11 @@ service cloud.firestore {
       allow create: if isSignedIn();
       
       // Prevent users from manually increasing their own credits or tampering with counts
+      // Using .get() with fallback 0 ensures the rule doesn't crash if fields are missing
       allow update: if isAdmin() || (
         isSignedIn() && request.auth.uid == resource.data.userId
-        && request.resource.data.creditBalance <= resource.data.creditBalance
-        && request.resource.data.leadCount >= resource.data.leadCount
+        && request.resource.data.get('creditBalance', 0) <= resource.data.get('creditBalance', 0)
+        && request.resource.data.get('leadCount', 0) >= resource.data.get('leadCount', 0)
       );
 
       match /reviews/{reviewId} {
@@ -87,7 +77,6 @@ service cloud.firestore {
     // --- Audit Logs ---
     match /marketplace_audit_logs/{id} {
         allow read: if isAdmin();
-        // Professionals must be able to log their own lead purchases
         allow create: if isSignedIn();
         allow update, delete: if isAdmin();
     }
@@ -96,7 +85,6 @@ service cloud.firestore {
         allow read, write: if isAdmin();
     }
 
-    // Final Catch-all (Admin Restricted)
     match /{document=**} {
       allow read, write: if isAdmin();
     }

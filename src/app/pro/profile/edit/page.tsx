@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -12,8 +13,8 @@ import { allServices } from '@/lib/service-questions';
 import { Textarea } from '@/components/ui/textarea';
 import { Autocomplete } from '@/components/ui/autocomplete';
 import { Badge } from '@/components/ui/badge';
-import { X } from 'lucide-react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import { X, Loader2 } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/alert';
 import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RequestReviewDialog } from '@/components/pro/request-review-dialog';
@@ -95,7 +96,7 @@ export default function EditProfilePage() {
         }
     };
 
-    const unsubscribe = fetchProfile();
+    fetchProfile();
   }, [user, isUserLoading, firestore, toast]);
 
   useEffect(() => {
@@ -113,7 +114,7 @@ export default function EditProfilePage() {
         
         setFormData((prev) => ({ ...prev, serviceAreas: Array.from(newServiceAreas) }));
     }
-  }, [formData.location, formData.serviceAreas]);
+  }, [formData.location]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -161,12 +162,15 @@ export default function EditProfilePage() {
     setIsSaving(true);
     try {
         const docRef = doc(firestore, 'professionalProfiles', profileId);
-        await updateDoc(docRef, formData as any);
+        // We omit creditBalance and leadCount from direct updates to avoid security rule conflicts
+        const { creditBalance, leadCount, ...restOfData } = formData as any;
+        await updateDoc(docRef, restOfData);
         setShowSuccessAlert(true);
         setTimeout(() => setShowSuccessAlert(false), 5000);
-    } catch (error) {
+        toast({ title: 'Profile Updated', description: 'Your changes have been saved successfully.' });
+    } catch (error: any) {
         console.error("Error saving data:", error);
-        toast({ variant: 'destructive', title: 'Save Failed', description: 'Could not update your profile. Please try again.' });
+        toast({ variant: 'destructive', title: 'Save Failed', description: error.message || 'Could not update your profile.' });
     } finally {
         setIsSaving(false);
     }
@@ -189,28 +193,27 @@ export default function EditProfilePage() {
     try {
         if (logoFile.length > 0) {
             const file = logoFile[0];
-            const storageRef = ref(storage, `profiles/${profileId}/logo/${file.name}`);
+            const storageRef = ref(storage, `profiles/${profileId}/logo/${Date.now()}-${file.name}`);
             await uploadBytes(storageRef, file);
             const downloadURL = await getDownloadURL(storageRef);
             updatedData.avatarSeed = downloadURL;
-            setFormData((prev) => ({ ...prev, avatarSeed: downloadURL }));
         }
 
         if (photoFiles.length > 0) {
             const photoURLs = [...(formData.photos || [])];
             for (const file of photoFiles) {
-                const storageRef = ref(storage, `profiles/${profileId}/photos/${file.name}`);
+                const storageRef = ref(storage, `profiles/${profileId}/photos/${Date.now()}-${file.name}`);
                 await uploadBytes(storageRef, file);
                 const downloadURL = await getDownloadURL(storageRef);
                 photoURLs.push(downloadURL);
             }
             updatedData.photos = photoURLs;
-            setFormData((prev) => ({ ...prev, photos: photoURLs }));
         }
 
         if (firestore) {
             const docRef = doc(firestore, 'professionalProfiles', profileId);
             await updateDoc(docRef, updatedData as any);
+            setFormData((prev) => ({ ...prev, ...updatedData }));
         }
 
         toast({ title: 'Success!', description: 'Your media has been uploaded and saved.' });
@@ -219,9 +222,9 @@ export default function EditProfilePage() {
         setShowSuccessAlert(true);
         setTimeout(() => setShowSuccessAlert(false), 5000);
 
-    } catch (error) {
+    } catch (error: any) {
         console.error('Upload failed:', error);
-        toast({ variant: 'destructive', title: 'Upload Failed', description: 'There was an error uploading your files. Please try again.' });
+        toast({ variant: 'destructive', title: 'Upload Failed', description: error.message || 'There was an error uploading your files.' });
     } finally {
         setIsSaving(false);
     }
@@ -272,6 +275,7 @@ export default function EditProfilePage() {
               <TabsTrigger value="qa" className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none">Q & A</TabsTrigger>
             </TabsList>
             <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
+                {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                 {isSaving ? 'Saving...' : 'Save'}
             </Button>
           </div>
@@ -354,12 +358,6 @@ export default function EditProfilePage() {
                 </div>
               </CardContent>
             </Card>
-            <div className="flex justify-end gap-2 mt-6">
-              <Button variant="outline">Cancel</Button>
-              <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
-                {isSaving ? 'Saving...' : 'Save'}
-              </Button>
-            </div>
           </TabsContent>
           <TabsContent value="services" className="mt-6">
             <Card>
@@ -392,11 +390,6 @@ export default function EditProfilePage() {
                     </div>
 
                     <div>
-                        <h2 className="text-xl font-normal">Categories</h2>
-                        <p className="text-sm text-muted-foreground mt-1">Categories are grouped by the keywords selected. Please ensure that your categories match your business services.</p>
-                    </div>
-
-                    <div>
                         <h2 className="text-xl font-normal">Tag Line</h2>
                         <p className="text-sm text-muted-foreground mt-1">Enter a short catchy phrase that best describes your business and services (maximum of 200 characters)</p>
                         <div className="mt-4">
@@ -414,37 +407,52 @@ export default function EditProfilePage() {
 
                 </CardContent>
             </Card>
-            <div className="flex justify-end gap-2 mt-6">
-                <Button variant="outline">Cancel</Button>
-                <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
-                    {isSaving ? 'Saving...' : 'Save'}
-                </Button>
-            </div>
           </TabsContent>
           <TabsContent value="media" className="mt-6">
             <Card>
               <CardContent className="p-8 space-y-8">
-                <div>
-                  <h2 className="text-xl font-normal mb-4">Logo</h2>
-                  <p className="text-sm text-muted-foreground mb-4">Upload a square image that represents your business (e.g., your company logo).</p>
-                  <FileUpload onFilesChange={setLogoFile} />
+                <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h2 className="text-xl font-normal mb-4">Logo</h2>
+                        <p className="text-sm text-muted-foreground mb-4">Upload a square image that represents your business (e.g., your company logo).</p>
+                        {formData.avatarSeed && (
+                            <div className="relative w-24 h-24 mb-4 rounded-md border overflow-hidden">
+                                <Image src={formData.avatarSeed} alt="Logo Preview" fill className="object-cover" unoptimized />
+                            </div>
+                        )}
+                        <FileUpload onFilesChange={setLogoFile} />
+                    </div>
+                    
+                    <div>
+                        <h2 className="text-xl font-normal mb-4">Portfolio Photos</h2>
+                        <p className="text-sm text-muted-foreground mb-4">Upload high-quality photos of your work to show potential customers what you can do.</p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                            {(formData.photos || []).map((photo, i) => (
+                                <div key={i} className="relative w-16 h-16 rounded border overflow-hidden group">
+                                    <Image src={photo} alt={`Portfolio ${i}`} fill className="object-cover" unoptimized />
+                                    <button 
+                                        className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white"
+                                        onClick={() => {
+                                            const newPhotos = formData.photos?.filter((_, idx) => idx !== i);
+                                            setFormData(prev => ({ ...prev, photos: newPhotos }));
+                                        }}
+                                    >
+                                        <X className="h-4 w-4" />
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                        <FileUpload multiple onFilesChange={setPhotoFiles} />
+                    </div>
                 </div>
-                
-                <Separator />
-                
-                <div>
-                  <h2 className="text-xl font-normal mb-4">Portfolio Photos</h2>
-                  <p className="text-sm text-muted-foreground mb-4">Upload up to 10 high-quality photos of your work to show potential customers what you can do.</p>
-                  <FileUpload multiple onFilesChange={setPhotoFiles} />
+                <div className="flex justify-end pt-4 border-t">
+                  <Button className="bg-red-500 hover:bg-red-600" onClick={handleSaveMedia} disabled={isSaving}>
+                    {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                    {isSaving ? 'Uploading Media...' : 'Save & Upload Media'}
+                  </Button>
                 </div>
               </CardContent>
             </Card>
-            <div className="flex justify-end gap-2 mt-6">
-              <Button variant="outline">Cancel</Button>
-              <Button className="bg-red-500 hover:bg-red-600" onClick={handleSaveMedia} disabled={isSaving}>
-                {isSaving ? 'Saving Media...' : 'Save Media'}
-              </Button>
-            </div>
           </TabsContent>
            <TabsContent value="location" className="mt-6">
             <Card>
@@ -540,12 +548,6 @@ export default function EditProfilePage() {
 
               </CardContent>
             </Card>
-            <div className="flex justify-end gap-2 mt-6">
-              <Button variant="outline">Cancel</Button>
-              <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
-                {isSaving ? 'Saving...' : 'Save'}
-              </Button>
-            </div>
            </TabsContent>
            <TabsContent value="reviews" className="mt-6">
             <div className="space-y-6">
@@ -562,20 +564,6 @@ export default function EditProfilePage() {
                         </CardContent>
                     </Card>
                 </RequestReviewDialog>
-              <Alert className="bg-blue-50 border-blue-200 text-blue-800 text-center">
-                  <AlertDescription>
-                      Your business profile does not have any reviews. Getting customer reviews make you twice as likely to be hired on Gaupro.
-                      <br />
-                        <RequestReviewDialog
-                            businessName={formData.name || 'your business'}
-                            userName={formData.firstName || 'your name'}
-                        >
-                            <Button variant="link" className="text-blue-800 h-auto p-0 mt-2">
-                                Get Customer Reviews
-                            </Button>
-                        </RequestReviewDialog>
-                  </AlertDescription>
-              </Alert>
             </div>
           </TabsContent>
           <TabsContent value="qa" className="mt-6">

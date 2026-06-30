@@ -1,7 +1,8 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
-import { AlertCircle, Users, Loader2, MapPin, BadgeCheck, ShieldCheck } from 'lucide-react';
+import { AlertCircle, Users, MapPin, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -126,6 +127,7 @@ export default function ProProfilePage() {
                                         alt={`${profile.name} logo`}
                                         fill
                                         className="object-cover"
+                                        unoptimized
                                       />
                                     ) : (
                                       <div className="w-full h-full flex items-center justify-center">
@@ -139,7 +141,7 @@ export default function ProProfilePage() {
                                           <span className="text-green-600 text-sm font-medium">(Active)</span>
                                       </h2>
                                       <p className="text-muted-foreground flex items-center gap-1 text-sm mt-1">
-                                        <MapPin className="h-3 w-3" />
+                                        <MapPin className="h-3.5 w-3.5" />
                                         {profile.location || 'Location not set'}
                                       </p>
                                       <Link href="/pro/dashboard" className="text-primary text-sm font-medium hover:underline mt-2 inline-block">

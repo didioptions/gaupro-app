@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -110,6 +111,8 @@ export default function ProRegisterPage() {
         phone: values.phoneNumber,
         rating: 0,
         reviews: 0,
+        creditBalance: 0, // CRITICAL: Initialize for security rules
+        leadCount: 0,      // CRITICAL: Initialize for security rules
         isProVerified: false,
         priorityRank: 0,
         createdAt: new Date().toISOString(),

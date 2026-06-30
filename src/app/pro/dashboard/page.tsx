@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
@@ -217,7 +218,7 @@ export default function ProDashboardPage() {
                   <Link href="/pro/profile/edit">
                     <div className="w-16 h-16 bg-gray-100 rounded-md flex items-center justify-center text-xs text-muted-foreground border relative overflow-hidden">
                       {profileData?.avatarSeed ? (
-                         <Image src={profileData.avatarSeed} alt={`${profileData.name} logo`} fill className="object-cover" />
+                         <Image src={profileData.avatarSeed} alt={`${profileData.name} logo`} fill className="object-cover" unoptimized />
                       ) : (
                          <span className="text-center">No Logo</span>
                       )}
