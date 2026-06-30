@@ -3,13 +3,14 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin, Clock, Search, Loader2, User, Lock, AlertCircle } from 'lucide-react';
+import { MapPin, Clock, Search, Loader2, User, Lock, AlertCircle, CheckCircle2, Hourglass } from 'lucide-react';
 import Link from 'next/link';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit, where } from 'firebase/firestore';
 import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import {
   Dialog,
   DialogContent,
@@ -25,21 +26,33 @@ export default function BrowseLeadsPage() {
   const [locationQuery, setLocationQuery] = useState('');
   const [showLoginModal, setShowLoginModal] = useState(false);
   const firestore = useFirestore();
-  const { user } = useUser();
+  const { user, profile, isUserLoading } = useUser();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+
   const leadsQuery = useMemoFirebase(() => {
-    if (!firestore) return null;
+    if (!firestore || isUserLoading) return null;
+    
+    // If Admin, show everything. If public/Pro, only show approved.
+    if (isAdmin) {
+      return query(
+          collection(firestore, 'leads_public'),
+          orderBy('createdAt', 'desc'),
+          limit(50)
+      );
+    }
+
     return query(
         collection(firestore, 'leads_public'),
         where('status', '==', 'approved'),
         orderBy('createdAt', 'desc'),
         limit(50)
     );
-  }, [firestore]);
+  }, [firestore, isUserLoading, isAdmin]);
 
   const { data: leads, loading, error } = useCollection(leadsQuery);
   
@@ -89,7 +102,10 @@ export default function BrowseLeadsPage() {
     <main className="flex-grow bg-secondary/10 min-h-screen">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto mb-10">
-          <h1 className="text-2xl font-normal mb-6 text-foreground">Latest Customer Requests</h1>
+          <div className="flex justify-between items-end mb-6">
+              <h1 className="text-2xl font-normal text-foreground">Latest Customer Requests</h1>
+              {isAdmin && <Badge className="bg-primary text-white">Admin View: Showing All Statuses</Badge>}
+          </div>
           
           <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 md:grid-cols-12 gap-2 bg-white p-3 rounded-lg shadow-sm border mb-8">
               <div className="relative md:col-span-5">
@@ -118,9 +134,9 @@ export default function BrowseLeadsPage() {
           {error && (
             <Alert variant="destructive" className="mb-8">
               <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Public Marketplace Error</AlertTitle>
+              <AlertTitle>Marketplace Connection Error</AlertTitle>
               <AlertDescription>
-                Ensure your Firestore Rules for 'leads_public' are deployed.
+                We're having trouble reaching the database. {isAdmin ? "Check your Firestore logs for permission errors." : "Please try again later."}
               </AlertDescription>
             </Alert>
           )}
@@ -133,7 +149,10 @@ export default function BrowseLeadsPage() {
                 </div>
             ) : filteredJobs.length > 0 ? (
               filteredJobs.map((job) => (
-                <Card key={job.id} className="bg-white border hover:shadow-md transition-shadow relative">
+                <Card key={job.id} className={cn(
+                    "bg-white border hover:shadow-md transition-shadow relative",
+                    job.status !== 'approved' && "border-l-4 border-l-yellow-400 bg-yellow-50/10"
+                )}>
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center gap-3">
@@ -142,6 +161,15 @@ export default function BrowseLeadsPage() {
                             </Avatar>
                             <div>
                                 <p className="font-bold text-foreground">Customer in {job.location}</p>
+                                {isAdmin && (
+                                    <div className="flex items-center gap-2 mt-1">
+                                        {job.status === 'approved' ? (
+                                            <Badge variant="outline" className="text-[10px] text-green-600 border-green-200 bg-green-50"><CheckCircle2 className="h-2 w-2 mr-1" /> Approved</Badge>
+                                        ) : (
+                                            <Badge variant="outline" className="text-[10px] text-yellow-600 border-yellow-200 bg-yellow-50"><Hourglass className="h-2 w-2 mr-1" /> {job.status?.replace('_', ' ')}</Badge>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <p className="text-xs text-muted-foreground font-medium">{getPostedTime(job.createdAt)}</p>
@@ -177,7 +205,7 @@ export default function BrowseLeadsPage() {
                 <CardContent className="text-center">
                   <User className="h-16 w-16 text-muted-foreground mx-auto mb-4 opacity-10" />
                   <h3 className="text-xl font-bold text-foreground mb-1">No active leads found</h3>
-                  <p className="text-muted-foreground">Try adjusting your filters.</p>
+                  <p className="text-muted-foreground">Try adjusting your filters or checking the Admin Queue if you just posted a test lead.</p>
                 </CardContent>
               </Card>
             )}
