@@ -18,7 +18,8 @@ import {
     QueryDocumentSnapshot,
     where,
     writeBatch,
-    getDoc
+    getDoc,
+    or
 } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -177,9 +178,18 @@ export default function LeadOversightPage() {
 
       // NOTIFICATION LOGIC FOR APPROVAL
       if (action === 'approved') {
-            // Find matching professionals by Category
+            // Find matching professionals by Category OR Tags
             const prosRef = collection(firestore, 'professionalProfiles');
-            const q = query(prosRef, where('serviceCategory', '==', currentLead.category));
+            
+            // Advanced Matching: Professionals where Category matches OR Tags contains Category
+            const q = query(
+              prosRef, 
+              or(
+                where('serviceCategory', '==', currentLead.category),
+                where('tags', 'array-contains', currentLead.category)
+              )
+            );
+            
             const prosSnap = await getDocs(q);
 
             if (!prosSnap.empty) {

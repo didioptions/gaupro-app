@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -11,13 +12,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Menu, User, ChevronDown, Bell, LayoutDashboard } from 'lucide-react';
-import { useState } from 'react';
-import { useUser, useAuth } from '@/firebase';
+import { useState, useEffect } from 'react';
+import { useUser, useAuth, useFirestore } from '@/firebase';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { Skeleton } from '../ui/skeleton';
 import { Badge } from '../ui/badge';
 import { Logo } from '@/components/logo';
+import { collection, query, where, onSnapshot } from 'firebase/firestore';
 
 const publicNavLinks = [
   { href: '/post-request', label: 'Post Request' },
@@ -34,11 +36,33 @@ const proNavLinks = [
 
 export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
   const { user, profile, isUserLoading } = useUser();
   const auth = useAuth();
+  const firestore = useFirestore();
   const router = useRouter();
 
   const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+
+  useEffect(() => {
+    if (!user || !firestore) {
+      setUnreadCount(0);
+      return;
+    }
+
+    const unreadQuery = query(
+      collection(firestore, 'users', user.uid, 'notifications'),
+      where('status', '==', 'unread')
+    );
+
+    const unsubscribe = onSnapshot(unreadQuery, (snapshot) => {
+      setUnreadCount(snapshot.size);
+    }, (error) => {
+      console.error("Error listening for unread notifications:", error);
+    });
+
+    return () => unsubscribe();
+  }, [user, firestore]);
 
   const closeSheet = () => setIsSheetOpen(false);
 
@@ -46,7 +70,6 @@ export default function Header() {
     if (auth) {
       try {
         await signOut(auth);
-        // Force a hard reload to the home page to clear all memory state
         window.location.href = '/';
       } catch (error) {
         console.error("Logout error:", error);
@@ -79,12 +102,16 @@ export default function Header() {
                     {link.label}
                 </Link>
               ))}
-              <Button variant="ghost" size="icon">
-                <Bell className="h-5 w-5" />
-                <Badge className="absolute top-1 right-1 h-4 w-4 justify-center p-0 text-xs rounded-full bg-red-600 text-white">
-                  0
-                </Badge>
-              </Button>
+              <div className="relative">
+                <Button variant="ghost" size="icon" onClick={() => router.push('/pro/dashboard')}>
+                  <Bell className="h-5 w-5" />
+                  {unreadCount > 0 && (
+                    <Badge className="absolute -top-1 -right-1 h-4 w-auto min-w-[1rem] justify-center p-1 text-[10px] rounded-full bg-red-600 text-white border-white">
+                      {unreadCount > 9 ? '9+' : unreadCount}
+                    </Badge>
+                  )}
+                </Button>
+              </div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center gap-2">
@@ -142,7 +169,7 @@ export default function Header() {
                 {!isUserLoading && user && (
                   <>
                     <Link href="/pro/dashboard" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
-                        Dashboard
+                        Dashboard {unreadCount > 0 && `(${unreadCount})`}
                     </Link>
                     {isAdmin && (
                       <Link href="/pro/admin" className="transition-colors hover:text-primary font-bold flex items-center gap-2" onClick={closeSheet}>
