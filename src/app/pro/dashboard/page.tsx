@@ -19,7 +19,8 @@ import {
   RefreshCcw, 
   LogOut, 
   MapPin, 
-  Clock 
+  Clock,
+  CheckCircle2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -31,7 +32,7 @@ import {
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
 import { useUser, useFirestore, useAuth, useCollection, useMemoFirebase } from '@/firebase';
-import { collection, query, where, limit, orderBy, onSnapshot, doc } from 'firebase/firestore';
+import { collection, query, where, limit, orderBy, onSnapshot, doc, updateDoc } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
@@ -40,6 +41,7 @@ import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
 import { SupportChatWidget } from '@/components/pro/support-chat-widget';
+import { cn } from '@/lib/utils';
 
 interface ProfessionalProfile {
   id?: string;
@@ -89,7 +91,7 @@ export default function ProDashboardPage() {
     const nQ = query(
         collection(firestore, 'users', user.uid, 'notifications'),
         orderBy('createdAt', 'desc'),
-        limit(3)
+        limit(5)
     );
     const unsubscribeNotifications = onSnapshot(nQ, (snapshot) => {
         setNotifications(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
@@ -128,6 +130,16 @@ export default function ProDashboardPage() {
   }, [profileData, allLeads]);
 
   const relevantLeads = useMemo(() => matchingLeads.slice(0, 3), [matchingLeads]);
+
+  const markAsRead = async (notificationId: string) => {
+    if (!user || !firestore) return;
+    try {
+        const notifRef = doc(firestore, 'users', user.uid, 'notifications', notificationId);
+        await updateDoc(notifRef, { status: 'read' });
+    } catch (err) {
+        console.error("Failed to mark as read:", err);
+    }
+  };
 
   const handleLogout = async () => {
     if (auth) {
@@ -198,13 +210,31 @@ export default function ProDashboardPage() {
              <div className="space-y-3">
                 <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Recent Notifications</p>
                 {notifications.map(n => (
-                  <Card key={n.id} className="border-l-4 border-l-primary">
+                  <Card key={n.id} className={cn(
+                    "border-l-4 transition-colors",
+                    n.status === 'unread' ? "border-l-primary bg-primary/5" : "border-l-muted bg-card"
+                  )}>
                     <CardContent className="p-4 flex justify-between items-center">
-                      <div>
-                        <p className="font-bold text-sm">{n.title}</p>
-                        <p className="text-xs text-muted-foreground">{n.message}</p>
+                      <div className="flex-grow">
+                        <div className="flex items-center gap-2">
+                           <p className="font-bold text-sm">{n.title}</p>
+                           {n.status === 'unread' && <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />}
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-0.5">{n.message}</p>
                       </div>
-                      <Badge variant="outline" className="text-[10px]">{n.createdAt?.seconds ? new Date(n.createdAt.seconds * 1000).toLocaleDateString() : 'Recently'}</Badge>
+                      <div className="flex items-center gap-4">
+                          <Badge variant="outline" className="text-[10px] hidden sm:inline-flex">{n.createdAt?.seconds ? new Date(n.createdAt.seconds * 1000).toLocaleDateString() : 'Recently'}</Badge>
+                          {n.status === 'unread' && (
+                              <Button variant="ghost" size="sm" onClick={() => markAsRead(n.id)} className="h-8 text-[10px] font-bold uppercase tracking-wider text-primary hover:text-primary/80">
+                                <CheckCircle2 className="h-3 w-3 mr-1" /> Mark as Read
+                              </Button>
+                          )}
+                          {n.targetId && (
+                              <Button asChild variant="secondary" size="sm" className="h-8 text-[10px] font-bold uppercase tracking-wider">
+                                <Link href="/browse-quotes">View Lead</Link>
+                              </Button>
+                          )}
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
@@ -283,7 +313,6 @@ export default function ProDashboardPage() {
                       {profileData?.creditBalance ?? 0}
                   </p>
               </CardContent>
-            </Card>
 
             <Card>
               <CardContent className="p-6">

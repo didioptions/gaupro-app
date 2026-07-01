@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
@@ -14,7 +15,9 @@ import {
     collection,
     getDocs,
     startAfter,
-    QueryDocumentSnapshot
+    QueryDocumentSnapshot,
+    where,
+    writeBatch
 } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -72,6 +75,7 @@ export default function LeadOversightPage() {
   const [viewLead, setViewLead] = useState<any>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState<any>({});
+  const [isProcessingAction, setIsProcessingAction] = useState(false);
 
   const fetchLeads = useCallback(async (isInitial = true) => {
     if (!firestore || isUserLoading) return;
@@ -136,6 +140,8 @@ export default function LeadOversightPage() {
 
   const handleAction = async (leadId: string, action: 'approved' | 'rejected' | 'needs_info' | 'flagged', extraData = {}) => {
     if (!adminUser || !firestore) return;
+    setIsProcessingAction(true);
+    
     try {
       const leadRef = doc(firestore, 'leads_public', leadId);
       const updateObj = { 
@@ -146,6 +152,7 @@ export default function LeadOversightPage() {
       
       await updateDoc(leadRef, updateObj);
       
+      // LOG ACTION
       await addDoc(collection(firestore, 'marketplace_audit_logs'), {
         adminUid: adminUser.uid,
         action: `LEAD_${action.toUpperCase()}`,
@@ -154,13 +161,46 @@ export default function LeadOversightPage() {
         timestamp: serverTimestamp()
       });
 
+      // NOTIFICATION LOGIC FOR APPROVAL
+      if (action === 'approved') {
+        const lead = leads.find(l => l.id === leadId);
+        if (lead) {
+            // Find matching professionals
+            // Matching logic: Pro Category matches Lead Category
+            const prosRef = collection(firestore, 'professionalProfiles');
+            const q = query(prosRef, where('serviceCategory', '==', lead.category));
+            const prosSnap = await getDocs(q);
+
+            if (!prosSnap.empty) {
+                const batch = writeBatch(firestore);
+                prosSnap.docs.forEach(proDoc => {
+                    const pro = proDoc.data();
+                    const notifRef = doc(collection(firestore, 'users', pro.userId, 'notifications'));
+                    batch.set(notifRef, {
+                        title: 'New Lead Match',
+                        message: `A new ${lead.category} job is available in ${lead.location}. View details to quote.`,
+                        type: 'lead',
+                        status: 'unread',
+                        createdAt: serverTimestamp(),
+                        targetId: leadId
+                    });
+                });
+                await batch.commit();
+                toast({ title: 'Notifications Sent', description: `In-app alerts sent to ${prosSnap.size} matching professionals.` });
+            }
+        }
+      }
+
       setLeads(prev => prev.map(l => l.id === leadId ? { ...l, ...updateObj } : l));
 
       toast({ title: 'Success', description: `Lead marked as ${action.replace('_', ' ')}.` });
       setViewLead(null);
       setIsEditing(false);
     } catch (e: any) {
+      console.error("Action failed:", e);
       toast({ variant: 'destructive', title: 'Error', description: e.message });
+    } finally {
+      setIsProcessingAction(false);
     }
   };
 
@@ -395,10 +435,17 @@ export default function LeadOversightPage() {
           {!isEditing && (
             <DialogFooter className="flex-col sm:flex-row gap-2">
                 <div className="flex flex-1 gap-2">
-                    <Button variant="outline" className="flex-1 text-red-600" onClick={() => handleAction(viewLead.id, 'rejected')}><XCircle className="h-4 w-4 mr-2" /> Reject</Button>
-                    <Button variant="outline" className="flex-1 text-blue-600" onClick={() => handleAction(viewLead.id, 'needs_info')}><HelpCircle className="h-4 w-4 mr-2" /> Needs Info</Button>
+                    <Button variant="outline" className="flex-1 text-red-600" onClick={() => handleAction(viewLead.id, 'rejected')} disabled={isProcessingAction}>
+                        <XCircle className="h-4 w-4 mr-2" /> Reject
+                    </Button>
+                    <Button variant="outline" className="flex-1 text-blue-600" onClick={() => handleAction(viewLead.id, 'needs_info')} disabled={isProcessingAction}>
+                        <HelpCircle className="h-4 w-4 mr-2" /> Needs Info
+                    </Button>
                 </div>
-                <Button className="flex-1 bg-green-600 hover:bg-green-700" onClick={() => handleAction(viewLead.id, 'approved', { ...editData })}><CheckCircle2 className="h-4 w-4 mr-2" /> Approve & Distribute</Button>
+                <Button className="flex-1 bg-green-600 hover:bg-green-700" onClick={() => handleAction(viewLead.id, 'approved', { ...editData })} disabled={isProcessingAction}>
+                    {isProcessingAction ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <CheckCircle2 className="h-4 w-4 mr-2" />}
+                    Approve & Distribute
+                </Button>
             </DialogFooter>
           )}
         </DialogContent>
