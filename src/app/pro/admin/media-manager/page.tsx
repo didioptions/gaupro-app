@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -15,6 +16,8 @@ interface UploadedFile {
   name: string;
   url: string;
 }
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB for admin uploads
 
 export default function MediaManagerPage() {
   const [filesToUpload, setFilesToUpload] = useState<File[]>([]);
@@ -41,6 +44,17 @@ export default function MediaManagerPage() {
       return;
     }
 
+    // Size check
+    const oversizedFiles = filesToUpload.filter(f => f.size > MAX_FILE_SIZE);
+    if (oversizedFiles.length > 0) {
+        toast({
+            variant: 'destructive',
+            title: 'File too large',
+            description: `Some files exceed the ${MAX_FILE_SIZE / (1024 * 1024)}MB limit.`,
+        });
+        return;
+    }
+
     setIsUploading(true);
     const storage = getStorage();
     const newUploadedFiles: UploadedFile[] = [];
@@ -51,12 +65,16 @@ export default function MediaManagerPage() {
         const snapshot = await uploadBytes(storageRef, file);
         const downloadURL = await getDownloadURL(snapshot.ref);
         newUploadedFiles.push({ name: file.name, url: downloadURL });
-      } catch (error) {
+      } catch (error: any) {
         console.error('Upload failed for file:', file.name, error);
+        let message = 'There was an error uploading this file. Please try again.';
+        if (error.code === 'storage/quota-exceeded') {
+            message = 'Firebase Storage quota exceeded. Please upgrade your plan in the Firebase Console.';
+        }
         toast({
           variant: 'destructive',
           title: `Upload Failed for ${file.name}`,
-          description: 'There was an error uploading this file. Please try again.',
+          description: message,
         });
       }
     }

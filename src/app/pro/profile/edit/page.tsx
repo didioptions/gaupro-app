@@ -53,6 +53,8 @@ interface ProfileData {
   photos?: string[];
 }
 
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB Limit
+
 export default function EditProfilePage() {
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
@@ -187,6 +189,18 @@ export default function EditProfilePage() {
         return;
     }
 
+    // Client-side size checks
+    if (logoFile.length > 0 && logoFile[0].size > MAX_FILE_SIZE) {
+        toast({ variant: 'destructive', title: 'File too large', description: 'Your logo must be smaller than 2MB.' });
+        return;
+    }
+
+    const invalidPhotos = photoFiles.filter(f => f.size > MAX_FILE_SIZE);
+    if (invalidPhotos.length > 0) {
+        toast({ variant: 'destructive', title: 'Files too large', description: 'Portfolio photos must be smaller than 2MB each.' });
+        return;
+    }
+
     setIsSaving(true);
     const storage = getStorage();
     let updatedData: Partial<ProfileData> = {};
@@ -194,7 +208,8 @@ export default function EditProfilePage() {
     try {
         if (logoFile.length > 0) {
             const file = logoFile[0];
-            const storageRef = ref(storage, `profiles/${profileId}/logo/${Date.now()}-${file.name}`);
+            // Path without timestamp to overwrite existing logo and save storage quota
+            const storageRef = ref(storage, `profiles/${profileId}/logo/business-logo`);
             await uploadBytes(storageRef, file);
             const downloadURL = await getDownloadURL(storageRef);
             updatedData.avatarSeed = downloadURL;
@@ -225,7 +240,11 @@ export default function EditProfilePage() {
 
     } catch (error: any) {
         console.error('Upload failed:', error);
-        toast({ variant: 'destructive', title: 'Upload Failed', description: error.message || 'There was an error uploading your files.' });
+        let message = error.message || 'There was an error uploading your files.';
+        if (error.code === 'storage/quota-exceeded') {
+            message = 'Firebase Storage quota exceeded. Please upgrade your plan in the Firebase Console or wait for the daily limit to reset.';
+        }
+        toast({ variant: 'destructive', title: 'Upload Failed', description: message });
     } finally {
         setIsSaving(false);
     }
@@ -415,7 +434,7 @@ export default function EditProfilePage() {
                 <div className="grid md:grid-cols-2 gap-8">
                     <div>
                         <h2 className="text-xl font-normal mb-4">Logo</h2>
-                        <p className="text-sm text-muted-foreground mb-4">Upload a square image that represents your business (e.g., your company logo).</p>
+                        <p className="text-sm text-muted-foreground mb-4">Upload a square image (Max 2MB) that represents your business.</p>
                         {formData.avatarSeed && (
                             <div className="relative w-24 h-24 mb-4 rounded-md border overflow-hidden">
                                 <Image src={formData.avatarSeed} alt="Logo Preview" fill className="object-cover" unoptimized />
@@ -426,7 +445,7 @@ export default function EditProfilePage() {
                     
                     <div>
                         <h2 className="text-xl font-normal mb-4">Portfolio Photos</h2>
-                        <p className="text-sm text-muted-foreground mb-4">Upload high-quality photos of your work to show potential customers what you can do.</p>
+                        <p className="text-sm text-muted-foreground mb-4">Upload photos of your work (Max 2MB each).</p>
                         <div className="flex flex-wrap gap-2 mb-4">
                             {(formData.photos || []).map((photo, i) => (
                                 <div key={i} className="relative w-16 h-16 rounded border overflow-hidden group">
