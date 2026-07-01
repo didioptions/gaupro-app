@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
@@ -313,6 +312,7 @@ export default function ProDashboardPage() {
                       {profileData?.creditBalance ?? 0}
                   </p>
               </CardContent>
+            </Card>
 
             <Card>
               <CardContent className="p-6">
