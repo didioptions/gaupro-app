@@ -64,7 +64,8 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
-  const [locationValue, setLocationValue] = useState('');
+  const [locationLabel, setLocationLabel] = useState('');
+  const [locationSlug, setLocationSlug] = useState('');
 
   const { user } = useUser();
   const db = useFirestore();
@@ -77,7 +78,8 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
       setIsSubmitted(false);
       setIsSubmitting(false);
       setAgreedToTerms(false);
-      setLocationValue('');
+      setLocationLabel('');
+      setLocationSlug('');
     }
   }, [open, initialStep, service, initialData]);
 
@@ -150,14 +152,15 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
     const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: fullDescription,
-        location: (formData.suburb as string) || (formData.city as string) || locationValue || "Unknown",
+        location: (formData.suburb as string) || (formData.city as string) || locationLabel || "Unknown",
+        locationSlug: locationSlug || "unknown",
         dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
         status: 'pending_review',
         budget: (formData.budget as string) || "Quote Required",
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest',
         credits: 3,
-        purchasers: [], // Initialize array for security rules
+        purchasers: [],
         quoteCount: 0
     };
 
@@ -324,10 +327,13 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                                 <Label htmlFor="suburb">Suburb</Label>
                                 <Autocomplete
                                     options={allLocations}
-                                    value={locationValue}
+                                    value={locationSlug}
                                     onValueChange={(value: string) => {
-                                        setLocationValue(value);
-                                        handleInputChange('suburb', value);
+                                        const location = allLocations.find(l => l.value === value);
+                                        const label = location?.label || value;
+                                        setLocationSlug(value);
+                                        setLocationLabel(label);
+                                        handleInputChange('suburb', label);
                                     }}
                                     placeholder="Type to search your suburb..."
                                 />
@@ -386,7 +392,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
                     <ArrowLeft />
                 </Button>
                 <div>
-                    <h2 className="text-xl">We're almost done, we just need your details.</h2>
+                    <h2 className="text-xl">Almost done, we just need your details.</h2>
                     <p className="text-muted-foreground text-sm">Step {totalSteps + 1} of {totalSteps + 1}</p>
                 </div>
                 </div>

@@ -17,7 +17,8 @@ import {
     startAfter,
     QueryDocumentSnapshot,
     where,
-    writeBatch
+    writeBatch,
+    getDoc
 } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -144,6 +145,19 @@ export default function LeadOversightPage() {
     
     try {
       const leadRef = doc(firestore, 'leads_public', leadId);
+      const leadSnap = await getDoc(leadRef);
+
+      if (!leadSnap.exists()) throw new Error("Lead no longer exists.");
+      const currentLead = leadSnap.data();
+
+      // DUPLICATE GUARD
+      if (action === 'approved' && currentLead.status === 'approved') {
+          toast({ title: 'Already Distributed', description: 'This lead has already been approved and sent to professionals.' });
+          setViewLead(null);
+          setIsProcessingAction(false);
+          return;
+      }
+
       const updateObj = { 
         status: action, 
         updatedAt: serverTimestamp(),
@@ -163,32 +177,43 @@ export default function LeadOversightPage() {
 
       // NOTIFICATION LOGIC FOR APPROVAL
       if (action === 'approved') {
-        const lead = leads.find(l => l.id === leadId);
-        if (lead) {
-            // Find matching professionals
-            // Matching logic: Pro Category matches Lead Category
+            // Find matching professionals by Category
             const prosRef = collection(firestore, 'professionalProfiles');
-            const q = query(prosRef, where('serviceCategory', '==', lead.category));
+            const q = query(prosRef, where('serviceCategory', '==', currentLead.category));
             const prosSnap = await getDocs(q);
 
             if (!prosSnap.empty) {
                 const batch = writeBatch(firestore);
+                let count = 0;
+                
                 prosSnap.docs.forEach(proDoc => {
                     const pro = proDoc.data();
-                    const notifRef = doc(collection(firestore, 'users', pro.userId, 'notifications'));
-                    batch.set(notifRef, {
-                        title: 'New Lead Match',
-                        message: `A new ${lead.category} job is available in ${lead.location}. View details to quote.`,
-                        type: 'lead',
-                        status: 'unread',
-                        createdAt: serverTimestamp(),
-                        targetId: leadId
-                    });
+                    const proLoc = pro.location?.toLowerCase();
+                    const proAreas = (pro.serviceAreas || []).map((a: string) => a.toLowerCase());
+                    const leadLocSlug = currentLead.locationSlug?.toLowerCase();
+
+                    // LOCATION MATCHING: Match on primary city OR service areas
+                    const isLocationMatch = !leadLocSlug || proLoc === leadLocSlug || proAreas.includes(leadLocSlug);
+
+                    if (isLocationMatch) {
+                        const notifRef = doc(collection(firestore, 'users', pro.userId, 'notifications'));
+                        batch.set(notifRef, {
+                            title: 'New Lead Match',
+                            message: `A new ${currentLead.category} job is available in ${currentLead.location}. View details to quote.`,
+                            type: 'lead',
+                            status: 'unread',
+                            createdAt: serverTimestamp(),
+                            targetId: leadId
+                        });
+                        count++;
+                    }
                 });
-                await batch.commit();
-                toast({ title: 'Notifications Sent', description: `In-app alerts sent to ${prosSnap.size} matching professionals.` });
+
+                if (count > 0) {
+                    await batch.commit();
+                    toast({ title: 'Notifications Sent', description: `In-app alerts sent to ${count} matching professionals.` });
+                }
             }
-        }
       }
 
       setLeads(prev => prev.map(l => l.id === leadId ? { ...l, ...updateObj } : l));
@@ -316,7 +341,7 @@ export default function LeadOversightPage() {
                     </TableCell>
                     <TableCell>
                         <p className="text-sm font-medium">{lead.customerName || 'Anonymous'}</p>
-                        <p className="text-[10px] text-muted-foreground">{new Date(lead.createdAt?.seconds * 1000).toLocaleDateString()}</p>
+                        <p className="text-[10px] text-muted-foreground">{lead.createdAt?.seconds ? new Date(lead.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}</p>
                     </TableCell>
                     <TableCell>
                       {getStatusBadge(lead.status)}
@@ -381,9 +406,9 @@ export default function LeadOversightPage() {
                     <div className="space-y-4">
                         <h4 className="text-xs font-bold text-muted-foreground uppercase">Customer Contact</h4>
                         <div className="space-y-2">
-                            <div className="flex items-center gap-2 text-sm"><User className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerName}</span></div>
-                            <div className="flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerPhone}</span></div>
-                            <div className="flex items-center gap-2 text-sm"><Mail className="h-4 w-4 text-muted-foreground" /> <span className="truncate">{viewLead?.customerEmail}</span></div>
+                            <div className="flex items-center gap-2 text-sm"><User className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerName || 'N/A'}</span></div>
+                            <div className="flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerPhone || 'N/A'}</span></div>
+                            <div className="flex items-center gap-2 text-sm"><Mail className="h-4 w-4 text-muted-foreground" /> <span className="truncate">{viewLead?.customerEmail || 'N/A'}</span></div>
                         </div>
                     </div>
                 </div>

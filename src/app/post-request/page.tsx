@@ -42,24 +42,6 @@ type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
 };
 
-const whyChooseGaupro = [
-    {
-        icon: '🆓',
-        title: 'No fees',
-        description: 'Gaupro is completely free to use! Simply submit your service request, and professionals will reach out with quotes—no hidden costs, no surprises.'
-    },
-    {
-        icon: '📊',
-        title: 'Compare quotes',
-        description: 'Receive multiple estimates from qualified professionals so you can easily compare prices and choose the option that fits your budget.'
-    },
-    {
-        icon: '👍',
-        title: 'Trusted hiring',
-        description: 'Hire with confidence! Every professional on Gaupro has ratings, reviews, photos, and a record of completed jobs.'
-    }
-];
-
 function PostRequestContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -77,8 +59,9 @@ function PostRequestContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   
-  const initialLocation = locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-  const [locationValue, setLocationValue] = useState(initialLocation);
+  const initialLocationLabel = allLocations.find(l => l.value === locationQuery)?.label || locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const [locationLabel, setLocationLabel] = useState(initialLocationLabel);
+  const [locationSlug, setLocationSlug] = useState(locationQuery);
 
   useEffect(() => {
     if (serviceQuery) {
@@ -86,11 +69,13 @@ function PostRequestContent() {
       setSelectedService(serviceQuery);
     }
      if (locationQuery) {
-      const locationLabel = allLocations.find(l => l.value === locationQuery)?.label || initialLocation;
-      setLocationValue(locationLabel);
-      setFormData(prev => ({ ...prev, suburb: locationLabel, city: '' }));
+      const location = allLocations.find(l => l.value === locationQuery);
+      const label = location?.label || initialLocationLabel;
+      setLocationLabel(label);
+      setLocationSlug(locationQuery);
+      setFormData(prev => ({ ...prev, suburb: label, city: '' }));
     }
-  }, [serviceQuery, locationQuery, initialLocation]);
+  }, [serviceQuery, locationQuery, initialLocationLabel]);
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === selectedService) ||
@@ -99,10 +84,6 @@ function PostRequestContent() {
   const questions = questionSet?.questions || [];
   const totalSteps = (questions?.length || 0) + 1;
   const progress = step > 0 ? ((step - 1) / (totalSteps - 1)) * 100 : 0;
-
-  const serviceImage = CategoryImages.find(
-    (img) => img.id === `${selectedService}-image`.replace('-service', '')
-  );
 
   const handleServiceSelect = (serviceValue: string) => {
     setSelectedService(serviceValue);
@@ -139,11 +120,6 @@ function PostRequestContent() {
     }
   };
 
-  const handleDateSelect = (selectedDate: Date | undefined) => {
-    setDate(selectedDate);
-    handleInputChange('urgency_date', selectedDate);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreedToTerms) {
@@ -162,14 +138,16 @@ function PostRequestContent() {
     const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: (formData.job_details as string) || "No description provided",
-        location: (formData.suburb as string) || (formData.city as string) || locationValue || "Unknown",
+        location: (formData.suburb as string) || (formData.city as string) || locationLabel || "Unknown",
+        locationSlug: locationSlug || "unknown",
         dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
-        status: isAdmin ? 'approved' : 'pending_review', // Auto-approve if admin
+        status: isAdmin ? 'approved' : 'pending_review',
         budget: (formData.budget as string) || "Quote Required",
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest',
         credits: 3,
-        purchasers: [] // Initialize empty purchasers array for security rules
+        purchasers: [],
+        quoteCount: 0
     };
 
     // PRIVATE DATA (Restricted)
@@ -184,7 +162,6 @@ function PostRequestContent() {
     };
 
     try {
-        // Write to both collections using the same ID
         await setDoc(doc(db, 'leads_public', leadId), publicData);
         await setDoc(doc(db, 'leads_private', leadId), privateData);
         setIsSubmitted(true);
@@ -366,7 +343,7 @@ function PostRequestContent() {
                             id="city" 
                             placeholder="e.g. Johannesburg" 
                             onChange={(e) => handleInputChange('city', e.target.value)}
-                            defaultValue={formData['city'] as string || locationValue}
+                            defaultValue={formData['city'] as string || locationLabel}
                         />
                     </div>
                     <div>
@@ -377,6 +354,8 @@ function PostRequestContent() {
                             onValueChange={(value: string) => {
                                 const location = allLocations.find(l => l.value === value);
                                 handleInputChange('suburb', location?.label || value);
+                                setLocationSlug(value);
+                                setLocationLabel(location?.label || value);
                             }}
                             placeholder="Type to search your suburb..."
                         />
