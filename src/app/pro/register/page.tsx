@@ -113,6 +113,7 @@ export default function ProRegisterPage() {
         phone: values.phoneNumber,
         rating: null,
         reviews: 0,
+        totalReviews: 0,
         creditBalance: 0,
         leadCount: 0,
         isProVerified: false,

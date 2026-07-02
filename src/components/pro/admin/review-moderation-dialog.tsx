@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -88,7 +89,7 @@ export function ReviewModerationDialog({ review, children }: ReviewModerationDia
                 totalReviews: newTotal,
                 rating: newReviews > 0 ? newTotal / newReviews : 0
             });
-        } else if ((action === 'removed' || action === 'rejected') && oldStatus === 'approved') {
+        } else if (action !== 'approved' && oldStatus === 'approved') {
             const newReviews = Math.max(0, currentReviews - 1);
             const newTotal = Math.max(0, currentTotal - review.rating);
             transaction.update(proRef, { 
