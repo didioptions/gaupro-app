@@ -25,22 +25,16 @@ export default function ProLayout({
   const router = useRouter();
   const pathname = usePathname();
 
-  // A public pro route is either one of the auth pages, OR it's a dynamic route that is NOT a known protected route name.
-  // We explicitly include 'claim' and 'partnership' as public entry points for professionals.
   const isPublicDynamicProfile = /^\/pro\/(?!dashboard|profile|buy-credits|account-settings|verify|login|register|signup|admin|forgot-password|reset-password|verify-email|partnership|claim)[^/]+$/.test(pathname);
-
   const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || isPublicDynamicProfile || pathname.startsWith('/pro/claim/');
 
   useEffect(() => {
     if (!isUserLoading) {
-      // 1. Not logged in -> Redirect to Login
       if (!user && !isPublicProRoute) {
         router.push('/pro/login');
         return;
       }
 
-      // 2. Logged in but not verified -> Redirect to Verification page
-      // Exception: Admins bypass email verification check
       const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
       if (user && !user.emailVerified && !isAdmin && !isPublicProRoute) {
         router.push('/pro/verify-email');
@@ -49,7 +43,6 @@ export default function ProLayout({
     }
   }, [user, profile, isUserLoading, router, pathname, isPublicProRoute]);
 
-  // If we are on a protected route and still loading, show a skeleton loader.
   if (isUserLoading) {
      return (
       <div className="flex flex-col min-h-screen">

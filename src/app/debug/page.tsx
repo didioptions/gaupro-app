@@ -2,7 +2,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, collection, getDocs, setDoc, serverTimestamp } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const hardcodedConfig = {
@@ -59,10 +59,9 @@ export default function DebugPage() {
           if (!user.emailVerified) {
              addLog("👉 Attempting write as UNVERIFIED user (Should fail)...");
              try {
-                // This should be blocked by rules requiring isEmailVerified()
                 const testRef = doc(db, "marketplace_audit_logs", "test-id-" + Date.now());
                 await setDoc(testRef, { action: 'TEST_UNVERIFIED_WRITE', timestamp: serverTimestamp() });
-                addLog("⚠️ CRITICAL SECURITY RISK: Unverified write SUCCEEDED. Rules are not properly enforced.");
+                addLog("⚠️ CRITICAL SECURITY RISK: Unverified write SUCCEEDED.");
              } catch (e: any) {
                 addLog("✅ SUCCESS: Unverified write was BLOCKED by rules. System is secure.");
              }

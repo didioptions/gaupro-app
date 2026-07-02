@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -91,15 +92,10 @@ export default function ProRegisterPage() {
 
       const user = userCredential.user;
 
-      // 1. Update Auth Profile
       await updateProfile(user, {
         displayName: values.fullName
       });
 
-      // 2. Send Verification Email
-      await sendEmailVerification(user);
-
-      // 3. Create User Role document in Firestore
       await setDoc(doc(firestore, 'users', user.uid), {
         uid: user.uid,
         email: values.email,
@@ -110,7 +106,6 @@ export default function ProRegisterPage() {
         createdAt: new Date().toISOString(),
       });
 
-      // 4. Create initial professional profile
       await setDoc(doc(firestore, 'professionalProfiles', user.uid), {
         userId: user.uid,
         name: values.fullName,
@@ -125,9 +120,11 @@ export default function ProRegisterPage() {
         createdAt: new Date().toISOString(),
       });
 
+      await sendEmailVerification(user);
+
       toast({
         title: "Account Created",
-        description: "Welcome to Gaupro! Please check your email to verify your account.",
+        description: "Please check your email to verify your account.",
       });
 
       router.push('/pro/verify-email');
@@ -136,7 +133,7 @@ export default function ProRegisterPage() {
       toast({
         variant: "destructive",
         title: "Registration Failed",
-        description: error.message || "An unexpected error occurred. Please try again.",
+        description: error.message || "An unexpected error occurred.",
       });
     } finally {
       setIsLoading(false);
@@ -151,9 +148,7 @@ export default function ProRegisterPage() {
     );
   }
 
-  if (user) {
-    return null;
-  }
+  if (user) return null;
 
   return (
     <main className="flex-grow">
@@ -161,12 +156,8 @@ export default function ProRegisterPage() {
         <div className="w-full max-w-4xl">
           <Card className="grid md:grid-cols-2 overflow-hidden shadow-lg">
             <div className="hidden md:flex flex-col items-center justify-center bg-card p-10 text-center border-r">
-              <div className="mb-6">
-                  <Logo />
-              </div>
-              <p className="text-muted-foreground">
-                  You want new customers fast. So we made it easy and it's free.
-              </p>
+              <div className="mb-6"><Logo /></div>
+              <p className="text-muted-foreground">You want new customers fast. So we made it easy and it's free.</p>
             </div>
             
             <div className="p-8">
@@ -181,12 +172,8 @@ export default function ProRegisterPage() {
                     name="phoneNumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormControl>
-                          <Input placeholder="Your Cell Phone Number" {...field} className="h-12"/>
-                        </FormControl>
-                        <FormDescription className="text-xs">
-                          We'll use this to send you lead notifications.
-                        </FormDescription>
+                        <FormControl><Input placeholder="Your Cell Phone Number" {...field} className="h-12"/></FormControl>
+                        <FormDescription className="text-xs">We'll use this to send you lead notifications.</FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -196,9 +183,7 @@ export default function ProRegisterPage() {
                     name="fullName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormControl>
-                          <Input placeholder="Your Name (First and Last Name)" {...field} className="h-12"/>
-                        </FormControl>
+                        <FormControl><Input placeholder="Your Name" {...field} className="h-12"/></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -208,9 +193,7 @@ export default function ProRegisterPage() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormControl>
-                          <Input type="email" placeholder="Your Email Address" {...field} className="h-12"/>
-                        </FormControl>
+                        <FormControl><Input type="email" placeholder="Your Email Address" {...field} className="h-12"/></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -220,9 +203,7 @@ export default function ProRegisterPage() {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormControl>
-                          <Input type="password" placeholder="Create a Password" {...field} className="h-12"/>
-                        </FormControl>
+                        <FormControl><Input type="password" placeholder="Create a Password" {...field} className="h-12"/></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -233,17 +214,8 @@ export default function ProRegisterPage() {
                     name="marketingOffers"
                     render={({ field }) => (
                       <FormItem className="flex flex-row items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
-                        </FormControl>
-                        <div className="space-y-1 leading-none">
-                          <FormLabel className="font-normal text-muted-foreground">
-                            I want to receive Marketing and Promotional offers
-                          </FormLabel>
-                        </div>
+                        <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl>
+                        <div className="space-y-1 leading-none"><FormLabel className="font-normal text-muted-foreground">I want to receive Marketing and Promotional offers</FormLabel></div>
                       </FormItem>
                     )}
                   />
@@ -253,19 +225,9 @@ export default function ProRegisterPage() {
                     name="terms"
                     render={({ field }) => (
                       <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                        <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
-                        </FormControl>
+                        <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl>
                         <div className="space-y-1 leading-none">
-                           <FormLabel className="font-normal text-muted-foreground">
-                              By clicking Next, you agree to the{' '}
-                              <Link href="/terms" className="text-primary hover:underline">
-                                  Terms of use
-                              </Link>
-                           </FormLabel>
+                           <FormLabel className="font-normal text-muted-foreground">By clicking Next, you agree to the <Link href="/terms" className="text-primary hover:underline">Terms of use</Link></FormLabel>
                            <FormMessage />
                         </div>
                       </FormItem>
@@ -277,14 +239,8 @@ export default function ProRegisterPage() {
                   </Button>
                 </form>
               </Form>
-              
               <div className="text-center mt-6">
-                  <p className="text-sm text-muted-foreground">
-                      Already have an account?{' '}
-                      <Link href="/pro/login" className="text-primary font-medium hover:underline">
-                          Login Here
-                      </Link>
-                  </p>
+                  <p className="text-sm text-muted-foreground">Already have an account? <Link href="/pro/login" className="text-primary font-medium hover:underline">Login Here</Link></p>
               </div>
             </div>
           </Card>
