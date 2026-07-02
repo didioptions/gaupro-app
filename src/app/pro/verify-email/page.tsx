@@ -19,6 +19,7 @@ export default function VerifyEmailPage() {
   
   const [isSending, setIsSending] = useState(false);
   const [isPolled, setIsPolled] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
 
   useEffect(() => {
     if (!isUserLoading && !user) {
@@ -29,11 +30,20 @@ export default function VerifyEmailPage() {
     }
   }, [user, isUserLoading, router]);
 
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (cooldown > 0) {
+      timer = setTimeout(() => setCooldown(cooldown - 1), 1000);
+    }
+    return () => clearTimeout(timer);
+  }, [cooldown]);
+
   const handleResend = async () => {
-    if (!user) return;
+    if (!user || cooldown > 0) return;
     setIsSending(true);
     try {
       await sendEmailVerification(user);
+      setCooldown(60); // 60 second cooldown
       toast({
         title: 'Verification Email Sent',
         description: `We've sent a new verification link to ${user.email}.`,
@@ -121,10 +131,10 @@ export default function VerifyEmailPage() {
                 variant="outline" 
                 onClick={handleResend} 
                 className="w-full h-12 text-base" 
-                disabled={isSending}
+                disabled={isSending || cooldown > 0}
             >
               {isSending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RotateCcw className="mr-2 h-4 w-4" />}
-              Resend verification email
+              {cooldown > 0 ? `Resend in ${cooldown}s` : 'Resend verification email'}
             </Button>
 
             <Button variant="ghost" onClick={handleLogout} className="w-full text-muted-foreground">

@@ -21,7 +21,8 @@ service cloud.firestore {
 
     function isAdmin() {
       let data = getUserData();
-      return isSignedIn() && (data.get('role', 'admin') == 'admin' || data.get('role', 'admin') == 'super_admin');
+      let role = data.get('role', '');
+      return isSignedIn() && (role == 'admin' || role == 'super_admin');
     }
 
     // --- Marketplace: Public Leads (SEO & Previews) ---
