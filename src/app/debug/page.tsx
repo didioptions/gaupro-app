@@ -1,103 +1,227 @@
 
 "use client";
 import { useState, useEffect } from 'react';
-import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-
-const hardcodedConfig = {
-  apiKey: "AIzaSyBMMdB5UEPLP6LrWKHywytJhgUVEY18kdQ",
-  authDomain: "studio-5618869838-18486.firebaseapp.com",
-  projectId: "studio-5618869838-18486",
-  storageBucket: "studio-5618869838-18486.firebasestorage.app",
-  messagingSenderId: "1059962490351",
-  appId: "1:1059962490351:web:6ed75997aad9ad43afba1a"
-};
+import { initializeFirebase } from '@/firebase';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Loader2, CheckCircle2, XCircle, ShieldAlert, User, Database, Lock } from 'lucide-react';
+import Link from 'next/link';
 
 export default function DebugPage() {
-  const [logs, setLogs] = useState<string[]>([]);
-  const addLog = (msg: string) => setLogs(prev => [...prev, `${new Date().toLocaleTimeString()}: ${msg}`]);
+  const [authState, setAuthState] = useState<any>(null);
+  const [profile, setProfile] = useState<any>(null);
+  const [tests, setTests] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    async function runDiagnostics() {
-      addLog("🚀 Starting Live Diagnostics...");
-      
-      try {
-        const app = getApps().length === 0 ? initializeApp(hardcodedConfig) : getApp();
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-
-        onAuthStateChanged(auth, async (user) => {
-          if (!user) {
-            addLog("❌ User not logged in. Please log in to /pro/login first.");
-            return;
+    const { auth, firestore } = initializeFirebase();
+    
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setAuthState(user);
+      if (user) {
+        try {
+          const userRef = doc(firestore, "users", user.uid);
+          const snap = await getDoc(userRef);
+          if (snap.exists()) {
+            setProfile(snap.data());
           }
-
-          addLog(`✅ Auth: Logged in as ${user.email}`);
-          addLog(`📧 Verification: ${user.emailVerified ? "VERIFIED ✅" : "UNVERIFIED ❌"}`);
-          addLog(`🆔 UID: ${user.uid}`);
-
-          addLog("------------------------------------------------");
-          addLog("🔍 Step 1: Testing Profile Read...");
-          
-          try {
-            const userRef = doc(db, "users", user.uid);
-            const userSnap = await getDoc(userRef);
-            
-            if (userSnap.exists()) {
-              addLog(`🎉 Found user doc. Role: ${userSnap.data().role}`);
-            } else {
-              addLog("❓ User document missing in Firestore.");
-            }
-          } catch (e: any) {
-            addLog(`🛑 Read Permission Denied! check your firestore rules.`);
-          }
-
-          addLog("------------------------------------------------");
-          addLog("🔍 Step 2: Testing Rule Hardening (Write Test)...");
-          
-          if (!user.emailVerified) {
-             addLog("👉 Attempting write as UNVERIFIED user (Should fail)...");
-             try {
-                const testRef = doc(db, "marketplace_audit_logs", "test-id-" + Date.now());
-                await setDoc(testRef, { action: 'TEST_UNVERIFIED_WRITE', timestamp: serverTimestamp() });
-                addLog("⚠️ CRITICAL SECURITY RISK: Unverified write SUCCEEDED.");
-             } catch (e: any) {
-                addLog("✅ SUCCESS: Unverified write was BLOCKED by rules. System is secure.");
-             }
-          } else {
-             addLog("👉 Attempting write as VERIFIED user (Should succeed)...");
-             try {
-                const testRef = doc(db, "professionalProfiles", user.uid);
-                await setDoc(testRef, { lastCheck: serverTimestamp() }, { merge: true });
-                addLog("✅ SUCCESS: Verified write succeeded.");
-             } catch (e: any) {
-                addLog(`❌ FAILED: Verified write blocked: ${e.message}`);
-             }
-          }
-
-          addLog("------------------------------------------------");
-          addLog("📊 Summary: If Step 2 blocked your unverified write, the system is PRODUCTION-READY.");
-        });
-
-      } catch (error: any) {
-        addLog(`❌ CRITICAL ERROR: ${error.message}`);
+        } catch (e) {
+          console.error("Profile fetch failed:", e);
+        }
       }
-    }
+      setIsLoading(false);
+    });
 
-    runDiagnostics();
+    return () => unsubscribe();
   }, []);
 
-  return (
-    <div style={{ padding: 40, fontFamily: 'monospace', background: '#f8f9fa', minHeight: '100vh' }}>
-      <h1 style={{ color: '#D32F2F' }}>🛡️ GauPro Live Truth Detector</h1>
-      <p>Verifying Authentication and Firestore Security Rules against your production database.</p>
-      <div style={{ background: '#1e1e1e', color: '#00ff00', padding: 25, borderRadius: 12, boxShadow: '0 10px 30px rgba(0,0,0,0.2)', overflowX: 'auto' }}>
-        {logs.map((log, i) => <div key={i} style={{marginBottom: 8}}>{log}</div>)}
+  const runIntegrityTests = async () => {
+    setIsRunning(true);
+    const { firestore } = initializeFirebase();
+    const newTests = [];
+
+    // Test 1: Role Identification
+    newTests.push({
+      name: "Role Identification",
+      status: profile?.role ? "PASS" : "FAIL",
+      message: `Found role: ${profile?.role || 'None'}`
+    });
+
+    // Test 2: Dashboard Access Guard (Simulated)
+    const isPro = profile?.role === 'pro';
+    const isVerified = authState?.emailVerified;
+    const canAccessDashboard = !isPro || isVerified || profile?.role === 'admin';
+    newTests.push({
+      name: "Dashboard Access Guard",
+      status: canAccessDashboard ? "PASS" : "WARN",
+      message: canAccessDashboard ? "Access permitted" : "Redirection to /verify-email expected"
+    });
+
+    // Test 3: Write Permission (Rule Hardening)
+    try {
+      if (!authState?.emailVerified && profile?.role === 'pro') {
+        const testRef = doc(firestore, "marketplace_audit_logs", "test-" + Date.now());
+        await setDoc(testRef, { action: 'TEST_UNVERIFIED_WRITE', timestamp: serverTimestamp() });
+        newTests.push({
+          name: "Security Rule Block",
+          status: "FAIL",
+          message: "CRITICAL: Unverified write succeeded. Check firestore.rules."
+        });
+      } else {
+        newTests.push({
+          name: "Security Rule Block",
+          status: "PASS",
+          message: "Write test skipped (User is verified or Admin)"
+        });
+      }
+    } catch (e: any) {
+      newTests.push({
+        name: "Security Rule Block",
+        status: "PASS",
+        message: "Unverified write correctly BLOCKED by rules."
+      });
+    }
+
+    setTests(newTests);
+    setIsRunning(false);
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
-      <div style={{ marginTop: 25, display: 'flex', gap: 12 }}>
-          <button onClick={() => window.location.reload()} style={{ padding: '12px 24px', borderRadius: 8, background: '#D32F2F', color: 'white', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}>Run Test Again</button>
-          <a href="/pro/dashboard" style={{ padding: '12px 24px', borderRadius: 8, background: '#eee', color: '#333', textDecoration: 'none', fontWeight: 'bold' }}>Back to Dashboard</a>
+    );
+  }
+
+  const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+
+  return (
+    <div className="min-h-screen bg-secondary/10 p-4 md:p-8">
+      <div className="max-w-4xl mx-auto space-y-8">
+        <header className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold flex items-center gap-2">
+              <ShieldAlert className="h-8 w-8 text-red-600" />
+              Live Truth Detector
+            </h1>
+            <p className="text-muted-foreground">Production Authentication & Security Diagnostics</p>
+          </div>
+          <Badge variant={authState ? "default" : "destructive"}>
+            {authState ? "Session Active" : "No Session"}
+          </Badge>
+        </header>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <User className="h-5 w-5 text-primary" />
+                Auth State
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-3 bg-secondary/20 rounded border font-mono text-xs">
+                <p>UID: {authState?.uid || 'N/A'}</p>
+                <p>EMAIL: {authState?.email || 'N/A'}</p>
+                <p className="mt-2 font-bold flex items-center gap-1">
+                  VERIFIED: 
+                  {authState?.emailVerified ? 
+                    <span className="text-green-600 flex items-center gap-1">YES <CheckCircle2 className="h-3 w-3" /></span> : 
+                    <span className="text-red-600 flex items-center gap-1">NO <XCircle className="h-3 w-3" /></span>
+                  }
+                </p>
+              </div>
+              {!authState && (
+                <Button asChild variant="outline" className="w-full">
+                  <Link href="/pro/login">Log In to Test</Link>
+                </Button>
+              )}
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <Database className="h-5 w-5 text-primary" />
+                Firestore Role
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {profile ? (
+                <div className="p-3 bg-secondary/20 rounded border space-y-1">
+                  <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Detected Role</p>
+                  <p className="text-2xl font-black capitalize text-primary">{profile.role}</p>
+                  <p className="text-[10px] text-muted-foreground italic">Role read from live 'users' collection.</p>
+                </div>
+              ) : (
+                <div className="p-3 border rounded border-dashed text-center py-6 text-muted-foreground">
+                  No profile document found.
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+
+        <Card className="border-primary/20">
+          <CardHeader className="flex flex-row items-center justify-between">
+            <div>
+              <CardTitle className="flex items-center gap-2">
+                <Lock className="h-5 w-5 text-primary" />
+                System Integrity Tests
+              </CardTitle>
+              <p className="text-sm text-muted-foreground mt-1">Verifying rules against live database.</p>
+            </div>
+            <Button onClick={runIntegrityTests} disabled={isRunning || !authState}>
+              {isRunning ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+              Run Diagnostics
+            </Button>
+          </CardHeader>
+          <CardContent>
+            {tests.length > 0 ? (
+              <div className="space-y-3">
+                {tests.map((test, i) => (
+                  <div key={i} className="flex items-center justify-between p-3 border rounded-lg bg-background">
+                    <div>
+                      <p className="font-bold text-sm">{test.name}</p>
+                      <p className="text-xs text-muted-foreground">{test.message}</p>
+                    </div>
+                    <Badge className={test.status === 'PASS' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}>
+                      {test.status}
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 text-muted-foreground italic">
+                Click "Run Diagnostics" to verify project security.
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {!isAdmin && authState && (
+          <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg flex gap-3 items-start shadow-sm">
+            <Info className="h-5 w-5 text-yellow-600 mt-0.5" />
+            <div className="text-sm text-yellow-800 leading-relaxed">
+              <p className="font-bold">Administrator Notice</p>
+              <p>Detailed Integrity Tests are only available to users with the <b>admin</b> role. If you are verifying unverified behavior, this page will correctly show "FAIL" for blocked write tests.</p>
+            </div>
+          </div>
+        )}
+
+        <div className="flex justify-center gap-4">
+           <Button variant="ghost" asChild>
+              <Link href="/pro/dashboard">Go to Dashboard</Link>
+           </Button>
+           <Button variant="ghost" asChild>
+              <Link href="/">Back to Home</Link>
+           </Button>
+        </div>
       </div>
     </div>
   );

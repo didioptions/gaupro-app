@@ -25,17 +25,22 @@ export default function ProLayout({
   const router = useRouter();
   const pathname = usePathname();
 
+  // Handle dynamic public routes like /pro/profile-id or /pro/claim/id
   const isPublicDynamicProfile = /^\/pro\/(?!dashboard|profile|buy-credits|account-settings|verify|login|register|signup|admin|forgot-password|reset-password|verify-email|partnership|claim)[^/]+$/.test(pathname);
   const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || isPublicDynamicProfile || pathname.startsWith('/pro/claim/');
 
   useEffect(() => {
     if (!isUserLoading) {
+      // 1. Unauthenticated users restricted from private Pro routes
       if (!user && !isPublicProRoute) {
         router.push('/pro/login');
         return;
       }
 
+      // 2. Email Verification Guard for Professionals
       const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+      
+      // Verified: Admins are exempt. Unverified Professionals are sent to verification.
       if (user && !user.emailVerified && !isAdmin && !isPublicProRoute) {
         router.push('/pro/verify-email');
         return;
