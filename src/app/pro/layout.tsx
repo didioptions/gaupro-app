@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect } from 'react';
@@ -12,7 +11,8 @@ const PUBLIC_PRO_ROUTES = [
   '/pro/signup', 
   '/pro/forgot-password', 
   '/pro/reset-password',
-  '/pro/verify-email'
+  '/pro/verify-email',
+  '/pro/partnership'
 ];
 
 export default function ProLayout({
@@ -25,9 +25,10 @@ export default function ProLayout({
   const pathname = usePathname();
 
   // A public pro route is either one of the auth pages, OR it's a dynamic route that is NOT a known protected route name.
-  const isPublicDynamicProfile = /^\/pro\/(?!dashboard|profile|buy-credits|account-settings|verify|login|register|signup|admin|forgot-password|reset-password|verify-email)[^/]+$/.test(pathname);
+  // We explicitly include 'claim' and 'partnership' as public entry points for professionals.
+  const isPublicDynamicProfile = /^\/pro\/(?!dashboard|profile|buy-credits|account-settings|verify|login|register|signup|admin|forgot-password|reset-password|verify-email|partnership|claim)[^/]+$/.test(pathname);
 
-  const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || isPublicDynamicProfile;
+  const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || isPublicDynamicProfile || pathname.startsWith('/pro/claim/');
 
   useEffect(() => {
     if (!isUserLoading) {
