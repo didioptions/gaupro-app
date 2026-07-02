@@ -2,8 +2,8 @@
 'use client';
 
 import { useParams, useSearchParams, notFound } from 'next/navigation';
-import { useDoc, useFirestore } from '@/firebase';
-import { doc, DocumentData } from 'firebase/firestore';
+import { useDoc, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
+import { doc, DocumentData, collection, query, where, orderBy, limit } from 'firebase/firestore';
 import { useMemo, Suspense } from 'react';
 
 import ProfileDisplay from '@/components/pro/profile-display';
@@ -25,6 +25,19 @@ function ProfilePageContent() {
   }, [firestore, profileId]);
 
   const { data: professionalData, isLoading, error } = useDoc<DocumentData>(professionalDocRef);
+
+  // Fetch real reviews for this professional
+  const reviewsQuery = useMemoFirebase(() => {
+    if (!firestore || !profileId) return null;
+    return query(
+      collection(firestore, 'professionalProfiles', profileId, 'reviews'),
+      where('status', '==', 'approved'),
+      orderBy('dateCreated', 'desc'),
+      limit(20)
+    );
+  }, [firestore, profileId]);
+
+  const { data: reviews, loading: isLoadingReviews } = useCollection(reviewsQuery);
 
   const serviceQuery = searchParams.get('service') || 'general services';
   
@@ -89,6 +102,7 @@ function ProfilePageContent() {
     id: profileId,
     description: description,
     tags: professionalData.tags || [singularOrPluralLowercase],
+    reviewData: reviews || [],
   };
 
   const canonicalUrl = `https://gaupro.co.za/pro/${profileId}`;

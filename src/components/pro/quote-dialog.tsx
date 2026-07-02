@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -14,9 +15,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock, AlertTriangle, Scale } from 'lucide-react';
-import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock, AlertTriangle, Scale, CheckCircle2 } from 'lucide-react';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp, collection } from 'firebase/firestore';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { useUser } from '@/firebase';
 
 interface QuoteDialogProps {
   job: any | null;
@@ -25,12 +27,15 @@ interface QuoteDialogProps {
 }
 
 export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
+  const { user } = useUser();
   const [privateData, setPrivateData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [showDisputeForm, setShowDisputeForm] = useState(false);
   const [disputeReason, setDisputeReason] = useState<string>('');
   const [disputeDetails, setDisputeDetails] = useState('');
   const [isSubmittingDispute, setIsSubmittingDispute] = useState(false);
+  const [isSubmittingQuote, setIsSubmittingQuote] = useState(false);
+  const [quoteMessage, setQuoteMessage] = useState('');
   
   const { toast } = useToast();
   const db = getFirestore();
@@ -60,18 +65,43 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
     } else {
       setPrivateData(null);
       setShowDisputeForm(false);
+      setQuoteMessage('');
     }
   }, [isOpen, job, db, toast]);
 
   if (!job) return null;
 
-  const handleSubmitQuote = (e: React.FormEvent) => {
+  const handleSubmitQuote = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: 'Quote Submitted!',
-      description: `Your quote for "${job.category}" has been sent.`,
-    });
-    onClose();
+    if (!user || !quoteMessage) return;
+
+    setIsSubmittingQuote(true);
+    try {
+      const quoteId = `${job.id}-${user.uid}`;
+      await setDoc(doc(db, 'quotes', quoteId), {
+        leadId: job.id,
+        proUid: user.uid,
+        proName: user.displayName || 'Professional',
+        message: quoteMessage,
+        status: 'sent',
+        createdAt: serverTimestamp(),
+      });
+
+      toast({
+        title: 'Quote Submitted!',
+        description: `Your quote for "${job.category}" has been successfully recorded.`,
+      });
+      onClose();
+    } catch (error: any) {
+      console.error("Quote submission failed:", error);
+      toast({
+        variant: 'destructive',
+        title: 'Submission Failed',
+        description: error.message || 'Could not save your quote. Please try again.',
+      });
+    } finally {
+      setIsSubmittingQuote(false);
+    }
   };
 
   const handleDispute = async () => {
@@ -82,7 +112,7 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
       const disputeId = `dispute-${Date.now()}-${job.id}`;
       await setDoc(doc(db, 'lead_disputes', disputeId), {
         leadId: job.id,
-        proUid: privateData?.userId || 'unknown',
+        proUid: user?.uid || 'unknown',
         leadCategory: job.category,
         credits: job.credits || 3,
         reason: disputeReason,
@@ -252,6 +282,8 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
                   placeholder={privateData ? `Hi ${privateData.customerName.split(' ')[0]}, I can assist with your ${job.category} project...` : "Type your quote here..."}
                   rows={5}
                   required
+                  value={quoteMessage}
+                  onChange={(e) => setQuoteMessage(e.target.value)}
                 />
               </div>
             </form>
@@ -263,8 +295,14 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
             Cancel
           </Button>
           {!showDisputeForm && (
-            <Button type="submit" form="quote-form" className="sm:flex-1 bg-red-600 hover:bg-red-700">
-              Submit Quote
+            <Button 
+                type="submit" 
+                form="quote-form" 
+                className="sm:flex-1 bg-red-600 hover:bg-red-700"
+                disabled={isSubmittingQuote || !quoteMessage}
+            >
+              {isSubmittingQuote ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <CheckCircle2 className="mr-2 h-4 w-4" />}
+              {isSubmittingQuote ? 'Submitting...' : 'Submit Quote'}
             </Button>
           )}
         </DialogFooter>
