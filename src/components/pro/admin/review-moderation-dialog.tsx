@@ -86,7 +86,7 @@ export function ReviewModerationDialog({ review, children }: ReviewModerationDia
             transaction.update(proRef, { 
                 reviews: newReviews,
                 totalReviews: newTotal,
-                rating: newTotal / newReviews
+                rating: newReviews > 0 ? newTotal / newReviews : 0
             });
         } else if ((action === 'removed' || action === 'rejected') && oldStatus === 'approved') {
             const newReviews = Math.max(0, currentReviews - 1);

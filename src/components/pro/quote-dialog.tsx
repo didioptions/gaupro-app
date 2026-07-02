@@ -15,8 +15,9 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock, AlertTriangle, Scale, CheckCircle2 } from 'lucide-react';
-import { getFirestore, doc, getDoc, setDoc, serverTimestamp, collection } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Input } from '@/components/ui/input';
 import { useUser } from '@/firebase';
 
 interface QuoteDialogProps {
@@ -35,22 +36,33 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
   const [isSubmittingDispute, setIsSubmittingDispute] = useState(false);
   const [isSubmittingQuote, setIsSubmittingQuote] = useState(false);
   const [quoteMessage, setQuoteMessage] = useState('');
+  const [quotePrice, setQuotePrice] = useState('');
   
   const { toast } = useToast();
   const db = getFirestore();
 
   useEffect(() => {
-    if (isOpen && job) {
-      const fetchPrivateData = async () => {
+    if (isOpen && job && user) {
+      const fetchData = async () => {
         setLoading(true);
         try {
+          // 1. Fetch private customer data
           const docRef = doc(db, 'leads_private', job.id);
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             setPrivateData(docSnap.data());
           }
+
+          // 2. Check for existing quote
+          const quoteRef = doc(db, 'quotes', `${job.id}-${user.uid}`);
+          const quoteSnap = await getDoc(quoteRef);
+          if (quoteSnap.exists()) {
+            const data = quoteSnap.data();
+            setQuoteMessage(data.message || '');
+            setQuotePrice(data.price || '');
+          }
         } catch (error) {
-          console.error("Error fetching private data:", error);
+          console.error("Error fetching lead data:", error);
           toast({
             variant: 'destructive',
             title: 'Permission Error',
@@ -60,13 +72,14 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
           setLoading(false);
         }
       };
-      fetchPrivateData();
+      fetchData();
     } else {
       setPrivateData(null);
       setShowDisputeForm(false);
       setQuoteMessage('');
+      setQuotePrice('');
     }
-  }, [isOpen, job, db, toast]);
+  }, [isOpen, job, user, db, toast]);
 
   if (!job) return null;
 
@@ -83,13 +96,14 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
         proUid: user.uid,
         proName: user.displayName || 'Professional',
         message: quoteMessage,
+        price: quotePrice,
         status: 'sent',
         createdAt: serverTimestamp(),
       });
 
       toast({
         title: 'Quote Submitted!',
-        description: `Your quote for "${job.category}" has been successfully recorded.`,
+        description: `Your response for "${job.category}" has been saved.`,
       });
       onClose();
     } catch (error: any) {
@@ -275,16 +289,32 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
 
           {!showDisputeForm && (
             <form id="quote-form" onSubmit={handleSubmitQuote} className="space-y-4 border-t pt-6">
-              <div className="space-y-2">
-                <Label htmlFor="quote-message" className="font-bold">Your Professional Quote</Label>
-                <Textarea
-                  id="quote-message"
-                  placeholder={privateData ? `Hi ${privateData.customerName.split(' ')[0]}, I can assist with your ${job.category} project...` : "Type your quote here..."}
-                  rows={5}
-                  required
-                  value={quoteMessage}
-                  onChange={(e) => setQuoteMessage(e.target.value)}
-                />
+              <div className="grid grid-cols-1 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="quote-price" className="font-bold">Estimated Price (Optional)</Label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">R</span>
+                    <Input
+                      id="quote-price"
+                      type="number"
+                      placeholder="0.00"
+                      className="pl-7"
+                      value={quotePrice}
+                      onChange={(e) => setQuotePrice(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="quote-message" className="font-bold">Your Professional Quote</Label>
+                  <Textarea
+                    id="quote-message"
+                    placeholder={privateData ? `Hi ${privateData.customerName.split(' ')[0]}, I can assist with your ${job.category} project...` : "Type your message to the customer..."}
+                    rows={5}
+                    required
+                    value={quoteMessage}
+                    onChange={(e) => setQuoteMessage(e.target.value)}
+                  />
+                </div>
               </div>
             </form>
           )}
