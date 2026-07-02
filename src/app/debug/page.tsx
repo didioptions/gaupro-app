@@ -1,13 +1,12 @@
-
 "use client";
 import { useState, useEffect } from 'react';
 import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { initializeFirebase } from '@/firebase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Loader2, CheckCircle2, XCircle, ShieldAlert, User, Database, Lock } from 'lucide-react';
+import { Loader2, CheckCircle2, XCircle, ShieldAlert, User, Database, Lock, Info } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DebugPage() {
@@ -39,7 +38,11 @@ export default function DebugPage() {
     return () => unsubscribe();
   }, []);
 
+  const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+
   const runIntegrityTests = async () => {
+    if (!isAdmin) return;
+    
     setIsRunning(true);
     const { firestore } = initializeFirebase();
     const newTests = [];
@@ -54,16 +57,16 @@ export default function DebugPage() {
     // Test 2: Dashboard Access Guard (Simulated)
     const isPro = profile?.role === 'pro';
     const isVerified = authState?.emailVerified;
-    const canAccessDashboard = !isPro || isVerified || profile?.role === 'admin';
+    const canAccessDashboard = !isPro || isVerified || isAdmin;
     newTests.push({
       name: "Dashboard Access Guard",
       status: canAccessDashboard ? "PASS" : "WARN",
-      message: canAccessDashboard ? "Access permitted" : "Redirection to /verify-email expected"
+      message: canAccessDashboard ? "Access permitted" : "Redirection to /pro/verify-email expected"
     });
 
     // Test 3: Write Permission (Rule Hardening)
     try {
-      if (!authState?.emailVerified && profile?.role === 'pro') {
+      if (!authState?.emailVerified && isPro) {
         const testRef = doc(firestore, "marketplace_audit_logs", "test-" + Date.now());
         await setDoc(testRef, { action: 'TEST_UNVERIFIED_WRITE', timestamp: serverTimestamp() });
         newTests.push({
@@ -97,8 +100,6 @@ export default function DebugPage() {
       </div>
     );
   }
-
-  const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
 
   return (
     <div className="min-h-screen bg-secondary/10 p-4 md:p-8">
@@ -176,13 +177,21 @@ export default function DebugPage() {
               </CardTitle>
               <p className="text-sm text-muted-foreground mt-1">Verifying rules against live database.</p>
             </div>
-            <Button onClick={runIntegrityTests} disabled={isRunning || !authState}>
+            <Button onClick={runIntegrityTests} disabled={isRunning || !authState || !isAdmin}>
               {isRunning ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
-              Run Diagnostics
+              {isAdmin ? "Run Diagnostics" : "Admin Only"}
             </Button>
           </CardHeader>
           <CardContent>
-            {tests.length > 0 ? (
+            {!isAdmin ? (
+              <div className="bg-yellow-50 border border-yellow-100 p-6 rounded-lg text-center">
+                 <Lock className="h-10 w-10 text-yellow-600 mx-auto mb-3" />
+                 <p className="font-bold text-yellow-900">Restricted Access</p>
+                 <p className="text-sm text-yellow-800 mt-1">
+                   Integrity tests are only executable by users with the <b>admin</b> role in Firestore.
+                 </p>
+              </div>
+            ) : tests.length > 0 ? (
               <div className="space-y-3">
                 {tests.map((test, i) => (
                   <div key={i} className="flex items-center justify-between p-3 border rounded-lg bg-background">
@@ -203,16 +212,6 @@ export default function DebugPage() {
             )}
           </CardContent>
         </Card>
-
-        {!isAdmin && authState && (
-          <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg flex gap-3 items-start shadow-sm">
-            <Info className="h-5 w-5 text-yellow-600 mt-0.5" />
-            <div className="text-sm text-yellow-800 leading-relaxed">
-              <p className="font-bold">Administrator Notice</p>
-              <p>Detailed Integrity Tests are only available to users with the <b>admin</b> role. If you are verifying unverified behavior, this page will correctly show "FAIL" for blocked write tests.</p>
-            </div>
-          </div>
-        )}
 
         <div className="flex justify-center gap-4">
            <Button variant="ghost" asChild>
