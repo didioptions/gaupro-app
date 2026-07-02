@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { useAuth, useFirestore, useUser } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
@@ -57,7 +57,11 @@ export default function ProRegisterPage() {
   
   useEffect(() => {
     if (!isUserLoading && user) {
-      router.push('/pro/dashboard');
+      if (user.emailVerified) {
+        router.push('/pro/dashboard');
+      } else {
+        router.push('/pro/verify-email');
+      }
     }
   }, [user, isUserLoading, router]);
 
@@ -93,7 +97,10 @@ export default function ProRegisterPage() {
         displayName: values.fullName
       });
 
-      // 2. Create User Role document in Firestore
+      // 2. Send Verification Email
+      await sendEmailVerification(user);
+
+      // 3. Create User Role document in Firestore
       await setDoc(doc(firestore, 'users', user.uid), {
         uid: user.uid,
         email: values.email,
@@ -103,7 +110,7 @@ export default function ProRegisterPage() {
         createdAt: new Date().toISOString(),
       });
 
-      // 3. Create initial empty professional profile
+      // 4. Create initial empty professional profile
       await setDoc(doc(firestore, 'professionalProfiles', user.uid), {
         userId: user.uid,
         name: values.fullName,
@@ -111,8 +118,8 @@ export default function ProRegisterPage() {
         phone: values.phoneNumber,
         rating: 0,
         reviews: 0,
-        creditBalance: 0, // CRITICAL: Initialize for security rules
-        leadCount: 0,      // CRITICAL: Initialize for security rules
+        creditBalance: 0,
+        leadCount: 0,
         isProVerified: false,
         priorityRank: 0,
         createdAt: new Date().toISOString(),
@@ -120,10 +127,10 @@ export default function ProRegisterPage() {
 
       toast({
         title: "Account Created",
-        description: "Welcome to Gaupro! Let's complete your business profile.",
+        description: "Welcome to Gaupro! Please check your email to verify your account.",
       });
 
-      router.push('/pro/dashboard');
+      router.push('/pro/verify-email');
     } catch (error: any) {
       console.error("Registration failed:", error);
       toast({

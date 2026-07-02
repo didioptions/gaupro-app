@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -45,7 +46,11 @@ export default function ProLoginPage() {
 
   useEffect(() => {
     if (!isUserLoading && user) {
-      router.push('/pro/dashboard');
+      if (user.emailVerified) {
+        router.push('/pro/dashboard');
+      } else {
+        router.push('/pro/verify-email');
+      }
     }
   }, [user, isUserLoading, router]);
 
@@ -65,8 +70,14 @@ export default function ProLoginPage() {
         throw new Error('Authentication is not initialized');
       }
       
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-      router.push('/pro/dashboard');
+      const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+      const user = userCredential.user;
+
+      if (!user.emailVerified) {
+        router.push('/pro/verify-email');
+      } else {
+        router.push('/pro/dashboard');
+      }
     } catch (error: any) {
       console.error('Login failed:', error);
       let errorMessage = 'An unexpected error occurred. Please try again.';
@@ -99,7 +110,7 @@ export default function ProLoginPage() {
     );
   }
 
-  if (user) {
+  if (user && user.emailVerified) {
     return null;
   }
 
@@ -133,7 +144,15 @@ export default function ProLoginPage() {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <div className="flex items-center justify-between">
+                        <FormLabel>Password</FormLabel>
+                        <Link
+                          href="/pro/forgot-password"
+                          className="text-xs text-primary hover:underline"
+                        >
+                          Forgot password?
+                        </Link>
+                      </div>
                       <FormControl>
                         <div className="relative">
                           <Input 

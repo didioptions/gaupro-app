@@ -8,6 +8,10 @@ service cloud.firestore {
     function isSignedIn() {
       return request.auth != null;
     }
+
+    function isEmailVerified() {
+      return request.auth.token.email_verified == true;
+    }
     
     function getUserData() {
       return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
@@ -24,7 +28,8 @@ service cloud.firestore {
     match /leads_public/{leadId} {
       allow read: if resource.data.status == 'approved' || isAdmin();
       allow create: if request.resource.data.status == 'pending_review' || isAdmin();
-      allow update: if isAdmin() || (isSignedIn() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quoteCount', 'purchasers']));
+      // Only verified professionals or admins can purchase leads
+      allow update: if isAdmin() || (isSignedIn() && isEmailVerified() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quoteCount', 'purchasers']));
       allow delete: if isAdmin();
     }
 
@@ -32,6 +37,7 @@ service cloud.firestore {
     match /leads_private/{leadId} {
       allow read: if isAdmin() || (
         isSignedIn() && 
+        isEmailVerified() &&
         exists(/databases/$(database)/documents/leads_public/$(leadId)) &&
         request.auth.uid in get(/databases/$(database)/documents/leads_public/$(leadId)).data.get('purchasers', [])
       );
@@ -59,10 +65,9 @@ service cloud.firestore {
       allow read: if true;
       allow create: if isSignedIn();
       
-      // Prevent users from manually increasing their own credits or tampering with counts
-      // Using .get() with fallback 0 ensures the rule doesn't crash if fields are missing
+      // Updates require verified email for professionals
       allow update: if isAdmin() || (
-        isSignedIn() && request.auth.uid == resource.data.userId
+        isSignedIn() && isEmailVerified() && request.auth.uid == resource.data.userId
         && request.resource.data.get('creditBalance', 0) <= resource.data.get('creditBalance', 0)
         && request.resource.data.get('leadCount', 0) >= resource.data.get('leadCount', 0)
       );
@@ -77,7 +82,7 @@ service cloud.firestore {
     // --- Audit Logs ---
     match /marketplace_audit_logs/{id} {
         allow read: if isAdmin();
-        allow create: if isSignedIn();
+        allow create: if isSignedIn() && isEmailVerified();
         allow update, delete: if isAdmin();
     }
     
