@@ -17,8 +17,7 @@ import {
   doc, 
   runTransaction, 
   collection, 
-  serverTimestamp,
-  increment
+  serverTimestamp
 } from 'firebase/firestore';
 import { useUser } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
@@ -29,9 +28,7 @@ import {
   AlertTriangle, 
   Loader2, 
   User, 
-  Star,
-  ShieldCheck,
-  History
+  Star
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
@@ -92,6 +89,15 @@ export function ReviewModerationDialog({ review, children }: ReviewModerationDia
                 rating: newTotal / newReviews
             });
         } else if (action === 'removed' && oldStatus === 'approved') {
+            const newReviews = Math.max(0, currentReviews - 1);
+            const newTotal = Math.max(0, currentTotal - review.rating);
+            transaction.update(proRef, { 
+                reviews: newReviews,
+                totalReviews: newTotal,
+                rating: newReviews > 0 ? newTotal / newReviews : 0
+            });
+        } else if (action === 'rejected' && oldStatus === 'approved') {
+            // Reversing an approval
             const newReviews = Math.max(0, currentReviews - 1);
             const newTotal = Math.max(0, currentTotal - review.rating);
             transaction.update(proRef, { 
