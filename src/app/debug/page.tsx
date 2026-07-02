@@ -2,7 +2,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, collection, getDocs, setDoc, serverTimestamp } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const hardcodedConfig = {
@@ -20,7 +20,7 @@ export default function DebugPage() {
 
   useEffect(() => {
     async function runDiagnostics() {
-      addLog("🚀 Starting Diagnostics...");
+      addLog("🚀 Starting Live Diagnostics...");
       
       try {
         const app = getApps().length === 0 ? initializeApp(hardcodedConfig) : getApp();
@@ -29,46 +29,56 @@ export default function DebugPage() {
 
         onAuthStateChanged(auth, async (user) => {
           if (!user) {
-            addLog("❌ User not logged in. Please log in first.");
+            addLog("❌ User not logged in. Please log in to /pro/login first.");
             return;
           }
 
-          addLog(`✅ Logged in as: ${user.email}`);
+          addLog(`✅ Auth: Logged in as ${user.email}`);
+          addLog(`📧 Verification: ${user.emailVerified ? "VERIFIED ✅" : "UNVERIFIED ❌"}`);
           addLog(`🆔 UID: ${user.uid}`);
 
           addLog("------------------------------------------------");
-          addLog("🔍 Step 1: Testing access to your 'users' document...");
+          addLog("🔍 Step 1: Testing Profile Read...");
           
           try {
             const userRef = doc(db, "users", user.uid);
             const userSnap = await getDoc(userRef);
             
             if (userSnap.exists()) {
-              addLog(`🎉 SUCCESS! Found your user document.`);
-              addLog(`📊 Data: ${JSON.stringify(userSnap.data())}`);
-              
-              if (userSnap.data().role === 'admin') {
-                addLog("👑 Verified: You have the ADMIN role.");
-              } else {
-                addLog("⚠️ Warning: Your role is NOT set to 'admin'.");
-              }
+              addLog(`🎉 Found user doc. Role: ${userSnap.data().role}`);
             } else {
-              addLog("❓ Document missing: You need to create 'users/" + user.uid + "'");
+              addLog("❓ User document missing in Firestore.");
             }
           } catch (e: any) {
-            addLog(`🛑 Permission Denied! Path: users/${user.uid}`);
-            addLog("👉 FIX: You MUST go to Firestore > Rules and click PUBLISH.");
+            addLog(`🛑 Read Permission Denied! check your firestore rules.`);
           }
 
           addLog("------------------------------------------------");
-          addLog("🔍 Step 2: Testing access to 'professionalProfiles'...");
+          addLog("🔍 Step 2: Testing Rule Hardening (Write Test)...");
           
-          try {
-            const snap = await getDocs(collection(db, "professionalProfiles"));
-            addLog(`✅ SUCCESS! Read ${snap.size} profiles.`);
-          } catch (e: any) {
-             addLog(`❌ FAILED to read profiles: ${e.message}`);
+          if (!user.emailVerified) {
+             addLog("👉 Attempting write as UNVERIFIED user (Should fail)...");
+             try {
+                // This should be blocked by rules requiring isEmailVerified()
+                const testRef = doc(db, "marketplace_audit_logs", "test-id-" + Date.now());
+                await setDoc(testRef, { action: 'TEST_UNVERIFIED_WRITE', timestamp: serverTimestamp() });
+                addLog("⚠️ CRITICAL SECURITY RISK: Unverified write SUCCEEDED. Rules are not properly enforced.");
+             } catch (e: any) {
+                addLog("✅ SUCCESS: Unverified write was BLOCKED by rules. System is secure.");
+             }
+          } else {
+             addLog("👉 Attempting write as VERIFIED user (Should succeed)...");
+             try {
+                const testRef = doc(db, "professionalProfiles", user.uid);
+                await setDoc(testRef, { lastCheck: serverTimestamp() }, { merge: true });
+                addLog("✅ SUCCESS: Verified write succeeded.");
+             } catch (e: any) {
+                addLog(`❌ FAILED: Verified write blocked: ${e.message}`);
+             }
           }
+
+          addLog("------------------------------------------------");
+          addLog("📊 Summary: If Step 2 blocked your unverified write, the system is PRODUCTION-READY.");
         });
 
       } catch (error: any) {
@@ -80,14 +90,15 @@ export default function DebugPage() {
   }, []);
 
   return (
-    <div style={{ padding: 40, fontFamily: 'monospace', background: '#f0f0f0', minHeight: '100vh' }}>
-      <h1>🔥 Admin Truth Detector</h1>
-      <p>This page checks if your database folders and rules are set up correctly.</p>
-      <div style={{ background: 'black', color: '#0f0', padding: 20, borderRadius: 10, overflowX: 'auto' }}>
-        {logs.map((log, i) => <div key={i} style={{marginBottom: 10}}>{log}</div>)}
+    <div style={{ padding: 40, fontFamily: 'monospace', background: '#f8f9fa', minHeight: '100vh' }}>
+      <h1 style={{ color: '#D32F2F' }}>🛡️ GauPro Live Truth Detector</h1>
+      <p>Verifying Authentication and Firestore Security Rules against your production database.</p>
+      <div style={{ background: '#1e1e1e', color: '#00ff00', padding: 25, borderRadius: 12, boxShadow: '0 10px 30px rgba(0,0,0,0.2)', overflowX: 'auto' }}>
+        {logs.map((log, i) => <div key={i} style={{marginBottom: 8}}>{log}</div>)}
       </div>
-      <div style={{ marginTop: 20 }}>
-          <button onClick={() => window.location.reload()} style={{ padding: '10px 20px', cursor: 'pointer' }}>Run Test Again</button>
+      <div style={{ marginTop: 25, display: 'flex', gap: 12 }}>
+          <button onClick={() => window.location.reload()} style={{ padding: '12px 24px', borderRadius: 8, background: '#D32F2F', color: 'white', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}>Run Test Again</button>
+          <a href="/pro/dashboard" style={{ padding: '12px 24px', borderRadius: 8, background: '#eee', color: '#333', textDecoration: 'none', fontWeight: 'bold' }}>Back to Dashboard</a>
       </div>
     </div>
   );

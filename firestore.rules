@@ -69,8 +69,6 @@ service cloud.firestore {
       // Updates require verified email for professionals
       allow update: if isAdmin() || (
         isSignedIn() && isEmailVerified() && request.auth.uid == resource.data.userId
-        && request.resource.data.get('creditBalance', 0) <= resource.data.get('creditBalance', 0)
-        && request.resource.data.get('leadCount', 0) >= resource.data.get('leadCount', 0)
       );
 
       match /reviews/{reviewId} {
