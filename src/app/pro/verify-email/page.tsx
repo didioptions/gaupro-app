@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -71,7 +70,7 @@ export default function VerifyEmailPage() {
     if (!user) return;
     setIsPolled(true);
     try {
-      await user.reload();
+      await user.reload(); // Refresh local token state
       if (user.emailVerified) {
         toast({
           title: 'Success!',
@@ -91,7 +90,11 @@ export default function VerifyEmailPage() {
     }
   };
 
-  if (isUserLoading) return null;
+  if (isUserLoading) return (
+    <main className="min-h-screen flex items-center justify-center bg-secondary/30">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+    </main>
+  );
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-secondary/30 p-4">

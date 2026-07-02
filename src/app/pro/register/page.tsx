@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -107,16 +106,17 @@ export default function ProRegisterPage() {
         fullName: values.fullName,
         phone: values.phoneNumber,
         role: 'pro',
+        status: 'active',
         createdAt: new Date().toISOString(),
       });
 
-      // 4. Create initial empty professional profile
+      // 4. Create initial professional profile
       await setDoc(doc(firestore, 'professionalProfiles', user.uid), {
         userId: user.uid,
         name: values.fullName,
         email: values.email,
         phone: values.phoneNumber,
-        rating: 0,
+        rating: null,
         reviews: 0,
         creditBalance: 0,
         leadCount: 0,
