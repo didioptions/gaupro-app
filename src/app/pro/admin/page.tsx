@@ -13,7 +13,8 @@ import {
   Image as ImageIcon,
   LayoutDashboard,
   ShieldCheck,
-  Search
+  Search,
+  Scale
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -33,6 +34,13 @@ const adminTools = [
     icon: <Briefcase className="h-6 w-6 text-green-600" />,
     href: '/pro/admin/leads',
     color: 'bg-green-50'
+  },
+  {
+    title: 'Lead Disputes',
+    desc: 'Review and resolve professional refund requests.',
+    icon: <Scale className="h-6 w-6 text-amber-600" />,
+    href: '/pro/admin/disputes',
+    color: 'bg-amber-50'
   },
   {
     title: 'Risk & Fraud',
@@ -75,13 +83,6 @@ const adminTools = [
     icon: <TrendingUp className="h-6 w-6 text-rose-600" />,
     href: '/pro/admin/marketplace-health',
     color: 'bg-rose-50'
-  },
-  {
-    title: 'Media Manager',
-    desc: 'Global cloud storage asset management.',
-    icon: <ImageIcon className="h-6 w-6 text-slate-600" />,
-    href: '/pro/admin/media-manager',
-    color: 'bg-slate-50'
   }
 ];
 

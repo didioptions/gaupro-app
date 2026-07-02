@@ -14,8 +14,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock } from 'lucide-react';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock, AlertTriangle, Scale } from 'lucide-react';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
 interface QuoteDialogProps {
   job: any | null;
@@ -26,6 +27,11 @@ interface QuoteDialogProps {
 export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
   const [privateData, setPrivateData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [showDisputeForm, setShowDisputeForm] = useState(false);
+  const [disputeReason, setDisputeReason] = useState<string>('');
+  const [disputeDetails, setDisputeDetails] = useState('');
+  const [isSubmittingDispute, setIsSubmittingDispute] = useState(false);
+  
   const { toast } = useToast();
   const db = getFirestore();
 
@@ -53,6 +59,7 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
       fetchPrivateData();
     } else {
       setPrivateData(null);
+      setShowDisputeForm(false);
     }
   }, [isOpen, job, db, toast]);
 
@@ -65,6 +72,35 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
       description: `Your quote for "${job.category}" has been sent.`,
     });
     onClose();
+  };
+
+  const handleDispute = async () => {
+    if (!disputeReason || !disputeDetails) return;
+    setIsSubmittingDispute(true);
+
+    try {
+      const disputeId = `dispute-${Date.now()}-${job.id}`;
+      await setDoc(doc(db, 'lead_disputes', disputeId), {
+        leadId: job.id,
+        proUid: privateData?.userId || 'unknown',
+        leadCategory: job.category,
+        credits: job.credits || 3,
+        reason: disputeReason,
+        details: disputeDetails,
+        status: 'pending',
+        createdAt: serverTimestamp()
+      });
+
+      toast({
+        title: 'Dispute Submitted',
+        description: 'Our team will review your claim within 24-48 hours.',
+      });
+      setShowDisputeForm(false);
+    } catch (error: any) {
+      toast({ variant: 'destructive', title: 'Error', description: error.message });
+    } finally {
+      setIsSubmittingDispute(false);
+    }
   };
 
   const getPostedTime = (createdAt: any) => {
@@ -89,7 +125,12 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
         <div className="py-4 space-y-6">
           <Card className="bg-secondary/30 border-0">
             <CardHeader className="pb-2 pt-4 px-4">
-                <CardTitle className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Customer Contact Information</CardTitle>
+                <CardTitle className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex justify-between items-center">
+                   Customer Contact Information
+                   <Button variant="ghost" size="sm" className="h-6 text-[10px] text-amber-600 hover:text-amber-700" onClick={() => setShowDisputeForm(!showDisputeForm)}>
+                      <AlertTriangle className="h-3 w-3 mr-1" /> Dispute Lead
+                   </Button>
+                </CardTitle>
             </CardHeader>
             <CardContent className="px-4 pb-4">
               {loading ? (
@@ -142,6 +183,53 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
             </CardContent>
           </Card>
 
+          {showDisputeForm && (
+            <Card className="border-amber-200 bg-amber-50">
+               <CardHeader className="pb-2">
+                 <CardTitle className="text-sm font-bold text-amber-800 flex items-center gap-2">
+                    <Scale className="h-4 w-4" /> Request Credit Refund
+                 </CardTitle>
+               </CardHeader>
+               <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <Label className="text-xs font-bold text-amber-900">Reason for dispute</Label>
+                    <Select onValueChange={setDisputeReason}>
+                      <SelectTrigger className="bg-white border-amber-200">
+                        <SelectValue placeholder="Select a reason..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Wrong Phone Number">Wrong Phone Number</SelectItem>
+                        <SelectItem value="Invalid Request">Fake/Invalid Request</SelectItem>
+                        <SelectItem value="Duplicate Lead">Duplicate Lead</SelectItem>
+                        <SelectItem value="Customer Not Interested">Customer Never Requested Service</SelectItem>
+                        <SelectItem value="Incorrect Service Category">Incorrect Service Category</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-xs font-bold text-amber-900">Additional Details</Label>
+                    <Textarea 
+                      placeholder="Please provide more information..." 
+                      className="bg-white border-amber-200 h-20"
+                      value={disputeDetails}
+                      onChange={(e) => setDisputeDetails(e.target.value)}
+                    />
+                  </div>
+                  <div className="flex gap-2">
+                    <Button variant="ghost" size="sm" className="flex-1" onClick={() => setShowDisputeForm(false)}>Cancel</Button>
+                    <Button 
+                      size="sm" 
+                      className="flex-1 bg-amber-600 hover:bg-amber-700" 
+                      onClick={handleDispute}
+                      disabled={isSubmittingDispute || !disputeReason || !disputeDetails}
+                    >
+                      {isSubmittingDispute ? <Loader2 className="h-4 w-4 animate-spin" /> : "Submit Claim"}
+                    </Button>
+                  </div>
+               </CardContent>
+            </Card>
+          )}
+
           <div className="space-y-4">
             <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Project Scope</h3>
             <div className="p-4 border rounded-lg bg-white leading-relaxed">
@@ -155,26 +243,30 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
             </div>
           </div>
 
-          <form id="quote-form" onSubmit={handleSubmitQuote} className="space-y-4 border-t pt-6">
-            <div className="space-y-2">
-              <Label htmlFor="quote-message" className="font-bold">Your Professional Quote</Label>
-              <Textarea
-                id="quote-message"
-                placeholder={privateData ? `Hi ${privateData.customerName.split(' ')[0]}, I can assist with your ${job.category} project...` : "Type your quote here..."}
-                rows={5}
-                required
-              />
-            </div>
-          </form>
+          {!showDisputeForm && (
+            <form id="quote-form" onSubmit={handleSubmitQuote} className="space-y-4 border-t pt-6">
+              <div className="space-y-2">
+                <Label htmlFor="quote-message" className="font-bold">Your Professional Quote</Label>
+                <Textarea
+                  id="quote-message"
+                  placeholder={privateData ? `Hi ${privateData.customerName.split(' ')[0]}, I can assist with your ${job.category} project...` : "Type your quote here..."}
+                  rows={5}
+                  required
+                />
+              </div>
+            </form>
+          )}
         </div>
         
         <DialogFooter className="flex-col sm:flex-row gap-2">
           <Button type="button" variant="outline" onClick={onClose} className="sm:flex-1">
             Cancel
           </Button>
-          <Button type="submit" form="quote-form" className="sm:flex-1 bg-red-600 hover:bg-red-700">
-            Submit Quote
-          </Button>
+          {!showDisputeForm && (
+            <Button type="submit" form="quote-form" className="sm:flex-1 bg-red-600 hover:bg-red-700">
+              Submit Quote
+            </Button>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>

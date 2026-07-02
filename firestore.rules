@@ -28,14 +28,12 @@ service cloud.firestore {
     match /leads_public/{leadId} {
       allow read: if resource.data.status == 'approved' || isAdmin();
       allow create: if request.resource.data.status == 'pending_review' || isAdmin();
-      // Professionals can only update to purchase if they are email-verified
       allow update: if isAdmin() || (isSignedIn() && isEmailVerified() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quoteCount', 'purchasers']));
       allow delete: if isAdmin();
     }
 
     // --- Marketplace: Private Contact Details ---
     match /leads_private/{leadId} {
-      // STRICT: Access only if admin OR purchaser who has been verified by email
       allow read: if isAdmin() || (
         isSignedIn() && 
         isEmailVerified() &&
@@ -43,6 +41,13 @@ service cloud.firestore {
         request.auth.uid in get(/databases/$(database)/documents/leads_public/$(leadId)).data.get('purchasers', [])
       );
       allow create: if true; 
+      allow update, delete: if isAdmin();
+    }
+
+    // --- Lead Disputes ---
+    match /lead_disputes/{disputeId} {
+      allow read: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
+      allow create: if isSignedIn() && isEmailVerified() && request.resource.data.proUid == request.auth.uid;
       allow update, delete: if isAdmin();
     }
 
@@ -65,7 +70,6 @@ service cloud.firestore {
     match /professionalProfiles/{profileId} {
       allow read: if true;
       allow create: if isSignedIn();
-      // Profile updates require email verification
       allow update: if isAdmin() || (
         isSignedIn() && isEmailVerified() && request.auth.uid == resource.data.userId
       );
@@ -77,11 +81,15 @@ service cloud.firestore {
       }
     }
 
-    // --- Audit Logs ---
+    // --- Audit Logs & Transactions ---
     match /marketplace_audit_logs/{id} {
         allow read: if isAdmin();
         allow create: if isSignedIn() && isEmailVerified();
-        allow update, delete: if isAdmin();
+    }
+    
+    match /transactions/{id} {
+        allow read: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
+        allow write: if isAdmin();
     }
     
     match /admin_logs/{id} {
