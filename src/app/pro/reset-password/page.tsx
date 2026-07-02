@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
@@ -6,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import Link from 'next/link';
 import { confirmPasswordReset, verifyPasswordResetCode } from 'firebase/auth';
 import { Lock, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 
