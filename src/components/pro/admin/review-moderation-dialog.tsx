@@ -58,7 +58,6 @@ export function ReviewModerationDialog({ review, children }: ReviewModerationDia
     setIsProcessing(true);
 
     try {
-      // Review path is professionalProfiles/{proId}/reviews/{reviewId}
       const reviewRef = doc(db, 'professionalProfiles', review.proUid, 'reviews', review.id);
       const proRef = doc(db, 'professionalProfiles', review.proUid);
       const notificationRef = collection(db, 'users', review.proUid, 'notifications');
@@ -66,9 +65,14 @@ export function ReviewModerationDialog({ review, children }: ReviewModerationDia
 
       await runTransaction(db, async (transaction) => {
         const reviewDoc = await transaction.get(reviewRef);
+        const proDoc = await transaction.get(proRef);
+
         if (!reviewDoc.exists()) throw new Error("Review not found.");
+        if (!proDoc.exists()) throw new Error("Professional profile not found.");
 
         const oldStatus = reviewDoc.data().status;
+        const currentReviews = proDoc.data().reviews || 0;
+        const currentTotal = proDoc.data().totalReviews || 0;
 
         // 1. Update Review Status
         transaction.update(reviewRef, { 
@@ -78,16 +82,22 @@ export function ReviewModerationDialog({ review, children }: ReviewModerationDia
             moderationReason: reason
         });
 
-        // 2. Update Professional Aggregate Stats if approved or removed from approved
+        // 2. Update Professional Aggregate Stats
         if (action === 'approved' && oldStatus !== 'approved') {
+            const newReviews = currentReviews + 1;
+            const newTotal = currentTotal + review.rating;
             transaction.update(proRef, { 
-                reviews: increment(1),
-                totalReviews: increment(review.rating)
+                reviews: newReviews,
+                totalReviews: newTotal,
+                rating: newTotal / newReviews
             });
         } else if (action === 'removed' && oldStatus === 'approved') {
+            const newReviews = Math.max(0, currentReviews - 1);
+            const newTotal = Math.max(0, currentTotal - review.rating);
             transaction.update(proRef, { 
-                reviews: increment(-1),
-                totalReviews: increment(-review.rating)
+                reviews: newReviews,
+                totalReviews: newTotal,
+                rating: newReviews > 0 ? newTotal / newReviews : 0
             });
         }
 

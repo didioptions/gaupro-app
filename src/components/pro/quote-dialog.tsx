@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -80,6 +79,7 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
       const quoteId = `${job.id}-${user.uid}`;
       await setDoc(doc(db, 'quotes', quoteId), {
         leadId: job.id,
+        customerUid: job.userId || 'guest',
         proUid: user.uid,
         proName: user.displayName || 'Professional',
         message: quoteMessage,
