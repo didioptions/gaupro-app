@@ -145,7 +145,7 @@ export default function ProRegisterPage() {
 
   if (isUserLoading) {
     return (
-      <div className="min-h-[calc(100vh-180px)] flex items-center justify-center bg-secondary/50">
+      <div className="min-h-screen flex items-center justify-center bg-secondary/50">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
@@ -155,7 +155,7 @@ export default function ProRegisterPage() {
 
   return (
     <main className="flex-grow">
-      <div className="min-h-[calc(100vh-180px)] flex items-center justify-center bg-secondary/50 py-12 px-4">
+      <div className="min-h-screen flex items-center justify-center bg-secondary/50 py-12 px-4">
         <div className="w-full max-w-4xl">
           <Card className="grid md:grid-cols-2 overflow-hidden shadow-lg">
             <div className="hidden md:flex flex-col items-center justify-center bg-card p-10 text-center border-r">

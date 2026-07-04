@@ -29,7 +29,6 @@ export default function VerifyEmailPage() {
     }
   }, [user, isUserLoading, router]);
 
-  // Polling to automatically detect verification
   useEffect(() => {
     if (!user || user.emailVerified || isUserLoading) return;
 
@@ -38,11 +37,10 @@ export default function VerifyEmailPage() {
         await user.reload();
         if (user.emailVerified) {
           clearInterval(interval);
-          // Definitive redirect to clear layout guards
           window.location.href = '/pro/dashboard';
         }
       } catch (error) {
-        // Silently ignore background errors
+        // Silently ignore background refresh errors
       }
     }, 5000);
 
