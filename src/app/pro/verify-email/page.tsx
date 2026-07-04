@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -25,8 +24,7 @@ export default function VerifyEmailPage() {
     if (!isUserLoading && !user) {
       router.push('/pro/login');
     }
-    // Note: This effect might not trigger after a user.reload() because the object reference stays the same.
-    // The polling and manual check handle the redirect definitively.
+    // If the user object already shows verified, redirect immediately
     if (user?.emailVerified) {
       router.push('/pro/dashboard');
     }
@@ -97,7 +95,7 @@ export default function VerifyEmailPage() {
       if (user.emailVerified) {
         toast({
           title: 'Success!',
-          description: 'Your email has been verified.',
+          description: 'Your email has been verified. Accessing dashboard...',
         });
         // Definitive redirect using window.location to ensure fresh auth state globally
         window.location.href = '/pro/dashboard';
@@ -112,7 +110,7 @@ export default function VerifyEmailPage() {
       toast({
         variant: 'destructive',
         title: 'Refresh Failed',
-        description: error.message || 'Failed to check verification status.',
+        description: 'Failed to check verification status. Please try again.',
       });
     } finally {
       setIsPolled(false);
