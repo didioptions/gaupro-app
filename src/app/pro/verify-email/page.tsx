@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -24,10 +25,32 @@ export default function VerifyEmailPage() {
     if (!isUserLoading && !user) {
       router.push('/pro/login');
     }
+    // Note: This effect might not trigger after a user.reload() because the object reference stays the same.
+    // The polling and manual check handle the redirect definitively.
     if (user?.emailVerified) {
       router.push('/pro/dashboard');
     }
   }, [user, isUserLoading, router]);
+
+  // Polling to automatically detect verification when the user returns to the tab
+  useEffect(() => {
+    if (!user || user.emailVerified || isUserLoading) return;
+
+    const interval = setInterval(async () => {
+      try {
+        await user.reload();
+        if (user.emailVerified) {
+          clearInterval(interval);
+          // Hard refresh ensures the entire app (provider, layouts, rules) picks up the new status
+          window.location.href = '/pro/dashboard';
+        }
+      } catch (error) {
+        // Errors during background polling (like network blips) are silently ignored
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [user, isUserLoading]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -76,15 +99,21 @@ export default function VerifyEmailPage() {
           title: 'Success!',
           description: 'Your email has been verified.',
         });
-        router.push('/pro/dashboard');
+        // Definitive redirect using window.location to ensure fresh auth state globally
+        window.location.href = '/pro/dashboard';
       } else {
         toast({
           title: 'Not Verified',
           description: 'Please check your email and click the verification link.',
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error reloading user:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Refresh Failed',
+        description: error.message || 'Failed to check verification status.',
+      });
     } finally {
       setIsPolled(false);
     }
