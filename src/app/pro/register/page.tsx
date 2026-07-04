@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -10,7 +9,7 @@ import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification } 
 import { useState, useEffect } from 'react';
 import { useAuth, useFirestore, useUser } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -90,24 +89,26 @@ export default function ProRegisterPage() {
         values.password
       );
 
-      const user = userCredential.user;
+      const registeredUser = userCredential.user;
 
-      await updateProfile(user, {
+      await updateProfile(registeredUser, {
         displayName: values.fullName
       });
 
-      await setDoc(doc(firestore, 'users', user.uid), {
-        uid: user.uid,
+      const now = serverTimestamp();
+
+      await setDoc(doc(firestore, 'users', registeredUser.uid), {
+        uid: registeredUser.uid,
         email: values.email,
         fullName: values.fullName,
         phone: values.phoneNumber,
         role: 'pro',
         status: 'active',
-        createdAt: new Date().toISOString(),
+        createdAt: now,
       });
 
-      await setDoc(doc(firestore, 'professionalProfiles', user.uid), {
-        userId: user.uid,
+      await setDoc(doc(firestore, 'professionalProfiles', registeredUser.uid), {
+        userId: registeredUser.uid,
         name: values.fullName,
         email: values.email,
         phone: values.phoneNumber,
@@ -118,10 +119,11 @@ export default function ProRegisterPage() {
         leadCount: 0,
         isProVerified: false,
         priorityRank: 0,
-        createdAt: new Date().toISOString(),
+        createdAt: now,
+        updatedAt: now,
       });
 
-      await sendEmailVerification(user);
+      await sendEmailVerification(registeredUser);
 
       toast({
         title: "Account Created",

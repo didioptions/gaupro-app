@@ -24,13 +24,12 @@ export default function VerifyEmailPage() {
     if (!isUserLoading && !user) {
       router.push('/pro/login');
     }
-    // If the user object already shows verified, redirect immediately
     if (user?.emailVerified) {
       router.push('/pro/dashboard');
     }
   }, [user, isUserLoading, router]);
 
-  // Polling to automatically detect verification when the user returns to the tab
+  // Polling to automatically detect verification
   useEffect(() => {
     if (!user || user.emailVerified || isUserLoading) return;
 
@@ -39,11 +38,11 @@ export default function VerifyEmailPage() {
         await user.reload();
         if (user.emailVerified) {
           clearInterval(interval);
-          // Hard refresh ensures the entire app (provider, layouts, rules) picks up the new status
+          // Definitive redirect to clear layout guards
           window.location.href = '/pro/dashboard';
         }
       } catch (error) {
-        // Errors during background polling (like network blips) are silently ignored
+        // Silently ignore background errors
       }
     }, 5000);
 
@@ -63,7 +62,7 @@ export default function VerifyEmailPage() {
     setIsSending(true);
     try {
       await sendEmailVerification(user);
-      setCooldown(60); // 60 second cooldown
+      setCooldown(60);
       toast({
         title: 'Verification Email Sent',
         description: `We've sent a new verification link to ${user.email}.`,
@@ -91,13 +90,12 @@ export default function VerifyEmailPage() {
     if (!user) return;
     setIsPolled(true);
     try {
-      await user.reload(); // Refresh local token state
+      await user.reload();
       if (user.emailVerified) {
         toast({
           title: 'Success!',
           description: 'Your email has been verified. Accessing dashboard...',
         });
-        // Definitive redirect using window.location to ensure fresh auth state globally
         window.location.href = '/pro/dashboard';
       } else {
         toast({
