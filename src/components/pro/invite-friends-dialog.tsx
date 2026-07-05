@@ -51,7 +51,7 @@ Connecting with the right customers has never been easier.
 
   const handleSend = () => {
     setIsSending(true);
-    // In a real application, this would trigger an API call to a backend service to send emails.
+    // Simulation of email dispatch
     setTimeout(() => {
         setIsSending(false);
         setIsSent(true);
@@ -60,7 +60,6 @@ Connecting with the right customers has never been easier.
   
   const resetAndClose = () => {
     setOpen(false);
-    // Reset state after a short delay to allow the dialog to close smoothly
     setTimeout(() => {
         setIsSent(false);
         setIsSending(false);

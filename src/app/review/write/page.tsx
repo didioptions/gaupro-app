@@ -16,7 +16,7 @@ import { Star, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
-import { getFirestore, collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 const reviewSchema = z.object({
   rating: z.number().min(1, 'Please select a rating'),
@@ -115,7 +115,7 @@ function WriteReviewContent() {
                 <Button onClick={() => router.back()} className="mt-4">Go Back</Button>
             </CardContent>
         </Card>
-    )
+    );
   }
 
   return (
@@ -270,7 +270,7 @@ function WriteReviewContent() {
               </Button>
             </div>
           </form>
-        </form>
+        </Form>
       </CardContent>
     </Card>
   );
