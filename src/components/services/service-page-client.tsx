@@ -41,7 +41,6 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
 
     useEffect(() => {
         setIsClient(true);
-        // Generate random part only on client to avoid hydration mismatch
         setCompletedCount(Math.floor(Math.random() * 500) + 200);
     }, []);
 

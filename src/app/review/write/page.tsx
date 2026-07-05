@@ -57,8 +57,7 @@ function WriteReviewContent() {
       const spamKeywords = ['crypto', 'invest', 'earn', 'money', 'scam', 'fake'];
       const words = comment.toLowerCase().split(' ');
       
-      // Basic checks
-      if (words.length < 5) score += 30; // Too short
+      if (words.length < 5) score += 30;
       spamKeywords.forEach(keyword => {
           if (words.includes(keyword)) score += 20;
       });
@@ -271,7 +270,7 @@ function WriteReviewContent() {
               </Button>
             </div>
           </form>
-        </Form>
+        </form>
       </CardContent>
     </Card>
   );

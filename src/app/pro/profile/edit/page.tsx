@@ -52,7 +52,7 @@ interface ProfileData {
   photos?: string[];
 }
 
-const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB Limit
+const MAX_FILE_SIZE = 2 * 1024 * 1024;
 
 export default function EditProfilePage() {
   const { user, isUserLoading } = useUser();
@@ -163,7 +163,6 @@ export default function EditProfilePage() {
     setIsSaving(true);
     try {
         const docRef = doc(firestore, 'professionalProfiles', profileId);
-        // We omit creditBalance and leadCount from direct updates to avoid security rule conflicts
         const { creditBalance, leadCount, ...restOfData } = formData as any;
         await updateDoc(docRef, restOfData);
         setShowSuccessAlert(true);
@@ -186,7 +185,6 @@ export default function EditProfilePage() {
         return;
     }
 
-    // Client-side size checks
     if (logoFile.length > 0 && logoFile[0].size > MAX_FILE_SIZE) {
         toast({ variant: 'destructive', title: 'File too large', description: 'Your logo must be smaller than 2MB.' });
         return;
