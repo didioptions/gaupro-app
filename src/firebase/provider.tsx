@@ -17,8 +17,9 @@ export interface UserProfile {
   role: 'super_admin' | 'admin' | 'pro' | 'customer';
   email: string;
   fullName?: string;
+  phone?: string;
   uid: string;
-  createdAt: string;
+  createdAt: any;
 }
 
 interface UserAuthState {
