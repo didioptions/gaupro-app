@@ -9,14 +9,12 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogFooter,
-  DialogClose,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Check } from 'lucide-react';
-import Link from 'next/link';
+import { Check, Loader2 } from 'lucide-react';
 
 interface InviteFriendsDialogProps {
   user: User | null;
@@ -27,6 +25,7 @@ export function InviteFriendsDialog({ user, children }: InviteFriendsDialogProps
   const [open, setOpen] = useState(false);
   const [emails, setEmails] = useState('');
   const [isSent, setIsSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const ownerName = user?.displayName || user?.email || 'Your Friend';
 
@@ -51,9 +50,12 @@ Connecting with the right customers has never been easier.
 — The Gaupro Team, on behalf of ${ownerName}`;
 
   const handleSend = () => {
-    console.log('Sending invites to:', emails);
+    setIsSending(true);
     // In a real application, this would trigger an API call to a backend service to send emails.
-    setIsSent(true);
+    setTimeout(() => {
+        setIsSending(false);
+        setIsSent(true);
+    }, 1000);
   };
   
   const resetAndClose = () => {
@@ -61,6 +63,7 @@ Connecting with the right customers has never been easier.
     // Reset state after a short delay to allow the dialog to close smoothly
     setTimeout(() => {
         setIsSent(false);
+        setIsSending(false);
         setEmails('');
     }, 300);
   }
@@ -102,10 +105,11 @@ Connecting with the right customers has never been easier.
               </div>
             </div>
             <DialogFooter>
-              <Button type="button" variant="outline" onClick={resetAndClose}>
+              <Button type="button" variant="outline" onClick={resetAndClose} disabled={isSending}>
                 Cancel
               </Button>
-              <Button type="button" onClick={handleSend} className="bg-red-500 hover:bg-red-600">
+              <Button type="button" onClick={handleSend} className="bg-red-500 hover:bg-red-600" disabled={isSending || !emails}>
+                {isSending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                 Send
               </Button>
             </DialogFooter>

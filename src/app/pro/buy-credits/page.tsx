@@ -15,7 +15,7 @@ import {
   DialogClose,
 } from '@/components/ui/dialog';
 import { useUser, useFirestore } from '@/firebase';
-import { doc, onSnapshot, updateDoc, increment, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, onSnapshot, runTransaction, collection, serverTimestamp } from 'firebase/firestore';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 
@@ -82,29 +82,39 @@ export default function BuyCreditsPage() {
     const creditsToAdd = pack?.credits || 0;
 
     try {
-        // Atomic update of credit balance
         const proRef = doc(firestore, 'professionalProfiles', user.uid);
-        await updateDoc(proRef, {
-            creditBalance: increment(creditsToAdd)
-        });
+        const txRef = doc(collection(firestore, 'transactions'));
+        const notifRef = doc(collection(firestore, 'users', user.uid, 'notifications'));
 
-        // Log transaction
-        await addDoc(collection(firestore, 'transactions'), {
-            proUid: user.uid,
-            type: 'purchase',
-            amount: creditsToAdd,
-            paymentMethod: selectedPaymentMethod,
-            totalZar: transactionTotal,
-            timestamp: new Date().toISOString()
-        });
+        await runTransaction(firestore, async (transaction) => {
+            const proDoc = await transaction.get(proRef);
+            if (!proDoc.exists()) throw new Error("Profile document not found.");
 
-        // Notify user
-        await addDoc(collection(firestore, 'users', user.uid, 'notifications'), {
-            title: 'Credits Added',
-            message: `Successfully added ${creditsToAdd} credits to your account.`,
-            type: 'credit',
-            status: 'unread',
-            createdAt: serverTimestamp()
+            const currentBalance = proDoc.data().creditBalance || 0;
+
+            // 1. Update Balance
+            transaction.update(proRef, {
+                creditBalance: currentBalance + creditsToAdd
+            });
+
+            // 2. Log Transaction
+            transaction.set(txRef, {
+                proUid: user.uid,
+                type: 'purchase',
+                amount: creditsToAdd,
+                paymentMethod: selectedPaymentMethod,
+                totalZar: transactionTotal,
+                timestamp: new Date().toISOString()
+            });
+
+            // 3. Queue Notification
+            transaction.set(notifRef, {
+                title: 'Credits Added',
+                message: `Successfully added ${creditsToAdd} credits to your account.`,
+                type: 'credit',
+                status: 'unread',
+                createdAt: serverTimestamp()
+            });
         });
 
         toast({
@@ -114,7 +124,6 @@ export default function BuyCreditsPage() {
 
         setIsPaymentDialogOpen(false);
     } catch (error: any) {
-        console.error('Payment processing failed:', error);
         toast({
             variant: 'destructive',
             title: 'Payment Error',
@@ -129,7 +138,7 @@ export default function BuyCreditsPage() {
       <div className="py-12 md:py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-normal">Buy Credits</h1>
+            <h1 className="text-3xl md:text-4xl font-normal text-foreground">Buy Credits</h1>
             <p className="text-xl text-muted-foreground mt-2">
               Your current balance is <span className="font-bold text-red-600">
                 {creditBalance !== null ? creditBalance : '...'}
@@ -141,7 +150,7 @@ export default function BuyCreditsPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Select Credit Pack</CardTitle>
-                <p className="text-muted-foreground">Top up your credits by selecting a credit pack below.</p>
+                <p className="text-muted-foreground text-sm">Top up your credits by selecting a credit pack below.</p>
               </CardHeader>
               <CardContent>
                 <RadioGroup value={selectedPack || ''} onValueChange={setSelectedPack}>

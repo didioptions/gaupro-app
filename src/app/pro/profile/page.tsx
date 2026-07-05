@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -15,6 +14,7 @@ import Image from 'next/image';
 import { useUser, useFirestore } from '@/firebase';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useToast } from '@/hooks/use-toast';
 
 interface BusinessProfile {
   id: string;
@@ -31,6 +31,7 @@ interface BusinessProfile {
 export default function ProProfilePage() {
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
+  const { toast } = useToast();
   const [profiles, setProfiles] = useState<BusinessProfile[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -74,6 +75,13 @@ export default function ProProfilePage() {
     return Math.round((score / totalPossible) * 100);
   };
 
+  const handleAddNewBusiness = () => {
+    toast({
+        title: 'Feature Restricted',
+        description: 'The current version of Gaupro is limited to one business profile per account.',
+    });
+  }
+
   if (isUserLoading || loading) {
     return (
       <div className="py-12 md:py-16">
@@ -102,7 +110,7 @@ export default function ProProfilePage() {
               <AlertTitle className="font-bold">Action Required</AlertTitle>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <AlertDescription className="text-red-700">
-                      Your account has limited access. Before we activate your account, we need you to verify your profile to maintain a trusted workplace. We need your identification such as ID or Passport, Drivers licence or Utility bills.
+                      Your account has limited access. Before we activate your account, we need you to verify your profile to maintain a trusted and safe marketplace for everyone.
                   </AlertDescription>
                   <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0">
                     <Link href="/pro/verify">Verify your ID</Link>
@@ -214,7 +222,7 @@ export default function ProProfilePage() {
             <CardContent className="p-8 flex flex-col items-center justify-center text-center">
                 <Users className="h-10 w-10 text-muted-foreground/50 mb-4"/>
                 <p className="text-lg font-medium mb-4">Need to manage multiple businesses?</p>
-                <Button className="bg-red-600 hover:bg-red-700 font-bold" onClick={() => window.alert('This feature is limited to one business per account in the current version.')}>
+                <Button className="bg-red-600 hover:bg-red-700 font-bold" onClick={handleAddNewBusiness}>
                   Add a new Business
                 </Button>
             </CardContent>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
@@ -12,8 +11,6 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
-import { CategoryImages } from '@/lib/category-images';
-import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { Checkbox } from '@/components/ui/checkbox';
 import Link from 'next/link';
@@ -37,6 +34,7 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { useUser, useFirestore } from '@/firebase';
+import { useToast } from '@/hooks/use-toast';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -47,6 +45,7 @@ function PostRequestContent() {
   const router = useRouter();
   const { user, profile } = useUser();
   const db = useFirestore();
+  const { toast } = useToast();
   
   const serviceQuery = searchParams.get('service') || '';
   const locationQuery = searchParams.get('location') || '';
@@ -54,7 +53,6 @@ function PostRequestContent() {
   const [step, setStep] = useState(0);
   const [selectedService, setSelectedService] = useState(serviceQuery);
   const [formData, setFormData] = useState<FormData>({});
-  const [date, setDate] = useState<Date | undefined>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -123,7 +121,11 @@ function PostRequestContent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreedToTerms) {
-        alert("You must agree to the Terms of Service and Privacy Policy.");
+        toast({
+            variant: 'destructive',
+            title: 'Agreement Required',
+            description: 'You must agree to the Terms of Service and Privacy Policy to continue.',
+        });
         return;
     }
 
@@ -134,7 +136,6 @@ function PostRequestContent() {
     const leadId = Math.random().toString(36).substring(7);
     const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
     
-    // PUBLIC DATA (SEO Safe)
     const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: (formData.job_details as string) || "No description provided",
@@ -150,7 +151,6 @@ function PostRequestContent() {
         quoteCount: 0
     };
 
-    // PRIVATE DATA (Restricted)
     const privateData = {
         customerName: `${formData.firstName} ${formData.lastName}`,
         customerEmail: formData.email || '',
@@ -166,8 +166,11 @@ function PostRequestContent() {
         await setDoc(doc(db, 'leads_private', leadId), privateData);
         setIsSubmitted(true);
     } catch (error: any) {
-        console.error('Error saving lead:', error);
-        alert("There was an error submitting your request: " + error.message);
+        toast({
+            variant: 'destructive',
+            title: 'Submission Error',
+            description: error.message || 'There was an error submitting your request. Please try again.',
+        });
     } finally {
         setIsSubmitting(false);
     }
@@ -280,7 +283,7 @@ function PostRequestContent() {
                   </Button>
                   <div>
                     <h2 className="text-xl">Request for {serviceLabel}</h2>
-                    <p className="text-muted-foreground">Step {step} of {totalSteps}</p>
+                    <p className="text-muted-foreground text-sm">Step {step} of {totalSteps}</p>
                   </div>
               </div>
               <Progress value={progress} className="h-2" />
@@ -394,7 +397,7 @@ function PostRequestContent() {
               </Button>
               <div>
                 <h2 className="text-xl">Almost done, we just need your details.</h2>
-                 <p className="text-muted-foreground">Step {step} of {totalSteps}</p>
+                 <p className="text-muted-foreground text-sm">Step {step} of {totalSteps}</p>
               </div>
             </div>
             <Progress value={progress} className="h-2" />
