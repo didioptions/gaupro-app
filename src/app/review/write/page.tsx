@@ -94,9 +94,12 @@ function WriteReviewContent() {
           description: 'Thank you! Your review is pending moderation and will be visible shortly.',
         });
         router.push(`/pro/${proId}`);
-    } catch (error) {
-        console.error("Submission failed:", error);
-        toast({ variant: 'destructive', title: 'Error', description: 'Failed to submit review. Please try again.' });
+    } catch (error: any) {
+        toast({ 
+            variant: 'destructive', 
+            title: 'Submission Error', 
+            description: error.message || 'Failed to submit review. Please try again.' 
+        });
     } finally {
         setIsSubmitting(false);
     }

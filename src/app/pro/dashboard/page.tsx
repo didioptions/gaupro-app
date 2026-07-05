@@ -7,16 +7,8 @@ import {
   UserPlus, 
   ShieldCheck, 
   Briefcase, 
-  Activity, 
-  FileCheck, 
-  Wallet, 
-  MessageSquare, 
-  Users, 
-  ShieldAlert, 
   LayoutDashboard, 
   ExternalLink, 
-  RefreshCcw, 
-  LogOut, 
   MapPin, 
   Clock,
   CheckCircle2
@@ -30,13 +22,12 @@ import {
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
-import { useUser, useFirestore, useAuth, useCollection, useMemoFirebase } from '@/firebase';
+import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
 import { collection, query, where, limit, orderBy, onSnapshot, doc, updateDoc } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { allServices } from '@/lib/service-questions';
-import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
 import { SupportChatWidget } from '@/components/pro/support-chat-widget';
@@ -58,9 +49,8 @@ interface ProfessionalProfile {
 }
 
 export default function ProDashboardPage() {
-  const { user, profile, isUserLoading, userError } = useUser();
+  const { user, profile, isUserLoading } = useUser();
   const firestore = useFirestore();
-  const auth = useAuth();
   const router = useRouter();
   
   const [profileData, setProfileData] = useState<ProfessionalProfile | null>(null);
@@ -82,8 +72,7 @@ export default function ProDashboardPage() {
         setProfileData({ id: snapshot.id, ...snapshot.data() } as ProfessionalProfile);
       }
       setIsLoading(false);
-    }, (error) => {
-      console.error("Profile listener error:", error);
+    }, () => {
       setIsLoading(false);
     });
 
@@ -94,8 +83,8 @@ export default function ProDashboardPage() {
     );
     const unsubscribeNotifications = onSnapshot(nQ, (snapshot) => {
         setNotifications(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
-    }, (error) => {
-        console.error("Notifications listener error:", error);
+    }, () => {
+        // Silently fail notifications for production
     });
 
     return () => {
@@ -136,7 +125,7 @@ export default function ProDashboardPage() {
         const notifRef = doc(firestore, 'users', user.uid, 'notifications', notificationId);
         await updateDoc(notifRef, { status: 'read' });
     } catch (err) {
-        console.error("Failed to mark as read:", err);
+        // Silently fail notification updates
     }
   };
 
@@ -301,7 +290,6 @@ export default function ProDashboardPage() {
                       {profileData?.creditBalance ?? 0}
                   </p>
               </CardContent>
-            </Card>
 
             <Card>
               <CardContent className="p-6">
@@ -312,7 +300,6 @@ export default function ProDashboardPage() {
                   </Button>
                 </InviteFriendsDialog>
               </CardContent>
-            </Card>
 
             {isAdmin && (
               <Card className="lg:col-span-3 border-primary/50 bg-primary/5 relative overflow-hidden">

@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -91,8 +90,7 @@ export default function EditProfilePage() {
             } else {
                 toast({ variant: 'destructive', title: 'Error', description: 'No professional profile found for your user account.' });
             }
-        } catch (error) {
-            console.error("Error fetching profile:", error);
+        } catch (error: any) {
             toast({ variant: 'destructive', title: 'Error', description: 'Failed to fetch your profile data.' });
         } finally {
             setIsLoading(false);
@@ -172,7 +170,6 @@ export default function EditProfilePage() {
         setTimeout(() => setShowSuccessAlert(false), 5000);
         toast({ title: 'Profile Updated', description: 'Your changes have been saved successfully.' });
     } catch (error: any) {
-        console.error("Error saving data:", error);
         toast({ variant: 'destructive', title: 'Save Failed', description: error.message || 'Could not update your profile.' });
     } finally {
         setIsSaving(false);
@@ -208,7 +205,6 @@ export default function EditProfilePage() {
     try {
         if (logoFile.length > 0) {
             const file = logoFile[0];
-            // Path without timestamp to overwrite existing logo and save storage quota
             const storageRef = ref(storage, `profiles/${profileId}/logo/business-logo`);
             await uploadBytes(storageRef, file);
             const downloadURL = await getDownloadURL(storageRef);
@@ -239,7 +235,6 @@ export default function EditProfilePage() {
         setTimeout(() => setShowSuccessAlert(false), 5000);
 
     } catch (error: any) {
-        console.error('Upload failed:', error);
         let message = error.message || 'There was an error uploading your files.';
         if (error.code === 'storage/quota-exceeded') {
             message = 'Firebase Storage quota exceeded. Please upgrade your plan in the Firebase Console or wait for the daily limit to reset.';
