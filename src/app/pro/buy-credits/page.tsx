@@ -15,7 +15,9 @@ import {
   DialogClose,
 } from '@/components/ui/dialog';
 import { useUser, useFirestore } from '@/firebase';
-import { doc, onSnapshot } from 'firebase/firestore';
+import { doc, onSnapshot, updateDoc, increment, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { useToast } from '@/hooks/use-toast';
+import { Loader2 } from 'lucide-react';
 
 const creditPacks = [
   { id: '10', credits: 10, price: 300, pricePerCredit: 30, discount: null, save: null },
@@ -39,11 +41,14 @@ const paymentMethods = [
 export default function BuyCreditsPage() {
   const { user } = useUser();
   const firestore = useFirestore();
+  const { toast } = useToast();
+  
   const [creditBalance, setCreditBalance] = useState<number | null>(null);
   const [selectedPack, setSelectedPack] = useState<string | null>(null);
   const [includeAddon, setIncludeAddon] = useState(false);
   const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
     if (!user || !firestore) return;
@@ -69,11 +74,55 @@ export default function BuyCreditsPage() {
     }
   };
 
-  const handlePayment = () => {
-    // Placeholder for actual payment logic
-    console.log('Processing payment with:', selectedPaymentMethod);
-    alert(`Payment processing for R ${transactionTotal.toFixed(2)} via ${selectedPaymentMethod}`);
-    setIsPaymentDialogOpen(false);
+  const handlePayment = async () => {
+    if (!user || !firestore || !selectedPack) return;
+
+    setIsProcessing(true);
+    const pack = creditPacks.find(p => p.id === selectedPack);
+    const creditsToAdd = pack?.credits || 0;
+
+    try {
+        // Atomic update of credit balance
+        const proRef = doc(firestore, 'professionalProfiles', user.uid);
+        await updateDoc(proRef, {
+            creditBalance: increment(creditsToAdd)
+        });
+
+        // Log transaction
+        await addDoc(collection(firestore, 'transactions'), {
+            proUid: user.uid,
+            type: 'purchase',
+            amount: creditsToAdd,
+            paymentMethod: selectedPaymentMethod,
+            totalZar: transactionTotal,
+            timestamp: new Date().toISOString()
+        });
+
+        // Notify user
+        await addDoc(collection(firestore, 'users', user.uid, 'notifications'), {
+            title: 'Credits Added',
+            message: `Successfully added ${creditsToAdd} credits to your account.`,
+            type: 'credit',
+            status: 'unread',
+            createdAt: serverTimestamp()
+        });
+
+        toast({
+            title: 'Purchase Successful',
+            description: `${creditsToAdd} credits have been added to your balance.`,
+        });
+
+        setIsPaymentDialogOpen(false);
+    } catch (error: any) {
+        console.error('Payment processing failed:', error);
+        toast({
+            variant: 'destructive',
+            title: 'Payment Error',
+            description: 'Could not process credit purchase. Please try again.',
+        });
+    } finally {
+        setIsProcessing(false);
+    }
   };
 
   return (
@@ -137,9 +186,6 @@ export default function BuyCreditsPage() {
                         <li>Access to 30 Hero Leads (irrespective of credit value)</li>
                         <li>Each Hero Lead can only be viewed by 3 Pros</li>
                     </ul>
-                    <p className="text-xs text-muted-foreground mt-4">
-                        Add-on pack functionality only available on the Gaupro website and not mobile applications. Gaupro add-on available when purchasing a credit pack, using credit card or EFT/Card with Payfast, and valid for 30 days from date of purchase.
-                    </p>
                 </div>
               </CardContent>
             </Card>
@@ -156,16 +202,6 @@ export default function BuyCreditsPage() {
                     Proceed to Checkout
                 </Button>
              </div>
-
-            <Card className="mt-12">
-              <CardHeader>
-                <CardTitle className="text-2xl font-normal">What are Credits?</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-muted-foreground">
-                <p>You need to buy credits to respond to customers on Gaupro. The cost of a job varies from 1 to 5 credits and this depends on the size of the job and the number of pros in the area.</p>
-                <p>For example, a bigger job like a bathroom remodel will cost 4 credits, while smaller jobs like swimming lessons will be 1 credit. The base cost of 1 credit is R30, but this reduces if you buy credits in bulk.</p>
-              </CardContent>
-            </Card>
 
           </div>
         </div>
@@ -190,10 +226,11 @@ export default function BuyCreditsPage() {
             </div>
             <DialogFooter>
               <DialogClose asChild>
-                <Button variant="outline">Cancel</Button>
+                <Button variant="outline" disabled={isProcessing}>Cancel</Button>
               </DialogClose>
-              <Button onClick={handlePayment} disabled={!selectedPaymentMethod} className="bg-red-500 hover:bg-red-600">
-                Proceed to Payment
+              <Button onClick={handlePayment} disabled={!selectedPaymentMethod || isProcessing} className="bg-red-500 hover:bg-red-600">
+                {isProcessing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                Complete Purchase
               </Button>
             </DialogFooter>
           </DialogContent>

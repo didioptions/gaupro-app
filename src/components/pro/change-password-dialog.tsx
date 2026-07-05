@@ -14,6 +14,8 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '../ui/checkbox';
+import { getAuth, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
+import { Loader2 } from 'lucide-react';
 
 interface ChangePasswordDialogProps {
   children: React.ReactNode;
@@ -25,9 +27,15 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
   const { toast } = useToast();
 
-  const handleChangePassword = () => {
+  const handleChangePassword = async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (!user || !user.email) return;
+
     if (newPassword !== confirmPassword) {
       toast({
         variant: 'destructive',
@@ -44,13 +52,34 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
       });
       return;
     }
-    // Placeholder for actual password change logic with Firebase
-    console.log('Changing password...');
-    toast({
-      title: 'Success',
-      description: 'Password change functionality is not yet implemented.',
-    });
-    setOpen(false);
+
+    setIsUpdating(true);
+
+    try {
+      // Firebase requires recent login for sensitive actions. Re-authenticate first.
+      const credential = EmailAuthProvider.credential(user.email, currentPassword);
+      await reauthenticateWithCredential(user, credential);
+      await updatePassword(user, newPassword);
+
+      toast({
+        title: 'Password Updated',
+        description: 'Your password has been changed successfully.',
+      });
+      setOpen(false);
+      // Reset form
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmPassword('');
+    } catch (error: any) {
+      console.error('Password change error:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Update Failed',
+        description: error.message || 'Could not update password. Please check your current password.',
+      });
+    } finally {
+      setIsUpdating(false);
+    }
   };
 
   return (
@@ -64,6 +93,7 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
         </DialogHeader>
         <div className="py-4 space-y-6">
           <div className="space-y-2">
+            <Label htmlFor="currentPassword">Current Password</Label>
             <Input
               id="currentPassword"
               type={showPassword ? 'text' : 'password'}
@@ -73,6 +103,7 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
             />
           </div>
           <div className="space-y-2">
+            <Label htmlFor="newPassword">New Password</Label>
             <Input
               id="newPassword"
               type={showPassword ? 'text' : 'password'}
@@ -82,6 +113,7 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
             />
           </div>
           <div className="space-y-2">
+            <Label htmlFor="confirmPassword">Confirm New Password</Label>
             <Input
               id="confirmPassword"
               type={showPassword ? 'text' : 'password'}
@@ -96,14 +128,16 @@ export function ChangePasswordDialog({ children }: ChangePasswordDialogProps) {
           </div>
         </div>
         <DialogFooter className="sm:justify-between">
-          <Button type="button" variant="outline" onClick={() => setOpen(false)}>
+          <Button type="button" variant="outline" onClick={() => setOpen(false)} disabled={isUpdating}>
             Cancel
           </Button>
           <Button
             type="button"
             onClick={handleChangePassword}
             className="bg-red-500 hover:bg-red-600"
+            disabled={isUpdating || !currentPassword || !newPassword}
           >
+            {isUpdating ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
             Change Password
           </Button>
         </DialogFooter>
