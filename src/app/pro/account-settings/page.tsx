@@ -13,10 +13,26 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import Link from 'next/link';
 import { ChangePasswordDialog } from '@/components/pro/change-password-dialog';
+import { useUser } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function AccountSettingsPage() {
+  const { user, profile, isUserLoading } = useUser();
+
+  if (isUserLoading) {
+    return (
+      <div className="container mx-auto px-4 py-12">
+        <Skeleton className="h-12 w-1/3 mx-auto mb-8" />
+        <Skeleton className="h-64 w-full max-w-2xl mx-auto" />
+      </div>
+    );
+  }
+
+  const names = profile?.fullName?.split(' ') || [];
+  const firstName = names[0] || '';
+  const lastName = names.slice(1).join(' ') || '';
+
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -50,7 +66,7 @@ export default function AccountSettingsPage() {
                     <Label htmlFor="cellphone">Cellphone Number to Login</Label>
                     <Input
                       id="cellphone"
-                      defaultValue="0784292760"
+                      defaultValue={profile?.phone || ''}
                       disabled
                       className="bg-secondary"
                     />
@@ -68,7 +84,7 @@ export default function AccountSettingsPage() {
                       <Label htmlFor="first-name">First Name</Label>
                       <Input
                         id="first-name"
-                        defaultValue="COSSAM M"
+                        defaultValue={firstName}
                         disabled
                         className="bg-secondary"
                       />
@@ -77,7 +93,7 @@ export default function AccountSettingsPage() {
                       <Label htmlFor="last-name">Last Name</Label>
                       <Input
                         id="last-name"
-                        defaultValue="NGWENYA"
+                        defaultValue={lastName}
                         disabled
                         className="bg-secondary"
                       />
@@ -88,12 +104,10 @@ export default function AccountSettingsPage() {
                     <Input
                       id="email"
                       type="email"
-                      defaultValue="bravosa@gmail.com"
+                      defaultValue={user?.email || ''}
+                      disabled
+                      className="bg-secondary"
                     />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="landline">Land Line</Label>
-                    <Input id="landline" placeholder="Land Line" />
                   </div>
                 </div>
 
@@ -137,22 +151,6 @@ export default function AccountSettingsPage() {
           <TabsContent value="notifications" className="mt-8">
             <Card className="max-w-2xl mx-auto bg-transparent border-0 shadow-none">
               <CardContent className="p-0 md:p-8 space-y-8">
-                <div className="space-y-2">
-                  <Label htmlFor="business-profile">
-                    Select Business Profile for related settings
-                  </Label>
-                  <Select defaultValue="bravo-projects">
-                    <SelectTrigger id="business-profile">
-                      <SelectValue placeholder="Select a profile" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="bravo-projects">
-                        bravo projects, Randburg
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-lg font-semibold text-foreground">
@@ -170,7 +168,7 @@ export default function AccountSettingsPage() {
                       >
                         New Customer Requests email notifications
                       </Label>
-                      <Checkbox id="new-requests" />
+                      <Checkbox id="new-requests" defaultChecked />
                     </div>
                     <div className="flex items-center justify-between">
                       <Label
@@ -179,7 +177,7 @@ export default function AccountSettingsPage() {
                       >
                         Request Reminders
                       </Label>
-                      <Checkbox id="request-reminders" />
+                      <Checkbox id="request-reminders" defaultChecked />
                     </div>
                   </div>
                 </div>
@@ -198,7 +196,7 @@ export default function AccountSettingsPage() {
                       >
                         Customer Request Push Notifications
                       </Label>
-                      <Checkbox id="push-notifications" />
+                      <Checkbox id="push-notifications" defaultChecked />
                     </div>
                   </div>
                 </div>

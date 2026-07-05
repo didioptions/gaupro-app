@@ -140,17 +140,6 @@ export default function ProDashboardPage() {
     }
   };
 
-  const handleLogout = async () => {
-    if (auth) {
-      try {
-        await signOut(auth);
-        window.location.href = '/';
-      } catch (error) {
-        console.error("Logout error:", error);
-      }
-    }
-  };
-
   const getPostedTime = (createdAt: any) => {
     if (!createdAt) return 'Recently';
     const date = createdAt.seconds ? new Date(createdAt.seconds * 1000) : new Date(createdAt);
@@ -326,80 +315,27 @@ export default function ProDashboardPage() {
             </Card>
 
             {isAdmin && (
-              <>
-                <Card className="lg:col-span-3 border-primary/50 bg-primary/5 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-6 opacity-5">
-                     <LayoutDashboard className="h-32 w-32" />
+              <Card className="lg:col-span-3 border-primary/50 bg-primary/5 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 opacity-5">
+                   <LayoutDashboard className="h-32 w-32" />
+                </div>
+                <CardHeader className="flex flex-row items-center justify-between">
+                  <div>
+                    <CardTitle className="flex items-center gap-2 text-2xl font-bold text-primary">
+                      <ShieldCheck className="h-6 w-6" />
+                      Admin Hub
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Consolidated oversight for marketplace operations and risk management.
+                    </p>
                   </div>
-                  <CardHeader className="flex flex-row items-center justify-between">
-                    <div>
-                      <CardTitle className="flex items-center gap-2 text-2xl font-bold text-primary">
-                        <ShieldCheck className="h-6 w-6" />
-                        Admin command center
-                      </CardTitle>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Consolidated oversight for marketplace operations and risk management.
-                      </p>
-                    </div>
-                    <Button asChild size="lg">
-                      <Link href="/pro/admin">
-                        Open Admin Hub <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-red-200 bg-red-50">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg font-bold text-red-800">
-                      <ShieldAlert className="h-6 w-6 text-red-600" />
-                      Risk Center
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-xs text-red-700 mb-4">
-                      Review identity fraud alerts and behavior flags.
-                    </p>
-                    <Button asChild variant="destructive" className="w-full">
-                      <Link href="/pro/admin/fraud">View Alerts</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-primary/50 bg-primary/5">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg font-normal">
-                      <Users className="h-6 w-6 text-primary" />
-                      Customers
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Manage user accounts, view histories, and handle support.
-                    </p>
-                    <Button asChild variant="secondary" className="w-full">
-                      <Link href="/pro/admin/customers">CRM Center</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-primary/50 bg-primary/5">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg font-normal">
-                      <Briefcase className="h-6 w-6 text-primary" />
-                      Leads & Quality
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Oversight of job requests and automated quality scoring.
-                    </p>
-                    <Button asChild variant="secondary" className="w-full">
-                      <Link href="/pro/admin/leads">Manage Flow</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </>
+                  <Button asChild size="lg">
+                    <Link href="/pro/admin">
+                      Open Command Center <ExternalLink className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardHeader>
+              </Card>
             )}
           </div>
 
@@ -442,44 +378,6 @@ export default function ProDashboardPage() {
                 </div>
               )}
             </CardContent>
-          </Card>
-          
-          <Card className="bg-yellow-50 border-yellow-200">
-              <CardHeader>
-                  <CardTitle className="text-sm font-bold text-yellow-800 uppercase tracking-widest flex items-center gap-2">
-                      <RefreshCcw className="h-4 w-4" /> Admin Access Diagnostic
-                  </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                      <div className="p-3 bg-white rounded border">
-                          <p className="text-xs text-muted-foreground uppercase font-bold">Your Auth UID</p>
-                          <p className="font-mono text-xs break-all mt-1">{user?.uid}</p>
-                          <p className="text-[10px] text-blue-600 mt-1 italic">Make sure this matches the Document ID in your 'users' collection exactly.</p>
-                      </div>
-                      <div className="p-3 bg-white rounded border">
-                          <p className="text-xs text-muted-foreground uppercase font-bold">Role Found</p>
-                          <p className="font-bold text-foreground mt-1 capitalize">{profile?.role || 'None Found'}</p>
-                          {userError && <p className="text-xs text-red-600 mt-1 font-bold">Error: {userError.message}</p>}
-                          <p className="text-[10px] text-blue-600 mt-1 italic">If this says 'None', the app can't see your admin document.</p>
-                      </div>
-                  </div>
-                  
-                  {!isAdmin && (
-                      <div className="p-4 bg-white rounded border border-yellow-300 text-sm text-yellow-900">
-                          <p className="font-bold mb-2">Still can't see the Admin Hub?</p>
-                          <ol className="list-decimal list-inside space-y-1">
-                              <li>Check that the collection is named <b>users</b> (lowercase, with an 's').</li>
-                              <li>Verify your UID above exactly matches the Document ID in Firestore.</li>
-                              <li>Make sure the `users` folder is at the <b>TOP LEVEL</b> of your database.</li>
-                              <li>If you just added it, click the button below to force a refresh.</li>
-                          </ol>
-                          <Button variant="outline" className="mt-4 w-full gap-2 border-yellow-400 text-yellow-900 hover:bg-yellow-100" onClick={handleLogout}>
-                              <LogOut className="h-4 w-4" /> Force Refresh (Sign Out)
-                          </Button>
-                      </div>
-                  )}
-              </CardContent>
           </Card>
         </div>
       </div>

@@ -24,11 +24,13 @@ export default function ProLayout({
   const router = useRouter();
   const pathname = usePathname();
 
+  // Public routes include specific auth pages, dynamic business profiles, and the business claiming flow.
   const isPublicDynamicProfile = /^\/pro\/(?!dashboard|profile|buy-credits|account-settings|verify|login|register|signup|admin|forgot-password|reset-password|verify-email|partnership|claim)[^/]+$/.test(pathname);
   const isPublicProRoute = PUBLIC_PRO_ROUTES.includes(pathname) || isPublicDynamicProfile || pathname.startsWith('/pro/claim/');
 
   useEffect(() => {
     if (!isUserLoading) {
+      // 1. If no user and trying to access a protected pro route, go to login.
       if (!user && !isPublicProRoute) {
         router.push('/pro/login');
         return;
@@ -36,6 +38,8 @@ export default function ProLayout({
 
       const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
       
+      // 2. If logged in as a pro but not verified, force them to the verification page
+      // unless they are already on a public route or are an administrator.
       if (user && !user.emailVerified && !isAdmin && !isPublicProRoute) {
         router.push('/pro/verify-email');
         return;
