@@ -43,6 +43,7 @@ import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { useUser, useFirestore } from '@/firebase';
+import { useToast } from '@/hooks/use-toast';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -69,6 +70,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
 
   const { user } = useUser();
   const db = useFirestore();
+  const { toast } = useToast();
 
   useEffect(() => {
     if (open) {
@@ -129,7 +131,11 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreedToTerms) {
-        alert("You must agree to the Terms of Service and Privacy Policy.");
+        toast({
+            variant: 'destructive',
+            title: 'Agreement Required',
+            description: 'You must agree to the Terms of Service and Privacy Policy to continue.',
+        });
         return;
     }
 
@@ -148,7 +154,6 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
         fullDescription = answers || "No description provided";
     }
 
-    // PUBLIC DATA (SEO Safe)
     const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: fullDescription,
@@ -164,7 +169,6 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
         quoteCount: 0
     };
 
-    // PRIVATE DATA (Restricted PII)
     const privateData = {
         customerName: `${formData.firstName} ${formData.lastName}`,
         customerEmail: formData.email || '',
@@ -179,8 +183,11 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
         await setDoc(doc(db, 'leads_private', leadId), privateData);
         setIsSubmitted(true);
     } catch (error: any) {
-        console.error('Error saving lead:', error);
-        alert("There was an error submitting your request: " + error.message);
+        toast({
+            variant: 'destructive',
+            title: 'Submission Failed',
+            description: error.message || 'There was an error submitting your request. Please try again.',
+        });
     } finally {
         setIsSubmitting(false);
     }
@@ -466,7 +473,7 @@ export function RequestQuoteDialog({ children, service, initialStep = 0, initial
               Back
             </Button>
             <Button size="lg" type="submit" className="bg-red-600 hover:bg-red-700" disabled={!agreedToTerms || isSubmitting}>
-              {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+              {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
               {isSubmitting ? 'Submitting...' : 'Get Quotes'}
             </Button>
           </div>
