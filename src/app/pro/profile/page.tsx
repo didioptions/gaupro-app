@@ -7,7 +7,7 @@ import {
   Card,
   CardContent,
 } from '@/components/ui/card';
-import { Alert, AlertDescription, AlertTitle } from '@/components/alert';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
 import Image from 'next/image';
