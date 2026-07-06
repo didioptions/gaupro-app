@@ -1,14 +1,16 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import { sendEmailVerification, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { Mail, CheckCircle, Loader2, LogOut, RotateCcw } from 'lucide-react';
+import { Mail, CheckCircle, Loader2, LogOut, RotateCcw, AlertCircle, HelpCircle } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useAuth, useUser } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export default function VerifyEmailPage() {
   const router = useRouter();
@@ -67,10 +69,14 @@ export default function VerifyEmailPage() {
       });
     } catch (error: any) {
       console.error('Error sending verification:', error);
+      let message = 'Failed to send verification email. Please try again later.';
+      if (error.code === 'auth/too-many-requests') {
+          message = 'We have sent too many emails to this address. Please wait a while before trying again.';
+      }
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: error.message || 'Failed to send verification email. Please try again later.',
+        description: message,
       });
     } finally {
       setIsSending(false);
@@ -120,8 +126,8 @@ export default function VerifyEmailPage() {
   );
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-secondary/30 p-4">
-      <Card className="max-w-md w-full shadow-xl">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-secondary/30 p-4">
+      <Card className="max-w-md w-full shadow-xl mb-8">
         <CardHeader className="text-center pb-2">
           <div className="flex justify-center mb-4">
             <div className="p-4 bg-primary/10 rounded-full">
@@ -168,14 +174,38 @@ export default function VerifyEmailPage() {
               Sign out and try another email
             </Button>
           </div>
-          
-          <div className="text-center">
-              <p className="text-xs text-muted-foreground">
-                  Can't find the email? Check your spam or junk folder.
-              </p>
-          </div>
         </CardContent>
       </Card>
+
+      <div className="max-w-md w-full">
+          <Accordion type="single" collapsible className="w-full bg-white/50 rounded-lg border px-4">
+              <AccordionItem value="help" className="border-0">
+                  <AccordionTrigger className="text-sm font-semibold hover:no-underline py-3">
+                      <div className="flex items-center gap-2">
+                        <HelpCircle className="h-4 w-4 text-primary" />
+                        Not receiving the link?
+                      </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-xs text-muted-foreground space-y-3 pb-4">
+                      <div className="flex gap-2">
+                          <AlertCircle className="h-3 w-3 mt-0.5 shrink-0" />
+                          <p><strong>Check your Spam/Junk folder:</strong> Look for an email from <em>Gaupro</em> or <em>noreply@studio-5618...</em></p>
+                      </div>
+                      <div className="flex gap-2">
+                          <AlertCircle className="h-3 w-3 mt-0.5 shrink-0" />
+                          <p><strong>Wait a few minutes:</strong> Sometimes local servers or email providers delay incoming automated mail.</p>
+                      </div>
+                      <div className="flex gap-2">
+                          <AlertCircle className="h-3 w-3 mt-0.5 shrink-0" />
+                          <p><strong>Check the spelling:</strong> Ensure your email <em>{user?.email}</em> is typed exactly right. If not, sign out and register again.</p>
+                      </div>
+                      <div className="flex gap-2 border-t pt-2 mt-2">
+                          <p>Still stuck? Email us at <a href="mailto:support@gaupro.co.za" className="text-primary hover:underline font-bold">support@gaupro.co.za</a> and we'll help you manually verify.</p>
+                      </div>
+                  </AccordionContent>
+              </AccordionItem>
+          </Accordion>
+      </div>
     </main>
   );
 }
