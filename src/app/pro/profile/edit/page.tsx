@@ -20,7 +20,7 @@ import { RequestReviewDialog } from '@/components/pro/request-review-dialog';
 import { FileUpload } from '@/components/ui/file-upload';
 import { useUser, useFirestore } from '@/firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cityExpansionMap } from '@/lib/location-data';
@@ -77,18 +77,24 @@ export default function EditProfilePage() {
 
     const fetchProfile = async () => {
         try {
-            const q = query(collection(firestore, "professionalProfiles"), where("userId", "==", user.uid));
-            const querySnapshot = await getDocs(q);
-            if (!querySnapshot.empty) {
-                const profileDoc = querySnapshot.docs[0];
-                setProfileId(profileDoc.id);
-                const data = profileDoc.data() as ProfileData;
+            // Standard approach: Pro profiles are indexed by the user's UID
+            const docRef = doc(firestore, "professionalProfiles", user.uid);
+            const docSnap = await getDoc(docRef);
+            
+            if (docSnap.exists()) {
+                setProfileId(user.uid);
+                const data = docSnap.data() as ProfileData;
                 if (!data.serviceAreas || !Array.isArray(data.serviceAreas)) {
                     data.serviceAreas = data.location ? [data.location] : [];
                 }
                 setFormData(data);
             } else {
-                toast({ variant: 'destructive', title: 'Error', description: 'No professional profile found for your user account.' });
+                // Fallback for older profiles or special cases
+                setProfileId(user.uid);
+                setFormData({
+                    email: user.email || '',
+                    name: user.displayName || '',
+                });
             }
         } catch (error: any) {
             toast({ variant: 'destructive', title: 'Error', description: 'Failed to fetch your profile data.' });
@@ -156,14 +162,15 @@ export default function EditProfilePage() {
   };
 
   const handleSave = async () => {
-    if (!profileId || !firestore) {
-        toast({ variant: 'destructive', title: 'Error', description: 'Profile not loaded. Cannot save.' });
+    const idToUse = profileId || user?.uid;
+    if (!idToUse || !firestore) {
+        toast({ variant: 'destructive', title: 'Error', description: 'Session expired or profile not found. Please log in again.' });
         return;
     }
     setIsSaving(true);
     try {
-        const docRef = doc(firestore, 'professionalProfiles', profileId);
-        const { creditBalance, leadCount, ...restOfData } = formData as any;
+        const docRef = doc(firestore, 'professionalProfiles', idToUse);
+        const { creditBalance, leadCount, rating, reviews, ...restOfData } = formData as any;
         await updateDoc(docRef, restOfData);
         setShowSuccessAlert(true);
         setTimeout(() => setShowSuccessAlert(false), 5000);
@@ -176,7 +183,8 @@ export default function EditProfilePage() {
   };
   
   const handleSaveMedia = async () => {
-    if (!user || !profileId) {
+    const idToUse = profileId || user?.uid;
+    if (!user || !idToUse) {
         toast({ variant: 'destructive', title: 'Error', description: 'You must be logged in and have a profile to upload files.' });
         return;
     }
@@ -203,7 +211,7 @@ export default function EditProfilePage() {
     try {
         if (logoFile.length > 0) {
             const file = logoFile[0];
-            const storageRef = ref(storage, `profiles/${profileId}/logo/business-logo`);
+            const storageRef = ref(storage, `profiles/${idToUse}/logo/business-logo`);
             await uploadBytes(storageRef, file);
             const downloadURL = await getDownloadURL(storageRef);
             updatedData.avatarSeed = downloadURL;
@@ -212,7 +220,7 @@ export default function EditProfilePage() {
         if (photoFiles.length > 0) {
             const photoURLs = [...(formData.photos || [])];
             for (const file of photoFiles) {
-                const storageRef = ref(storage, `profiles/${profileId}/photos/${Date.now()}-${file.name}`);
+                const storageRef = ref(storage, `profiles/${idToUse}/photos/${Date.now()}-${file.name}`);
                 await uploadBytes(storageRef, file);
                 const downloadURL = await getDownloadURL(storageRef);
                 photoURLs.push(downloadURL);
@@ -221,7 +229,7 @@ export default function EditProfilePage() {
         }
 
         if (firestore) {
-            const docRef = doc(firestore, 'professionalProfiles', profileId);
+            const docRef = doc(firestore, 'professionalProfiles', idToUse);
             await updateDoc(docRef, updatedData as any);
             setFormData((prev) => ({ ...prev, ...updatedData }));
         }
@@ -234,9 +242,6 @@ export default function EditProfilePage() {
 
     } catch (error: any) {
         let message = error.message || 'There was an error uploading your files.';
-        if (error.code === 'storage/quota-exceeded') {
-            message = 'Firebase Storage quota exceeded. Please upgrade your plan in the Firebase Console or wait for the daily limit to reset.';
-        }
         toast({ variant: 'destructive', title: 'Upload Failed', description: message });
     } finally {
         setIsSaving(false);
@@ -256,13 +261,16 @@ export default function EditProfilePage() {
       )
   }
 
+  const businessName = formData.name || (formData.firstName ? `${formData.firstName} ${formData.lastName || ''}` : 'Your Business');
+  const businessLocation = formData.location ? (allLocations.find(l => l.value === formData.location)?.label || formData.location) : 'Your Location';
+
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="mb-4">
           <p className="text-muted-foreground">Edit Business Profile for</p>
           <h1 className="text-2xl md:text-3xl font-normal">
-            {formData.name || 'Your Business'} <span className="font-normal text-muted-foreground">{formData.location ? (allLocations.find(l => l.value === formData.location)?.label || formData.location) : 'Your Location'}</span>
+            {businessName} <span className="font-normal text-muted-foreground">{businessLocation}</span>
           </h1>
         </div>
 
@@ -300,11 +308,19 @@ export default function EditProfilePage() {
                   <h2 className="text-xl font-normal mb-6">Contact Details</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name</Label>
+                      <Label htmlFor="name">Business / Trading Name</Label>
+                      <Input id="name" name="name" value={formData.name || ''} onChange={handleInputChange} placeholder="e.g. Acme Plumbing" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="website">Website</Label>
+                      <Input id="website" name="website" value={formData.website || ''} onChange={handleInputChange} placeholder="https://..." />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName">Contact First Name</Label>
                       <Input id="firstName" name="firstName" value={formData.firstName || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name</Label>
+                      <Label htmlFor="lastName">Contact Last Name</Label>
                       <Input id="lastName" name="lastName" value={formData.lastName || ''} onChange={handleInputChange} />
                     </div>
                     <div className="space-y-2">
@@ -318,10 +334,6 @@ export default function EditProfilePage() {
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
                       <Input id="email" name="email" type="email" value={formData.email || ''} onChange={handleInputChange} />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="website">Website</Label>
-                      <Input id="website" name="website" value={formData.website || ''} onChange={handleInputChange} />
                     </div>
                   </div>
                 </div>
