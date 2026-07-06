@@ -46,13 +46,11 @@ service cloud.firestore {
 
     // --- Marketplace: Quotes ---
     match /quotes/{quoteId} {
-      // Users can see quotes they sent (Pros) or received (Customers)
       allow read: if isAdmin() || (isSignedIn() && (
         request.auth.uid == resource.data.proUid || 
         request.auth.uid == resource.data.customerUid
       ));
       
-      // Pros can only create quotes if they purchased the lead
       allow create: if isSignedIn() && isEmailVerified() && 
         request.auth.uid == request.resource.data.proUid &&
         request.auth.uid in get(/databases/$(database)/documents/leads_public/$(request.resource.data.leadId)).data.get('purchasers', []);
@@ -88,6 +86,7 @@ service cloud.firestore {
       allow create: if isSignedIn();
       allow update: if isAdmin() || (
         isSignedIn() && isEmailVerified() && request.auth.uid == resource.data.userId
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['creditBalance', 'isProVerified', 'priorityRank', 'userId'])
       );
 
       match /reviews/{reviewId} {

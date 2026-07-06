@@ -1,4 +1,3 @@
-
 import {
   getFirestore,
   collection,
@@ -29,8 +28,6 @@ export function searchCompanies(
   const db = getFirestore();
   const companiesCol = collection(db, 'companies');
 
-  // Build the query. NOTE: The 'area' filter cannot be included here due to
-  // Firestore's limitation of one 'array-contains' filter per query.
   const q = query(
     companiesCol,
     where('searchServices', 'array-contains', service.toLowerCase()),
@@ -42,35 +39,3 @@ export function searchCompanies(
 
   return q;
 }
-
-/*
- * --- USAGE EXAMPLE ---
- *
- * This shows how you would use the searchCompanies function and then filter by area
- * on the client side.
- *
- * import { getDocs } from 'firebase/firestore';
- * import { searchCompanies } from '@/services/companySearch';
- *
- * async function findPlumbersInArea(service: string, area: string) {
- *   // 1. Get the query object from the search helper (queries by service and rating)
- *   const companiesQuery = searchCompanies(service, area);
- *
- *   try {
- *     // 2. Execute the query to get the documents
- *     const querySnapshot = await getDocs(companiesQuery);
- *
- *     // 3. Map the documents and perform client-side filtering for the area
- *     const companies = querySnapshot.docs
- *       .map(doc => ({ id: doc.id, ...doc.data() as any }))
- *       .filter(company => company.searchAreas?.includes(area.toLowerCase()));
- *
- *     console.log(companies);
- *     return companies;
- *
- *   } catch (error) {
- *     console.error("Error searching companies:", error);
- *     return [];
- *   }
- * }
- */
