@@ -69,7 +69,7 @@ export async function groupProfessionalsByServiceAndCity(db: Firestore): Promise
     return groupedData;
 
   } catch (error) {
-    console.error("Error fetching or grouping professionals: ", error);
+    // Fail silently in production to avoid UI crashes
     return {};
   }
 }

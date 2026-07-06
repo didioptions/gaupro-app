@@ -20,6 +20,7 @@ export interface UserProfile {
   phone?: string;
   uid: string;
   createdAt: any;
+  status?: string;
 }
 
 interface UserAuthState {

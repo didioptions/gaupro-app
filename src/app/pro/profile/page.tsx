@@ -54,8 +54,7 @@ export default function ProProfilePage() {
       })) as BusinessProfile[];
       setProfiles(profileData);
       setLoading(false);
-    }, (error) => {
-      // Silently fail profile listening for production
+    }, () => {
       setLoading(false);
     });
 
