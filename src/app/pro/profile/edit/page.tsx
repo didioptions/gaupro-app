@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -12,8 +13,8 @@ import { allServices } from '@/lib/service-questions';
 import { Textarea } from '@/components/ui/textarea';
 import { Autocomplete } from '@/components/ui/autocomplete';
 import { Badge } from '@/components/ui/badge';
-import { X, Loader2 } from 'lucide-react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import { X, Loader2, ShieldAlert } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { allLocations } from '@/lib/locations';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RequestReviewDialog } from '@/components/pro/request-review-dialog';
@@ -25,6 +26,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cityExpansionMap } from '@/lib/location-data';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ProfileData {
   name?: string;
@@ -95,14 +97,14 @@ export default function EditProfilePage() {
                 });
             }
         } catch (error: any) {
-            toast({ variant: 'destructive', title: 'Error', description: 'Failed to fetch your profile data.' });
+            console.error("Error loading profile:", error);
         } finally {
             setIsLoading(false);
         }
     };
 
     fetchProfile();
-  }, [user, isUserLoading, firestore, toast]);
+  }, [user, isUserLoading, firestore]);
 
   useEffect(() => {
     const primaryCitySlug = formData.location;
@@ -162,9 +164,15 @@ export default function EditProfilePage() {
   const handleSave = async () => {
     const idToUse = profileId || user?.uid;
     if (!idToUse || !firestore) {
-        toast({ variant: 'destructive', title: 'Error', description: 'Session expired or profile not found. Please log in again.' });
+        toast({ variant: 'destructive', title: 'Error', description: 'Session expired. Please log in again.' });
         return;
     }
+
+    if (!user?.emailVerified) {
+        toast({ variant: 'destructive', title: 'Verification Required', description: 'Please verify your email before saving profile changes.' });
+        return;
+    }
+
     setIsSaving(true);
     try {
         const docRef = doc(firestore, 'professionalProfiles', idToUse);
@@ -180,6 +188,8 @@ export default function EditProfilePage() {
           priorityRank, 
           userId, 
           verificationStatus,
+          reviewCount,
+          createdAt,
           ...restOfData 
         } = formData as any;
         
@@ -203,23 +213,10 @@ export default function EditProfilePage() {
   
   const handleSaveMedia = async () => {
     const idToUse = profileId || user?.uid;
-    if (!user || !idToUse) {
-        toast({ variant: 'destructive', title: 'Error', description: 'You must be logged in and have a profile to upload files.' });
-        return;
-    }
-    if (logoFile.length === 0 && photoFiles.length === 0) {
-        toast({ variant: 'destructive', title: 'No files selected', description: 'Please select a logo or photos to upload.' });
-        return;
-    }
+    if (!user || !idToUse) return;
 
-    if (logoFile.length > 0 && logoFile[0].size > MAX_FILE_SIZE) {
-        toast({ variant: 'destructive', title: 'File too large', description: 'Your logo must be smaller than 2MB.' });
-        return;
-    }
-
-    const invalidPhotos = photoFiles.filter(f => f.size > MAX_FILE_SIZE);
-    if (invalidPhotos.length > 0) {
-        toast({ variant: 'destructive', title: 'Files too large', description: 'Portfolio photos must be smaller than 2MB each.' });
+    if (!user.emailVerified) {
+        toast({ variant: 'destructive', title: 'Verification Required', description: 'Please verify your email before uploading media.' });
         return;
     }
 
@@ -253,15 +250,11 @@ export default function EditProfilePage() {
             setFormData((prev) => ({ ...prev, ...updatedData }));
         }
 
-        toast({ title: 'Success!', description: 'Your media has been uploaded and saved.' });
+        toast({ title: 'Media Uploaded', description: 'Your logo and photos have been updated.' });
         setLogoFile([]);
         setPhotoFiles([]);
-        setShowSuccessAlert(true);
-        setTimeout(() => setShowSuccessAlert(false), 5000);
-
     } catch (error: any) {
-        let message = error.message || 'There was an error uploading your files.';
-        toast({ variant: 'destructive', title: 'Upload Failed', description: message });
+        toast({ variant: 'destructive', title: 'Upload Failed', description: error.message });
     } finally {
         setIsSaving(false);
     }
@@ -293,6 +286,21 @@ export default function EditProfilePage() {
           </h1>
         </div>
 
+        {!user?.emailVerified && (
+           <Alert variant="destructive" className="mb-8 border-red-500 bg-red-50">
+              <ShieldAlert className="h-4 w-4" />
+              <AlertTitle className="font-bold">Email Verification Required</AlertTitle>
+              <AlertDescription className="mt-2">
+                Your email address <strong>{user?.email}</strong> is not yet verified. You can browse the site, but you cannot save changes to your profile until you verify your account.
+                <div className="mt-4">
+                    <Button asChild variant="outline" className="border-red-600 text-red-700 bg-white hover:bg-red-50">
+                        <Link href="/pro/verify-email">Go to Verification Page</Link>
+                    </Button>
+                </div>
+              </AlertDescription>
+           </Alert>
+        )}
+
         {showSuccessAlert && (
           <Alert className="bg-green-100 border-green-300 text-green-800 my-4">
             <AlertDescription className="flex justify-between items-center">
@@ -314,7 +322,7 @@ export default function EditProfilePage() {
               <TabsTrigger value="reviews" className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none">Reviews</TabsTrigger>
               <TabsTrigger value="qa" className="data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none">Q & A</TabsTrigger>
             </TabsList>
-            <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving}>
+            <Button className="bg-red-500 hover:bg-red-600" onClick={handleSave} disabled={isSaving || !user?.emailVerified}>
                 {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                 {isSaving ? 'Saving...' : 'Save'}
             </Button>
@@ -490,7 +498,7 @@ export default function EditProfilePage() {
                     </div>
                 </div>
                 <div className="flex justify-end pt-4 border-t">
-                  <Button className="bg-red-500 hover:bg-red-600" onClick={handleSaveMedia} disabled={isSaving}>
+                  <Button className="bg-red-500 hover:bg-red-600" onClick={handleSaveMedia} disabled={isSaving || !user?.emailVerified}>
                     {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                     {isSaving ? 'Uploading Media...' : 'Save & Upload Media'}
                   </Button>
