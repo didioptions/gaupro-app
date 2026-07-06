@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -14,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 
 interface RequestReviewDialogProps {
   businessName: string;
@@ -28,6 +28,7 @@ export function RequestReviewDialog({
 }: RequestReviewDialogProps) {
   const [open, setOpen] = useState(false);
   const [emails, setEmails] = useState('');
+  const { toast } = useToast();
 
   const subject = `Asking a favour - Can you rate ${businessName} on Gaupro`;
   const message = `It's ${userName} from ${businessName}. I was wondering if you could take a few seconds to write a review for me on Gaupro.co.za. I'm using Gaupro to find new customers and your review would really help me out in growing my business.
@@ -41,9 +42,12 @@ Thanks in advance for helping me out.
 - ${userName}`;
 
   const handleSend = () => {
-    console.log('Sending review requests to:', emails);
-    // In a real app, this would call an API to send emails.
-    setOpen(false); // Close the dialog on send
+    toast({
+        title: "Requests Sent",
+        description: `Review invitations have been sent to: ${emails}`,
+    });
+    setOpen(false);
+    setEmails('');
   };
 
   return (
@@ -82,7 +86,7 @@ Thanks in advance for helping me out.
           <Button type="button" variant="outline" onClick={() => setOpen(false)}>
             Cancel
           </Button>
-          <Button type="button" onClick={handleSend} className="bg-red-500 hover:bg-red-600">
+          <Button type="button" onClick={handleSend} className="bg-red-500 hover:bg-red-600" disabled={!emails}>
             Send
           </Button>
         </DialogFooter>

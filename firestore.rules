@@ -28,7 +28,10 @@ service cloud.firestore {
     match /leads_public/{leadId} {
       allow read: if resource.data.status == 'approved' || isAdmin();
       allow create: if request.resource.data.status == 'pending_review' || isAdmin();
-      allow update: if isAdmin() || (isSignedIn() && isEmailVerified() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quoteCount', 'purchasers']));
+      allow update: if isAdmin() || (
+        isSignedIn() && isEmailVerified() && 
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quoteCount', 'purchasers'])
+      );
       allow delete: if isAdmin();
     }
 
@@ -58,20 +61,13 @@ service cloud.firestore {
       allow update, delete: if isAdmin();
     }
 
-    // --- Lead Disputes ---
-    match /lead_disputes/{disputeId} {
-      allow read: if isAdmin() || (isSignedIn() && resource.data.proUid == request.auth.uid);
-      allow create: if isSignedIn() && isEmailVerified() && resource.data.proUid == request.auth.uid;
-      allow update, delete: if isAdmin();
-    }
-
     // --- User Documents ---
     match /users/{userId} {
       allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
       allow create: if isSignedIn() && request.auth.uid == userId;
       allow update: if isAdmin() || (
         isSignedIn() && request.auth.uid == userId 
-        && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['role']))
+        && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['role', 'status']))
       );
 
       match /notifications/{notificationId} {
@@ -86,7 +82,10 @@ service cloud.firestore {
       allow create: if isSignedIn();
       allow update: if isAdmin() || (
         isSignedIn() && isEmailVerified() && request.auth.uid == resource.data.userId
-        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['creditBalance', 'isProVerified', 'priorityRank', 'userId'])
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+          'creditBalance', 'isProVerified', 'priorityRank', 'userId', 
+          'leadCount', 'rating', 'totalReviews', 'reviewCount', 'verificationStatus'
+        ])
       );
 
       match /reviews/{reviewId} {
