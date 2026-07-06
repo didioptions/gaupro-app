@@ -7,7 +7,7 @@ import {
   Card,
   CardContent,
 } from '@/components/ui/card';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Alert, AlertDescription, AlertTitle } from '@/components/alert';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -55,7 +55,7 @@ export default function ProProfilePage() {
       setProfiles(profileData);
       setLoading(false);
     }, (error) => {
-      console.error("Error fetching profiles:", error);
+      // Silently fail profile listening for production
       setLoading(false);
     });
 

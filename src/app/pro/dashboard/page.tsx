@@ -11,7 +11,8 @@ import {
   ExternalLink, 
   MapPin, 
   Clock,
-  CheckCircle2
+  CheckCircle2,
+  Wallet
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -20,7 +21,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Alert, AlertDescription, AlertTitle } from '@/components/alert';
 import Link from 'next/link';
 import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
 import { collection, query, where, limit, orderBy, onSnapshot, doc, updateDoc } from 'firebase/firestore';
@@ -218,7 +219,7 @@ export default function ProDashboardPage() {
              </div>
           )}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
             <Card className="lg:col-span-2">
               <CardContent className="p-6 flex items-start justify-between">
                 <div className="flex gap-4">
@@ -262,44 +263,54 @@ export default function ProDashboardPage() {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg font-normal">Quote Status</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex justify-around text-center">
-                  <div>
-                    <p className="text-3xl font-bold text-primary">{matchingLeads.length}</p>
-                    <p className="text-sm text-muted-foreground">Received</p>
+            <div className="space-y-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg font-normal">Quote Status</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex justify-around text-center">
+                    <div>
+                      <p className="text-3xl font-bold text-primary">{matchingLeads.length}</p>
+                      <p className="text-sm text-muted-foreground">Received</p>
+                    </div>
+                    <div>
+                      <p className="text-3xl font-bold text-primary">{profileData?.leadCount || 0}</p>
+                      <p className="text-sm text-muted-foreground">Purchased</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-3xl font-bold text-primary">{profileData?.leadCount || 0}</p>
-                    <p className="text-sm text-muted-foreground">Purchased</p>
-                  </div>
-                </div>
-                <Link href="/browse-quotes" className="text-primary text-sm font-medium hover:underline mt-4 block text-center">
-                  View your Latest Requests
-                </Link>
-              </CardContent>
-            </Card>
+                  <Link href="/browse-quotes" className="text-primary text-sm font-medium hover:underline mt-4 block text-center">
+                    View your Latest Requests
+                  </Link>
+                </CardContent>
+              </Card>
 
-            <Card>
-              <CardHeader><CardTitle className="text-lg text-center font-normal">Credits</CardTitle></CardHeader>
-              <CardContent className="text-center">
-                  <p className="text-5xl font-extrabold text-primary">
-                      {profileData?.creditBalance ?? 0}
-                  </p>
-              </CardContent>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-center gap-2">
+                  <Wallet className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-lg font-normal">Credits</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                    <p className="text-5xl font-extrabold text-primary">
+                        {profileData?.creditBalance ?? 0}
+                    </p>
+                    <Button variant="link" className="mt-2" asChild>
+                      <Link href="/pro/buy-credits">Top up balance →</Link>
+                    </Button>
+                </CardContent>
+              </Card>
 
-            <Card>
-              <CardContent className="p-6">
-                <InviteFriendsDialog user={user}>
-                  <Button variant="outline" className="w-full h-16 text-lg">
-                    <UserPlus className="mr-2 h-6 w-6" />
-                    Invite Friends
-                  </Button>
-                </InviteFriendsDialog>
-              </CardContent>
+              <Card>
+                <CardContent className="p-6">
+                  <InviteFriendsDialog user={user}>
+                    <Button variant="outline" className="w-full h-16 text-lg">
+                      <UserPlus className="mr-2 h-6 w-6" />
+                      Invite Friends
+                    </Button>
+                  </InviteFriendsDialog>
+                </CardContent>
+              </Card>
+            </div>
 
             {isAdmin && (
               <Card className="lg:col-span-3 border-primary/50 bg-primary/5 relative overflow-hidden">
