@@ -60,6 +60,19 @@ export default function ProLayout({
       </div>
     );
   }
+
+  // Prevent rendering of protected segments for unverified users to avoid unauthorized state
+  const isProtected = !isPublicProRoute;
+  const isUnverified = user && !user.emailVerified && !(profile?.role === 'admin' || profile?.role === 'super_admin');
+  
+  if (isProtected && isUnverified) {
+    return (
+       <main className="flex-grow container mx-auto px-4 py-20 text-center space-y-6">
+          <Loader2 className="h-10 w-10 animate-spin mx-auto text-primary" />
+          <p className="text-muted-foreground font-medium">Redirecting to verification...</p>
+       </main>
+    );
+  }
   
   return (
     <div className="flex flex-col min-h-screen bg-secondary/50">
@@ -69,3 +82,5 @@ export default function ProLayout({
     </div>
   )
 }
+
+import { Loader2 } from 'lucide-react';

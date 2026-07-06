@@ -77,7 +77,6 @@ export default function EditProfilePage() {
 
     const fetchProfile = async () => {
         try {
-            // Standard approach: Pro profiles are indexed by the user's UID
             const docRef = doc(firestore, "professionalProfiles", user.uid);
             const docSnap = await getDoc(docRef);
             
@@ -89,7 +88,6 @@ export default function EditProfilePage() {
                 }
                 setFormData(data);
             } else {
-                // Fallback for older profiles or special cases
                 setProfileId(user.uid);
                 setFormData({
                     email: user.email || '',
@@ -170,13 +168,34 @@ export default function EditProfilePage() {
     setIsSaving(true);
     try {
         const docRef = doc(firestore, 'professionalProfiles', idToUse);
-        const { creditBalance, leadCount, rating, reviews, ...restOfData } = formData as any;
+        
+        // STRICTLY strip out system-managed fields to satisfy Firestore rules
+        const { 
+          creditBalance, 
+          leadCount, 
+          rating, 
+          reviews, 
+          totalReviews, 
+          isProVerified, 
+          priorityRank, 
+          userId, 
+          verificationStatus,
+          ...restOfData 
+        } = formData as any;
+        
         await updateDoc(docRef, restOfData);
         setShowSuccessAlert(true);
         setTimeout(() => setShowSuccessAlert(false), 5000);
         toast({ title: 'Profile Updated', description: 'Your changes have been saved successfully.' });
     } catch (error: any) {
-        toast({ variant: 'destructive', title: 'Save Failed', description: error.message || 'Could not update your profile.' });
+        console.error("Save error:", error);
+        toast({ 
+          variant: 'destructive', 
+          title: 'Save Failed', 
+          description: error.code === 'permission-denied' 
+            ? 'Access denied. Please ensure your email is verified before saving.' 
+            : error.message || 'Could not update your profile.' 
+        });
     } finally {
         setIsSaving(false);
     }

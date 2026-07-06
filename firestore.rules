@@ -84,7 +84,7 @@ service cloud.firestore {
         isSignedIn() && isEmailVerified() && request.auth.uid == resource.data.userId
         && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
           'creditBalance', 'isProVerified', 'priorityRank', 'userId', 
-          'leadCount', 'rating', 'totalReviews', 'reviewCount', 'verificationStatus'
+          'leadCount', 'rating', 'totalReviews', 'reviews', 'verificationStatus'
         ])
       );
 
