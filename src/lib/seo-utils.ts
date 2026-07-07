@@ -297,7 +297,7 @@ const hardenedAboutContent: Record<string, (location: string) => string> = {
         <p class="text-foreground/90 italic leading-relaxed">Demolishing any structure larger than 40m² in ${l} requires a municipal permit. Furthermore, contractors must manage dust control, noise levels, and the safe removal of hazardous materials like asbestos. By hiring a verified Gaupro pro, you ensure that your project remains compliant with local building codes and safety regulations.</p>
       </section>
 
-      <section>
+      <section class="bg-primary/5 p-6 rounded-xl border-l-4 border-l-primary">
         <h3 class="text-xl font-semibold mb-3">Demolition Cost Guidelines in ${l}</h3>
         <p>Pricing is usually project-specific, but common benchmarks in ${l} include:</p>
         <ul class="list-disc list-inside mt-4 space-y-2">
