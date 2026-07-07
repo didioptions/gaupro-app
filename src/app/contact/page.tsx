@@ -189,7 +189,9 @@ export default function ContactPage() {
            <section className="text-center border-t pt-16">
                <h2 className="text-2xl font-bold mb-6 text-foreground">Stay Connected</h2>
               <div className="flex justify-center gap-6 mb-8">
-                  <Link href="#" className="text-foreground hover:text-primary"><Facebook className="h-7 w-7"/></Link>
+                  <a href="https://www.facebook.com/GauProSouthAfrica" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary">
+                    <Facebook className="h-7 w-7"/>
+                  </a>
                   <Link href="#" className="text-foreground hover:text-primary"><Twitter className="h-7 w-7"/></Link>
                   <Link href="#" className="text-foreground hover:text-primary"><Linkedin className="h-7 w-7"/></Link>
               </div>

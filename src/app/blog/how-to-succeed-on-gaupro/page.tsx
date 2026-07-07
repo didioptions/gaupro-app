@@ -196,9 +196,9 @@ export default function HowToSucceedPage() {
                   <div className="mt-4">
                       <p className="text-sm font-semibold">Share this guide and help other South African professionals succeed:</p>
                       <div className="flex gap-2 flex-wrap text-sm mt-2">
-                        <a href="#" className="text-primary hover:underline">[Share on WhatsApp]</a>
+                        <a href="https://www.facebook.com/GauProSouthAfrica" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">[Follow us on Facebook]</a>
                         <span className="text-muted-foreground">|</span>
-                        <a href="#" className="text-primary hover:underline">[Share on Facebook]</a>
+                        <a href="#" className="text-primary hover:underline">[Share on WhatsApp]</a>
                         <span className="text-muted-foreground">|</span>
                         <a href="#" className="text-primary hover:underline">[Share on LinkedIn]</a>
                         <span className="text-muted-foreground">|</span>

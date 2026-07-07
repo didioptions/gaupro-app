@@ -95,7 +95,7 @@ export default function GauproDifferencePage() {
                   <p className="text-sm font-semibold">Share this guide and help other South Africans discover smarter hiring:</p>
                   <div className="flex gap-4 flex-wrap text-sm mt-2">
                     <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><WhatsAppIcon /> Share on WhatsApp</a>
-                    <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><FacebookIcon /> Share on Facebook</a>
+                    <a href="https://www.facebook.com/GauProSouthAfrica" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center gap-1.5"><FacebookIcon /> Follow us on Facebook</a>
                     <a href="#" className="text-primary hover:underline flex items-center gap-1.5"><LinkedinIcon /> Share on LinkedIn</a>
                   </div>
               </div>

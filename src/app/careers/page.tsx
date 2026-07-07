@@ -106,7 +106,7 @@ export default function CareersPage() {
                       </li>
                       <li className="flex items-center gap-3">
                           <Facebook className="h-5 w-5 text-primary" />
-                          <Link href="#" className="font-medium hover:underline">Follow us on Facebook</Link>
+                          <a href="https://www.facebook.com/GauProSouthAfrica" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">Follow us on Facebook</a>
                       </li>
                       <li className="flex items-center gap-3">
                             <Mail className="h-5 w-5 text-primary" />

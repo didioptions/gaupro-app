@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from "next/link";
@@ -183,7 +182,9 @@ export default function Footer() {
               <Link href="/cookie-policy" className="hover:text-primary text-foreground">Cookie Policy</Link>
             </nav>
             <div className="flex gap-4">
-              <Link href="#" className="text-foreground hover:text-primary"><Facebook className="h-5 w-5"/></Link>
+              <a href="https://www.facebook.com/GauProSouthAfrica" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary" aria-label="Follow GauPro on Facebook">
+                <Facebook className="h-5 w-5"/>
+              </a>
               <Link href="#" className="text-foreground hover:text-primary"><Twitter className="h-5 w-5"/></Link>
               <Link href="#" className="text-foreground hover:text-primary"><Linkedin className="h-5 w-5"/></Link>
             </div>
