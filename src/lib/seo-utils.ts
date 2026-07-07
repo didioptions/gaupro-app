@@ -1,5 +1,4 @@
 import { allServices } from './service-questions';
-import { cityExpansionMap } from './location-data';
 import { allLocations } from './locations';
 
 /**
@@ -41,10 +40,27 @@ export function generateRelatedServicesIntro(service: string) {
   return `Depending on the specific requirements of your ${s.toLowerCase()} project, you may also need assistance from specialists in complementary fields. We find that customers booking ${s.toLowerCase()} often look for these related services to ensure a comprehensive solution. By hiring verified pros from these categories, you can streamline your workflow and ensure consistent quality across every aspect of your home or business improvement task.`;
 }
 
+/**
+ * Category-specific expert insights to boost Google E-E-A-T scores.
+ */
+const categoryKnowledge: Record<string, string> = {
+  "plumber": "In South Africa, plumbing work is regulated to ensure water safety and infrastructure integrity. When hiring a plumber in {location}, check if they are registered with PIRB (Plumbing Industry Registration Board). This is particularly important for geyser installations and major renovations, where a Certificate of Compliance (CoC) is often required for insurance purposes.",
+  "electrician": "Electrical safety is paramount. Every electrician in {location} must be a registered person with the Department of Labour. For any new wiring, solar integration, or significant repairs, ensure your professional can issue a valid Electrical Certificate of Compliance (CoC). This document is essential for property sales and insurance claims in Gauteng.",
+  "builders": "Construction projects in {location} must adhere to the National Building Regulations. If you are building a new home or a significant extension, verify that your builder is registered with the NHBRC (National Home Builders Registration Council). This provides you with a structural warranty and ensures the project meets South African quality standards.",
+  "rubble-removal": "Waste management in {location} is subject to municipal bylaws. Professional rubble removal services ensure that your building waste, garden refuse, or household junk is disposed of at legally designated landfill sites. This prevents illegal dumping fines and contributes to a cleaner environment in your suburb.",
+  "tree-felling": "Tree removal in urban areas like {location} requires specialized equipment and safety protocols. Professional tree fellers should have public liability insurance to protect your property in case of accidental damage. For large or protected species, ensure the professional understands the local environmental regulations regarding tree removal permits.",
+  "cleaning-service": "Whether you need a deep clean for a new tenancy or regular office maintenance in {location}, professional cleaning companies use industrial-grade chemicals and equipment that standard domestic tools can't match. Look for services that offer supervised teams for high-end residential or commercial projects.",
+  "painters": "The South African climate, with its high UV levels and summer thunderstorms, can be harsh on exterior paint. Professional painters in {location} understand the importance of proper surface preparation—such as high-pressure cleaning and crack filling—and the use of premium weather-resistant coatings to ensure a long-lasting finish.",
+  "demolition": "Controlled demolition in {location} requires precise planning to manage dust, noise, and structural risks. Professional demolition contractors handle the removal of everything from internal walls to entire outbuildings, ensuring that all reusable materials are salvaged and the site is left level and ready for new construction.",
+  "plant-hire": "For DIY builders and small contractors in {location}, hiring specialized plant machinery like TLBs, excavators, or bobcats is more cost-effective than ownership. Ensure your hire contract includes a qualified operator and that the equipment is well-maintained to avoid costly downtime on your site.",
+  "gardeners": "Maintaining a garden in {location} requires knowledge of local soil types and water-wise planting. From seasonal pruning to lawn fertilization and irrigation setup, local garden services help you maintain a vibrant outdoor space that adds significant value to your property."
+};
+
 export function generateAboutContent(service: string, location: string) {
   const s = getServiceLabel(service);
   const l = getLocationLabel(location);
   const plural = s.endsWith('s') ? s : `${s}s`;
+  const expertInsight = categoryKnowledge[service]?.replace(/{location}/g, l) || "";
 
   return `
     <div class="space-y-6">
@@ -53,6 +69,13 @@ export function generateAboutContent(service: string, location: string) {
         <p>Finding reliable ${plural.toLowerCase()} in ${l} is essential for ensuring that your home or business projects are handled with the care and expertise they deserve. Whether you are dealing with an urgent repair, planning a major renovation, or simply looking for routine maintenance, GauPro connects you with the most trusted professionals in the ${l} area.</p>
         <p class="mt-4">In a bustling region like ${l}, the demand for quality ${s.toLowerCase()} work is high. Homeowners often struggle to find contractors who are not only skilled but also verified and highly rated by fellow residents. GauPro solves this by providing a transparent marketplace where you can compare quotes, view detailed business profiles, and read authentic reviews before making a hire.</p>
       </section>
+
+      ${expertInsight ? `
+      <section class="bg-primary/5 p-6 rounded-xl border-l-4 border-l-primary">
+        <h3 class="text-xl font-bold mb-3">Expert Insight: Hiring in ${l}</h3>
+        <p class="text-foreground/90 italic leading-relaxed">${expertInsight}</p>
+      </section>
+      ` : ''}
 
       <section>
         <h3 class="text-xl font-semibold mb-3">Average Cost of ${s} in ${l}</h3>
