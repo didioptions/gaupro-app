@@ -1,4 +1,3 @@
-
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allProfessionals } from '@/lib/professionals-data';
@@ -72,9 +71,9 @@ export default function TopAirConditioningPage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need AC Services?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for air conditioning</li>
-                            <li>{pros.filter(p => p.rating >= 4).length * 25}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
+                            <li>Verified reviews from real South African customers</li>
+                            <li>Trusted experts in climate control and HVAC</li>
+                            <li>Top-rated professionals with proven experience</li>
                             <li>View Top Air Conditioning Companies today</li>
                         </ul>
                     </div>

@@ -76,9 +76,9 @@ export default function TopPlumbersPage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need a Plumber?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{totalReviews}+ Reviews for plumbers in our network</li>
-                            <li>Trusted by thousands of local residents</li>
-                            <li>Highly rated professionals with an average of {avgRating}/5 stars</li>
+                            {totalReviews > 0 && <li>{totalReviews}+ Reviews for plumbers in our network</li>}
+                            <li>Trusted by local residents across South Africa</li>
+                            {pros.length > 0 && <li>Highly rated professionals with consistent positive feedback</li>}
                             <li>View Top Plumbers and get multiple quotes today</li>
                         </ul>
                     </div>
