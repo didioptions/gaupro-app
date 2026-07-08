@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "homepage-hero",
-      "description": "A diverse group of smiling professionals, representing the Gaupro community.",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro.webp?alt=media&token=4d1888fc-9075-4b71-b319-15b8bd279ec1",
-      "imageHint": "diverse professionals"
+      "description": "A professional team of service providers smiling together.",
+      "imageUrl": "https://images.unsplash.com/photo-1581578731522-745505146317?w=1920&q=80",
+      "imageHint": "professional team"
     },
     {
       "id": "hero-background-image",
