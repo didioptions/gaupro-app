@@ -15,11 +15,6 @@ export default function TopPlumbersPage() {
 
   const heroImage = CategoryImages.find(p => p.id === 'plumber-image');
 
-  const totalReviews = pros.reduce((acc, pro) => acc + (pro.reviews || 0), 0);
-  const avgRating = pros.length > 0 
-    ? (pros.reduce((acc, pro) => acc + (pro.rating || 0), 0) / pros.length).toFixed(1)
-    : '5.0';
-
   const benefits = [
     '🛡️ Fully Vetted Companies',
     '📈 High Customer Ratings',
@@ -76,9 +71,9 @@ export default function TopPlumbersPage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need a Plumber?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            {totalReviews > 0 && <li>{totalReviews}+ Reviews for plumbers in our network</li>}
-                            <li>Trusted by local residents across South Africa</li>
-                            {pros.length > 0 && <li>Highly rated professionals with consistent positive feedback</li>}
+                            <li>Verified reviews from real South African customers</li>
+                            <li>Trusted experts in residential and commercial plumbing</li>
+                            <li>Top-rated professionals with proven emergency response times</li>
                             <li>View Top Plumbers and get multiple quotes today</li>
                         </ul>
                     </div>

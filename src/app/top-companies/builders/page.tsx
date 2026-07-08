@@ -1,4 +1,3 @@
-
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allProfessionals } from '@/lib/professionals-data';
@@ -72,10 +71,10 @@ export default function TopBuildersPage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need a Builder?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for builders</li>
-                            <li>{pros.filter(p => p.rating >= 4).length * 50}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
-                            <li>View Top Building Companies today</li>
+                            <li>Verified customer reviews for local building contractors</li>
+                            <li>NHBRC registered professionals for structural integrity</li>
+                            <li>Trusted experts in residential and commercial construction</li>
+                            <li>View Top Building Companies and get multiple quotes</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">

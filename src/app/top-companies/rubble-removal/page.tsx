@@ -15,11 +15,6 @@ export default function TopRubbleRemovalPage() {
 
   const heroImage = CategoryImages.find(p => p.id === 'rubble-removal-image');
 
-  const totalReviews = pros.reduce((acc, pro) => acc + (pro.reviews || 0), 0);
-  const avgRating = pros.length > 0 
-    ? (pros.reduce((acc, pro) => acc + (pro.rating || 0), 0) / pros.length).toFixed(1)
-    : '5.0';
-
   const benefits = [
     '🛡️ Fully Vetted Companies',
     '📈 High Customer Ratings',
@@ -74,12 +69,12 @@ export default function TopRubbleRemovalPage() {
                 </div>
                 <aside className="space-y-8">
                     <div className="p-6 border rounded-lg bg-card">
-                        <h3 className="mb-3 font-semibold text-foreground">Need Rubble Removal Services?</h3>
+                        <h3 className="mb-3 font-semibold text-foreground">Need Rubble Removal?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{totalReviews}+ Customer reviews for rubble removal</li>
-                            <li>Efficient site clearing from vetted local businesses</li>
-                            <li>High customer satisfaction with an average {avgRating}/5 rating</li>
-                            <li>View Top Rubble Removal Pros today</li>
+                            <li>Verified reviews from real South African clients</li>
+                            <li>Reliable site clearing and responsible waste disposal</li>
+                            <li>High customer satisfaction with local rubble removal experts</li>
+                            <li>View Top Rubble Removal Pros and get quotes</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">
