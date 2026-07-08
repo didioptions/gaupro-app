@@ -1,4 +1,3 @@
-
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allProfessionals } from '@/lib/professionals-data';
@@ -12,9 +11,14 @@ import { CategoryImages } from '@/lib/category-images';
 export default function TopPlumbersPage() {
   const proCategory = 'plumber';
   const pros = allProfessionals[proCategory] || [];
-  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 5);
+  const topCompanies = pros.sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 5);
 
   const heroImage = CategoryImages.find(p => p.id === 'plumber-image');
+
+  const totalReviews = pros.reduce((acc, pro) => acc + (pro.reviews || 0), 0);
+  const avgRating = pros.length > 0 
+    ? (pros.reduce((acc, pro) => acc + (pro.rating || 0), 0) / pros.length).toFixed(1)
+    : '5.0';
 
   const benefits = [
     '🛡️ Fully Vetted Companies',
@@ -72,10 +76,10 @@ export default function TopPlumbersPage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need a Plumber?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for plumbers</li>
-                            <li>{pros.filter(p => p.rating >= 4).length * 50}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
-                            <li>View Top Plumbers today</li>
+                            <li>{totalReviews}+ Reviews for plumbers in our network</li>
+                            <li>Trusted by thousands of local residents</li>
+                            <li>Highly rated professionals with an average of {avgRating}/5 stars</li>
+                            <li>View Top Plumbers and get multiple quotes today</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">

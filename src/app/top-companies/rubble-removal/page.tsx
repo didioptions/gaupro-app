@@ -1,4 +1,3 @@
-
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allProfessionals } from '@/lib/professionals-data';
@@ -12,9 +11,14 @@ import { CategoryImages } from '@/lib/category-images';
 export default function TopRubbleRemovalPage() {
   const proCategory = 'rubble-removal';
   const pros = allProfessionals[proCategory] || [];
-  const topCompanies = pros.sort((a, b) => b.rating - a.rating).slice(0, 8);
+  const topCompanies = pros.sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 8);
 
   const heroImage = CategoryImages.find(p => p.id === 'rubble-removal-image');
+
+  const totalReviews = pros.reduce((acc, pro) => acc + (pro.reviews || 0), 0);
+  const avgRating = pros.length > 0 
+    ? (pros.reduce((acc, pro) => acc + (pro.rating || 0), 0) / pros.length).toFixed(1)
+    : '5.0';
 
   const benefits = [
     '🛡️ Fully Vetted Companies',
@@ -72,9 +76,9 @@ export default function TopRubbleRemovalPage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need Rubble Removal Services?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for rubble removal</li>
-                            <li>{pros.filter(p => p.rating >= 4.5).length * 20}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
+                            <li>{totalReviews}+ Customer reviews for rubble removal</li>
+                            <li>Efficient site clearing from vetted local businesses</li>
+                            <li>High customer satisfaction with an average {avgRating}/5 rating</li>
                             <li>View Top Rubble Removal Pros today</li>
                         </ul>
                     </div>

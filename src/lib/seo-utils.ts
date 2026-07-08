@@ -17,8 +17,8 @@ export function getLocationLabel(locationSlug: string | undefined) {
 
 export function generateServiceStats(professionalsCount: number, reviewsTotal: number, locationName: string) {
   return {
-    professionals: professionalsCount > 0 ? professionalsCount : 12,
-    reviews: reviewsTotal > 0 ? reviewsTotal : 150,
+    professionals: professionalsCount,
+    reviews: reviewsTotal,
     cities: 24,
     completedBase: 200
   };
@@ -310,7 +310,7 @@ const hardenedAboutContent: Record<string, (location: string) => string> = {
 
       <section>
         <h3 class="text-xl font-semibold mb-3">Sustainable Site Clearance</h3>
-        <p>Our demolition teams in ${l} are committed to a "Circular Economy." Whenever possible, they salvage bricks, timber, and scrap metal for recycling, reducing the amount of waste sent to landfills. With Gaupro, you get a clean, level site ready for your next phase of construction.</p>
+        <p>Our demolition teams in ${l} are committed to a "Circular Economy." Whenever possible, they salvage bricks, timber, and scrap metal for recycling, reducing the amount of waste sent to landfills. With Gaupro, you get a clean, level site ready for your next phase of work.</p>
       </section>
     </div>
   `,

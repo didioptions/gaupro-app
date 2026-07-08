@@ -60,10 +60,10 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
     
   const allOfferedServices = Array.from(new Set([...(professional.services || []), ...(professional.tags || [])]));
 
-  // SEO JSON-LD
-  const hasRealReviews = (professional.reviews > 0 && (professional.rating || 0) > 0);
+  // SEO JSON-LD - Strictly only include ratings if real reviews exist
+  const hasRealReviews = professional.reviews > 0 && typeof professional.rating === 'number' && professional.rating > 0;
 
-  const jsonLd = {
+  const jsonLd: any = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": professional.name,
@@ -73,15 +73,18 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
       "@type": "PostalAddress",
       "addressLocality": locationText,
       "addressCountry": "ZA"
-    },
-    "aggregateRating": hasRealReviews ? {
+    }
+  };
+
+  if (hasRealReviews) {
+    jsonLd.aggregateRating = {
       "@type": "AggregateRating",
       "ratingValue": professional.rating?.toString(),
       "reviewCount": professional.reviews.toString(),
       "bestRating": "5",
       "worstRating": "1"
-    } : undefined
-  };
+    };
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
