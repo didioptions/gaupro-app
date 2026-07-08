@@ -55,11 +55,6 @@ export default function ServicePage({ params, searchParams }: PageProps) {
     "areaServed": {
       "@type": "City",
       "name": l
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "150"
     }
   };
 

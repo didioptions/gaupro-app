@@ -61,6 +61,8 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   const allOfferedServices = Array.from(new Set([...(professional.services || []), ...(professional.tags || [])]));
 
   // SEO JSON-LD
+  const hasRealReviews = (professional.reviews > 0 && (professional.rating || 0) > 0);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -72,10 +74,12 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
       "addressLocality": locationText,
       "addressCountry": "ZA"
     },
-    "aggregateRating": professional.rating ? {
+    "aggregateRating": hasRealReviews ? {
       "@type": "AggregateRating",
-      "ratingValue": professional.rating,
-      "reviewCount": professional.reviews
+      "ratingValue": professional.rating?.toString(),
+      "reviewCount": professional.reviews.toString(),
+      "bestRating": "5",
+      "worstRating": "1"
     } : undefined
   };
 
