@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -79,13 +78,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center">
+      <div className="container flex h-24 max-w-screen-2xl items-center">
         <div className="mr-4 flex flex-1 items-center justify-start">
           <Logo />
         </div>
 
         {/* --- DESKTOP NAVIGATION --- */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
           {isUserLoading && (
             <>
               <Skeleton className="h-4 w-24" />
@@ -98,7 +97,7 @@ export default function Header() {
           {!isUserLoading && user && (
             <>
               {proNavLinks.map(link => (
-                <Link key={link.href} href={link.href} className="transition-colors hover:text-primary text-foreground/60">
+                <Link key={link.href} href={link.href} className="transition-colors hover:text-primary text-foreground/70">
                     {link.label}
                 </Link>
               ))}
@@ -106,7 +105,7 @@ export default function Header() {
                 <Button variant="ghost" size="icon" onClick={() => router.push('/pro/dashboard')}>
                   <Bell className="h-5 w-5" />
                   {unreadCount > 0 && (
-                    <Badge className="absolute -top-1 -right-1 h-4 w-auto min-w-[1rem] justify-center p-1 text-[10px] rounded-full bg-red-600 text-white border-white">
+                    <Badge className="absolute -top-1 -right-1 h-4 w-auto min-w-[1rem] justify-center p-1 text-[10px] rounded-full bg-primary text-primary-foreground border-white">
                       {unreadCount > 9 ? '9+' : unreadCount}
                     </Badge>
                   )}
@@ -114,13 +113,13 @@ export default function Header() {
               </div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2">
-                    <Avatar className="h-8 w-8">
+                  <Button variant="ghost" className="flex items-center gap-2 h-12 px-4">
+                    <Avatar className="h-9 w-9">
                       <AvatarFallback>
                         <User />
                       </AvatarFallback>
                     </Avatar>
-                    <span className="hidden md:inline">{user?.displayName || user?.email || 'Pro Account'}</span>
+                    <span className="hidden lg:inline">{user?.displayName || user?.email || 'Pro Account'}</span>
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -142,11 +141,11 @@ export default function Header() {
           {!isUserLoading && !user && (
             <>
               {publicNavLinks.map(link => (
-                <Link key={link.href} href={link.href} className="transition-colors hover:text-primary text-foreground/60">
+                <Link key={link.href} href={link.href} className="transition-colors hover:text-primary text-foreground/70">
                     {link.label}
                 </Link>
               ))}
-              <Button asChild>
+              <Button asChild className="px-8 h-12 font-bold text-base shadow-md">
                   <Link href="/pro/login">Login</Link>
               </Button>
             </>
@@ -158,30 +157,32 @@ export default function Header() {
         <div className="md:hidden">
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="h-12 w-12">
+                <Menu className="h-7 w-7" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="pr-0">
-              <div onClick={closeSheet}><Logo /></div>
-              <div className="flex flex-col space-y-4 pt-6">
+              <div onClick={closeSheet} className="pb-8 border-b mb-6">
+                <Logo />
+              </div>
+              <div className="flex flex-col space-y-6 pt-2 pr-6">
                 {!isUserLoading && user && (
                   <>
-                    <Link href="/pro/dashboard" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+                    <Link href="/pro/dashboard" className="text-lg font-medium transition-colors hover:text-primary text-foreground" onClick={closeSheet}>
                         Dashboard {unreadCount > 0 && `(${unreadCount})`}
                     </Link>
                     {isAdmin && (
-                      <Link href="/pro/admin" className="transition-colors hover:text-primary font-bold flex items-center gap-2" onClick={closeSheet}>
-                        <LayoutDashboard className="h-4 w-4" /> Admin Hub
+                      <Link href="/pro/admin" className="text-lg transition-colors hover:text-primary font-bold flex items-center gap-2 text-primary" onClick={closeSheet}>
+                        <LayoutDashboard className="h-5 w-5" /> Admin Hub
                       </Link>
                     )}
                     {proNavLinks.map(link => (
-                        <Link key={link.href} href={link.href} className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+                        <Link key={link.href} href={link.href} className="text-lg font-medium transition-colors hover:text-primary text-foreground/80" onClick={closeSheet}>
                             {link.label}
                         </Link>
                     ))}
-                    <button className="text-left transition-colors hover:text-primary text-foreground/60" onClick={() => { handleLogout(); closeSheet(); }}>
+                    <button className="text-left text-lg font-medium transition-colors hover:text-primary text-foreground/80" onClick={() => { handleLogout(); closeSheet(); }}>
                         Logout
                     </button>
                   </>
@@ -189,11 +190,11 @@ export default function Header() {
                 {!isUserLoading && !user && (
                   <>
                     {publicNavLinks.map(link => (
-                        <Link key={link.href} href={link.href} className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+                        <Link key={link.href} href={link.href} className="text-lg font-medium transition-colors hover:text-primary text-foreground" onClick={closeSheet}>
                             {link.label}
                         </Link>
                     ))}
-                    <Link href="/pro/login" className="transition-colors hover:text-primary text-foreground/60" onClick={closeSheet}>
+                    <Link href="/pro/login" className="text-lg font-bold transition-colors hover:text-primary text-primary" onClick={closeSheet}>
                         Login
                     </Link>
                   </>
