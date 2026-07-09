@@ -74,7 +74,7 @@ export default function TopBuildersPage() {
                             <li>Verified customer reviews for local building contractors</li>
                             <li>NHBRC registered professionals for structural integrity</li>
                             <li>Trusted experts in residential and commercial construction</li>
-                            <li>View Top Building Companies and get multiple quotes</li>
+                            <li>Get multiple quotes from top-rated professionals</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">

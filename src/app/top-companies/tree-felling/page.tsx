@@ -1,4 +1,3 @@
-
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allProfessionals } from '@/lib/professionals-data';
@@ -72,10 +71,10 @@ export default function TopTreeFellingPage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need Tree Felling Services?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for tree felling</li>
-                            <li>{pros.filter(p => p.rating >= 4.5).length * 40}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
-                            <li>View Top Tree Felling Pros today</li>
+                            <li>Verified customer reviews for local tree fellers</li>
+                            <li>High customer satisfaction with local experts</li>
+                            <li>Safe and insured removal of large or dangerous trees</li>
+                            <li>View top pros and get multiple quotes today</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">

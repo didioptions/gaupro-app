@@ -1,4 +1,3 @@
-
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allProfessionals } from '@/lib/professionals-data';
@@ -72,10 +71,10 @@ export default function TopDemolitionPage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need Demolition Services?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for demolition</li>
-                            <li>{pros.filter(p => p.rating >= 4).length * 20}+ Positive Reviews</li>
-                            <li>Recently hired Pros have been rated 4.8/5 stars by customers</li>
-                            <li>View Top Demolition Companies today</li>
+                            <li>Verified customer reviews for local demolition teams</li>
+                            <li>Fully vetted professionals with high trust ratings</li>
+                            <li>Efficient site clearing and waste management services</li>
+                            <li>Compare quotes from available specialists in your area</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">
@@ -100,4 +99,3 @@ export default function TopDemolitionPage() {
     </>
   );
 }
-

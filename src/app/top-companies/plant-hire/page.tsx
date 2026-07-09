@@ -1,4 +1,3 @@
-
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { allProfessionals } from '@/lib/professionals-data';
@@ -72,10 +71,10 @@ export default function TopPlantHirePage() {
                     <div className="p-6 border rounded-lg bg-card">
                         <h3 className="mb-3 font-semibold text-foreground">Need to Hire Equipment?</h3>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                            <li>{pros.reduce((acc, pro) => acc + pro.reviews, 0)}+ Reviews for plant hire</li>
-                            <li>{pros.filter(p => p.rating >= 4).length * 15}+ Positive Reviews</li>
-                            <li>Recently hired companies have been rated 4.8/5 stars by customers</li>
-                            <li>View Top Plant Hire Companies today</li>
+                            <li>Verified customer reviews for plant hire suppliers</li>
+                            <li>Vetted companies with proven track records</li>
+                            <li>Reliable earthmoving and construction machinery</li>
+                            <li>Get competitive quotes from top local providers</li>
                         </ul>
                     </div>
                      <div className="p-6 border rounded-lg bg-card">

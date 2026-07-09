@@ -42,6 +42,7 @@ export default function ServicePage({ params, searchParams }: PageProps) {
   const l = getLocationLabel(searchParams?.location as string);
   const faqs = generateFAQs(params.service, searchParams?.location as string);
 
+  // Strictly category-level schema without placeholder ratings
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
