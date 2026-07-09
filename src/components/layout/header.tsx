@@ -77,14 +77,14 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-24 max-w-screen-2xl items-center">
-        <div className="mr-4 flex flex-1 items-center justify-start">
+    <header className="sticky top-0 z-50 w-full border-b-4 border-primary bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-32 md:h-40 max-w-screen-2xl items-center">
+        <div className="flex flex-1 items-center justify-start pl-4 md:pl-16">
           <Logo />
         </div>
 
         {/* --- DESKTOP NAVIGATION --- */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-bold pr-8">
           {isUserLoading && (
             <>
               <Skeleton className="h-4 w-24" />
@@ -145,7 +145,7 @@ export default function Header() {
                     {link.label}
                 </Link>
               ))}
-              <Button asChild className="px-8 h-12 font-bold text-base shadow-md">
+              <Button asChild className="px-8 h-12 font-bold text-base shadow-md bg-primary hover:bg-primary/90">
                   <Link href="/pro/login">Login</Link>
               </Button>
             </>
@@ -154,7 +154,7 @@ export default function Header() {
         {/* --- END DESKTOP --- */}
         
         {/* --- MOBILE NAVIGATION --- */}
-        <div className="md:hidden">
+        <div className="md:hidden pr-4">
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="h-12 w-12">
