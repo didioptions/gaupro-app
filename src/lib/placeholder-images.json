@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "homepage-hero",
-      "description": "A professional team of service providers smiling together.",
-      "imageUrl": "https://images.unsplash.com/photo-1581578731522-745505146317?w=1920&q=80",
-      "imageHint": "professional team"
+      "description": "Modern suburban home with a blue sky, representing quality South African real estate.",
+      "imageUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80",
+      "imageHint": "modern house"
     },
     {
       "id": "hero-background-image",
