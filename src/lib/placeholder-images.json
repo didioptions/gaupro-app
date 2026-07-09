@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "homepage-hero",
-      "description": "Modern suburban home with a blue sky, representing quality South African real estate.",
-      "imageUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80",
-      "imageHint": "modern house"
+      "description": "GauPro marketplace hero background showing professional service context.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/metro-pool-demolition.firebasestorage.app/o/gaupro%2Fgaupro-markertplace.webp?alt=media&token=bb454060-a1e6-4463-a114-830cfe88405c",
+      "imageHint": "gaupro marketplace"
     },
     {
       "id": "hero-background-image",
