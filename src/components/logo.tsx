@@ -8,7 +8,7 @@ export const Logo = () => (
       alt="Gaupro South Africa Logo"
       width={500}
       height={150}
-      className="object-contain w-auto h-24 md:h-32"
+      className="object-contain w-auto h-16 md:h-20"
       priority
     />
   </Link>

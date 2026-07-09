@@ -77,14 +77,14 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b-4 border-primary bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-32 md:h-40 max-w-screen-2xl items-center">
-        <div className="flex flex-1 items-center justify-start pl-4 md:pl-16">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-primary bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-20 md:h-24 max-w-screen-2xl items-center">
+        <div className="flex flex-1 items-center justify-start pl-2 md:pl-6">
           <Logo />
         </div>
 
         {/* --- DESKTOP NAVIGATION --- */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-bold pr-8">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-bold pr-4">
           {isUserLoading && (
             <>
               <Skeleton className="h-4 w-24" />
@@ -113,8 +113,8 @@ export default function Header() {
               </div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2 h-12 px-4">
-                    <Avatar className="h-9 w-9">
+                  <Button variant="ghost" className="flex items-center gap-2 h-10 px-3">
+                    <Avatar className="h-8 w-8">
                       <AvatarFallback>
                         <User />
                       </AvatarFallback>
@@ -145,7 +145,7 @@ export default function Header() {
                     {link.label}
                 </Link>
               ))}
-              <Button asChild className="px-8 h-12 font-bold text-base shadow-md bg-primary hover:bg-primary/90">
+              <Button asChild className="px-6 h-10 font-bold text-sm shadow-md bg-primary hover:bg-primary/90">
                   <Link href="/pro/login">Login</Link>
               </Button>
             </>
@@ -157,13 +157,13 @@ export default function Header() {
         <div className="md:hidden pr-4">
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-12 w-12">
-                <Menu className="h-7 w-7" />
+              <Button variant="ghost" size="icon" className="h-10 w-10">
+                <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="pr-0">
-              <div onClick={closeSheet} className="pb-8 border-b mb-6">
+              <div onClick={closeSheet} className="pb-4 border-b mb-6">
                 <Logo />
               </div>
               <div className="flex flex-col space-y-6 pt-2 pr-6">
