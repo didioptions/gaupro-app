@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -46,8 +45,8 @@ export default function ProfessionalCard({ professional, service }: Professional
   const [isExpanded, setIsExpanded] = useState(false);
   
   const proImage = CategoryImages.find(p => p.id === professional.avatarSeed);
-  const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/80/80`;
-  const imageHint = proImage ? proImage.imageHint : "company logo";
+  const imageUrl = proImage ? proImage.imageUrl : `https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=200&q=80`;
+  const imageHint = proImage ? proImage.imageHint : "professional business office";
   
   const singularOrPluralLowercase = service.endsWith('s') ? service.toLowerCase() : `${service.toLowerCase()}s`;
   const description = (professional.description || '').replace('{service}', singularOrPluralLowercase);
@@ -86,7 +85,7 @@ export default function ProfessionalCard({ professional, service }: Professional
           <div className="sm:col-span-3">
             <div className="flex items-start gap-4">
               <div className="relative w-20 h-20 shrink-0">
-                <Image src={imageUrl} alt={professional.name} fill className="rounded-lg border object-cover shadow-sm bg-white" data-ai-hint={imageHint} unoptimized={imageUrl.includes('picsum')} />
+                <Image src={imageUrl} alt={professional.name} fill className="rounded-lg border object-cover shadow-sm bg-white" data-ai-hint={imageHint} />
               </div>
               <div className="space-y-1">
                 <div className="flex flex-wrap items-center gap-2">

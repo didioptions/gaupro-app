@@ -53,14 +53,13 @@ interface ProfileDisplayProps {
 
 export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   const proImage = CategoryImages.find(p => p.id === professional.avatarSeed);
-  const imageUrl = proImage ? proImage.imageUrl : `https://picsum.photos/seed/${professional.avatarSeed}/120/120`;
-  const imageHint = proImage ? proImage.imageHint : "company logo";
+  const imageUrl = proImage ? proImage.imageUrl : `https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&q=80`;
+  const imageHint = proImage ? proImage.imageHint : "professional business office";
   
   const locationText = professional.location ? (allLocations.find(l => l.value === professional.location)?.label || professional.location) : (Array.isArray(professional.locations) && professional.locations.length > 0 ? professional.locations.map((loc: string) => allLocations.find(l => l.value === loc)?.label || loc).join(', ') : 'South Africa');
     
   const allOfferedServices = Array.from(new Set([...(professional.services || []), ...(professional.tags || [])]));
 
-  // SEO JSON-LD - Strictly only include ratings if real reviews exist
   const hasRealReviews = professional.reviews > 0 && typeof professional.rating === 'number' && professional.rating > 0;
 
   const jsonLd: any = {
@@ -87,7 +86,7 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-4 md:py-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -115,10 +114,10 @@ export default function ProfileDisplay({ professional }: ProfileDisplayProps) {
 
             <Card className="overflow-hidden border-0 shadow-lg">
                 <CardContent className="p-0">
-                    <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-8">
+                    <div className="bg-gradient-to-r from-secondary/50 to-background p-8">
                       <div className="flex flex-col sm:flex-row gap-8">
                           <div className="relative w-32 h-32 mx-auto sm:mx-0 shrink-0">
-                             <Image src={imageUrl} alt={professional.name} fill className="rounded-xl border-4 border-white shadow-xl object-cover bg-white" data-ai-hint={imageHint} unoptimized={imageUrl.includes('picsum')} />
+                             <Image src={imageUrl} alt={professional.name} fill className="rounded-xl border-4 border-white shadow-xl object-cover bg-white" data-ai-hint={imageHint} />
                           </div>
                           <div className="flex-grow text-center sm:text-left">
                               <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight tracking-tight">{professional.name}</h1>
