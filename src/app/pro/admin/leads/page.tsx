@@ -75,6 +75,8 @@ export default function LeadOversightPage() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [viewLead, setViewLead] = useState<any>(null);
+  const [privateDetails, setPrivateDetails] = useState<any>(null);
+  const [isLoadingPrivate, setIsLoadingPrivate] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState<any>({});
   const [isProcessingAction, setIsProcessingAction] = useState(false);
@@ -139,6 +141,25 @@ export default function LeadOversightPage() {
       l.customerName?.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [leads, searchQuery]);
+
+  const handleOpenLead = async (lead: any) => {
+    setViewLead(lead);
+    setPrivateDetails(null);
+    if (!firestore) return;
+
+    setIsLoadingPrivate(true);
+    try {
+        const privateRef = doc(firestore, 'leads_private', lead.id);
+        const privateSnap = await getDoc(privateRef);
+        if (privateSnap.exists()) {
+            setPrivateDetails(privateSnap.data());
+        }
+    } catch (error) {
+        console.error("Error fetching private details:", error);
+    } finally {
+        setIsLoadingPrivate(false);
+    }
+  };
 
   const handleAction = async (leadId: string, action: 'approved' | 'rejected' | 'needs_info' | 'flagged', extraData = {}) => {
     if (!adminUser || !firestore) return;
@@ -360,7 +381,7 @@ export default function LeadOversightPage() {
                       <Badge variant="outline" className="font-mono">{lead.credits || 3} CR</Badge>
                     </TableCell>
                     <TableCell className="text-right space-x-1">
-                      <button className="p-2 hover:bg-secondary rounded-full text-muted-foreground" onClick={() => setViewLead(lead)}><Eye className="h-4 w-4" /></button>
+                      <button className="p-2 hover:bg-secondary rounded-full text-muted-foreground" onClick={() => handleOpenLead(lead)}><Eye className="h-4 w-4" /></button>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -385,7 +406,7 @@ export default function LeadOversightPage() {
         </Card>
       </div>
 
-      <Dialog open={!!viewLead} onOpenChange={() => { setViewLead(null); setIsEditing(false); }}>
+      <Dialog open={!!viewLead} onOpenChange={() => { setViewLead(null); setPrivateDetails(null); setIsEditing(false); }}>
         <DialogContent className="max-w-2xl overflow-y-auto max-h-[90vh]">
           <DialogHeader>
             <DialogTitle>Verify Lead: {viewLead?.id?.substring(0,8)}</DialogTitle>
@@ -416,9 +437,25 @@ export default function LeadOversightPage() {
                     <div className="space-y-4">
                         <h4 className="text-xs font-bold text-muted-foreground uppercase">Customer Contact</h4>
                         <div className="space-y-2">
-                            <div className="flex items-center gap-2 text-sm"><User className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerName || 'N/A'}</span></div>
-                            <div className="flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerPhone || 'N/A'}</span></div>
-                            <div className="flex items-center gap-2 text-sm"><Mail className="h-4 w-4 text-muted-foreground" /> <span className="truncate">{viewLead?.customerEmail || 'N/A'}</span></div>
+                            {isLoadingPrivate ? (
+                                <div className="space-y-2">
+                                    <Skeleton className="h-4 w-full" />
+                                    <Skeleton className="h-4 w-full" />
+                                    <Skeleton className="h-4 w-full" />
+                                </div>
+                            ) : privateDetails ? (
+                                <>
+                                    <div className="flex items-center gap-2 text-sm"><User className="h-4 w-4 text-muted-foreground" /> <span>{privateDetails.customerName || 'N/A'}</span></div>
+                                    <div className="flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-muted-foreground" /> <span>{privateDetails.customerPhone || 'N/A'}</span></div>
+                                    <div className="flex items-center gap-2 text-sm"><Mail className="h-4 w-4 text-muted-foreground" /> <span className="truncate">{privateDetails.customerEmail || 'N/A'}</span></div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="flex items-center gap-2 text-sm"><User className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerName || 'N/A'}</span></div>
+                                    <div className="flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerPhone || 'N/A'}</span></div>
+                                    <div className="flex items-center gap-2 text-sm"><Mail className="h-4 w-4 text-muted-foreground" /> <span className="truncate">{viewLead?.customerEmail || 'N/A'}</span></div>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
