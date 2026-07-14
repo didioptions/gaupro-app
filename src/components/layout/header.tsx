@@ -78,12 +78,11 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b-2 border-primary bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 md:h-24 max-w-screen-2xl items-center">
-        <div className="flex flex-1 items-center justify-start pl-2 md:pl-6">
+      <div className="container flex h-28 md:h-36 max-w-screen-2xl items-center">
+        <div className="flex flex-1 items-center justify-start pl-2 md:pl-4">
           <Logo />
         </div>
 
-        {/* --- DESKTOP NAVIGATION --- */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-bold pr-4">
           {isUserLoading && (
             <>
@@ -151,9 +150,7 @@ export default function Header() {
             </>
           )}
         </nav>
-        {/* --- END DESKTOP --- */}
         
-        {/* --- MOBILE NAVIGATION --- */}
         <div className="md:hidden pr-4">
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
@@ -203,7 +200,6 @@ export default function Header() {
             </SheetContent>
           </Sheet>
         </div>
-        {/* --- END MOBILE --- */}
 
       </div>
     </header>
