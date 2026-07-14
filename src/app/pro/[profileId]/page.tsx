@@ -103,11 +103,13 @@ function ProfilePageContent() {
     description: description,
     tags: professionalData.tags || [singularOrPluralLowercase],
     reviewData: reviews || [],
+    serviceCategory: professionalData.serviceCategory || 'Professional Service',
   };
 
   const canonicalUrl = `https://gaupro.co.za/pro/${profileId}`;
-  const pageTitle = `${processedProfessional.name} | ${processedProfessional.serviceCategory} in ${processedProfessional.location || 'South Africa'} | GauPro`;
-  const metaDescription = `Contact ${processedProfessional.name} for professional ${processedProfessional.serviceCategory.toLowerCase()} services. Read verified customer reviews and get free quotes on GauPro.`;
+  const displayCategory = processedProfessional.serviceCategory || 'Service';
+  const pageTitle = `${processedProfessional.name} | ${displayCategory} in ${processedProfessional.location || 'South Africa'} | GauPro`;
+  const metaDescription = `Contact ${processedProfessional.name} for professional ${displayCategory.toLowerCase()} services. Read verified customer reviews and get free quotes on GauPro.`;
 
   return (
     <>
