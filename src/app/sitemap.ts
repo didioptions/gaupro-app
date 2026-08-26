@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { allServices } from '@/lib/service-questions';
+import { allServices } from '@/lib/services-list';
 
 /**
  * Generates the sitemap for GauPro South Africa.
@@ -48,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const priorityServices = ['rubble-removal', 'tlb-hire', 'demolition', 'site-clearance', 'swimming-pool-demolition'];
   const priorityLocations = ['johannesburg', 'sandton', 'randburg', 'roodepoort', 'midrand', 'fourways', 'rosebank', 'bedfordview', 'edenvale', 'germiston', 'boksburg', 'alberton', 'benoni'];
   
-  const geoTargetedRoutes: any[] = [];
+  const geoTargetedRoutes: MetadataRoute.Sitemap = [];
   priorityServices.forEach(service => {
     priorityLocations.forEach(location => {
       geoTargetedRoutes.push({
