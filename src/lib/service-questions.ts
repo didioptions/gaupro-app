@@ -1,5 +1,3 @@
-'use server';
-
 import { allServices } from './services-list';
 
 export { allServices };
@@ -50,7 +48,7 @@ const budgetQuestion: Question = {
         { value: 'under_1000', label: 'Under R1,000' },
         { value: '1000_5000', label: 'R1,000–R5,000' },
         { value: '5000_10000', label: 'R5,000–R10,000' },
-        { value: 'above_10000', label: 'Above R10,000' },
+        { value: 'above_10000', label: 'Above R1,000' },
         { value: 'not_sure', label: 'Not sure yet' },
     ]
 };
