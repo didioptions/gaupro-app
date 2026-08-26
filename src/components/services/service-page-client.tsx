@@ -104,7 +104,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
     const heroImage = CategoryImages.find(p => p.id === serviceImageId) || PlaceHolderImages.find(p => p.id === 'hero-background-image');
 
     return (
-        <main className="bg-background">
+        <main className="bg-background text-foreground">
             <section className="relative min-h-[500px] flex items-center justify-center text-center text-white">
                 {heroImage && (
                     <Image
@@ -231,7 +231,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 </section>
                             )}
 
-                            <div className="pt-12 border-t mt-12 prose prose-blue max-w-none prose-headings:font-normal" dangerouslySetInnerHTML={{ __html: aboutHtml }} />
+                            <div className="pt-12 border-t mt-12 prose prose-red max-w-none prose-headings:font-normal" dangerouslySetInnerHTML={{ __html: aboutHtml }} />
 
                             <div className="pt-16 border-t">
                                 <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
@@ -286,9 +286,9 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                                 </div>
                             </section>
 
-                            {locationQuery && (
+                            {locationQuery && nearbyAreas.length > 0 && (
                                 <section>
-                                    <h2 className="text-xl font-bold mb-4">Nearby {pluralServiceLabel} Areas</h2>
+                                    <h2 className="text-xl font-bold mb-4">Nearby Coverage Areas</h2>
                                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                                         {generateNearbyAreasIntro(params.service, locationQuery)}
                                     </p>
