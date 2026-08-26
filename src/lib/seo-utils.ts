@@ -3,7 +3,7 @@ import { allLocations } from './locations';
 
 /**
  * SEO Utility to generate unique, high-quality content for South African service pages.
- * This version includes "Hardened" content for the Top Priority Johannesburg Lead Machine Services.
+ * Optimized for Johannesburg Lead Machine services.
  */
 
 export function getServiceLabel(serviceSlug: string) {
@@ -27,44 +27,36 @@ export function generateServiceStats(professionalsCount: number, reviewsTotal: n
 export function generateNearbyAreasIntro(service: string, location: string) {
   const s = getServiceLabel(service);
   const l = getLocationLabel(location);
-  return `Looking for ${s.toLowerCase()} services near ${l}? Gaupro connects thousands of customers with trusted ${s.toLowerCase()} professionals every month. Our network extends beyond the city center, covering a wide radius of residential estates, business hubs, and suburban neighborhoods to ensure you get a rapid response no matter where you are located. Below are some of the nearby areas where our verified ${s.toLowerCase()} teams are currently active and ready to quote.`;
+  return `Looking for ${s.toLowerCase()} services near ${l}? Gaupro connects thousands of customers with trusted ${s.toLowerCase()} professionals every month. Our network covers a wide radius including Sandton, Randburg, and Roodepoort to ensure a rapid response.`;
 }
 
 export function generatePopularServicesIntro(location: string) {
   const l = getLocationLabel(location);
-  return `Homeowners and business managers in ${l} often require a combination of services to maintain their properties. Whether you are moving into a new office in the CBD or renovating a home in the suburbs, these are the most frequently requested professional services in ${l}. Gaupro makes it simple to manage multiple projects by connecting you with top-rated local experts across all these essential categories.`;
+  return `Property owners in ${l} often require multiple maintenance services. Gaupro simplifies hiring by connecting you with top-rated local experts across these essential categories.`;
 }
 
 export function generateRelatedServicesIntro(service: string) {
   const s = getServiceLabel(service);
-  return `Depending on the specific requirements of your ${s.toLowerCase()} project, you may also need assistance from specialists in complementary fields. We find that customers booking ${s.toLowerCase()} often look for these related services to ensure a comprehensive solution. By hiring verified pros from these categories, you can streamline your workflow and ensure consistent quality across every aspect of your home or business improvement task.`;
+  return `Customers booking ${s.toLowerCase()} often find these related services useful to ensure a comprehensive solution for their project.`;
 }
 
-/**
- * HARDENED CONTENT FOR TOP SERVICES (Johannesburg Lead Machine)
- */
 const hardenedAboutContent: Record<string, (location: string) => string> = {
   "plumber": (l) => `
     <div class="space-y-6">
       <section>
         <h2 class="text-3xl font-bold mb-4">Professional Plumbing Solutions in ${l}</h2>
-        <p>When a pipe bursts or a geyser fails, you don't just need a plumber; you need a verified expert who understands the unique plumbing infrastructure of ${l}. From the aging pipes in established suburbs to the high-pressure requirements of modern developments, Gaupro connects you with PIRB-registered professionals who guarantee their workmanship.</p>
-        <p class="mt-4">Plumbing issues in South Africa are often exacerbated by water pressure fluctuations and hard water conditions. A professional plumber in ${l} doesn't just fix the leak; they evaluate the integrity of your entire system, providing long-term relief from recurring problems.</p>
+        <p>When a pipe bursts or a geyser fails, you need a verified expert who understands the unique plumbing infrastructure of ${l}. From aging pipes in established suburbs to the high-pressure needs of new developments, Gaupro connects you with PIRB-registered professionals.</p>
       </section>
-
       <section class="bg-primary/5 p-6 rounded-xl border-l-4 border-l-primary">
-        <h3 class="text-xl font-bold mb-3">Expert Insight: The PIRB and CoC in ${l}</h3>
-        <p class="text-foreground/90 italic leading-relaxed">By law, any significant plumbing work in ${l}—especially geyser installations—must be performed by a PIRB (Plumbing Industry Registration Board) registered plumber. This allows them to issue a Certificate of Compliance (CoC), which is essential for insurance claims and property sales. Always ask your Gaupro pro for their PIRB registration number before work begins.</p>
+        <h3 class="text-xl font-bold mb-3">PIRB & CoC Compliance in ${l}</h3>
+        <p class="text-sm">By law, major plumbing work in ${l}—specifically geyser installations—must be performed by a PIRB registered plumber. This allows them to issue a Certificate of Compliance (CoC), vital for insurance and property sales.</p>
       </section>
-
       <section>
-        <h3 class="text-xl font-semibold mb-3">Realistic Plumbing Costs in ${l} (2025 Benchmarks)</h3>
-        <p>Budgeting for plumbing requires an understanding of standard call-out fees and task-specific pricing. In ${l}, expect the following benchmarks:</p>
-        <ul class="list-disc list-inside mt-4 space-y-2">
-          <li><strong>Standard Call-out:</strong> R450 – R850 (covers first hour or assessment).</li>
-          <li><strong>Geyser Replacement (150L):</strong> R8,500 – R15,000 (depending on brand and installation complexity).</li>
-          <li><strong>Leak Detection:</strong> R1,200 – R2,500 (using acoustic or gas detection technology).</li>
-          <li><strong>Unblocking Drains:</strong> R650 – R1,500 (standard mechanical unblocking).</li>
+        <h3 class="text-xl font-semibold mb-3">Plumbing Price Guide for ${l} (2025)</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Call-out:</strong> R450 – R850.</li>
+          <li><strong>Geyser Replacement (150L):</strong> R8,500 – R15,500.</li>
+          <li><strong>Leak Detection:</strong> R1,200 – R2,800.</li>
         </ul>
       </section>
     </div>
@@ -72,23 +64,19 @@ const hardenedAboutContent: Record<string, (location: string) => string> = {
   "rubble-removal": (l) => `
     <div class="space-y-6">
       <section>
-        <h2 class="text-3xl font-bold mb-4">Professional Rubble Removal in ${l}</h2>
-        <p>Tidying up after a renovation or construction project is a massive task. In ${l}, illegal dumping has become a major environmental concern, and property owners are legally liable for the waste generated on their sites. Gaupro connects you with verified rubble removal companies in ${l} who guarantee legal and safe disposal at municipal weighbridges.</p>
-        <p class="mt-4">Our rubble removal specialists in ${l} provide the trucks, the labor, and the peace of mind that your site will be left spotless. Whether it is building rubble, garden refuse, or general household waste, we have teams near you ready to quote.</p>
+        <h2 class="text-3xl font-bold mb-4">Verified Rubble Removal in ${l}</h2>
+        <p>Illegal dumping is a major concern in ${l}. Gaupro connects you with rubble removal specialists who use 4-ton and 6-ton trucks to clear construction debris, garden refuse, and household waste, ensuring safe disposal at municipal weighbridges.</p>
       </section>
-
       <section class="bg-primary/5 p-6 rounded-xl border-l-4 border-l-primary">
         <h3 class="text-xl font-bold mb-3">Johannesburg Waste Bylaws</h3>
-        <p class="text-foreground/90 italic leading-relaxed">Most suburbs in ${l} require waste to be removed within 24–48 hours to avoid fines. Professional removers use 4-ton or 6-ton trucks and must provide proof of tipping at authorized landfills. By hiring through Gaupro, you are choosing a partner who respects the local community and municipal regulations.</p>
+        <p class="text-sm">Suburbs in ${l} require waste removal within 48 hours to avoid heavy fines. Our pros guarantee legal dumping, protecting you from liability.</p>
       </section>
-
       <section>
-        <h3 class="text-xl font-semibold mb-3">Rubble Removal Pricing in ${l}</h3>
-        <ul class="list-disc list-inside mt-4 space-y-2">
-          <li><strong>Small Load (Bakkie):</strong> R450 – R750.</li>
-          <li><strong>4-Ton Truck:</strong> R950 – R1,400.</li>
-          <li><strong>6-Ton Truck:</strong> R1,500 – R2,200.</li>
-          <li><strong>Bulk Site Clearing:</strong> Customized quote based on site survey.</li>
+        <h3 class="text-xl font-semibold mb-3">Rubble Removal Rates in ${l}</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>4-Ton Truck:</strong> R950 – R1,450 per load.</li>
+          <li><strong>6-Ton Truck:</strong> R1,600 – R2,400 per load.</li>
+          <li><strong>Mixed Garden Waste:</strong> R650 – R1,100 per load.</li>
         </ul>
       </section>
     </div>
@@ -96,22 +84,18 @@ const hardenedAboutContent: Record<string, (location: string) => string> = {
   "tlb-hire": (l) => `
     <div class="space-y-6">
       <section>
-        <h2 class="text-3xl font-bold mb-4">Reliable TLB Hire in ${l} with Operators</h2>
-        <p>For construction, earthmoving, and site preparation in ${l}, the TLB (Tractor-Loader-Backhoe) is the ultimate multi-purpose tool. Gaupro connects you with plant hire specialists who offer well-maintained machinery paired with certified, experienced operators who understand the local terrain conditions of ${l}.</p>
-        <p class="mt-4">Whether you are digging foundations for a new home in Sandton or trenching for services in Midrand, our TLB hire partners provide flexible hourly and daily rates to suit your project scope.</p>
+        <h2 class="text-3xl font-bold mb-4">TLB Hire in ${l} with Certified Operators</h2>
+        <p>For excavations, trenching, and site leveling in ${l}, a TLB is the most versatile machine. We offer "Wet Hire" solutions which include a well-maintained machine, fuel, and a certified operator.</p>
       </section>
-
       <section class="bg-primary/5 p-6 rounded-xl border-l-4 border-l-primary">
-        <h3 class="text-xl font-bold mb-3">Wet Hire vs. Dry Hire in JHB</h3>
-        <p class="text-foreground/90 italic leading-relaxed">In ${l}, "Wet Hire" (including fuel and a certified operator) is the industry standard for short-term projects. It ensures safety and efficiency as the operator is responsible for the machine's maintenance and performance. "Dry Hire" is typically reserved for longer-term commercial contracts where the client provides their own licensed operator.</p>
+        <h3 class="text-xl font-bold mb-3">Safety & Productivity</h3>
+        <p class="text-sm">In ${l}, terrain can vary from soft soil to hard rock. Our operators are experienced in handling local conditions safely and efficiently.</p>
       </section>
-
       <section>
-        <h3 class="text-xl font-semibold mb-3">TLB Hire Rate Guide (${l})</h3>
-        <ul class="list-disc list-inside mt-4 space-y-2">
-          <li><strong>Daily Rate (8-hour shift):</strong> R3,500 – R5,500 (Wet Hire).</li>
-          <li><strong>Hourly Rate:</strong> R450 – R750 (Minimum shifts usually apply).</li>
-          <li><strong>Establishment Fee (Transport):</strong> R1,200 – R3,000 depending on distance.</li>
+        <h3 class="text-xl font-semibold mb-3">TLB Hire Cost in ${l}</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Daily Rate (8h):</strong> R3,800 – R5,800 (Wet Hire).</li>
+          <li><strong>Establishment Fee:</strong> R1,500 – R3,500 depending on location.</li>
         </ul>
       </section>
     </div>
@@ -119,22 +103,18 @@ const hardenedAboutContent: Record<string, (location: string) => string> = {
   "swimming-pool-demolition": (l) => `
     <div class="space-y-6">
       <section>
-        <h2 class="text-3xl font-bold mb-4">Expert Swimming Pool Removal in ${l}</h2>
-        <p>An unused, leaking, or high-maintenance swimming pool can be a liability. Pool demolition and backfilling is a specialized engineering task that requires proper drainage planning and soil compaction. Gaupro connects you with demolition experts in ${l} who transform unwanted pools back into usable garden space or building areas.</p>
-        <p class="mt-4">In ${l}, where properties are increasingly focused on low-maintenance living, removing an old pool can significantly increase the appeal of your home. Our pros handle the concrete breaking, fiberglass removal, and certified backfilling.</p>
+        <h2 class="text-3xl font-bold mb-4">Professional Pool Removal & Backfilling in ${l}</h2>
+        <p>Removing an old or leaking pool requires specialized engineering. Gaupro connects you with demolition pros in ${l} who handle concrete breaking, fiberglass shell removal, and certified soil compaction.</p>
       </section>
-
       <section class="bg-primary/5 p-6 rounded-xl border-l-4 border-l-primary">
-        <h3 class="text-xl font-bold mb-3">The Importance of Proper Backfilling</h3>
-        <p class="text-foreground/90 italic leading-relaxed">The biggest risk in pool removal is ground subsidence. If the pool isn't drained properly and the soil isn't compacted in layers (using a G5 or similar material), the area will sink over time. Gaupro professionals in ${l} follow strict compaction protocols to ensure your new lawn or patio remains level for years to come.</p>
+        <h3 class="text-xl font-bold mb-3">Compaction is Key</h3>
+        <p class="text-sm">Improper backfilling causes ground subsidence. Our ${l} teams follow strict G5 material layering and compaction protocols to ensure a level, building-ready surface.</p>
       </section>
-
       <section>
-        <h3 class="text-xl font-semibold mb-3">Cost to Remove a Pool in ${l}</h3>
-        <ul class="list-disc list-inside mt-4 space-y-2">
-          <li><strong>Partial Demo & Fill:</strong> R15,000 – R25,000.</li>
-          <li><strong>Full Concrete Removal & Backfill:</strong> R35,000 – R65,000.</li>
-          <li><strong>Fiberglass Shell Removal:</strong> R12,000 – R22,000.</li>
+        <h3 class="text-xl font-semibold mb-3">Pool Removal Pricing (${l})</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Standard Pool Demo:</strong> R25,000 – R45,000.</li>
+          <li><strong>Large/Difficult Access:</strong> R45,000 – R75,000.</li>
         </ul>
       </section>
     </div>
@@ -142,22 +122,14 @@ const hardenedAboutContent: Record<string, (location: string) => string> = {
   "demolition": (l) => `
     <div class="space-y-6">
       <section>
-        <h2 class="text-3xl font-bold mb-4">Safe & Controlled Demolition Contractors in ${l}</h2>
-        <p>Demolition is the first step toward a new vision. Whether you need to remove an internal wall for an open-plan kitchen or demolish an entire double-story structure in ${l}, safety and structural awareness are paramount. Gaupro connects you with demolition contractors who use specialized equipment to ensure the job is done without damaging adjacent structures.</p>
-        <p class="mt-4">From urban Johannesburg suburbs to large industrial sites, our pros provide site clearing, hazardous material handling, and structural dismantling services that comply with the Occupational Health and Safety Act.</p>
+        <h2 class="text-3xl font-bold mb-4">Structural Demolition Contractors in ${l}</h2>
+        <p>From internal wall removal to full house demolition, safety is paramount. Our JHB contractors provide mechanical dismantling, site clearing, and hazardous material management in line with OHS acts.</p>
       </section>
-
-      <section class="bg-primary/5 p-6 rounded-xl border-l-4 border-l-primary">
-        <h3 class="text-xl font-bold mb-3">Permits and Regulations</h3>
-        <p class="text-foreground/90 italic leading-relaxed">Most structural demolition in ${l} requires a municipal permit and an engineer's sign-off if load-bearing elements are involved. A professional contractor through Gaupro will guide you through the regulatory requirements to ensure your project remains legal and safe.</p>
-      </section>
-
       <section>
-        <h3 class="text-xl font-semibold mb-3">Typical Demolition Costs in ${l}</h3>
-        <ul class="list-disc list-inside mt-4 space-y-2">
-          <li><strong>Single Internal Wall:</strong> R8,000 – R15,000 (including structural support if needed).</li>
-          <li><strong>Double Garage:</strong> R12,000 – R22,000.</li>
-          <li><strong>Small House (Standard 3-Bed):</strong> R60,000 – R120,000.</li>
+        <h3 class="text-xl font-semibold mb-3">Demolition Costs in ${l}</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Internal Wall:</strong> R8,000 – R16,000.</li>
+          <li><strong>Small House (3-Bed):</strong> R65,000 – R130,000.</li>
         </ul>
       </section>
     </div>
@@ -165,22 +137,14 @@ const hardenedAboutContent: Record<string, (location: string) => string> = {
   "site-clearance": (l) => `
     <div class="space-y-6">
       <section>
-        <h2 class="text-3xl font-bold mb-4">Complete Site Clearance & Land Leveling in ${l}</h2>
-        <p>A clean, level site is the foundation of every successful construction project. Site clearance in ${l} involves the removal of thick vegetation, existing rubble, and unwanted debris to prepare for building or landscaping. Gaupro connects you with heavy-duty clearance teams who use Bobcats, TLBs, and tippers to prepare your plot efficiently.</p>
-        <p class="mt-4">Whether it is a small residential plot in Randburg or a multi-hectare commercial site in Midrand, our pros in ${l} ensure that your ground is prepared according to the required levels and specifications.</p>
+        <h2 class="text-3xl font-bold mb-4">Site Clearing & Land Leveling in ${l}</h2>
+        <p>Prepare your plot for building with professional site clearance. We handle the removal of heavy vegetation, trees, and debris using Bobcats and TLBs in all ${l} suburbs.</p>
       </section>
-
-      <section class="bg-primary/5 p-6 rounded-xl border-l-4 border-l-primary">
-        <h3 class="text-xl font-bold mb-3">Beyond Rubble: Vegetation & Leveling</h3>
-        <p class="text-foreground/90 italic leading-relaxed">In many parts of ${l}, site clearance requires the removal of invasive alien species and heavy earthmoving to correct slopes. Professional clearance teams provide a "blank canvas" for your builders, saving you time and potentially thousands in hidden foundation costs later in the project.</p>
-      </section>
-
       <section>
-        <h3 class="text-xl font-semibold mb-3">Site Clearance Benchmarks (${l})</h3>
-        <ul class="list-disc list-inside mt-4 space-y-2">
-          <li><strong>Small Residential Plot (< 500m²):</strong> R3,500 – R8,000.</li>
-          <li><strong>Medium Plot (1000m²):</strong> R12,000 – R25,000.</li>
-          <li><strong>Industrial Site Clearing:</strong> Quoted per day or per m³.</li>
+        <h3 class="text-xl font-semibold mb-3">Site Clearing Rates (${l})</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Residential Plot (<1000m²):</strong> R4,500 – R12,000.</li>
+          <li><strong>Bulk Clearing:</strong> Quoted per day or per m³.</li>
         </ul>
       </section>
     </div>
@@ -189,28 +153,26 @@ const hardenedAboutContent: Record<string, (location: string) => string> = {
 
 const hardenedFAQs: Record<string, (location: string) => { q: string, a: string }[]> = {
   "plumber": (l) => [
-    { q: `What is the cost of a plumber call-out in ${l}?`, a: `In ${l}, standard call-out fees typically range from R450 to R850. This fee usually covers the travel and the first 30-60 minutes of assessment. Always confirm if the call-out fee is deductible from the final repair cost.` },
-    { q: `Do I need a PIRB Certificate of Compliance in ${l}?`, a: `Yes, for any new geyser installation or major alteration in ${l}, a PIRB (Plumbing Industry Registration Board) CoC is mandatory. It ensures the work meets SANS 10252 standards and is required for insurance claims.` }
+    { q: `What is the standard plumber call-out fee in ${l}?`, a: `In ${l}, call-out fees average R450 – R850. This covers the first hour of assessment.` },
+    { q: `Can you issue a Plumbing CoC in ${l}?`, a: `Yes, all our geyser and structural plumbing partners in ${l} are PIRB registered to issue certificates of compliance.` }
   ],
   "rubble-removal": (l) => [
-    { q: `How much does rubble removal cost per load in ${l}?`, a: `In ${l}, prices start from around R950 for a 4-ton truck and can go up to R2,200 for a 6-ton heavy rubble load. Prices usually include labor for loading.` },
-    { q: `Will you dump my rubble legally?`, a: `Absolutely. All Gaupro pros in ${l} are required to use authorized municipal weighbridges. This prevents illegal dumping fines which can be issued to the property owner.` }
+    { q: `Is the labor for loading included in ${l}?`, a: `Yes, standard quotes in ${l} usually include a team of 2–3 loaders for a 4-ton or 6-ton truck.` },
+    { q: `Do you remove garden waste in ${l}?`, a: `Yes, our JHB teams handle building rubble, garden refuse, and general waste.` }
   ],
   "tlb-hire": (l) => [
-    { q: `Does TLB hire in ${l} include the operator?`, a: `Yes, most TLB hire services on Gaupro are "Wet Hire," meaning they include a certified operator and fuel. This is the safest and most productive option for residential and commercial sites.` },
-    { q: `What is the minimum hire period?`, a: `Most plant hire companies in ${l} have a minimum hire period of one full 8-hour shift, although some may offer a 4-hour "half-day" rate for small local jobs.` }
+    { q: `Is fuel included in the TLB hire rate in ${l}?`, a: `Yes, our "Wet Hire" rates in ${l} include the machine, operator, and diesel.` },
+    { q: `Can I hire a TLB for just 4 hours in JHB?`, a: `Some providers in ${l} offer half-day rates, but a full 8-hour shift is standard for most plant hire companies.` }
   ],
   "swimming-pool-demolition": (l) => [
-    { q: `Can I build a house where my pool used to be?`, a: `Only if the pool was fully demolished (concrete removed) and backfilled with engineered soil compaction. A standard "fill-in" is only suitable for gardens or light patios. Our ${l} specialists can advise on the correct method for your future plans.` },
-    { q: `How long does it take to remove a pool?`, a: `A standard swimming pool removal in ${l} typically takes 3 to 5 working days, including the heavy breaking and the layering of backfill material.` }
+    { q: `Do I need a permit for pool removal in ${l}?`, a: `In ${l}, minor garden work often doesn't require a permit, but structural demolition and drainage changes should be verified with local council bylaws.` },
+    { q: `Will my yard sink after filling the pool?`, a: `Not if it is backfilled correctly. Our JHB experts use G5 soil and vibrating compactors in layers to ensure zero subsidence.` }
   ],
   "demolition": (l) => [
-    { q: `Do I need a permit to demolish a building in ${l}?`, a: `Yes. Any structural demolition requires a permit from the ${l} city council. Professional contractors can assist with the application process to ensure your project is compliant.` },
-    { q: `Is asbestos removal handled during demolition?`, a: `Asbestos is a hazardous material and requires a specialized certified team. If your ${l} property was built before 1980, our pros will assess for asbestos and provide a safe removal plan.` }
+    { q: `Do you handle asbestos removal during demolition in ${l}?`, a: `Asbestos requires specialized certification. Our JHB demolition partners will assess your site and bring in certified hazmat teams if needed.` }
   ],
   "site-clearance": (l) => [
-    { q: `Do you level the ground during site clearance?`, a: `Yes, most site clearance projects in ${l} include basic leveling to prepare for construction. If precise engineering levels are required, please specify this in your request.` },
-    { q: `What happens to the green waste?`, a: `Green waste is chipped or transported to authorized compost facilities in ${l}, while building rubble is sent to crushing plants or landfills.` }
+    { q: `Do you remove trees during site clearance in ${l}?`, a: `Yes, our JHB site clearing teams often include tree felling specialists for complete plot preparation.` }
   ]
 };
 
@@ -218,19 +180,13 @@ export function getServiceKnowledge(service: string, location: string): string {
   if (hardenedAboutContent[service]) {
     return hardenedAboutContent[service](location);
   }
-  
-  // Fallback for non-hardened categories
   const s = getServiceLabel(service);
   const l = getLocationLabel(location);
   return `
     <div class="space-y-6">
       <section>
         <h2 class="text-2xl font-bold mb-4">${s} Services in ${l}</h2>
-        <p>Finding reliable ${s.toLowerCase()} in ${l} is essential for ensuring that your home or business projects are handled with the care and expertise they deserve. Whether you are dealing with an urgent repair, planning a major renovation, or simply looking for routine maintenance, Gaupro connects you with the most trusted professionals in the ${l} area.</p>
-      </section>
-      <section>
-        <h3 class="text-xl font-semibold mb-3">Why South Africans Choose Gaupro for ${s}</h3>
-        <p>Gaupro has become the preferred platform for finding ${s.toLowerCase()} experts in ${l} because we prioritize trust and efficiency. Instead of cold-calling dozens of companies, you can post your request once and receive multiple competitive estimates from pros who are actually available and interested in your job.</p>
+        <p>Finding reliable ${s.toLowerCase()} in ${l} is essential for your property maintenance. Gaupro connects you with the most trusted professionals in the ${l} area.</p>
       </section>
     </div>
   `;
@@ -245,16 +201,14 @@ export function generateFAQs(service: string, location: string) {
   if (hardenedFAQs[service]) {
     return hardenedFAQs[service](l);
   }
-
-  // Fallback FAQs
   return [
     {
       q: `How much does ${getServiceLabel(service).toLowerCase()} cost in ${l}?`,
-      a: `The cost varies significantly based on the complexity of the task and the materials required. We highly recommend requesting at least 3 quotes through Gaupro to compare current market rates in your specific suburb of ${l}.`
+      a: `Prices vary based on complexity. We recommend requesting at least 3 quotes through Gaupro to compare current market rates in ${l}.`
     },
     {
       q: `How quickly can I get help in ${l}?`,
-      a: `Most users receive their first response within 20 to 60 minutes. Our system prioritizes local pros closest to your address to ensure the fastest response time possible.`
+      a: `Most JHB users receive their first response within 20 to 60 minutes.`
     }
   ];
 }

@@ -1,7 +1,6 @@
-
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { serviceQuestionSets, allServices } from '@/lib/service-questions';
 import { Card, CardContent } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -15,9 +14,10 @@ import { Textarea } from './ui/textarea';
 interface InlineQuoteFormProps {
   service: string;
   location: string;
+  locationSlug?: string;
 }
 
-export default function InlineQuoteForm({ service, location }: InlineQuoteFormProps) {
+export default function InlineQuoteForm({ service, location, locationSlug }: InlineQuoteFormProps) {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [textareaValue, setTextareaValue] = useState('');
 
@@ -28,9 +28,7 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
   const firstQuestion = questionSet?.questions?.[0];
   const serviceInfo = allServices.find(s => s.value === service);
   const serviceLabel = serviceInfo?.label || service;
-  // Improved pluralization
   const pluralServiceLabel = serviceLabel.endsWith('s') ? serviceLabel : `${serviceLabel}s`;
-
 
   if (!firstQuestion) {
     return (
@@ -58,10 +56,13 @@ export default function InlineQuoteForm({ service, location }: InlineQuoteFormPr
     ? textareaValue.trim() === '' 
     : selectedOptions.length === 0;
 
+  // Pre-fill location data to ensure it persists in the dialog
   const initialData = {
     [firstQuestion.id]: firstQuestion.type === 'textarea'
       ? textareaValue
       : (firstQuestion.type === 'radio' ? selectedOptions[0] : selectedOptions),
+    suburb: location,
+    locationSlug: locationSlug || ''
   };
 
   return (

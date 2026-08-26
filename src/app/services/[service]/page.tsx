@@ -20,16 +20,19 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   const title = `${s} ${l} | Compare Trusted Pros | GauPro`;
   const description = `Compare top-rated ${s.toLowerCase()} companies in ${l}. Get free quotes from verified local professionals, read reviews, and hire with confidence on GauPro.`;
 
+  // CRITICAL: Ensure the canonical URL includes the location query parameter if it exists
+  const canonicalUrl = `https://gaupro.co.za/services/${params.service}${searchParams?.location ? `?location=${searchParams.location}` : ''}`;
+
   return {
     title,
     description,
     alternates: {
-      canonical: `https://gaupro.co.za/services/${params.service}${searchParams?.location ? `?location=${searchParams.location}` : ''}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title,
       description,
-      url: `https://gaupro.co.za/services/${params.service}`,
+      url: canonicalUrl,
       siteName: 'GauPro',
       locale: 'en_ZA',
       type: 'website',
@@ -42,7 +45,6 @@ export default function ServicePage({ params, searchParams }: PageProps) {
   const l = getLocationLabel(searchParams?.location as string);
   const faqs = generateFAQs(params.service, searchParams?.location as string);
 
-  // Strictly category-level schema without placeholder ratings
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",

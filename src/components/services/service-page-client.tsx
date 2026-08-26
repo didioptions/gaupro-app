@@ -124,7 +124,7 @@ export default function ServicePageClient({ params, searchParams }: ServicePageC
                           Compare the best local {serviceLabel.toLowerCase()} experts. Get free quotes, view verified profiles, and hire with confidence.
                       </p>
                     </div>
-                    <InlineQuoteForm service={params.service} location={locationName} />
+                    <InlineQuoteForm service={params.service} location={locationName} locationSlug={locationQuery} />
                  </div>
             </section>
 
