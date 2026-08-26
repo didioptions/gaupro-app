@@ -35,7 +35,7 @@ interface AutocompleteProps {
 
 export function Autocomplete({
   id,
-  options,
+  options = [],
   value,
   onValueChange,
   placeholder,
@@ -44,9 +44,12 @@ export function Autocomplete({
   const [open, setOpen] = React.useState(false);
   const [inputValue, setInputValue] = React.useState('');
 
+  // Defensive check to ensure options is always an array
+  const safeOptions = React.useMemo(() => (Array.isArray(options) ? options : []), [options]);
+
   const selectedOption = React.useMemo(
-    () => options.find((option) => option.value === value),
-    [options, value]
+    () => safeOptions.find((option) => option.value === value),
+    [safeOptions, value]
   );
 
   React.useEffect(() => {
@@ -90,7 +93,7 @@ export function Autocomplete({
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => (
+              {safeOptions.map((option) => (
                 <CommandItem
                   key={option.value}
                   value={option.label}
