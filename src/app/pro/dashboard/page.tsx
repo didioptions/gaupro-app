@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
@@ -28,11 +29,10 @@ import { collection, query, where, limit, orderBy, onSnapshot, doc, updateDoc } 
 import { Skeleton } from '@/components/ui/skeleton';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
-import { allServices } from '@/lib/service-questions';
 import { useRouter } from 'next/navigation';
-import { InviteFriendsDialog } from '@/components/pro/invite-friends-dialog';
 import { SupportChatWidget } from '@/components/pro/support-chat-widget';
 import { cn } from '@/lib/utils';
+import { cityExpansionMap } from '@/lib/location-data';
 
 interface ProfessionalProfile {
   id?: string;
@@ -87,7 +87,6 @@ export default function ProDashboardPage() {
     const unsubscribeNotifications = onSnapshot(nQ, (snapshot) => {
         setNotifications(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
     }, () => {
-        // Silently fail
     });
 
     return () => {
@@ -112,28 +111,21 @@ export default function ProDashboardPage() {
     if (!profileData || !allLeads) return [];
     
     const proServices = [...(profileData.tags || []), profileData.serviceCategory].filter(Boolean).map(s => s?.toLowerCase());
-    const proLocation = profileData.location?.toLowerCase();
+    const proCity = profileData.location?.toLowerCase();
     const proSuburb = profileData.suburb?.toLowerCase();
     const proAreas = (profileData.serviceAreas || []).map(a => a.toLowerCase());
 
     if (proServices.length === 0) return [];
 
     return allLeads.filter(job => {
-      // 1. Service Matching
       const isServiceMatch = proServices.some(service => job.category.toLowerCase().includes(service!));
       
-      // 2. Location Matching (City OR Suburb OR Service Area)
-      const leadLoc = job.location?.toLowerCase();
       const leadLocSlug = job.locationSlug?.toLowerCase();
       
-      const isLocationMatch = 
-        !leadLocSlug || 
-        leadLocSlug === proLocation || 
-        leadLocSlug === proSuburb || 
-        proAreas.includes(leadLocSlug) ||
-        (leadLoc && (leadLoc.includes(proLocation!) || leadLoc.includes(proSuburb!)));
+      const isCityLevelMatch = proCity && (proCity === leadLocSlug || cityExpansionMap[proCity]?.includes(leadLocSlug!));
+      const isSuburbLevelMatch = proSuburb === leadLocSlug || proAreas.includes(leadLocSlug!);
 
-      return isServiceMatch && isLocationMatch;
+      return isServiceMatch && (isCityLevelMatch || isSuburbLevelMatch);
     });
   }, [profileData, allLeads]);
 
@@ -162,7 +154,7 @@ export default function ProDashboardPage() {
         <div className="container mx-auto px-4 space-y-8">
           <Skeleton className="h-10 w-1/4" />
           <Skeleton className="h-24 w-full" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
             <Skeleton className="h-48 lg:col-span-2" />
             <Skeleton className="h-48" />
           </div>

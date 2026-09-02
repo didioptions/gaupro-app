@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useMemo, useState } from 'react';
@@ -22,6 +23,7 @@ import {
 } from 'lucide-react';
 import { allServices } from '@/lib/services-list';
 import { allLocations } from '@/lib/locations';
+import { cityExpansionMap } from '@/lib/location-data';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
@@ -46,14 +48,14 @@ export default function MarketplaceHealthPage() {
 
   const leadsQuery = useMemoFirebase(() => {
       if (!firestore || isUserLoading) return null;
-      return query(collection(firestore, 'leads_public'), orderBy('createdAt', 'desc'), limit(200));
+      return query(collection(firestore, 'leads_public'), orderBy('createdAt', 'desc'), limit(500));
   }, [firestore, isUserLoading]);
 
   const { data: professionals, loading: loadingPros } = useCollection<DocumentData>(prosQuery);
   const { data: leads, loading: loadingLeads } = useCollection<DocumentData>(leadsQuery);
 
   const analytics = useMemo(() => {
-    if (!professionals) return { total: 0, gauteng: 0, johannesburg: 0, categories: {} };
+    if (!professionals) return { total: 0, gauteng: 0, johannesburg: 0 };
     
     return {
         total: professionals.length,
@@ -76,36 +78,44 @@ export default function MarketplaceHealthPage() {
                 (l.locationSlug === suburbSlug || l.location?.toLowerCase().includes(suburbSlug))
             ).length;
 
-            const localPros = (professionals || []).filter(p => 
-                (p.serviceCategory === serviceLabel || (p.tags || []).includes(serviceLabel)) &&
-                (p.suburb?.toLowerCase() === suburbSlug || (p.serviceAreas || []).includes(suburbSlug))
-            ).length;
+            const localPros = (professionals || []).filter(p => {
+                const isCatMatch = (p.serviceCategory === serviceLabel || (p.tags || []).includes(serviceLabel));
+                const proCity = p.location?.toLowerCase();
+                const isLocMatch = p.suburb?.toLowerCase() === suburbSlug || 
+                                 (p.serviceAreas || []).includes(suburbSlug) ||
+                                 (proCity === 'johannesburg' && cityExpansionMap['johannesburg']?.includes(suburbSlug));
+                return isCatMatch && isLocMatch;
+            }).length;
+
+            let type = 'COVERED';
+            let priority = 'LOW';
 
             if (localPros === 0) {
-                opportunities.push({
-                    service: serviceLabel,
-                    suburb: suburbLabel,
-                    leads: localLeads,
-                    pros: localPros,
-                    type: localLeads > 0 ? 'DEMAND' : 'SUPPLY',
-                    priority: localLeads > 0 ? 'CRITICAL' : 'LOW'
-                });
-            } else {
-                opportunities.push({
-                    service: serviceLabel,
-                    suburb: suburbLabel,
-                    leads: localLeads,
-                    pros: localPros,
-                    type: 'COVERED',
-                    priority: localLeads > 0 && localPros === 1 ? 'MEDIUM' : 'LOW'
-                });
+                if (localLeads > 0) {
+                    type = 'DEMAND';
+                    priority = 'CRITICAL';
+                } else {
+                    type = 'SUPPLY';
+                    priority = 'MEDIUM';
+                }
+            } else if (localPros === 1 && localLeads > 5) {
+                priority = 'HIGH';
             }
+
+            opportunities.push({
+                service: serviceLabel,
+                suburb: suburbLabel,
+                leads: localLeads,
+                pros: localPros,
+                type,
+                priority
+            });
         });
     });
 
     return opportunities.sort((a, b) => {
-        if (a.type === 'DEMAND' && b.type !== 'DEMAND') return -1;
-        if (b.type === 'DEMAND' && a.type !== 'DEMAND') return 1;
+        const score = (p: string) => ({ 'CRITICAL': 3, 'HIGH': 2, 'MEDIUM': 1, 'LOW': 0 }[p] || 0);
+        if (score(b.priority) !== score(a.priority)) return score(b.priority) - score(a.priority);
         return b.leads - a.leads;
     });
   }, [professionals, leads]);
@@ -114,7 +124,7 @@ export default function MarketplaceHealthPage() {
       return (
           <div className="min-h-screen flex flex-col items-center justify-center bg-secondary/30">
               <Loader2 className="h-10 w-10 animate-spin text-primary mb-4" />
-              <p className="text-muted-foreground font-medium">Running Sanity Checks...</p>
+              <p className="text-muted-foreground font-medium">Analyzing Marketplace Dynamics...</p>
           </div>
       );
   }
@@ -126,10 +136,10 @@ export default function MarketplaceHealthPage() {
           <div>
             <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs mb-1">
                 <Target className="h-4 w-4" />
-                Johannesburg Launch Strategy
+                Joburg Growth Intelligence
             </div>
-            <h1 className="text-3xl font-bold tracking-tight text-foreground">Marketplace Readiness</h1>
-            <p className="text-muted-foreground mt-2">Identifying demand gaps and service voids across priority suburbs.</p>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground">Marketplace Health</h1>
+            <p className="text-muted-foreground mt-2">Identifying critical supply-demand gaps across priority suburbs.</p>
           </div>
           <Button variant="outline" className="bg-white" asChild>
               <Link href="/pro/admin/pros">Manage All Pros</Link>
@@ -141,42 +151,42 @@ export default function MarketplaceHealthPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
                 <Users className="h-5 w-5 text-primary" />
-                <Badge variant="secondary">Network</Badge>
+                <Badge variant="secondary">Supply</Badge>
               </div>
               <p className="text-4xl font-black">{analytics.total}</p>
-              <p className="text-xs text-muted-foreground uppercase font-bold mt-1">Total Registered Pros</p>
+              <p className="text-xs text-muted-foreground uppercase font-bold mt-1">Active Professionals</p>
             </CardContent>
           </Card>
           <Card className="bg-primary text-primary-foreground border-0">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
                 <MapPin className="h-5 w-5 opacity-80" />
-                <Badge variant="outline" className="text-white border-white/30">Gauteng</Badge>
+                <Badge variant="outline" className="text-white border-white/30">Target</Badge>
               </div>
-              <p className="text-4xl font-black">{analytics.gauteng}</p>
-              <p className="text-xs uppercase font-bold opacity-70 mt-1">Province Supply</p>
+              <p className="text-4xl font-black">{analytics.johannesburg}</p>
+              <p className="text-xs uppercase font-bold opacity-70 mt-1">JHB Pros</p>
             </CardContent>
           </Card>
           <Card className="border-l-4 border-l-teal-500">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
                 <Briefcase className="h-5 w-5 text-teal-600" />
-                <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200">Activity</Badge>
+                <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200">Demand</Badge>
               </div>
               <p className="text-4xl font-black">{leads?.length || 0}</p>
-              <p className="text-xs text-muted-foreground uppercase font-bold mt-1">Total Leads Tracked</p>
+              <p className="text-xs text-muted-foreground uppercase font-bold mt-1">Customer Leads</p>
             </CardContent>
           </Card>
         </div>
 
-        <Card className="border-t-4 border-t-red-500 shadow-xl mb-12">
-          <CardHeader className="border-b bg-white">
+        <Card className="shadow-xl mb-12 border-0">
+          <CardHeader className="border-b bg-white rounded-t-lg">
             <CardTitle className="flex items-center gap-2">
-                <AlertTriangle className="h-5 w-5 text-red-600" />
-                Recruitment Priority: Demand & Supply Gaps
+                <CircleAlert className="h-5 w-5 text-red-600" />
+                Recruitment Intelligence: Demand & Supply Gaps
             </CardTitle>
             <CardDescription>
-                High priority gaps where customers are actively looking for help but supply is missing.
+                Prioritizing recruitment based on live customer demand vs current professional coverage.
             </CardDescription>
           </CardHeader>
           <CardContent className="p-0">
@@ -184,15 +194,15 @@ export default function MarketplaceHealthPage() {
               <TableHeader className="bg-secondary/20">
                 <TableRow>
                   <TableHead>Category / Suburb</TableHead>
-                  <TableHead>Live Demand</TableHead>
-                  <TableHead>Current Supply</TableHead>
-                  <TableHead>Status / Priority</TableHead>
+                  <TableHead>Customer Demand</TableHead>
+                  <TableHead>Pro Supply</TableHead>
+                  <TableHead>Health Status</TableHead>
                   <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {gapAnalysis.slice(0, 15).map((gap, i) => (
-                    <TableRow key={i}>
+                {gapAnalysis.slice(0, 20).map((gap, i) => (
+                    <TableRow key={i} className={gap.type === 'DEMAND' ? "bg-red-50/30" : ""}>
                       <TableCell>
                         <p className="font-bold text-sm">{gap.service}</p>
                         <p className="text-xs text-muted-foreground capitalize">{gap.suburb}</p>
@@ -211,27 +221,27 @@ export default function MarketplaceHealthPage() {
                       </TableCell>
                       <TableCell>
                         {gap.type === 'DEMAND' ? (
-                            <Badge className="bg-red-100 text-red-700 border-red-200 animate-pulse">
+                            <Badge className="bg-red-600 text-white border-0 animate-pulse">
                                 <CircleAlert className="h-3 w-3 mr-1" /> DEMAND GAP
                             </Badge>
                         ) : gap.type === 'SUPPLY' ? (
-                            <Badge className="bg-orange-50 text-orange-700 border-orange-200">
+                            <Badge variant="secondary" className="bg-orange-100 text-orange-800 border-orange-200">
                                 <HelpCircle className="h-3 w-3 mr-1" /> SUPPLY GAP
                             </Badge>
                         ) : (
-                            <Badge className="bg-green-100 text-green-700 border-green-200">
+                            <Badge variant="outline" className="bg-green-100 text-green-700 border-green-200">
                                 <CheckCircle2 className="h-3 w-3 mr-1" /> COVERED
                             </Badge>
                         )}
                         <span className={cn(
                             "ml-2 text-[10px] font-black uppercase tracking-widest",
-                            gap.priority === 'CRITICAL' ? "text-red-600" : gap.priority === 'MEDIUM' ? "text-orange-600" : "text-muted-foreground"
+                            gap.priority === 'CRITICAL' ? "text-red-600" : gap.priority === 'HIGH' ? "text-orange-600" : "text-muted-foreground"
                         )}>
                             {gap.priority}
                         </span>
                       </TableCell>
                       <TableCell className="text-right">
-                        <Button size="sm" variant={gap.type === 'DEMAND' ? "default" : "outline"} className="gap-2" asChild>
+                        <Button size="sm" variant={gap.type === 'DEMAND' ? "default" : "outline"} className="gap-2 font-bold" asChild>
                             <Link href="/pro/partnership">
                                 Recruit <ChevronRight className="h-3 w-3" />
                             </Link>

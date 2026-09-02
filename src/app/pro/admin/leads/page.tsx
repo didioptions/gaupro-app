@@ -59,6 +59,7 @@ import {
 } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { cityExpansionMap } from '@/lib/location-data';
 
 const PAGE_SIZE = 25;
 
@@ -172,7 +173,6 @@ export default function LeadOversightPage() {
       if (!leadSnap.exists()) throw new Error("Lead no longer exists.");
       const currentLead = leadSnap.data();
 
-      // DUPLICATE GUARD
       if (action === 'approved' && currentLead.status === 'approved') {
           toast({ title: 'Already Distributed', description: 'This lead has already been approved and sent to professionals.' });
           setViewLead(null);
@@ -188,7 +188,6 @@ export default function LeadOversightPage() {
       
       await updateDoc(leadRef, updateObj);
       
-      // LOG ACTION
       await addDoc(collection(firestore, 'marketplace_audit_logs'), {
         adminUid: adminUser.uid,
         action: `LEAD_${action.toUpperCase()}`,
@@ -197,12 +196,8 @@ export default function LeadOversightPage() {
         timestamp: serverTimestamp()
       });
 
-      // NOTIFICATION LOGIC FOR APPROVAL
       if (action === 'approved') {
-            // Find matching professionals by Category OR Tags
             const prosRef = collection(firestore, 'professionalProfiles');
-            
-            // Advanced Matching: Professionals where Category matches OR Tags contains Category
             const q = query(
               prosRef, 
               or(
@@ -219,14 +214,15 @@ export default function LeadOversightPage() {
                 
                 prosSnap.docs.forEach(proDoc => {
                     const pro = proDoc.data();
-                    const proLoc = pro.location?.toLowerCase();
+                    const proCity = pro.location?.toLowerCase();
+                    const proSuburb = pro.suburb?.toLowerCase();
                     const proAreas = (pro.serviceAreas || []).map((a: string) => a.toLowerCase());
                     const leadLocSlug = currentLead.locationSlug?.toLowerCase();
 
-                    // LOCATION MATCHING: Match on primary city OR service areas
-                    const isLocationMatch = !leadLocSlug || proLoc === leadLocSlug || proAreas.includes(leadLocSlug);
+                    const isCityLevelMatch = proCity && (proCity === leadLocSlug || cityExpansionMap[proCity]?.includes(leadLocSlug));
+                    const isSuburbLevelMatch = proSuburb === leadLocSlug || proAreas.includes(leadLocSlug);
 
-                    if (isLocationMatch) {
+                    if (isCityLevelMatch || isSuburbLevelMatch) {
                         const notifRef = doc(collection(firestore, 'users', pro.userId, 'notifications'));
                         batch.set(notifRef, {
                             title: 'New Lead Match',
