@@ -1,9 +1,9 @@
 
 'use client';
 
-import React, { useMemo } from 'react';
-import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collection, query, orderBy, limit, DocumentData } from 'firebase/firestore';
+import React, { useMemo, useState, useEffect } from 'react';
+import { useFirestore, useUser } from '@/firebase';
+import { collection, query, orderBy, limit, DocumentData, onSnapshot } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
@@ -19,7 +19,8 @@ import {
   HelpCircle,
   CheckCircle2,
   AlertCircle,
-  TrendingDown
+  TrendingDown,
+  Clock
 } from 'lucide-react';
 import { allServices } from '@/lib/services-list';
 import { allLocations } from '@/lib/locations';
@@ -42,22 +43,37 @@ const STRATEGIC_SERVICES = [
 export default function MarketplaceHealthPage() {
   const firestore = useFirestore();
   const { isUserLoading } = useUser();
+  const [professionals, setProfessionals] = useState<DocumentData[]>([]);
+  const [leads, setLeads] = useState<DocumentData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState<string>('');
 
-  const prosQuery = useMemoFirebase(() => {
-    if (!firestore || isUserLoading) return null;
-    return collection(firestore, 'professionalProfiles');
+  useEffect(() => {
+    if (!firestore || isUserLoading) return;
+
+    // Real-time listener for Professionals
+    const unsubscribePros = onSnapshot(collection(firestore, 'professionalProfiles'), (snapshot) => {
+      const proData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setProfessionals(proData);
+      setLastUpdated(new Date().toLocaleTimeString());
+      setLoading(false);
+    });
+
+    // Real-time listener for Leads
+    const leadsQ = query(collection(firestore, 'leads_public'), orderBy('createdAt', 'desc'), limit(500));
+    const unsubscribeLeads = onSnapshot(leadsQ, (snapshot) => {
+      const leadData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setLeads(leadData);
+      setLastUpdated(new Date().toLocaleTimeString());
+    });
+
+    return () => {
+      unsubscribePros();
+      unsubscribeLeads();
+    };
   }, [firestore, isUserLoading]);
-
-  const leadsQuery = useMemoFirebase(() => {
-      if (!firestore || isUserLoading) return null;
-      return query(collection(firestore, 'leads_public'), orderBy('createdAt', 'desc'), limit(500));
-  }, [firestore, isUserLoading]);
-
-  const { data: professionals, loading: loadingPros } = useCollection<DocumentData>(prosQuery);
-  const { data: leads, loading: loadingLeads } = useCollection<DocumentData>(leadsQuery);
 
   const analytics = useMemo(() => {
-    if (!professionals) return { total: 0, gauteng: 0, johannesburg: 0 };
     return {
         total: professionals.length,
         gauteng: professionals.filter(p => p.province === 'Gauteng' || p.location === 'johannesburg').length,
@@ -75,13 +91,13 @@ export default function MarketplaceHealthPage() {
             const suburbLabel = allLocations.find(l => l.value === suburbSlug)?.label || suburbSlug;
             
             // 1. Calculate Live Demand (Active Leads)
-            const localLeads = (leads || []).filter(l => 
+            const localLeads = leads.filter(l => 
                 l.category?.toLowerCase() === serviceLabel.toLowerCase() && 
                 (l.locationSlug === suburbSlug || l.location?.toLowerCase().includes(suburbSlug))
             ).length;
 
             // 2. Calculate Live Supply (Matching Pros)
-            const localPros = (professionals || []).filter(p => {
+            const localPros = professionals.filter(p => {
                 const isCatMatch = (p.serviceCategory === serviceLabel || (p.tags || []).includes(serviceLabel));
                 const proCity = p.location?.toLowerCase();
                 const isLocMatch = p.suburb?.toLowerCase() === suburbSlug || 
@@ -125,7 +141,6 @@ export default function MarketplaceHealthPage() {
         });
     });
 
-    // Sort by Priority: Critical > High > Medium > Low
     return opportunities.sort((a, b) => {
         const score = (p: string) => ({ 'CRITICAL': 3, 'HIGH': 2, 'MEDIUM': 1, 'LOW': 0 }[p] || 0);
         if (score(b.priority) !== score(a.priority)) return score(b.priority) - score(a.priority);
@@ -133,11 +148,11 @@ export default function MarketplaceHealthPage() {
     });
   }, [professionals, leads]);
 
-  if (loadingPros || loadingLeads) {
+  if (loading) {
       return (
           <div className="min-h-screen flex flex-col items-center justify-center bg-secondary/30">
               <Loader2 className="h-10 w-10 animate-spin text-primary mb-4" />
-              <p className="text-muted-foreground font-medium italic">Scanning Marketplace Command Centre...</p>
+              <p className="text-muted-foreground font-medium italic">Synchronizing Recruitment Command Centre...</p>
           </div>
       );
   }
@@ -153,6 +168,10 @@ export default function MarketplaceHealthPage() {
             </div>
             <h1 className="text-3xl font-bold tracking-tight text-foreground">Marketplace Intelligence</h1>
             <p className="text-muted-foreground mt-2 max-w-2xl">Identifying critical demand-supply gaps in Johannesburg and Gauteng based on live data.</p>
+            <div className="flex items-center gap-2 mt-4 text-[10px] font-bold text-muted-foreground uppercase tracking-widest bg-white w-fit px-3 py-1 rounded-full border shadow-sm">
+                <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+                Live Sync Active • Last updated: {lastUpdated}
+            </div>
           </div>
           <div className="flex gap-3">
               <Button variant="outline" className="bg-white font-bold" asChild>
@@ -201,7 +220,7 @@ export default function MarketplaceHealthPage() {
                 <Briefcase className="h-5 w-5 opacity-80" />
                 <Badge variant="outline" className="text-white border-white/30">Total Intake</Badge>
               </div>
-              <p className="text-4xl font-black">{leads?.length || 0}</p>
+              <p className="text-4xl font-black">{leads.length}</p>
               <p className="text-[10px] uppercase font-bold opacity-70 mt-1 tracking-wider">Active JHB Leads</p>
             </CardContent>
           </Card>
