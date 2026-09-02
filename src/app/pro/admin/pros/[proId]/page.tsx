@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { useDoc, useFirestore, useUser } from '@/firebase';
-import { doc, updateDoc, serverTimestamp, collection, addDoc } from 'firebase/firestore';
+import { useDoc, useFirestore, useUser, useCollection, useMemoFirebase } from '@/firebase';
+import { doc, updateDoc, serverTimestamp, collection, addDoc, query, where, getCountFromServer } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -24,11 +24,16 @@ import {
     Clock,
     CheckCircle2,
     XCircle,
-    Loader2
+    Loader2,
+    ExternalLink,
+    MessageSquare,
+    ShoppingBag
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
+import { allLocations } from '@/lib/locations';
 
 export default function AdminProDetailPage() {
   const params = useParams();
@@ -36,7 +41,9 @@ export default function AdminProDetailPage() {
   const firestore = useFirestore();
   const { user: adminUser } = useUser();
   const { toast } = useToast();
+  
   const [isProcessing, setIsProcessing] = useState(false);
+  const [quoteCount, setQuoteCount] = useState<number | '...'>('...');
 
   const proId = typeof params.proId === 'string' ? params.proId : '';
 
@@ -47,8 +54,19 @@ export default function AdminProDetailPage() {
 
   const { data: pro, isLoading } = useDoc<any>(proRef);
 
+  // Fetch real Quote count for this pro
+  useEffect(() => {
+    if (!firestore || !proId) return;
+    const fetchQuoteCount = async () => {
+        const q = query(collection(firestore, 'quotes'), where('proUid', '==', proId));
+        const snapshot = await getCountFromServer(q);
+        setQuoteCount(snapshot.data().count);
+    };
+    fetchQuoteCount();
+  }, [firestore, proId]);
+
   const toggleVerification = async () => {
-    if (!pro || !proRef || !adminUser) return;
+    if (!pro || !proRef || !adminUser || !firestore) return;
     setIsProcessing(true);
     const newStatus = !pro.isProVerified;
     
@@ -58,7 +76,7 @@ export default function AdminProDetailPage() {
             updatedAt: serverTimestamp()
         });
 
-        await addDoc(collection(firestore!, 'marketplace_audit_logs'), {
+        await addDoc(collection(firestore, 'marketplace_audit_logs'), {
             adminUid: adminUser.uid,
             action: newStatus ? 'VERIFY_PRO' : 'UNVERIFY_PRO',
             targetId: pro.id,
@@ -85,6 +103,8 @@ export default function AdminProDetailPage() {
 
   if (!pro) return <div className="text-center py-20">Pro not found.</div>;
 
+  const getLocationLabel = (val: string) => allLocations.find(l => l.value === val)?.label || val;
+
   return (
     <div className="py-12 md:py-16 bg-secondary/30 min-h-screen">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -103,7 +123,7 @@ export default function AdminProDetailPage() {
                                     <Building2 className="h-6 w-6 text-primary" />
                                     {pro.name || 'Business Name Missing'}
                                 </CardTitle>
-                                <CardDescription className="mt-1">ID: {pro.id}</CardDescription>
+                                <CardDescription className="mt-1">UID: {pro.id}</CardDescription>
                             </div>
                             <Badge variant={pro.isProVerified ? 'default' : 'outline'} className={pro.isProVerified ? 'bg-green-100 text-green-800' : ''}>
                                 {pro.isProVerified ? 'Verified Pro' : 'Verification Pending'}
@@ -137,12 +157,10 @@ export default function AdminProDetailPage() {
                                 </a>
                                 
                                 <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
-                                    <MapPin className="h-3 w-3" /> Address
+                                    <MapPin className="h-3 w-3" /> Business Address
                                 </h3>
                                 <p className="text-sm leading-relaxed">
-                                    {pro.building ? `${pro.building}, ` : ''}
-                                    {pro.address || 'No address provided'}<br />
-                                    {pro.postalCode}
+                                    {pro.address || 'No address provided'}
                                 </p>
                             </div>
                         </div>
@@ -154,58 +172,48 @@ export default function AdminProDetailPage() {
                     </CardContent>
                 </Card>
 
-                {/* 2. Services & Location */}
-                <div className="grid md:grid-cols-2 gap-8">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle className="text-lg flex items-center gap-2">
-                                <Briefcase className="h-5 w-5 text-primary" />
-                                Services
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
+                {/* 2. Location Details */}
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="text-lg flex items-center gap-2">
+                            <MapPin className="h-5 w-5 text-primary" />
+                            Service Coverage
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div>
-                                <p className="text-xs font-bold text-muted-foreground uppercase mb-2">Main Category</p>
-                                <Badge className="bg-primary/10 text-primary border-primary/20">{pro.serviceCategory || 'General'}</Badge>
+                                <p className="text-xs font-bold text-muted-foreground uppercase mb-1">Province</p>
+                                <p className="font-medium">{pro.province || 'Not yet available'}</p>
                             </div>
                             <div>
-                                <p className="text-xs font-bold text-muted-foreground uppercase mb-2">Keywords/Tags</p>
-                                <div className="flex flex-wrap gap-1.5">
-                                    {pro.tags?.map((tag: string) => (
-                                        <Badge key={tag} variant="secondary" className="text-[10px] font-normal">{tag}</Badge>
-                                    ))}
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    <Card>
-                        <CardHeader>
-                            <CardTitle className="text-lg flex items-center gap-2">
-                                <MapPin className="h-5 w-5 text-primary" />
-                                Coverage
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <div>
-                                <p className="text-xs font-bold text-muted-foreground uppercase mb-2">Primary City</p>
-                                <span className="font-medium capitalize">{pro.location || 'Unknown'}</span>
+                                <p className="text-xs font-bold text-muted-foreground uppercase mb-1">Primary City</p>
+                                <p className="font-medium capitalize">{getLocationLabel(pro.location)}</p>
                             </div>
                             <div>
-                                <p className="text-xs font-bold text-muted-foreground uppercase mb-2">Service Radius</p>
-                                <Badge variant="outline">{pro.radius || '50'} KM</Badge>
+                                <p className="text-xs font-bold text-muted-foreground uppercase mb-1">Primary Suburb</p>
+                                <p className="font-medium">{pro.suburb || 'Not yet available'}</p>
                             </div>
-                            <div>
-                                <p className="text-xs font-bold text-muted-foreground uppercase mb-2">Areas Served</p>
-                                <div className="flex flex-wrap gap-1.5">
-                                    {pro.serviceAreas?.map((area: string) => (
-                                        <Badge key={area} variant="secondary" className="text-[10px] font-normal capitalize">{area}</Badge>
-                                    ))}
-                                </div>
+                        </div>
+                        <Separator />
+                        <div>
+                            <p className="text-xs font-bold text-muted-foreground uppercase mb-3">Service Areas (Suburbs Covered)</p>
+                            <div className="flex flex-wrap gap-2">
+                                {pro.serviceAreas && pro.serviceAreas.length > 0 ? pro.serviceAreas.map((area: string) => (
+                                    <Badge key={area} variant="secondary" className="text-[10px] font-normal capitalize">
+                                        {getLocationLabel(area)}
+                                    </Badge>
+                                )) : (
+                                    <p className="text-sm text-muted-foreground italic">No specific service areas selected.</p>
+                                )}
                             </div>
-                        </CardContent>
-                    </Card>
-                </div>
+                        </div>
+                        <div>
+                            <p className="text-xs font-bold text-muted-foreground uppercase mb-1">Operating Radius</p>
+                            <Badge variant="outline">{pro.radius || '50'} KM from primary city</Badge>
+                        </div>
+                    </CardContent>
+                </Card>
             </div>
 
             <aside className="space-y-8">
@@ -251,16 +259,6 @@ export default function AdminProDetailPage() {
                             </div>
                             <Badge variant="outline" className="mb-1">Credits</Badge>
                         </div>
-                        <div className="space-y-3">
-                             <div className="flex justify-between text-xs">
-                                <span className="text-muted-foreground">Lead Intake Price:</span>
-                                <span className="font-bold">R{pro.creditsPerLead || 3} / CR</span>
-                             </div>
-                             <div className="flex justify-between text-xs">
-                                <span className="text-muted-foreground">Total Leads Unlocked:</span>
-                                <span className="font-bold">{pro.leadCount || 0}</span>
-                             </div>
-                        </div>
                     </CardContent>
                 </Card>
 
@@ -275,15 +273,29 @@ export default function AdminProDetailPage() {
                     <CardContent className="space-y-4">
                          <div className="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
                             <div className="flex items-center gap-2">
+                                <ShoppingBag className="h-4 w-4 text-primary" />
+                                <span className="text-sm font-bold">Leads Purchased</span>
+                            </div>
+                            <span className="text-lg font-black">{pro.leadCount || 0}</span>
+                         </div>
+                         <div className="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+                            <div className="flex items-center gap-2">
+                                <MessageSquare className="h-4 w-4 text-primary" />
+                                <span className="text-sm font-bold">Quotes Sent</span>
+                            </div>
+                            <span className="text-lg font-black">{quoteCount}</span>
+                         </div>
+                         <div className="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+                            <div className="flex items-center gap-2">
                                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                                <span className="text-sm font-bold">Rating</span>
+                                <span className="text-sm font-bold">Avg Rating</span>
                             </div>
                             <span className="text-lg font-black">{pro.rating?.toFixed(1) || '0.0'}</span>
                          </div>
                          <div className="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
                             <div className="flex items-center gap-2">
                                 <Clock className="h-4 w-4 text-blue-500" />
-                                <span className="text-sm font-bold">Member Since</span>
+                                <span className="text-sm font-bold">Joined</span>
                             </div>
                             <span className="text-xs font-bold">{pro.createdAt?.seconds ? new Date(pro.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}</span>
                          </div>
