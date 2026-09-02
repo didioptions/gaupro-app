@@ -19,7 +19,9 @@ import {
     Filter,
     CheckCircle2,
     XCircle,
-    Loader2
+    Loader2,
+    Calendar,
+    Contact2
 } from 'lucide-react';
 import Link from 'next/link';
 import { allServices } from '@/lib/services-list';
@@ -45,7 +47,8 @@ export default function AdminProsManagementPage() {
       const matchesSearch = 
         (pro.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
         (pro.email || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (pro.location || '').toLowerCase().includes(searchQuery.toLowerCase());
+        (pro.location || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (pro.suburb || '').toLowerCase().includes(searchQuery.toLowerCase());
       
       const matchesCategory = categoryFilter === 'all' || pro.serviceCategory === categoryFilter;
       
@@ -62,7 +65,7 @@ export default function AdminProsManagementPage() {
     return {
         total: professionals.length,
         verified: professionals.filter(p => p.isProVerified).length,
-        active: professionals.filter(p => p.creditBalance > 0 || p.leadCount > 0).length
+        active: professionals.filter(p => (p.creditBalance || 0) > 0 || (p.leadCount || 0) > 0).length
     };
   }, [professionals]);
 
@@ -72,11 +75,11 @@ export default function AdminProsManagementPage() {
         <header className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Professional Directory</h1>
-            <p className="text-muted-foreground mt-2">Monitor and manage all service providers on the GauPro network.</p>
+            <p className="text-muted-foreground mt-2">Recruit and manage service providers across the GauPro network.</p>
           </div>
           <div className="flex items-center gap-2">
-             <Badge variant="outline" className="bg-white px-4 py-2 text-sm">Total: {stats.total}</Badge>
-             <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200 px-4 py-2 text-sm">Verified: {stats.verified}</Badge>
+             <Badge variant="outline" className="bg-white px-4 py-2 text-sm font-bold">Total: {stats.total}</Badge>
+             <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200 px-4 py-2 text-sm font-bold">Verified: {stats.verified}</Badge>
           </div>
         </header>
 
@@ -85,7 +88,7 @@ export default function AdminProsManagementPage() {
                 <div className="relative flex-grow">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input 
-                        placeholder="Search by business name, email, or city..." 
+                        placeholder="Search by business, email, city or suburb..." 
                         className="pl-9 h-11"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
@@ -123,24 +126,22 @@ export default function AdminProsManagementPage() {
               <Table>
                 <TableHeader className="bg-secondary/20">
                   <TableRow>
-                    <TableHead className="w-[250px]">Business / Name</TableHead>
-                    <TableHead>Main Service</TableHead>
-                    <TableHead>Location</TableHead>
+                    <TableHead className="w-[250px]">Business / Contact</TableHead>
+                    <TableHead>Category</TableHead>
+                    <TableHead>Location (City/Sub)</TableHead>
+                    <TableHead>Coverage</TableHead>
                     <TableHead>Activity</TableHead>
+                    <TableHead>Joined</TableHead>
                     <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Manage</TableHead>
+                    <TableHead className="text-right">Action</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {loading ? (
                     Array.from({ length: 5 }).map((_, i) => (
                       <TableRow key={i}>
-                        <TableCell><Skeleton className="h-4 w-32" /></TableCell>
-                        <TableCell><Skeleton className="h-4 w-24" /></TableCell>
-                        <TableCell><Skeleton className="h-4 w-20" /></TableCell>
-                        <TableCell><Skeleton className="h-4 w-16" /></TableCell>
-                        <TableCell><Skeleton className="h-4 w-12" /></TableCell>
-                        <TableCell className="text-right"><Skeleton className="h-8 w-20 ml-auto" /></TableCell>
+                        <TableCell><Skeleton className="h-10 w-full" /></TableCell>
+                        <TableCell colSpan={7}><Skeleton className="h-10 w-full" /></TableCell>
                       </TableRow>
                     ))
                   ) : filteredPros.length > 0 ? (
@@ -148,22 +149,36 @@ export default function AdminProsManagementPage() {
                       <TableRow key={pro.id} className="hover:bg-secondary/10 transition-colors">
                         <TableCell>
                           <p className="font-bold text-sm text-foreground">{pro.name || 'No Name'}</p>
-                          <p className="text-xs text-muted-foreground truncate">{pro.email}</p>
+                          <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">{pro.firstName} {pro.lastName}</p>
+                          <p className="text-[10px] text-muted-foreground truncate mt-1">{pro.email}</p>
                         </TableCell>
                         <TableCell>
                           <Badge variant="secondary" className="font-normal">{pro.serviceCategory || 'Not Set'}</Badge>
                         </TableCell>
                         <TableCell>
-                          <div className="flex items-center gap-1 text-xs">
-                            <MapPin className="h-3 w-3 text-muted-foreground" />
-                            <span className="capitalize">{pro.location || 'Unknown'}</span>
+                          <div className="flex flex-col gap-1">
+                             <div className="flex items-center gap-1 text-xs font-bold capitalize">
+                                <MapPin className="h-3 w-3 text-primary" />
+                                {pro.location || 'Unknown'}
+                             </div>
+                             <p className="text-[10px] text-muted-foreground capitalize pl-4">{pro.suburb || 'No Suburb'}</p>
                           </div>
+                        </TableCell>
+                        <TableCell>
+                           <p className="text-[10px] font-bold text-muted-foreground">{pro.serviceAreas?.length || 0} Areas</p>
+                           <p className="text-[10px] text-muted-foreground">{pro.radius || 50}km Radius</p>
                         </TableCell>
                         <TableCell>
                           <div className="flex flex-col gap-1">
                              <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Leads: {pro.leadCount || 0}</span>
                              <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Balance: {pro.creditBalance || 0}</span>
                           </div>
+                        </TableCell>
+                        <TableCell>
+                            <div className="flex items-center gap-1 text-[10px] text-muted-foreground whitespace-nowrap">
+                                <Calendar className="h-3 w-3" />
+                                {pro.createdAt?.seconds ? new Date(pro.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}
+                            </div>
                         </TableCell>
                         <TableCell>
                           {pro.isProVerified ? (
@@ -175,7 +190,7 @@ export default function AdminProsManagementPage() {
                         <TableCell className="text-right">
                           <Button asChild size="sm" variant="outline" className="gap-2">
                              <Link href={`/pro/admin/pros/${pro.id}`}>
-                                View Details <ExternalLink className="h-3 w-3" />
+                                Details <ExternalLink className="h-3 w-3" />
                              </Link>
                           </Button>
                         </TableCell>
@@ -183,7 +198,7 @@ export default function AdminProsManagementPage() {
                     ))
                   ) : (
                     <TableRow>
-                      <TableCell colSpan={6} className="h-32 text-center text-muted-foreground italic">
+                      <TableCell colSpan={8} className="h-32 text-center text-muted-foreground italic">
                         No service providers found matching your filters.
                       </TableCell>
                     </TableRow>

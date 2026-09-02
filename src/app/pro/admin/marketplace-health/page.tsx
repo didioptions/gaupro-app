@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collection, DocumentData } from 'firebase/firestore';
+import { collection, query, orderBy, limit, DocumentData } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -17,21 +17,31 @@ import {
   CheckCircle2, 
   Activity,
   ArrowUpRight,
-  Copy,
-  Mail,
-  Check,
-  Loader2
+  Target,
+  Briefcase,
+  Loader2,
+  ChevronRight
 } from 'lucide-react';
-import { allServices } from '@/lib/service-questions';
+import { allServices } from '@/lib/services-list';
 import { allLocations } from '@/lib/locations';
 import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
+
+const PRIORITY_JHB_SUBURBS = [
+    'sandton', 'randburg', 'midrand', 'fourways', 'roodepoort', 'soweto', 
+    'rosebank', 'bedfordview', 'edenvale', 'germiston', 'alberton', 'benoni'
+];
+
+const PRIORITY_SERVICES = [
+    'plumber', 'electrician', 'solar-systems', 'cleaning-service', 
+    'rubble-removal', 'demolition', 'tlb-hire', 'handyman'
+];
 
 export default function MarketplaceHealthPage() {
   const { toast } = useToast();
   const firestore = useFirestore();
   const { isUserLoading } = useUser();
-  const [copied, setCopied] = useState(false);
 
   // 1. Fetch Real Live Professionals
   const prosQuery = useMemoFirebase(() => {
@@ -39,302 +49,260 @@ export default function MarketplaceHealthPage() {
     return collection(firestore, 'professionalProfiles');
   }, [firestore, isUserLoading]);
 
-  const { data: professionals, loading } = useCollection<DocumentData>(prosQuery);
+  // 2. Fetch Real Leads for Demand Analysis
+  const leadsQuery = useMemoFirebase(() => {
+      if (!firestore || isUserLoading) return null;
+      return query(collection(firestore, 'leads_public'), orderBy('createdAt', 'desc'), limit(200));
+  }, [firestore, isUserLoading]);
+
+  const { data: professionals, loading: loadingPros } = useCollection<DocumentData>(prosQuery);
+  const { data: leads, loading: loadingLeads } = useCollection<DocumentData>(leadsQuery);
 
   const analytics = useMemo(() => {
     if (!professionals) return { 
         total: 0, 
-        categories: 0, 
-        cities: 0,
-        categoryMap: {} as Record<string, number>,
-        locationMap: {} as Record<string, number>
+        gauteng: 0,
+        johannesburg: 0,
+        suburbCoverage: {} as Record<string, number>,
+        categoryStats: {} as Record<string, { pros: number, leads: number }>,
+        gaps: [] as any[]
     };
     
-    const categoryMap: Record<string, number> = {};
-    const locationMap: Record<string, number> = {};
-    const categories = new Set();
-    const cities = new Set();
-    
-    professionals.forEach(pro => {
-      const cat = pro.serviceCategory || 'Other';
-      categoryMap[cat] = (categoryMap[cat] || 0) + 1;
-      categories.add(cat);
-
-      const loc = pro.location || 'Unknown';
-      locationMap[loc] = (locationMap[loc] || 0) + 1;
-      cities.add(loc);
-
-      if (pro.serviceAreas) {
-          pro.serviceAreas.forEach((area: string) => {
-              locationMap[area] = (locationMap[area] || 0) + 0.5; // Weight coverage areas differently
-              cities.add(area);
-          });
-      }
-    });
-
-    return {
-      total: professionals.length,
-      categories: categories.size,
-      cities: cities.size,
-      categoryMap,
-      locationMap
+    const stats = {
+        total: professionals.length,
+        gauteng: professionals.filter(p => p.province === 'Gauteng' || p.location === 'johannesburg').length,
+        johannesburg: professionals.filter(p => p.location === 'johannesburg').length,
+        suburbCoverage: {} as Record<string, number>,
+        categoryStats: {} as Record<string, { pros: number, leads: number }>,
     };
-  }, [professionals]);
 
-  const topCategories = useMemo(() => {
-      return Object.entries(analytics.categoryMap)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 8);
-  }, [analytics]);
-
-  const topLocations = useMemo(() => {
-      return Object.entries(analytics.locationMap)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 8);
-  }, [analytics]);
-
-  const recruitmentRankings = [
-    { category: 'Plumbers', impact: 'Very High', reason: 'Highest emergency volume' },
-    { category: 'Electricians', impact: 'Very High', reason: 'Mandatory CoC compliance' },
-    { category: 'Solar Systems', impact: 'High', reason: 'Energy crisis trend' },
-    { category: 'Builders', impact: 'High', reason: 'Highest average job value' },
-    { category: 'Rubble Removal', impact: 'Medium', reason: 'High repeat business' },
-    { category: 'Movers', impact: 'Medium', reason: 'High intent search' },
-  ];
-
-  const emailTemplate = `Hi,
-
-We're expanding GauPro, a South African platform that connects customers with trusted service professionals.
-
-We're currently inviting top-rated businesses in your area to join as Verified Pros.
-
-Benefits include:
-• Free professional profile
-• New customer leads
-• Customer reviews
-• Increased online visibility
-• No monthly subscription fees
-
-We're offering complimentary Verified Pro status for early members.
-
-Accept your invitation here: https://gaupro.co.za/pro/partnership
-
-Regards,
-The GauPro Team`;
-
-  const copyTemplate = () => {
-    navigator.clipboard.writeText(emailTemplate);
-    setCopied(true);
-    toast({
-      title: "Template Copied",
-      description: "Recruitment email copied to clipboard.",
+    // Calculate Suburb Coverage
+    PRIORITY_JHB_SUBURBS.forEach(sub => {
+        stats.suburbCoverage[sub] = professionals.filter(p => 
+            p.suburb?.toLowerCase() === sub || 
+            (p.serviceAreas || []).includes(sub)
+        ).length;
     });
-    setTimeout(() => setCopied(false), 2000);
-  };
+
+    // Calculate Category Coverage vs Demand
+    PRIORITY_SERVICES.forEach(serviceSlug => {
+        const serviceLabel = allServices.find(s => s.value === serviceSlug)?.label || serviceSlug;
+        const proCount = professionals.filter(p => p.serviceCategory === serviceLabel || (p.tags || []).includes(serviceLabel)).length;
+        const leadCount = (leads || []).filter(l => l.category?.toLowerCase() === serviceLabel.toLowerCase()).length;
+        
+        stats.categoryStats[serviceSlug] = { pros: proCount, leads: leadCount };
+    });
+
+    return stats;
+  }, [professionals, leads]);
+
+  const recruitmentOpportunities = useMemo(() => {
+    const opps: any[] = [];
+    
+    PRIORITY_SERVICES.forEach(serviceSlug => {
+        const serviceLabel = allServices.find(s => s.value === serviceSlug)?.label || serviceSlug;
+        
+        PRIORITY_JHB_SUBURBS.forEach(suburbSlug => {
+            const suburbLabel = allLocations.find(l => l.value === suburbSlug)?.label || suburbSlug;
+            
+            // Demand in this specific suburb/category
+            const localLeads = (leads || []).filter(l => 
+                l.category?.toLowerCase() === serviceLabel.toLowerCase() && 
+                (l.locationSlug === suburbSlug || l.location?.toLowerCase().includes(suburbSlug))
+            ).length;
+
+            // Supply in this specific suburb/category
+            const localPros = (professionals || []).filter(p => 
+                (p.serviceCategory === serviceLabel || (p.tags || []).includes(serviceLabel)) &&
+                (p.suburb?.toLowerCase() === suburbSlug || (p.serviceAreas || []).includes(suburbSlug))
+            ).length;
+
+            if (localPros === 0) {
+                opps.push({
+                    service: serviceLabel,
+                    suburb: suburbLabel,
+                    leads: localLeads,
+                    pros: localPros,
+                    priority: localLeads > 0 ? 'CRITICAL' : 'OPPORTUNITY'
+                });
+            }
+        });
+    });
+
+    return opps.sort((a, b) => b.leads - a.leads).slice(0, 10);
+  }, [professionals, leads]);
+
+  if (loadingPros || loadingLeads) {
+      return (
+          <div className="min-h-screen flex flex-col items-center justify-center bg-secondary/30">
+              <Loader2 className="h-10 w-10 animate-spin text-primary mb-4" />
+              <p className="text-muted-foreground font-medium">Analyzing Marketplace Data...</p>
+          </div>
+      );
+  }
 
   return (
     <div className="py-12 md:py-16 bg-secondary/30 min-h-screen">
       <div className="container mx-auto px-4 max-w-6xl">
         <header className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Marketplace Health</h1>
-            <p className="text-muted-foreground mt-2">Live provider supply vs. platform search demand.</p>
+            <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs mb-1">
+                <Target className="h-4 w-4" />
+                Launch Strategy: Johannesburg
+            </div>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground">Marketplace Health</h1>
+            <p className="text-muted-foreground mt-2">Live provider supply vs. customer demand in your primary markets.</p>
           </div>
-          <div className="flex items-center gap-3">
-             {loading && <Loader2 className="h-4 w-4 animate-spin text-primary" />}
-             <Badge variant="outline" className="bg-white px-4 py-2 text-sm font-bold">LIVE DATABASE FEED</Badge>
-          </div>
+          <Button variant="outline" className="bg-white" asChild>
+              <Link href="/pro/admin/pros">Manage All Pros</Link>
+          </Button>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <Card>
+        {/* 1. Global Gauteng/JHB Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <Card className="border-l-4 border-l-primary">
             <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-4">
                 <Users className="h-5 w-5 text-primary" />
-                <Badge variant="secondary">Supply</Badge>
+                <Badge variant="secondary">Total Pros</Badge>
               </div>
-              <div className="mt-4">
-                <p className="text-2xl font-bold">{analytics.total}</p>
-                <p className="text-xs text-muted-foreground uppercase font-bold">Active Professionals</p>
-              </div>
+              <p className="text-4xl font-black">{analytics.total}</p>
+              <p className="text-xs text-muted-foreground uppercase font-bold mt-1">National Network</p>
             </CardContent>
           </Card>
-
-          <Card>
+          <Card className="bg-primary text-primary-foreground border-0">
             <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <Activity className="h-5 w-5 text-green-600" />
-                <Badge variant="outline" className="text-green-600 border-green-200">System</Badge>
+              <div className="flex items-center justify-between mb-4">
+                <MapPin className="h-5 w-5 opacity-80" />
+                <Badge variant="outline" className="text-white border-white/30">Gauteng</Badge>
               </div>
-              <div className="mt-4">
-                <p className="text-2xl font-bold">88/100</p>
-                <p className="text-xs text-muted-foreground uppercase font-bold">SEO Health Score</p>
-              </div>
+              <p className="text-4xl font-black">{analytics.gauteng}</p>
+              <p className="text-xs uppercase font-bold opacity-70 mt-1">Province Supply</p>
             </CardContent>
           </Card>
-
-          <Card>
+          <Card className="border-l-4 border-l-teal-500">
             <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <LayoutGrid className="h-5 w-5 text-orange-500" />
-                <p className="text-xs font-bold text-orange-600">Void: {allServices.length - analytics.categories}</p>
+              <div className="flex items-center justify-between mb-4">
+                <Target className="h-5 w-5 text-teal-600" />
+                <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200">Priority City</Badge>
               </div>
-              <div className="mt-4">
-                <p className="text-2xl font-bold">{analytics.categories}</p>
-                <p className="text-xs text-muted-foreground uppercase font-bold">Service Niches</p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <MapPin className="h-5 w-5 text-blue-500" />
-                <p className="text-xs font-bold text-blue-600">Void: {allLocations.length - analytics.cities}</p>
-              </div>
-              <div className="mt-4">
-                <p className="text-2xl font-bold">{analytics.cities}</p>
-                <p className="text-xs text-muted-foreground uppercase font-bold">Areas & Suburbs</p>
-              </div>
+              <p className="text-4xl font-black">{analytics.johannesburg}</p>
+              <p className="text-xs text-muted-foreground uppercase font-bold mt-1">Johannesburg Active</p>
             </CardContent>
           </Card>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* 2. Suburb Supply Grid */}
             <Card>
                 <CardHeader>
-                    <CardTitle className="text-lg">Service Category Coverage</CardTitle>
-                    <CardDescription>Top niches by number of active providers.</CardDescription>
+                    <CardTitle className="text-lg">Johannesburg Suburb Density</CardTitle>
+                    <CardDescription>Number of Pros covering major target areas.</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                    {topCategories.map(([cat, count]) => (
-                        <div key={cat} className="space-y-1.5">
-                            <div className="flex justify-between text-xs font-medium">
-                                <span className="truncate pr-4">{cat}</span>
-                                <span>{count} Pros</span>
-                            </div>
-                            <Progress value={(count / (analytics.total || 1)) * 100} className="h-1.5" />
+                <CardContent className="grid grid-cols-2 gap-4">
+                    {Object.entries(analytics.suburbCoverage).map(([slug, count]) => (
+                        <div key={slug} className="flex justify-between items-center p-2 rounded-lg bg-secondary/40 border">
+                            <span className="text-xs font-bold capitalize">{slug.replace('-', ' ')}</span>
+                            <Badge variant={count > 0 ? "default" : "outline"} className={cn(count === 0 && "text-muted-foreground opacity-50")}>
+                                {count} {count === 1 ? 'Pro' : 'Pros'}
+                            </Badge>
                         </div>
                     ))}
                 </CardContent>
             </Card>
+
+            {/* 3. Category Supply vs Demand */}
             <Card>
                 <CardHeader>
-                    <CardTitle className="text-lg">Geographic Density</CardTitle>
-                    <CardDescription>Top cities and suburbs by provider presence.</CardDescription>
+                    <CardTitle className="text-lg">Priority Service Coverage</CardTitle>
+                    <CardDescription>Supply (Pros) vs Demand (Live Leads)</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                    {topLocations.map(([loc, count]) => (
-                        <div key={loc} className="space-y-1.5">
-                            <div className="flex justify-between text-xs font-medium">
-                                <span className="truncate pr-4 capitalize">{loc}</span>
-                                <span>{Math.round(count)} Index</span>
+                <CardContent className="space-y-6">
+                    {Object.entries(analytics.categoryStats).map(([slug, data]) => (
+                        <div key={slug} className="space-y-2">
+                            <div className="flex justify-between items-center">
+                                <span className="text-xs font-bold uppercase tracking-wider">{slug.replace('-', ' ')}</span>
+                                <div className="flex gap-4 text-[10px] font-bold uppercase">
+                                    <span className="text-primary">Supply: {data.pros}</span>
+                                    <span className="text-blue-600">Demand: {data.leads}</span>
+                                </div>
                             </div>
-                            <Progress value={(count / (analytics.total || 1)) * 100} className="h-1.5 bg-blue-100" />
+                            <div className="relative h-2 w-full bg-secondary rounded-full overflow-hidden">
+                                <div 
+                                    className="absolute left-0 top-0 h-full bg-primary transition-all" 
+                                    style={{ width: `${Math.min(100, (data.pros / (data.leads || 1)) * 100)}%` }}
+                                />
+                            </div>
                         </div>
                     ))}
                 </CardContent>
             </Card>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">Provider Recruitment Toolbox</CardTitle>
-                <CardDescription>Use this template for direct outreach to high-rated businesses on Google Maps.</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="p-4 bg-slate-900 text-slate-100 rounded-lg relative group font-mono text-sm leading-relaxed">
-                   <pre className="whitespace-pre-wrap">{emailTemplate}</pre>
-                   <Button 
-                    size="sm" 
-                    variant="secondary" 
-                    className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity font-bold"
-                    onClick={copyTemplate}
-                   >
-                     {copied ? <Check className="h-4 w-4 mr-2" /> : <Copy className="h-4 w-4 mr-2" />}
-                     {copied ? "Copied!" : "Copy Template"}
-                   </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">Recruitment Impact Ranking</CardTitle>
-                <CardDescription>Top voids where adding 1 pro creates the most immediate marketplace value.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Category</TableHead>
-                      <TableHead>Priority</TableHead>
-                      <TableHead>Revenue Potential</TableHead>
+        {/* 4. Top Recruitment Opportunities */}
+        <Card className="border-t-4 border-t-orange-500 shadow-xl">
+          <CardHeader className="border-b">
+            <CardTitle className="flex items-center gap-2">
+                <TrendingUp className="h-5 w-5 text-orange-600" />
+                Marketplace Gap Analysis & Recruitment Voids
+            </CardTitle>
+            <CardDescription>Combinations of services and areas where we have leads but 0 providers.</CardDescription>
+          </CardHeader>
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader className="bg-secondary/20">
+                <TableRow>
+                  <TableHead>Category / Suburb</TableHead>
+                  <TableHead>Live Demand</TableHead>
+                  <TableHead>Current Pros</TableHead>
+                  <TableHead>Priority</TableHead>
+                  <TableHead className="text-right">Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {recruitmentOpportunities.length > 0 ? (
+                  recruitmentOpportunities.map((opp, i) => (
+                    <TableRow key={i}>
+                      <TableCell>
+                        <p className="font-bold text-sm">{opp.service}</p>
+                        <p className="text-xs text-muted-foreground">{opp.suburb}</p>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-1.5 text-blue-600 font-bold">
+                            <Briefcase className="h-3 w-3" />
+                            {opp.leads} Leads
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                         <Badge variant="outline" className="opacity-50">0 Pros</Badge>
+                      </TableCell>
+                      <TableCell>
+                        <Badge className={cn(
+                            opp.priority === 'CRITICAL' ? 'bg-red-100 text-red-700 border-red-200' : 'bg-orange-100 text-orange-700 border-orange-200'
+                        )}>
+                            {opp.priority}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Button size="sm" className="gap-2" asChild>
+                            <Link href="/pro/partnership">
+                                Recruit Pro <ChevronRight className="h-3 w-3" />
+                            </Link>
+                        </Button>
+                      </TableCell>
                     </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {recruitmentRankings.map((item) => (
-                      <TableRow key={item.category}>
-                        <TableCell className="font-medium">{item.category}</TableCell>
-                        <TableCell>
-                          <Badge className={
-                            item.impact === 'Very High' ? 'bg-red-100 text-red-700 border-red-200' : 'bg-blue-100 text-blue-700 border-blue-200'
-                          }>
-                            {item.impact}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="text-sm text-muted-foreground">{item.reason}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          </div>
-
-          <aside className="space-y-8">
-            <Card className="bg-primary text-primary-foreground border-0">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <TrendingUp className="h-5 w-5" />
-                  Supply Alert
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-sm opacity-90 leading-relaxed">
-                  You are currently capturing high-intent traffic for categories where you have <strong>0 verified providers</strong> in Gauteng.
-                </p>
-                <p className="text-sm opacity-90 font-bold">
-                  Recommended Action: Prioritize Plumbers and Electricians for the next sync.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Critical Coverage Voids</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border border-red-100">
-                  <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-bold text-red-800 uppercase text-[10px]">Supply Mismatch</p>
-                    <p className="text-xs text-red-700 font-medium">Plumbing is the #1 searched category with the lowest provider density.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-bold text-blue-800 uppercase text-[10px]">Healthy Flow</p>
-                    <p className="text-xs text-blue-700 font-medium">Blinds and Window Decor categories have 100% suburb coverage in JHB.</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </aside>
-        </div>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={5} className="h-32 text-center text-muted-foreground italic">
+                      No critical voids identified. Suburb/Category coverage is healthy.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
