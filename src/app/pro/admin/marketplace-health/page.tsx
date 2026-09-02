@@ -41,24 +41,57 @@ export default function MarketplaceHealthPage() {
 
   const { data: professionals, loading } = useCollection<DocumentData>(prosQuery);
 
-  const stats = useMemo(() => {
-    if (!professionals) return { total: 0, categories: 0, cities: 0 };
+  const analytics = useMemo(() => {
+    if (!professionals) return { 
+        total: 0, 
+        categories: 0, 
+        cities: 0,
+        categoryMap: {} as Record<string, number>,
+        locationMap: {} as Record<string, number>
+    };
     
+    const categoryMap: Record<string, number> = {};
+    const locationMap: Record<string, number> = {};
     const categories = new Set();
     const cities = new Set();
     
     professionals.forEach(pro => {
-      if (pro.serviceCategory) categories.add(pro.serviceCategory);
-      if (pro.location) cities.add(pro.location);
-      if (pro.serviceAreas) pro.serviceAreas.forEach((area: string) => cities.add(area));
+      const cat = pro.serviceCategory || 'Other';
+      categoryMap[cat] = (categoryMap[cat] || 0) + 1;
+      categories.add(cat);
+
+      const loc = pro.location || 'Unknown';
+      locationMap[loc] = (locationMap[loc] || 0) + 1;
+      cities.add(loc);
+
+      if (pro.serviceAreas) {
+          pro.serviceAreas.forEach((area: string) => {
+              locationMap[area] = (locationMap[area] || 0) + 0.5; // Weight coverage areas differently
+              cities.add(area);
+          });
+      }
     });
 
     return {
       total: professionals.length,
       categories: categories.size,
-      cities: cities.size
+      cities: cities.size,
+      categoryMap,
+      locationMap
     };
   }, [professionals]);
+
+  const topCategories = useMemo(() => {
+      return Object.entries(analytics.categoryMap)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8);
+  }, [analytics]);
+
+  const topLocations = useMemo(() => {
+      return Object.entries(analytics.locationMap)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8);
+  }, [analytics]);
 
   const recruitmentRankings = [
     { category: 'Plumbers', impact: 'Very High', reason: 'Highest emergency volume' },
@@ -121,7 +154,7 @@ The GauPro Team`;
                 <Badge variant="secondary">Supply</Badge>
               </div>
               <div className="mt-4">
-                <p className="text-2xl font-bold">{stats.total}</p>
+                <p className="text-2xl font-bold">{analytics.total}</p>
                 <p className="text-xs text-muted-foreground uppercase font-bold">Active Professionals</p>
               </div>
             </CardContent>
@@ -144,10 +177,10 @@ The GauPro Team`;
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <LayoutGrid className="h-5 w-5 text-orange-500" />
-                <p className="text-xs font-bold text-orange-600">Void: {allServices.length - stats.categories}</p>
+                <p className="text-xs font-bold text-orange-600">Void: {allServices.length - analytics.categories}</p>
               </div>
               <div className="mt-4">
-                <p className="text-2xl font-bold">{stats.categories}</p>
+                <p className="text-2xl font-bold">{analytics.categories}</p>
                 <p className="text-xs text-muted-foreground uppercase font-bold">Service Niches</p>
               </div>
             </CardContent>
@@ -157,14 +190,51 @@ The GauPro Team`;
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <MapPin className="h-5 w-5 text-blue-500" />
-                <p className="text-xs font-bold text-blue-600">Void: {allLocations.length - stats.cities}</p>
+                <p className="text-xs font-bold text-blue-600">Void: {allLocations.length - analytics.cities}</p>
               </div>
               <div className="mt-4">
-                <p className="text-2xl font-bold">{stats.cities}</p>
+                <p className="text-2xl font-bold">{analytics.cities}</p>
                 <p className="text-xs text-muted-foreground uppercase font-bold">Areas & Suburbs</p>
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="text-lg">Service Category Coverage</CardTitle>
+                    <CardDescription>Top niches by number of active providers.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    {topCategories.map(([cat, count]) => (
+                        <div key={cat} className="space-y-1.5">
+                            <div className="flex justify-between text-xs font-medium">
+                                <span className="truncate pr-4">{cat}</span>
+                                <span>{count} Pros</span>
+                            </div>
+                            <Progress value={(count / (analytics.total || 1)) * 100} className="h-1.5" />
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                    <CardTitle className="text-lg">Geographic Density</CardTitle>
+                    <CardDescription>Top cities and suburbs by provider presence.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    {topLocations.map(([loc, count]) => (
+                        <div key={loc} className="space-y-1.5">
+                            <div className="flex justify-between text-xs font-medium">
+                                <span className="truncate pr-4 capitalize">{loc}</span>
+                                <span>{Math.round(count)} Index</span>
+                            </div>
+                            <Progress value={(count / (analytics.total || 1)) * 100} className="h-1.5 bg-blue-100" />
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -186,13 +256,6 @@ The GauPro Team`;
                      {copied ? <Check className="h-4 w-4 mr-2" /> : <Copy className="h-4 w-4 mr-2" />}
                      {copied ? "Copied!" : "Copy Template"}
                    </Button>
-                </div>
-                <div className="flex items-center gap-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <Mail className="h-8 w-8 text-blue-600" />
-                    <div>
-                        <p className="font-bold text-blue-900 text-sm uppercase tracking-wide">Direct Outreach Strategy</p>
-                        <p className="text-blue-800 text-xs">Search for "Plumbers in [City]" on Google, find 4.5+ star businesses, and send this message via their website contact form.</p>
-                    </div>
                 </div>
               </CardContent>
             </Card>
@@ -246,11 +309,6 @@ The GauPro Team`;
                 <p className="text-sm opacity-90 font-bold">
                   Recommended Action: Prioritize Plumbers and Electricians for the next sync.
                 </p>
-                <div className="pt-2">
-                  <Button variant="secondary" className="w-full font-bold h-12" asChild>
-                    <Link href="/pro/partnership">Preview Invitation Page <ArrowUpRight className="ml-2 h-4 w-4" /></Link>
-                  </Button>
-                </div>
               </CardContent>
             </Card>
 

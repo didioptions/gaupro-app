@@ -14,13 +14,21 @@ import {
   LayoutDashboard,
   ShieldCheck,
   Search,
-  Scale
+  Scale,
+  Contact2
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 const adminTools = [
+  {
+    title: 'Professional Management',
+    desc: 'Monitor, manage, and verify service providers on the network.',
+    icon: <Contact2 className="h-6 w-6 text-indigo-600" />,
+    href: '/pro/admin/pros',
+    color: 'bg-indigo-50'
+  },
   {
     title: 'Customer Management',
     desc: 'Manage user accounts, view histories, and handle support.',
