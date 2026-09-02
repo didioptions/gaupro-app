@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
 import { collection, query, orderBy, limit, DocumentData } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -11,15 +11,15 @@ import { Button } from '@/components/ui/button';
 import { 
   Users, 
   MapPin, 
-  TrendingUp, 
-  AlertTriangle, 
   Target,
   Briefcase,
   Loader2,
   ChevronRight,
   CircleAlert,
   HelpCircle,
-  CheckCircle2
+  CheckCircle2,
+  AlertCircle,
+  TrendingDown
 } from 'lucide-react';
 import { allServices } from '@/lib/services-list';
 import { allLocations } from '@/lib/locations';
@@ -27,14 +27,16 @@ import { cityExpansionMap } from '@/lib/location-data';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
-const PRIORITY_JHB_SUBURBS = [
+// Priority suburbs for the Command Centre
+const STRATEGIC_SUBURBS = [
     'sandton', 'randburg', 'midrand', 'fourways', 'roodepoort', 'soweto', 
-    'rosebank', 'bedfordview', 'edenvale', 'germiston', 'alberton', 'benoni'
+    'rosebank', 'bedfordview', 'edenvale', 'germiston', 'alberton', 'benoni', 'johannesburg-south'
 ];
 
-const PRIORITY_SERVICES = [
+// Strategic focus categories
+const STRATEGIC_SERVICES = [
     'plumber', 'electrician', 'solar-systems', 'cleaning-service', 
-    'rubble-removal', 'demolition', 'tlb-hire', 'handyman'
+    'rubble-removal', 'demolition', 'tlb-hire', 'handyman', 'builders', 'painters'
 ];
 
 export default function MarketplaceHealthPage() {
@@ -56,7 +58,6 @@ export default function MarketplaceHealthPage() {
 
   const analytics = useMemo(() => {
     if (!professionals) return { total: 0, gauteng: 0, johannesburg: 0 };
-    
     return {
         total: professionals.length,
         gauteng: professionals.filter(p => p.province === 'Gauteng' || p.location === 'johannesburg').length,
@@ -64,20 +65,22 @@ export default function MarketplaceHealthPage() {
     };
   }, [professionals]);
 
-  const gapAnalysis = useMemo(() => {
+  const recruitmentIntel = useMemo(() => {
     const opportunities: any[] = [];
     
-    PRIORITY_SERVICES.forEach(serviceSlug => {
+    STRATEGIC_SERVICES.forEach(serviceSlug => {
         const serviceLabel = allServices.find(s => s.value === serviceSlug)?.label || serviceSlug;
         
-        PRIORITY_JHB_SUBURBS.forEach(suburbSlug => {
+        STRATEGIC_SUBURBS.forEach(suburbSlug => {
             const suburbLabel = allLocations.find(l => l.value === suburbSlug)?.label || suburbSlug;
             
+            // 1. Calculate Live Demand (Active Leads)
             const localLeads = (leads || []).filter(l => 
                 l.category?.toLowerCase() === serviceLabel.toLowerCase() && 
                 (l.locationSlug === suburbSlug || l.location?.toLowerCase().includes(suburbSlug))
             ).length;
 
+            // 2. Calculate Live Supply (Matching Pros)
             const localPros = (professionals || []).filter(p => {
                 const isCatMatch = (p.serviceCategory === serviceLabel || (p.tags || []).includes(serviceLabel));
                 const proCity = p.location?.toLowerCase();
@@ -87,19 +90,27 @@ export default function MarketplaceHealthPage() {
                 return isCatMatch && isLocMatch;
             }).length;
 
-            let type = 'COVERED';
+            // 3. Determine Priority & Status
+            let status = 'COVERED';
             let priority = 'LOW';
+            let action = 'Monitor coverage.';
 
-            if (localPros === 0) {
-                if (localLeads > 0) {
-                    type = 'DEMAND';
-                    priority = 'CRITICAL';
-                } else {
-                    type = 'SUPPLY';
-                    priority = 'MEDIUM';
-                }
-            } else if (localPros === 1 && localLeads > 5) {
+            if (localLeads > 0 && localPros === 0) {
+                status = 'CRITICAL — DEMAND GAP';
+                priority = 'CRITICAL';
+                action = `Recruit ${serviceLabel.toLowerCase()}s covering ${suburbLabel} immediately.`;
+            } else if (localLeads > 0 && localPros === 1) {
+                status = 'HIGH — LOW SUPPLY';
                 priority = 'HIGH';
+                action = `Add secondary ${serviceLabel.toLowerCase()} supply in ${suburbLabel}.`;
+            } else if (localPros === 0 && localLeads === 0) {
+                status = 'OPPORTUNITY — SUPPLY GAP';
+                priority = 'MEDIUM';
+                action = `Seed ${serviceLabel.toLowerCase()}s in ${suburbLabel} for future demand.`;
+            } else if (localPros >= 2) {
+                status = 'COVERED';
+                priority = 'LOW';
+                action = 'Area healthy.';
             }
 
             opportunities.push({
@@ -107,12 +118,14 @@ export default function MarketplaceHealthPage() {
                 suburb: suburbLabel,
                 leads: localLeads,
                 pros: localPros,
-                type,
-                priority
+                status,
+                priority,
+                action
             });
         });
     });
 
+    // Sort by Priority: Critical > High > Medium > Low
     return opportunities.sort((a, b) => {
         const score = (p: string) => ({ 'CRITICAL': 3, 'HIGH': 2, 'MEDIUM': 1, 'LOW': 0 }[p] || 0);
         if (score(b.priority) !== score(a.priority)) return score(b.priority) - score(a.priority);
@@ -124,133 +137,172 @@ export default function MarketplaceHealthPage() {
       return (
           <div className="min-h-screen flex flex-col items-center justify-center bg-secondary/30">
               <Loader2 className="h-10 w-10 animate-spin text-primary mb-4" />
-              <p className="text-muted-foreground font-medium">Analyzing Marketplace Dynamics...</p>
+              <p className="text-muted-foreground font-medium italic">Scanning Marketplace Command Centre...</p>
           </div>
       );
   }
 
   return (
     <div className="py-12 md:py-16 bg-secondary/30 min-h-screen">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <header className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <header className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
             <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs mb-1">
                 <Target className="h-4 w-4" />
-                Joburg Growth Intelligence
+                Recruitment Command Centre
             </div>
-            <h1 className="text-3xl font-bold tracking-tight text-foreground">Marketplace Health</h1>
-            <p className="text-muted-foreground mt-2">Identifying critical supply-demand gaps across priority suburbs.</p>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground">Marketplace Intelligence</h1>
+            <p className="text-muted-foreground mt-2 max-w-2xl">Identifying critical demand-supply gaps in Johannesburg and Gauteng based on live data.</p>
           </div>
-          <Button variant="outline" className="bg-white" asChild>
-              <Link href="/pro/admin/pros">Manage All Pros</Link>
-          </Button>
+          <div className="flex gap-3">
+              <Button variant="outline" className="bg-white font-bold" asChild>
+                  <Link href="/pro/admin/pros">Pro Directory</Link>
+              </Button>
+              <Button className="bg-primary hover:bg-primary/90 font-bold" asChild>
+                  <Link href="/pro/admin/leads">Approval Queue</Link>
+              </Button>
+          </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <Card className="border-l-4 border-l-primary">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <Card className="border-l-4 border-l-red-500 shadow-sm">
+            <CardContent className="pt-6">
+              <div className="flex items-center justify-between mb-4">
+                <CircleAlert className="h-5 w-5 text-red-600" />
+                <Badge variant="destructive">Demand Gaps</Badge>
+              </div>
+              <p className="text-4xl font-black">{recruitmentIntel.filter(o => o.priority === 'CRITICAL').length}</p>
+              <p className="text-[10px] text-muted-foreground uppercase font-bold mt-1 tracking-wider">Unfulfilled Segments</p>
+            </CardContent>
+          </Card>
+          <Card className="border-l-4 border-l-orange-500 shadow-sm">
+            <CardContent className="pt-6">
+              <div className="flex items-center justify-between mb-4">
+                <AlertCircle className="h-5 w-5 text-orange-600" />
+                <Badge variant="secondary" className="bg-orange-100 text-orange-800 border-orange-200">Bottlenecks</Badge>
+              </div>
+              <p className="text-4xl font-black">{recruitmentIntel.filter(o => o.priority === 'HIGH').length}</p>
+              <p className="text-[10px] text-muted-foreground uppercase font-bold mt-1 tracking-wider">Single Pro Coverage</p>
+            </CardContent>
+          </Card>
+          <Card className="border-l-4 border-l-primary shadow-sm">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
                 <Users className="h-5 w-5 text-primary" />
-                <Badge variant="secondary">Supply</Badge>
+                <Badge variant="outline">Gauteng Pros</Badge>
               </div>
-              <p className="text-4xl font-black">{analytics.total}</p>
-              <p className="text-xs text-muted-foreground uppercase font-bold mt-1">Active Professionals</p>
+              <p className="text-4xl font-black">{analytics.gauteng}</p>
+              <p className="text-[10px] text-muted-foreground uppercase font-bold mt-1 tracking-wider">Registered Supply</p>
             </CardContent>
           </Card>
-          <Card className="bg-primary text-primary-foreground border-0">
+           <Card className="bg-primary text-primary-foreground border-0 shadow-lg">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
-                <MapPin className="h-5 w-5 opacity-80" />
-                <Badge variant="outline" className="text-white border-white/30">Target</Badge>
-              </div>
-              <p className="text-4xl font-black">{analytics.johannesburg}</p>
-              <p className="text-xs uppercase font-bold opacity-70 mt-1">JHB Pros</p>
-            </CardContent>
-          </Card>
-          <Card className="border-l-4 border-l-teal-500">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between mb-4">
-                <Briefcase className="h-5 w-5 text-teal-600" />
-                <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200">Demand</Badge>
+                <Briefcase className="h-5 w-5 opacity-80" />
+                <Badge variant="outline" className="text-white border-white/30">Total Intake</Badge>
               </div>
               <p className="text-4xl font-black">{leads?.length || 0}</p>
-              <p className="text-xs text-muted-foreground uppercase font-bold mt-1">Customer Leads</p>
+              <p className="text-[10px] uppercase font-bold opacity-70 mt-1 tracking-wider">Active JHB Leads</p>
             </CardContent>
           </Card>
         </div>
 
-        <Card className="shadow-xl mb-12 border-0">
-          <CardHeader className="border-b bg-white rounded-t-lg">
-            <CardTitle className="flex items-center gap-2">
-                <CircleAlert className="h-5 w-5 text-red-600" />
-                Recruitment Intelligence: Demand & Supply Gaps
-            </CardTitle>
-            <CardDescription>
-                Prioritizing recruitment based on live customer demand vs current professional coverage.
-            </CardDescription>
+        <Card className="shadow-xl border-0 overflow-hidden">
+          <CardHeader className="border-b bg-white">
+            <div className="flex justify-between items-center">
+                <div>
+                    <CardTitle className="flex items-center gap-2">
+                        <TrendingDown className="h-5 w-5 text-red-600" />
+                        Priority Recruitment Opportunities
+                    </CardTitle>
+                    <CardDescription className="mt-1">Sorted by urgency: Critical Demand Gaps followed by supply bottlenecks.</CardDescription>
+                </div>
+            </div>
           </CardHeader>
           <CardContent className="p-0">
-            <Table>
-              <TableHeader className="bg-secondary/20">
-                <TableRow>
-                  <TableHead>Category / Suburb</TableHead>
-                  <TableHead>Customer Demand</TableHead>
-                  <TableHead>Pro Supply</TableHead>
-                  <TableHead>Health Status</TableHead>
-                  <TableHead className="text-right">Action</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {gapAnalysis.slice(0, 20).map((gap, i) => (
-                    <TableRow key={i} className={gap.type === 'DEMAND' ? "bg-red-50/30" : ""}>
-                      <TableCell>
-                        <p className="font-bold text-sm">{gap.service}</p>
-                        <p className="text-xs text-muted-foreground capitalize">{gap.suburb}</p>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center gap-1.5 font-bold">
-                            <span className={gap.leads > 0 ? "text-blue-600" : "text-muted-foreground opacity-50"}>
-                                {gap.leads} Leads
-                            </span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                         <Badge variant="outline" className={cn(gap.pros > 0 ? "bg-green-50 text-green-700 border-green-200" : "opacity-40")}>
-                            {gap.pros} Pros
-                         </Badge>
-                      </TableCell>
-                      <TableCell>
-                        {gap.type === 'DEMAND' ? (
-                            <Badge className="bg-red-600 text-white border-0 animate-pulse">
-                                <CircleAlert className="h-3 w-3 mr-1" /> DEMAND GAP
-                            </Badge>
-                        ) : gap.type === 'SUPPLY' ? (
-                            <Badge variant="secondary" className="bg-orange-100 text-orange-800 border-orange-200">
-                                <HelpCircle className="h-3 w-3 mr-1" /> SUPPLY GAP
-                            </Badge>
-                        ) : (
-                            <Badge variant="outline" className="bg-green-100 text-green-700 border-green-200">
-                                <CheckCircle2 className="h-3 w-3 mr-1" /> COVERED
-                            </Badge>
-                        )}
-                        <span className={cn(
-                            "ml-2 text-[10px] font-black uppercase tracking-widest",
-                            gap.priority === 'CRITICAL' ? "text-red-600" : gap.priority === 'HIGH' ? "text-orange-600" : "text-muted-foreground"
-                        )}>
-                            {gap.priority}
-                        </span>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button size="sm" variant={gap.type === 'DEMAND' ? "default" : "outline"} className="gap-2 font-bold" asChild>
-                            <Link href="/pro/partnership">
-                                Recruit <ChevronRight className="h-3 w-3" />
-                            </Link>
-                        </Button>
-                      </TableCell>
+            <div className="overflow-x-auto">
+                <Table>
+                <TableHeader className="bg-secondary/20">
+                    <TableRow>
+                    <TableHead className="font-bold">Service Category</TableHead>
+                    <TableHead className="font-bold">City / Suburb</TableHead>
+                    <TableHead className="font-bold text-center">Active Leads</TableHead>
+                    <TableHead className="font-bold text-center">Matching Pros</TableHead>
+                    <TableHead className="font-bold">Marketplace Priority</TableHead>
+                    <TableHead className="font-bold">Recommended Action</TableHead>
+                    <TableHead className="text-right font-bold">Action</TableHead>
                     </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                    {recruitmentIntel.slice(0, 50).map((opp, i) => (
+                        <TableRow key={i} className={cn(
+                            "hover:bg-secondary/10 transition-colors",
+                            opp.priority === 'CRITICAL' && "bg-red-50/40",
+                            opp.priority === 'HIGH' && "bg-orange-50/30"
+                        )}>
+                        <TableCell className="font-bold text-sm">{opp.service}</TableCell>
+                        <TableCell>
+                            <div className="flex items-center gap-1.5 text-xs">
+                                <MapPin className="h-3 w-3 text-muted-foreground" />
+                                <span className="capitalize">{opp.suburb}</span>
+                            </div>
+                        </TableCell>
+                        <TableCell className="text-center">
+                            <span className={cn(
+                                "font-mono font-bold",
+                                opp.leads > 0 ? "text-blue-600" : "text-muted-foreground opacity-30"
+                            )}>
+                                {opp.leads}
+                            </span>
+                        </TableCell>
+                        <TableCell className="text-center">
+                            <Badge variant="outline" className={cn(
+                                "font-mono",
+                                opp.pros === 0 ? "text-red-600 border-red-200 bg-red-50" : "text-green-700 bg-green-50 border-green-200"
+                            )}>
+                                {opp.pros}
+                            </Badge>
+                        </TableCell>
+                        <TableCell>
+                            {opp.priority === 'CRITICAL' ? (
+                                <Badge className="bg-red-600 text-white border-0 shadow-sm animate-pulse whitespace-nowrap">
+                                    🔴 CRITICAL — DEMAND GAP
+                                </Badge>
+                            ) : opp.priority === 'HIGH' ? (
+                                <Badge className="bg-orange-500 text-white border-0 shadow-sm whitespace-nowrap">
+                                    🟠 HIGH — LOW SUPPLY
+                                </Badge>
+                            ) : opp.priority === 'MEDIUM' ? (
+                                <Badge variant="secondary" className="bg-yellow-100 text-yellow-800 border-yellow-200 whitespace-nowrap">
+                                    🟡 OPPORTUNITY — SUPPLY GAP
+                                </Badge>
+                            ) : (
+                                <Badge variant="outline" className="bg-green-100 text-green-700 border-green-200 whitespace-nowrap">
+                                    🟢 COVERED
+                                </Badge>
+                            )}
+                        </TableCell>
+                        <TableCell className="max-w-[200px]">
+                            <p className="text-[10px] leading-relaxed italic text-muted-foreground">
+                                {opp.action}
+                            </p>
+                        </TableCell>
+                        <TableCell className="text-right">
+                            {opp.priority !== 'LOW' ? (
+                                <Button size="sm" variant={opp.priority === 'CRITICAL' ? "default" : "outline"} className="gap-2 font-bold text-[10px] h-8" asChild>
+                                    <Link href="/pro/partnership">
+                                        RECRUIT <ChevronRight className="h-3 w-3" />
+                                    </Link>
+                                </Button>
+                            ) : (
+                                <CheckCircle2 className="h-5 w-5 text-green-500 ml-auto opacity-50" />
+                            )}
+                        </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+                </Table>
+            </div>
           </CardContent>
         </Card>
       </div>
