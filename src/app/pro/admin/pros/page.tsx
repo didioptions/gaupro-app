@@ -11,21 +11,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { 
     Search, 
-    Users, 
-    ShieldCheck, 
     MapPin, 
-    Briefcase,
     ExternalLink,
-    Filter,
-    CheckCircle2,
-    XCircle,
-    Loader2,
     Calendar,
-    Contact2
+    Star,
+    CircleCheck,
+    AlertCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import { allServices } from '@/lib/services-list';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Progress } from '@/components/ui/progress';
 
 export default function AdminProsManagementPage() {
   const firestore = useFirestore();
@@ -41,6 +37,15 @@ export default function AdminProsManagementPage() {
 
   const { data: professionals, loading } = useCollection<DocumentData>(prosQuery);
 
+  const calculateCompleteness = (pro: any) => {
+      let score = 0;
+      const fields = ['name', 'firstName', 'phone', 'email', 'serviceCategory', 'tags', 'province', 'location', 'suburb', 'serviceAreas', 'description'];
+      fields.forEach(f => {
+          if (pro[f] && (Array.isArray(pro[f]) ? pro[f].length > 0 : true)) score++;
+      });
+      return Math.round((score / fields.length) * 100);
+  };
+
   const filteredPros = useMemo(() => {
     if (!professionals) return [];
     return professionals.filter(pro => {
@@ -51,7 +56,6 @@ export default function AdminProsManagementPage() {
         (pro.suburb || '').toLowerCase().includes(searchQuery.toLowerCase());
       
       const matchesCategory = categoryFilter === 'all' || pro.serviceCategory === categoryFilter;
-      
       const matchesStatus = statusFilter === 'all' || 
         (statusFilter === 'verified' && pro.isProVerified) ||
         (statusFilter === 'unverified' && !pro.isProVerified);
@@ -61,11 +65,10 @@ export default function AdminProsManagementPage() {
   }, [professionals, searchQuery, categoryFilter, statusFilter]);
 
   const stats = useMemo(() => {
-    if (!professionals) return { total: 0, verified: 0, active: 0 };
+    if (!professionals) return { total: 0, verified: 0 };
     return {
         total: professionals.length,
         verified: professionals.filter(p => p.isProVerified).length,
-        active: professionals.filter(p => (p.creditBalance || 0) > 0 || (p.leadCount || 0) > 0).length
     };
   }, [professionals]);
 
@@ -75,7 +78,7 @@ export default function AdminProsManagementPage() {
         <header className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Professional Directory</h1>
-            <p className="text-muted-foreground mt-2">Recruit and manage service providers across the GauPro network.</p>
+            <p className="text-muted-foreground mt-2">Manage and audit service providers in the network.</p>
           </div>
           <div className="flex items-center gap-2">
              <Badge variant="outline" className="bg-white px-4 py-2 text-sm font-bold">Total: {stats.total}</Badge>
@@ -127,11 +130,9 @@ export default function AdminProsManagementPage() {
                 <TableHeader className="bg-secondary/20">
                   <TableRow>
                     <TableHead className="w-[250px]">Business / Contact</TableHead>
-                    <TableHead>Category</TableHead>
-                    <TableHead>Location (City/Sub)</TableHead>
-                    <TableHead>Coverage</TableHead>
-                    <TableHead>Activity</TableHead>
-                    <TableHead>Joined</TableHead>
+                    <TableHead>Location</TableHead>
+                    <TableHead>Completeness</TableHead>
+                    <TableHead>Performance</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead className="text-right">Action</TableHead>
                   </TableRow>
@@ -140,20 +141,17 @@ export default function AdminProsManagementPage() {
                   {loading ? (
                     Array.from({ length: 5 }).map((_, i) => (
                       <TableRow key={i}>
-                        <TableCell><Skeleton className="h-10 w-full" /></TableCell>
-                        <TableCell colSpan={7}><Skeleton className="h-10 w-full" /></TableCell>
+                        <TableCell colSpan={6}><Skeleton className="h-10 w-full" /></TableCell>
                       </TableRow>
                     ))
-                  ) : filteredPros.length > 0 ? (
-                    filteredPros.map((pro) => (
+                  ) : filteredPros.map((pro) => {
+                    const completeness = calculateCompleteness(pro);
+                    return (
                       <TableRow key={pro.id} className="hover:bg-secondary/10 transition-colors">
                         <TableCell>
                           <p className="font-bold text-sm text-foreground">{pro.name || 'No Name'}</p>
                           <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">{pro.firstName} {pro.lastName}</p>
                           <p className="text-[10px] text-muted-foreground truncate mt-1">{pro.email}</p>
-                        </TableCell>
-                        <TableCell>
-                          <Badge variant="secondary" className="font-normal">{pro.serviceCategory || 'Not Set'}</Badge>
                         </TableCell>
                         <TableCell>
                           <div className="flex flex-col gap-1">
@@ -165,20 +163,22 @@ export default function AdminProsManagementPage() {
                           </div>
                         </TableCell>
                         <TableCell>
-                           <p className="text-[10px] font-bold text-muted-foreground">{pro.serviceAreas?.length || 0} Areas</p>
-                           <p className="text-[10px] text-muted-foreground">{pro.radius || 50}km Radius</p>
+                            <div className="w-24 space-y-1">
+                                <div className="flex justify-between text-[10px] font-bold">
+                                    <span>{completeness}%</span>
+                                </div>
+                                <Progress value={completeness} className="h-1" />
+                            </div>
                         </TableCell>
                         <TableCell>
                           <div className="flex flex-col gap-1">
-                             <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Leads: {pro.leadCount || 0}</span>
-                             <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Balance: {pro.creditBalance || 0}</span>
+                             <div className="flex items-center gap-1">
+                                <Star className="h-3 w-3 text-yellow-500 fill-yellow-500" />
+                                <span className="text-[10px] font-bold">{pro.rating?.toFixed(1) || '0.0'}</span>
+                                <span className="text-[9px] text-muted-foreground">({pro.reviews || 0} rev)</span>
+                             </div>
+                             <span className="text-[10px] font-bold uppercase text-primary">Leads: {pro.leadCount || 0}</span>
                           </div>
-                        </TableCell>
-                        <TableCell>
-                            <div className="flex items-center gap-1 text-[10px] text-muted-foreground whitespace-nowrap">
-                                <Calendar className="h-3 w-3" />
-                                {pro.createdAt?.seconds ? new Date(pro.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}
-                            </div>
                         </TableCell>
                         <TableCell>
                           {pro.isProVerified ? (
@@ -190,19 +190,13 @@ export default function AdminProsManagementPage() {
                         <TableCell className="text-right">
                           <Button asChild size="sm" variant="outline" className="gap-2">
                              <Link href={`/pro/admin/pros/${pro.id}`}>
-                                Details <ExternalLink className="h-3 w-3" />
+                                Audit <ExternalLink className="h-3 w-3" />
                              </Link>
                           </Button>
                         </TableCell>
                       </TableRow>
-                    ))
-                  ) : (
-                    <TableRow>
-                      <TableCell colSpan={8} className="h-32 text-center text-muted-foreground italic">
-                        No service providers found matching your filters.
-                      </TableCell>
-                    </TableRow>
-                  )}
+                    );
+                  })}
                 </TableBody>
               </Table>
             </div>

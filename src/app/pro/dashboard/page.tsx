@@ -38,6 +38,7 @@ interface ProfessionalProfile {
   id?: string;
   name?: string;
   location?: string;
+  suburb?: string;
   avatarSeed?: string;
   rating?: number;
   reviews?: number;
@@ -47,6 +48,7 @@ interface ProfessionalProfile {
   creditBalance?: number;
   leadCount?: number;
   userId?: string;
+  serviceAreas?: string[];
 }
 
 export default function ProDashboardPage() {
@@ -85,7 +87,7 @@ export default function ProDashboardPage() {
     const unsubscribeNotifications = onSnapshot(nQ, (snapshot) => {
         setNotifications(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
     }, () => {
-        // Silently fail notifications for production
+        // Silently fail
     });
 
     return () => {
@@ -100,7 +102,7 @@ export default function ProDashboardPage() {
           collection(firestore, 'leads_public'),
           where('status', '==', 'approved'),
           orderBy('createdAt', 'desc'),
-          limit(50)
+          limit(100)
       );
   }, [firestore, isUserLoading]);
 
@@ -108,26 +110,41 @@ export default function ProDashboardPage() {
 
   const matchingLeads = useMemo(() => {
     if (!profileData || !allLeads) return [];
-    const categoryLabel = allServices.find(s => s.value === profileData.serviceCategory)?.label || '';
-    const proServices = [...(profileData.tags || []), categoryLabel].filter(Boolean).map(s => s.toLowerCase());
     
+    const proServices = [...(profileData.tags || []), profileData.serviceCategory].filter(Boolean).map(s => s?.toLowerCase());
+    const proLocation = profileData.location?.toLowerCase();
+    const proSuburb = profileData.suburb?.toLowerCase();
+    const proAreas = (profileData.serviceAreas || []).map(a => a.toLowerCase());
+
     if (proServices.length === 0) return [];
 
-    return allLeads.filter(job => 
-      proServices.some((service: string) => job.category.toLowerCase().includes(service))
-    );
+    return allLeads.filter(job => {
+      // 1. Service Matching
+      const isServiceMatch = proServices.some(service => job.category.toLowerCase().includes(service!));
+      
+      // 2. Location Matching (City OR Suburb OR Service Area)
+      const leadLoc = job.location?.toLowerCase();
+      const leadLocSlug = job.locationSlug?.toLowerCase();
+      
+      const isLocationMatch = 
+        !leadLocSlug || 
+        leadLocSlug === proLocation || 
+        leadLocSlug === proSuburb || 
+        proAreas.includes(leadLocSlug) ||
+        (leadLoc && (leadLoc.includes(proLocation!) || leadLoc.includes(proSuburb!)));
+
+      return isServiceMatch && isLocationMatch;
+    });
   }, [profileData, allLeads]);
 
-  const relevantLeads = useMemo(() => matchingLeads.slice(0, 3), [matchingLeads]);
+  const relevantLeads = useMemo(() => matchingLeads.slice(0, 5), [matchingLeads]);
 
   const markAsRead = async (notificationId: string) => {
     if (!user || !firestore) return;
     try {
         const notifRef = doc(firestore, 'users', user.uid, 'notifications', notificationId);
         await updateDoc(notifRef, { status: 'read' });
-    } catch (err) {
-        // Silently fail notification updates
-    }
+    } catch (err) {}
   };
 
   const getPostedTime = (createdAt: any) => {
@@ -239,7 +256,7 @@ export default function ProDashboardPage() {
                         (Active)
                       </span>
                     </h2>
-                    <p className="text-sm text-muted-foreground">{profileData?.location || 'Your Location'}</p>
+                    <p className="text-sm text-muted-foreground capitalize">{profileData?.suburb ? `${profileData.suburb}, ` : ''}{profileData?.location || 'Your Location'}</p>
                     <Link href="/pro/profile/edit" className="text-primary text-sm font-medium hover:underline mt-1 inline-block">
                       Improve your business profile
                     </Link>
@@ -250,7 +267,7 @@ export default function ProDashboardPage() {
                     <div className="bg-green-100 text-green-800 font-bold px-2 py-1 rounded text-sm">
                       {profileData?.rating?.toFixed(1) || '0.0'}
                     </div>
-                    <div className="flex items-center gap-1 text-gray-400">
+                    <div className="flex items-center gap-1 text-yellow-500 fill-yellow-500">
                       <Star className="w-4 h-4 fill-current" />
                       <Star className="w-4 h-4 fill-current" />
                       <Star className="w-4 h-4 fill-current" />
@@ -266,13 +283,13 @@ export default function ProDashboardPage() {
             <div className="space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg font-normal">Quote Status</CardTitle>
+                  <CardTitle className="text-lg font-normal">Matching Requests</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-around text-center">
                     <div>
                       <p className="text-3xl font-bold text-primary">{matchingLeads.length}</p>
-                      <p className="text-sm text-muted-foreground">Received</p>
+                      <p className="text-sm text-muted-foreground">Available</p>
                     </div>
                     <div>
                       <p className="text-3xl font-bold text-primary">{profileData?.leadCount || 0}</p>
@@ -280,7 +297,7 @@ export default function ProDashboardPage() {
                     </div>
                   </div>
                   <Link href="/browse-quotes" className="text-primary text-sm font-medium hover:underline mt-4 block text-center">
-                    View your Latest Requests
+                    Browse Marketplace
                   </Link>
                 </CardContent>
               </Card>
@@ -297,17 +314,6 @@ export default function ProDashboardPage() {
                     <Button variant="link" className="mt-2" asChild>
                       <Link href="/pro/buy-credits">Top up balance →</Link>
                     </Button>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <InviteFriendsDialog user={user}>
-                    <Button variant="outline" className="w-full h-16 text-lg">
-                      <UserPlus className="mr-2 h-6 w-6" />
-                      Invite Friends
-                    </Button>
-                  </InviteFriendsDialog>
                 </CardContent>
               </Card>
             </div>
@@ -342,7 +348,7 @@ export default function ProDashboardPage() {
               <div className="flex justify-between items-center">
                 <CardTitle className="flex items-center gap-2 text-lg font-normal">
                   <Briefcase className="h-6 w-6 text-primary" />
-                  New Leads Matching Your Profile
+                  Top Job Matches in Your Area
                 </CardTitle>
                 <Button variant="secondary" asChild>
                   <Link href="/browse-quotes">View all leads</Link>
@@ -371,8 +377,8 @@ export default function ProDashboardPage() {
                 </div>
               ) : (
                 <div className="text-center py-8">
-                    <p className="text-muted-foreground">No new matching leads found.</p>
-                    <p className="text-xs text-muted-foreground mt-1">Try adding more service keywords to your profile to see more leads.</p>
+                    <p className="text-muted-foreground">No leads found matching your specific category and service areas.</p>
+                    <p className="text-xs text-muted-foreground mt-1">Check your <strong>Service Areas</strong> in profile settings to ensure you cover more suburbs.</p>
                 </div>
               )}
             </CardContent>

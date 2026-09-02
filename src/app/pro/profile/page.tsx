@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { AlertCircle, Users, MapPin, ShieldCheck } from 'lucide-react';
+import { AlertCircle, Users, MapPin, ShieldCheck, CheckCircle2, CircleAlert } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -15,6 +15,7 @@ import { useUser, useFirestore } from '@/firebase';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
 
 interface BusinessProfile {
   id: string;
@@ -61,17 +62,13 @@ export default function ProProfilePage() {
     return () => unsubscribe();
   }, [user, isUserLoading, firestore]);
 
-  const calculateProfileStrength = (profile: BusinessProfile) => {
+  const calculateProfileStrength = (pro: BusinessProfile) => {
     let score = 0;
-    const totalPossible = 5;
-    
-    if (profile.name) score++;
-    if (profile.location) score++;
-    if (profile.description) score++;
-    if (profile.avatarSeed) score++;
-    if (profile.photos && profile.photos.length >= 5) score++;
-    
-    return Math.round((score / totalPossible) * 100);
+    const fields = ['name', 'firstName', 'phone', 'email', 'serviceCategory', 'tags', 'province', 'location', 'suburb', 'serviceAreas', 'description'];
+    fields.forEach(f => {
+        if (pro[f] && (Array.isArray(pro[f]) ? pro[f].length > 0 : true)) score++;
+    });
+    return Math.round((score / fields.length) * 100);
   };
 
   const handleAddNewBusiness = () => {
@@ -109,7 +106,7 @@ export default function ProProfilePage() {
               <AlertTitle className="font-bold">Action Required</AlertTitle>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <AlertDescription className="text-red-700">
-                      Your account has limited access. Before we activate your account, we need you to verify your profile to maintain a trusted and safe marketplace for everyone.
+                      Your account has limited access. Before we activate your account, we need you to verify your profile.
                   </AlertDescription>
                   <Button asChild className="bg-white text-red-800 hover:bg-white/90 border border-red-500 flex-shrink-0">
                     <Link href="/pro/verify">Verify your ID</Link>
@@ -147,12 +144,12 @@ export default function ProProfilePage() {
                                           {profile.name || 'Untitled Business'} 
                                           <span className="text-green-600 text-sm font-medium">(Active)</span>
                                       </h2>
-                                      <p className="text-muted-foreground flex items-center gap-1 text-sm mt-1">
+                                      <p className="text-muted-foreground flex items-center gap-1 text-sm mt-1 capitalize">
                                         <MapPin className="h-3.5 w-3.5" />
-                                        {profile.location || 'Location not set'}
+                                        {profile.suburb ? `${profile.suburb}, ` : ''}{profile.location || 'Location not set'}
                                       </p>
                                       <Link href="/pro/dashboard" className="text-primary text-sm font-medium hover:underline mt-2 inline-block">
-                                          Get Customer Reviews
+                                          View Matching Leads
                                       </Link>
                                   </div>
                               </div>
@@ -168,35 +165,37 @@ export default function ProProfilePage() {
                               </div>
                           </div>
                           <div className="border-t md:border-t-0 md:border-l md:pl-6 pt-6 md:pt-0">
-                              <h3 className="font-bold text-sm text-foreground uppercase tracking-wider">Profile Strength</h3>
+                              <h3 className="font-bold text-sm text-foreground uppercase tracking-wider flex items-center justify-between">
+                                  Profile Strength
+                                  {strength === 100 ? <CheckCircle2 className="h-4 w-4 text-green-600" /> : <CircleAlert className="h-4 w-4 text-orange-500" />}
+                              </h3>
                               <div className="flex items-center gap-3 mt-3">
-                                  <Progress value={strength} className="h-2 flex-grow" />
+                                  <Progress value={strength} className={cn("h-2 flex-grow", strength === 100 ? "bg-green-100" : "bg-orange-100")} />
                                   <span className="text-sm font-bold text-foreground w-10 text-right">{strength}%</span>
                               </div>
                               <div className="mt-6 bg-secondary/20 p-3 rounded-lg">
-                                  <h4 className="font-bold text-xs text-foreground uppercase tracking-widest mb-2">Next Steps</h4>
+                                  <h4 className="font-bold text-xs text-foreground uppercase tracking-widest mb-2">Marketplace Ready?</h4>
                                   <ul className="text-xs text-muted-foreground space-y-2">
+                                      {strength < 100 ? (
+                                          <li className="flex items-start gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-1" />
+                                            Complete your profile to rank higher in searches.
+                                          </li>
+                                      ) : (
+                                          <li className="flex items-start gap-2 text-green-700 font-medium">
+                                            <CheckCircle2 className="h-3 w-3 mt-0.5" />
+                                            Profile is 100% complete.
+                                          </li>
+                                      )}
                                       {!profile.photos?.length && (
                                         <li className="flex items-start gap-2">
                                           <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1" />
-                                          Upload 5+ photos of your work
-                                        </li>
-                                      )}
-                                      {!profile.reviews && (
-                                        <li className="flex items-start gap-2">
-                                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1" />
-                                          Request your first reviews
-                                        </li>
-                                      )}
-                                      {!profile.description && (
-                                        <li className="flex items-start gap-2">
-                                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1" />
-                                          Add a business description
+                                          Upload portfolio photos.
                                         </li>
                                       )}
                                   </ul>
                                   <Link href="/pro/profile/edit" className="text-primary text-[11px] font-bold hover:underline mt-3 block">
-                                      Improve your profile →
+                                      Update Details →
                                   </Link>
                               </div>
                           </div>
