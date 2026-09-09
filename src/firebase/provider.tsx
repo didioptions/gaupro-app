@@ -21,6 +21,8 @@ export interface UserProfile {
   uid: string;
   createdAt: any;
   status?: string;
+  emailNotifications?: boolean;
+  marketingOffers?: boolean;
 }
 
 interface UserAuthState {
