@@ -1,19 +1,14 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useUser, useFirestore } from '@/firebase';
-import { doc, addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Loader2, ArrowLeft } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-/**
- * Route to "Pass" on a lead. 
- * Logs the preference to refine future matching.
- */
 export default function PassLeadPage() {
   const params = useParams();
   const router = useRouter();
@@ -29,14 +24,13 @@ export default function PassLeadPage() {
     if (user && firestore && leadId && !isDone && !isProcessing) {
       handlePass();
     }
-  }, [user, firestore, leadId]);
+  }, [user, firestore, leadId, isDone, isProcessing]);
 
   const handlePass = async () => {
     if (!user || !firestore || !leadId) return;
     setIsProcessing(true);
 
     try {
-      // Log the pass action for ML/filtering improvement
       await addDoc(collection(firestore, 'marketplace_audit_logs'), {
         action: 'LEAD_PASS',
         proUid: user.uid,

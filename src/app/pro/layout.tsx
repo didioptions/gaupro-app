@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '@/firebase';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Loader2 } from 'lucide-react';
 
 const PUBLIC_PRO_ROUTES = [
   '/pro/login', 
@@ -82,5 +83,3 @@ export default function ProLayout({
     </div>
   )
 }
-
-import { Loader2 } from 'lucide-react';

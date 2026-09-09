@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useMemo, useState, useEffect } from 'react';
@@ -15,12 +14,9 @@ import {
   Briefcase,
   Loader2,
   ChevronRight,
-  CircleAlert,
-  HelpCircle,
   CheckCircle2,
   AlertCircle,
   TrendingDown,
-  Clock,
   Mail,
   Send
 } from 'lucide-react';
@@ -53,6 +49,16 @@ const STRATEGIC_SERVICES = [
     'plumber', 'electrician', 'solar-systems', 'cleaning-service', 
     'rubble-removal', 'demolition', 'tlb-hire', 'handyman', 'builders', 'painters'
 ];
+
+interface Opportunity {
+  service: string;
+  suburb: string;
+  leads: number;
+  pros: number;
+  status: string;
+  priority: string;
+  action: string;
+}
 
 export default function MarketplaceHealthPage() {
   const firestore = useFirestore();
@@ -95,13 +101,13 @@ export default function MarketplaceHealthPage() {
   const analytics = useMemo(() => {
     return {
         total: professionals.length,
-        gauteng: professionals.filter(p => p.province === 'Gauteng' || p.location === 'johannesburg').length,
-        johannesburg: professionals.filter(p => p.location === 'johannesburg').length,
+        gauteng: professionals.filter(p => (p as any).province === 'Gauteng' || (p as any).location === 'johannesburg').length,
+        johannesburg: professionals.filter(p => (p as any).location === 'johannesburg').length,
     };
   }, [professionals]);
 
   const recruitmentIntel = useMemo(() => {
-    const opportunities: any[] = [];
+    const opportunities: Opportunity[] = [];
     
     STRATEGIC_SERVICES.forEach(serviceSlug => {
         const serviceLabel = allServices.find(s => s.value === serviceSlug)?.label || serviceSlug;
@@ -110,17 +116,19 @@ export default function MarketplaceHealthPage() {
             const suburbLabel = allLocations.find(l => l.value === suburbSlug)?.label || suburbSlug;
             
             // 1. Calculate Live Demand (Active Leads)
-            const localLeads = leads.filter(l => 
-                l.category?.toLowerCase() === serviceLabel.toLowerCase() && 
-                (l.locationSlug === suburbSlug || l.location?.toLowerCase().includes(suburbSlug))
-            ).length;
+            const localLeads = leads.filter(l => {
+                const lead = l as any;
+                return lead.category?.toLowerCase() === serviceLabel.toLowerCase() && 
+                (lead.locationSlug === suburbSlug || lead.location?.toLowerCase().includes(suburbSlug));
+            }).length;
 
             // 2. Calculate Live Supply (Matching Pros)
             const localPros = professionals.filter(p => {
-                const isCatMatch = (p.serviceCategory === serviceLabel || (p.tags || []).includes(serviceLabel));
-                const proCity = p.location?.toLowerCase();
-                const isLocMatch = p.suburb?.toLowerCase() === suburbSlug || 
-                                 (p.serviceAreas || []).includes(suburbSlug) ||
+                const pro = p as any;
+                const isCatMatch = (pro.serviceCategory === serviceLabel || (pro.tags || []).includes(serviceLabel));
+                const proCity = pro.location?.toLowerCase();
+                const isLocMatch = pro.suburb?.toLowerCase() === suburbSlug || 
+                                 (pro.serviceAreas || []).includes(suburbSlug) ||
                                  (proCity === 'johannesburg' && cityExpansionMap['johannesburg']?.includes(suburbSlug));
                 return isCatMatch && isLocMatch;
             }).length;
@@ -238,7 +246,7 @@ export default function MarketplaceHealthPage() {
           <Card className="border-l-4 border-l-red-500 shadow-sm">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
-                <CircleAlert className="h-5 w-5 text-red-600" />
+                <AlertCircle className="h-5 w-5 text-red-600" />
                 <Badge variant="destructive">Demand Gaps</Badge>
               </div>
               <p className="text-4xl font-black">{recruitmentIntel.filter(o => o.priority === 'CRITICAL').length}</p>

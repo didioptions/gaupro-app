@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8,13 +7,11 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/ui/tabs';
 import { ChangePasswordDialog } from '@/components/pro/change-password-dialog';
 import { useUser, useFirestore } from '@/firebase';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -43,7 +40,6 @@ export default function AccountSettingsPage() {
     setIsUpdating(true);
 
     try {
-      // Update both collections for redundancy in preferences
       const userRef = doc(firestore, 'users', user.uid);
       const proRef = doc(firestore, 'professionalProfiles', user.uid);
 

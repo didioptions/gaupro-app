@@ -21,10 +21,6 @@ import {
 } from 'lucide-react';
 import { QuoteDialog } from '@/components/pro/quote-dialog';
 
-/**
- * Deep-link page for a specific lead. 
- * Allows professionals to view lead metadata and unlock details.
- */
 export default function LeadDetailPage() {
   const params = useParams();
   const router = useRouter();

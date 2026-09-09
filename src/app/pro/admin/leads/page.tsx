@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
@@ -7,7 +6,6 @@ import {
     query, 
     orderBy, 
     limit, 
-    DocumentData, 
     doc, 
     updateDoc, 
     serverTimestamp, 
@@ -31,8 +29,6 @@ import { Input } from '@/components/ui/input';
 import { 
     Search, 
     Briefcase, 
-    Zap, 
-    AlertTriangle, 
     CheckCircle2, 
     Eye,
     TrendingUp,
@@ -124,7 +120,7 @@ export default function LeadOversightPage() {
 
   useEffect(() => {
     fetchLeads(true);
-  }, [firestore, isUserLoading]);
+  }, [firestore, isUserLoading, fetchLeads]);
 
   const stats = useMemo(() => {
     if (!leads.length) return { total: 0, pending: 0, approved: 0, quality: 0 };
@@ -216,7 +212,15 @@ export default function LeadOversightPage() {
                 let emailCount = 0;
                 
                 for (const proDoc of prosSnap.docs) {
-                    const pro = proDoc.data();
+                    const pro = proDoc.data() as { 
+                        userId: string, 
+                        location?: string, 
+                        suburb?: string, 
+                        serviceAreas?: string[], 
+                        email?: string, 
+                        name?: string,
+                        emailNotifications?: boolean 
+                    };
                     const proCity = pro.location?.toLowerCase();
                     const proSuburb = pro.suburb?.toLowerCase();
                     const proAreas = (pro.serviceAreas || []).map((a: string) => a.toLowerCase());
