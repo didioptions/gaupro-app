@@ -3,7 +3,7 @@
 
 import React, { useMemo, useState, useEffect } from 'react';
 import { useFirestore, useUser } from '@/firebase';
-import { collection, query, orderBy, limit, DocumentData, onSnapshot } from 'firebase/firestore';
+import { collection, query, orderBy, limit, DocumentData, onSnapshot, doc, getDoc } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
@@ -20,13 +20,26 @@ import {
   CheckCircle2,
   AlertCircle,
   TrendingDown,
-  Clock
+  Clock,
+  Mail,
+  Send
 } from 'lucide-react';
 import { allServices } from '@/lib/services-list';
 import { allLocations } from '@/lib/locations';
 import { cityExpansionMap } from '@/lib/location-data';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { useToast } from '@/hooks/use-toast';
+import { sendLeadNotificationEmail } from '@/lib/email-service';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Input } from '@/components/ui/input';
 
 // Priority suburbs for the Command Centre
 const STRATEGIC_SUBURBS = [
@@ -47,6 +60,11 @@ export default function MarketplaceHealthPage() {
   const [leads, setLeads] = useState<DocumentData[]>([]);
   const [loading, setLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState<string>('');
+  
+  const [showTestEmail, setShowTestEmail] = useState(false);
+  const [testEmail, setTestEmail] = useState('');
+  const [isSendingTest, setIsSendingTest] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     if (!firestore || isUserLoading) return;
@@ -148,6 +166,35 @@ export default function MarketplaceHealthPage() {
     });
   }, [professionals, leads]);
 
+  const handleSendTestEmail = async () => {
+    if (!testEmail) return;
+    setIsSendingTest(true);
+    try {
+      const result = await sendLeadNotificationEmail({
+        proBusinessName: "Gaupro Admin Test",
+        proEmail: testEmail,
+        leadId: "TEST_12345",
+        serviceName: "Swimming Pool Builder",
+        location: "Krugersdorp, Kenmare",
+        when: "As soon as possible",
+        creditCost: 5,
+        leadRequirements: "• New swimming pool installation\n• Fibreglass\n• Chlorine\n• Pool cover\n• Residential home\n• Ready to hire",
+        isTest: true
+      });
+
+      if (result.success) {
+        toast({ title: "Test Sent", description: `Check ${testEmail} for the lead notification.` });
+        setShowTestEmail(false);
+      } else {
+        toast({ variant: 'destructive', title: "SMTP Error", description: result.error });
+      }
+    } catch (e: any) {
+      toast({ variant: 'destructive', title: "Error", description: e.message });
+    } finally {
+      setIsSendingTest(false);
+    }
+  };
+
   if (loading) {
       return (
           <div className="min-h-screen flex flex-col items-center justify-center bg-secondary/30">
@@ -174,6 +221,9 @@ export default function MarketplaceHealthPage() {
             </div>
           </div>
           <div className="flex gap-3">
+              <Button variant="outline" className="bg-white font-bold" onClick={() => setShowTestEmail(true)}>
+                  <Mail className="h-4 w-4 mr-2" /> Test Notifications
+              </Button>
               <Button variant="outline" className="bg-white font-bold" asChild>
                   <Link href="/pro/admin/pros">Pro Directory</Link>
               </Button>
@@ -325,6 +375,34 @@ export default function MarketplaceHealthPage() {
           </CardContent>
         </Card>
       </div>
+
+      <Dialog open={showTestEmail} onOpenChange={setShowTestEmail}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Send Test Lead Notification</DialogTitle>
+            <DialogDescription>
+              This will send a simulated lead notification to verify your SMTP configuration.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="py-4 space-y-4">
+            <div className="space-y-2">
+              <Label>Recipient Email Address</Label>
+              <Input 
+                placeholder="e.g. yourname@gmail.com" 
+                value={testEmail} 
+                onChange={(e) => setTestEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowTestEmail(false)}>Cancel</Button>
+            <Button disabled={!testEmail || isSendingTest} onClick={handleSendTestEmail}>
+              {isSendingTest ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <Send className="h-4 w-4 mr-2" />}
+              Send Test
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

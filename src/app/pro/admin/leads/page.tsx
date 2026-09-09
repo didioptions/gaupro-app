@@ -19,7 +19,8 @@ import {
     where,
     writeBatch,
     getDoc,
-    or
+    or,
+    setDoc
 } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -60,6 +61,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { cityExpansionMap } from '@/lib/location-data';
+import { sendLeadNotificationEmail } from '@/lib/email-service';
 
 const PAGE_SIZE = 25;
 
@@ -211,8 +213,9 @@ export default function LeadOversightPage() {
             if (!prosSnap.empty) {
                 const batch = writeBatch(firestore);
                 let count = 0;
+                let emailCount = 0;
                 
-                prosSnap.docs.forEach(proDoc => {
+                for (const proDoc of prosSnap.docs) {
                     const pro = proDoc.data();
                     const proCity = pro.location?.toLowerCase();
                     const proSuburb = pro.suburb?.toLowerCase();
@@ -223,6 +226,7 @@ export default function LeadOversightPage() {
                     const isSuburbLevelMatch = proSuburb === leadLocSlug || proAreas.includes(leadLocSlug);
 
                     if (isCityLevelMatch || isSuburbLevelMatch) {
+                        // 1. Queue In-App Notification
                         const notifRef = doc(collection(firestore, 'users', pro.userId, 'notifications'));
                         batch.set(notifRef, {
                             title: 'New Lead Match',
@@ -233,19 +237,56 @@ export default function LeadOversightPage() {
                             targetId: leadId
                         });
                         count++;
+
+                        // 2. Queue Email Notification (Only if enabled)
+                        if (pro.email && pro.emailNotifications !== false) {
+                            // Check for duplicate prevention
+                            const logId = `${leadId}_${pro.userId}`;
+                            const logRef = doc(firestore, 'lead_notifications', logId);
+                            const logSnap = await getDoc(logRef);
+
+                            if (!logSnap.exists()) {
+                                // Send Email
+                                const emailResult = await sendLeadNotificationEmail({
+                                    proBusinessName: pro.name || 'Gaupro Professional',
+                                    proEmail: pro.email,
+                                    leadId: leadId,
+                                    serviceName: currentLead.category,
+                                    location: currentLead.location,
+                                    when: currentLead.dateNeeded,
+                                    creditCost: currentLead.credits || 3,
+                                    leadRequirements: currentLead.description,
+                                });
+
+                                // Log Attempt
+                                await setDoc(logRef, {
+                                    leadId,
+                                    proId: pro.userId,
+                                    proEmail: pro.email,
+                                    sentAt: serverTimestamp(),
+                                    status: emailResult.success ? 'success' : 'failed',
+                                    error: emailResult.error || null,
+                                    messageId: emailResult.messageId || null
+                                });
+
+                                if (emailResult.success) emailCount++;
+                            }
+                        }
                     }
-                });
+                }
 
                 if (count > 0) {
                     await batch.commit();
-                    toast({ title: 'Notifications Sent', description: `In-app alerts sent to ${count} matching professionals.` });
+                    toast({ 
+                        title: 'Lead Distributed', 
+                        description: `Notified ${count} Pros (including ${emailCount} via email).` 
+                    });
                 }
             }
       }
 
       setLeads(prev => prev.map(l => l.id === leadId ? { ...l, ...updateObj } : l));
 
-      toast({ title: 'Success', description: `Lead marked as ${action.replace('_', ' ')}.` });
       setViewLead(null);
       setIsEditing(false);
     } catch (e: any) {
