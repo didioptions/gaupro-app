@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
@@ -8,6 +7,7 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Label } from '@/components/ui/label';
 import { 
     Loader2, 
     ArrowLeft, 
@@ -16,10 +16,10 @@ import {
     Clock, 
     DollarSign, 
     Lock,
-    ShieldCheck
+    ShieldCheck,
+    User
 } from 'lucide-react';
 import { QuoteDialog } from '@/components/pro/quote-dialog';
-import { useToast } from '@/hooks/use-toast';
 
 /**
  * Deep-link page for a specific lead. 
@@ -30,7 +30,6 @@ export default function LeadDetailPage() {
   const router = useRouter();
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
-  const { toast } = useToast();
   
   const leadId = typeof params.leadId === 'string' ? params.leadId : '';
   const [selectedJob, setSelectedJob] = useState<any>(null);

@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
@@ -9,9 +8,8 @@ import { Input } from '@/components/ui/input';
 import { Search, MapPin, Calendar, DollarSign, Users, Clock, Lock, CreditCard, Briefcase, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
-import { collection, query, orderBy, limit, where, doc, onSnapshot, runTransaction, serverTimestamp, arrayUnion } from 'firebase/firestore';
+import { collection, query, orderBy, limit, where, doc, onSnapshot } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
-import { useToast } from '@/hooks/use-toast';
 import { QuoteDialog } from '@/components/pro/quote-dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -21,13 +19,11 @@ export default function BrowseQuotesPage() {
   const [mounted, setMounted] = useState(false);
   const [creditBalance, setCreditBalance] = useState<number | null>(null);
   const [selectedJob, setSelectedJob] = useState<any>(null);
-  const [isUnlocking, setIsUnlocking] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
   const router = useRouter();
-  const { toast } = useToast();
 
   useEffect(() => {
     setMounted(true);
@@ -66,87 +62,6 @@ export default function BrowseQuotesPage() {
         lead.location?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [leads, searchTerm]);
-
-  const handleUnlockClick = async (job: any) => {
-    if (!user || !firestore) {
-      router.push('/pro/login');
-      return;
-    }
-
-    const cost = job.credits || 3;
-    const currentBalance = creditBalance || 0;
-    
-    if (currentBalance < cost) {
-      toast({
-        variant: 'destructive',
-        title: 'Insufficient Credits',
-        description: 'Please top up your account to unlock this lead.',
-      });
-      return;
-    }
-
-    setIsUnlocking(true);
-
-    try {
-      const proRef = doc(firestore, 'professionalProfiles', user.uid);
-      const leadRef = doc(firestore, 'leads_public', job.id);
-      const auditRef = doc(collection(firestore, 'marketplace_audit_logs'));
-
-      await runTransaction(firestore, async (transaction) => {
-        const proDoc = await transaction.get(proRef);
-        const leadDoc = await transaction.get(leadRef);
-
-        if (!proDoc.exists()) throw "Profile missing";
-        if (!leadDoc.exists()) throw "Lead missing";
-
-        const balance = proDoc.data().creditBalance || 0;
-        if (balance < cost) throw "Insufficient credits";
-
-        const currentLeadCount = proDoc.data().leadCount || 0;
-        const currentPurchasers = leadDoc.data().purchasers || [];
-        const currentQuoteCount = leadDoc.data().quoteCount || 0;
-
-        if (currentPurchasers.includes(user.uid)) throw "You have already unlocked this lead.";
-
-        // 1. Deduct Credits & Increment Purchased Count
-        transaction.update(proRef, {
-          creditBalance: balance - cost,
-          leadCount: currentLeadCount + 1
-        });
-
-        // 2. Increment lead's quote count and add pro to purchasers array
-        transaction.update(leadRef, {
-          quoteCount: currentQuoteCount + 1,
-          purchasers: arrayUnion(user.uid)
-        });
-
-        // 3. Log the purchase for audit trail
-        transaction.set(auditRef, {
-          action: 'LEAD_PURCHASE',
-          proUid: user.uid,
-          targetId: job.id,
-          creditsSpent: cost,
-          timestamp: serverTimestamp()
-        });
-      });
-
-      toast({
-        title: 'Lead Unlocked!',
-        description: 'Customer contact details are now available.',
-      });
-      
-      setSelectedJob(job);
-    } catch (err: any) {
-      console.error("Unlock failed:", err);
-      toast({
-        variant: 'destructive',
-        title: 'Transaction Failed',
-        description: typeof err === 'string' ? err : 'Could not unlock lead. Please try again.',
-      });
-    } finally {
-      setIsUnlocking(false);
-    }
-  };
 
   const getPostedTime = (createdAt: any) => {
     if (!createdAt) return 'Recently';
@@ -265,10 +180,9 @@ export default function BrowseQuotesPage() {
                         ) : (
                           <Button
                             className="w-full sm:w-auto h-12 px-10 font-bold"
-                            onClick={() => handleUnlockClick(job)}
-                            disabled={isUnlocking}
+                            onClick={() => setSelectedJob(job)}
                           >
-                            {isUnlocking ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Lock className="mr-2 h-4 w-4" />}
+                            <Lock className="mr-2 h-4 w-4" />
                             Unlock Contact Details ({cost} Credits)
                           </Button>
                         )}
