@@ -15,7 +15,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock, AlertTriangle, Scale, CheckCircle2, CreditCard } from 'lucide-react';
-import { getFirestore, doc, getDoc, setDoc, serverTimestamp, runTransaction, arrayUnion, onSnapshot } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp, runTransaction, arrayUnion, onSnapshot, collection } from 'firebase/firestore';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Input } from '@/components/ui/input';
 import { useUser } from '@/firebase';
@@ -431,7 +431,7 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
                 className="sm:flex-1 bg-red-600 hover:bg-red-700"
                 disabled={isSubmittingQuote || !quoteMessage}
             >
-              {isSubmittingQuote ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <CheckCircle2 className="mr-2 h-4 w-4" />}
+              {isSubmittingQuote ? <Loader2 className="mr-2 h-4 w-4 animate-spin mr-2" /> : <CheckCircle2 className="mr-2 h-4 w-4" />}
               {isSubmittingQuote ? 'Submitting...' : 'Submit Quote'}
             </Button>
           )}
