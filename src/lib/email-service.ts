@@ -1,4 +1,3 @@
-
 'use server';
 
 import nodemailer from 'nodemailer';
@@ -74,6 +73,7 @@ export async function sendLeadNotificationEmail(props: LeadEmailProps) {
         .secondary-button { display: inline-block; padding: 10px 20px; background-color: #ffffff; color: #4b5563 !important; text-decoration: none; border: 1px solid #d1d5db; border-radius: 6px; font-weight: 600; text-align: center; margin-top: 10px; font-size: 13px; }
         .lock-box { background-color: #fffbeb; border: 1px solid #fef3c7; padding: 15px; border-radius: 6px; margin: 20px 0; text-align: center; }
         .divider { border: 0; border-top: 1px solid #e5e7eb; margin: 30px 0; }
+        .test-banner { background-color: #fef3c7; color: #92400e; padding: 10px; text-align: center; font-weight: bold; border-radius: 4px; margin-bottom: 20px; }
       </style>
     </head>
     <body>
@@ -83,6 +83,7 @@ export async function sendLeadNotificationEmail(props: LeadEmailProps) {
           <p style="margin:5px 0 0; opacity: 0.9;">New Lead Notification</p>
         </div>
         <div class="content">
+          ${isTest ? '<div class="test-banner">⚠️ THIS IS A SYSTEM TEST</div>' : ''}
           <p style="font-size: 18px; margin-top: 0;">Hi <strong>${proBusinessName}</strong>,</p>
           <p>You have a new customer request on Gaupro that matches your services and service area.</p>
           
@@ -155,10 +156,8 @@ export async function sendLeadNotificationEmail(props: LeadEmailProps) {
       subject: subject,
       html: html,
     });
-    console.log('Lead notification sent:', info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error: any) {
-    console.error('SMTP error:', error);
     return { success: false, error: error.message };
   }
 }

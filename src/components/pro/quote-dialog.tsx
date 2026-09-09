@@ -14,8 +14,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock, AlertTriangle, Scale, CheckCircle2 } from 'lucide-react';
-import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { User, Phone, DollarSign, Calendar, Clock, Loader2, Mail, MapPin, Lock, AlertTriangle, Scale, CheckCircle2, CreditCard } from 'lucide-react';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp, runTransaction, arrayUnion, onSnapshot } from 'firebase/firestore';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Input } from '@/components/ui/input';
 import { useUser } from '@/firebase';
@@ -30,10 +30,14 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
   const { user } = useUser();
   const [privateData, setPrivateData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [isUnlocking, setIsUnlocking] = useState(false);
+  const [creditBalance, setCreditBalance] = useState<number | null>(null);
+  
   const [showDisputeForm, setShowDisputeForm] = useState(false);
   const [disputeReason, setDisputeReason] = useState<string>('');
   const [disputeDetails, setDisputeDetails] = useState('');
   const [isSubmittingDispute, setIsSubmittingDispute] = useState(false);
+  
   const [isSubmittingQuote, setIsSubmittingQuote] = useState(false);
   const [quoteMessage, setQuoteMessage] = useState('');
   const [quotePrice, setQuotePrice] = useState('');
@@ -41,19 +45,28 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
   const { toast } = useToast();
   const db = getFirestore();
 
+  // Listen for credit balance
+  useEffect(() => {
+    if (!user || !db) return;
+    const unsubscribe = onSnapshot(doc(db, 'professionalProfiles', user.uid), (docSnap) => {
+      if (docSnap.exists()) {
+        setCreditBalance(docSnap.data().creditBalance || 0);
+      }
+    });
+    return () => unsubscribe();
+  }, [user, db]);
+
   useEffect(() => {
     if (isOpen && job && user) {
       const fetchData = async () => {
         setLoading(true);
         try {
-          // 1. Fetch private customer data
           const docRef = doc(db, 'leads_private', job.id);
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             setPrivateData(docSnap.data());
           }
 
-          // 2. Check for existing quote
           const quoteRef = doc(db, 'quotes', `${job.id}-${user.uid}`);
           const quoteSnap = await getDoc(quoteRef);
           if (quoteSnap.exists()) {
@@ -62,12 +75,8 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
             setQuotePrice(data.price || '');
           }
         } catch (error) {
-          console.error("Error fetching lead data:", error);
-          toast({
-            variant: 'destructive',
-            title: 'Permission Error',
-            description: 'Could not retrieve customer details.',
-          });
+          // Failure to fetch private data is expected if not yet purchased
+          setPrivateData(null);
         } finally {
           setLoading(false);
         }
@@ -79,9 +88,87 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
       setQuoteMessage('');
       setQuotePrice('');
     }
-  }, [isOpen, job, user, db, toast]);
+  }, [isOpen, job, user, db]);
 
   if (!job) return null;
+
+  const handleUnlockLead = async () => {
+    if (!user || !db) return;
+
+    const cost = job.credits || 3;
+    const currentBalance = creditBalance || 0;
+    
+    if (currentBalance < cost) {
+      toast({
+        variant: 'destructive',
+        title: 'Insufficient Credits',
+        description: 'Please top up your account to unlock this lead.',
+      });
+      return;
+    }
+
+    setIsUnlocking(true);
+
+    try {
+      const proRef = doc(db, 'professionalProfiles', user.uid);
+      const leadRef = doc(db, 'leads_public', job.id);
+      const auditRef = doc(collection(db, 'marketplace_audit_logs'));
+
+      await runTransaction(db, async (transaction) => {
+        const proDoc = await transaction.get(proRef);
+        const leadDoc = await transaction.get(leadRef);
+
+        if (!proDoc.exists()) throw "Profile missing";
+        if (!leadDoc.exists()) throw "Lead missing";
+
+        const balance = proDoc.data().creditBalance || 0;
+        if (balance < cost) throw "Insufficient credits";
+
+        const currentLeadCount = proDoc.data().leadCount || 0;
+        const currentPurchasers = leadDoc.data().purchasers || [];
+        const currentQuoteCount = leadDoc.data().quoteCount || 0;
+
+        if (currentPurchasers.includes(user.uid)) throw "Already unlocked.";
+
+        transaction.update(proRef, {
+          creditBalance: balance - cost,
+          leadCount: currentLeadCount + 1
+        });
+
+        transaction.update(leadRef, {
+          quoteCount: currentQuoteCount + 1,
+          purchasers: arrayUnion(user.uid)
+        });
+
+        transaction.set(auditRef, {
+          action: 'LEAD_PURCHASE',
+          proUid: user.uid,
+          targetId: job.id,
+          creditsSpent: cost,
+          timestamp: serverTimestamp()
+        });
+      });
+
+      toast({
+        title: 'Lead Unlocked!',
+        description: 'Customer contact details are now available.',
+      });
+      
+      // Refresh local private data
+      const privateSnap = await getDoc(doc(db, 'leads_private', job.id));
+      if (privateSnap.exists()) {
+        setPrivateData(privateSnap.data());
+      }
+    } catch (err: any) {
+      toast({
+        variant: 'destructive',
+        title: 'Unlock Failed',
+        description: typeof err === 'string' ? err : 'Could not unlock lead. Please try again.',
+      });
+    } finally {
+      setIsUnlocking(false);
+    }
+  };
 
   const handleSubmitQuote = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -107,11 +194,10 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
       });
       onClose();
     } catch (error: any) {
-      console.error("Quote submission failed:", error);
       toast({
         variant: 'destructive',
         title: 'Submission Failed',
-        description: error.message || 'Could not save your quote. Please try again.',
+        description: error.message || 'Could not save your quote.',
       });
     } finally {
       setIsSubmittingQuote(false);
@@ -147,42 +233,41 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
     }
   };
 
-  const getPostedTime = (createdAt: any) => {
-    if (!createdAt) return 'Recently';
-    const date = createdAt.seconds ? new Date(createdAt.seconds * 1000) : new Date(createdAt);
-    return date.toLocaleDateString();
-  };
+  const isUnlocked = !!privateData;
+  const cost = job.credits || 3;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[625px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl flex items-center gap-2">
-              <Lock className="h-5 w-5 text-primary" />
-              Lead Details: {job.category}
+          <DialogTitle className="text-2xl flex items-center gap-2 font-bold">
+              {isUnlocked ? <CheckCircle2 className="h-6 w-6 text-green-600" /> : <Lock className="h-6 w-6 text-primary" />}
+              Lead: {job.category}
           </DialogTitle>
           <DialogDescription>
-            Verified request for {job.category} in {job.location}.
+            {isUnlocked ? 'Customer contact details are available below.' : 'Customer contact details are locked.'}
           </DialogDescription>
         </DialogHeader>
 
         <div className="py-4 space-y-6">
-          <Card className="bg-secondary/30 border-0">
+          <Card className={isUnlocked ? "bg-green-50 border-green-100" : "bg-secondary/30 border-0"}>
             <CardHeader className="pb-2 pt-4 px-4">
                 <CardTitle className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex justify-between items-center">
-                   Customer Contact Information
-                   <Button variant="ghost" size="sm" className="h-6 text-[10px] text-amber-600 hover:text-amber-700" onClick={() => setShowDisputeForm(!showDisputeForm)}>
-                      <AlertTriangle className="h-3 w-3 mr-1" /> Dispute Lead
-                   </Button>
+                   {isUnlocked ? 'Customer Information' : 'Contact Details (Locked)'}
+                   {isUnlocked && (
+                     <Button variant="ghost" size="sm" className="h-6 text-[10px] text-amber-600 hover:text-amber-700" onClick={() => setShowDisputeForm(!showDisputeForm)}>
+                        <AlertTriangle className="h-3 w-3 mr-1" /> Dispute Lead
+                     </Button>
+                   )}
                 </CardTitle>
             </CardHeader>
             <CardContent className="px-4 pb-4">
               {loading ? (
                   <div className="flex items-center gap-2 py-2">
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      <span className="text-sm">Decrypting details...</span>
+                      <span className="text-sm">Accessing...</span>
                   </div>
-              ) : privateData ? (
+              ) : isUnlocked ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex items-center gap-3">
                           <div className="p-2 bg-white rounded-full border shadow-sm">
@@ -222,12 +307,27 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
                       </div>
                   </div>
               ) : (
-                  <p className="text-sm text-red-600 font-bold">Failed to load contact data.</p>
+                  <div className="text-center py-4">
+                     <p className="text-sm font-medium text-muted-foreground mb-4">You need to unlock this lead to see contact details.</p>
+                     <Button 
+                        onClick={handleUnlockLead} 
+                        disabled={isUnlocking}
+                        className="bg-primary hover:bg-primary/90 font-bold"
+                     >
+                        {isUnlocking ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <Lock className="h-4 w-4 mr-2" />}
+                        Unlock for {cost} Credits
+                     </Button>
+                     {creditBalance !== null && (
+                       <p className="text-[10px] text-muted-foreground mt-2 font-bold uppercase tracking-wider">
+                          Current Balance: {creditBalance} Credits
+                       </p>
+                     )}
+                  </div>
               )}
             </CardContent>
           </Card>
 
-          {showDisputeForm && (
+          {showDisputeForm && isUnlocked && (
             <Card className="border-amber-200 bg-amber-50">
                <CardHeader className="pb-2">
                  <CardTitle className="text-sm font-bold text-amber-800 flex items-center gap-2">
@@ -283,11 +383,11 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-xs">
                 <div className="flex items-center gap-2 text-muted-foreground"><DollarSign className="h-4 w-4" /> <span>Budget: {job.budget}</span></div>
                 <div className="flex items-center gap-2 text-muted-foreground"><Calendar className="h-4 w-4" /> <span>Req. Date: {job.dateNeeded}</span></div>
-                <div className="flex items-center gap-2 text-muted-foreground"><Clock className="h-4 w-4" /> <span>Posted: {getPostedTime(job.createdAt)}</span></div>
+                <div className="flex items-center gap-2 text-muted-foreground"><CreditCard className="h-4 w-4" /> <span>Cost: {cost} CR</span></div>
             </div>
           </div>
 
-          {!showDisputeForm && (
+          {isUnlocked && !showDisputeForm && (
             <form id="quote-form" onSubmit={handleSubmitQuote} className="space-y-4 border-t pt-6">
               <div className="grid grid-cols-1 gap-4">
                 <div className="space-y-2">
@@ -322,9 +422,9 @@ export function QuoteDialog({ job, isOpen, onClose }: QuoteDialogProps) {
         
         <DialogFooter className="flex-col sm:flex-row gap-2">
           <Button type="button" variant="outline" onClick={onClose} className="sm:flex-1">
-            Cancel
+            {isUnlocked ? 'Cancel' : 'Close'}
           </Button>
-          {!showDisputeForm && (
+          {isUnlocked && !showDisputeForm && (
             <Button 
                 type="submit" 
                 form="quote-form" 
