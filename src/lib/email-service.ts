@@ -5,17 +5,22 @@ import nodemailer from 'nodemailer';
 /**
  * @fileOverview Handles automated email notifications for Gaupro.
  * 
- * Uses HostAfrica SMTP settings from environment variables.
+ * Uses HostAfrica HMailPlus SMTP settings from environment variables.
+ * Recommended: smtp.hmailplus.com, Port 587 (STARTTLS).
  */
+
+const smtpPort = parseInt(process.env.GAUPRO_SMTP_PORT || '587');
 
 const transporter = nodemailer.createTransport({
   host: process.env.GAUPRO_SMTP_HOST,
-  port: parseInt(process.env.GAUPRO_SMTP_PORT || '465'),
-  secure: process.env.GAUPRO_SMTP_PORT === '465', // true for 465, false for other ports
+  port: smtpPort,
+  secure: smtpPort === 465, // true for 465 (SSL), false for 587 (STARTTLS)
   auth: {
     user: process.env.GAUPRO_SMTP_USER,
     pass: process.env.GAUPRO_SMTP_PASSWORD,
   },
+  // Force STARTTLS for port 587
+  requireTLS: smtpPort === 587,
 });
 
 interface LeadEmailProps {
