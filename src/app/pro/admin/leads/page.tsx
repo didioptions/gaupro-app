@@ -15,6 +15,7 @@ import {
     where,
     writeBatch,
     getDoc,
+    getDocs,
     or,
     setDoc
 } from 'firebase/firestore';
