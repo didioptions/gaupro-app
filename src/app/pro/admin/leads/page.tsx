@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useFirestore, useUser } from '@/firebase';
 import { 
     query, 
@@ -11,9 +11,7 @@ import {
     serverTimestamp, 
     addDoc, 
     collection,
-    getDocs,
-    startAfter,
-    QueryDocumentSnapshot,
+    onSnapshot,
     where,
     writeBatch,
     getDoc,
@@ -32,7 +30,6 @@ import {
     CheckCircle2, 
     Eye,
     TrendingUp,
-    ChevronDown,
     Loader2,
     Calendar,
     DollarSign,
@@ -59,19 +56,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { cityExpansionMap } from '@/lib/location-data';
 import { sendLeadNotificationEmail } from '@/lib/email-service';
 
-const PAGE_SIZE = 25;
-
 export default function LeadOversightPage() {
   const firestore = useFirestore();
   const { user: adminUser, isUserLoading } = useUser();
   const { toast } = useToast();
 
   const [leads, setLeads] = useState<any[]>([]);
-  const [lastDoc, setLastDoc] = useState<QueryDocumentSnapshot | null>(null);
   const [loading, setLoading] = useState(true);
-  const [loadingMore, setLoadingMore] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-
   const [searchQuery, setSearchQuery] = useState('');
   const [viewLead, setViewLead] = useState<any>(null);
   const [privateDetails, setPrivateDetails] = useState<any>(null);
@@ -80,47 +71,31 @@ export default function LeadOversightPage() {
   const [editData, setEditData] = useState<any>({});
   const [isProcessingAction, setIsProcessingAction] = useState(false);
 
-  const fetchLeads = useCallback(async (isInitial = true) => {
-    if (!firestore || isUserLoading) return;
-    
-    if (isInitial) setLoading(true);
-    else setLoadingMore(true);
-
-    try {
-        const baseQuery = query(
-            collection(firestore, 'leads_public'),
-            orderBy('createdAt', 'desc'),
-            limit(PAGE_SIZE)
-        );
-
-        const finalQuery = isInitial ? baseQuery : query(baseQuery, startAfter(lastDoc));
-        const snapshot = await getDocs(finalQuery);
-        
-        const newLeads = snapshot.docs.map(d => ({ 
-            id: d.id, 
-            ...d.data() 
-        }));
-        
-        if (isInitial) {
-            setLeads(newLeads);
-        } else {
-            setLeads(prev => [...prev, ...newLeads]);
-        }
-
-        setLastDoc(snapshot.docs[snapshot.docs.length - 1] || null);
-        setHasMore(snapshot.docs.length === PAGE_SIZE);
-    } catch (e: any) {
-        console.error("Fetch leads error:", e);
-        toast({ variant: 'destructive', title: 'Error', description: "Failed to load leads." });
-    } finally {
-        setLoading(false);
-        setLoadingMore(false);
-    }
-  }, [firestore, isUserLoading, lastDoc, toast]);
-
+  // Real-time listener for the approval queue
   useEffect(() => {
-    fetchLeads(true);
-  }, [firestore, isUserLoading, fetchLeads]);
+    if (!firestore || isUserLoading) return;
+
+    const q = query(
+      collection(firestore, 'leads_public'),
+      orderBy('createdAt', 'desc'),
+      limit(100)
+    );
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const newLeads = snapshot.docs.map(d => ({ 
+        id: d.id, 
+        ...d.data() 
+      }));
+      setLeads(newLeads);
+      setLoading(false);
+    }, (error) => {
+      console.error("Lead listener error:", error);
+      toast({ variant: 'destructive', title: 'Connection Error', description: "Failed to sync leads." });
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, [firestore, isUserLoading, toast]);
 
   const stats = useMemo(() => {
     if (!leads.length) return { total: 0, pending: 0, approved: 0, quality: 0 };
@@ -172,7 +147,7 @@ export default function LeadOversightPage() {
       const currentLead = leadSnap.data();
 
       if (action === 'approved' && currentLead.status === 'approved') {
-          toast({ title: 'Already Distributed', description: 'This lead has already been approved and sent to professionals.' });
+          toast({ title: 'Already Distributed', description: 'This lead has already been approved.' });
           setViewLead(null);
           setIsProcessingAction(false);
           return;
@@ -230,7 +205,6 @@ export default function LeadOversightPage() {
                     const isSuburbLevelMatch = proSuburb === leadLocSlug || proAreas.includes(leadLocSlug);
 
                     if (isCityLevelMatch || isSuburbLevelMatch) {
-                        // 1. Queue In-App Notification
                         const notifRef = doc(collection(firestore, 'users', pro.userId, 'notifications'));
                         batch.set(notifRef, {
                             title: 'New Lead Match',
@@ -242,15 +216,12 @@ export default function LeadOversightPage() {
                         });
                         count++;
 
-                        // 2. Queue Email Notification (Only if enabled)
                         if (pro.email && pro.emailNotifications !== false) {
-                            // Check for duplicate prevention
                             const logId = `${leadId}_${pro.userId}`;
                             const logRef = doc(firestore, 'lead_notifications', logId);
                             const logSnap = await getDoc(logRef);
 
                             if (!logSnap.exists()) {
-                                // Send Email
                                 const emailResult = await sendLeadNotificationEmail({
                                     proBusinessName: pro.name || 'Gaupro Professional',
                                     proEmail: pro.email,
@@ -262,7 +233,6 @@ export default function LeadOversightPage() {
                                     leadRequirements: currentLead.description,
                                 });
 
-                                // Log Attempt
                                 await setDoc(logRef, {
                                     leadId,
                                     proId: pro.userId,
@@ -283,13 +253,11 @@ export default function LeadOversightPage() {
                     await batch.commit();
                     toast({ 
                         title: 'Lead Distributed', 
-                        description: `Notified ${count} Pros (including ${emailCount} via email).` 
+                        description: `Notified ${count} Pros (${emailCount} via email).` 
                     });
                 }
             }
       }
-
-      setLeads(prev => prev.map(l => l.id === leadId ? { ...l, ...updateObj } : l));
 
       setViewLead(null);
       setIsEditing(false);
@@ -333,7 +301,7 @@ export default function LeadOversightPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <Briefcase className="h-5 w-5 text-primary" />
-                <Badge variant="secondary">Total</Badge>
+                <Badge variant="secondary">Sync Active</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.total}</p>
             </CardContent>
@@ -342,7 +310,7 @@ export default function LeadOversightPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <Clock className="h-5 w-5 text-yellow-600" />
-                <Badge variant="outline" className="border-yellow-300 text-yellow-700">Action Required</Badge>
+                <Badge variant="outline" className="border-yellow-300 text-yellow-700">Needs Review</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.pending}</p>
             </CardContent>
@@ -351,7 +319,7 @@ export default function LeadOversightPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <CheckCircle2 className="h-5 w-5 text-green-600" />
-                <Badge variant="outline" className="border-green-300 text-green-700">Live</Badge>
+                <Badge variant="outline" className="border-green-300 text-green-700">Active</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.approved}</p>
             </CardContent>
@@ -360,10 +328,9 @@ export default function LeadOversightPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <TrendingUp className="h-5 w-5 opacity-80" />
-                <Badge variant="outline" className="text-white border-white/30">Quality</Badge>
+                <Badge variant="outline" className="text-white border-white/30">Average Quality</Badge>
               </div>
               <p className="text-2xl font-bold">{stats.quality}%</p>
-              <p className="text-[10px] uppercase font-bold opacity-70">Average Market Score</p>
             </CardContent>
           </Card>
         </div>
@@ -375,7 +342,7 @@ export default function LeadOversightPage() {
               <div className="relative w-full md:w-72">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input 
-                  placeholder="Search lead data..." 
+                  placeholder="Filter results..." 
                   className="pl-9 h-9"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -405,44 +372,35 @@ export default function LeadOversightPage() {
                       <TableCell className="text-right"><Skeleton className="h-8 w-24 ml-auto" /></TableCell>
                     </TableRow>
                   ))
-                ) : filteredLeads.map(lead => (
-                  <TableRow key={lead.id} className={lead.status === 'pending_review' ? 'bg-yellow-50/20' : ''}>
-                    <TableCell>
-                      <p className="font-medium">{lead.category}</p>
-                      <p className="text-xs text-muted-foreground">{lead.location}</p>
-                    </TableCell>
-                    <TableCell>
-                        <p className="text-sm font-medium">{lead.customerName || 'Anonymous'}</p>
-                        <p className="text-[10px] text-muted-foreground">{lead.createdAt?.seconds ? new Date(lead.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}</p>
-                    </TableCell>
-                    <TableCell>
-                      {getStatusBadge(lead.status)}
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant="outline" className="font-mono">{lead.credits || 3} CR</Badge>
-                    </TableCell>
-                    <TableCell className="text-right space-x-1">
-                      <button className="p-2 hover:bg-secondary rounded-full text-muted-foreground" onClick={() => handleOpenLead(lead)}><Eye className="h-4 w-4" /></button>
-                    </TableCell>
+                ) : filteredLeads.length > 0 ? (
+                  filteredLeads.map(lead => (
+                    <TableRow key={lead.id} className={lead.status === 'pending_review' ? 'bg-yellow-50/20' : ''}>
+                      <TableCell>
+                        <p className="font-medium">{lead.category}</p>
+                        <p className="text-xs text-muted-foreground">{lead.location}</p>
+                      </TableCell>
+                      <TableCell>
+                          <p className="text-sm font-medium">{lead.customerName || 'Anonymous'}</p>
+                          <p className="text-[10px] text-muted-foreground">{lead.createdAt?.seconds ? new Date(lead.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}</p>
+                      </TableCell>
+                      <TableCell>
+                        {getStatusBadge(lead.status)}
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="outline" className="font-mono">{lead.credits || 3} CR</Badge>
+                      </TableCell>
+                      <TableCell className="text-right space-x-1">
+                        <button className="p-2 hover:bg-secondary rounded-full text-muted-foreground" onClick={() => handleOpenLead(lead)}><Eye className="h-4 w-4" /></button>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={5} className="h-32 text-center text-muted-foreground italic">No leads found.</TableCell>
                   </TableRow>
-                ))}
+                )}
               </TableBody>
             </Table>
-            
-            {hasMore && (
-                <div className="p-4 border-t flex justify-center">
-                    <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        onClick={() => fetchLeads(false)} 
-                        disabled={loadingMore}
-                        className="text-xs gap-2"
-                    >
-                        {loadingMore ? <Loader2 className="h-4 w-4 animate-spin" /> : <ChevronDown className="h-4 w-4" />}
-                        Load More leads
-                    </Button>
-                </div>
-            )}
           </CardContent>
         </Card>
       </div>
@@ -491,11 +449,7 @@ export default function LeadOversightPage() {
                                     <div className="flex items-center gap-2 text-sm"><Mail className="h-4 w-4 text-muted-foreground" /> <span className="truncate">{privateDetails.customerEmail || 'N/A'}</span></div>
                                 </>
                             ) : (
-                                <>
-                                    <div className="flex items-center gap-2 text-sm"><User className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerName || 'N/A'}</span></div>
-                                    <div className="flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.customerPhone || 'N/A'}</span></div>
-                                    <div className="flex items-center gap-2 text-sm"><Mail className="h-4 w-4 text-muted-foreground" /> <span className="truncate">{viewLead?.customerEmail || 'N/A'}</span></div>
-                                </>
+                                <p className="text-xs text-muted-foreground italic">Details not yet accessed.</p>
                             )}
                         </div>
                     </div>
