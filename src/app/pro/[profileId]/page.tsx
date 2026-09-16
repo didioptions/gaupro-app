@@ -10,7 +10,10 @@ import ProfileDisplay from '@/components/pro/profile-display';
 import type { Professional } from '@/components/pro/profile-display';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent } from '@/components/ui/card';
-import Head from 'next/head';
+
+// Metadata is handled by a separate server component or refined client side if needed.
+// In Next.js App Router, for dynamic routes, we use generateMetadata in a server component.
+// Since this is a client component, we'll keep the layout logic and ensure the parent handles metadata.
 
 function ProfilePageContent() {
   const params = useParams();
@@ -26,7 +29,6 @@ function ProfilePageContent() {
 
   const { data: professionalData, isLoading, error } = useDoc<DocumentData>(professionalDocRef);
 
-  // Fetch real reviews for this professional
   const reviewsQuery = useMemoFirebase(() => {
     if (!firestore || !profileId) return null;
     return query(
@@ -78,11 +80,9 @@ function ProfilePageContent() {
   }
 
   if (error) {
-     const errorMessage = error instanceof Error ? error.message : String(error);
      return (
         <div className="text-center py-20">
             <p className="text-destructive font-bold">Error loading profile</p>
-            <p className="text-sm text-muted-foreground mt-2">{errorMessage}</p>
         </div>
      )
   }
@@ -93,7 +93,6 @@ function ProfilePageContent() {
 
   const singularOrPluralLowercase = serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`;
   
-  // Transform and sanitize description to ensure SEO quality
   let description = professionalData.description || '';
   description = description.replace('{service}', singularOrPluralLowercase);
 
@@ -106,25 +105,8 @@ function ProfilePageContent() {
     serviceCategory: professionalData.serviceCategory || 'Professional Service',
   };
 
-  const canonicalUrl = `https://gaupro.co.za/pro/${profileId}`;
-  const displayCategory = processedProfessional.serviceCategory || 'Service';
-  const pageTitle = `${processedProfessional.name} | ${displayCategory} in ${processedProfessional.location || 'South Africa'} | GauPro`;
-  const metaDescription = `Contact ${processedProfessional.name} for professional ${displayCategory.toLowerCase()} services. Read verified customer reviews and get free quotes on GauPro.`;
-
   return (
-    <>
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={metaDescription} />
-      </Head>
-      <ProfileDisplay professional={processedProfessional} />
-    </>
+    <ProfileDisplay professional={processedProfessional} />
   );
 }
 

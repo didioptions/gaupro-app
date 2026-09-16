@@ -5,9 +5,37 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'Gaupro | Find Trusted Pros for Any Project',
+  metadataBase: new URL('https://www.gaupro.co.za'),
+  title: {
+    default: 'Gaupro | Find Trusted Pros for Any Project in South Africa',
+    template: '%s | Gaupro'
+  },
   description:
-    'Gaupro helps you find trusted local professionals for any service you need. Get quotes, compare, and hire with confidence.',
+    'Gaupro connects you with verified local service professionals across South Africa. Get free quotes for plumbing, electrical, building, and more.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_ZA',
+    url: 'https://www.gaupro.co.za/',
+    siteName: 'Gaupro',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@GauproSA',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({

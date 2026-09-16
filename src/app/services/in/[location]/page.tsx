@@ -1,6 +1,12 @@
 import { allServices } from '@/lib/service-questions';
 import Link from 'next/link';
 import { allLocations } from '@/lib/locations';
+import { Metadata } from 'next';
+import { getLocationLabel } from '@/lib/seo-utils';
+
+interface PageProps {
+  params: { location: string };
+}
 
 export async function generateStaticParams() {
   return allLocations.map((location) => ({
@@ -8,13 +14,24 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServicesByLocationPage({ params }: { params: { location: string } }) {
-  const locationName = params.location.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const l = getLocationLabel(params.location);
+  const title = `Verified Service Professionals in ${l} | Gaupro`;
+  const description = `Find and compare top-rated local professionals in ${l}. From plumbers to accountants, get free quotes from trusted experts in your area.`;
 
-  // Create a Set to store unique labels, then convert back to an array
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://www.gaupro.co.za/services/in/${params.location}`,
+    },
+  };
+}
+
+export default function ServicesByLocationPage({ params }: PageProps) {
+  const locationName = getLocationLabel(params.location);
+
   const uniqueServiceLabels = Array.from(new Set(allServices.map(s => s.label)));
-
-  // Sort the unique labels alphabetically
   const sortedServices = uniqueServiceLabels.sort((a, b) => a.localeCompare(b));
 
   return (

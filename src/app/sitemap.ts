@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { allServices } from '@/lib/services-list';
+import { allLocations } from '@/lib/locations';
 
 /**
  * Generates the sitemap for GauPro South Africa.
@@ -8,8 +9,8 @@ import { allServices } from '@/lib/services-list';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.gaupro.co.za';
 
-  // 1. Static Core Pages
-  const staticRoutes = [
+  // 1. Static Core Pages (Publicly accessible and SEO valuable)
+  const staticPaths = [
     '',
     '/about',
     '/how-it-works',
@@ -17,19 +18,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/contact',
     '/faq',
     '/blog',
-    '/careers',
     '/our-mission',
     '/pro-centre',
     '/pro-success-stories',
     '/trust-and-safety',
     '/browse-leads',
     '/browse-categories',
-    '/pro/signup',
-    '/pro/register',
     '/privacy',
     '/terms',
     '/cookie-policy',
-  ].map((route) => ({
+  ];
+
+  const staticRoutes = staticPaths.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
@@ -44,9 +44,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // 3. Priority Johannesburg Variants (The Lead Machine Strategy)
-  const priorityServices = ['rubble-removal', 'tlb-hire', 'demolition', 'site-clearance', 'swimming-pool-demolition'];
-  const priorityLocations = ['johannesburg', 'sandton', 'randburg', 'roodepoort', 'midrand', 'fourways', 'rosebank', 'bedfordview', 'edenvale', 'germiston', 'boksburg', 'alberton', 'benoni'];
+  // 3. Location Listing Pages
+  const locationRoutes = allLocations.map((loc) => ({
+    url: `${baseUrl}/services/in/${loc.value}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  // 4. Priority Johannesburg Variants (The Lead Machine Strategy)
+  const priorityServices = ['rubble-removal', 'tlb-hire', 'demolition', 'site-clearance', 'swimming-pool-demolition', 'plumber', 'electrician'];
+  const priorityLocations = ['johannesburg', 'sandton', 'randburg', 'roodepoort', 'midrand', 'fourways', 'rosebank', 'bedfordview', 'edenvale', 'germiston', 'alberton', 'benoni'];
   
   const geoTargetedRoutes: MetadataRoute.Sitemap = [];
   priorityServices.forEach(service => {
@@ -55,12 +63,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${baseUrl}/services/${service}?location=${location}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
-        priority: 0.9, // High priority for targeted lead pages
+        priority: 0.9, 
       });
     });
   });
 
-  // 4. Blog Post Routes
+  // 5. Blog Post Routes
   const blogSlugs = [
     'how-to-succeed-on-gaupro',
     'gaupro-difference',
@@ -80,6 +88,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...staticRoutes,
     ...serviceRoutes,
+    ...locationRoutes,
     ...geoTargetedRoutes,
     ...blogRoutes,
   ];
