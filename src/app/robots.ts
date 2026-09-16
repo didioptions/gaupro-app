@@ -16,7 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         '/pro/forgot-password',
         '/pro/reset-password',
         '/api/', // Disallow API routes
-        '/*?*', // Disallow all query strings by default except those handled in sitemap
       ],
     },
     sitemap: 'https://www.gaupro.co.za/sitemap.xml',

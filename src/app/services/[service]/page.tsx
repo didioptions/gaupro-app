@@ -20,8 +20,9 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   const title = `${s} ${l} | Compare Trusted Pros | GauPro`;
   const description = `Compare top-rated ${s.toLowerCase()} companies in ${l}. Get free quotes from verified local professionals, read reviews, and hire with confidence on GauPro.`;
 
-  // CRITICAL: Ensure the canonical URL includes the location query parameter if it exists
-  const canonicalUrl = `https://gaupro.co.za/services/${params.service}${searchParams?.location ? `?location=${searchParams.location}` : ''}`;
+  // Construct absolute canonical URL including the location query parameter if it exists
+  const location = searchParams?.location as string;
+  const canonicalUrl = `https://www.gaupro.co.za/services/${params.service}${location ? `?location=${location}` : ''}`;
 
   return {
     title,
@@ -53,7 +54,7 @@ export default function ServicePage({ params, searchParams }: PageProps) {
     "provider": {
       "@type": "Organization",
       "name": "GauPro",
-      "url": "https://gaupro.co.za"
+      "url": "https://www.gaupro.co.za"
     },
     "areaServed": {
       "@type": "City",
@@ -82,19 +83,19 @@ export default function ServicePage({ params, searchParams }: PageProps) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://gaupro.co.za"
+        "item": "https://www.gaupro.co.za"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": s,
-        "item": `https://gaupro.co.za/services/${params.service}`
+        "item": `https://www.gaupro.co.za/services/${params.service}`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": l,
-        "item": `https://gaupro.co.za/services/${params.service}?location=${searchParams?.location}`
+        "item": `https://www.gaupro.co.za/services/${params.service}?location=${searchParams?.location}`
       }
     ]
   };
