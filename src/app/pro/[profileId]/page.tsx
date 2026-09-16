@@ -10,13 +10,13 @@ interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-async function getProfileData(profileId: string) {
+async function getProfileData(profileId: string): Promise<Professional | null> {
   const { firestore } = initializeFirebase();
   const docRef = doc(firestore, 'professionalProfiles', profileId);
   const snap = await getDoc(docRef);
   
   if (!snap.exists()) return null;
-  return { id: snap.id, ...snap.data() };
+  return { id: snap.id, ...snap.data() } as Professional;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -54,7 +54,7 @@ export default async function ProfessionalProfilePage({ params, searchParams }: 
 
   // Note: Reviews are fetched client-side in the display component for real-time interaction
   const processedProfessional: Professional = {
-    ...(profileData as any),
+    ...profileData,
     id: params.profileId,
     description: description,
     tags: profileData.tags || [singularOrPluralLowercase],
