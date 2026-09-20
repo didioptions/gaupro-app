@@ -16,25 +16,19 @@ import {
     RotateCcw, 
     ShoppingBag, 
     History,
-    MoreVertical
+    Briefcase
 } from 'lucide-react';
 import { CreditAdjustmentDialog } from '@/components/pro/admin/credit-adjustment-dialog';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 
 export default function CreditManagementPage() {
   const firestore = useFirestore();
   const { isUserLoading } = useUser();
   const [searchQuery, setSearchQuery] = useState('');
 
-  // 1. Fetch Professionals for search
+  // 1. Fetch Professionals for search (Limited to 100 for safety, filtered client-side for immediate UX)
   const prosQuery = useMemoFirebase(() => {
     if (!firestore || isUserLoading) return null;
-    return collection(firestore, 'professionalProfiles');
+    return query(collection(firestore, 'professionalProfiles'), limit(100));
   }, [firestore, isUserLoading]);
 
   const { data: professionals, loading: loadingPros } = useCollection<DocumentData>(prosQuery);
@@ -49,18 +43,20 @@ export default function CreditManagementPage() {
 
   const filteredPros = useMemo(() => {
     if (!professionals) return [];
+    const q = searchQuery.toLowerCase();
     return professionals.filter(pro => 
-      pro.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      pro.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      pro.phone?.includes(searchQuery)
-    ).slice(0, 10);
+      pro.name?.toLowerCase().includes(q) ||
+      pro.email?.toLowerCase().includes(q) ||
+      pro.phone?.includes(q) ||
+      pro.businessName?.toLowerCase().includes(q)
+    ).slice(0, 5);
   }, [professionals, searchQuery]);
 
   const stats = useMemo(() => {
     if (!transactions) return { granted: 0, refunded: 0, purchased: 0 };
     return {
-        granted: transactions.filter(t => t.type === 'grant' || t.type === 'promo').reduce((acc, t) => acc + (t.amount || 0), 0),
-        refunded: transactions.filter(t => t.type === 'refund').reduce((acc, t) => acc + (t.amount || 0), 0),
+        granted: transactions.filter(t => t.type?.includes('grant') || t.type?.includes('promo')).reduce((acc, t) => acc + (t.amount || 0), 0),
+        refunded: transactions.filter(t => t.type?.includes('refund')).reduce((acc, t) => acc + (t.amount || 0), 0),
         purchased: transactions.filter(t => t.type === 'purchase').reduce((acc, t) => acc + (t.amount || 0), 0),
     }
   }, [transactions]);
@@ -74,8 +70,8 @@ export default function CreditManagementPage() {
     <div className="py-12 md:py-16 bg-secondary/30 min-h-screen">
       <div className="container mx-auto px-4 max-w-6xl">
         <header className="mb-10">
-          <h1 className="text-3xl font-bold tracking-tight">Credit Management</h1>
-          <p className="text-muted-foreground mt-2">Monitor marketplace liquidity and adjust professional balances.</p>
+          <h1 className="text-3xl font-bold tracking-tight">Financials & Credits</h1>
+          <p className="text-muted-foreground mt-2">Manage professional liquidity and manual adjustments.</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
@@ -110,10 +106,10 @@ export default function CreditManagementPage() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
                 <Wallet className="h-5 w-5 opacity-80" />
-                <Badge variant="outline" className="text-white border-white/30">Liability</Badge>
+                <Badge variant="outline" className="text-white border-white/30">Platform Pool</Badge>
               </div>
               <p className="text-2xl font-bold">{outstandingCredits}</p>
-              <p className="text-[10px] uppercase font-bold opacity-70">Credits Outstanding</p>
+              <p className="text-[10px] uppercase font-bold opacity-70">Total User Credits</p>
             </CardContent>
           </Card>
         </div>
@@ -123,11 +119,11 @@ export default function CreditManagementPage() {
                 <Card>
                     <CardHeader className="border-b">
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <CardTitle className="text-xl">Search Professionals</CardTitle>
+                            <CardTitle className="text-xl">Manual Adjustment</CardTitle>
                             <div className="relative w-full md:w-72">
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                 <Input 
-                                    placeholder="Name, Email, or Phone..." 
+                                    placeholder="Search Name, Email, or Phone..." 
                                     className="pl-9 h-9"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -140,7 +136,7 @@ export default function CreditManagementPage() {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead>Professional / Business</TableHead>
-                                    <TableHead>Current Balance</TableHead>
+                                    <TableHead>Balance</TableHead>
                                     <TableHead className="text-right">Action</TableHead>
                                 </TableRow>
                             </TableHeader>
@@ -165,7 +161,7 @@ export default function CreditManagementPage() {
                                             </TableCell>
                                             <TableCell className="text-right">
                                                 <CreditAdjustmentDialog professional={pro}>
-                                                    <Button size="sm" variant="outline">Adjust</Button>
+                                                    <Button size="sm" variant="outline">Adjust Credits</Button>
                                                 </CreditAdjustmentDialog>
                                             </TableCell>
                                         </TableRow>
@@ -173,7 +169,7 @@ export default function CreditManagementPage() {
                                 ) : (
                                     <TableRow>
                                         <TableCell colSpan={3} className="h-32 text-center text-muted-foreground italic">
-                                            Type in the search box to find a professional.
+                                            Search for a professional to adjust their balance.
                                         </TableCell>
                                     </TableRow>
                                 )}
@@ -186,7 +182,7 @@ export default function CreditManagementPage() {
                     <CardHeader className="border-b">
                         <CardTitle className="flex items-center gap-2">
                             <History className="h-5 w-5 text-muted-foreground" />
-                            Recent Credit Activity
+                            Recent Transaction History
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="p-0">
@@ -195,33 +191,39 @@ export default function CreditManagementPage() {
                                 <TableRow>
                                     <TableHead>Type</TableHead>
                                     <TableHead>Amount</TableHead>
-                                    <TableHead>Professional ID</TableHead>
+                                    <TableHead>Professional</TableHead>
+                                    <TableHead>Balance Map</TableHead>
                                     <TableHead>Date</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
                                 {loadingTx ? (
                                     Array.from({ length: 5 }).map((_, i) => (
-                                        <TableRow key={i}><TableCell colSpan={4}><Skeleton className="h-4 w-full" /></TableCell></TableRow>
+                                        <TableRow key={i}><TableCell colSpan={5}><Skeleton className="h-4 w-full" /></TableCell></TableRow>
                                     ))
                                 ) : transactions?.length > 0 ? (
                                     transactions.map(tx => (
                                         <TableRow key={tx.id}>
                                             <TableCell className="capitalize">
                                                 <Badge variant={tx.amount > 0 ? 'default' : 'destructive'} className="text-[10px] py-0">
-                                                    {tx.type}
+                                                    {tx.type?.replace('admin_', '')}
                                                 </Badge>
                                             </TableCell>
                                             <TableCell className={`font-mono font-bold ${tx.amount > 0 ? 'text-green-600' : 'text-red-600'}`}>
                                                 {tx.amount > 0 ? '+' : ''}{tx.amount}
                                             </TableCell>
-                                            <TableCell className="text-xs font-mono">{tx.proUid.substring(0, 8)}...</TableCell>
-                                            <TableCell className="text-xs text-muted-foreground">{new Date(tx.timestamp).toLocaleDateString()}</TableCell>
+                                            <TableCell>
+                                                <p className="text-xs font-medium truncate max-w-[120px]">{tx.proName || 'Unknown'}</p>
+                                            </TableCell>
+                                            <TableCell className="text-[10px] font-mono text-muted-foreground">
+                                                {tx.previousBalance} → {tx.newBalance}
+                                            </TableCell>
+                                            <TableCell className="text-[10px] text-muted-foreground">{new Date(tx.timestamp).toLocaleDateString()}</TableCell>
                                         </TableRow>
                                     ))
                                 ) : (
                                     <TableRow>
-                                        <TableCell colSpan={4} className="h-32 text-center text-muted-foreground">No recent transactions.</TableCell>
+                                        <TableCell colSpan={5} className="h-32 text-center text-muted-foreground">No recent transactions found.</TableCell>
                                     </TableRow>
                                 )}
                             </TableBody>
@@ -231,15 +233,15 @@ export default function CreditManagementPage() {
             </div>
 
             <aside className="space-y-6">
-                <Card className="bg-yellow-50 border-yellow-200">
+                <Card className="bg-blue-50 border-blue-200">
                     <CardHeader>
-                        <CardTitle className="text-sm font-bold text-yellow-800 uppercase tracking-wider">Policy reminder</CardTitle>
+                        <CardTitle className="text-sm font-bold text-blue-800 uppercase tracking-wider">Adjustment Policy</CardTitle>
                     </CardHeader>
-                    <CardContent className="text-xs text-yellow-700 leading-relaxed space-y-2">
-                        <p>• Only grant credits for valid support issues or approved marketing campaigns.</p>
-                        <p>• Refunds must be accompanied by a valid Lead Dispute reference.</p>
-                        <p>• All adjustments are logged and visible to the Super Admin.</p>
-                        <p>• Professionals are notified immediately of any manual balance changes.</p>
+                    <CardContent className="text-xs text-blue-700 leading-relaxed space-y-3">
+                        <p>• Adjustments are atomic and secure. Every change creates a transaction and an audit log entry.</p>
+                        <p>• <strong>Grants & Promos</strong>: Use for onboarding bonuses or goodwill compensations.</p>
+                        <p>• <strong>Refunds</strong>: Use for valid lead disputes where credits were spent on invalid contact details.</p>
+                        <p>• <strong>Deductions</strong>: Use only to correct accounting errors or accidental over-grants.</p>
                     </CardContent>
                 </Card>
             </aside>

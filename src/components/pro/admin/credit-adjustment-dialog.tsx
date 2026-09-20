@@ -23,7 +23,7 @@ import {
 import { useUser } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Wallet, Plus, Minus, RotateCcw, Gift, Loader2 } from 'lucide-react';
+import { Wallet, Plus, Minus, RotateCcw, Gift, Loader2, ArrowRight } from 'lucide-react';
 
 interface CreditAdjustmentDialogProps {
   professional: any;
@@ -41,11 +41,15 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
   const { toast } = useToast();
   const db = getFirestore();
 
+  const currentBalance = professional.creditBalance || 0;
+  const numAmount = parseInt(amount) || 0;
+  const finalAdjustment = (type === 'deduction') ? -numAmount : numAmount;
+  const predictedBalance = Math.max(0, currentBalance + finalAdjustment);
+
   const handleAdjustment = async () => {
     if (!adminUser || !amount || !reason) return;
     
-    const numAmount = parseInt(amount);
-    if (isNaN(numAmount) || numAmount <= 0) {
+    if (numAmount <= 0) {
         toast({ variant: 'destructive', title: 'Invalid Amount', description: 'Please enter a positive number.' });
         return;
     }
@@ -56,27 +60,32 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
       const proRef = doc(db, 'professionalProfiles', professional.id);
       const notificationRef = collection(db, 'users', professional.userId, 'notifications');
       
-      const finalAdjustment = (type === 'deduction') ? -numAmount : numAmount;
-
       await runTransaction(db, async (transaction) => {
         const proDoc = await transaction.get(proRef);
         if (!proDoc.exists()) throw new Error("Professional profile not found.");
 
-        const currentBalance = proDoc.data().creditBalance || 0;
-        const newBalance = currentBalance + finalAdjustment;
+        const balanceBefore = proDoc.data().creditBalance || 0;
+        const balanceAfter = balanceBefore + finalAdjustment;
 
-        if (newBalance < 0) throw new Error("Insufficient balance for this deduction.");
+        if (balanceAfter < 0) throw new Error("Insufficient balance for this deduction.");
 
         // 1. Update Profile Balance
-        transaction.update(proRef, { creditBalance: newBalance });
+        transaction.update(proRef, { 
+            creditBalance: balanceAfter,
+            updatedAt: serverTimestamp() 
+        });
 
-        // 2. Create Transaction Record
+        // 2. Create Transaction Record (Enriched for Admin visibility)
         const txRef = doc(collection(db, 'transactions'));
         transaction.set(txRef, {
             proUid: professional.userId,
+            proName: professional.name,
             adminUid: adminUser.uid,
-            type,
+            adminEmail: adminUser.email,
+            type: `admin_${type}`,
             amount: finalAdjustment,
+            previousBalance: balanceBefore,
+            newBalance: balanceAfter,
             reason,
             timestamp: new Date().toISOString()
         });
@@ -91,24 +100,27 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
             createdAt: serverTimestamp()
         });
 
-        // 4. Create Atomic Audit Log Entry (Harden Security)
+        // 4. Create Atomic Audit Log Entry
         const logRef = doc(collection(db, 'admin_logs'));
         transaction.set(logRef, {
             adminUid: adminUser.uid,
             adminEmail: adminUser.email,
-            action: 'ADJUST_CREDITS',
+            action: 'MANUAL_CREDIT_ADJUST',
+            targetId: professional.userId,
             metadata: {
-                proUid: professional.userId,
+                proName: professional.name,
                 type,
-                amount: finalAdjustment,
+                adjustment: finalAdjustment,
+                balanceBefore,
+                balanceAfter,
                 reason
             },
             timestamp: serverTimestamp(),
-            path: window.location.pathname,
+            path: '/pro/admin/credits',
         });
       });
 
-      toast({ title: 'Success', description: `Balance adjusted by ${finalAdjustment} credits.` });
+      toast({ title: 'Success', description: `Balance updated for ${professional.name}.` });
       setIsOpen(false);
       setReason('');
     } catch (error: any) {
@@ -139,9 +151,18 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
         </DialogHeader>
 
         <div className="space-y-6 py-4">
-          <div className="p-4 bg-secondary/30 rounded-lg flex justify-between items-center">
-              <p className="text-sm font-medium">Current Balance</p>
-              <p className="text-2xl font-bold text-primary">{professional.creditBalance || 0}</p>
+          <div className="grid grid-cols-3 gap-4">
+              <div className="p-3 bg-secondary/50 rounded-lg text-center">
+                  <p className="text-[10px] uppercase font-bold text-muted-foreground">Current</p>
+                  <p className="text-xl font-bold">{currentBalance}</p>
+              </div>
+              <div className="flex items-center justify-center">
+                  <ArrowRight className="text-muted-foreground" />
+              </div>
+              <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg text-center">
+                  <p className="text-[10px] uppercase font-bold text-primary">New Balance</p>
+                  <p className="text-xl font-bold text-primary">{predictedBalance}</p>
+              </div>
           </div>
 
           <div className="space-y-2">
@@ -152,8 +173,8 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="grant">Add Credits (Grant)</SelectItem>
-                <SelectItem value="promo">Promotional Credits</SelectItem>
-                <SelectItem value="refund">Refund Credits</SelectItem>
+                <SelectItem value="promo">Promotional Bonus</SelectItem>
+                <SelectItem value="refund">Manual Refund</SelectItem>
                 <SelectItem value="deduction">Deduct Credits (Correction)</SelectItem>
               </SelectContent>
             </Select>
@@ -166,13 +187,14 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
                 value={amount} 
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="e.g. 10"
+                min="1"
             />
           </div>
 
           <div className="space-y-2">
-            <Label>Reason for adjustment</Label>
+            <Label>Reason / Audit Note</Label>
             <Textarea 
-                placeholder="e.g. Refund for invalid lead #1234" 
+                placeholder="Explain the reason for this manual adjustment..." 
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
             />
@@ -183,11 +205,11 @@ export function CreditAdjustmentDialog({ professional, children }: CreditAdjustm
           <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
           <Button 
             onClick={handleAdjustment} 
-            disabled={isProcessing || !reason || !amount}
+            disabled={isProcessing || !reason || numAmount <= 0}
             className={type === 'deduction' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'}
           >
             {isProcessing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : getIcon()}
-            Confirm {type.charAt(0).toUpperCase() + type.slice(1)}
+            Apply {numAmount} Credits
           </Button>
         </DialogFooter>
       </DialogContent>
