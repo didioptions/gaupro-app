@@ -113,7 +113,7 @@ export default function ProLoginPage() {
       let message = 'Could not sign in with Google.';
       
       if (error.code === 'auth/unauthorized-domain') {
-        message = 'The domain is not authorized for Google Sign-In. Please ensure gaupro.co.za is added to Authorized Domains in your Firebase Console.';
+        message = 'The domain is not authorized. Please ensure you have clicked "Save" in the Firebase Google Provider settings after selecting a support email.';
       } else if (error.code === 'auth/popup-blocked') {
         message = 'The sign-in popup was blocked by your browser. Please allow popups for this site.';
       } else if (error.message) {
