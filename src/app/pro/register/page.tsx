@@ -89,6 +89,7 @@ export default function ProRegisterPage() {
       const userRef = doc(firestore, 'users', loggedUser.uid);
       const userSnap = await getDoc(userRef);
 
+      // Provision account documents if this is a first-time sign-in for this Google account
       if (!userSnap.exists()) {
         const now = serverTimestamp();
         await setDoc(userRef, {
@@ -124,7 +125,9 @@ export default function ProRegisterPage() {
       let message = 'Could not sign in with Google.';
       
       if (error.code === 'auth/unauthorized-domain') {
-        message = 'The domain is not authorized for Google Sign-In. Please add gaupro.co.za to your Firebase Console Authorized Domains.';
+        message = 'The domain is not authorized for Google Sign-In. Please ensure gaupro.co.za is added to Authorized Domains in your Firebase Console.';
+      } else if (error.code === 'auth/popup-blocked') {
+        message = 'The sign-in popup was blocked by your browser. Please allow popups for this site.';
       } else if (error.message) {
         message = error.message;
       }
