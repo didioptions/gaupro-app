@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
-import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collection, query, orderBy, limit, DocumentData } from 'firebase/firestore';
+import React, { useMemo, useState, useEffect } from 'react';
+import { useFirestore, useUser } from '@/firebase';
+import { collection, query, orderBy, limit, DocumentData, onSnapshot } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
@@ -16,7 +16,7 @@ import {
     RotateCcw, 
     ShoppingBag, 
     History,
-    Briefcase
+    Loader2
 } from 'lucide-react';
 import { CreditAdjustmentDialog } from '@/components/pro/admin/credit-adjustment-dialog';
 
@@ -24,22 +24,28 @@ export default function CreditManagementPage() {
   const firestore = useFirestore();
   const { isUserLoading } = useUser();
   const [searchQuery, setSearchQuery] = useState('');
+  const [professionals, setProfessionals] = useState<DocumentData[]>([]);
+  const [transactions, setTransactions] = useState<DocumentData[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // 1. Fetch Professionals for search (Limited to 100 for safety, filtered client-side for immediate UX)
-  const prosQuery = useMemoFirebase(() => {
-    if (!firestore || isUserLoading) return null;
-    return query(collection(firestore, 'professionalProfiles'), limit(100));
+  // Real-time synchronization for Professionals and Transactions
+  useEffect(() => {
+    if (!firestore || isUserLoading) return;
+
+    const prosUnsubscribe = onSnapshot(query(collection(firestore, 'professionalProfiles'), limit(100)), (snap) => {
+      setProfessionals(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+      setLoading(false);
+    });
+
+    const txUnsubscribe = onSnapshot(query(collection(firestore, 'transactions'), orderBy('timestamp', 'desc'), limit(20)), (snap) => {
+      setTransactions(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+    });
+
+    return () => {
+      prosUnsubscribe();
+      txUnsubscribe();
+    };
   }, [firestore, isUserLoading]);
-
-  const { data: professionals, loading: loadingPros } = useCollection<DocumentData>(prosQuery);
-
-  // 2. Fetch Recent Transactions
-  const txQuery = useMemoFirebase(() => {
-    if (!firestore || isUserLoading) return null;
-    return query(collection(firestore, 'transactions'), orderBy('timestamp', 'desc'), limit(20));
-  }, [firestore, isUserLoading]);
-
-  const { data: transactions, loading: loadingTx } = useCollection<DocumentData>(txQuery);
 
   const filteredPros = useMemo(() => {
     if (!professionals) return [];
@@ -53,7 +59,6 @@ export default function CreditManagementPage() {
   }, [professionals, searchQuery]);
 
   const stats = useMemo(() => {
-    if (!transactions) return { granted: 0, refunded: 0, purchased: 0 };
     return {
         granted: transactions.filter(t => t.type?.includes('grant') || t.type?.includes('promo')).reduce((acc, t) => acc + (t.amount || 0), 0),
         refunded: transactions.filter(t => t.type?.includes('refund')).reduce((acc, t) => acc + (t.amount || 0), 0),
@@ -62,7 +67,6 @@ export default function CreditManagementPage() {
   }, [transactions]);
 
   const outstandingCredits = useMemo(() => {
-      if (!professionals) return 0;
       return professionals.reduce((acc, pro) => acc + (pro.creditBalance || 0), 0);
   }, [professionals]);
 
@@ -141,7 +145,7 @@ export default function CreditManagementPage() {
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {loadingPros ? (
+                                {loading ? (
                                     Array.from({ length: 3 }).map((_, i) => (
                                         <TableRow key={i}>
                                             <TableCell><Skeleton className="h-4 w-32" /></TableCell>
@@ -197,7 +201,7 @@ export default function CreditManagementPage() {
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {loadingTx ? (
+                                {loading ? (
                                     Array.from({ length: 5 }).map((_, i) => (
                                         <TableRow key={i}><TableCell colSpan={5}><Skeleton className="h-4 w-full" /></TableCell></TableRow>
                                     ))
