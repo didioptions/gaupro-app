@@ -1,5 +1,3 @@
-'use client';
-
 import { initializeApp, getApps, getApp, type FirebaseApp } from 'firebase/app';
 import { getAuth, type Auth } from 'firebase/auth';
 import { getFirestore, type Firestore } from 'firebase/firestore';
@@ -24,8 +22,8 @@ interface FirebaseServices {
 let firebaseServices: FirebaseServices | null = null;
 
 /**
- * Initializes Firebase on the client-side and returns the services.
- * This function is idempotent, ensuring Firebase is only initialized once.
+ * Initializes Firebase and returns the services.
+ * This function is idempotent, ensuring Firebase is only initialized once per environment.
  */
 export function initializeFirebase(): FirebaseServices {
   if (firebaseServices) {

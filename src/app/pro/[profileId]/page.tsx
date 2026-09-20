@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getFirestore, doc, getDoc, collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { initializeFirebase } from '@/firebase';
 import ProfileDisplay from '@/components/pro/profile-display';
 import type { Professional } from '@/components/pro/profile-display';
@@ -11,16 +11,23 @@ interface PageProps {
 }
 
 async function getProfileData(profileId: string): Promise<Professional | null> {
+  // Ensure we use the shared initialization logic
   const { firestore } = initializeFirebase();
   const docRef = doc(firestore, 'professionalProfiles', profileId);
-  const snap = await getDoc(docRef);
   
-  if (!snap.exists()) return null;
-  return { id: snap.id, ...snap.data() } as Professional;
+  try {
+    const snap = await getDoc(docRef);
+    if (!snap.exists()) return null;
+    return { id: snap.id, ...snap.data() } as Professional;
+  } catch (error) {
+    console.error("Error fetching profile data on server:", error);
+    return null;
+  }
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
   const { profileId } = await params;
+  const sParams = await searchParams;
   const profile = await getProfileData(profileId);
   
   if (!profile) {
@@ -32,8 +39,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const location = profile.location || 'South Africa';
 
   return {
-    title: `${name} | ${category} in ${location} | GauPro`,
-    description: `View profile, reviews, and portfolio for ${name}, a verified ${category.toLowerCase()} in ${location} on GauPro.`,
+    title: `${name} | ${category} in ${location} | Gaupro`,
+    description: `View profile, reviews, and portfolio for ${name}, a verified ${category.toLowerCase()} in ${location} on Gaupro.`,
     alternates: {
       canonical: `https://www.gaupro.co.za/pro/${profileId}`,
     },
@@ -49,6 +56,7 @@ export default async function ProfessionalProfilePage({ params, searchParams }: 
     notFound();
   }
 
+  // Handle dynamic service context for personalization
   const serviceQuery = (sParams.service as string) || 'general services';
   const singularOrPluralLowercase = serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`;
   
@@ -60,7 +68,7 @@ export default async function ProfessionalProfilePage({ params, searchParams }: 
     id: profileId,
     description: description,
     tags: profileData.tags || [singularOrPluralLowercase],
-    reviewData: [],
+    reviewData: profileData.reviewData || [],
     serviceCategory: profileData.serviceCategory || 'Professional Service',
   };
 
