@@ -6,8 +6,8 @@ import ProfileDisplay from '@/components/pro/profile-display';
 import type { Professional } from '@/components/pro/profile-display';
 
 interface PageProps {
-  params: { profileId: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ profileId: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 async function getProfileData(profileId: string): Promise<Professional | null> {
@@ -20,7 +20,8 @@ async function getProfileData(profileId: string): Promise<Professional | null> {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const profile = await getProfileData(params.profileId);
+  const { profileId } = await params;
+  const profile = await getProfileData(profileId);
   
   if (!profile) {
     return { title: 'Professional Not Found' };
@@ -34,31 +35,32 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${name} | ${category} in ${location} | GauPro`,
     description: `View profile, reviews, and portfolio for ${name}, a verified ${category.toLowerCase()} in ${location} on GauPro.`,
     alternates: {
-      canonical: `https://www.gaupro.co.za/pro/${params.profileId}`,
+      canonical: `https://www.gaupro.co.za/pro/${profileId}`,
     },
   };
 }
 
 export default async function ProfessionalProfilePage({ params, searchParams }: PageProps) {
-  const profileData = await getProfileData(params.profileId);
+  const { profileId } = await params;
+  const sParams = await searchParams;
+  const profileData = await getProfileData(profileId);
 
   if (!profileData) {
     notFound();
   }
 
-  const serviceQuery = (searchParams.service as string) || 'general services';
+  const serviceQuery = (sParams.service as string) || 'general services';
   const singularOrPluralLowercase = serviceQuery.endsWith('s') ? serviceQuery.toLowerCase() : `${serviceQuery.toLowerCase()}s`;
   
   let description = profileData.description || '';
   description = description.replace('{service}', singularOrPluralLowercase);
 
-  // Note: Reviews are fetched client-side in the display component for real-time interaction
   const processedProfessional: Professional = {
     ...profileData,
-    id: params.profileId,
+    id: profileId,
     description: description,
     tags: profileData.tags || [singularOrPluralLowercase],
-    reviewData: [], // Initial empty, client component fetches full data
+    reviewData: [],
     serviceCategory: profileData.serviceCategory || 'Professional Service',
   };
 

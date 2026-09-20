@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 import { getLocationLabel } from '@/lib/seo-utils';
 
 interface PageProps {
-  params: { location: string };
+  params: Promise<{ location: string }>;
 }
 
 export async function generateStaticParams() {
@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const l = getLocationLabel(params.location);
+  const { location } = await params;
+  const l = getLocationLabel(location);
   const title = `Verified Service Professionals in ${l} | Gaupro`;
   const description = `Find and compare top-rated local professionals in ${l}. From plumbers to accountants, get free quotes from trusted experts in your area.`;
 
@@ -23,13 +24,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     alternates: {
-      canonical: `https://www.gaupro.co.za/services/in/${params.location}`,
+      canonical: `https://www.gaupro.co.za/services/in/${location}`,
     },
   };
 }
 
-export default function ServicesByLocationPage({ params }: PageProps) {
-  const locationName = getLocationLabel(params.location);
+export default async function ServicesByLocationPage({ params }: PageProps) {
+  const { location } = await params;
+  const locationName = getLocationLabel(location);
 
   const uniqueServiceLabels = Array.from(new Set(allServices.map(s => s.label)));
   const sortedServices = uniqueServiceLabels.sort((a, b) => a.localeCompare(b));
@@ -47,7 +49,7 @@ export default function ServicesByLocationPage({ params }: PageProps) {
                 <div className="columns-2 md:columns-4 gap-x-8">
                     {sortedServices.map((serviceLabel) => {
                         const service = allServices.find(s => s.label === serviceLabel);
-                        const href = service ? `/services/${service.value}?location=${params.location}` : '#';
+                        const href = service ? `/services/${service.value}?location=${location}` : '#';
                         return (
                             <Link key={serviceLabel} href={href} className="block text-sm text-foreground hover:text-primary py-1.5">
                                 {serviceLabel}

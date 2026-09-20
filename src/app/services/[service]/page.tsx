@@ -4,8 +4,8 @@ import { getServiceLabel, getLocationLabel, generateFAQs } from '@/lib/seo-utils
 import { Metadata } from 'next';
 
 interface PageProps {
-  params: { service: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ service: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateStaticParams() {
@@ -15,14 +15,15 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
-  const s = getServiceLabel(params.service);
-  const l = getLocationLabel(searchParams?.location as string);
+  const { service } = await params;
+  const sParams = await searchParams;
+  const s = getServiceLabel(service);
+  const l = getLocationLabel(sParams?.location as string);
   const title = `${s} ${l} | Compare Trusted Pros | GauPro`;
   const description = `Compare top-rated ${s.toLowerCase()} companies in ${l}. Get free quotes from verified local professionals, read reviews, and hire with confidence on GauPro.`;
 
-  // Construct absolute canonical URL including the location query parameter if it exists
-  const location = searchParams?.location as string;
-  const canonicalUrl = `https://www.gaupro.co.za/services/${params.service}${location ? `?location=${location}` : ''}`;
+  const location = sParams?.location as string;
+  const canonicalUrl = `https://www.gaupro.co.za/services/${service}${location ? `?location=${location}` : ''}`;
 
   return {
     title,
@@ -41,10 +42,12 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   };
 }
 
-export default function ServicePage({ params, searchParams }: PageProps) {
-  const s = getServiceLabel(params.service);
-  const l = getLocationLabel(searchParams?.location as string);
-  const faqs = generateFAQs(params.service, searchParams?.location as string);
+export default async function ServicePage({ params, searchParams }: PageProps) {
+  const { service } = await params;
+  const sParams = await searchParams;
+  const s = getServiceLabel(service);
+  const l = getLocationLabel(sParams?.location as string);
+  const faqs = generateFAQs(service, sParams?.location as string);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -89,13 +92,13 @@ export default function ServicePage({ params, searchParams }: PageProps) {
         "@type": "ListItem",
         "position": 2,
         "name": s,
-        "item": `https://www.gaupro.co.za/services/${params.service}`
+        "item": `https://www.gaupro.co.za/services/${service}`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": l,
-        "item": `https://www.gaupro.co.za/services/${params.service}?location=${searchParams?.location}`
+        "item": `https://www.gaupro.co.za/services/${service}?location=${sParams?.location}`
       }
     ]
   };
@@ -114,7 +117,7 @@ export default function ServicePage({ params, searchParams }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      <ServicePageClient params={params} searchParams={searchParams} />
+      <ServicePageClient params={{ service }} searchParams={sParams} />
     </>
   );
 }
