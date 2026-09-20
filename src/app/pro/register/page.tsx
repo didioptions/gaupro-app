@@ -86,7 +86,6 @@ export default function ProRegisterPage() {
       const result = await signInWithPopup(auth, provider);
       const loggedUser = result.user;
 
-      // Check if user document exists
       const userRef = doc(firestore, 'users', loggedUser.uid);
       const userSnap = await getDoc(userRef);
 
@@ -122,10 +121,18 @@ export default function ProRegisterPage() {
       router.push('/pro/dashboard');
     } catch (error: any) {
       console.error('Google Sign-In failed:', error);
+      let message = 'Could not sign in with Google.';
+      
+      if (error.code === 'auth/unauthorized-domain') {
+        message = 'The domain is not authorized for Google Sign-In. Please add gaupro.co.za to your Firebase Console Authorized Domains.';
+      } else if (error.message) {
+        message = error.message;
+      }
+
       toast({
         variant: 'destructive',
         title: 'Sign-In Failed',
-        description: error.message || 'Could not sign in with Google.',
+        description: message,
       });
     } finally {
       setIsGoogleLoading(false);
