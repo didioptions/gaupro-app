@@ -109,14 +109,30 @@ export default function LeadOversightPage() {
   }, [leads]);
 
   const filteredLeads = useMemo(() => {
-    return leads.filter(l => 
-      l.category?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      l.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      l.location?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      l.suburb?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      l.customerName?.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const q = searchQuery.toLowerCase();
+    return leads.filter(l => {
+      // Bulletproof search filtering: ensure we always call .includes on a string
+      const category = (l.category?.toLowerCase() ?? '');
+      const description = (l.description?.toLowerCase() ?? '');
+      const location = (l.location?.toLowerCase() ?? '');
+      const suburb = (l.suburb?.toLowerCase() ?? '');
+      const customerName = (l.customerName?.toLowerCase() ?? '');
+
+      return category.includes(q) ||
+             description.includes(q) ||
+             location.includes(q) ||
+             suburb.includes(q) ||
+             customerName.includes(q);
+    });
   }, [leads, searchQuery]);
+
+  const formatLocation = (lead: any) => {
+    if (!lead) return 'Unknown';
+    if (lead.suburb || lead.city) {
+      return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
+    }
+    return lead.location || 'Unknown';
+  };
 
   const handleOpenLead = async (lead: any) => {
     setViewLead(lead);
@@ -203,14 +219,15 @@ export default function LeadOversightPage() {
                     const proAreas = (pro.serviceAreas || []).map((a: string) => a.toLowerCase());
                     const leadLocSlug = currentLead.locationSlug?.toLowerCase();
 
-                    const isCityLevelMatch = proCity && (proCity === leadLocSlug || cityExpansionMap[proCity]?.includes(leadLocSlug));
-                    const isSuburbLevelMatch = proSuburb === leadLocSlug || proAreas.includes(leadLocSlug);
+                    // Defensive checks for match logic
+                    const isCityLevelMatch = proCity && leadLocSlug && (proCity === leadLocSlug || (cityExpansionMap[proCity] && cityExpansionMap[proCity].includes(leadLocSlug)));
+                    const isSuburbLevelMatch = leadLocSlug && (proSuburb === leadLocSlug || proAreas.includes(leadLocSlug));
 
                     if (isCityLevelMatch || isSuburbLevelMatch) {
                         const notifRef = doc(collection(firestore, 'users', pro.userId, 'notifications'));
                         batch.set(notifRef, {
                             title: 'New Lead Match',
-                            message: `A new ${currentLead.category} job is available in ${currentLead.location}. View details to quote.`,
+                            message: `A new ${currentLead.category} job is available in ${formatLocation(currentLead)}. View details to quote.`,
                             type: 'lead',
                             status: 'unread',
                             createdAt: serverTimestamp(),
@@ -229,7 +246,7 @@ export default function LeadOversightPage() {
                                     proEmail: pro.email,
                                     leadId: leadId,
                                     serviceName: currentLead.category,
-                                    location: currentLead.location,
+                                    location: formatLocation(currentLead),
                                     when: currentLead.dateNeeded,
                                     creditCost: currentLead.credits || 3,
                                     leadRequirements: currentLead.description,
@@ -288,13 +305,6 @@ export default function LeadOversightPage() {
           case 'needs_info': return <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">Needs Info</Badge>;
           default: return <Badge variant="outline">{status}</Badge>;
       }
-  };
-
-  const formatLocation = (lead: any) => {
-    if (lead.suburb || lead.city) {
-      return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
-    }
-    return lead.location || 'Unknown';
   };
 
   return (
