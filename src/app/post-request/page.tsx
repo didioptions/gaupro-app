@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, X, Loader2 } from 'lucide-react';
@@ -52,6 +52,9 @@ function PostRequestContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   
+  // Idempotency Key: Generated once per form session to prevent duplicates
+  const [submissionId, setSubmissionId] = useState<string | null>(null);
+  
   const initialLocationLabel = allLocations.find(l => l.value === locationQuery)?.label || locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const [locationLabel, setLocationLabel] = useState(initialLocationLabel);
   const [locationSlug, setLocationSlug] = useState(locationQuery);
@@ -66,9 +69,22 @@ function PostRequestContent() {
       const label = location?.label || initialLocationLabel;
       setLocationLabel(label);
       setLocationSlug(locationQuery);
-      setFormData(prev => ({ ...prev, suburb: label, city: '' }));
+      // Pre-fill location but don't overwrite if user has already interacted
+      setFormData(prev => ({ 
+        ...prev, 
+        suburb: prev.suburb || label, 
+        city: prev.city || '' 
+      }));
     }
   }, [serviceQuery, locationQuery, initialLocationLabel]);
+
+  // Generate a submission ID when the user reaches the final step to ensure idempotency
+  useEffect(() => {
+    const totalStepsNeeded = (serviceQuestionSets.find((qs) => qs.service === selectedService)?.questions.length || 0) + 1;
+    if (step === totalStepsNeeded && !submissionId) {
+      setSubmissionId(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+    }
+  }, [step, selectedService, submissionId]);
 
   const questionSet =
     serviceQuestionSets.find((qs) => qs.service === selectedService) ||
@@ -124,17 +140,26 @@ function PostRequestContent() {
         return;
     }
 
-    if (!db) return;
+    if (!db || !submissionId) return;
 
     setIsSubmitting(true);
 
-    const leadId = Math.random().toString(36).substring(7);
     const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
     
+    // Structured Location Priority
+    const suburb = (formData.suburb as string) || '';
+    const city = (formData.city as string) || '';
+    const province = (formData.province as string) || 'Gauteng'; // Default to Gauteng for JHB Lead Machine focus
+    
+    const displayLocation = [suburb, city, province].filter(Boolean).join(', ') || locationLabel || "Unknown";
+
     const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: (formData.job_details as string) || "No description provided",
-        location: (formData.suburb as string) || (formData.city as string) || locationLabel || "Unknown",
+        location: displayLocation, // Full string for legacy support
+        suburb: suburb,
+        city: city,
+        province: province,
         locationSlug: locationSlug || "unknown",
         dateNeeded: formData.urgency === 'specific_date' ? (formData.urgency_date instanceof Date ? formData.urgency_date.toISOString() : String(formData.urgency_date)) : (formData.urgency || "Flexible"),
         status: isAdmin ? 'approved' : 'pending_review',
@@ -143,7 +168,8 @@ function PostRequestContent() {
         userId: user?.uid || 'guest',
         credits: 3,
         purchasers: [],
-        quoteCount: 0
+        quoteCount: 0,
+        idempotencyKey: submissionId
     };
 
     const privateData = {
@@ -154,11 +180,14 @@ function PostRequestContent() {
         contactTime: formData.contactTime || 'anytime',
         createdAt: serverTimestamp(),
         userId: user?.uid || 'guest',
+        submissionId: submissionId
     };
 
     try {
-        await setDoc(doc(db, 'leads_public', leadId), publicData);
-        await setDoc(doc(db, 'leads_private', leadId), privateData);
+        // Use submissionId as the Doc ID to ensure idempotency. 
+        // Subsequent calls with the same submissionId (double clicks/retries) will not create duplicates.
+        await setDoc(doc(db, 'leads_public', submissionId), publicData);
+        await setDoc(doc(db, 'leads_private', submissionId), privateData);
         setIsSubmitted(true);
     } catch (error: any) {
         toast({
@@ -336,24 +365,26 @@ function PostRequestContent() {
              {currentQuestion.type === 'location' && (
                 <div className="space-y-4">
                     <div>
-                        <Label htmlFor="city">City</Label>
+                        <Label htmlFor="city">City / Metro</Label>
                         <Input 
                             id="city" 
+                            name="city"
                             placeholder="e.g. Johannesburg" 
-                            onChange={(e) => handleInputChange('city', e.target.value)}
-                            defaultValue={formData['city'] as string || locationLabel}
+                            onChange={e => handleInputChange('city', e.target.value)}
+                            value={formData['city'] as string || ''}
                         />
                     </div>
                     <div>
                         <Label htmlFor="suburb">Suburb</Label>
                         <Autocomplete
                             options={allLocations}
-                            value={formData['suburb'] as string || ''}
+                            value={locationSlug}
                             onValueChange={(value: string) => {
                                 const location = allLocations.find(l => l.value === value);
-                                handleInputChange('suburb', location?.label || value);
+                                const label = location?.label || value;
+                                handleInputChange('suburb', label);
                                 setLocationSlug(value);
-                                setLocationLabel(location?.label || value);
+                                setLocationLabel(label);
                             }}
                             placeholder="Type to search your suburb..."
                         />

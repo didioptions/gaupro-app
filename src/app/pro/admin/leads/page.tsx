@@ -113,6 +113,7 @@ export default function LeadOversightPage() {
       l.category?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       l.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       l.location?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      l.suburb?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       l.customerName?.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [leads, searchQuery]);
@@ -289,6 +290,13 @@ export default function LeadOversightPage() {
       }
   };
 
+  const formatLocation = (lead: any) => {
+    if (lead.suburb || lead.city) {
+      return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
+    }
+    return lead.location || 'Unknown';
+  };
+
   return (
     <div className="py-12 md:py-16 bg-secondary/30 min-h-screen">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -355,7 +363,7 @@ export default function LeadOversightPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Category / Suburb</TableHead>
+                  <TableHead>Category / Area</TableHead>
                   <TableHead>Customer</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Value</TableHead>
@@ -378,7 +386,7 @@ export default function LeadOversightPage() {
                     <TableRow key={lead.id} className={lead.status === 'pending_review' ? 'bg-yellow-50/20' : ''}>
                       <TableCell>
                         <p className="font-medium">{lead.category}</p>
-                        <p className="text-xs text-muted-foreground">{lead.location}</p>
+                        <p className="text-xs text-muted-foreground">{formatLocation(lead)}</p>
                       </TableCell>
                       <TableCell>
                           <p className="text-sm font-medium">{lead.customerName || 'Anonymous'}</p>
@@ -429,7 +437,7 @@ export default function LeadOversightPage() {
                         <h4 className="text-xs font-bold text-muted-foreground uppercase">Project Info</h4>
                         <div className="space-y-2">
                             <div className="flex items-center gap-2 text-sm"><Briefcase className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.category}</span></div>
-                            <div className="flex items-center gap-2 text-sm"><MapPin className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.location}</span></div>
+                            <div className="flex items-center gap-2 text-sm"><MapPin className="h-4 w-4 text-muted-foreground" /> <span>{formatLocation(viewLead)}</span></div>
                             <div className="flex items-center gap-2 text-sm"><Calendar className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.dateNeeded}</span></div>
                             <div className="flex items-center gap-2 text-sm"><DollarSign className="h-4 w-4 text-muted-foreground" /> <span>{viewLead?.budget}</span></div>
                         </div>

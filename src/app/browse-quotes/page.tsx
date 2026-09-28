@@ -59,7 +59,8 @@ export default function BrowseQuotesPage() {
     return leads.filter(lead => 
         lead.category?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         lead.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        lead.location?.toLowerCase().includes(searchTerm.toLowerCase())
+        lead.location?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        lead.suburb?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [leads, searchTerm]);
 
@@ -70,6 +71,13 @@ export default function BrowseQuotesPage() {
     if (diffInHours < 1) return 'Just now';
     if (diffInHours < 24) return `${diffInHours}h ago`;
     return `${Math.floor(diffInHours / 24)}d ago`;
+  };
+
+  const formatLocation = (lead: any) => {
+    if (lead.suburb || lead.city) {
+      return [lead.suburb, lead.city].filter(Boolean).join(', ');
+    }
+    return lead.location || 'Unknown';
   };
 
   if (!mounted) {
@@ -151,7 +159,7 @@ export default function BrowseQuotesPage() {
                         <div className="flex-grow">
                           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3 font-bold uppercase tracking-wider">
                             <Badge variant="secondary" className="bg-blue-50 text-primary border-blue-100">{job.category}</Badge>
-                            <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {job.location}</span>
+                            <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {formatLocation(job)}</span>
                           </div>
                           <h2 className="text-xl font-bold mb-3 text-foreground">Need {job.category} Professional</h2>
                           <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">{job.description}</p>

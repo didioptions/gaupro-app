@@ -69,6 +69,13 @@ export default function LeadDetailPage() {
   const isUnlocked = user && lead.purchasers?.includes(user.uid);
   const cost = lead.credits || 3;
 
+  const formatLocation = (lead: any) => {
+    if (lead.suburb || lead.city) {
+      return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
+    }
+    return lead.location || 'Unknown';
+  };
+
   return (
     <main className="min-h-screen bg-secondary/30 py-12">
       <div className="container mx-auto px-4 max-w-3xl">
@@ -85,7 +92,7 @@ export default function LeadDetailPage() {
                 </Badge>
                 <CardTitle className="text-2xl md:text-3xl font-bold">New Request for {lead.category}</CardTitle>
                 <CardDescription className="flex items-center gap-2 mt-2">
-                  <MapPin className="h-4 w-4" /> {lead.location}
+                  <MapPin className="h-4 w-4" /> {formatLocation(lead)}
                 </CardDescription>
               </div>
               <div className="text-right">
@@ -127,7 +134,7 @@ export default function LeadDetailPage() {
                   <div className="bg-green-50 text-green-800 p-4 rounded-lg mb-6 border border-green-100">
                     You have already unlocked this lead.
                   </div>
-                  <Button size="lg" className="w-full h-14 text-lg font-bold shadow-lg" onClick={() => setSelectedJob(lead)}>
+                  <Button size="lg" className="w-full h-14 font-bold shadow-lg" onClick={() => setSelectedJob(lead)}>
                     View Customer Details
                   </Button>
                 </div>

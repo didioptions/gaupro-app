@@ -65,7 +65,9 @@ export default function BrowseLeadsPage() {
         job.category?.toLowerCase().includes(serviceQuery.toLowerCase()) ||
         job.description?.toLowerCase().includes(serviceQuery.toLowerCase());
       const locationMatch = !locationQuery || 
-        job.location?.toLowerCase().includes(locationQuery.toLowerCase());
+        job.location?.toLowerCase().includes(locationQuery.toLowerCase()) ||
+        job.suburb?.toLowerCase().includes(locationQuery.toLowerCase()) ||
+        job.city?.toLowerCase().includes(locationQuery.toLowerCase());
       return serviceMatch && locationMatch;
     });
   }, [leads, serviceQuery, locationQuery]);
@@ -86,6 +88,13 @@ export default function BrowseLeadsPage() {
       e.preventDefault();
       setShowLoginModal(true);
     }
+  };
+
+  const formatLocation = (lead: any) => {
+    if (lead.suburb || lead.city) {
+      return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
+    }
+    return lead.location || 'Unknown';
   };
 
   if (!mounted) {
@@ -165,7 +174,7 @@ export default function BrowseLeadsPage() {
                                 <AvatarFallback className="bg-orange-500 text-xs">PREVIEW</AvatarFallback>
                             </Avatar>
                             <div>
-                                <p className="font-bold text-foreground">Customer in {job.location}</p>
+                                <p className="font-bold text-foreground">Customer in {formatLocation(job)}</p>
                                 <div className="flex items-center gap-2 mt-1">
                                     {job.status === 'approved' ? (
                                         <Badge variant="outline" className="text-[10px] text-green-600 border-green-200 bg-green-50"><CheckCircle2 className="h-2 w-2 mr-1" /> Approved</Badge>
@@ -182,7 +191,7 @@ export default function BrowseLeadsPage() {
                         <h2 className="text-xl font-bold text-foreground">{job.category}</h2>
                         
                         <div className="flex items-center gap-6 text-sm text-muted-foreground font-medium">
-                            <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4" /> {job.location}</span>
+                            <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4" /> {formatLocation(job)}</span>
                             <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {job.dateNeeded}</span>
                         </div>
 
@@ -194,7 +203,7 @@ export default function BrowseLeadsPage() {
 
                         <div className="flex justify-end pt-2">
                              <Button asChild onClick={handleViewDetails} className="font-bold bg-primary hover:bg-primary/90 h-11 px-8">
-                                <Link href={isLoggedIn ? "/browse-quotes" : "#"}>
+                                <Link href={isLoggedIn ? `/pro/leads/${job.id}` : "#"}>
                                     {isLoggedIn ? "View Full Details" : "Login to View Details"}
                                 </Link>
                              </Button>
