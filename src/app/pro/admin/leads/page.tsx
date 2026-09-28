@@ -111,12 +111,12 @@ export default function LeadOversightPage() {
   const filteredLeads = useMemo(() => {
     const q = searchQuery.toLowerCase();
     return leads.filter(l => {
-      // Bulletproof search filtering: ensure we always call .includes on a string
-      const category = (l.category?.toLowerCase() ?? '');
-      const description = (l.description?.toLowerCase() ?? '');
-      const location = (l.location?.toLowerCase() ?? '');
-      const suburb = (l.suburb?.toLowerCase() ?? '');
-      const customerName = (l.customerName?.toLowerCase() ?? '');
+      // Hardened filter logic to prevent client-side crashes on missing fields
+      const category = (l.category?.toString() || '').toLowerCase();
+      const description = (l.description?.toString() || '').toLowerCase();
+      const location = (l.location?.toString() || '').toLowerCase();
+      const suburb = (l.suburb?.toString() || '').toLowerCase();
+      const customerName = (l.customerName?.toString() || '').toLowerCase();
 
       return category.includes(q) ||
              description.includes(q) ||
@@ -128,6 +128,7 @@ export default function LeadOversightPage() {
 
   const formatLocation = (lead: any) => {
     if (!lead) return 'Unknown';
+    // Use structured fields if available, otherwise fallback to flat location
     if (lead.suburb || lead.city) {
       return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
     }
@@ -217,7 +218,7 @@ export default function LeadOversightPage() {
                     const proCity = pro.location?.toLowerCase();
                     const proSuburb = pro.suburb?.toLowerCase();
                     const proAreas = (pro.serviceAreas || []).map((a: string) => a.toLowerCase());
-                    const leadLocSlug = currentLead.locationSlug?.toLowerCase();
+                    const leadLocSlug = currentLead.locationSlug?.toLowerCase() || '';
 
                     // Defensive checks for match logic
                     const isCityLevelMatch = proCity && leadLocSlug && (proCity === leadLocSlug || (cityExpansionMap[proCity] && cityExpansionMap[proCity].includes(leadLocSlug)));

@@ -61,13 +61,19 @@ export default function BrowseLeadsPage() {
   const filteredJobs = useMemo(() => {
     if (!leads) return [];
     return leads.filter((job) => {
-      const serviceMatch = !serviceQuery || 
-        job.category?.toLowerCase().includes(serviceQuery.toLowerCase()) ||
-        job.description?.toLowerCase().includes(serviceQuery.toLowerCase());
-      const locationMatch = !locationQuery || 
-        job.location?.toLowerCase().includes(locationQuery.toLowerCase()) ||
-        job.suburb?.toLowerCase().includes(locationQuery.toLowerCase()) ||
-        job.city?.toLowerCase().includes(locationQuery.toLowerCase());
+      // Hardened filtering to prevent crashes on missing data
+      const category = (job.category?.toString() || '').toLowerCase();
+      const description = (job.description?.toString() || '').toLowerCase();
+      const location = (job.location?.toString() || '').toLowerCase();
+      const suburb = (job.suburb?.toString() || '').toLowerCase();
+      const city = (job.city?.toString() || '').toLowerCase();
+
+      const q = serviceQuery.toLowerCase();
+      const lq = locationQuery.toLowerCase();
+
+      const serviceMatch = !serviceQuery || category.includes(q) || description.includes(q);
+      const locationMatch = !locationQuery || location.includes(lq) || suburb.includes(lq) || city.includes(lq);
+      
       return serviceMatch && locationMatch;
     });
   }, [leads, serviceQuery, locationQuery]);
@@ -91,6 +97,7 @@ export default function BrowseLeadsPage() {
   };
 
   const formatLocation = (lead: any) => {
+    if (!lead) return 'Unknown';
     if (lead.suburb || lead.city) {
       return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
     }
