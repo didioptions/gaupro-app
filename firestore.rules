@@ -90,15 +90,22 @@ service cloud.firestore {
 
       match /reviews/{reviewId} {
         allow read: if true;
-        allow create: if isSignedIn();
+        allow create: if true; // Allowed for guests to submit reviews for moderation
         allow update, delete: if isAdmin();
       }
+    }
+
+    // --- Lead Disputes ---
+    match /lead_disputes/{disputeId} {
+      allow read: if isAdmin();
+      allow create: if isSignedIn() && isEmailVerified();
+      allow update, delete: if isAdmin();
     }
 
     // --- Audit Logs & Transactions ---
     match /marketplace_audit_logs/{id} {
         allow read: if isAdmin();
-        allow create: if isSignedIn() && isEmailVerified();
+        allow create: if true; // Allow logging of guest and automated actions
     }
     
     match /transactions/{id} {
