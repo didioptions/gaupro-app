@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, Suspense, useMemo } from 'react';
@@ -25,12 +24,12 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { useUser, useFirestore } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
+import { cityExpansionMap } from '@/lib/location-data';
 
 type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
@@ -70,6 +69,17 @@ function PostRequestContent() {
   const initialLocationLabel = allLocations.find(l => l.value === locationQuery)?.label || locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const [locationLabel, setLocationLabel] = useState(initialLocationLabel);
   const [locationSlug, setLocationSlug] = useState(locationQuery);
+
+  const filteredLocationOptions = useMemo(() => {
+    const cityInput = (formData['city'] as string || '').toLowerCase().trim().replace(/\s+/g, '-');
+    if (!cityInput) return allLocations;
+
+    // Look up the suburbs/areas for this city in our expansion map
+    const suburbs = cityExpansionMap[cityInput];
+    if (!suburbs) return allLocations;
+
+    return allLocations.filter(loc => suburbs.includes(loc.value));
+  }, [formData['city']]);
 
   useEffect(() => {
     if (serviceQuery) {
@@ -393,7 +403,7 @@ function PostRequestContent() {
                     <div>
                         <Label htmlFor="suburb">Suburb</Label>
                         <Autocomplete
-                            options={allLocations}
+                            options={filteredLocationOptions}
                             value={locationSlug}
                             onValueChange={(value: string) => {
                                 const location = allLocations.find(l => l.value === value);
