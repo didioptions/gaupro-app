@@ -21,7 +21,6 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -93,10 +92,14 @@ function PostRequestContent() {
       const label = location?.label || initialLocationLabel;
       setLocationLabel(label);
       setLocationSlug(locationQuery);
+
+      // If the locationQuery is a top-level city in our map, pre-fill the city field
+      const matchedCityKey = Object.keys(cityExpansionMap).find(k => k === locationQuery);
+
       setFormData(prev => ({ 
         ...prev, 
         suburb: prev.suburb || label, 
-        city: prev.city || '' 
+        city: prev.city || (matchedCityKey ? label : '')
       }));
     }
   }, [serviceQuery, locationQuery, initialLocationLabel]);
