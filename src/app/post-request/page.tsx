@@ -227,9 +227,7 @@ function PostRequestContent() {
                 <li>Compare reviews and hire with confidence!</li>
             </ol>
           </div>
-          <Button asChild className="mt-8 w-full sm:w-auto" size="lg">
-              <Link href="/">Back to Home</Link>
-          </Button>
+          <button onClick={handleClose} className="mt-8 px-6 py-2 bg-primary text-white rounded-md">Back to Home</button>
         </div>
       );
     }

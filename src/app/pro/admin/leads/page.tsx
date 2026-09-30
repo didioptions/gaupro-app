@@ -59,6 +59,18 @@ import { Textarea } from '@/components/ui/textarea';
 import { cityExpansionMap } from '@/lib/location-data';
 import { sendLeadNotificationEmail } from '@/lib/email-service';
 
+const provinces = [
+  "Gauteng",
+  "Western Cape",
+  "KwaZulu-Natal",
+  "Eastern Cape",
+  "Free State",
+  "Limpopo",
+  "Mpumalanga",
+  "North West",
+  "Northern Cape"
+];
+
 export default function LeadOversightPage() {
   const firestore = useFirestore();
   const { user: adminUser, isUserLoading } = useUser();
@@ -128,31 +140,52 @@ export default function LeadOversightPage() {
 
   const formatLocation = (lead: any) => {
     if (!lead) return 'Unknown';
-    if (lead.suburb || lead.city) {
+    if (lead.suburb || lead.city || lead.province) {
       return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
     }
     return lead.location || 'Unknown';
   };
 
   const checkLocationConsistency = (lead: any) => {
-    if (!lead.city || !lead.province) return null;
+    if (!lead) return null;
     
-    const cityLower = lead.city.toLowerCase().replace(/\s+/g, '-');
-    const provinceLower = lead.province.toLowerCase().replace(/\s+/g, '-');
-    
-    const validProvinceForCity = Object.keys(cityExpansionMap).find(metro => 
-      cityExpansionMap[metro].includes(cityLower)
-    );
+    const cityLower = (lead.city || '').toLowerCase().replace(/\s+/g, '-');
+    const provinceLower = (lead.province || '').toLowerCase().replace(/\s+/g, '-');
+    const suburbLower = (lead.suburb || '').toLowerCase().replace(/\s+/g, '-');
+    const provincesLower = provinces.map(p => p.toLowerCase().replace(/\s+/g, '-'));
 
-    // Simplified check: If city belongs to a known metro, check if it's generally mapped correctly
-    // Note: cityExpansionMap keys aren't provinces, but we can do a broad sanity check
-    if (validProvinceForCity && provinceLower === 'gauteng') {
-        const isGautengMetro = ['johannesburg', 'pretoria'].includes(validProvinceForCity);
-        if (!isGautengMetro) return "City mismatch: Not in Gauteng";
+    // 1. Check if Suburb is actually a different Province name (wi5hpe7k detection)
+    if (suburbLower && provinceLower && provincesLower.includes(suburbLower)) {
+        if (suburbLower !== provinceLower) {
+            return `Consistency Warning: Suburb contains "${lead.suburb}" but Province is "${lead.province}"`;
+        }
     }
 
-    if (provinceLower === 'limpopo' && lead.city.toLowerCase().includes('maritzburg')) {
-        return "Province mismatch: Pietermaritzburg is in KZN";
+    // 2. Check if City matches Province (using cityExpansionMap + metro mapping)
+    const metroToProvince: Record<string, string> = {
+        johannesburg: 'gauteng',
+        pretoria: 'gauteng',
+        'cape-town': 'western-cape',
+        durban: 'kwazulu-natal',
+        'port-elizabeth': 'eastern-cape',
+        'east-london': 'eastern-cape',
+        bloemfontein: 'free-state',
+        klerksdorp: 'north-west',
+        rustenburg: 'north-west',
+        nelspruit: 'mpumalanga',
+        witbank: 'mpumalanga',
+        polokwane: 'limpopo',
+    };
+
+    const validMetro = Object.keys(cityExpansionMap).find(metro => 
+      cityExpansionMap[metro].includes(cityLower) || metro === cityLower
+    );
+
+    if (validMetro && provinceLower) {
+        const expectedProvince = metroToProvince[validMetro];
+        if (expectedProvince && provinceLower !== expectedProvince) {
+            return `Geographic Conflict: ${lead.city} is usually in ${expectedProvince.replace(/-/g, ' ').toUpperCase()}`;
+        }
     }
 
     return null;
@@ -386,7 +419,7 @@ export default function LeadOversightPage() {
           </CardHeader>
           <CardContent className="p-0">
             <Table>
-              <TableHeader>
+              <TableHeader className="bg-secondary/20">
                 <TableRow>
                   <TableHead>Category / Area</TableHead>
                   <TableHead>Customer</TableHead>
@@ -407,34 +440,37 @@ export default function LeadOversightPage() {
                     </TableRow>
                   ))
                 ) : filteredLeads.length > 0 ? (
-                  filteredLeads.map(lead => (
-                    <TableRow key={lead.id} className={lead.status === 'pending_review' ? 'bg-yellow-50/20' : ''}>
-                      <TableCell>
-                        <p className="font-medium">{lead.category}</p>
-                        <div className="flex items-center gap-2">
-                            <p className="text-xs text-muted-foreground">{formatLocation(lead)}</p>
-                            {checkLocationConsistency(lead) && (
-                                <Badge variant="destructive" className="text-[8px] h-4 py-0 px-1 font-bold">
-                                    ⚠ Consistency Warning
-                                </Badge>
-                            )}
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                          <p className="text-sm font-medium">{lead.customerName || 'Anonymous'}</p>
-                          <p className="text-[10px] text-muted-foreground">{lead.createdAt?.seconds ? new Date(lead.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}</p>
-                      </TableCell>
-                      <TableCell>
-                        {getStatusBadge(lead.status)}
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline" className="font-mono">{lead.credits || 3} CR</Badge>
-                      </TableCell>
-                      <TableCell className="text-right space-x-1">
-                        <button className="p-2 hover:bg-secondary rounded-full text-muted-foreground" onClick={() => handleOpenLead(lead)}><Eye className="h-4 w-4" /></button>
-                      </TableCell>
-                    </TableRow>
-                  ))
+                  filteredLeads.map(lead => {
+                    const warning = checkLocationConsistency(lead);
+                    return (
+                      <TableRow key={lead.id} className={lead.status === 'pending_review' ? 'bg-yellow-50/20' : ''}>
+                        <TableCell>
+                          <p className="font-medium">{lead.category}</p>
+                          <div className="flex flex-col gap-1">
+                              <p className="text-xs text-muted-foreground">{formatLocation(lead)}</p>
+                              {warning && (
+                                  <Badge variant="destructive" className="text-[8px] h-4 py-0 px-1 font-bold w-fit">
+                                      ⚠ {warning}
+                                  </Badge>
+                              )}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                            <p className="text-sm font-medium">{lead.customerName || 'Anonymous'}</p>
+                            <p className="text-[10px] text-muted-foreground">{lead.createdAt?.seconds ? new Date(lead.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}</p>
+                        </TableCell>
+                        <TableCell>
+                          {getStatusBadge(lead.status)}
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className="font-mono">{lead.credits || 3} CR</Badge>
+                        </TableCell>
+                        <TableCell className="text-right space-x-1">
+                          <button className="p-2 hover:bg-secondary rounded-full text-muted-foreground" onClick={() => handleOpenLead(lead)}><Eye className="h-4 w-4" /></button>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })
                 ) : (
                   <TableRow>
                     <TableCell colSpan={5} className="h-32 text-center text-muted-foreground italic">No leads found.</TableCell>
@@ -455,13 +491,15 @@ export default function LeadOversightPage() {
           
           <div className="py-4 space-y-6">
             {checkLocationConsistency(viewLead) && (
-                <Alert className="bg-red-50 border-red-200 text-red-800">
-                    <AlertTriangle className="h-4 w-4 !text-red-700" />
-                    <AlertTitle className="font-bold">Location Consistency Warning</AlertTitle>
-                    <AlertDescription className="text-xs">
-                        {checkLocationConsistency(viewLead)}. Please verify details with the customer before approving.
-                    </AlertDescription>
-                </Alert>
+                <div className="bg-red-50 border border-red-200 p-4 rounded-lg flex items-start gap-3">
+                    <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="font-bold text-red-900 text-sm">Location Data Warning</p>
+                      <p className="text-xs text-red-800 leading-relaxed">
+                        {checkLocationConsistency(viewLead)}. Please verify location with the customer before approving to ensure correct pro-matching.
+                      </p>
+                    </div>
+                </div>
             )}
 
             {!isEditing ? (
@@ -571,13 +609,3 @@ export default function LeadOversightPage() {
     </div>
   );
 }
-
-const Alert = ({ className, children }: { className?: string, children: React.ReactNode }) => (
-    <div className={`p-4 rounded-lg flex flex-col gap-1 ${className}`}>{children}</div>
-);
-const AlertTitle = ({ className, children }: { className?: string, children: React.ReactNode }) => (
-    <h4 className={`text-sm ${className}`}>{children}</h4>
-);
-const AlertDescription = ({ className, children }: { className?: string, children: React.ReactNode }) => (
-    <p className={`text-xs ${className}`}>{children}</p>
-);
