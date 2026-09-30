@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, Suspense, useMemo } from 'react';
@@ -35,6 +36,18 @@ type FormData = {
   [key: string]: string | string[] | File[] | boolean | Date | undefined;
 };
 
+const provinces = [
+  "Gauteng",
+  "Western Cape",
+  "KwaZulu-Natal",
+  "Eastern Cape",
+  "Free State",
+  "Limpopo",
+  "Mpumalanga",
+  "North West",
+  "Northern Cape"
+];
+
 function PostRequestContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -52,7 +65,6 @@ function PostRequestContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   
-  // Idempotency Key: Generated once per form session to prevent duplicates
   const [submissionId, setSubmissionId] = useState<string | null>(null);
   
   const initialLocationLabel = allLocations.find(l => l.value === locationQuery)?.label || locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -69,7 +81,6 @@ function PostRequestContent() {
       const label = location?.label || initialLocationLabel;
       setLocationLabel(label);
       setLocationSlug(locationQuery);
-      // Pre-fill location but don't overwrite if user has already interacted
       setFormData(prev => ({ 
         ...prev, 
         suburb: prev.suburb || label, 
@@ -78,7 +89,6 @@ function PostRequestContent() {
     }
   }, [serviceQuery, locationQuery, initialLocationLabel]);
 
-  // Generate a submission ID when the user reaches the final step to ensure idempotency
   useEffect(() => {
     const totalStepsNeeded = (serviceQuestionSets.find((qs) => qs.service === selectedService)?.questions.length || 0) + 1;
     if (step === totalStepsNeeded && !submissionId) {
@@ -146,17 +156,16 @@ function PostRequestContent() {
 
     const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
     
-    // Structured Location Priority
     const suburb = (formData.suburb as string) || '';
     const city = (formData.city as string) || '';
-    const province = (formData.province as string) || 'Gauteng'; // Default to Gauteng for JHB Lead Machine focus
+    const province = (formData.province as string) || ''; 
     
     const displayLocation = [suburb, city, province].filter(Boolean).join(', ') || locationLabel || "Unknown";
 
     const publicData = {
         category: allServices.find(s => s.value === selectedService)?.label || selectedService,
         description: (formData.job_details as string) || "No description provided",
-        location: displayLocation, // Full string for legacy support
+        location: displayLocation,
         suburb: suburb,
         city: city,
         province: province,
@@ -184,8 +193,6 @@ function PostRequestContent() {
     };
 
     try {
-        // Use submissionId as the Doc ID to ensure idempotency. 
-        // Subsequent calls with the same submissionId (double clicks/retries) will not create duplicates.
         await setDoc(doc(db, 'leads_public', submissionId), publicData);
         await setDoc(doc(db, 'leads_private', submissionId), privateData);
         setIsSubmitted(true);
@@ -364,6 +371,17 @@ function PostRequestContent() {
               )}
              {currentQuestion.type === 'location' && (
                 <div className="space-y-4">
+                    <div>
+                        <Label htmlFor="province">Province</Label>
+                        <Select onValueChange={v => handleInputChange('province', v)} value={formData['province'] as string || ''}>
+                            <SelectTrigger id="province">
+                                <SelectValue placeholder="Select Province" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {provinces.map(p => <SelectItem key={p} value={p}>{p}</SelectItem>)}
+                            </SelectContent>
+                        </Select>
+                    </div>
                     <div>
                         <Label htmlFor="city">City / Metro</Label>
                         <Input 

@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useMemo, useState, useEffect } from 'react';
@@ -41,6 +42,7 @@ import {
     XCircle,
     HelpCircle,
     Edit3,
+    AlertTriangle,
     Clock
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -72,7 +74,6 @@ export default function LeadOversightPage() {
   const [editData, setEditData] = useState<any>({});
   const [isProcessingAction, setIsProcessingAction] = useState(false);
 
-  // Real-time listener for the approval queue
   useEffect(() => {
     if (!firestore || isUserLoading) return;
 
@@ -111,7 +112,6 @@ export default function LeadOversightPage() {
   const filteredLeads = useMemo(() => {
     const q = searchQuery.toLowerCase();
     return leads.filter(l => {
-      // Hardened filter logic to prevent client-side crashes on missing fields
       const category = (l.category?.toString() || '').toLowerCase();
       const description = (l.description?.toString() || '').toLowerCase();
       const location = (l.location?.toString() || '').toLowerCase();
@@ -128,11 +128,34 @@ export default function LeadOversightPage() {
 
   const formatLocation = (lead: any) => {
     if (!lead) return 'Unknown';
-    // Use structured fields if available, otherwise fallback to flat location
     if (lead.suburb || lead.city) {
       return [lead.suburb, lead.city, lead.province].filter(Boolean).join(', ');
     }
     return lead.location || 'Unknown';
+  };
+
+  const checkLocationConsistency = (lead: any) => {
+    if (!lead.city || !lead.province) return null;
+    
+    const cityLower = lead.city.toLowerCase().replace(/\s+/g, '-');
+    const provinceLower = lead.province.toLowerCase().replace(/\s+/g, '-');
+    
+    const validProvinceForCity = Object.keys(cityExpansionMap).find(metro => 
+      cityExpansionMap[metro].includes(cityLower)
+    );
+
+    // Simplified check: If city belongs to a known metro, check if it's generally mapped correctly
+    // Note: cityExpansionMap keys aren't provinces, but we can do a broad sanity check
+    if (validProvinceForCity && provinceLower === 'gauteng') {
+        const isGautengMetro = ['johannesburg', 'pretoria'].includes(validProvinceForCity);
+        if (!isGautengMetro) return "City mismatch: Not in Gauteng";
+    }
+
+    if (provinceLower === 'limpopo' && lead.city.toLowerCase().includes('maritzburg')) {
+        return "Province mismatch: Pietermaritzburg is in KZN";
+    }
+
+    return null;
   };
 
   const handleOpenLead = async (lead: any) => {
@@ -206,21 +229,12 @@ export default function LeadOversightPage() {
                 let emailCount = 0;
                 
                 for (const proDoc of prosSnap.docs) {
-                    const pro = proDoc.data() as { 
-                        userId: string, 
-                        location?: string, 
-                        suburb?: string, 
-                        serviceAreas?: string[], 
-                        email?: string, 
-                        name?: string,
-                        emailNotifications?: boolean 
-                    };
+                    const pro = proDoc.data() as any;
                     const proCity = pro.location?.toLowerCase();
                     const proSuburb = pro.suburb?.toLowerCase();
                     const proAreas = (pro.serviceAreas || []).map((a: string) => a.toLowerCase());
                     const leadLocSlug = currentLead.locationSlug?.toLowerCase() || '';
 
-                    // Defensive checks for match logic
                     const isCityLevelMatch = proCity && leadLocSlug && (proCity === leadLocSlug || (cityExpansionMap[proCity] && cityExpansionMap[proCity].includes(leadLocSlug)));
                     const isSuburbLevelMatch = leadLocSlug && (proSuburb === leadLocSlug || proAreas.includes(leadLocSlug));
 
@@ -397,7 +411,14 @@ export default function LeadOversightPage() {
                     <TableRow key={lead.id} className={lead.status === 'pending_review' ? 'bg-yellow-50/20' : ''}>
                       <TableCell>
                         <p className="font-medium">{lead.category}</p>
-                        <p className="text-xs text-muted-foreground">{formatLocation(lead)}</p>
+                        <div className="flex items-center gap-2">
+                            <p className="text-xs text-muted-foreground">{formatLocation(lead)}</p>
+                            {checkLocationConsistency(lead) && (
+                                <Badge variant="destructive" className="text-[8px] h-4 py-0 px-1 font-bold">
+                                    ⚠ Consistency Warning
+                                </Badge>
+                            )}
+                        </div>
                       </TableCell>
                       <TableCell>
                           <p className="text-sm font-medium">{lead.customerName || 'Anonymous'}</p>
@@ -433,6 +454,16 @@ export default function LeadOversightPage() {
           </DialogHeader>
           
           <div className="py-4 space-y-6">
+            {checkLocationConsistency(viewLead) && (
+                <Alert className="bg-red-50 border-red-200 text-red-800">
+                    <AlertTriangle className="h-4 w-4 !text-red-700" />
+                    <AlertTitle className="font-bold">Location Consistency Warning</AlertTitle>
+                    <AlertDescription className="text-xs">
+                        {checkLocationConsistency(viewLead)}. Please verify details with the customer before approving.
+                    </AlertDescription>
+                </Alert>
+            )}
+
             {!isEditing ? (
               <>
                 <div className="p-4 bg-secondary/30 rounded-lg">
@@ -540,3 +571,13 @@ export default function LeadOversightPage() {
     </div>
   );
 }
+
+const Alert = ({ className, children }: { className?: string, children: React.ReactNode }) => (
+    <div className={`p-4 rounded-lg flex flex-col gap-1 ${className}`}>{children}</div>
+);
+const AlertTitle = ({ className, children }: { className?: string, children: React.ReactNode }) => (
+    <h4 className={`text-sm ${className}`}>{children}</h4>
+);
+const AlertDescription = ({ className, children }: { className?: string, children: React.ReactNode }) => (
+    <p className={`text-xs ${className}`}>{children}</p>
+);
