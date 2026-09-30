@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, Suspense, useMemo } from 'react';
@@ -305,10 +306,13 @@ function PostRequestContent() {
       }
 
       const isNextButtonDisabled = () => {
-        if(currentQuestion.type === 'textarea' || currentQuestion.type === 'location') return false; 
+        if(currentQuestion.id === 'job_details') return false; 
         const value = formData[currentQuestion.id];
         if (currentQuestion.type === 'checkbox') {
           return !value || (Array.isArray(value) && value.length === 0);
+        }
+        if (currentQuestion.type === 'location') {
+            return !formData['province'] || !formData['city'] || !formData['suburb'];
         }
         return !value;
       };

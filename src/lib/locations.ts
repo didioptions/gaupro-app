@@ -73,6 +73,12 @@ export const allLocations = [
   { value: 'robindale', label: 'Robindale' },
   { value: 'blairgowrie', label: 'Blairgowrie' },
   { value: 'pine-park', label: 'Pine Park' },
+  { value: 'liefde-en-vrede', label: 'Liefde En Vrede' },
+  { value: 'lindberg-park', label: 'Lindberg Park' },
+  { value: 'linksfield', label: 'Linksfield' },
+  { value: 'linksfield-north', label: 'Linksfield North' },
+  { value: 'linksfield-ridge', label: 'Linksfield Ridge' },
+  { value: 'linmeyer', label: 'Linmeyer' },
   { value: 'akasia', label: 'Akasia' },
   { value: 'atteridgeville', label: 'Atteridgeville' },
   { value: 'brakpan', label: 'Brakpan' },
@@ -163,4 +169,3 @@ export const allLocations = [
   { value: 'cape-town', label: 'Cape Town'},
   { value: 'pretoria', label: 'Pretoria'},
 ];
-    
