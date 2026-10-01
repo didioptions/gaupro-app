@@ -1,6 +1,7 @@
+
 # GauPro - South Africa's #1 Service Marketplace
 
-GauPro is built with Next.js, Tailwind CSS, and Firebase. It is optimized for deployment on **Firebase App Hosting**.
+GauPro is built with Next.js, Tailwind CSS, and Firebase. It is optimized for deployment on **Firebase App Hosting** or **Vercel**.
 
 ## 🚀 Deployment Checklist
 
@@ -18,7 +19,10 @@ Firebase App Hosting requires the **Blaze (Pay-as-you-go) Plan** to enable Cloud
 3. Find **Custom Domains** and click **Add Domain**.
 4. Log in to your [HostAfrica account](https://my.hostafrica.co.za/) and add the **A Records** and **TXT Record** provided by Firebase.
 
-### 3. Estimated Monthly Costs (ZAR)
+### 3. Vercel / Environment
+- **Node.js Runtime**: Ensure the project is set to Node.js 24.x in `package.json`.
+
+### 4. Estimated Monthly Costs (ZAR)
 | Traffic | Cost Estimate |
 | :--- | :--- |
 | 100 - 1,000 visitors | R0.00 |
