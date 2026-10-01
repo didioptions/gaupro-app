@@ -68,7 +68,11 @@ function PostRequestContent() {
   
   const [submissionId, setSubmissionId] = useState<string | null>(null);
   
-  const initialLocationLabel = allLocations.find(l => l.value === locationQuery)?.label || locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const initialLocationLabel = useMemo(() => {
+    return allLocations.find(l => l.value === locationQuery)?.label || 
+           locationQuery.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  }, [locationQuery]);
+
   const [locationLabel, setLocationLabel] = useState(initialLocationLabel);
   const [locationSlug, setLocationSlug] = useState(locationQuery);
 
@@ -76,7 +80,6 @@ function PostRequestContent() {
     const cityInput = (formData['city'] as string || '').toLowerCase().trim().replace(/\s+/g, '-');
     if (!cityInput) return allLocations;
 
-    // Look up the suburbs/areas for this city in our expansion map
     const suburbs = cityExpansionMap[cityInput];
     if (!suburbs) return allLocations;
 
@@ -94,7 +97,6 @@ function PostRequestContent() {
       setLocationLabel(label);
       setLocationSlug(locationQuery);
 
-      // If the locationQuery is a top-level city in our map, pre-fill the city field
       const matchedCityKey = Object.keys(cityExpansionMap).find(k => k === locationQuery);
 
       setFormData(prev => ({ 
@@ -106,7 +108,9 @@ function PostRequestContent() {
   }, [serviceQuery, locationQuery, initialLocationLabel]);
 
   useEffect(() => {
-    const totalStepsNeeded = (serviceQuestionSets.find((qs) => qs.service === selectedService)?.questions.length || 0) + 1;
+    const questionSet = serviceQuestionSets.find((qs) => qs.service === selectedService) || serviceQuestionSets.find((qs) => qs.service === 'default');
+    const totalStepsNeeded = (questionSet?.questions.length || 0) + 1;
+    
     if (step === totalStepsNeeded && !submissionId) {
       setSubmissionId(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
     }
@@ -280,28 +284,6 @@ function PostRequestContent() {
     const isQuestionStep = questionStepIndex >= 0 && questionStepIndex < questions.length;
     const isFinalStep = step === totalSteps;
     
-    const ConfirmationDialog = (
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button type="button" variant="ghost" size="icon" className="absolute top-2 right-2">
-            <X className="h-5 w-5" />
-          </Button>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure you want to cancel?</AlertDialogTitle>
-            <AlertDialogDescription>
-              Your progress will be lost.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Continue</AlertDialogCancel>
-            <AlertDialogAction onClick={handleClose}>Cancel Request</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    );
-
     if (isQuestionStep) {
       const currentQuestion = questions[questionStepIndex];
       if (!currentQuestion) {
@@ -324,7 +306,25 @@ function PostRequestContent() {
       return (
         <form onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
             <CardHeader className='text-left bg-secondary/50 relative'>
-              {ConfirmationDialog}
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button type="button" variant="ghost" size="icon" className="absolute top-2 right-2">
+                    <X className="h-5 w-5" />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Are you sure you want to cancel?</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Your progress will be lost.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Continue</AlertDialogCancel>
+                    <AlertDialogAction onClick={handleClose}>Cancel Request</AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
               <div className="flex items-center gap-4 mb-4">
                   <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                     <ArrowLeft />
@@ -451,7 +451,25 @@ function PostRequestContent() {
       return (
         <form onSubmit={handleSubmit}>
           <CardHeader className="text-left bg-secondary/50 relative">
-             {ConfirmationDialog}
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button type="button" variant="ghost" size="icon" className="absolute top-2 right-2">
+                  <X className="h-5 w-5" />
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you sure you want to cancel?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Your progress will be lost.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Continue</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleClose}>Cancel Request</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
             <div className="flex items-center gap-4 mb-4">
               <Button type="button" variant="ghost" size="icon" onClick={handleBack} aria-label="Go back">
                 <ArrowLeft />
