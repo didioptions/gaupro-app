@@ -1,18 +1,9 @@
-
-'use client';
-
-import { useState, useEffect } from 'react';
 import Image from "next/image";
 import HomepageQuoteForm from "./homepage-quote-form";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'homepage-hero');
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
   
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center text-white py-20 md:py-0">
@@ -23,6 +14,7 @@ export default function Hero() {
           fill
           className="object-cover"
           priority
+          fetchPriority="high"
           data-ai-hint={heroImage.imageHint}
         />
       )}
@@ -35,7 +27,7 @@ export default function Hero() {
           Welcome to Gaupro, South Africa’s #1 marketplace for home services and repairs. Instantly connect with local builders, electricians, cleaners, plumbers, and more. Compare prices, read verified reviews, and hire trusted experts in your area — fast, easy, and secure. Get the job done right with Gaupro today
         </p>
         
-        {isClient && <HomepageQuoteForm />}
+        <HomepageQuoteForm />
 
       </div>
     </section>
