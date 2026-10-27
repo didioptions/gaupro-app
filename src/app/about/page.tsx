@@ -23,7 +23,7 @@ const customerBenefits = [
     { text: "Pre-Verified Professionals - All pros undergo identity and qualification checks" },
     { text: "Authentic Reviews - Read genuine feedback from verified South African customers" },
     { text: "Competitive Pricing - Compare multiple quotes to find the best value" },
-    { text: "Privacy Protected - Your contact details are only shared with pros you choose" },
+    { text: "Privacy Protected - Your contact details is only shared with pros you choose" },
     { text: "Fast Response Times - Get your first quote within 2 hours on average" },
     { text: "Mobile-Friendly - Access Gaupro anywhere, anytime" },
 ];
