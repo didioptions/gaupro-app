@@ -12,9 +12,6 @@ export const metadata: Metadata = {
   },
   description:
     'Gaupro connects you with verified local service professionals across South Africa. Get free quotes for plumbing, electrical, building, and more.',
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_ZA',

@@ -1,7 +1,9 @@
 import { allServices } from '@/lib/service-questions';
+import { allLocations } from '@/lib/locations';
 import ServicePageClient from '@/components/services/service-page-client';
 import { getServiceLabel, getLocationLabel, generateFAQs } from '@/lib/seo-utils';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 interface PageProps {
   params: Promise<{ service: string }>;
@@ -17,13 +19,24 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
   const { service } = await params;
   const sParams = await searchParams;
+
+  const serviceItem = allServices.find(s => s.value === service);
+  if (!serviceItem) {
+    return {
+      title: 'Service Not Found | GauPro',
+    };
+  }
+
+  const location = (sParams?.location as string)?.toLowerCase();
+  const isValidLocation = location ? allLocations.some(l => l.value === location) : true;
+
   const s = getServiceLabel(service);
-  const l = getLocationLabel(sParams?.location as string);
+  const l = getLocationLabel(location);
   const title = `${s} ${l} | Compare Trusted Pros | GauPro`;
   const description = `Compare top-rated ${s.toLowerCase()} companies in ${l}. Get free quotes from verified local professionals, read reviews, and hire with confidence on GauPro.`;
 
-  const location = sParams?.location as string;
-  const canonicalUrl = `https://www.gaupro.co.za/services/${service}${location ? `?location=${location}` : ''}`;
+  // Normalize canonical: If location is invalid, canonical points to base service
+  const canonicalUrl = `https://www.gaupro.co.za/services/${service}${isValidLocation && location ? `?location=${location}` : ''}`;
 
   return {
     title,
@@ -45,9 +58,15 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
 export default async function ServicePage({ params, searchParams }: PageProps) {
   const { service } = await params;
   const sParams = await searchParams;
+
+  if (!allServices.find(s => s.value === service)) {
+    notFound();
+  }
+
   const s = getServiceLabel(service);
-  const l = getLocationLabel(sParams?.location as string);
-  const faqs = generateFAQs(service, sParams?.location as string);
+  const location = (sParams?.location as string)?.toLowerCase();
+  const l = getLocationLabel(location);
+  const faqs = generateFAQs(service, location);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -98,7 +117,7 @@ export default async function ServicePage({ params, searchParams }: PageProps) {
         "@type": "ListItem",
         "position": 3,
         "name": l,
-        "item": `https://www.gaupro.co.za/services/${service}?location=${sParams?.location}`
+        "item": `https://www.gaupro.co.za/services/${service}${location ? `?location=${location}` : ''}`
       }
     ]
   };

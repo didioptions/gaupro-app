@@ -16,9 +16,10 @@ export function getLocationLabel(locationSlug: string | undefined) {
 }
 
 export function generateServiceStats(professionalsCount: number, reviewsTotal: number, locationName: string) {
+  // Use actual data counts to ensure accuracy and maintain trust (E-E-A-T)
   return {
-    professionals: Math.max(professionalsCount, 15),
-    reviews: Math.max(reviewsTotal, 45),
+    professionals: professionalsCount,
+    reviews: reviewsTotal,
     cities: 24,
     completedBase: 200
   };

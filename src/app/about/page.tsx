@@ -1,7 +1,15 @@
-
+import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description: 'Gaupro is South Africa\'s fastest-growing platform for finding, comparing, and hiring verified local service professionals.',
+  alternates: {
+    canonical: 'https://www.gaupro.co.za/about',
+  },
+};
 
 const stats = [
   { value: '15,000+', label: 'Verified Professionals' },
